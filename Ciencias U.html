@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 0 – Habilidades Científicas · PAES Biología</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#2ecc71;--verde-dark:#1a9e52;--verde-glow:rgba(46,204,113,.15);
+  --teal:#1abc9c;--azul:#3498db;--morado:#9b59b6;--naranja:#e67e22;
+  --amarillo:#f1c40f;--rojo:#e74c3c;--cyan:#22d3ee;
+  --bg:#0a1a0c;--card:#111f13;--card2:#172d19;
+  --text:#e8fde8;--text-dim:#7db882;--radius:18px;
+  --h1c:#4ade80;--h2c:#38bdf8;--h3c:#34d399;--h4c:#fb923c;--h5c:#c084fc;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 8% 15%,rgba(46,204,113,.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 25% 60%,rgba(255,255,255,.2) 0%,transparent 100%),
+    radial-gradient(1px 1px at 55% 8%,rgba(46,204,113,.35) 0%,transparent 100%),
+    radial-gradient(1px 1px at 72% 40%,rgba(255,255,255,.18) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 75%,rgba(46,204,113,.25) 0%,transparent 100%),
+    radial-gradient(1px 1px at 40% 85%,rgba(255,255,255,.15) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--verde),var(--teal));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(2rem,7vw,3.8rem);
+  background:linear-gradient(135deg,var(--verde),var(--teal),var(--verde));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(46,204,113,.12);border:1.5px solid rgba(46,204,113,.35);color:var(--verde);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.08);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.8rem;padding:8px 14px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover{border-color:var(--verde);color:var(--verde);transform:translateY(-2px)}
+.nav-btn.active{background:var(--verde-glow);border-color:var(--verde);color:var(--verde)}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.4rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.98rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--verde),var(--teal));border:none;color:#06210d;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(46,204,113,.4);z-index:250;display:flex;align-items:center;justify-content:center}
+.tutor-fab .dot{position:absolute;top:6px;right:6px;width:9px;height:9px;border-radius:50%;background:#fbbf24;display:none}
+.tutor-panel{position:fixed;bottom:142px;right:18px;width:min(360px,92vw);height:min(480px,62vh);background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.5);z-index:250;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+.tutor-head{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 16px;background:var(--card2);border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:var(--verde)}
+.tutor-head p{font-size:.76rem;color:var(--text-dim);margin-top:2px}
+.tutor-close{background:none;border:none;color:var(--text-dim);font-size:1.1rem;cursor:pointer}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--verde);color:var(--verde)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--verde);color:#06210d;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.07);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:rgba(46,204,113,.1);color:var(--text-dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--verde)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--verde)}
+.tutor-send{background:var(--verde);border:none;color:#06210d;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){.tutor-panel{right:8px;bottom:136px;width:94vw;height:56vh}.tutor-fab{right:12px;bottom:74px}}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:700;color:var(--text-dim);display:inline-flex;align-items:center;gap:6px}
+.stat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:16px 0}
+@media(max-width:500px){.stat-row{grid-template-columns:1fr}}
+.stat-box{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:22px 16px;text-align:center}
+.stat-num{font-family:"Fredoka One",cursive;font-size:clamp(2.4rem,7vw,4.2rem);color:var(--verde);line-height:1}
+.stat-lbl{font-size:.88rem;color:var(--text-dim);margin-top:6px;font-weight:700}
+.h-header{border-radius:var(--radius);padding:28px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:54px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.7rem,5vw,2.7rem);line-height:1.1}
+.h-header p{font-size:.98rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--verde);background:rgba(46,204,113,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--verde);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65}
+.tip-box p strong{color:var(--text)}
+.kw-grid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.kw{border-radius:8px;padding:6px 12px;font-size:.82rem;font-weight:800;display:inline-flex;align-items:center}
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.paes-context{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-context table{width:100%;border-collapse:collapse;margin-top:8px}
+.paes-context th,.paes-context td{padding:6px 10px;font-size:.83rem;border-bottom:1px solid rgba(255,255,255,.07);text-align:left}
+.paes-context th{font-size:.73rem;letter-spacing:.04em}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--verde);background:rgba(46,204,113,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(46,204,113,.14);border-color:var(--verde)}
+.paes-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--verde);flex-shrink:0}
+.paes-opt.right .ol{background:var(--verde);color:#071208;border-color:var(--verde)}
+.paes-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(46,204,113,.12);color:#86efac;border-left:3px solid var(--verde)}
+.paes-fb.no{background:rgba(231,76,60,.08);color:#fca5a5;border-left:3px solid var(--rojo)}
+.c-h1{color:var(--h1c)!important}.c-h2{color:var(--h2c)!important}.c-h3{color:var(--h3c)!important}
+.c-h4{color:var(--h4c)!important}.c-h5{color:var(--h5c)!important}
+.bg-h1{background:rgba(74,222,128,.1)!important}.bg-h2{background:rgba(56,189,248,.1)!important}
+.bg-h3{background:rgba(52,211,153,.1)!important}.bg-h4{background:rgba(251,146,60,.1)!important}
+.bg-h5{background:rgba(192,132,252,.1)!important}
+.recap-grid{display:flex;flex-direction:column;gap:12px}
+.recap-row{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 18px}
+.recap-num{font-family:"Fredoka One",cursive;font-size:1.6rem;min-width:36px;text-align:center}
+.recap-info h3{font-family:"Fredoka One",cursive;font-size:1.1rem}
+.recap-info p{font-size:.85rem;color:var(--text-dim);margin-top:2px;line-height:1.5}
+/* PRACTICE */
+.prac-group{margin-bottom:24px}
+.prac-group-hdr{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.prac-group-hdr .gi{font-size:1.5rem}
+.prac-group-hdr .gname{font-family:"Fredoka One",cursive;font-size:1.1rem}
+.prac-group-hdr .gscore{margin-left:auto;font-size:.85rem;font-weight:800}
+.pq{display:none;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:10px}
+.pq.show{display:block;animation:fadeUp .3s ease}
+.pq-ref{font-size:.68rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;margin-bottom:8px;opacity:.7}
+.pq-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 13px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.pq-ctx table{width:100%;border-collapse:collapse;margin-top:6px}
+.pq-ctx th,.pq-ctx td{padding:5px 8px;font-size:.8rem;border-bottom:1px solid rgba(255,255,255,.06);text-align:left}
+.pq-ctx th{font-size:.7rem;letter-spacing:.04em}
+.pq-q{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pq-opts{display:flex;flex-direction:column;gap:7px}
+.nxt-q{margin-top:12px;padding:8px 22px;background:var(--verde);color:#071208;border:none;border-radius:50px;font-family:"Fredoka One",cursive;font-size:.95rem;cursor:pointer;display:none}
+.nxt-q:hover{background:#1a9e52}
+/* RESULTS */
+#final-results{display:none;margin-top:20px}
+.res-hdr{font-family:"Fredoka One",cursive;font-size:1.8rem;color:var(--verde);margin-bottom:4px}
+.res-sub{font-size:.9rem;color:var(--text-dim);margin-bottom:18px}
+.res-item{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:12px 16px;margin-bottom:8px}
+.res-ok-txt{color:#4ade80;font-size:.82rem}.res-bad-txt{color:#fca5a5;font-size:.82rem}
+.res-pts-txt{font-size:.82rem;font-weight:800;color:#fbbf24;white-space:nowrap;margin-left:auto}
+.res-summary-box{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:20px}
+.res-summary-box h3{font-family:"Fredoka One",cursive;font-size:1.2rem;color:var(--verde);margin-bottom:10px}
+.res-summary-box p{font-size:.9rem;color:var(--text-dim);line-height:1.7;margin-bottom:8px}
+.res-summary-box strong{color:var(--text)}
+/* LINEAR NAV */
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(10,26,12,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.08);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(74,222,128,.35);background:transparent;color:var(--verde);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--verde-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+@keyframes pulse-border{0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,.4)}50%{box-shadow:0 0 0 8px rgba(46,204,113,0)}}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#2d5a35}
+</style>
+</head>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:11%"></div></div>
+
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">🧬</span>
+  <h1>Habilidades Científicas</h1>
+  <p>PAES Ciencias · Biología · Unidad 0</p>
+  <div class="badge">🌿 Admisión 2027</div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('importa',1,this)">❓ ¿Por qué?</button>
+  <button class="nav-btn" onclick="showSec('h1',2,this)">👁️ Observar</button>
+  <button class="nav-btn" onclick="showSec('h2',3,this)">🧪 Planificar</button>
+  <button class="nav-btn" onclick="showSec('h3',4,this)">📊 Procesar</button>
+  <button class="nav-btn" onclick="showSec('h4',5,this)">⚖️ Evaluar</button>
+  <button class="nav-btn" onclick="showSec('h5',6,this)">💬 Comunicar</button>
+  <button class="nav-btn" onclick="showSec('resumen',7,this)">✅ Resumen</button>
+  <button class="nav-btn" onclick="showSec('practica',8,this)">🎯 Práctica</button>
+</div>
+
+<!-- PORTADA -->
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title" style="justify-content:center;color:var(--verde);font-size:1.7rem">👋🏼 ¡Bienvenida a la Unidad 0!</p>
+    <p style="font-size:1.05rem;max-width:560px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Antes de entrar a los contenidos de Biología, Física y Química, necesitas conocer las <strong>5 habilidades científicas</strong> que se evalúan en <em>cada pregunta</em> de la PAES Ciencias.</p>
+    <div class="chips" style="justify-content:center;margin:0 0 26px">
+      <span class="chip" style="color:var(--h1c);border-color:rgba(74,222,128,.3)">👁️ Observar y plantear preguntas</span>
+      <span class="chip" style="color:var(--h2c);border-color:rgba(56,189,248,.3)">🧪 Planificar y conducir</span>
+      <span class="chip" style="color:var(--h3c);border-color:rgba(52,211,153,.3)">📊 Procesar y analizar</span>
+      <span class="chip" style="color:var(--h4c);border-color:rgba(251,146,60,.3)">⚖️ Evaluar</span>
+      <span class="chip" style="color:var(--h5c);border-color:rgba(192,132,252,.3)">💬 Comunicar</span>
+    </div>
+    <p style="font-size:.9rem;color:var(--text-dim)">Usa el menú de arriba o las flechas de abajo para navegar 👇</p>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--verde)">
+      <p class="card-title verde">🎯 ¿Qué vas a aprender?</p>
+      <ul>
+        <li>Qué es cada habilidad y cómo se define</li>
+        <li>Cómo <strong>reconocerlas</strong> en las preguntas de la PAES</li>
+        <li>Las palabras clave para identificarlas rápidamente</li>
+        <li>Cómo responder preguntas estilo PAES aplicando cada habilidad</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--teal)">
+      <p class="card-title" style="color:var(--teal)">📌 ¿Para qué sirve esto?</p>
+      <ul>
+        <li>Las habilidades son el <strong>formato</strong> de toda la prueba</li>
+        <li>Conocerlas te permite <strong>saber qué te piden</strong> antes de leer el contenido</li>
+        <li>Son transversales: aplican en Biología, Física y Química</li>
+        <li>Identificarlas bien puede marcar una <strong>diferencia de cientos de puntos</strong></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- POR QUÉ IMPORTA -->
+<div class="section" id="importa">
+  <div class="card">
+    <p class="card-title verde">❓ ¿Por qué necesitas dominar las habilidades científicas?</p>
+    <p>La PAES Ciencias no evalúa solo <em>qué sabes</em> de biología o física. Evalúa <strong>cómo piensas científicamente</strong>. Cada pregunta te pide aplicar una de estas 5 habilidades sobre un contexto científico.</p>
+  </div>
+  <div class="stat-row">
+    <div class="stat-box"><div class="stat-num">80</div><div class="stat-lbl">preguntas en total</div></div>
+    <div class="stat-box"><div class="stat-num">75</div><div class="stat-lbl">se usan para tu puntaje final</div></div>
+    <div class="stat-box"><div class="stat-num" style="font-size:clamp(1.7rem,5vw,3rem)">100–1000</div><div class="stat-lbl">puntos PAES en juego</div></div>
+    <div class="stat-box"><div class="stat-num">5</div><div class="stat-lbl">habilidades en cada pregunta</div></div>
+  </div>
+  <div class="card">
+    <p class="card-title" style="color:var(--amarillo)">🗂️ ¿Cómo está organizada la prueba?</p>
+    <div class="grid-2">
+      <div style="background:var(--card2);border-radius:12px;padding:16px;border-left:4px solid var(--verde)">
+        <p style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--verde);margin-bottom:6px">Módulo Común 📘</p>
+        <p><strong>54 preguntas</strong></p>
+        <p>18 de Biología + 18 de Física + 18 de Química</p>
+        <p style="margin-top:6px;font-size:.85rem">¡Todas las rinde independiente de tu electivo!</p>
+      </div>
+      <div style="background:var(--card2);border-radius:12px;padding:16px;border-left:4px solid var(--azul)">
+        <p style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--azul);margin-bottom:6px">Módulo Electivo 📗</p>
+        <p><strong>26 preguntas</strong></p>
+        <p>Solo de tu electivo: Biología, Física o Química</p>
+        <p style="margin-top:6px;font-size:.85rem">Se rinde después del Módulo Común</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title" style="color:var(--h5c)">📊 Distribución aproximada por habilidad</p>
+    <p style="margin-bottom:16px">Saber qué habilidad aparece más te ayuda a <strong>priorizar tu estudio</strong>:</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:14px">
+        <span style="font-size:1.3rem">📊</span>
+        <div style="flex:1"><div style="font-weight:800;color:var(--h3c);font-size:.9rem">H3 · Procesar y analizar — ~35%</div>
+        <div style="background:rgba(52,211,153,.15);border-radius:4px;height:8px;margin-top:6px"><div style="background:var(--h3c);height:100%;width:35%;border-radius:4px"></div></div></div>
+        <span style="font-weight:900;color:var(--h3c);font-size:.9rem">~26 pregs.</span>
+      </div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:14px">
+        <span style="font-size:1.3rem">🧪</span>
+        <div style="flex:1"><div style="font-weight:800;color:var(--h2c);font-size:.9rem">H2 · Planificar y conducir — ~28%</div>
+        <div style="background:rgba(56,189,248,.15);border-radius:4px;height:8px;margin-top:6px"><div style="background:var(--h2c);height:100%;width:28%;border-radius:4px"></div></div></div>
+        <span style="font-weight:900;color:var(--h2c);font-size:.9rem">~21 pregs.</span>
+      </div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:14px">
+        <span style="font-size:1.3rem">⚖️</span>
+        <div style="flex:1"><div style="font-weight:800;color:var(--h4c);font-size:.9rem">H4 · Evaluar — ~17%</div>
+        <div style="background:rgba(251,146,60,.15);border-radius:4px;height:8px;margin-top:6px"><div style="background:var(--h4c);height:100%;width:17%;border-radius:4px"></div></div></div>
+        <span style="font-weight:900;color:var(--h4c);font-size:.9rem">~13 pregs.</span>
+      </div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:14px">
+        <span style="font-size:1.3rem">👁️</span>
+        <div style="flex:1"><div style="font-weight:800;color:var(--h1c);font-size:.9rem">H1 · Observar y plantear — ~12%</div>
+        <div style="background:rgba(74,222,128,.15);border-radius:4px;height:8px;margin-top:6px"><div style="background:var(--h1c);height:100%;width:12%;border-radius:4px"></div></div></div>
+        <span style="font-weight:900;color:var(--h1c);font-size:.9rem">~9 pregs.</span>
+      </div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:14px">
+        <span style="font-size:1.3rem">💬</span>
+        <div style="flex:1"><div style="font-weight:800;color:var(--h5c);font-size:.9rem">H5 · Comunicar — ~8%</div>
+        <div style="background:rgba(192,132,252,.15);border-radius:4px;height:8px;margin-top:6px"><div style="background:var(--h5c);height:100%;width:8%;border-radius:4px"></div></div></div>
+        <span style="font-weight:900;color:var(--h5c);font-size:.9rem">~6 pregs.</span>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:.82rem;color:var(--text-dim)">* Porcentajes aproximados basados en el PAES Invierno 2026.</p>
+  </div>
+  <div class="tip-box" style="border-color:var(--amarillo)">
+    <div class="tip-label" style="color:var(--amarillo)">💡 Conclusión clave</div>
+    <p>Si no dominas H3 (Procesar y analizar), podrías estar dejando ir <strong>hasta ~26 preguntas</strong> de las 75 evaluadas, equivalente a una diferencia de hasta <strong>~300 puntos PAES</strong>. Por eso empezamos aquí.</p>
+  </div>
+</div>
+
+<!-- H1 -->
+<div class="section" id="h1">
+  <div class="h-header bg-h1" style="border:1.5px solid rgba(74,222,128,.3)">
+    <span class="icon">👁️</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--h1c);margin-bottom:4px">Habilidad 1 de 5</div>
+    <h2 class="c-h1">Observar y plantear preguntas</h2>
+    <p>Formular preguntas de investigación e identificar hipótesis a partir de lo que se observa, lee o discute.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title c-h1">📖 ¿En qué consiste?</p>
+      <p>Implica <strong>identificar qué se puede preguntar</strong> a partir de un contexto científico dado, y reconocer cuál de las opciones es una <strong>hipótesis válida</strong>: una afirmación tentativa que puede ser puesta a prueba con evidencia.</p>
+      <p style="margin-top:10px">No se te pide inventar la hipótesis: se te da un contexto y tú debes reconocer <strong>cuál opción cumple los criterios</strong>.</p>
+    </div>
+    <div class="card">
+      <p class="card-title c-h1">🔍 Cómo reconocerla en la PAES</p>
+      <p style="margin-bottom:10px">La pregunta suele decir:</p>
+      <ul>
+        <li><strong>"¿Cuál es la hipótesis que guió el estudio?"</strong></li>
+        <li><strong>"¿Cuál pregunta de investigación puede responderse directamente con estos resultados?"</strong></li>
+        <li><strong>"¿Cuál pregunta puede resolverse mediante una investigación?"</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title c-h1">🗝️ Cómo es una hipótesis válida</p>
+    <div class="grid-2">
+      <div>
+        <p style="margin-bottom:10px;font-weight:800;color:var(--verde)">✅ Sí es hipótesis:</p>
+        <ul>
+          <li>Tiene estructura <strong>"Si… entonces…"</strong></li>
+          <li>Es <strong>testeable</strong> con un experimento</li>
+          <li>Relaciona dos variables específicas</li>
+          <li>Usa lenguaje tentativo: <em>se relaciona con, podría influir en</em></li>
+        </ul>
+      </div>
+      <div>
+        <p style="margin-bottom:10px;font-weight:800;color:var(--rojo)">❌ No es hipótesis si:</p>
+        <ul>
+          <li>Es un hecho ya comprobado</li>
+          <li>Es demasiado vaga o general</li>
+          <li>Afirma causalidad absoluta: <em>"es causado definitivamente por"</em></li>
+          <li>Es solo una observación sin predicción</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw c-h1" style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3)">hipótesis</span>
+    <span class="kw c-h1" style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3)">pregunta de investigación</span>
+    <span class="kw c-h1" style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3)">si… entonces…</span>
+    <span class="kw c-h1" style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3)">testeable</span>
+    <span class="kw c-h1" style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3)">se relaciona con</span>
+    <span class="kw c-h1" style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3)">tentativo</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h1">🤖 Pregunta creada · inspirada en modelo PAES · pendiente revisión docente</div>
+    <div class="paes-context">Un grupo de estudiantes observó que las plantas de albahaca ubicadas junto a una ventana con más luz solar directa presentaban tallos más gruesos que las ubicadas en un rincón con menor luminosidad de la sala.</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones corresponde a la <strong>hipótesis</strong> que guiaría una investigación sobre esta observación?</p>
+    <div class="paes-opts" id="q1">
+      <div class="paes-opt" onclick="ans('q1','A')"><div class="ol">A</div><div class="ot">Las plantas ubicadas junto a la ventana reciben más luz solar directa que las del rincón.</div></div>
+      <div class="paes-opt" onclick="ans('q1','B')"><div class="ol">B</div><div class="ot">La cantidad de luz solar recibida se relaciona con el grosor del tallo en plantas de albahaca.</div></div>
+      <div class="paes-opt" onclick="ans('q1','C')"><div class="ol">C</div><div class="ot">El grosor del tallo determina la cantidad de luz que una planta puede captar.</div></div>
+      <div class="paes-opt" onclick="ans('q1','D')"><div class="ol">D</div><div class="ot">El grosor del tallo es causado definitivamente por la exposición a luz solar directa.</div></div>
+    </div>
+    <div class="paes-fb" id="q1-fb"></div>
+  </div>
+</div>
+
+<!-- H2 -->
+<div class="section" id="h2">
+  <div class="h-header bg-h2" style="border:1.5px solid rgba(56,189,248,.3)">
+    <span class="icon">🧪</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--h2c);margin-bottom:4px">Habilidad 2 de 5</div>
+    <h2 class="c-h2">Planificar y conducir una investigación</h2>
+    <p>Diseñar investigaciones, identificar sus componentes y distinguir los tipos de variables.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title c-h2">📖 ¿En qué consiste?</p>
+      <p>Es la habilidad con <strong>más criterios de evaluación</strong>. Implica reconocer todos los elementos de una investigación científica: el objetivo, las variables, el diseño, el procedimiento, la hipótesis, la evidencia y más.</p>
+      <p style="margin-top:10px">Es muy frecuente en la PAES porque evalúa si entiendes <strong>cómo funciona la ciencia como proceso</strong>.</p>
+    </div>
+    <div class="card">
+      <p class="card-title c-h2">🔍 Cómo reconocerla en la PAES</p>
+      <p style="margin-bottom:10px">La pregunta suele decir:</p>
+      <ul>
+        <li><strong>"¿Cuál es la variable dependiente/independiente?"</strong></li>
+        <li><strong>"¿Cuál es el objetivo de la investigación?"</strong></li>
+        <li><strong>"¿A qué componente corresponde...?"</strong></li>
+        <li><strong>"¿Cuál procedimiento permite resolver el problema?"</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title c-h2">📋 Los componentes clave</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--h2c)"><div style="font-weight:900;color:var(--h2c);font-size:.85rem;margin-bottom:4px">Variable independiente</div><p style="font-size:.82rem">Lo que el investigador <strong>manipula</strong>. La causa.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--verde)"><div style="font-weight:900;color:var(--verde);font-size:.85rem;margin-bottom:4px">Variable dependiente</div><p style="font-size:.82rem">Lo que se <strong>mide u observa</strong>. El efecto.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Variable controlada</div><p style="font-size:.82rem">Lo que se <strong>mantiene constante</strong>.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--teal)"><div style="font-weight:900;color:var(--teal);font-size:.85rem;margin-bottom:4px">Objetivo</div><p style="font-size:.82rem">Empieza con <em>determinar, conocer, evaluar…</em></p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--morado)"><div style="font-weight:900;color:var(--morado);font-size:.85rem;margin-bottom:4px">Diseño experimental</div><p style="font-size:.82rem">El plan de cómo se hará el experimento.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--naranja)"><div style="font-weight:900;color:var(--naranja);font-size:.85rem;margin-bottom:4px">Conclusión</div><p style="font-size:.82rem">Lo que se deriva de los resultados.</p></div>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">variable independiente</span>
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">variable dependiente</span>
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">controlada</span>
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">objetivo</span>
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">diseño experimental</span>
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">componente</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h2">🤖 Pregunta creada · inspirada en modelo PAES · pendiente revisión docente</div>
+    <div class="paes-context">Un equipo cultivó lechugas en macetas idénticas, aplicando cada semana distintas concentraciones de un <strong>fertilizante nitrogenado</strong> (0%, 5%, 10% y 15%). Todas las macetas recibieron la misma cantidad de agua y luz durante <strong>6 semanas</strong>, y al final se midió la altura de cada planta.</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones corresponde a una <strong>variable dependiente</strong> de este experimento?</p>
+    <div class="paes-opts" id="q2">
+      <div class="paes-opt" onclick="ans('q2','A')"><div class="ol">A</div><div class="ot">La concentración de fertilizante nitrogenado.</div></div>
+      <div class="paes-opt" onclick="ans('q2','B')"><div class="ol">B</div><div class="ot">La cantidad de agua entregada a cada maceta.</div></div>
+      <div class="paes-opt" onclick="ans('q2','C')"><div class="ol">C</div><div class="ot">La altura de las plantas al final del experimento.</div></div>
+      <div class="paes-opt" onclick="ans('q2','D')"><div class="ol">D</div><div class="ot">El tiempo de duración del experimento.</div></div>
+    </div>
+    <div class="paes-fb" id="q2-fb"></div>
+  </div>
+</div>
+
+<!-- H3 -->
+<div class="section" id="h3">
+  <div class="h-header bg-h3" style="border:1.5px solid rgba(52,211,153,.3)">
+    <span class="icon">📊</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--h3c);margin-bottom:4px">Habilidad 3 de 5 · La más frecuente</div>
+    <h2 class="c-h3">Procesar y analizar la evidencia</h2>
+    <p>Examinar e interpretar resultados, identificar patrones en tablas y gráficos, y extraer conclusiones e inferencias válidas.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title c-h3">📖 ¿En qué consiste?</p>
+      <p>Es la habilidad más frecuente (~35% de las preguntas). Implica <strong>leer e interpretar datos</strong> en tablas, gráficos o descripciones, y luego identificar qué conclusión o inferencia es correcta <em>según la evidencia</em>.</p>
+      <p style="margin-top:10px">La conclusión debe estar <strong>directamente apoyada por los datos</strong>, no por conocimiento externo ni suposiciones.</p>
+    </div>
+    <div class="card">
+      <p class="card-title c-h3">🔍 Cómo reconocerla en la PAES</p>
+      <p style="margin-bottom:10px">La pregunta suele decir:</p>
+      <ul>
+        <li><strong>"¿Cuál de las siguientes conclusiones es correcta?"</strong></li>
+        <li><strong>"¿Cuál inferencia es correcta a partir de los resultados?"</strong></li>
+        <li><strong>"¿Cuál predicción es consistente con los datos?"</strong></li>
+        <li><strong>"¿Qué explicación corresponde a lo observado?"</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title c-h3">⚠️ Trampas comunes</p>
+    <ul>
+      <li>Opciones que parecen lógicas pero <strong>no están en los datos</strong></li>
+      <li>Conclusiones que mezclan <strong>causalidad con correlación</strong></li>
+      <li>Palabras absolutas: <em>"siempre", "nunca", "en todos los casos"</em> — generalmente incorrectas</li>
+      <li>Confundir la <strong>tendencia general</strong> con una excepción puntual</li>
+    </ul>
+    <div class="tip-box" style="margin-top:16px;border-color:var(--h3c)">
+      <div class="tip-label" style="color:var(--h3c)">💡 Estrategia</div>
+      <p>Antes de leer las opciones, <strong>formula tú mismo la conclusión</strong> con tus propias palabras. Luego busca la opción que más se acerque.</p>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw c-h3" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">conclusión</span>
+    <span class="kw c-h3" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">inferencia</span>
+    <span class="kw c-h3" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">según los datos</span>
+    <span class="kw c-h3" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">tendencia</span>
+    <span class="kw c-h3" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">patrón</span>
+    <span class="kw c-h3" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">a partir de los resultados</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h3">🤖 Pregunta creada · inspirada en modelo PAES · pendiente revisión docente</div>
+    <div class="paes-context">Un equipo midió el crecimiento de un cultivo bacteriano (N° de colonias) a distintas temperaturas de incubación:
+      <table><thead><tr><th style="color:var(--h3c)">Temperatura</th><th style="color:var(--h3c)">N° de colonias</th></tr></thead>
+      <tbody><tr><td>4 °C</td><td>2</td></tr><tr><td>20 °C</td><td>45</td></tr><tr><td>37 °C</td><td>210</td></tr><tr><td>60 °C</td><td>3</td></tr></tbody></table>
+    </div>
+    <p class="paes-q">¿Cuál de las siguientes <strong>conclusiones</strong> es correcta a partir de estos datos?</p>
+    <div class="paes-opts" id="q3">
+      <div class="paes-opt" onclick="ans('q3','A')"><div class="ol">A</div><div class="ot">A mayor temperatura, siempre habrá mayor crecimiento bacteriano.</div></div>
+      <div class="paes-opt" onclick="ans('q3','B')"><div class="ol">B</div><div class="ot">El crecimiento bacteriano es máximo en un rango intermedio de temperatura y disminuye en temperaturas extremas.</div></div>
+      <div class="paes-opt" onclick="ans('q3','C')"><div class="ol">C</div><div class="ot">Las bacterias no pueden sobrevivir bajo los 20 °C.</div></div>
+      <div class="paes-opt" onclick="ans('q3','D')"><div class="ol">D</div><div class="ot">La temperatura no influye en el crecimiento bacteriano.</div></div>
+    </div>
+    <div class="paes-fb" id="q3-fb"></div>
+  </div>
+</div>
+
+<!-- H4 -->
+<div class="section" id="h4">
+  <div class="h-header bg-h4" style="border:1.5px solid rgba(251,146,60,.3)">
+    <span class="icon">⚖️</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--h4c);margin-bottom:4px">Habilidad 4 de 5</div>
+    <h2 class="c-h4">Evaluar</h2>
+    <p>Analizar la validez, confiabilidad y coherencia de una investigación. Detectar errores y limitaciones.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title c-h4">📖 ¿En qué consiste?</p>
+      <p>Va más allá de interpretar datos: implica <strong>juzgar si la investigación está bien diseñada</strong>. ¿El experimento es válido? ¿Es confiable? ¿Los componentes son coherentes entre sí?</p>
+      <p style="margin-top:10px">También incluye evaluar <strong>aplicaciones tecnológicas</strong> de una investigación.</p>
+    </div>
+    <div class="card">
+      <p class="card-title c-h4">🔍 Cómo reconocerla en la PAES</p>
+      <p style="margin-bottom:10px">La pregunta suele decir:</p>
+      <ul>
+        <li><strong>"¿Cuál es un error de procedimiento?"</strong></li>
+        <li><strong>"¿Qué acción mejoraría la confiabilidad?"</strong></li>
+        <li><strong>"¿Cuál acción supera la deficiencia?"</strong></li>
+        <li><strong>"¿Qué producto tecnológico podría diseñarse a partir de...?"</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title c-h4">🛠️ Conceptos clave</p>
+    <div class="grid-2">
+      <div><p style="font-weight:800;color:var(--h4c);margin-bottom:6px">Validez</p><p>¿El experimento mide lo que dice medir? ¿Tiene grupo control y variables bien controladas?</p></div>
+      <div><p style="font-weight:800;color:var(--h4c);margin-bottom:6px">Confiabilidad</p><p>Aumenta con <strong>más réplicas</strong> y <strong>mayor tamaño de muestra</strong>.</p></div>
+      <div><p style="font-weight:800;color:var(--h4c);margin-bottom:6px">Coherencia interna</p><p>¿El objetivo, el procedimiento y la conclusión son consistentes entre sí?</p></div>
+      <div><p style="font-weight:800;color:var(--h4c);margin-bottom:6px">Error de procedimiento</p><p>Algo en el diseño que <strong>impide cumplir el objetivo</strong>.</p></div>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw c-h4" style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3)">error de procedimiento</span>
+    <span class="kw c-h4" style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3)">validez</span>
+    <span class="kw c-h4" style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3)">confiabilidad</span>
+    <span class="kw c-h4" style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3)">replicabilidad</span>
+    <span class="kw c-h4" style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3)">superar la deficiencia</span>
+    <span class="kw c-h4" style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3)">coherencia</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h4">🤖 Pregunta creada · inspirada en modelo PAES · pendiente revisión docente</div>
+    <div class="paes-context">Un grupo de estudiantes quiere determinar si el <strong>tipo de agua</strong> (potable, destilada, salada) afecta la germinación de semillas de poroto. Colocan 10 semillas en cada tipo de agua, pero usan <strong>macetas de distinto tamaño</strong> y las ubican en <strong>distintos lugares de la sala con diferente cantidad de luz</strong>.</div>
+    <p class="paes-q">¿Cuál es un <strong>error de procedimiento</strong> que impide cumplir con el objetivo?</p>
+    <div class="paes-opts" id="q4">
+      <div class="paes-opt" onclick="ans('q4','A')"><div class="ol">A</div><div class="ot">Usar 10 semillas por grupo.</div></div>
+      <div class="paes-opt" onclick="ans('q4','B')"><div class="ol">B</div><div class="ot">Usar el mismo tipo de semilla en los tres grupos.</div></div>
+      <div class="paes-opt" onclick="ans('q4','C')"><div class="ol">C</div><div class="ot">Exponer los grupos a distinta cantidad de luz y usar macetas de distinto tamaño.</div></div>
+      <div class="paes-opt" onclick="ans('q4','D')"><div class="ol">D</div><div class="ot">Registrar los resultados de germinación de cada grupo.</div></div>
+    </div>
+    <div class="paes-fb" id="q4-fb"></div>
+  </div>
+</div>
+
+<!-- H5 -->
+<div class="section" id="h5">
+  <div class="h-header bg-h5" style="border:1.5px solid rgba(192,132,252,.3)">
+    <span class="icon">💬</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--h5c);margin-bottom:4px">Habilidad 5 de 5</div>
+    <h2 class="c-h5">Comunicar</h2>
+    <p>Seleccionar el recurso más adecuado —tabla, gráfico, modelo, diagrama— para presentar información científica según el objetivo.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title c-h5">📖 ¿En qué consiste?</p>
+      <p>No se te pide crear un gráfico ni calcular nada. Implica <strong>elegir qué recurso visual es el más apropiado</strong> para mostrar cierta información, dado un objetivo específico.</p>
+      <p style="margin-top:10px">La clave es entender para qué sirve cada tipo de representación.</p>
+    </div>
+    <div class="card">
+      <p class="card-title c-h5">🔍 Cómo reconocerla en la PAES</p>
+      <p style="margin-bottom:10px">La pregunta suele decir:</p>
+      <ul>
+        <li><strong>"¿Cuál recurso es más adecuado para comunicar estos resultados?"</strong></li>
+        <li><strong>"¿Qué representación permite comparar mejor...?"</strong></li>
+        <li><strong>"¿Cuál gráfico corresponde a los datos descritos?"</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title c-h5">📈 ¿Qué recurso usar cuándo?</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="background:var(--card2);border-radius:10px;padding:13px 16px;display:flex;gap:14px;align-items:flex-start"><span style="font-size:1.4rem">📉</span><div><strong style="color:var(--h5c)">Gráfico de líneas</strong> — Cambios <strong>a lo largo del tiempo</strong> o tendencias continuas. Ideal para comparar varias series.</div></div>
+      <div style="background:var(--card2);border-radius:10px;padding:13px 16px;display:flex;gap:14px;align-items:flex-start"><span style="font-size:1.4rem">📊</span><div><strong style="color:var(--h5c)">Gráfico de barras</strong> — <strong>Comparar categorías</strong> discretas entre sí. No para tendencias.</div></div>
+      <div style="background:var(--card2);border-radius:10px;padding:13px 16px;display:flex;gap:14px;align-items:flex-start"><span style="font-size:1.4rem">🥧</span><div><strong style="color:var(--h5c)">Gráfico circular (torta)</strong> — <strong>Proporciones o porcentajes</strong> de un total.</div></div>
+      <div style="background:var(--card2);border-radius:10px;padding:13px 16px;display:flex;gap:14px;align-items:flex-start"><span style="font-size:1.4rem">📋</span><div><strong style="color:var(--h5c)">Tabla</strong> — <strong>Datos exactos y precisos</strong>. Permite ver valores específicos, pero no visualiza tendencias fácilmente.</div></div>
+      <div style="background:var(--card2);border-radius:10px;padding:13px 16px;display:flex;gap:14px;align-items:flex-start"><span style="font-size:1.4rem">🔄</span><div><strong style="color:var(--h5c)">Diagrama de flujo</strong> — <strong>Pasos de un proceso</strong> o procedimiento secuencial.</div></div>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw c-h5" style="background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.3)">recurso más adecuado</span>
+    <span class="kw c-h5" style="background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.3)">para comunicar</span>
+    <span class="kw c-h5" style="background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.3)">gráfico de líneas</span>
+    <span class="kw c-h5" style="background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.3)">gráfico de barras</span>
+    <span class="kw c-h5" style="background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.3)">tabla</span>
+    <span class="kw c-h5" style="background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.3)">modelo</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h5">📄 Pregunta tipo PAES · Habilidad 5 · Comunicar</div>
+    <div class="paes-context">Una estudiante midió la temperatura de 5 soluciones distintas cada 30 segundos durante 10 minutos. Quiere presentar los resultados de manera que se pueda <strong>comparar cómo cambia la temperatura de cada solución a lo largo del tiempo</strong>.</div>
+    <p class="paes-q">¿Cuál de los siguientes recursos es el más adecuado para <strong>comunicar</strong> estos resultados?</p>
+    <div class="paes-opts" id="q5">
+      <div class="paes-opt" onclick="ans('q5','A')"><div class="ol">A</div><div class="ot">Una tabla con todos los valores de temperatura registrados para cada solución y cada momento.</div></div>
+      <div class="paes-opt" onclick="ans('q5','B')"><div class="ol">B</div><div class="ot">Un gráfico de líneas con el tiempo en el eje X y la temperatura en el eje Y, con una línea de distinto color para cada solución.</div></div>
+      <div class="paes-opt" onclick="ans('q5','C')"><div class="ol">C</div><div class="ot">Un diagrama de barras con la temperatura promedio de cada solución.</div></div>
+      <div class="paes-opt" onclick="ans('q5','D')"><div class="ol">D</div><div class="ot">Un diagrama de flujo con los pasos del procedimiento experimental.</div></div>
+    </div>
+    <div class="paes-fb" id="q5-fb"></div>
+  </div>
+</div>
+
+<!-- RESUMEN -->
+<div class="section" id="resumen">
+  <div class="card" style="text-align:center;padding:32px">
+    <p class="card-title" style="justify-content:center;color:var(--verde);font-size:1.7rem">🎉 ¡Ya conoces las 5 habilidades!</p>
+    <p style="max-width:520px;margin:0 auto;line-height:1.8">Cada pregunta de la PAES Ciencias evalúa una de estas habilidades sobre un contexto científico. Reconocerlas es tu primera gran ventaja.</p>
+  </div>
+  <div class="recap-grid">
+    <div class="recap-row" style="border-left:4px solid var(--h1c)">
+      <div class="recap-num c-h1">1</div><div style="font-size:1.5rem">👁️</div>
+      <div class="recap-info"><h3 class="c-h1">Observar y plantear preguntas</h3><p>Identifica hipótesis y preguntas investigables. Palabras clave: <strong>hipótesis, si… entonces…</strong></p></div>
+    </div>
+    <div class="recap-row" style="border-left:4px solid var(--h2c)">
+      <div class="recap-num c-h2">2</div><div style="font-size:1.5rem">🧪</div>
+      <div class="recap-info"><h3 class="c-h2">Planificar y conducir una investigación</h3><p>Reconoce variables, objetivos y componentes del diseño. Palabras clave: <strong>variable dependiente, objetivo, componente</strong></p></div>
+    </div>
+    <div class="recap-row" style="border-left:4px solid var(--h3c)">
+      <div class="recap-num c-h3">3</div><div style="font-size:1.5rem">📊</div>
+      <div class="recap-info"><h3 class="c-h3">Procesar y analizar la evidencia</h3><p>Interpreta datos y extrae conclusiones. Palabras clave: <strong>conclusión, inferencia, según los datos</strong></p></div>
+    </div>
+    <div class="recap-row" style="border-left:4px solid var(--h4c)">
+      <div class="recap-num c-h4">4</div><div style="font-size:1.5rem">⚖️</div>
+      <div class="recap-info"><h3 class="c-h4">Evaluar</h3><p>Analiza validez, confiabilidad y coherencia. Palabras clave: <strong>error de procedimiento, validez, confiabilidad</strong></p></div>
+    </div>
+    <div class="recap-row" style="border-left:4px solid var(--h5c)">
+      <div class="recap-num c-h5">5</div><div style="font-size:1.5rem">💬</div>
+      <div class="recap-info"><h3 class="c-h5">Comunicar</h3><p>Elige el recurso correcto para presentar información. Palabras clave: <strong>recurso adecuado, gráfico de líneas, tabla</strong></p></div>
+    </div>
+  </div>
+  <div class="tip-box" style="margin-top:18px">
+    <div class="tip-label">🚀 Próximo paso</div>
+    <p>Ve a la sección <strong>Práctica</strong>: 15 preguntas originales estilo PAES, 3 por habilidad, para cerrar esta unidad demostrando lo que aprendiste.</p>
+  </div>
+</div>
+
+<!-- PRÁCTICA -->
+<div class="section" id="practica">
+  <div class="card">
+    <p class="card-title verde">🎯 Práctica guiada · 15 preguntas · 3 por habilidad</p>
+    <p>Responde cada pregunta. Dentro de cada grupo, las preguntas se revelan de a una. Al terminar, verás tu diagnóstico con impacto real en puntos PAES.</p>
+  </div>
+  <div id="prac-container"></div>
+  <div id="final-results">
+    <div class="res-hdr">📊 Tu diagnóstico de habilidades</div>
+    <div class="res-sub">Basado en tus 15 respuestas</div>
+    <div id="res-rows"></div>
+    <div class="res-summary-box" id="res-summary"></div>
+  </div>
+</div>
+
+</div>
+<!-- LINEAR NAV -->
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">&#8592; Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente &#8594;</button>
+</div>
+<footer>🧬 Unidad 0 · Habilidades Científicas · PAES Ciencias Biología · Admisión 2027</footer>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 0</h3>
+      <p>Habilidades Científicas · Biología</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre las 5 habilidades científicas evaluadas en la PAES Biología: Observar y plantear preguntas, Planificar y conducir, Procesar y analizar, Evaluar, y Comunicar. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+<script>
+// ── SECTIONS & NAV ──
+const SECS = ["portada","importa","h1","h2","h3","h4","h5","resumen","practica"];
+const SLABELS = ["Inicio","¿Por qué?","H1 · Observar","H2 · Planificar","H3 · Procesar","H4 · Evaluar","H5 · Comunicar","Resumen","Práctica"];
+let curSec = 0;
+
+function showSec(id, idx, btn) {
+  SECS.forEach(function(s){ document.getElementById(s).classList.remove("active"); });
+  document.querySelectorAll(".nav-btn").forEach(function(b){ b.classList.remove("active"); });
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec = idx;
+  updateLinNav();
+  var pct = Math.round(((idx+1)/SECS.length)*100);
+  document.getElementById("prog").style.width = pct+"%";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function linNav(d) {
+  var n = Math.max(0, Math.min(SECS.length-1, curSec+d));
+  if(n === curSec) return;
+  var btns = document.querySelectorAll(".nav-btn");
+  showSec(SECS[n], n, btns[n]);
+  btns[n].classList.add("active");
+}
+
+function updateLinNav() {
+  document.getElementById("lnav-prev").disabled = (curSec === 0);
+  document.getElementById("lnav-next").disabled = (curSec === SECS.length-1);
+  document.getElementById("lnav-label").textContent = SLABELS[curSec];
+}
+updateLinNav();
+
+// ── PAES ANSWERS (main section questions) ──
+var QA = {
+  "q1":{"c":"B","fb":{"A":"Incorrecto. Es solo una descripción de la observación, no una hipótesis: no relaciona variables ni hace una predicción.","B":"✅ Correcto. Relaciona dos variables (luz recibida y grosor del tallo) usando lenguaje tentativo ('se relaciona con') y es testeable con un experimento controlado.","C":"Incorrecto. Invierte la relación esperada (el grosor no determina la luz que recibe la planta).","D":"Incorrecto. 'Es causado definitivamente por' implica causalidad ya comprobada, no una hipótesis tentativa."}},
+  "q2":{"c":"C","fb":{"A":"Incorrecto. La concentración de fertilizante es lo que el investigador MANIPULA deliberadamente → variable independiente.","B":"Incorrecto. El agua se mantiene igual para todos los grupos → variable controlada.","C":"✅ Correcto. La altura de las plantas es lo que se MIDE como resultado de aplicar el fertilizante → variable dependiente.","D":"Incorrecto. Las 6 semanas son iguales para todos los grupos → variable controlada."}},
+  "q3":{"c":"B","fb":{"A":"Incorrecto. La tabla muestra que a 60 °C el crecimiento cae drásticamente; usar 'siempre' contradice los datos.","B":"✅ Correcto. El crecimiento aumenta hasta los 37 °C y luego cae fuertemente a 60 °C, mostrando un óptimo intermedio y caída en extremos.","C":"Incorrecto. A 4 °C sí hay colonias (2), por lo tanto hubo sobrevivencia; la tabla no habla de 'imposibilidad' bajo los 20 °C.","D":"Incorrecto. Los datos muestran variación clara del crecimiento según la temperatura."}},
+  "q4":{"c":"C","fb":{"A":"Incorrecto. Usar 10 semillas por grupo es una decisión metodológica razonable, no un error.","B":"Incorrecto. Usar el mismo tipo de semilla en los tres grupos es un control correcto, no un error.","C":"✅ Correcto. Al variar también la luz y el tamaño de maceta entre grupos, no se puede saber si el efecto en la germinación se debe al tipo de agua o a estas otras diferencias no controladas.","D":"Incorrecto. Registrar los resultados es parte necesaria del procedimiento, no un error."}},
+  "q5":{"c":"B","fb":{"A":"Incorrecto. La tabla organiza datos con precisión, pero no permite visualizar fácilmente tendencias a lo largo del tiempo.","B":"✅ Correcto. El gráfico de líneas es ideal para mostrar cambios en el tiempo y comparar varias series (una línea por solución).","C":"Incorrecto. El diagrama de barras sirve para comparar categorías, no para mostrar evolución temporal.","D":"Incorrecto. El diagrama de flujo representa pasos de un proceso, no resultados cuantitativos."}}
+};
+
+function ans(qid, opt) {
+  var el = document.getElementById(qid);
+  if(el.dataset.done) return;
+  el.dataset.done = "1";
+  var a = QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l = o.querySelector(".ol").textContent;
+    if(l === a.c) o.classList.add("right");
+    else if(l === opt) o.classList.add("wrong");
+  });
+  var fb = document.getElementById(qid+"-fb");
+  fb.className = "paes-fb show " + (opt===a.c ? "ok" : "no");
+  fb.textContent = a.fb[opt];
+}
+
+// ── PRACTICE DATA ──
+var PG = [
+  { hid:1, icon:"👁️", name:"Observar y plantear preguntas", color:"var(--h1c)", n:9,
+    qs:[
+      { ref:"🤖 Pregunta creada · pendiente revisión docente",
+        ctx:"Un grupo de estudiantes observó que las plantas de albahaca junto a una ventana con más luz solar directa presentaban tallos más gruesos que las ubicadas en un rincón con menor luminosidad.",
+        q:"¿Cuál de las siguientes opciones corresponde a la hipótesis que guiaría una investigación sobre esta observación?",
+        opts:{"A":"Las plantas junto a la ventana reciben más luz solar directa que las del rincón.","B":"La cantidad de luz solar recibida se relaciona con el grosor del tallo en plantas de albahaca.","C":"El grosor del tallo determina la cantidad de luz que una planta puede captar.","D":"El grosor del tallo es causado definitivamente por la exposición a luz solar directa."},
+        c:"B",
+        fb:{"A":"Es solo una descripción de la observación, no relaciona variables ni predice nada.","B":"✅ Correcto. Relaciona dos variables con lenguaje tentativo y es testeable.","C":"Invierte la relación esperada entre las variables.","D":"'Es causado definitivamente por' implica causalidad ya comprobada, no una hipótesis tentativa."}
+      },
+      { ref:"Pregunta original",
+        ctx:"Un científico observa que bacterias expuestas a concentraciones bajas de antibióticos sobreviven más que las expuestas a concentraciones altas, y que algunas de las sobrevivientes se reproducen normalmente incluso en presencia del fármaco.",
+        q:"¿Cuál es la hipótesis más adecuada para guiar una investigación sobre este fenómeno?",
+        opts:{"A":"Las bacterias expuestas a antibióticos siempre desarrollan resistencia con el tiempo.","B":"Si las bacterias son expuestas a concentraciones subletales de antibiótico, entonces aumentará la proporción de bacterias resistentes en la población.","C":"Los antibióticos eliminan a todas las bacterias en cualquier concentración.","D":"Las bacterias que sobreviven al antibiótico son más pequeñas que las demás."},
+        c:"B",
+        fb:{"A":"Usa 'siempre', lo que la hace absoluta y no testeable con este contexto.","B":"✅ Correcto. Tiene estructura Si...entonces, es específica, relaciona variables (concentración subletal y resistencia) y es testeable.","C":"Es una afirmación contraria a la observación y no es testeable.","D":"El tamaño no se menciona en el contexto; es una inferencia sin base."}
+      },
+      { ref:"Pregunta original",
+        ctx:"Una estudiante observa que en su jardín, las plantas que reciben sombra parcial tienen hojas más grandes que las que reciben sol directo todo el día. Le interesa investigar si esta diferencia se debe a la intensidad lumínica.",
+        q:"¿Cuál de las siguientes preguntas de investigación puede ser respondida directamente con este tipo de observación?",
+        opts:{"A":"¿Cómo afecta la temperatura del suelo al tamaño de las hojas?","B":"¿Existe una relación entre la intensidad lumínica recibida y el tamaño de las hojas de las plantas del jardín?","C":"¿Por qué las plantas con sombra parcial producen más clorofila?","D":"¿Cuál es el mecanismo molecular que regula el tamaño foliar en plantas?"},
+        c:"B",
+        fb:{"A":"La temperatura no se menciona en la observación; no puede responderse con estos datos.","B":"✅ Correcto. La observación compara directamente la intensidad lumínica (sol vs. sombra) con el tamaño de las hojas. Esta pregunta sí puede responderse con el estudio descrito.","C":"La producción de clorofila no se menciona en la observación; requeriría otro tipo de análisis.","D":"Mecanismos moleculares requieren técnicas de laboratorio muy distintas."}
+      }
+    ]
+  },
+  { hid:2, icon:"🧪", name:"Planificar y conducir una investigación", color:"var(--h2c)", n:21,
+    qs:[
+      { ref:"🤖 Pregunta creada · pendiente revisión docente",
+        ctx:"Un equipo cultivó lechugas en macetas idénticas, aplicando cada semana distintas concentraciones de un fertilizante nitrogenado (0%, 5%, 10% y 15%). Todas recibieron la misma agua y luz durante 6 semanas, y al final se midió la altura de cada planta.",
+        q:"¿Cuál de las siguientes opciones corresponde a una variable dependiente de este experimento?",
+        opts:{"A":"La concentración de fertilizante nitrogenado.","B":"La cantidad de agua entregada a cada maceta.","C":"La altura de las plantas al final del experimento.","D":"El tiempo de duración del experimento."},
+        c:"C",
+        fb:{"A":"Es la variable INDEPENDIENTE: lo que el investigador manipula.","B":"Es una variable CONTROLADA: se mantiene igual para todos los grupos.","C":"✅ Correcto. Es lo que se MIDE como resultado de aplicar el fertilizante → variable dependiente.","D":"Es una variable CONTROLADA: las 6 semanas son iguales para todos."}
+      },
+      { ref:"🤖 Pregunta creada · pendiente revisión docente",
+        ctx:"Un equipo describe su plan de trabajo como: “se compararán los niveles de glucosa en sangre de ratones alimentados con dieta alta en azúcar versus dieta control, midiendo la glicemia cada semana durante 8 semanas mediante glucómetro”.",
+        q:"Considerando este caso, ¿a qué componente de la investigación científica corresponde el texto entre comillas?",
+        opts:{"A":"Al objetivo.","B":"Al marco conceptual.","C":"Al diseño experimental.","D":"A la conclusión."},
+        c:"C",
+        fb:{"A":"El objetivo indica QUÉ se quiere lograr, no cómo se hará el estudio.","B":"El marco conceptual son las teorías y antecedentes previos, no el plan del estudio.","C":"✅ Correcto. Describe el enfoque general: qué se comparará, en quiénes y con qué técnica. Eso es el diseño experimental.","D":"La conclusión se redacta al final, a partir de los resultados obtenidos."}
+      },
+      { ref:"🤖 Pregunta creada · pendiente revisión docente",
+        ctx:"Un laboratorio ensaya un nuevo suplemento vitamínico en gallinas ponedoras, dividiéndolas en grupos que reciben distintas dosis durante 4 semanas, registrando el número de huevos puestos y su peso promedio.",
+        q:"¿Cuál de las siguientes opciones presenta el objetivo de la investigación?",
+        opts:{"A":"Determinar el efecto de distintas dosis del suplemento sobre la producción y peso de los huevos.","B":"Investigar el color de la cáscara de los huevos producidos.","C":"Conocer el costo de producción del suplemento vitamínico.","D":"Evaluar la resistencia a enfermedades de las gallinas tratadas."},
+        c:"A",
+        fb:{"A":"✅ Correcto. El estudio evalúa distintas dosis para determinar su efecto sobre lo que se mide: producción y peso de huevos.","B":"El color de la cáscara no se menciona entre lo que se registra.","C":"El costo no forma parte de lo que se midió en el protocolo descrito.","D":"La resistencia a enfermedades no se menciona en el diseño descrito."}
+      }
+    ]
+  },
+  { hid:3, icon:"📊", name:"Procesar y analizar la evidencia", color:"var(--h3c)", n:26,
+    qs:[
+      { ref:"🤖 Pregunta creada · pendiente revisión docente",
+        ctx:"Un equipo midió el crecimiento de un cultivo bacteriano (N° de colonias) a distintas temperaturas de incubación: 4°C→2 colonias, 20°C→45 colonias, 37°C→210 colonias, 60°C→3 colonias.",
+        q:"¿Cuál de las siguientes conclusiones es correcta a partir de estos datos?",
+        opts:{"A":"A mayor temperatura, siempre habrá mayor crecimiento bacteriano.","B":"El crecimiento bacteriano es máximo en un rango intermedio de temperatura y disminuye en temperaturas extremas.","C":"Las bacterias no pueden sobrevivir bajo los 20°C.","D":"La temperatura no influye en el crecimiento bacteriano."},
+        c:"B",
+        fb:{"A":"A 60°C el crecimiento cae drásticamente; 'siempre' contradice los datos.","B":"✅ Correcto. El crecimiento sube hasta 37°C y luego cae fuerte a 60°C: óptimo intermedio, caída en extremos.","C":"A 4°C sí hay 2 colonias, es decir, hubo sobrevivencia.","D":"Los datos muestran variación clara según la temperatura."}
+      },
+      { ref:"🤖 Pregunta creada · pendiente revisión docente",
+        ctx:"Se estudió la relación entre la presencia de hongos micorrízicos (MF), nódulos radiculares y fijación de nitrógeno en 5 especies de plantas:\n\nEspecie 1: MF=ausente, Nódulos=presente, FijaciónN=ausente\nEspecie 2: MF=presente, Nódulos=presente, FijaciónN=presente\nEspecie 3: MF=ausente, Nódulos=presente, FijaciónN=ausente\nEspecie 4: MF=presente, Nódulos=presente, FijaciónN=ausente\nEspecie 5: MF=presente, Nódulos=presente, FijaciónN=presente",
+        q:"En relación con el análisis de los resultados, ¿cuál de las siguientes opciones es una inferencia correcta?",
+        opts:{"A":"Para que ocurra fijación de nitrógeno se requiere la presencia de MF y de nódulos.","B":"La presencia de MF es uno de los factores necesarios para que ocurra la fijación de nitrógeno.","C":"Los nódulos son indispensables para que ocurra la asociación con hongos micorrízicos.","D":"En todas las especies, la presencia de MF garantiza la fijación de nitrógeno."},
+        c:"B",
+        fb:{"A":"Incorrecta: la especie 4 tiene MF y nódulos pero NO tiene fijación de nitrógeno.","B":"✅ Correcto. MF está presente en todas las especies con fijación (2 y 5) y ausente en todas sin fijación (1 y 3). Es necesario pero no suficiente.","C":"Incorrecta: los nódulos están presentes en todas las especies, con o sin MF.","D":"Incorrecta: la especie 4 tiene MF pero no presenta fijación de nitrógeno."}
+      },
+      { ref:"Pregunta original",
+        ctx:"En un experimento se midió la concentración de O₂ disuelto (mg/L) en dos acuarios durante 24 horas: Acuario A solo tenía plantas acuáticas; Acuario B tenía plantas acuáticas y peces. En ambos acuarios la concentración de O₂ aumentó durante el día y disminuyó durante la noche. Sin embargo, la concentración nocturna de O₂ en el Acuario B fue consistentemente menor que en el Acuario A.",
+        q:"A partir de los resultados, ¿cuál de las siguientes inferencias es correcta?",
+        opts:{"A":"Las plantas acuáticas no realizan fotosíntesis durante la noche.","B":"Los peces consumen O₂ durante la noche, lo que explica la menor concentración en el Acuario B.","C":"Los peces realizan fotosíntesis durante el día, aumentando la concentración de O₂.","D":"La concentración de O₂ solo depende de la temperatura del agua, no de los organismos presentes."},
+        c:"B",
+        fb:{"A":"Esta es una afirmación correcta (las plantas sólo fotosintentizan con luz), pero no explica la diferencia entre acuarios.","B":"✅ Correcto. La única diferencia entre los acuarios es la presencia de peces. La menor [O₂] nocturna en B se explica por el consumo de O₂ de los peces (respiración), que continúa de noche.","C":"Los peces no realizan fotosíntesis; solo respiran. Esta opción es incorrecta.","D":"La tabla muestra claramente que ambos acuarios difieren en la [O₂] nocturna; la temperatura no está en los datos."}
+      }
+    ]
+  },
+  { hid:4, icon:"⚖️", name:"Evaluar", color:"var(--h4c)", n:13,
+    qs:[
+      { ref:"🤖 Pregunta creada · pendiente revisión docente",
+        ctx:"Un grupo de estudiantes quiere determinar si el tipo de agua (potable, destilada, salada) afecta la germinación de semillas de poroto. Colocan 10 semillas en cada tipo de agua, pero usan macetas de distinto tamaño y las ubican en distintos lugares de la sala con diferente cantidad de luz.",
+        q:"¿Cuál es un error de procedimiento que impide cumplir con el objetivo?",
+        opts:{"A":"Usar 10 semillas por grupo.","B":"Usar el mismo tipo de semilla en los tres grupos.","C":"Exponer los grupos a distinta cantidad de luz y usar macetas de distinto tamaño.","D":"Registrar los resultados de germinación de cada grupo."},
+        c:"C",
+        fb:{"A":"Usar 10 semillas por grupo es una decisión metodológica razonable, no un error.","B":"Usar el mismo tipo de semilla es un control correcto, no un error.","C":"✅ Correcto. Al variar también la luz y el tamaño de maceta, no se puede saber si el efecto se debe al tipo de agua o a estas diferencias no controladas.","D":"Registrar resultados es parte necesaria del procedimiento, no un error."}
+      },
+      { ref:"🤖 Pregunta creada · pendiente revisión docente",
+        ctx:"En individuos machos de una especie en peligro de extinción se describen anomalías en el contenido del acrosoma de sus espermatozoides. Un grupo de investigadoras probó un nuevo fármaco en UN solo individuo, con resultado de mejora acrosomal. Un comité de revisión rechazó el estudio, señalando baja confiabilidad del protocolo.",
+        q:"¿Cuál de las siguientes opciones presenta una acción que permite superar la deficiencia por la que se rechazó el estudio?",
+        opts:{"A":"Evaluar el fármaco en individuos de otra especie.","B":"Evaluar el fármaco en individuos sin problemas acrosomales.","C":"Evaluar el fármaco en individuos sin problemas de conservación biológica.","D":"Evaluar el fármaco en un número mayor de individuos de la misma especie."},
+        c:"D",
+        fb:{"A":"Cambiar la especie cambia el contexto del estudio original.","B":"Evaluar en individuos sanos no prueba si el fármaco mejora el problema acrosomal.","C":"Cambiar la condición de conservación no aborda la baja confiabilidad.","D":"✅ Correcto. La confiabilidad baja porque el estudio se hizo en solo 1 individuo. Probar en más individuos permite replicar y aumenta la confiabilidad."}
+      },
+      { ref:"🤖 Pregunta creada · pendiente revisión docente",
+        ctx:"Un equipo médico reporta el caso de una paciente con una enfermedad autoinmune que mostró remisión de síntomas tras un trasplante de médula ósea. La paciente continuó usando su tratamiento inmunosupresor habitual durante el proceso.",
+        q:"¿Cuál de las siguientes opciones corresponde a una evidencia que permitiría corroborar la efectividad del trasplante como tratamiento?",
+        opts:{"A":"Una remisión similar de síntomas tanto con el inmunosupresor como con el trasplante.","B":"Una remisión de síntomas que se mantiene incluso al suspender el inmunosupresor tras el trasplante.","C":"Una mejora sostenida de síntomas usando el inmunosupresor después del trasplante.","D":"Una mejora de síntomas registrada antes del trasplante, usando solo el inmunosupresor."},
+        c:"B",
+        fb:{"A":"Si ambos tratamientos dan igual resultado, no se puede atribuir el efecto solo al trasplante.","B":"✅ Correcto. Que la remisión se mantenga SIN el inmunosupresor aísla el efecto del trasplante.","C":"Esto solo demuestra que el inmunosupresor funciona, no el trasplante.","D":"Una mejora antes del trasplante solo evalúa el inmunosupresor."}
+      }
+    ]
+  },
+  { hid:5, icon:"💬", name:"Comunicar", color:"var(--h5c)", n:6,
+    qs:[
+      { ref:"Pregunta original",
+        ctx:"Una estudiante midió la temperatura de 5 soluciones distintas cada 30 segundos durante 10 minutos. Quiere presentar los resultados de manera que se pueda comparar cómo cambia la temperatura de cada solución a lo largo del tiempo.",
+        q:"¿Cuál de los siguientes recursos es el más adecuado para comunicar estos resultados?",
+        opts:{"A":"Una tabla con todos los valores de temperatura registrados para cada solución y cada momento.","B":"Un gráfico de líneas con el tiempo en el eje X y la temperatura en el eje Y, con una línea por solución.","C":"Un diagrama de barras con la temperatura promedio de cada solución.","D":"Un diagrama de flujo con los pasos del procedimiento experimental."},
+        c:"B",
+        fb:{"A":"La tabla muestra datos precisos, pero no permite visualizar fácilmente tendencias en el tiempo.","B":"✅ Correcto. El gráfico de líneas es ideal para mostrar cambios en el tiempo y comparar varias series simultáneamente.","C":"El diagrama de barras sirve para comparar categorías, no para mostrar evolución temporal.","D":"El diagrama de flujo representa pasos de un proceso, no resultados cuantitativos."}
+      },
+      { ref:"Pregunta original",
+        ctx:"Una investigadora mide la tasa de fotosíntesis (μmol O₂/hora) de una planta a distintas concentraciones de CO₂: 200, 400, 600 y 800 ppm. Quiere presentar los datos de modo que se pueda observar la tendencia entre la concentración de CO₂ y la tasa fotosintética.",
+        q:"¿Cuál recurso es el más adecuado?",
+        opts:{"A":"Una tabla con las concentraciones de CO₂ y las tasas fotosintéticas correspondientes.","B":"Un gráfico de líneas con la concentración de CO₂ en el eje X y la tasa fotosintética en el eje Y.","C":"Un diagrama de flujo del proceso de fotosíntesis.","D":"Un gráfico circular mostrando el porcentaje de cada concentración de CO₂."},
+        c:"B",
+        fb:{"A":"La tabla permite ver valores exactos, pero no visualiza la tendencia de la relación entre variables.","B":"✅ Correcto. El gráfico de líneas muestra claramente la tendencia (relación continua) entre la concentración de CO₂ y la tasa fotosintética.","C":"El diagrama de flujo representa procesos, no resultados cuantitativos.","D":"El gráfico circular muestra proporciones de un total, no relaciones entre variables continuas."}
+      },
+      { ref:"Pregunta original",
+        ctx:"Un grupo de estudiantes registró el número de especies de aves observadas en 4 ecosistemas diferentes: bosque nativo (42 especies), pradera (18 especies), humedal (31 especies) y desierto (9 especies). Quieren comunicar sus resultados de modo que sea fácil comparar la cantidad de especies entre ecosistemas.",
+        q:"¿Qué recurso es el más adecuado?",
+        opts:{"A":"Un gráfico de líneas con los ecosistemas en el eje X y el número de especies en el eje Y.","B":"Un diagrama de dispersión entre los ecosistemas y las especies.","C":"Un gráfico de barras con el número de especies por ecosistema.","D":"Un gráfico circular con la proporción de cada ecosistema respecto al total."},
+        c:"C",
+        fb:{"A":"El gráfico de líneas se usa para tendencias continuas en el tiempo; los ecosistemas son categorías discretas.","B":"El diagrama de dispersión se usa para mostrar correlación entre dos variables numéricas.","C":"✅ Correcto. El gráfico de barras es ideal para comparar valores entre categorías discretas (ecosistemas). Permite visualizar rápidamente cuál tiene más o menos especies.","D":"El gráfico circular muestra proporciones; en este caso interesa comparar cantidades absolutas."}
+      }
+    ]
+  }
+];
+
+// ── BUILD PRACTICE ──
+function buildPractice() {
+  var cont = document.getElementById("prac-container");
+  cont.innerHTML = "";
+  PG.forEach(function(g, gi) {
+    var sec = document.createElement("div");
+    sec.className = "prac-group";
+    sec.id = "pg"+gi;
+    var hdr = document.createElement("div");
+    hdr.className = "prac-group-hdr";
+    hdr.style.borderLeft = "4px solid "+g.color;
+    hdr.innerHTML = "<div class='gi'>" + g.icon + "</div>" +
+      "<div><div class='gname' style='color:"+g.color+"'>" + "H"+g.hid+" · "+g.name + "</div>" +
+      "<div style='font-size:.8rem;color:var(--text-dim)'>3 preguntas</div></div>" +
+      "<div class='gscore' id='gs"+gi+"'></div>";
+    sec.appendChild(hdr);
+    g.qs.forEach(function(q, qi) {
+      var qel = document.createElement("div");
+      qel.className = "pq" + (qi===0?" show":"");
+      qel.id = "pq-"+gi+"-"+qi;
+      var ctxLines = q.ctx.replace(/\n/g,"<br>");
+      var optsHtml = "";
+      ["A","B","C","D"].forEach(function(l) {
+        optsHtml += "<div class='paes-opt' id='po-"+gi+"-"+qi+"-"+l+"' onclick='pAns("+gi+","+qi+",\""+l+"\")'>"+
+          "<div class='ol'>"+l+"</div><div class='ot'>"+q.opts[l]+"</div></div>";
+      });
+      qel.innerHTML = "<div class='pq-ref c-h"+g.hid+"' style='color:"+g.color+"'>" + q.ref + "</div>" +
+        "<div class='pq-ctx'>" + ctxLines + "</div>" +
+        "<div class='pq-q'>" + q.q + "</div>" +
+        "<div class='pq-opts' id='po-group-"+gi+"-"+qi+"'>" + optsHtml + "</div>" +
+        "<div class='paes-fb' id='pfb-"+gi+"-"+qi+"'></div>" +
+        "<button class='nxt-q' id='nq-"+gi+"-"+qi+"' onclick='nextQ("+gi+","+qi+")'>Siguiente →</button>";
+      sec.appendChild(qel);
+    });
+    cont.appendChild(sec);
+  });
+}
+buildPractice();
+
+// PAES score table
+var ST = [100,143,165,186,206,224,239,254,269,284,299,311,322,331,341,351,364,377,389,400,407,413,419,425,433,444,456,469,480,488,494,498,502,506,512,521,531,544,556,567,574,580,584,587,592,598,606,617,630,642,652,660,666,671,676,683,693,705,718,730,741,750,758,767,779,792,807,821,835,849,865,882,901,922,944,1000];
+var pScores = {}; // gi: {correct:0, total:3}
+PG.forEach(function(g,gi){ pScores[gi]={c:0,t:0}; });
+var doneGroups = 0;
+
+function pAns(gi, qi, opt) {
+  var opts = document.getElementById("po-group-"+gi+"-"+qi);
+  if(opts.dataset.done) return;
+  opts.dataset.done = "1";
+  var q = PG[gi].qs[qi];
+  var correct = (opt === q.c);
+  pScores[gi].t++;
+  if(correct) pScores[gi].c++;
+  opts.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l = o.querySelector(".ol").textContent;
+    if(l === q.c) o.classList.add("right");
+    else if(l === opt) o.classList.add("wrong");
+  });
+  var fb = document.getElementById("pfb-"+gi+"-"+qi);
+  fb.className = "paes-fb show " + (correct?"ok":"no");
+  fb.textContent = q.fb[opt];
+  // show next button
+  var nqBtn = document.getElementById("nq-"+gi+"-"+qi);
+  if(qi < 2) {
+    nqBtn.textContent = "Siguiente pregunta →";
+    nqBtn.style.display = "inline-block";
+  } else {
+    // last question in group
+    nqBtn.style.display = "none";
+    finishGroup(gi);
+  }
+}
+
+function nextQ(gi, qi) {
+  document.getElementById("nq-"+gi+"-"+qi).style.display = "none";
+  var nextEl = document.getElementById("pq-"+gi+"-"+(qi+1));
+  if(nextEl){ nextEl.classList.add("show"); nextEl.scrollIntoView({behavior:"smooth",block:"start"}); }
+}
+
+function finishGroup(gi) {
+  doneGroups++;
+  var sc = pScores[gi];
+  var icons = ["","",""]; for(var i=0;i<3;i++){ icons[i]=(i<sc.c?"✅":"❌"); }
+  document.getElementById("gs"+gi).innerHTML = icons.join(" ") + " <span style='color:"+(sc.c>=2?"var(--verde)":"var(--rojo)")+"'>" + sc.c+"/3" + "</span>";
+  if(doneGroups >= PG.length) {
+    setTimeout(function(){ showFinalResults(); }, 600);
+  }
+}
+
+function showFinalResults() {
+  document.getElementById("final-results").style.display = "block";
+  var rows = document.getElementById("res-rows");
+  rows.innerHTML = "";
+  var totalLost = 0;
+  var badList = [];
+  PG.forEach(function(g, gi) {
+    var sc = pScores[gi];
+    var pct = sc.c / 3;
+    var ok = (sc.c >= 2);
+    if(!ok){ totalLost += g.n; badList.push(g.icon+" "+g.name); }
+    var ptsRisk = ok ? 0 : (1000 - ST[Math.max(0, 75-g.n)]);
+    var row = document.createElement("div");
+    row.className = "res-item";
+    row.style.borderLeft = "4px solid " + (ok?"var(--verde)":"var(--rojo)");
+    row.innerHTML = "<div style='font-size:1.3rem'>"+(ok?"✅":"❌")+"</div>" +
+      "<div style='flex:1'><div style='font-weight:800;font-size:.9rem'>"+g.icon+" "+g.name+"</div>" +
+      "<div class='"+(ok?"res-ok-txt":"res-bad-txt")+"'>"+(ok?"Bien manejada — "+sc.c+"/3 correctas":"Necesita refuerzo — "+sc.c+"/3 correctas · ~"+g.n+" preguntas PAES")+"</div></div>"+
+      (ok?"":"<div class='res-pts-txt'>⚠️ ~"+ptsRisk+" pts</div>");
+    rows.appendChild(row);
+  });
+  var sum = document.getElementById("res-summary");
+  if(badList.length===0){
+    sum.innerHTML = "<h3>🏆 ¡Resultado excelente!</h3><p>Respondiste correctamente la mayoría de las preguntas en todas las habilidades. Estás en muy buen camino para la PAES.</p><p>Sigue practicando con preguntas reales para consolidar tu nivel antes del día de la prueba.</p>";
+  } else {
+    var maxLost = 1000 - ST[Math.max(0,75-totalLost)];
+    sum.innerHTML = "<h3>📋 Tu plan de acción</h3>" +
+      "<p>Las habilidades que necesitas reforzar representan aproximadamente <strong>"+totalLost+" preguntas</strong> de las 75 evaluadas.</p>" +
+      "<p>Sin dominarlas, podrías perder hasta <strong style='color:#fbbf24;font-size:1.1rem'>~"+Math.min(maxLost,900)+" puntos PAES</strong>.</p>" +
+      "<p style='color:var(--verde);margin-top:10px'><strong>Recomendación:</strong> Vuelve a revisar las secciones de " + badList.join(" y ") + " antes de continuar con el contenido temático.</p>";
+  }
+  document.getElementById("final-results").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// CAMBIAR ESTA URL cuando exista el backend propio del profesor a cargo.
+// Mientras tanto, apunta directo a la API de Anthropic para poder
+// probar el asistente dentro de este entorno.
+var TUTOR_ENDPOINT = "https://api.anthropic.com/v1/messages";
+// -------------------------------------------------------------------
+
+var SYSTEM_PROMPT = `Eres el asistente de estudio de la Unidad 0 (Habilidades Científicas) del módulo PAES Ciencias - Biología de la plataforma PAES Karuy.
+
+ALCANCE: SOLO puedes ayudar con las 5 habilidades científicas evaluadas en la PAES Ciencias en el contexto de Biología:
+1. Observar y plantear preguntas (hipótesis, preguntas de investigación)
+2. Planificar y conducir una investigación (variables independiente/dependiente/controlada, objetivo, diseño experimental, componentes)
+3. Procesar y analizar la evidencia (conclusiones, inferencias, lectura de tablas/gráficos)
+4. Evaluar (validez, confiabilidad, coherencia, errores de procedimiento)
+5. Comunicar (elegir el recurso visual adecuado: tabla, gráfico de líneas, de barras, circular, diagrama de flujo)
+
+Si el estudiante pregunta algo fuera de estos temas (otra asignatura, temas personales no relacionados, contenido de física/química que no sea el ejemplo usado como ejercicio), responde amablemente que solo puedes ayudar con el contenido de esta unidad y sugiere que revise el módulo correspondiente.
+
+REGLAS:
+- Nunca entregues directamente la alternativa correcta de una pregunta de "Práctica guiada" o de los recuadros de ejemplo (paes-box) si el estudiante aún no ha respondido esa pregunta específica en el módulo. En su lugar, guíalo con preguntas socráticas para que razone hacia la respuesta.
+- Si ya respondió la pregunta (indícale que puede pegar el enunciado o decirte cuál era), sí puedes explicar por qué la alternativa es correcta o incorrecta.
+- Las preguntas de práctica que generes en modo "Más práctica" son SIEMPRE nuevas, originales, y debes indicar explícitamente que son "🤖 generadas por IA, no son preguntas reales de la PAES".
+- No reproduzcas preguntas reales de folletos DEMRE; todo el contenido que generes debe ser original.
+- Si el estudiante expresa angustia, estrés extremo o malestar emocional relacionado con la PAES, valida brevemente cómo se siente, sugiere que hable con un profesor, orientador o adulto de confianza, y luego ofrece retomar el contenido si quiere.
+- Mantén un tono cercano, breve y claro, adecuado para un estudiante de enseñanza media chileno.
+- Si te piden generar contenido de otra unidad o módulo que no conoces en detalle, dilo con honestidad en vez de inventar.`;
+
+var tutorHistory = [];
+var tutorOpen = false;
+
+window.toggleTutor = function() {
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  document.getElementById("tutorDot").style.display = "none";
+};
+
+function tutorAppendMsg(role, text) {
+  var wrap = document.getElementById("tutorMsgs");
+  var div = document.createElement("div");
+  div.className = "tutor-msg " + role;
+  div.textContent = text;
+  if(role === "bot") {
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "Reportar esta respuesta";
+    rep.onclick = function(){ tutorReport(text); };
+    div.appendChild(document.createElement("br"));
+    div.appendChild(rep);
+  }
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+  return div;
+}
+
+function tutorTyping(show) {
+  var wrap = document.getElementById("tutorMsgs");
+  var existing = document.getElementById("tutorTypingEl");
+  if(show && !existing) {
+    var t = document.createElement("div");
+    t.className = "tutor-typing";
+    t.id = "tutorTypingEl";
+    t.innerHTML = "<span></span><span></span><span></span>";
+    wrap.appendChild(t);
+    wrap.scrollTop = wrap.scrollHeight;
+  } else if(!show && existing) {
+    existing.remove();
+  }
+}
+
+function tutorReport(msgText) {
+  var report = {
+    unidad: "U0 Habilidades Científicas - Biología",
+    fecha: new Date().toISOString(),
+    mensaje_reportado: msgText,
+    historial: tutorHistory
+  };
+  var blob = new Blob([JSON.stringify(report, null, 2)], {type:"application/json"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "reporte_asistente_u0_biologia_" + Date.now() + ".json";
+  a.click();
+}
+
+async function tutorCallAPI(userText) {
+  tutorHistory.push({role:"user", content:userText});
+  tutorTyping(true);
+  document.getElementById("tutorSendBtn").disabled = true;
+  try {
+    var res = await fetch(TUTOR_ENDPOINT, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
+        messages: tutorHistory
+      })
+    });
+    var data = await res.json();
+    var text = (data.content || []).map(function(b){ return b.text || ""; }).join("\n") || "No pude generar una respuesta. Intenta de nuevo.";
+    tutorHistory.push({role:"assistant", content:text});
+    tutorTyping(false);
+    tutorAppendMsg("bot", text);
+  } catch(e) {
+    tutorTyping(false);
+    tutorAppendMsg("system", "⚠️ No se pudo conectar con el asistente. Intenta nuevamente en unos segundos.");
+  }
+  document.getElementById("tutorSendBtn").disabled = false;
+}
+
+window.tutorSend = function() {
+  var input = document.getElementById("tutorInput");
+  var val = input.value.trim();
+  if(!val) return;
+  tutorAppendMsg("user", val);
+  input.value = "";
+  tutorCallAPI(val);
+};
+
+window.tutorQuickMode = function(mode) {
+  var prompts = {
+    explicar: "Explícame de otra forma, con una analogía distinta, el concepto de la habilidad científica en la que estoy en este momento.",
+    practica: "Genera una nueva pregunta de práctica 🤖 (original, no real) sobre la habilidad científica en la que estoy trabajando, con contexto de biología, 4 alternativas y luego dime cuál es la correcta y por qué cuando yo responda.",
+    corregir: "Quiero que corrijas mi razonamiento. Te voy a escribir mi respuesta a una pregunta de esta unidad y quiero que me ayudes con el método socrático, sin darme la respuesta directamente."
+  };
+  tutorAppendMsg("user", prompts[mode]);
+  tutorCallAPI(prompts[mode]);
+};
+
+})();
+</script>
+</body>
+</html>

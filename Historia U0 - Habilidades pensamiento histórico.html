@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 0 – Habilidades de Pensamiento Histórico · PAES Historia y Ciencias Sociales</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dorado:#d4a24c;--dorado-dark:#a97c2f;--dorado-glow:rgba(212,162,76,.15);
+  --sepia:#c17a3d;--azul:#3498db;--morado:#9b59b6;--naranja:#e67e22;
+  --amarillo:#f1c40f;--rojo:#e74c3c;--cyan:#22d3ee;
+  --bg:#140f08;--card:#1e1710;--card2:#2a2013;
+  --text:#f3e8d4;--text-dim:#b8a37e;--radius:18px;
+  --h1c:#d4a24c;--h2c:#38bdf8;--h3c:#f87171;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 8% 15%,rgba(212,162,76,.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 25% 60%,rgba(255,255,255,.15) 0%,transparent 100%),
+    radial-gradient(1px 1px at 55% 8%,rgba(212,162,76,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 72% 40%,rgba(255,255,255,.13) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 75%,rgba(212,162,76,.22) 0%,transparent 100%),
+    radial-gradient(1px 1px at 40% 85%,rgba(255,255,255,.12) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--dorado),var(--sepia));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(2rem,7vw,3.8rem);
+  background:linear-gradient(135deg,var(--dorado),var(--sepia),var(--dorado));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(212,162,76,.12);border:1.5px solid rgba(212,162,76,.35);color:var(--dorado);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.08);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.8rem;padding:8px 14px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover{border-color:var(--dorado);color:var(--dorado);transform:translateY(-2px)}
+.nav-btn.active{background:var(--dorado-glow);border-color:var(--dorado);color:var(--dorado)}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.4rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.98rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--sepia));border:none;color:#1a1206;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(212,162,76,.4);z-index:250;display:flex;align-items:center;justify-content:center}
+.tutor-fab .dot{position:absolute;top:6px;right:6px;width:9px;height:9px;border-radius:50%;background:#fbbf24;display:none}
+.tutor-panel{position:fixed;bottom:142px;right:18px;width:min(360px,92vw);height:min(480px,62vh);background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.5);z-index:250;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+.tutor-head{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 16px;background:var(--card2);border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:var(--dorado)}
+.tutor-head p{font-size:.76rem;color:var(--text-dim);margin-top:2px}
+.tutor-close{background:none;border:none;color:var(--text-dim);font-size:1.1rem;cursor:pointer}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--dorado);color:var(--dorado)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--dorado);color:#1a1206;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.07);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:rgba(212,162,76,.1);color:var(--text-dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--dorado)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--dorado)}
+.tutor-send{background:var(--dorado);border:none;color:#1a1206;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){.tutor-panel{right:8px;bottom:136px;width:94vw;height:56vh}.tutor-fab{right:12px;bottom:74px}}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:700;color:var(--text-dim);display:inline-flex;align-items:center;gap:6px}
+.stat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:16px 0}
+@media(max-width:500px){.stat-row{grid-template-columns:1fr}}
+.stat-box{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:22px 16px;text-align:center}
+.stat-num{font-family:"Fredoka One",cursive;font-size:clamp(2.4rem,7vw,4.2rem);color:var(--dorado);line-height:1}
+.stat-lbl{font-size:.88rem;color:var(--text-dim);margin-top:6px;font-weight:700}
+.h-header{border-radius:var(--radius);padding:28px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:54px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.7rem,5vw,2.7rem);line-height:1.1}
+.h-header p{font-size:.98rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--dorado);background:rgba(212,162,76,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--dorado);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65}
+.tip-box p strong{color:var(--text)}
+.kw-grid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.kw{border-radius:8px;padding:6px 12px;font-size:.82rem;font-weight:800;display:inline-flex;align-items:center}
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.paes-context{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-context table{width:100%;border-collapse:collapse;margin-top:8px}
+.paes-context th,.paes-context td{padding:6px 10px;font-size:.83rem;border-bottom:1px solid rgba(255,255,255,.07);text-align:left}
+.paes-context th{font-size:.73rem;letter-spacing:.04em}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.paes-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--dorado);flex-shrink:0}
+.paes-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.paes-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(212,162,76,.12);color:#f3d896;border-left:3px solid var(--dorado)}
+.paes-fb.no{background:rgba(231,76,60,.08);color:#fca5a5;border-left:3px solid var(--rojo)}
+.c-h1{color:var(--h1c)!important}.c-h2{color:var(--h2c)!important}.c-h3{color:var(--h3c)!important}
+.bg-h1{background:rgba(212,162,76,.1)!important}.bg-h2{background:rgba(56,189,248,.1)!important}
+.bg-h3{background:rgba(248,113,113,.1)!important}
+.recap-grid{display:flex;flex-direction:column;gap:12px}
+.recap-row{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 18px}
+.recap-num{font-family:"Fredoka One",cursive;font-size:1.6rem;min-width:36px;text-align:center}
+.recap-info h3{font-family:"Fredoka One",cursive;font-size:1.1rem}
+.recap-info p{font-size:.85rem;color:var(--text-dim);margin-top:2px;line-height:1.5}
+/* PRACTICE */
+.prac-group{margin-bottom:24px}
+.prac-group-hdr{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.prac-group-hdr .gi{font-size:1.5rem}
+.prac-group-hdr .gname{font-family:"Fredoka One",cursive;font-size:1.1rem}
+.prac-group-hdr .gscore{margin-left:auto;font-size:.85rem;font-weight:800}
+.pq{display:none;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:10px}
+.pq.show{display:block;animation:fadeUp .3s ease}
+.pq-ref{font-size:.68rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;margin-bottom:8px;opacity:.7}
+.pq-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 13px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.pq-ctx table{width:100%;border-collapse:collapse;margin-top:6px}
+.pq-ctx th,.pq-ctx td{padding:5px 8px;font-size:.8rem;border-bottom:1px solid rgba(255,255,255,.06);text-align:left}
+.pq-ctx th{font-size:.7rem;letter-spacing:.04em}
+.pq-q{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pq-opts{display:flex;flex-direction:column;gap:7px}
+.nxt-q{margin-top:12px;padding:8px 22px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:"Fredoka One",cursive;font-size:.95rem;cursor:pointer;display:none}
+.nxt-q:hover{background:#c18e39}
+/* RESULTS */
+#final-results{display:none;margin-top:20px}
+.res-hdr{font-family:"Fredoka One",cursive;font-size:1.8rem;color:var(--dorado);margin-bottom:4px}
+.res-sub{font-size:.9rem;color:var(--text-dim);margin-bottom:18px}
+.res-item{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:12px 16px;margin-bottom:8px}
+.res-ok-txt{color:#f3d896;font-size:.82rem}.res-bad-txt{color:#fca5a5;font-size:.82rem}
+.res-pts-txt{font-size:.82rem;font-weight:800;color:#fbbf24;white-space:nowrap;margin-left:auto}
+.res-summary-box{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:20px}
+.res-summary-box h3{font-family:"Fredoka One",cursive;font-size:1.2rem;color:var(--dorado);margin-bottom:10px}
+.res-summary-box p{font-size:.9rem;color:var(--text-dim);line-height:1.7;margin-bottom:8px}
+.res-summary-box strong{color:var(--text)}
+/* LINEAR NAV */
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(20,15,8,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.08);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(212,162,76,.35);background:transparent;color:var(--dorado);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--dorado-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#5c4a2a}
+</style>
+</head>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:14%"></div></div>
+
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">🏛️</span>
+  <h1>Habilidades de Pensamiento Histórico</h1>
+  <p>PAES Historia y Ciencias Sociales · Unidad 0</p>
+  <div class="badge">📜 Admisión 2027</div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('importa',1,this)">❓ ¿Por qué?</button>
+  <button class="nav-btn" onclick="showSec('h1',2,this)">🕰️ Temporal</button>
+  <button class="nav-btn" onclick="showSec('h2',3,this)">📜 Fuentes</button>
+  <button class="nav-btn" onclick="showSec('h3',4,this)">🧠 Crítico</button>
+  <button class="nav-btn" onclick="showSec('resumen',5,this)">✅ Resumen</button>
+  <button class="nav-btn" onclick="showSec('practica',6,this)">🎯 Práctica</button>
+</div>
+
+<!-- PORTADA -->
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title" style="justify-content:center;color:var(--dorado);font-size:1.7rem">👋🏼 ¡Bienvenida a la Unidad 0!</p>
+    <p style="font-size:1.05rem;max-width:560px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Antes de entrar a los contenidos de Historia, necesitas conocer las <strong>3 habilidades transversales</strong> que se evalúan en <em>cada pregunta</em> de la PAES Historia y Ciencias Sociales.</p>
+    <div class="chips" style="justify-content:center;margin:0 0 26px">
+      <span class="chip" style="color:var(--h1c);border-color:rgba(212,162,76,.3)">🕰️ Pensamiento temporal y espacial</span>
+      <span class="chip" style="color:var(--h2c);border-color:rgba(56,189,248,.3)">📜 Análisis de fuentes de información</span>
+      <span class="chip" style="color:var(--h3c);border-color:rgba(248,113,113,.3)">🧠 Pensamiento crítico</span>
+    </div>
+    <p style="font-size:.9rem;color:var(--text-dim)">Usa el menú de arriba o las flechas de abajo para navegar 👇</p>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--dorado)">
+      <p class="card-title" style="color:var(--dorado)">🎯 ¿Qué vas a aprender?</p>
+      <ul>
+        <li>Qué es cada habilidad y cómo se define</li>
+        <li>Cómo <strong>reconocerlas</strong> en las preguntas de la PAES</li>
+        <li>Las palabras clave para identificarlas rápidamente</li>
+        <li>Cómo aplicarlas sobre fuentes, mapas, gráficos y textos históricos</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--sepia)">
+      <p class="card-title" style="color:var(--sepia)">📌 ¿Para qué sirve esto?</p>
+      <ul>
+        <li>Las habilidades son el <strong>formato</strong> de toda la prueba</li>
+        <li>Conocerlas te permite <strong>saber qué te piden</strong> antes de leer la fuente</li>
+        <li>Son transversales: se aplican en <strong>las 65 preguntas</strong>, sobre cualquier eje temático</li>
+        <li>Identificarlas bien te ahorra tiempo y evita errores por confusión de lo que se pide</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- POR QUÉ IMPORTA -->
+<div class="section" id="importa">
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">❓ ¿Por qué necesitas dominar estas habilidades?</p>
+    <p>La PAES Historia y Ciencias Sociales no evalúa solo <em>qué recuerdas</em> de un proceso histórico. Evalúa <strong>cómo piensas históricamente</strong>: cómo ubicas los hechos en el tiempo y el espacio, cómo lees e interpretas fuentes, y cómo razonas frente a la complejidad de los fenómenos sociales.</p>
+  </div>
+  <div class="stat-row">
+    <div class="stat-box"><div class="stat-num">65</div><div class="stat-lbl">preguntas en total</div></div>
+    <div class="stat-box"><div class="stat-num">60</div><div class="stat-lbl">se usan para tu puntaje final</div></div>
+    <div class="stat-box"><div class="stat-num" style="font-size:clamp(1.7rem,5vw,3rem)">2 hrs</div><div class="stat-lbl">duración de la prueba</div></div>
+    <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">habilidades en cada pregunta</div></div>
+  </div>
+  <div class="card">
+    <p class="card-title" style="color:var(--amarillo)">🗂️ ¿Cómo está organizada la prueba?</p>
+    <p style="margin-bottom:14px">A diferencia de otras pruebas, Historia y Ciencias Sociales es <strong>un único módulo</strong> (no tiene común + electivo). Sus 65 preguntas se distribuyen en 3 ejes temáticos:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
+      <div style="background:var(--card2);border-radius:12px;padding:16px;border-left:4px solid var(--dorado)">
+        <p style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--dorado);margin-bottom:6px">Historia 🏛️</p>
+        <p style="font-size:.87rem">Mundo, América y Chile. El eje más extenso: siglo XIX, primera y segunda mitad del siglo XX.</p>
+      </div>
+      <div style="background:var(--card2);border-radius:12px;padding:16px;border-left:4px solid var(--azul)">
+        <p style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--azul);margin-bottom:6px">Formación ciudadana 🗳️</p>
+        <p style="font-size:.87rem">Instituciones, derechos y deberes, participación democrática.</p>
+      </div>
+      <div style="background:var(--card2);border-radius:12px;padding:16px;border-left:4px solid var(--sepia)">
+        <p style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--sepia)">Sistema económico 📈</p>
+        <p style="font-size:.87rem">Conceptos económicos básicos y su relación con procesos sociales.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title" style="color:var(--h3c)">🧭 Las 3 habilidades no son "un bloque más"</p>
+    <p>No hay preguntas exclusivas de "habilidades" separadas del contenido: <strong>las 3 habilidades se aplican dentro de las 65 preguntas</strong>, cruzadas con los 3 ejes temáticos. Cada pregunta te pide leer una fuente, ubicar un proceso en el tiempo/espacio, o razonar críticamente sobre datos — casi siempre usando contenido de Historia, Formación Ciudadana o Economía como excusa.</p>
+    <p style="margin-top:10px">Por eso esta unidad es la base: dominar estas 3 habilidades antes de entrar a los contenidos te permite reconocer <strong>qué te están pidiendo</strong> apenas lees la pregunta, sin perder tiempo.</p>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">💡 Conclusión clave</div>
+    <p>Estas habilidades se vuelven a practicar en <strong>cada unidad de contenido</strong> del módulo, dentro de la práctica guiada y los mini ensayos. Esta Unidad 0 es tu primera exposición — no necesitas dominarlas al 100% todavía, solo reconocerlas.</p>
+  </div>
+</div>
+
+<!-- H1: TEMPORAL Y ESPACIAL -->
+<div class="section" id="h1">
+  <div class="h-header bg-h1" style="border:1.5px solid rgba(212,162,76,.3)">
+    <span class="icon">🕰️</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--h1c);margin-bottom:4px">Habilidad 1 de 3</div>
+    <h2 class="c-h1">Pensamiento temporal y espacial</h2>
+    <p>Ubicar y comprender los procesos y acontecimientos en el tiempo y el espacio geográfico, e interpretar sus representaciones (líneas de tiempo, mapas, cartogramas).</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title c-h1">📖 ¿En qué consiste?</p>
+      <p>Implica manejar las <strong>nociones temporales</strong> básicas de la Historia: en qué periodo ocurre algo, cuánto duró, qué pasó antes/después/al mismo tiempo, y a qué velocidad cambió. También implica leer <strong>mapas, cartogramas y gráficos territoriales</strong> para entender cómo se distribuyen los fenómenos en el espacio.</p>
+      <p style="margin-top:10px">No se te pide memorizar fechas exactas: se te da la información temporal y tú debes <strong>razonar sobre relaciones entre periodos y procesos</strong>.</p>
+    </div>
+    <div class="card">
+      <p class="card-title c-h1">🔍 Cómo reconocerla en la PAES</p>
+      <p style="margin-bottom:10px">La pregunta suele decir:</p>
+      <ul>
+        <li><strong>"¿En qué periodo se enmarca...?"</strong></li>
+        <li><strong>"¿Qué proceso es simultáneo/posterior a...?"</strong></li>
+        <li><strong>"Según el mapa/cartograma, ¿cómo se distribuye...?"</strong></li>
+        <li><strong>"¿Qué elemento de continuidad/cambio se observa entre...?"</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title c-h1">🗝️ Las 5 nociones clave</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--h1c)"><div style="font-weight:900;color:var(--h1c);font-size:.85rem;margin-bottom:4px">Periodización</div><p style="font-size:.82rem">Dividir el tiempo histórico en etapas según un criterio (político, económico, cultural).</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--azul)"><div style="font-weight:900;color:var(--azul);font-size:.85rem;margin-bottom:4px">Duración</div><p style="font-size:.82rem">Cuánto tiempo se extiende un proceso o acontecimiento.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--sepia)"><div style="font-weight:900;color:var(--sepia);font-size:.85rem;margin-bottom:4px">Sucesión</div><p style="font-size:.82rem">Orden en que ocurren los hechos, uno después de otro.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--morado)"><div style="font-weight:900;color:var(--morado);font-size:.85rem;margin-bottom:4px">Simultaneidad</div><p style="font-size:.82rem">Hechos distintos que ocurren <em>al mismo tiempo</em>, en lugares distintos.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--naranja)"><div style="font-weight:900;color:var(--naranja);font-size:.85rem;margin-bottom:4px">Ritmo de cambio</div><p style="font-size:.82rem">Velocidad del cambio: abrupto (revolución) o gradual (transformación lenta).</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--rojo)"><div style="font-weight:900;color:var(--rojo);font-size:.85rem;margin-bottom:4px">Continuidad y cambio</div><p style="font-size:.82rem">Qué se mantiene y qué se transforma entre un periodo y otro.</p></div>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw c-h1" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">periodo</span>
+    <span class="kw c-h1" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">simultáneo</span>
+    <span class="kw c-h1" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">duración</span>
+    <span class="kw c-h1" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">continuidad y cambio</span>
+    <span class="kw c-h1" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">distribución geográfica</span>
+    <span class="kw c-h1" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">cartograma</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h1">🤖 Pregunta generada · revisada por docente</div>
+    <div class="paes-context">Un historiador propone la siguiente periodización para la historia de Chile independiente: <strong>"Organización de la República (1830-1861)"</strong>, <strong>"Apogeo liberal-parlamentario (1861-1925)"</strong> y <strong>"Presidencialismo del siglo XX (1925-1973)"</strong>.</div>
+    <p class="paes-q">¿Qué criterio utiliza principalmente esta periodización?</p>
+    <div class="paes-opts" id="q1">
+      <div class="paes-opt" onclick="ans('q1','A')"><div class="ol">A</div><div class="ot">La evolución del sistema y las instituciones políticas.</div></div>
+      <div class="paes-opt" onclick="ans('q1','B')"><div class="ol">B</div><div class="ot">La expansión del territorio nacional.</div></div>
+      <div class="paes-opt" onclick="ans('q1','C')"><div class="ol">C</div><div class="ot">Los ciclos de las exportaciones mineras.</div></div>
+      <div class="paes-opt" onclick="ans('q1','D')"><div class="ol">D</div><div class="ot">Las etapas de la migración europea al país.</div></div>
+    </div>
+    <div class="paes-fb" id="q1-fb"></div>
+  </div>
+</div>
+
+<!-- H2: FUENTES -->
+<div class="section" id="h2">
+  <div class="h-header bg-h2" style="border:1.5px solid rgba(56,189,248,.3)">
+    <span class="icon">📜</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--h2c);margin-bottom:4px">Habilidad 2 de 3</div>
+    <h2 class="c-h2">Análisis de fuentes de información</h2>
+    <p>Examinar fuentes históricas (textos, mapas, tablas, gráficos, imágenes) y usarlas como evidencia para interpretar, comparar y concluir.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title c-h2">📖 ¿En qué consiste?</p>
+      <p>Es la habilidad con <strong>más peso práctico</strong>: casi toda pregunta PAES parte de una fuente (texto, mapa, tabla, gráfico, caricatura, pirámide poblacional). Implica reconocer <strong>qué tipo de fuente es</strong>, comparar interpretaciones distintas sobre un mismo hecho, y usar la fuente como <strong>evidencia</strong> para responder.</p>
+      <p style="margin-top:10px">La fuente casi siempre contiene <strong>toda la información necesaria</strong> para responder — no necesitas conocimiento externo adicional.</p>
+    </div>
+    <div class="card">
+      <p class="card-title c-h2">🔍 Cómo reconocerla en la PAES</p>
+      <p style="margin-bottom:10px">La pregunta suele decir:</p>
+      <ul>
+        <li><strong>"Según la fuente/el texto/el gráfico..."</strong></li>
+        <li><strong>"¿Qué tipo de fuente corresponde a...?"</strong></li>
+        <li><strong>"¿Qué interpretación difiere de la otra fuente?"</strong></li>
+        <li><strong>"¿Qué evidencia respalda la siguiente afirmación?"</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title c-h2">📋 Tipos de fuentes que debes reconocer</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--h2c)"><div style="font-weight:900;color:var(--h2c);font-size:.85rem;margin-bottom:4px">Fuente primaria</div><p style="font-size:.82rem">Creada en la época del hecho: carta, discurso, fotografía, censo original.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--dorado)"><div style="font-weight:900;color:var(--dorado);font-size:.85rem;margin-bottom:4px">Fuente secundaria</div><p style="font-size:.82rem">Interpreta hechos pasados desde el presente: un libro de historia, un análisis.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Fuente cuantitativa</div><p style="font-size:.82rem">Tablas, gráficos, censos: datos numéricos.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--morado)"><div style="font-weight:900;color:var(--morado);font-size:.85rem;margin-bottom:4px">Fuente cualitativa</div><p style="font-size:.82rem">Textos, discursos, testimonios: relatos e interpretaciones.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--naranja)"><div style="font-weight:900;color:var(--naranja);font-size:.85rem;margin-bottom:4px">Multiperspectiva</div><p style="font-size:.82rem">Dos fuentes distintas sobre un mismo hecho, con miradas diferentes.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--rojo)"><div style="font-weight:900;color:var(--rojo);font-size:.85rem;margin-bottom:4px">Evidencia</div><p style="font-size:.82rem">El dato concreto de la fuente que respalda una afirmación.</p></div>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">fuente primaria</span>
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">fuente secundaria</span>
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">según la fuente</span>
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">evidencia</span>
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">interpretación</span>
+    <span class="kw c-h2" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3)">comparar fuentes</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h2">🤖 Pregunta generada · revisada por docente</div>
+    <div class="paes-context">Se dispone de dos fuentes sobre la llegada de trabajadores europeos a Chile en el siglo XIX: una <strong>carta personal</strong> de un colono alemán instalado en Llanquihue en 1855 describiendo su experiencia, y un <strong>libro de historia económica</strong> publicado en 2010 que analiza el impacto de la colonización en la región.</div>
+    <p class="paes-q">¿Qué diferencia principal existe entre ambas fuentes?</p>
+    <div class="paes-opts" id="q2">
+      <div class="paes-opt" onclick="ans('q2','A')"><div class="ol">A</div><div class="ot">La carta es una fuente primaria y testimonial; el libro es una fuente secundaria e interpretativa.</div></div>
+      <div class="paes-opt" onclick="ans('q2','B')"><div class="ol">B</div><div class="ot">Ambas son fuentes primarias, porque describen el mismo hecho histórico.</div></div>
+      <div class="paes-opt" onclick="ans('q2','C')"><div class="ol">C</div><div class="ot">El libro es más confiable porque fue escrito antes que la carta.</div></div>
+      <div class="paes-opt" onclick="ans('q2','D')"><div class="ol">D</div><div class="ot">No existe diferencia relevante entre ambas para el análisis histórico.</div></div>
+    </div>
+    <div class="paes-fb" id="q2-fb"></div>
+  </div>
+</div>
+
+<!-- H3: CRÍTICO -->
+<div class="section" id="h3">
+  <div class="h-header bg-h3" style="border:1.5px solid rgba(248,113,113,.3)">
+    <span class="icon">🧠</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--h3c);margin-bottom:4px">Habilidad 3 de 3</div>
+    <h2 class="c-h3">Pensamiento crítico</h2>
+    <p>Evaluar interpretaciones, aplicar conceptos a situaciones reales, inferir conclusiones y reconocer que los procesos históricos tienen múltiples causas.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title c-h3">📖 ¿En qué consiste?</p>
+      <p>Es la habilidad más exigente: no basta con leer la fuente, hay que <strong>razonar sobre ella</strong>. Incluye reconocer que un proceso histórico rara vez tiene <strong>una sola causa</strong> (multicausalidad), inferir conclusiones que van más allá de lo explícito, y aplicar conceptos abstractos (Estado de bienestar, liberalismo, inflación) a casos concretos.</p>
+      <p style="margin-top:10px">La trampa más común: elegir opciones que <strong>suenan lógicas</strong> pero no están respaldadas por la fuente, o que reducen un fenómeno complejo a una sola causa.</p>
+    </div>
+    <div class="card">
+      <p class="card-title c-h3">🔍 Cómo reconocerla en la PAES</p>
+      <p style="margin-bottom:10px">La pregunta suele decir:</p>
+      <ul>
+        <li><strong>"¿Cuáles son las causas de...?"</strong> (más de una)</li>
+        <li><strong>"De la información se puede inferir que..."</strong></li>
+        <li><strong>"¿Cómo se relaciona el concepto de... con...?"</strong></li>
+        <li><strong>"¿Qué tendencia muestra el gráfico?"</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title c-h3">🗝️ Reglas de oro</p>
+    <div class="grid-2">
+      <div>
+        <p style="margin-bottom:10px;font-weight:800;color:var(--h3c)">✅ Al inferir/concluir:</p>
+        <ul>
+          <li>La conclusión debe estar <strong>directamente apoyada</strong> por los datos</li>
+          <li>Los procesos históricos tienen <strong>múltiples causas</strong> (multicausalidad)</li>
+          <li>Busca la opción que integra varios factores, no una sola causa aislada</li>
+        </ul>
+      </div>
+      <div>
+        <p style="margin-bottom:10px;font-weight:800;color:var(--rojo)">❌ Cuidado con:</p>
+        <ul>
+          <li>Palabras absolutas: <em>siempre, nunca, la única causa</em></li>
+          <li>Opciones que usan conocimiento externo no dado en la fuente</li>
+          <li>Reducir un proceso complejo a un solo factor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw c-h3" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3)">multicausalidad</span>
+    <span class="kw c-h3" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3)">se infiere que</span>
+    <span class="kw c-h3" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3)">tendencia</span>
+    <span class="kw c-h3" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3)">aplicar el concepto</span>
+    <span class="kw c-h3" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3)">evaluar la interpretación</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h3">🤖 Pregunta generada · revisada por docente</div>
+    <div class="paes-context">La Primera Guerra Mundial (1914-1918) suele explicarse a partir de varios factores acumulados: rivalidades imperiales por colonias y mercados, alianzas militares enfrentadas (Triple Alianza y Triple Entente), una intensa carrera armamentista, y el nacionalismo exacerbado en los Balcanes, que detonó con el asesinato del archiduque Francisco Fernando en 1914.</div>
+    <p class="paes-q">¿Qué característica del inicio de la Primera Guerra Mundial se describe en el fragmento?</p>
+    <div class="paes-opts" id="q3">
+      <div class="paes-opt" onclick="ans('q3','A')"><div class="ol">A</div><div class="ot">El conflicto tuvo una única causa: el asesinato del archiduque Francisco Fernando.</div></div>
+      <div class="paes-opt" onclick="ans('q3','B')"><div class="ol">B</div><div class="ot">El conflicto fue resultado de múltiples factores acumulados —imperialismo, alianzas, armamentismo, nacionalismo— y un hecho puntual que lo detonó.</div></div>
+      <div class="paes-opt" onclick="ans('q3','C')"><div class="ol">C</div><div class="ot">El conflicto se explica exclusivamente por la rivalidad económica entre potencias europeas.</div></div>
+      <div class="paes-opt" onclick="ans('q3','D')"><div class="ol">D</div><div class="ot">El conflicto surgió sin relación con procesos previos del siglo XIX.</div></div>
+    </div>
+    <div class="paes-fb" id="q3-fb"></div>
+  </div>
+</div>
+
+<!-- RESUMEN -->
+<div class="section" id="resumen">
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">✅ Resumen de la Unidad 0</p>
+    <p>Repasa las 3 habilidades antes de pasar a la práctica.</p>
+  </div>
+  <div class="recap-grid">
+    <div class="recap-row">
+      <div class="recap-num c-h1">1</div><div style="font-size:1.5rem">🕰️</div>
+      <div class="recap-info"><h3 class="c-h1">Pensamiento temporal y espacial</h3><p>Ubica procesos en el tiempo y el espacio. Palabras clave: <strong>periodo, simultáneo, duración, continuidad y cambio</strong></p></div>
+    </div>
+    <div class="recap-row">
+      <div class="recap-num c-h2">2</div><div style="font-size:1.5rem">📜</div>
+      <div class="recap-info"><h3 class="c-h2">Análisis de fuentes de información</h3><p>Interpreta y compara fuentes históricas. Palabras clave: <strong>según la fuente, fuente primaria/secundaria, evidencia</strong></p></div>
+    </div>
+    <div class="recap-row">
+      <div class="recap-num c-h3">3</div><div style="font-size:1.5rem">🧠</div>
+      <div class="recap-info"><h3 class="c-h3">Pensamiento crítico</h3><p>Razona con multicausalidad e infiere conclusiones. Palabras clave: <strong>se infiere que, causas, tendencia</strong></p></div>
+    </div>
+  </div>
+  <div class="tip-box" style="margin-top:18px">
+    <div class="tip-label">🚀 Próximo paso</div>
+    <p>Ve a la sección <strong>Práctica</strong>: 15 preguntas, 5 por habilidad, para cerrar esta unidad demostrando lo que aprendiste.</p>
+  </div>
+</div>
+
+<!-- PRÁCTICA -->
+<div class="section" id="practica">
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">🎯 Práctica guiada · 15 preguntas · 5 por habilidad</p>
+    <p>Responde cada pregunta. Dentro de cada grupo, las preguntas se revelan de a una. Al terminar, verás tu diagnóstico de habilidades.</p>
+  </div>
+  <div id="prac-container"></div>
+  <div id="final-results">
+    <div class="res-hdr">📊 Tu diagnóstico de habilidades</div>
+    <div class="res-sub">Basado en tus 15 respuestas</div>
+    <div id="res-rows"></div>
+    <div class="res-summary-box" id="res-summary"></div>
+  </div>
+</div>
+
+</div>
+<!-- LINEAR NAV -->
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">&#8592; Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente &#8594;</button>
+</div>
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 0</h3>
+      <p>Pensamiento Histórico</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre las 3 habilidades de pensamiento histórico: Pensamiento temporal y espacial, Análisis de fuentes de información, y Pensamiento crítico. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<footer>🏛️ Unidad 0 · Habilidades de Pensamiento Histórico · PAES Historia y Ciencias Sociales · Admisión 2027</footer>
+<script>
+// ── SECTIONS & NAV ──
+const SECS = ["portada","importa","h1","h2","h3","resumen","practica"];
+const SLABELS = ["Inicio","¿Por qué?","H1 · Temporal","H2 · Fuentes","H3 · Crítico","Resumen","Práctica"];
+let curSec = 0;
+
+function showSec(id, idx, btn) {
+  SECS.forEach(function(s){ document.getElementById(s).classList.remove("active"); });
+  document.querySelectorAll(".nav-btn").forEach(function(b){ b.classList.remove("active"); });
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec = idx;
+  updateLinNav();
+  var pct = Math.round(((idx+1)/SECS.length)*100);
+  document.getElementById("prog").style.width = pct+"%";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function linNav(d) {
+  var n = Math.max(0, Math.min(SECS.length-1, curSec+d));
+  if(n === curSec) return;
+  var btns = document.querySelectorAll(".nav-btn");
+  showSec(SECS[n], n, btns[n]);
+  btns[n].classList.add("active");
+}
+
+function updateLinNav() {
+  document.getElementById("lnav-prev").disabled = (curSec === 0);
+  document.getElementById("lnav-next").disabled = (curSec === SECS.length-1);
+  document.getElementById("lnav-label").textContent = SLABELS[curSec];
+}
+updateLinNav();
+
+// ── ANSWERS (main section example questions) ──
+var QA = {
+  "q1":{"c":"A","fb":{"A":"✅ Correcto. Los términos usados ('Organización de la República', 'Apogeo liberal-parlamentario', 'Presidencialismo') describen etapas del sistema político e institucional, no económicas, territoriales ni migratorias.","B":"Incorrecto. La periodización no menciona fronteras ni expansión territorial.","C":"Incorrecto. Los nombres de las etapas no hacen referencia a ciclos exportadores (salitre, cobre, etc.).","D":"Incorrecto. La periodización no organiza el tiempo según flujos migratorios."}},
+  "q2":{"c":"A","fb":{"A":"✅ Correcto. La carta fue escrita en la época del hecho por un protagonista directo (fuente primaria y testimonial); el libro fue escrito después, analizando e interpretando el pasado (fuente secundaria).","B":"Incorrecto. El libro fue publicado en 2010, mucho después del hecho: es una fuente secundaria, no primaria.","C":"Incorrecto. La fecha de publicación no determina por sí sola la confiabilidad de una fuente.","D":"Incorrecto. La diferencia entre fuente primaria y secundaria es central para el análisis histórico: cambia qué tipo de información y sesgos aporta cada una."}},
+  "q3":{"c":"B","fb":{"A":"Incorrecto. El fragmento describe varios factores acumulados, no una única causa; el asesinato fue el detonante puntual, no la única causa.","B":"✅ Correcto. El fragmento describe explícitamente multicausalidad: imperialismo, alianzas, armamentismo y nacionalismo, más un hecho detonante.","C":"Incorrecto. La rivalidad económica es solo uno de los factores mencionados, no el único.","D":"Incorrecto. El fragmento menciona procesos previos (rivalidades imperiales, alianzas) que se venían gestando antes de 1914."}}
+};
+
+function ans(qid, opt) {
+  var el = document.getElementById(qid);
+  if(el.dataset.done) return;
+  el.dataset.done = "1";
+  var a = QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l = o.querySelector(".ol").textContent;
+    if(l === a.c) o.classList.add("right");
+    else if(l === opt) o.classList.add("wrong");
+  });
+  var fb = document.getElementById(qid+"-fb");
+  fb.className = "paes-fb show " + (opt===a.c ? "ok" : "no");
+  fb.textContent = a.fb[opt];
+}
+
+// ── PRACTICE DATA ──
+var PG = [
+  { hid:1, icon:"🕰️", name:"Pensamiento temporal y espacial", color:"var(--h1c)",
+    qs:[
+      { ref:"🤖 Pregunta generada",
+        ctx:"La Guerra del Pacífico (1879-1884), que enfrentó a Chile con Perú y Bolivia, se desarrolló en paralelo a la llamada 'Segunda Revolución Industrial' en Europa y Estados Unidos, marcada por el uso masivo del acero, la electricidad y el motor de combustión.",
+        q:"¿Qué relación temporal se describe entre ambos procesos?",
+        opts:{"A":"Sucesión: la Guerra del Pacífico ocurrió después de la Segunda Revolución Industrial.","B":"Simultaneidad: ambos procesos se desarrollaron en el mismo periodo, en lugares distintos.","C":"Causalidad: la Segunda Revolución Industrial fue consecuencia directa de la Guerra del Pacífico.","D":"No existe relación temporal posible entre ambos procesos."},
+        c:"B",
+        fb:{"A":"Incorrecto. El texto indica que ambos procesos ocurrieron 'en paralelo', es decir, al mismo tiempo.","B":"✅ Correcto. Ambos procesos se desarrollan durante las mismas décadas (1870s-1880s), en regiones distintas: eso es simultaneidad.","C":"Incorrecto. No hay relación de causa-efecto descrita entre ambos procesos, solo coincidencia temporal.","D":"Incorrecto. Sí existe una relación: la simultaneidad."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"La Revolución Francesa (1789) implicó cambios políticos abruptos en pocos años (caída de la monarquía, nueva constitución, república). En cambio, la industrialización europea del siglo XIX fue un proceso que se extendió por varias décadas, transformando gradualmente la economía y la sociedad.",
+        q:"¿Qué concepto histórico permite distinguir ambos procesos según lo descrito?",
+        opts:{"A":"Periodización, porque ambos procesos pertenecen al mismo periodo histórico.","B":"Simultaneidad, porque ambos ocurrieron exactamente en el mismo año.","C":"Ritmo de cambio, porque uno fue abrupto y el otro gradual.","D":"Distribución geográfica, porque ambos ocurrieron en Europa."},
+        c:"C",
+        fb:{"A":"Incorrecto. La periodización no es lo que distingue la velocidad de los procesos descritos.","B":"Incorrecto. No ocurrieron en el mismo año; la industrialización fue un proceso de décadas.","C":"✅ Correcto. El texto contrasta explícitamente un cambio abrupto (revolución política) con uno gradual (industrialización): eso es ritmo de cambio.","D":"Incorrecto. Aunque ambos ocurren en Europa, el texto no compara ubicación sino velocidad de cambio."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"Un mapa histórico muestra la distribución de las principales zonas industriales de Europa hacia 1900: predominan en Inglaterra, el norte de Francia, Bélgica y la cuenca del Ruhr en Alemania, mientras el sur y el este de Europa presentan escasa industrialización.",
+        q:"¿Qué permite observar principalmente este tipo de fuente?",
+        opts:{"A":"La sucesión cronológica exacta de la industrialización en cada país.","B":"La distribución geográfica desigual de un fenómeno histórico (la industrialización) en el espacio europeo.","C":"Las causas políticas que originaron la industrialización.","D":"La cantidad exacta de trabajadores empleados en cada fábrica."},
+        c:"B",
+        fb:{"A":"Incorrecto. El mapa muestra ubicación espacial, no una secuencia temporal detallada.","B":"✅ Correcto. Un mapa histórico es la fuente ideal para observar cómo se distribuye un fenómeno en el territorio: en este caso, la industrialización desigual.","C":"Incorrecto. El mapa no explica causas, solo muestra distribución espacial.","D":"Incorrecto. El mapa no entrega datos numéricos de empleo, sino ubicación geográfica de zonas industriales."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"Entre 1861 y 1891, Chile mantuvo un sistema político conocido como 'República Liberal', caracterizado por el predominio del Congreso sobre el Ejecutivo. Tras la Guerra Civil de 1891, se consolidó el 'Parlamentarismo', que profundizó ese predominio legislativo hasta 1925.",
+        q:"¿Qué elemento de continuidad se puede identificar entre ambos periodos?",
+        opts:{"A":"El predominio del poder legislativo por sobre el Ejecutivo se mantuvo en ambos periodos.","B":"El sistema económico cambió completamente entre un periodo y otro.","C":"Chile dejó de ser una república en el segundo periodo.","D":"El territorio nacional se redujo entre 1861 y 1925."},
+        c:"A",
+        fb:{"A":"✅ Correcto. El texto indica que el predominio del Congreso se mantuvo (e incluso se profundizó) entre ambos periodos: eso es continuidad.","B":"Incorrecto. El texto no menciona cambios en el sistema económico.","C":"Incorrecto. El texto no indica que Chile dejara de ser república; el Parlamentarismo sigue siendo un régimen republicano.","D":"Incorrecto. El texto no hace referencia a cambios territoriales."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"Dos historiadores periodizan el siglo XX chileno de forma distinta: el primero lo divide según los ciclos económicos ('ciclo salitrero', 'ciclo del cobre', 'crisis del 29'); el segundo lo divide según los regímenes políticos ('parlamentarismo', 'presidencialismo', 'gobiernos de partidos').",
+        q:"¿Qué muestra principalmente esta comparación?",
+        opts:{"A":"Que solo una de las dos periodizaciones es correcta y la otra es errónea.","B":"Que la periodización histórica depende del criterio elegido por quien la construye.","C":"Que ambos historiadores describen exactamente los mismos años y etapas.","D":"Que la economía y la política nunca pueden usarse como criterios de periodización."},
+        c:"B",
+        fb:{"A":"Incorrecto. Ambas periodizaciones pueden ser válidas; simplemente usan criterios distintos (económico vs. político).","B":"✅ Correcto. La periodización no es única ni objetiva: depende del criterio (económico, político, cultural) que el historiador decida priorizar.","C":"Incorrecto. Al usar criterios distintos, es probable que las etapas y sus límites temporales no coincidan exactamente.","D":"Incorrecto. Ambos criterios son válidos y de hecho se usan en la periodización histórica."}
+      }
+    ]
+  },
+  { hid:2, icon:"📜", name:"Análisis de fuentes de información", color:"var(--h2c)",
+    qs:[
+      { ref:"🤖 Pregunta generada",
+        ctx:"Fuente A: Discurso de un político liberal chileno pronunciado en el Congreso en 1874, defendiendo la ampliación del derecho a voto. Fuente B: Artículo publicado en 2015 en una revista académica que analiza las leyes electorales chilenas del siglo XIX.",
+        q:"¿Cuál de las siguientes clasificaciones es correcta?",
+        opts:{"A":"Ambas son fuentes primarias, porque hablan del mismo tema.","B":"La Fuente A es primaria y la Fuente B es secundaria.","C":"La Fuente A es secundaria y la Fuente B es primaria.","D":"Ninguna de las dos puede clasificarse como fuente histórica."},
+        c:"B",
+        fb:{"A":"Incorrecto. Que compartan tema no las hace del mismo tipo; lo relevante es cuándo y por quién fueron producidas.","B":"✅ Correcto. El discurso de 1874 fue producido en la época del hecho por un protagonista directo (primaria); el artículo de 2015 interpreta el pasado desde el presente (secundaria).","C":"Incorrecto. Es al revés: el discurso es primario, el artículo académico es secundario.","D":"Incorrecto. Ambas son fuentes históricas válidas, solo de tipos distintos."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"Una tabla muestra las exportaciones chilenas de trigo, cobre y salitre entre 1830 y 1900, indicando un fuerte aumento del salitre desde 1880 y una caída sostenida del trigo desde 1870.",
+        q:"¿Qué tipo de fuente es la descrita y para qué sirve principalmente?",
+        opts:{"A":"Es una fuente cualitativa que sirve para conocer opiniones de la época.","B":"Es una fuente cuantitativa que sirve como evidencia numérica de cambios en la economía exportadora.","C":"Es una fuente primaria testimonial, poco confiable para el análisis histórico.","D":"Es una fuente que solo sirve para estudiar procesos políticos, no económicos."},
+        c:"B",
+        fb:{"A":"Incorrecto. Una tabla con cifras de exportación es cuantitativa, no cualitativa.","B":"✅ Correcto. Las tablas con datos numéricos son fuentes cuantitativas y sirven como evidencia concreta para analizar tendencias económicas, como el auge del salitre.","C":"Incorrecto. No es un testimonio personal, sino un registro de datos.","D":"Incorrecto. La tabla es precisamente útil para el análisis del eje Sistema económico."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"Dos historiadores interpretan de forma distinta la crisis económica de 1929 en Chile: el primero enfatiza la dependencia extrema del salitre como causa principal; el segundo enfatiza la falta de diversificación productiva en general, más allá del salitre.",
+        q:"¿Qué concepto describe mejor esta situación?",
+        opts:{"A":"Fuente primaria única, porque solo existe una versión válida del hecho.","B":"Multiperspectiva, porque dos interpretaciones distintas explican el mismo hecho histórico.","C":"Fuente cuantitativa, porque ambos historiadores usan las mismas cifras.","D":"Ausencia de evidencia, porque ninguna interpretación puede ser verificada."},
+        c:"B",
+        fb:{"A":"Incorrecto. Existen dos interpretaciones distintas, no una sola versión válida.","B":"✅ Correcto. Cuando dos interpretaciones distintas abordan el mismo hecho histórico desde énfasis diferentes, se habla de multiperspectiva.","C":"Incorrecto. El texto no menciona que usen las mismas cifras, sino distintos énfasis interpretativos.","D":"Incorrecto. Ambas interpretaciones pueden apoyarse en evidencia, solo que priorizan factores distintos."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"Una pirámide poblacional de Chile en 1950 muestra una base ancha (muchos niños y jóvenes) que se va angostando hacia los tramos de mayor edad.",
+        q:"¿Qué se puede inferir directamente de esta fuente?",
+        opts:{"A":"Que la población chilena de 1950 era mayoritariamente joven, con una alta proporción de niños y jóvenes respecto a adultos mayores.","B":"Que la esperanza de vida en Chile en 1950 era superior a 80 años.","C":"Que la mayoría de la población vivía en zonas urbanas en 1950.","D":"Que la tasa de natalidad disminuyó sostenidamente desde 1950."},
+        c:"A",
+        fb:{"A":"✅ Correcto. Una base ancha que se angosta hacia arriba es el patrón típico de una población joven, con alta natalidad respecto a los tramos de mayor edad.","B":"Incorrecto. La pirámide no entrega directamente el dato de esperanza de vida.","C":"Incorrecto. La pirámide muestra estructura etaria, no distribución urbano-rural.","D":"Incorrecto. Una base ancha sugiere alta natalidad en ese momento, no una disminución sostenida."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"Se comparan dos fuentes sobre la llegada del ferrocarril a una zona minera chilena en el siglo XIX: un informe técnico de ingenieros de la época detallando las especificaciones de la vía, y una fotografía de la estación tomada el día de su inauguración.",
+        q:"¿Qué tienen en común ambas fuentes?",
+        opts:{"A":"Ambas son fuentes secundarias, porque describen un hecho pasado.","B":"Ambas son fuentes primarias, porque fueron producidas en el momento del hecho.","C":"Ambas son fuentes cuantitativas exclusivamente.","D":"Ninguna de las dos aporta evidencia útil para el análisis histórico."},
+        c:"B",
+        fb:{"A":"Incorrecto. Ambas fueron producidas en la época del hecho, no después: son primarias, no secundarias.","B":"✅ Correcto. Tanto el informe técnico como la fotografía fueron creados en el momento mismo del hecho histórico, lo que las hace fuentes primarias.","C":"Incorrecto. La fotografía es una fuente visual, no cuantitativa.","D":"Incorrecto. Ambas aportan evidencia valiosa, de tipo distinto (técnica y visual)."}
+      }
+    ]
+  },
+  { hid:3, icon:"🧠", name:"Pensamiento crítico", color:"var(--h3c)",
+    qs:[
+      { ref:"🤖 Pregunta generada",
+        ctx:"Un gráfico muestra que la población urbana de Chile pasó de representar un 43% del total en 1930 a un 68% en 1960.",
+        q:"¿Qué se puede inferir válidamente de esta información?",
+        opts:{"A":"Que la población chilena migró de manera creciente desde zonas rurales hacia las ciudades entre 1930 y 1960.","B":"Que la industria minera desapareció completamente durante ese periodo.","C":"Que el gobierno prohibió la vida rural a partir de 1930.","D":"Que la población total de Chile se mantuvo exactamente igual durante esas tres décadas."},
+        c:"A",
+        fb:{"A":"✅ Correcto. Un aumento sostenido del porcentaje urbano es evidencia directa de un proceso de migración campo-ciudad (urbanización).","B":"Incorrecto. El gráfico no entrega ninguna información sobre la industria minera.","C":"Incorrecto. No hay evidencia en el gráfico de una prohibición; el proceso de urbanización tiene múltiples causas económicas y sociales.","D":"Incorrecto. El gráfico no permite afirmar eso; solo muestra proporciones, no cifras absolutas de población total."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"El concepto de 'Estado de bienestar' se refiere a un modelo en que el Estado asume un rol activo garantizando servicios sociales como educación, salud y seguridad social a la población.",
+        q:"¿Cuál de las siguientes situaciones aplica correctamente este concepto?",
+        opts:{"A":"Un país donde el Estado financia y garantiza el acceso universal a la salud pública y la educación.","B":"Un país donde todos los servicios de salud y educación son exclusivamente privados y de pago directo.","C":"Un país sin ningún tipo de institución estatal.","D":"Un país donde el comercio internacional está completamente prohibido."},
+        c:"A",
+        fb:{"A":"✅ Correcto. Esta situación aplica directamente la definición dada: el Estado garantiza servicios sociales de forma activa.","B":"Incorrecto. Esto describe lo opuesto al Estado de bienestar: ausencia de garantías estatales.","C":"Incorrecto. El Estado de bienestar requiere precisamente un Estado activo, no su ausencia.","D":"Incorrecto. El concepto se refiere a servicios sociales, no a política comercial."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"La independencia de las colonias americanas a comienzos del siglo XIX suele explicarse considerando varios factores: la difusión de ideas ilustradas y liberales, el debilitamiento de España tras la invasión napoleónica, el descontento de las élites criollas excluidas de altos cargos, y las crisis económicas coloniales.",
+        q:"¿Qué característica del proceso independentista describe este fragmento?",
+        opts:{"A":"Que la independencia tuvo una sola causa: la invasión napoleónica a España.","B":"Que la independencia fue resultado de múltiples factores ideológicos, políticos y económicos combinados.","C":"Que la independencia ocurrió sin ninguna relación con las ideas ilustradas.","D":"Que las élites criollas se opusieron completamente a cualquier cambio político."},
+        c:"B",
+        fb:{"A":"Incorrecto. El texto menciona varios factores además de la invasión napoleónica.","B":"✅ Correcto. El fragmento describe explícitamente multicausalidad: ideas, debilitamiento español, intereses criollos y crisis económica.","C":"Incorrecto. El texto menciona directamente la difusión de ideas ilustradas y liberales como uno de los factores.","D":"Incorrecto. El texto indica que las élites criollas estaban descontentas y buscaban mayor poder, no que se opusieran a todo cambio."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"Un mapa muestra que, hacia 1970, la mayor concentración de industrias manufactureras en Chile se ubicaba en la Región Metropolitana y Valparaíso, mientras las regiones extremas (norte y sur) concentraban actividades principalmente extractivas y agropecuarias.",
+        q:"¿Qué tendencia territorial se puede identificar a partir de esta fuente?",
+        opts:{"A":"Una concentración desigual de la actividad industrial, centrada en la zona centro del país.","B":"Una distribución perfectamente equitativa de la industria en todo el territorio nacional.","C":"La inexistencia de actividad económica en las regiones extremas.","D":"El traslado completo de la población desde el centro hacia las regiones extremas."},
+        c:"A",
+        fb:{"A":"✅ Correcto. El mapa evidencia un patrón territorial de concentración desigual: la industria se agrupa en la zona centro, mientras las zonas extremas tienen otro tipo de actividad económica.","B":"Incorrecto. Es lo opuesto a lo descrito: hay una concentración marcada, no una distribución equitativa.","C":"Incorrecto. El texto indica que sí había actividad económica en esas regiones (extractiva y agropecuaria), solo que de otro tipo.","D":"Incorrecto. El mapa no entrega información sobre movimientos de población, solo sobre ubicación de actividad industrial."}
+      },
+      { ref:"🤖 Pregunta generada",
+        ctx:"Dos interpretaciones evalúan el proceso de industrialización por sustitución de importaciones (ISI) aplicado en Chile a mediados del siglo XX: una lo valora positivamente por impulsar el empleo urbano y la industria nacional; otra lo critica por generar una industria poco competitiva a nivel internacional y dependiente de protección estatal.",
+        q:"¿Qué acción corresponde mejor a la habilidad de evaluar interpretaciones históricas frente a este caso?",
+        opts:{"A":"Aceptar automáticamente la primera interpretación por ser la más antigua.","B":"Descartar ambas interpretaciones por ser, según el criterio del lector, poco creíbles sin más análisis.","C":"Reconocer que ambas interpretaciones destacan aspectos válidos y distintos de un mismo proceso complejo.","D":"Elegir la interpretación que coincide con la opinión personal del estudiante, sin considerar los argumentos."},
+        c:"C",
+        fb:{"A":"Incorrecto. La antigüedad de una interpretación no determina su validez.","B":"Incorrecto. Descartar sin análisis no es evaluar críticamente, es ignorar evidencia.","C":"✅ Correcto. Evaluar interpretaciones implica reconocer que distintas miradas pueden aportar aspectos válidos sobre un mismo proceso, sin imponer una lectura única.","D":"Incorrecto. Evaluar críticamente requiere considerar argumentos y evidencia, no solo preferencias personales."}
+      }
+    ]
+  }
+];
+
+// ── BUILD PRACTICE ──
+function buildPractice() {
+  var cont = document.getElementById("prac-container");
+  cont.innerHTML = "";
+  PG.forEach(function(g, gi) {
+    var sec = document.createElement("div");
+    sec.className = "prac-group";
+    sec.id = "pg"+gi;
+    var hdr = document.createElement("div");
+    hdr.className = "prac-group-hdr";
+    hdr.style.borderLeft = "4px solid "+g.color;
+    hdr.innerHTML = "<div class='gi'>" + g.icon + "</div>" +
+      "<div><div class='gname' style='color:"+g.color+"'>" + "H"+g.hid+" · "+g.name + "</div>" +
+      "<div style='font-size:.8rem;color:var(--text-dim)'>5 preguntas</div></div>" +
+      "<div class='gscore' id='gs"+gi+"'></div>";
+    sec.appendChild(hdr);
+    g.qs.forEach(function(q, qi) {
+      var qel = document.createElement("div");
+      qel.className = "pq" + (qi===0?" show":"");
+      qel.id = "pq-"+gi+"-"+qi;
+      var ctxLines = q.ctx.replace(/\n/g,"<br>");
+      var optsHtml = "";
+      ["A","B","C","D"].forEach(function(l) {
+        optsHtml += "<div class='paes-opt' id='po-"+gi+"-"+qi+"-"+l+"' onclick='pAns("+gi+","+qi+",\""+l+"\")'>"+
+          "<div class='ol'>"+l+"</div><div class='ot'>"+q.opts[l]+"</div></div>";
+      });
+      qel.innerHTML = "<div class='pq-ref c-h"+g.hid+"' style='color:"+g.color+"'>" + q.ref + "</div>" +
+        "<div class='pq-ctx'>" + ctxLines + "</div>" +
+        "<div class='pq-q'>" + q.q + "</div>" +
+        "<div class='pq-opts' id='po-group-"+gi+"-"+qi+"'>" + optsHtml + "</div>" +
+        "<div class='paes-fb' id='pfb-"+gi+"-"+qi+"'></div>" +
+        "<button class='nxt-q' id='nq-"+gi+"-"+qi+"' onclick='nextQ("+gi+","+qi+")'>Siguiente →</button>";
+      sec.appendChild(qel);
+    });
+    cont.appendChild(sec);
+  });
+}
+buildPractice();
+
+var pScores = {}; // gi: {c:correctas, t:total}
+PG.forEach(function(g,gi){ pScores[gi]={c:0,t:0}; });
+var doneGroups = 0;
+var NQ = 5; // preguntas por grupo
+
+function pAns(gi, qi, opt) {
+  var opts = document.getElementById("po-group-"+gi+"-"+qi);
+  if(opts.dataset.done) return;
+  opts.dataset.done = "1";
+  var q = PG[gi].qs[qi];
+  var correct = (opt === q.c);
+  pScores[gi].t++;
+  if(correct) pScores[gi].c++;
+  opts.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l = o.querySelector(".ol").textContent;
+    if(l === q.c) o.classList.add("right");
+    else if(l === opt) o.classList.add("wrong");
+  });
+  var fb = document.getElementById("pfb-"+gi+"-"+qi);
+  fb.className = "paes-fb show " + (correct?"ok":"no");
+  fb.textContent = q.fb[opt];
+  var nqBtn = document.getElementById("nq-"+gi+"-"+qi);
+  if(qi < NQ-1) {
+    nqBtn.textContent = "Siguiente pregunta →";
+    nqBtn.style.display = "inline-block";
+  } else {
+    nqBtn.style.display = "none";
+    finishGroup(gi);
+  }
+}
+
+function nextQ(gi, qi) {
+  document.getElementById("nq-"+gi+"-"+qi).style.display = "none";
+  var nextEl = document.getElementById("pq-"+gi+"-"+(qi+1));
+  if(nextEl){ nextEl.classList.add("show"); nextEl.scrollIntoView({behavior:"smooth",block:"start"}); }
+}
+
+function finishGroup(gi) {
+  doneGroups++;
+  var sc = pScores[gi];
+  var icons = []; for(var i=0;i<NQ;i++){ icons.push(i<sc.c?"✅":"❌"); }
+  document.getElementById("gs"+gi).innerHTML = icons.join(" ") + " <span style='color:"+(sc.c>=3?"var(--dorado)":"var(--rojo)")+"'>" + sc.c+"/"+NQ + "</span>";
+  if(doneGroups >= PG.length) {
+    setTimeout(function(){ showFinalResults(); }, 600);
+  }
+}
+
+function showFinalResults() {
+  document.getElementById("final-results").style.display = "block";
+  var rows = document.getElementById("res-rows");
+  rows.innerHTML = "";
+  var badList = [];
+  PG.forEach(function(g, gi) {
+    var sc = pScores[gi];
+    var ok = (sc.c >= 3);
+    if(!ok){ badList.push(g.icon+" "+g.name); }
+    var row = document.createElement("div");
+    row.className = "res-item";
+    row.style.borderLeft = "4px solid " + (ok?"var(--dorado)":"var(--rojo)");
+    row.innerHTML = "<div style='font-size:1.3rem'>"+(ok?"✅":"❌")+"</div>" +
+      "<div style='flex:1'><div style='font-weight:800;font-size:.9rem'>"+g.icon+" "+g.name+"</div>" +
+      "<div class='"+(ok?"res-ok-txt":"res-bad-txt")+"'>"+(ok?"Bien manejada — "+sc.c+"/"+NQ+" correctas":"Necesita refuerzo — "+sc.c+"/"+NQ+" correctas")+"</div></div>";
+    rows.appendChild(row);
+  });
+  var sum = document.getElementById("res-summary");
+  if(badList.length===0){
+    sum.innerHTML = "<h3>🏆 ¡Resultado excelente!</h3><p>Respondiste correctamente la mayoría de las preguntas en las 3 habilidades. Estás en muy buen camino para la PAES Historia y Ciencias Sociales.</p><p>Estas habilidades se vuelven a practicar en cada unidad de contenido, así que seguirás reforzándolas.</p>";
+  } else {
+    sum.innerHTML = "<h3>📋 Tu plan de acción</h3>" +
+      "<p>Las habilidades que necesitas reforzar son: <strong>" + badList.join(" y ") + "</strong>.</p>" +
+      "<p>Como estas habilidades se aplican en <strong>todas las preguntas</strong> del módulo (no solo en un bloque separado), no dominarlas afecta tu desempeño en los 3 ejes temáticos: Historia, Formación Ciudadana y Sistema Económico.</p>" +
+      "<p style='color:var(--dorado);margin-top:10px'><strong>Recomendación:</strong> Vuelve a revisar las secciones correspondientes antes de continuar con las unidades de contenido.</p>";
+  }
+  document.getElementById("final-results").scrollIntoView({behavior:"smooth"});
+}
+
+</script>
+
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// CAMBIAR ESTA URL cuando exista el backend propio del profesor a cargo.
+// Mientras tanto, apunta directo a la API de Anthropic para poder
+// probar el asistente dentro de este entorno.
+var TUTOR_ENDPOINT = "https://api.anthropic.com/v1/messages";
+// -------------------------------------------------------------------
+
+var SYSTEM_PROMPT = `Eres el asistente de estudio de la Unidad 0 (Habilidades de Pensamiento Histórico) del módulo PAES Historia y Ciencias Sociales de la plataforma PAES Karuy.
+
+ALCANCE ESTRICTO: SOLO puedes responder dudas sobre el contenido de esta unidad, es decir, las 3 habilidades de pensamiento histórico evaluadas en la PAES:
+1. Pensamiento temporal y espacial (ubicación temporal, secuencias, simultaneidad, procesos históricos, escalas de tiempo, localización geográfica de procesos)
+2. Análisis de fuentes de información (fuentes primarias/secundarias, confiabilidad, perspectiva del autor, contexto de producción, comparación de fuentes)
+3. Pensamiento crítico (identificar sesgos, distinguir hecho de opinión, evaluar argumentos, múltiples interpretaciones históricas)
+
+NO respondas nada que esté fuera de este temario: ni otras asignaturas (Matemática, Ciencias, Lenguaje), ni otras unidades de Historia (Siglo XIX, Guerra Fría, dictadura, etc.), ni temas personales, ni preguntas generales de cultura. Si te preguntan algo fuera de este alcance, dilo con amabilidad y redirige al estudiante al módulo o unidad correspondiente, sin intentar responder la duda igualmente.
+
+REGLAS:
+- Nunca entregues directamente la alternativa correcta de una pregunta de "Práctica guiada" o de los recuadros de ejemplo (paes-box) si el estudiante aún no la ha respondido en el módulo. Guíalo con preguntas socráticas para que razone hacia la respuesta.
+- Si ya la respondió, sí puedes explicar por qué la alternativa es correcta o incorrecta.
+- Las preguntas de práctica que generes en modo "Más práctica" son SIEMPRE nuevas y originales; indica explícitamente que son "🤖 generadas por IA, no son preguntas reales de la PAES".
+- No reproduzcas preguntas reales de folletos DEMRE; todo el contenido que generes debe ser original.
+- Los temas históricos aquí no son políticamente sensibles (no tocan golpe de Estado, dictadura ni derechos humanos), pero si el estudiante trae ejemplos de esos temas, trátalos con neutralidad y sugiere revisar la Unidad 3B para profundizar, sin tomar postura.
+- Si el estudiante expresa angustia, estrés extremo o malestar emocional relacionado con la PAES, valida brevemente cómo se siente, sugiere que hable con un profesor, orientador o adulto de confianza, y luego ofrece retomar el contenido si quiere.
+- Mantén un tono cercano, breve y claro, adecuado para un estudiante de enseñanza media chileno.
+- Si te piden generar contenido de otra unidad o módulo que no conoces en detalle, dilo con honestidad en vez de inventar.`;
+
+var tutorHistory = [];
+var tutorOpen = false;
+
+window.toggleTutor = function() {
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  document.getElementById("tutorDot").style.display = "none";
+};
+
+function tutorAppendMsg(role, text) {
+  var wrap = document.getElementById("tutorMsgs");
+  var div = document.createElement("div");
+  div.className = "tutor-msg " + role;
+  div.textContent = text;
+  if(role === "bot") {
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "Reportar esta respuesta";
+    rep.onclick = function(){ tutorReport(text); };
+    div.appendChild(document.createElement("br"));
+    div.appendChild(rep);
+  }
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+  return div;
+}
+
+function tutorTyping(show) {
+  var wrap = document.getElementById("tutorMsgs");
+  var existing = document.getElementById("tutorTypingEl");
+  if(show && !existing) {
+    var t = document.createElement("div");
+    t.className = "tutor-typing";
+    t.id = "tutorTypingEl";
+    t.innerHTML = "<span></span><span></span><span></span>";
+    wrap.appendChild(t);
+    wrap.scrollTop = wrap.scrollHeight;
+  } else if(!show && existing) {
+    existing.remove();
+  }
+}
+
+function tutorReport(msgText) {
+  var report = {
+    unidad: "U0 Habilidades de Pensamiento Histórico",
+    fecha: new Date().toISOString(),
+    mensaje_reportado: msgText,
+    historial: tutorHistory
+  };
+  var blob = new Blob([JSON.stringify(report, null, 2)], {type:"application/json"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "reporte_asistente_u0_historia_" + Date.now() + ".json";
+  a.click();
+}
+
+async function tutorCallAPI(userText) {
+  tutorHistory.push({role:"user", content:userText});
+  tutorTyping(true);
+  document.getElementById("tutorSendBtn").disabled = true;
+  try {
+    var res = await fetch(TUTOR_ENDPOINT, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
+        messages: tutorHistory
+      })
+    });
+    var data = await res.json();
+    var text = (data.content || []).map(function(b){ return b.text || ""; }).join("\n") || "No pude generar una respuesta. Intenta de nuevo.";
+    tutorHistory.push({role:"assistant", content:text});
+    tutorTyping(false);
+    tutorAppendMsg("bot", text);
+  } catch(e) {
+    tutorTyping(false);
+    tutorAppendMsg("system", "⚠️ No se pudo conectar con el asistente. Intenta nuevamente en unos segundos.");
+  }
+  document.getElementById("tutorSendBtn").disabled = false;
+}
+
+window.tutorSend = function() {
+  var input = document.getElementById("tutorInput");
+  var val = input.value.trim();
+  if(!val) return;
+  tutorAppendMsg("user", val);
+  input.value = "";
+  tutorCallAPI(val);
+};
+
+window.tutorQuickMode = function(mode) {
+  var prompts = {
+    explicar: "Explícame de otra forma, con una analogía distinta, el concepto de la habilidad de pensamiento histórico en la que estoy en este momento.",
+    practica: "Genera una nueva pregunta de práctica 🤖 (original, no real) sobre la habilidad de pensamiento histórico en la que estoy trabajando, con 4 alternativas, y luego dime cuál es la correcta y por qué cuando yo responda.",
+    corregir: "Quiero que corrijas mi razonamiento. Te voy a escribir mi respuesta a una pregunta de esta unidad y quiero que me ayudes con el método socrático, sin darme la respuesta directamente."
+  };
+  tutorAppendMsg("user", prompts[mode]);
+  tutorCallAPI(prompts[mode]);
+};
+
+})();
+</script>
+</body>
+</html>
