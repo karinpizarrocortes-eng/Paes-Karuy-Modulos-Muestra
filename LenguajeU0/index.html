@@ -1134,7 +1134,7 @@ function submitCierre(key){
 // entregada aparte). Mientras tanto, apunta directo a la API de
 // Anthropic para poder probar el asistente dentro de este entorno.
 // -------------------------------------------------------------------
-var TUTOR_ENDPOINT = "https://api.anthropic.com/v1/messages";
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
 
 var SYSTEM_PROMPT = [
 "Eres el asistente de apoyo académico de la Unidad 0 (Habilidades Lectoras: Localizar, Interpretar, Evaluar) del módulo de Competencia Lectora, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media, muchos sin conocimiento previo del tema. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
@@ -1268,15 +1268,37 @@ window.tutorSend = function(){
   document.getElementById("tutorSendBtn").disabled = true;
   showTyping();
 
-  var delay = 900 + Math.random()*700;
-  setTimeout(function(){
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){
+    if(!res.ok) throw new Error("HTTP " + res.status);
+    return res.json();
+  })
+  .then(function(data){
+    hideTyping();
+    var reply = (data.content && data.content[0] && data.content[0].text)
+      ? data.content[0].text
+      : simulateTutorReply(text);
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    console.error("Error tutor IA:", err);
     hideTyping();
     var reply = simulateTutorReply(text);
     addMsg("bot", reply);
     tutorHistory.push({role:"assistant", content:reply});
     tutorBusy = false;
     document.getElementById("tutorSendBtn").disabled = false;
-  }, delay);
+  });
 };
 
 // -------------------------------------------------------------------
