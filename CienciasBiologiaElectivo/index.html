@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electivo Biología · PAES Ciencias · Admisión 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#059669;--verde-dark:#047857;--verde-glow:rgba(5,150,105,.15);
+  --teal:#0d9488;--bg:#071812;--card:#0d2218;--card2:#112b1c;
+  --text:#e6fdf0;--text-dim:#6db892;--radius:18px;
+  --c-cel:#06b6d4;--c-sn:#818cf8;--c-rep:#f472b6;
+  --c-its:#f87171;--c-cc:#a78bfa;--c-evo:#86efac;--c-fot:#34d399;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 10% 20%,rgba(5,150,105,.45) 0%,transparent 100%),
+  radial-gradient(1px 1px at 30% 65%,rgba(255,255,255,.18) 0%,transparent 100%),
+  radial-gradient(1px 1px at 58% 10%,rgba(5,150,105,.3) 0%,transparent 100%),
+  radial-gradient(1px 1px at 75% 45%,rgba(255,255,255,.15) 0%,transparent 100%),
+  radial-gradient(1px 1px at 90% 80%,rgba(5,150,105,.22) 0%,transparent 100%),
+  radial-gradient(1px 1px at 45% 88%,rgba(255,255,255,.12) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--verde),var(--teal));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(2rem,7vw,3.8rem);
+  background:linear-gradient(135deg,var(--verde),var(--teal),#06b6d4);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(5,150,105,.12);border:1.5px solid rgba(5,150,105,.35);color:var(--verde);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.07);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.78rem;padding:7px 13px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:var(--verde-glow);border-color:var(--verde);color:var(--verde)}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.35rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.97rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 14px;font-size:.84rem;font-weight:700;color:var(--text-dim);display:inline-flex;align-items:center;gap:6px}
+.h-header{border-radius:var(--radius);padding:26px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:52px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.1}
+.h-header p{font-size:.97rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--verde);background:rgba(5,150,105,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--verde);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65}
+.tip-box p strong{color:var(--text)}
+.kw-grid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.kw{border-radius:8px;padding:5px 11px;font-size:.8rem;font-weight:800}
+/* PREGUNTAS */
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px;margin-bottom:16px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.paes-ctx{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--verde);background:rgba(5,150,105,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(5,150,105,.14);border-color:var(--verde)}
+.paes-opt.wrong{background:rgba(239,68,68,.08);border-color:#ef4444}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--verde);flex-shrink:0}
+.paes-opt.right .ol{background:var(--verde);color:#071812;border-color:var(--verde)}
+.paes-opt.wrong .ol{background:#ef4444;color:#fff;border-color:#ef4444}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(5,150,105,.12);color:#6ee7b7;border-left:3px solid var(--verde)}
+.paes-fb.no{background:rgba(239,68,68,.08);color:#fca5a5;border-left:3px solid #ef4444}
+/* PLACEHOLDER IMAGEN */
+.img-ph{border:2px dashed rgba(5,150,105,.4);border-radius:14px;background:rgba(5,150,105,.04);padding:18px;margin:14px 0;text-align:center;color:var(--text-dim);font-size:.84rem;line-height:1.6}
+.img-ph .img-icon{font-size:1.8rem;display:block;margin-bottom:6px;opacity:.6}
+.img-ph strong{color:var(--verde);font-size:.82rem}
+/* PLACEHOLDER PAES 2025 */
+.paes-ph{border:2px dashed rgba(245,158,11,.4);border-radius:var(--radius);padding:20px;margin:8px 0 16px;background:rgba(245,158,11,.03)}
+.paes-ph-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;color:#f59e0b}
+.paes-ph-body{background:rgba(245,158,11,.07);border-radius:10px;padding:16px;text-align:center;color:var(--text-dim);font-size:.88rem;line-height:1.7}
+.paes-ph-body strong{color:#fbbf24}
+/* ETIQUETA IA */
+.ai-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(129,140,248,.12);border:1px solid rgba(129,140,248,.3);border-radius:6px;padding:3px 10px;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--c-sn);margin-bottom:10px}
+/* NUEVO CONTENIDO */
+.nuevo-tag{font-size:.68rem;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);border-radius:6px;padding:2px 8px;margin-left:8px;color:#f59e0b;font-weight:900;letter-spacing:.06em}
+/* COLORES TEMA */
+.cel{color:var(--c-cel)!important}.sn{color:var(--c-sn)!important}.rep{color:var(--c-rep)!important}
+.its{color:var(--c-its)!important}.cc{color:var(--c-cc)!important}.evo{color:var(--c-evo)!important}
+.fot{color:var(--c-fot)!important}.verde{color:var(--verde)!important}
+/* TABLA PESO */
+.weight-table{width:100%;border-collapse:collapse;margin:12px 0}
+.weight-table th{background:rgba(5,150,105,.12);color:var(--verde);font-size:.8rem;padding:8px 12px;text-align:left;font-family:"Fredoka One",cursive;font-weight:400}
+.weight-table td{padding:9px 12px;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);color:var(--text-dim)}
+.w-bar{display:inline-block;height:6px;border-radius:3px;background:var(--verde);vertical-align:middle;margin-right:8px;opacity:.7}
+/* ORG CARDS */
+.org-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px;margin:12px 0}
+.org-card{background:var(--card2);border-radius:12px;padding:13px;border-left:3px solid var(--verde)}
+.org-name{font-weight:900;font-size:.88rem;color:var(--verde);margin-bottom:4px}
+.org-fn{font-size:.8rem;color:var(--text-dim);line-height:1.55}
+.org-paes{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:5px;font-style:italic}
+/* MINI ENSAYO */
+.timer-box{background:var(--card2);border:2px solid rgba(5,150,105,.3);border-radius:14px;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.timer-display{font-family:"Fredoka One",cursive;font-size:2.4rem;color:var(--verde);letter-spacing:.05em}
+.timer-display.warn{color:#f59e0b}
+.timer-display.danger{color:#ef4444;animation:pulse-border 1s ease-in-out infinite}
+@keyframes pulse-border{0%,100%{opacity:1}50%{opacity:.5}}
+.ensayo-q{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:12px}
+.ensayo-num{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.ensayo-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 12px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.ensayo-q-text{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.ensayo-opts{display:flex;flex-direction:column;gap:7px}
+.ensayo-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 13px;border-radius:9px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(0,0,0,.18);transition:all .18s}
+.ensayo-opt:hover:not(.locked){border-color:var(--verde);background:rgba(5,150,105,.08)}
+.ensayo-opt.selected{background:rgba(5,150,105,.12);border-color:var(--verde)}
+.ensayo-opt.locked{cursor:default;pointer-events:none}
+.ensayo-opt.right{background:rgba(5,150,105,.14);border-color:var(--verde)}
+.ensayo-opt.wrong{background:rgba(239,68,68,.08);border-color:#ef4444}
+.ensayo-opt .ol{color:var(--verde)}
+.ensayo-opt.selected .ol{background:var(--verde);color:#071812;border-color:var(--verde)}
+.ensayo-opt.right .ol{background:var(--verde);color:#071812;border-color:var(--verde)}
+.ensayo-opt.wrong .ol{background:#ef4444;color:#fff;border-color:#ef4444}
+.ensayo-fb{margin-top:8px;padding:9px 13px;border-radius:9px;font-size:.83rem;line-height:1.55;display:none}
+.ensayo-fb.show{display:block}
+.ensayo-fb.ok{background:rgba(5,150,105,.1);color:#6ee7b7;border-left:3px solid var(--verde)}
+.ensayo-fb.no{background:rgba(239,68,68,.06);color:#fca5a5;border-left:3px solid #ef4444}
+.submit-btn{width:100%;padding:14px;background:var(--verde);color:#071812;border:none;border-radius:12px;font-family:"Fredoka One",cursive;font-size:1.1rem;cursor:pointer;margin-top:10px;transition:background .2s}
+.submit-btn:hover{background:var(--verde-dark)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+#ensayo-results{display:none;margin-top:20px}
+.res-banner{font-family:"Fredoka One",cursive;font-size:2.5rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0}
+.res-topic-card{background:var(--card2);border-radius:12px;padding:13px 16px;border-left:3px solid var(--verde)}
+.res-topic-card.bad{border-left-color:#ef4444}
+.res-topic-card.mid{border-left-color:#f59e0b}
+.res-topic-name{font-size:.79rem;font-weight:900;color:var(--text-dim);margin-bottom:4px}
+.res-topic-score{font-family:"Fredoka One",cursive;font-size:1.3rem}
+/* NAV LINEAL */
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(7,24,18,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.07);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(5,150,105,.35);background:transparent;color:var(--verde);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--verde-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+/* AUDIO */
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--verde),var(--teal));border:none;color:#071812;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(5,150,105,.4);z-index:250;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid var(--bg);display:none}
+.tutor-fab.blocked .dot{background:#6b7280;display:block}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(0,0,0,.4);z-index:260;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--verde-dark),var(--verde));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:#071812}
+.tutor-head p{font-size:.7rem;color:rgba(7,24,18,.75);margin-top:1px}
+.tutor-close{background:rgba(255,255,255,.12);border:none;color:#071812;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1;flex-shrink:0}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--verde);color:var(--verde)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--verde);color:#071812;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.07);border-bottom-left-radius:4px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--verde)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--verde)}
+.tutor-send{background:var(--verde);border:none;color:#071812;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+.tutor-blocked-msg{padding:24px 18px;text-align:center;color:var(--text-dim);font-size:.88rem;line-height:1.7}
+@media(max-width:680px){.tutor-input{font-size:16px}}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#1e4d35}
+html { background:#071812; overflow-x:clip; overscroll-behavior-x:none; }
+body { overflow-x:clip; overscroll-behavior-x:none; }
+.svg-wrap { overflow-x:scroll; overflow-y:hidden; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; touch-action:pan-x pinch-zoom; scrollbar-width:thin; scrollbar-color:rgba(5,150,105,.35) transparent; border-radius:12px; margin:12px 0; background:#071812; max-width:100%; box-sizing:border-box; }
+.svg-wrap::-webkit-scrollbar { height:4px; }
+.svg-wrap::-webkit-scrollbar-thumb { background:rgba(5,150,105,.4); border-radius:2px; }
+.svg-wrap > svg { display:block !important; min-width:580px; width:580px !important; max-width:none !important; border-radius:0 !important; margin:0 !important; height:auto; }
+.mob-carousel { display:flex !important; flex-direction:row !important; overflow-x:scroll; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; gap:0 !important; padding:0 !important; scrollbar-width:none; border-radius:12px; }
+.mob-carousel::-webkit-scrollbar { display:none; }
+.mob-carousel > * { flex:none !important; width:calc(100vw - 28px) !important; min-width:calc(100vw - 28px) !important; scroll-snap-align:start; box-sizing:border-box; margin:0 !important; }
+.mob-dots { display:flex; justify-content:center; gap:7px; margin:10px 0 4px; }
+.mob-dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.18); transition:background .25s,transform .25s; cursor:pointer; }
+.mob-dot.active { background:#059669; transform:scale(1.3); }
+.mob-hint { text-align:center; font-size:.72rem; color:rgba(109,184,146,.6); margin-bottom:6px; }
+.mob-stack { grid-template-columns:1fr !important; }
+.mob-stack > * { width:100% !important; }
+.mob-vert { flex-direction:column !important; }
+.mob-vert .step-arrow { display:none !important; }
+.mob-vert > * { flex:none !important; width:100% !important; }
+@media (max-width:680px) {
+  .container { padding:10px 10px 80px; }
+  .nav { flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; padding:4px 2px 10px; gap:5px; margin:12px 0 4px; scrollbar-width:none; position:relative !important; top:auto !important; background:rgba(7,24,18,.95); border-radius:14px; padding:8px !important; }
+  .nav::-webkit-scrollbar { display:none; }
+  .nav-btn { flex-shrink:0; font-size:.74rem; padding:9px 13px; min-height:40px; touch-action:manipulation; }
+  .hero { padding:36px 8px 14px; }
+  .hero-emoji { font-size:48px; }
+  .card { padding:14px 12px; }
+  .grid-2 { grid-template-columns:1fr; }
+  .org-grid { grid-template-columns:1fr; }
+  .paes-box { padding:14px 12px; }
+  .paes-opt { padding:12px 11px; min-height:52px; touch-action:manipulation; }
+  .ol { min-width:30px; height:30px; font-size:.8rem; }
+  .lnav-btn { padding:13px 18px !important; font-size:.95rem !important; min-height:48px; }
+  .submit-btn { width:100% !important; padding:13px !important; }
+  [style*="40px 148px 1fr"] { grid-template-columns:36px 1fr !important; }
+  [style*="40px 148px 1fr"] > *:nth-child(2) { grid-column:2; grid-row:1; max-height:80px; }
+  [style*="40px 148px 1fr"] > *:nth-child(3) { grid-column:1 / -1; grid-row:2; }
+}
+
+@media (max-width:680px) {
+  /* 5 niveles ADN: apilar número + SVG + texto */
+  .mob-stack[style*="40px 148px 1fr"] {
+    grid-template-columns: 44px 1fr !important;
+    grid-template-rows: auto auto !important;
+  }
+  .mob-stack[style*="40px 148px 1fr"] > *:first-child {
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+  }
+  .mob-stack[style*="40px 148px 1fr"] > *:nth-child(2) {
+    grid-row: 1;
+    grid-column: 2;
+    max-height: 72px;
+  }
+  .mob-stack[style*="40px 148px 1fr"] > *:nth-child(3) {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+  /* Fiber SVG level 3: no min-width, escala libre */
+  .svg-wrap > svg[viewBox="0 0 600 72"] {
+    min-width: unset !important;
+    width: 100% !important;
+  }
+}
+
+</style><style>
+.elec-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(251,146,60,.12);border:1px solid rgba(251,146,60,.32);border-radius:6px;padding:3px 10px;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#fb923c;margin-bottom:10px}
+.diag-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.diag-opt:hover{border-color:#f59e0b;background:rgba(245,158,11,.08)}
+.flip-card{perspective:1000px;height:190px;cursor:pointer}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;padding:14px;display:flex;flex-direction:column;justify-content:center}
+.flip-front{background:var(--card2);border:1.5px solid rgba(255,255,255,.1)}
+.flip-back{background:var(--card2);border:1.5px solid rgba(255,255,255,.1);transform:rotateY(180deg)}
+.flip-hint{font-size:.65rem;color:var(--text-dim);opacity:.6;margin-top:8px;text-align:center}
+.accordion-item{border:1px solid rgba(255,255,255,.08);border-radius:12px;margin-bottom:8px;overflow:hidden;background:var(--card2)}
+.accordion-head{padding:12px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:.9rem}
+.accordion-body{padding:0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+.accordion-item.open .accordion-body{padding:0 16px 14px;max-height:400px}
+.accordion-arrow{transition:transform .3s}
+.accordion-item.open .accordion-arrow{transform:rotate(180deg)}
+</style>
+
+</head>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:14%"></div></div>
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">🧬</span>
+  <h1>Electivo Biología</h1>
+  <p>PAES Ciencias · Módulo Electivo · Admisión 2027</p>
+  <div class="badge">🎯 26 preguntas en la PAES</div>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('diagnostico',1,this)">🩺 Diagnóstico</button>
+  <button class="nav-btn" onclick="showSec('u1',2,this)">🔬 U1 Célula</button>
+  <button class="nav-btn" onclick="showSec('u2',3,this)">🧠 U2 Procesos</button>
+  <button class="nav-btn" onclick="showSec('u3',4,this)">🧬 U3 Herencia</button>
+  <button class="nav-btn" onclick="showSec('u4',5,this)">🌱 U4 Ambiente</button>
+  <button class="nav-btn" onclick="showSec('ensayo',6,this)">⏱️ Ensayo Cierre</button>
+</div>
+
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title verde" style="justify-content:center;font-size:1.7rem">🧬 Electivo · Biología</p>
+    <p style="font-size:1.05rem;max-width:600px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Este módulo cubre las <strong>26 preguntas del Módulo Electivo de Biología</strong>, que se suman a las 18 preguntas de Biología del Módulo Común. Es el mismo contenido de Biología Básica, pero llevado a mayor profundidad: más mecanismos, más ejemplos y preguntas más exigentes.</p>
+    <div class="badge">🎯 26 preguntas · 4 unidades · Admisión 2027</div>
+  </div>
+  <div class="card">
+    <p class="card-title verde">📊 Peso estimado de cada unidad en el Electivo</p>
+    <table class="weight-table">
+      <tr><th>Unidad</th><th>Preguntas estimadas</th></tr>
+      <tr><td>🔬 U1 · Organización y actividad celular</td><td><span class="w-bar" style="width:60px"></span><strong style="color:var(--c-cel)">~6–7 preguntas · Alta</strong></td></tr>
+      <tr><td>🧠 U2 · Procesos y funciones biológicas</td><td><span class="w-bar" style="width:60px"></span><strong style="color:var(--c-sn)">~7–8 preguntas · Alta</strong></td></tr>
+      <tr><td>🧬 U3 · Herencia y evolución</td><td><span class="w-bar" style="width:65px"></span><strong style="color:var(--c-cc)">~8 preguntas · Alta (la más extensa)</strong></td></tr>
+      <tr><td>🌱 U4 · Organismo y ambiente</td><td><span class="w-bar" style="width:38px"></span><strong style="color:var(--c-fot)">~4–5 preguntas · Media</strong></td></tr>
+    </table>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--verde)">
+      <p class="card-title verde">📌 Cómo se relaciona con el Plan Común</p>
+      <ul>
+        <li>Tu nota final de Biología en la PAES combina <strong>54 preguntas del Módulo Común (18 son de Biología) + 26 de este Electivo = 80 preguntas en total</strong></li>
+        <li>Los temas se repiten pero acá vienen con más mecanismo, más detalle experimental y preguntas que integran habilidades científicas</li>
+        <li>Si dominas Biología Básica, este módulo te va a resultar familiar — el salto está en la profundidad, no en temas nuevos</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--teal)">
+      <p class="card-title" style="color:var(--teal)">⏱️ Qué encontrarás aquí</p>
+      <ul>
+        <li>Un <strong>diagnóstico rápido</strong> para saber por dónde partir</li>
+        <li>4 unidades con diagramas interactivos, ejemplos y práctica guiada</li>
+        <li><strong>Ensayo de cierre cronometrado</strong> con 26 preguntas 🤖 estilo PAES y desglose de resultado por unidad</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">💡 Clave PAES</div>
+    <p>La Unidad 3 (Herencia y Evolución) es la más extensa del electivo: junta ciclo celular, meiosis, manipulación genética y evolución. Si administras bien tu tiempo de estudio, dale prioridad. Las preguntas del electivo suelen presentar <strong>experimentos con gráficos y tablas</strong> — usa lo que aprendiste en la Unidad 0 de habilidades científicas para leerlas con calma.</p>
+  </div>
+</div>
+
+<!-- ═══ DIAGNÓSTICO ═══ -->
+<div class="section" id="diagnostico">
+  <div class="h-header" style="background:rgba(245,158,11,.08);border:1.5px solid rgba(245,158,11,.3)">
+    <span class="icon">🩺</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#f59e0b;margin-bottom:4px">Antes de empezar</div>
+    <h2 style="color:#f59e0b;font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,5vw,2.6rem)">Mini Diagnóstico</h2>
+    <p>8 preguntas rápidas, una por cada bloque temático del electivo. No es cronometrado ni se guarda como nota: es solo para que identifiques qué unidades necesitas reforzar más antes de avanzar.</p>
+  </div>
+  <div class="tip-box" style="border-color:#f59e0b">
+    <div class="tip-label" style="color:#f59e0b">💡 Cómo usarlo</div>
+    <p>Responde con lo que ya sabes, sin repasar antes. Si fallas 2 o más preguntas de una misma unidad, esa es la unidad por la que deberías empezar a estudiar con más calma.</p>
+  </div>
+  <div id="diag-qs"></div>
+  <div class="card" id="diag-result" style="display:none;text-align:center">
+    <p class="card-title" style="justify-content:center;color:#f59e0b">📋 Tu diagnóstico</p>
+    <div id="diag-result-body"></div>
+  </div>
+</div>
+
+<!-- ═══ U1 ORGANIZACIÓN CELULAR ═══ -->
+<div class="section" id="u1">
+  <div class="h-header" style="background:rgba(6,182,212,.08);border:1.5px solid rgba(6,182,212,.3)">
+    <span class="icon">🔬</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--c-cel);margin-bottom:4px">Unidad 1 de 4 · Alta frecuencia</div>
+    <h2 class="cel">Organización, Estructura y Actividad Celular</h2>
+    <p>Es la unidad más transversal del electivo: sus conceptos aparecen como contexto en preguntas de las otras 3 unidades. Vamos a ir despacio y sin dar nada por sabido — al final vas a poder mirar la descripción de cualquier célula y decir con seguridad qué tipo es y por qué.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title cel">🧫 ¿Qué es una célula, en el fondo?</p>
+    <p>Antes de comparar tipos de células, aclaremos la base: una célula es la <strong>unidad más pequeña que puede considerarse "viva"</strong> por sí sola. Dentro de ella ocurren todos los procesos que definen la vida: obtener y usar energía (metabolismo), fabricar sus propias piezas (síntesis de proteínas), y reproducirse. Todo ser vivo — desde una bacteria hasta tú — está hecho de una o muchas células que hacen básicamente lo mismo, pero organizado de manera distinta según el tipo celular.</p>
+    <p style="margin-top:8px">Piensa en una célula como una <strong>ciudad en miniatura</strong>: tiene una "central de mando" que guarda los planos (el material genético), "fábricas" que producen lo necesario (organelos), un "muro perimetral" que decide quién entra y sale (la membrana), y en algunos casos, "trabajadores especializados". La pregunta que la PAES te va a hacer una y otra vez es: <strong>¿cómo está organizada esta ciudad en particular?</strong></p>
+  </div>
+
+  <div class="card">
+    <p class="card-title cel">🦠 Procarionte vs. Eucarionte — la primera gran distinción</p>
+    <p>Todas las células del planeta se dividen en dos grandes grupos según <strong>cómo guardan su ADN</strong>. Esta es la primera pregunta que debes hacerte frente a cualquier descripción de una célula.</p>
+    <p style="margin-top:8px"><strong>Procarionte</strong> (bacterias): imagina una oficina de un solo ambiente, sin paredes internas. El ADN está suelto en el citoplasma, en una zona llamada <strong>nucleoide</strong>, sin una membrana que lo separe del resto. Tampoco tiene organelos rodeados de membrana. Es una célula simple, pequeña y rápida de reproducir.</p>
+    <p style="margin-top:8px"><strong>Eucarionte</strong> (animal, vegetal, hongos, protistas): imagina un edificio de oficinas con paredes y puertas: cada función tiene su propio "cuarto" separado por membrana. El ADN está guardado dentro de un <strong>núcleo</strong> con su propia envoltura, y existen organelos membranosos especializados que dividen el trabajo celular en compartimentos.</p>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 El truco para no confundirte nunca</div>
+      <p>Pregúntate solo esto: <strong>¿esta célula tiene núcleo con membrana propia?</strong> Si la respuesta es sí → eucarionte. Si es no (el ADN está "suelto") → procarionte. Todo lo demás se deduce de esa única diferencia.</p>
+    </div>
+  </div>
+
+  <div style="background:#071812;border-radius:14px;padding:20px 16px 16px;margin:14px 0;font-family:'Nunito',sans-serif">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+  <div style="background:#0d2218;border-radius:12px;padding:16px;border:1.5px solid rgba(6,182,212,.35)">
+  <div style="font-family:'Fredoka One',cursive;font-size:19px;color:#06b6d4;text-align:center;margin-bottom:4px">Procarionte</div>
+  <div style="font-size:12px;color:#67e8f9;text-align:center;margin-bottom:12px;opacity:.7">Bacterias — sin compartimentos internos</div>
+  <svg width="100%" viewBox="0 0 300 200">
+    <ellipse cx="150" cy="100" rx="130" ry="78" fill="#0e2a30" stroke="#06b6d4" stroke-width="2.5"/>
+    <ellipse cx="150" cy="100" rx="145" ry="90" fill="none" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="6 3" opacity=".5"/>
+    <ellipse cx="132" cy="98" rx="30" ry="20" fill="#f59e0b" opacity=".14" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <path d="M110 98 Q132 84 154 98 Q132 112 110 98Z" fill="#f59e0b" opacity=".55"/>
+    <circle cx="188" cy="82" r="4" fill="#34d399"/><circle cx="200" cy="96" r="4" fill="#34d399"/>
+    <circle cx="192" cy="112" r="4" fill="#34d399"/><circle cx="178" cy="118" r="4" fill="#34d399"/>
+    <circle cx="205" cy="112" r="4" fill="#34d399"/>
+    <path d="M245 96 Q268 74 274 50" fill="none" stroke="#c084fc" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="30" y="22" style="font-size:10px;fill:#67e8f9;font-weight:800">Nucleoide (ADN circular)</text>
+    <line x1="55" y1="26" x2="115" y2="90" stroke="#67e8f9" stroke-width="1" stroke-dasharray="2 2"/>
+    <text x="180" y="176" style="font-size:10px;fill:#6ee7b7;font-weight:800">Ribosomas</text>
+    <line x1="195" y1="170" x2="195" y2="120" stroke="#6ee7b7" stroke-width="1" stroke-dasharray="2 2"/>
+    <text x="215" y="40" style="font-size:10px;fill:#d8b4fe;font-weight:800">Flagelo ⭐</text>
+  </svg>
+  <div style="background:#0a1a0c;border-radius:8px;padding:8px 10px;margin-top:6px;font-size:11px;color:#ef4444;font-weight:700">✗ Sin núcleo &nbsp;·&nbsp; ✗ Sin organelos membranosos &nbsp;·&nbsp; ✓ Pared celular + cápsula</div>
+  </div>
+  <div style="background:#0d2218;border-radius:12px;padding:16px;border:1.5px solid rgba(244,114,182,.35)">
+  <div style="font-family:'Fredoka One',cursive;font-size:19px;color:#f472b6;text-align:center;margin-bottom:4px">Eucarionte</div>
+  <div style="font-size:12px;color:#f9a8d4;text-align:center;margin-bottom:12px;opacity:.7">Animal / vegetal — compartimentada</div>
+  <svg width="100%" viewBox="0 0 300 200">
+    <ellipse cx="150" cy="100" rx="128" ry="78" fill="#1a0818" stroke="#f472b6" stroke-width="2"/>
+    <ellipse cx="130" cy="84" rx="34" ry="26" fill="#2a0b4a" stroke="#c084fc" stroke-width="2"/>
+    <circle cx="130" cy="82" r="10" fill="#7c3aed" opacity=".75"/>
+    <text x="130" y="86" text-anchor="middle" style="font-size:8px;fill:#ede9fe;font-weight:800">ADN</text>
+    <ellipse cx="212" cy="72" rx="24" ry="12" fill="#0f3a20" stroke="#34d399" stroke-width="1.6"/>
+    <path d="M70 92 Q64 84 70 76 Q78 70 84 78 Q92 72 100 80 Q106 88 98 96Z" fill="none" stroke="#f59e0b" stroke-width="1.6"/>
+    <circle cx="72" cy="82" r="3" fill="#34d399"/><circle cx="84" cy="76" r="3" fill="#34d399"/><circle cx="94" cy="86" r="3" fill="#34d399"/>
+    <path d="M186 138 Q212 136 214 145 Q212 152 186 150Z" fill="none" stroke="#06b6d4" stroke-width="2"/>
+    <path d="M184 147 Q212 145 214 154 Q212 161 184 159Z" fill="none" stroke="#06b6d4" stroke-width="2"/>
+    <circle cx="150" cy="140" r="10" fill="#7f1d1d" stroke="#f87171" stroke-width="1.8"/>
+    <text x="18" y="18" style="font-size:9px;fill:#c084fc;font-weight:800">Núcleo</text>
+    <text x="190" y="30" style="font-size:9px;fill:#6ee7b7;font-weight:800">Mitocondria</text>
+    <text x="20" y="120" style="font-size:9px;fill:#fbbf24;font-weight:800">RE</text>
+    <text x="200" y="180" style="font-size:9px;fill:#67e8f9;font-weight:800">Golgi</text>
+    <text x="140" y="178" style="font-size:9px;fill:#fca5a5;font-weight:800">Lisosoma</text>
+  </svg>
+  <div style="background:#0a1a0c;border-radius:8px;padding:8px 10px;margin-top:6px;font-size:11px;color:#6ee7b7;font-weight:700">✓ Núcleo definido &nbsp;·&nbsp; ✓ Organelos membranosos &nbsp;·&nbsp; ✓ Citoesqueleto</div>
+  </div>
+  </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cel">📊 Tabla comparativa completa</p>
+    <table class="weight-table">
+      <tr><th>Característica</th><th>Procarionte</th><th>Eucarionte</th></tr>
+      <tr><td>Núcleo con membrana</td><td style="color:#f87171">No</td><td style="color:#6ee7b7">Sí</td></tr>
+      <tr><td>Material genético</td><td>ADN circular en el citoplasma (nucleoide)</td><td>ADN lineal dentro del núcleo</td></tr>
+      <tr><td>Organelos membranosos</td><td style="color:#f87171">No tiene</td><td style="color:#6ee7b7">Sí (mitocondria, Golgi, RE, etc.)</td></tr>
+      <tr><td>Tamaño típico</td><td>Pequeño (1-10 µm)</td><td>Más grande (10-100 µm)</td></tr>
+      <tr><td>Ribosomas</td><td>Sí (más pequeños)</td><td>Sí (más grandes)</td></tr>
+      <tr><td>Ejemplos</td><td>Bacterias, arqueas</td><td>Animales, plantas, hongos, protistas</td></tr>
+    </table>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 Dato que la PAES ama preguntar</div>
+      <p>Los <strong>ribosomas</strong> son el único organelo presente en <strong>ambos</strong> tipos celulares. Si una pregunta te dice "esta estructura está en bacterias y en células animales", casi seguro se refiere al ribosoma.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cel">🧩 Organelos eucariontes: haz clic para ver estructura y función</p>
+    <p style="margin-bottom:10px">Ahora que sabes distinguir procarionte de eucarionte, hay que conocer bien cada "cuarto" del edificio eucarionte. La PAES no solo pregunta "qué hace" un organelo — pregunta qué pasaría si ese organelo fallara, o te da una célula con ciertas características para que identifiques cuál organelo es más abundante. Antes de la lista, agrupemos los organelos por su "trabajo" para que sea más fácil recordarlos:</p>
+    <div class="org-grid" style="margin-bottom:14px">
+      <div class="org-card" style="border-color:#34d399"><div class="org-name" style="color:#34d399">🔋 Energía</div><div class="org-fn">Mitocondria (y cloroplasto en vegetales)</div></div>
+      <div class="org-card" style="border-color:#f59e0b"><div class="org-name" style="color:#f59e0b">🏭 Fabricación</div><div class="org-fn">Ribosoma, RE rugoso, RE liso, Golgi</div></div>
+      <div class="org-card" style="border-color:#f87171"><div class="org-name" style="color:#f87171">🗑️ Reciclaje/limpieza</div><div class="org-fn">Lisosoma, peroxisoma</div></div>
+      <div class="org-card" style="border-color:#818cf8"><div class="org-name" style="color:#818cf8">🏗️ Soporte y forma</div><div class="org-fn">Citoesqueleto, centriolos, cilios/flagelos</div></div>
+    </div>
+    <p style="margin-bottom:10px">Ahora sí, el detalle de cada uno:</p>
+    <div id="acc-organelos"></div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cel">🔍 Cómo resolver una pregunta de organelos, paso a paso</p>
+    <p>La PAES suele presentar un experimento o una descripción y pedirte que identifiques el organelo involucrado. Este es el método que siempre funciona:</p>
+    <ol style="margin-top:8px;padding-left:20px">
+      <li style="margin-bottom:8px"><strong>Paso 1 — Identifica la función mencionada.</strong> ¿Habla de producir energía? ¿De fabricar o modificar proteínas? ¿De digerir algo? ¿De dar forma o soporte?</li>
+      <li style="margin-bottom:8px"><strong>Paso 2 — Ubica esa función en los 4 grupos de arriba.</strong> Eso ya te descarta 3 de los 4 grupos.</li>
+      <li style="margin-bottom:8px"><strong>Paso 3 — Dentro del grupo correcto, fíjate en detalles específicos</strong> (¿es en animal o vegetal? ¿hay ribosomas adheridos o no?) para elegir el organelo exacto.</li>
+    </ol>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 Ejemplo resuelto</div>
+      <p>"Un investigador bloquea un organelo y las proteínas dejan de secretarse, acumulándose modificadas pero sin salir de la célula." → Paso 1: habla de "secreción de proteínas ya modificadas" → Paso 2: grupo Fabricación → Paso 3: el RE rugoso fabrica, pero quien empaqueta y envía hacia afuera es el <strong>Golgi</strong>. Respuesta: Golgi.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cel">🧱 Estructuras exclusivas: pared celular y cápsula</p>
+    <p style="margin-bottom:10px">Estas dos estructuras están <strong>por fuera</strong> de la membrana plasmática y no todas las células las tienen — por eso son tan útiles para identificar el tipo celular.</p>
+    <div class="grid-2">
+      <div style="background:var(--card2);border-radius:12px;padding:14px;border-left:3px solid #34d399">
+        <strong style="color:#34d399">Pared celular</strong>
+        <p style="margin-top:6px">Capa rígida <strong>externa a la membrana plasmática</strong>. En vegetales es de celulosa; en bacterias, de peptidoglicano; en hongos, de quitina. Da forma y protección mecánica. <strong>No es de naturaleza lipídica</strong> — por eso solventes orgánicos que destruyen la membrana de células animales (que sí es lipídica) no afectan igual a una célula vegetal: la pared actúa como un chaleco protector que el solvente no puede atravesar tan fácilmente.</p>
+      </div>
+      <div style="background:var(--card2);border-radius:12px;padding:14px;border-left:3px solid #a78bfa">
+        <strong style="color:#a78bfa">Cápsula</strong>
+        <p style="margin-top:6px">Cubierta externa <strong>solo en algunas bacterias</strong>, por fuera de la pared celular. Función: adhesión a superficies (por ejemplo, para formar biofilms) y protección frente al sistema inmune del hospedero, dificultando que los glóbulos blancos la reconozcan y destruyan. No participa en movimiento — eso lo hace el flagelo, una estructura completamente distinta.</p>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 No los confundas</div>
+      <p>Pared celular = <strong>forma y protección estructural</strong>. Cápsula = <strong>adhesión y camuflaje inmune</strong>. Flagelo = <strong>movimiento</strong>. Tres estructuras, tres funciones distintas, y la PAES adora mezclarlas en las alternativas incorrectas.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cel">🔀 Membrana plasmática: la puerta regulada de la célula</p>
+    <p>Está formada por una <strong>bicapa de fosfolípidos</strong> con proteínas incrustadas — se le llama "modelo del mosaico fluido" porque las proteínas flotan y se mueven dentro de la capa de lípidos, como piezas de mosaico que se deslizan sobre un líquido. Esta membrana es <strong>selectivamente permeable</strong>: no deja pasar cualquier cosa, sino que regula qué entra y qué sale mediante distintos mecanismos. Piensa en ella como el portero de un edificio, que usa reglas distintas según quién quiere entrar:</p>
+    <div class="org-grid" style="margin-top:10px">
+      <div class="org-card" style="border-color:#34d399"><div class="org-name" style="color:#34d399">Difusión simple</div><div class="org-fn">Moléculas pequeñas (O₂, CO₂) atraviesan la bicapa directamente, sin gasto de energía, a favor de su gradiente. Como caminar cuesta abajo: no necesitas esfuerzo.</div></div>
+      <div class="org-card" style="border-color:#06b6d4"><div class="org-name" style="color:#06b6d4">Difusión facilitada</div><div class="org-fn">Moléculas grandes o polares (glucosa) pasan por proteínas canal o transportadoras, sin gasto de ATP, pero necesitan "ayuda" — como un torniquete que gira solo, sin que tú empujes.</div></div>
+      <div class="org-card" style="border-color:#f59e0b"><div class="org-name" style="color:#f59e0b">Transporte activo</div><div class="org-fn">Mueve sustancias en contra de su gradiente. Requiere ATP, como una bomba de agua que empuja el agua cuesta arriba (ej: bomba sodio-potasio).</div></div>
+      <div class="org-card" style="border-color:#f472b6"><div class="org-name" style="color:#f472b6">Endo/exocitosis</div><div class="org-fn">La membrana envuelve o expulsa partículas grandes mediante vesículas — como una boca que se cierra alrededor de un bocado grande, en vez de dejarlo pasar por un agujero pequeño.</div></div>
+    </div>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 Pregunta clave para decidir el mecanismo</div>
+      <p>Hazte dos preguntas: <strong>(1) ¿la molécula va a favor o en contra de su gradiente de concentración?</strong> Si va en contra, necesariamente hay gasto de ATP (transporte activo). <strong>(2) ¿la molécula es pequeña y no polar, o grande/polar?</strong> Si es pequeña y no polar, probablemente difusión simple; si es grande o polar, necesita una proteína (difusión facilitada o transporte activo).</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cel">🧫 Tipos celulares especializados — estructura ↔ función</p>
+    <p style="margin-bottom:10px">Uno de los formatos favoritos de la PAES Electivo: te describe organelos abundantes en una célula y tú debes inferir qué tipo celular es. La lógica es siempre la misma: <strong>la estructura de una célula refleja su función</strong>. Si una célula necesita mucha energía, tendrá muchas mitocondrias. Si necesita fabricar y exportar mucha proteína, tendrá mucho RE rugoso y Golgi. Haz clic en cada tarjeta para ver la relación estructura-función completa.</p>
+    <div class="grid-2" id="flip-grid" style="gap:12px"></div>
+    <div class="tip-box" style="margin-top:12px">
+      <div class="tip-label">💡 Método para identificar un tipo celular a partir de pistas</div>
+      <p>1) Lista los organelos que menciona el enunciado. 2) Pregúntate: ¿para qué función necesitaría una célula tener MUCHO de eso? 3) Relaciona esa función con el tipo celular. Ejemplo: "muchas mitocondrias + soma, dendritas y axón" → alta necesidad energética + forma típica de transmisión de señales → neurona.</p>
+    </div>
+  </div>
+
+  <div class="tip-box" style="border-color:var(--c-cel)">
+    <div class="tip-label" style="color:var(--c-cel)">💡 Clave PAES — resumen de toda la unidad</div>
+    <p>Cuando la pregunta describe abundancia de un organelo, piensa en su función: <strong>mucho RE rugoso + Golgi</strong> → célula secretora de proteínas (pancreática); <strong>muchas mitocondrias</strong> → célula con alto gasto energético (muscular, fagocito, neurona); <strong>citoesqueleto muy desarrollado</strong> → célula que cambia de forma o resiste presión mecánica; <strong>muchos lisosomas</strong> → célula que digiere partículas (glóbulo blanco fagocitario).</p>
+  </div>
+
+  <div class="kw-grid">
+    <span class="kw cel" style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3)">procarionte / eucarionte</span>
+    <span class="kw cel" style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3)">nucleoide</span>
+    <span class="kw cel" style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3)">citoesqueleto</span>
+    <span class="kw cel" style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3)">RE rugoso / liso</span>
+    <span class="kw cel" style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3)">peroxisoma</span>
+    <span class="kw cel" style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3)">difusión facilitada</span>
+    <span class="kw cel" style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3)">transporte activo</span>
+    <span class="kw cel" style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3)">enterocito</span>
+    <span class="kw cel" style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3)">célula secretora pancreática</span>
+  </div>
+
+  <p style="color:var(--text-dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 9 preguntas</p>
+
+  <!-- P1 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Un investigador que estudiaba las características físicas de una célula animal propuso: "la célula responderá frente a cambios de presión mecánica causados por la exposición a fuerzas externas, modificando la distribución de componentes que le otorgan estabilidad a su estructura".</div>
+    <p class="paes-q">Para poner a prueba experimentalmente lo propuesto, ¿cuál de los siguientes componentes celulares debería evaluar el investigador?</p>
+    <div class="paes-opts" id="qu1a">
+      <div class="paes-opt" onclick="ans('qu1a','A')"><div class="ol">A</div><div class="ot">Retículo endoplasmático rugoso.</div></div>
+      <div class="paes-opt" onclick="ans('qu1a','B')"><div class="ol">B</div><div class="ot">Complejo de Golgi.</div></div>
+      <div class="paes-opt" onclick="ans('qu1a','C')"><div class="ol">C</div><div class="ot">Envoltura nuclear.</div></div>
+      <div class="paes-opt" onclick="ans('qu1a','D')"><div class="ol">D</div><div class="ot">Citoesqueleto.</div></div>
+    </div>
+    <div class="paes-fb" id="qu1a-fb"></div>
+  </div>
+
+  <!-- P2 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Un ayudante de laboratorio describió 4 tipos celulares observados al microscopio: <strong>Tipo 1</strong>: forma alargada, muchos núcleos periféricos, RE liso abundante. <strong>Tipo 2</strong>: microvellosidades apicales, muchas mitocondrias basales, RE y Golgi abundantes. <strong>Tipo 3</strong>: forma piramidal truncada, RE rugoso y Golgi muy abundantes. <strong>Tipo 4</strong>: soma, dendritas y axón, muchas mitocondrias.</p>
+    <p class="paes-q">¿Cuál de las siguientes inferencias es correcta acerca de la identidad de las células descritas?</p>
+    <div class="paes-opts" id="qu1b">
+      <div class="paes-opt" onclick="ans('qu1b','A')"><div class="ol">A</div><div class="ot">El tipo celular 1 corresponde a una neurona.</div></div>
+      <div class="paes-opt" onclick="ans('qu1b','B')"><div class="ol">B</div><div class="ot">El tipo celular 2 corresponde a un enterocito.</div></div>
+      <div class="paes-opt" onclick="ans('qu1b','C')"><div class="ol">C</div><div class="ot">El tipo celular 3 corresponde a un leucocito.</div></div>
+      <div class="paes-opt" onclick="ans('qu1b','D')"><div class="ol">D</div><div class="ot">El tipo celular 4 corresponde a un miocito.</div></div>
+    </div>
+    <div class="paes-fb" id="qu1b-fb"></div>
+  </div>
+
+  <!-- P3 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Investigadores estudiaron si una dieta alta en NaCl altera la respuesta inmunológica. A dos grupos de animales les dieron una dieta base con 1,0 mg de NaCl/día; al grupo 2 le agregaron 6,0 mg extra de NaCl durante dos semanas. Los fagocitos del grupo 2 mostraron <strong>menor consumo de oxígeno y menor producción de energía química</strong> que los del grupo 1.</div>
+    <p class="paes-q">¿Cuál de los siguientes organelos fue afectado directamente por la dieta alta en NaCl?</p>
+    <div class="paes-opts" id="qu1c">
+      <div class="paes-opt" onclick="ans('qu1c','A')"><div class="ol">A</div><div class="ot">Lisosoma.</div></div>
+      <div class="paes-opt" onclick="ans('qu1c','B')"><div class="ol">B</div><div class="ot">Mitocondria.</div></div>
+      <div class="paes-opt" onclick="ans('qu1c','C')"><div class="ol">C</div><div class="ot">Complejo de Golgi.</div></div>
+      <div class="paes-opt" onclick="ans('qu1c','D')"><div class="ol">D</div><div class="ot">Retículo endoplasmático.</div></div>
+    </div>
+    <div class="paes-fb" id="qu1c-fb"></div>
+  </div>
+
+  <!-- P4 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Algunos parásitos intracelulares permanecen dentro de compartimentos de células eucariontes. Estos patógenos han desarrollado mecanismos de manipulación molecular, modificando y aprovechando procesos de síntesis de la célula parasitada para facilitar su proliferación.</div>
+    <p class="paes-q">Basándose en estos antecedentes, ¿qué organelos participarían directamente en la producción de proteínas de un parásito intracelular?</p>
+    <div class="paes-opts" id="qu1d">
+      <div class="paes-opt" onclick="ans('qu1d','A')"><div class="ol">A</div><div class="ot">Retículo endoplasmático liso y lisosomas.</div></div>
+      <div class="paes-opt" onclick="ans('qu1d','B')"><div class="ol">B</div><div class="ot">Retículo endoplasmático liso y mitocondrias.</div></div>
+      <div class="paes-opt" onclick="ans('qu1d','C')"><div class="ol">C</div><div class="ot">Retículo endoplasmático rugoso y peroxisomas.</div></div>
+      <div class="paes-opt" onclick="ans('qu1d','D')"><div class="ol">D</div><div class="ot">Retículo endoplasmático rugoso y complejo de Golgi.</div></div>
+    </div>
+    <div class="paes-fb" id="qu1d-fb"></div>
+  </div>
+
+  <!-- IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Un estudiante trata dos muestras de tejido con el mismo solvente orgánico diluido. La muestra animal se destruye rápidamente por alteración de su membrana; la muestra vegetal permanece prácticamente intacta.</div>
+    <p class="paes-q">¿Cuál de las siguientes explica correctamente esta diferencia?</p>
+    <div class="paes-opts" id="qu1e">
+      <div class="paes-opt" onclick="ans('qu1e','A')"><div class="ol">A</div><div class="ot">La célula vegetal presenta pared celular de naturaleza no lipídica por fuera de su membrana plasmática.</div></div>
+      <div class="paes-opt" onclick="ans('qu1e','B')"><div class="ol">B</div><div class="ot">La célula vegetal carece de membrana plasmática lipídica.</div></div>
+      <div class="paes-opt" onclick="ans('qu1e','C')"><div class="ol">C</div><div class="ot">La célula vegetal tiene una membrana impermeable recubierta de cera.</div></div>
+      <div class="paes-opt" onclick="ans('qu1e','D')"><div class="ol">D</div><div class="ot">La célula vegetal no tiene organelos membranosos.</div></div>
+    </div>
+    <div class="paes-fb" id="qu1e-fb"></div>
+  </div>
+
+  <!-- IA nueva 1 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Un fármaco experimental inhibe específicamente la bomba sodio-potasio de las neuronas, sin afectar ningún otro componente celular.</div>
+    <p class="paes-q">¿Qué tipo de transporte de membrana se ve directamente afectado?</p>
+    <div class="paes-opts" id="qu1f">
+      <div class="paes-opt" onclick="ans('qu1f','A')"><div class="ol">A</div><div class="ot">Difusión simple.</div></div>
+      <div class="paes-opt" onclick="ans('qu1f','B')"><div class="ol">B</div><div class="ot">Difusión facilitada.</div></div>
+      <div class="paes-opt" onclick="ans('qu1f','C')"><div class="ol">C</div><div class="ot">Transporte activo.</div></div>
+      <div class="paes-opt" onclick="ans('qu1f','D')"><div class="ol">D</div><div class="ot">Exocitosis.</div></div>
+    </div>
+    <div class="paes-fb" id="qu1f-fb"></div>
+  </div>
+
+  <!-- IA nueva 2 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Al observar una célula al microscopio, un estudiante nota que no tiene núcleo definido, pero sí presenta una zona central algo más densa donde se concentra el ADN, además de ribosomas dispersos en el citoplasma.</div>
+    <p class="paes-q">¿A qué tipo de célula corresponde esta descripción?</p>
+    <div class="paes-opts" id="qu1g">
+      <div class="paes-opt" onclick="ans('qu1g','A')"><div class="ol">A</div><div class="ot">Eucarionte animal.</div></div>
+      <div class="paes-opt" onclick="ans('qu1g','B')"><div class="ol">B</div><div class="ot">Eucarionte vegetal.</div></div>
+      <div class="paes-opt" onclick="ans('qu1g','C')"><div class="ol">C</div><div class="ot">Procarionte.</div></div>
+      <div class="paes-opt" onclick="ans('qu1g','D')"><div class="ol">D</div><div class="ot">No se puede determinar sin ver el tipo de pared celular.</div></div>
+    </div>
+    <div class="paes-fb" id="qu1g-fb"></div>
+  </div>
+
+  <!-- IA nueva 3 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Una toxina bloquea específicamente los peroxisomas de las células hepáticas (del hígado).</div>
+    <p class="paes-q">¿Qué función celular se vería más directamente comprometida?</p>
+    <div class="paes-opts" id="qu1h">
+      <div class="paes-opt" onclick="ans('qu1h','A')"><div class="ol">A</div><div class="ot">La producción de ATP.</div></div>
+      <div class="paes-opt" onclick="ans('qu1h','B')"><div class="ol">B</div><div class="ot">La degradación de sustancias tóxicas como el peróxido de hidrógeno.</div></div>
+      <div class="paes-opt" onclick="ans('qu1h','C')"><div class="ol">C</div><div class="ot">La síntesis de proteínas de exportación.</div></div>
+      <div class="paes-opt" onclick="ans('qu1h','D')"><div class="ol">D</div><div class="ot">La organización del huso mitótico.</div></div>
+    </div>
+    <div class="paes-fb" id="qu1h-fb"></div>
+  </div>
+</div>
+</div>
+
+<!-- ═══ U2 PROCESOS Y FUNCIONES ═══ -->
+<div class="section" id="u2">
+  <div class="h-header" style="background:rgba(129,140,248,.08);border:1.5px solid rgba(129,140,248,.3)">
+    <span class="icon">🧠</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--c-sn);margin-bottom:4px">Unidad 2 de 4 · Alta frecuencia</div>
+    <h2 class="sn">Procesos y Funciones Biológicas</h2>
+    <p>Sistema nervioso, reproducción humana, anticoncepción, ITS y sexualidad integral. Vamos paso a paso: primero cómo se comunican las neuronas, después cómo funciona la reproducción, y por último cómo se relacionan ambos temas con el cuidado de la salud.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title sn">🧠 La neurona: la unidad básica del sistema nervioso</p>
+    <p>Antes de hablar de impulsos y sinapsis, hay que entender la "forma" de una neurona, porque su forma explica su función. Imagina una neurona como un <strong>cable con antenas receptoras en un extremo</strong>: las <strong>dendritas</strong> son las antenas que reciben señales de otras neuronas; el <strong>soma</strong> (cuerpo celular) contiene el núcleo e integra toda la información que llega; el <strong>axón</strong> es el cable largo que conduce la señal hacia adelante; y el <strong>botón sináptico</strong>, al final del axón, es donde la señal se transmite a la siguiente célula.</p>
+    <p style="margin-top:8px">El <strong>impulso nervioso</strong> no es electricidad como la de un cable de cobre — es un cambio de voltaje que viaja a lo largo de la membrana del axón, generado por el movimiento de iones (sodio y potasio) entrando y saliendo de la neurona. Este cambio de voltaje se llama <strong>potencial de acción</strong> y viaja siempre en una sola dirección: de dendritas hacia el botón sináptico.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title sn">⚡ Sinapsis química: cómo "salta" la señal de una neurona a otra</p>
+    <p>Aquí viene un punto clave que mucha gente asume mal: <strong>las neuronas NO están físicamente pegadas entre sí</strong>. Entre el botón sináptico de una neurona y la siguiente hay un pequeño espacio llamado <strong>espacio sináptico</strong>. Para que la señal cruce ese espacio, ocurre lo siguiente, en orden:</p>
+    <ol style="margin-top:8px;padding-left:20px">
+      <li style="margin-bottom:6px"><strong>1.</strong> El impulso nervioso llega al botón sináptico de la primera neurona.</li>
+      <li style="margin-bottom:6px"><strong>2.</strong> Esto provoca la liberación de <strong>neurotransmisores</strong> (mensajeros químicos) hacia el espacio sináptico.</li>
+      <li style="margin-bottom:6px"><strong>3.</strong> Los neurotransmisores cruzan el espacio y se unen a <strong>receptores</strong> específicos en la membrana de la siguiente neurona.</li>
+      <li style="margin-bottom:6px"><strong>4.</strong> Esa unión genera un nuevo impulso eléctrico en la neurona receptora, y el proceso se repite.</li>
+    </ol>
+  </div>
+  <div style="background:#071812;border-radius:14px;padding:18px 14px;margin:14px 0">
+  <svg width="100%" viewBox="0 0 620 190">
+    <line x1="40" y1="95" x2="280" y2="95" stroke="#818cf8" stroke-width="5"/>
+    <ellipse cx="40" cy="95" rx="34" ry="24" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+    <path d="M20 78 Q6 60 12 44 M28 74 Q18 52 26 34 M40 71 Q40 48 40 30 M52 74 Q62 52 54 34 M60 78 Q74 60 68 44" fill="none" stroke="#a5b4fc" stroke-width="2"/>
+    <text x="40" y="18" text-anchor="middle" style="font-size:10px;fill:#a5b4fc;font-weight:800">Dendritas</text>
+    <text x="130" y="80" text-anchor="middle" style="font-size:10px;fill:#818cf8;font-weight:800">Axón (impulso →)</text>
+    <ellipse cx="330" cy="95" rx="26" ry="24" fill="#3730a3" stroke="#818cf8" stroke-width="2"/>
+    <text x="330" y="99" text-anchor="middle" style="font-size:8px;fill:#e0e7ff;font-weight:800">Botón</text>
+    <rect x="356" y="80" width="30" height="30" fill="#0d0221" opacity=".4"/>
+    <circle cx="365" cy="86" r="3" fill="#facc15"/><circle cx="372" cy="94" r="3" fill="#facc15"/><circle cx="366" cy="100" r="3" fill="#facc15"/>
+    <text x="371" y="128" text-anchor="middle" style="font-size:9px;fill:#fde68a;font-weight:800">Espacio sináptico</text>
+    <path d="M365 86 L 420 60 M372 94 L 424 90 M366 100 L 420 118" stroke="#facc15" stroke-width="1.2" stroke-dasharray="3 2"/>
+    <ellipse cx="470" cy="95" rx="34" ry="26" fill="#1e1b4b" stroke="#f472b6" stroke-width="2"/>
+    <circle cx="460" cy="66" r="4" fill="#f472b6"/><circle cx="468" cy="60" r="4" fill="#f472b6"/><circle cx="478" cy="64" r="4" fill="#f472b6"/>
+    <text x="470" y="140" text-anchor="middle" style="font-size:10px;fill:#f9a8d4;font-weight:800">Neurona postsináptica</text>
+    <text x="470" y="155" text-anchor="middle" style="font-size:8px;fill:var(--text-dim)">Receptores activados → nueva señal</text>
+  </svg>
+  </div>
+
+  <div class="card">
+    <p class="card-title sn">🦵 Arco reflejo simple — la respuesta más rápida del cuerpo</p>
+    <p>Imagina que tocas algo muy caliente. Retiras la mano <strong>antes</strong> de sentir dolor conscientemente. ¿Por qué? Porque esa respuesta <strong>no pasa por el cerebro</strong>: el centro integrador está en la <strong>médula espinal</strong>, mucho más cerca de la mano que el cerebro. La secuencia completa es:</p>
+    <div style="background:var(--card2);border-radius:12px;padding:14px;margin-top:8px;font-size:.9rem;line-height:2">
+      <strong style="color:#34d399">Receptor sensorial</strong> (detecta el calor) → <strong style="color:#06b6d4">neurona sensorial</strong> (lleva la señal) → <strong style="color:#f472b6">médula espinal</strong> (procesa e integra, SIN pasar por el cerebro) → <strong style="color:#f59e0b">neurona motora</strong> (lleva la orden) → <strong style="color:#ef4444">músculo efector</strong> (ejecuta: retira la mano)
+    </div>
+    <p style="margin-top:10px">El cerebro se entera del dolor <strong>después</strong>, cuando la mano ya se retiró — por eso el arco reflejo es tan valioso: prioriza la velocidad de reacción sobre el procesamiento consciente.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title sn">☕ Sustancias que afectan al sistema nervioso y sus cuidados</p>
+    <div class="org-grid">
+      <div class="org-card" style="border-color:#f59e0b"><div class="org-name" style="color:#f59e0b">Café (cafeína)</div><div class="org-fn">Bloquea receptores de adenosina (la molécula que te da sueño), generando un efecto estimulante y de alerta.</div></div>
+      <div class="org-card" style="border-color:#ef4444"><div class="org-name" style="color:#ef4444">Alcohol</div><div class="org-fn">Deprime el sistema nervioso central: reduce reflejos, coordinación y juicio.</div></div>
+      <div class="org-card" style="border-color:#a78bfa"><div class="org-name" style="color:#a78bfa">Drogas de abuso</div><div class="org-fn">Alteran la liberación o recaptación de neurotransmisores, afectando el funcionamiento normal de la sinapsis.</div></div>
+      <div class="org-card" style="border-color:#34d399"><div class="org-name" style="color:#34d399">Cuidados básicos</div><div class="org-fn">7-9 horas de sueño en adolescentes; uso de casco y cinturón de seguridad para prevenir traumatismos craneales.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title sn">🧬 Gametos y fecundación</p>
+    <div class="grid-2">
+      <div style="background:var(--card2);border-radius:12px;padding:14px">
+        <strong style="color:#f472b6">Ovocito</strong>
+        <p style="margin-top:6px">Rodeado por <strong>corona radiada</strong> (capa externa de células protectoras) y <strong>zona pelúcida</strong> (capa de glucoproteínas justo alrededor del ovocito). Cuando el primer espermatozoide entra, ocurre la <strong>reacción cortical</strong>: la zona pelúcida se endurece de inmediato para impedir que entre un segundo espermatozoide (bloqueo de polispermia). Si esto fallara, entrarían dos núcleos paternos y el embrión resultante no sería viable.</p>
+      </div>
+      <div style="background:var(--card2);border-radius:12px;padding:14px">
+        <strong style="color:#818cf8">Espermatozoide</strong>
+        <p style="margin-top:6px">En su cabeza tiene el <strong>acrosoma</strong>, una vesícula cargada de enzimas digestivas que disuelven la zona pelúcida para permitir la fecundación. En su pieza media se concentran muchas <strong>mitocondrias</strong>, que dan la energía necesaria para mover el flagelo y nadar hasta el ovocito.</p>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 Relación estructura-función</div>
+      <p>Fíjate en el patrón: cada estructura del espermatozoide existe por una razón funcional específica. Acrosoma = necesita "abrir camino" → enzimas digestivas. Pieza media = necesita "moverse mucho" → muchas mitocondrias. Esta lógica de "la estructura sirve a la función" se repite en toda la biología.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title sn">📅 Ciclo ovárico y uterino, paso a paso</p>
+    <p>El ciclo dura aproximadamente <strong>28 días</strong> y ocurre en dos "capas" simultáneas: lo que pasa en el ovario (ciclo ovárico) y lo que pasa en el útero (ciclo uterino), coordinados por hormonas.</p>
+    <ol style="margin-top:8px;padding-left:20px">
+      <li style="margin-bottom:6px"><strong>Días 1-13 (fase folicular):</strong> la <strong>FSH</strong> (hormona folículo estimulante) estimula el crecimiento de un folículo en el ovario, que a su vez produce estrógeno para engrosar el endometrio (pared interna del útero).</li>
+      <li style="margin-bottom:6px"><strong>Día 14 (ovulación):</strong> un pico repentino de <strong>LH</strong> (hormona luteinizante) dispara la liberación del ovocito maduro desde el ovario.</li>
+      <li style="margin-bottom:6px"><strong>Días 15-28 (fase lútea):</strong> el folículo vacío se transforma en <strong>cuerpo lúteo</strong> y produce <strong>progesterona</strong>, que mantiene el endometrio engrosado, listo por si ocurre un embarazo. Si no hay fecundación, el cuerpo lúteo se degrada, cae la progesterona, y el endometrio se desprende: es la menstruación, que marca el día 1 del ciclo siguiente.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <p class="card-title sn">🛡️ Métodos de control de la natalidad</p>
+    <div class="org-grid">
+      <div class="org-card" style="border-color:#34d399"><div class="org-name" style="color:#34d399">Naturales</div><div class="org-fn">Billings (observar el moco cervical), calendario, temperatura basal. No usan hormonas ni barreras físicas: se basan en identificar los días fértiles del ciclo.</div></div>
+      <div class="org-card" style="border-color:#06b6d4"><div class="org-name" style="color:#06b6d4">Artificiales reversibles — hormonales</div><div class="org-fn">Píldora, anillo vaginal, implante subdérmico. Alteran el equilibrio hormonal natural para inhibir la ovulación.</div></div>
+      <div class="org-card" style="border-color:#f59e0b"><div class="org-name" style="color:#f59e0b">Artificiales reversibles — de barrera</div><div class="org-fn">Preservativo, diafragma, espermicida. El <strong>preservativo es el único que también previene ITS</strong>, porque bloquea el contacto físico directo.</div></div>
+      <div class="org-card" style="border-color:#f472b6"><div class="org-name" style="color:#f472b6">Parcialmente reversibles — quirúrgicos</div><div class="org-fn">Ligadura de trompas, vasectomía. Alta efectividad, no modifican patrones hormonales ni menstruales, pero requieren cirugía para revertirse.</div></div>
+    </div>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 Cómo distinguir métodos en una pregunta PAES</div>
+      <p>Pregúntate: <strong>(1) ¿involucra hormonas?</strong> Si sí → hormonal. <strong>(2) ¿es una barrera física?</strong> Si sí → de barrera (y revisa si protege contra ITS). <strong>(3) ¿requiere cirugía?</strong> Si sí → quirúrgico. <strong>(4) ¿se basa solo en observar el ciclo, sin agregar nada al cuerpo?</strong> Si sí → natural.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title sn">🦠 Infecciones de Transmisión Sexual (ITS)</p>
+    <table class="weight-table">
+      <tr><th>ITS</th><th>Agente</th><th>Dato clave PAES</th></tr>
+      <tr><td>VIH</td><td>Virus</td><td>Ataca al sistema inmune; no se trata con antibióticos (no es bacteria)</td></tr>
+      <tr><td>Herpes</td><td>Virus</td><td>Produce lesiones/vesículas; el preservativo protege menos por contacto de piel expuesta fuera del área cubierta</td></tr>
+      <tr><td>Gonorrea</td><td>Bacteria (<em>Neisseria gonorrhoeae</em>)</td><td>Tratable con antibióticos</td></tr>
+      <tr><td>Clamidia</td><td>Bacteria (<em>Chlamydia trachomatis</em>)</td><td>Frecuentemente asintomática → puede causar infertilidad si no se trata a tiempo</td></tr>
+    </table>
+    <p style="margin-top:8px">La distinción virus vs. bacteria es clave para la PAES: <strong>solo las bacterianas se tratan con antibióticos</strong>. Un antibiótico no hace nada contra un virus, porque los antibióticos atacan estructuras propias de bacterias (como la pared celular) que los virus no tienen.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title" style="color:#c084fc">💜 Sexualidad integral</p>
+    <p>La sexualidad humana no es solo un tema biológico. Tiene <strong>cuatro dimensiones</strong> que la PAES espera que reconozcas: <strong>biológica</strong> (estructura y función de los sistemas reproductores), <strong>afectiva</strong>, <strong>psicológica</strong> y <strong>social</strong>. El bienestar integral en las relaciones humanas incluye cuidado, respeto y responsabilidad frente a uno mismo y los demás — no se reduce solo a la reproducción.</p>
+  </div>
+
+  <div class="tip-box" style="border-color:var(--c-sn)">
+    <div class="tip-label" style="color:var(--c-sn)">💡 Clave PAES — resumen de toda la unidad</div>
+    <p>Cuando la pregunta presenta datos experimentales (tablas de efectividad, gráficos de temperatura basal), primero identifica <strong>qué variable cambia y cuál es constante</strong>. El electivo integra mucho la habilidad de "procesar y analizar evidencia" con estos contenidos, así que lee cada dato antes de decidir la respuesta.</p>
+  </div>
+
+  <div class="kw-grid">
+    <span class="kw sn" style="background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.3)">sinapsis química</span>
+    <span class="kw sn" style="background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.3)">arco reflejo</span>
+    <span class="kw sn" style="background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.3)">acrosoma</span>
+    <span class="kw sn" style="background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.3)">bloqueo de polispermia</span>
+    <span class="kw sn" style="background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.3)">FSH / LH / progesterona</span>
+    <span class="kw sn" style="background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.3)">clamidia</span>
+  </div>
+
+  <p style="color:var(--text-dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 9 preguntas</p>
+
+  <!-- P1 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Un estudio evaluó la capacidad protectora del preservativo contra distintas ITS: VIH/SIDA &gt;90%, Hepatitis B &gt;90%, Gonorrea 78%, Sífilis 50–80%, Herpes 10–50%.</div>
+    <p class="paes-q">En relación con los datos del estudio, ¿cuál de las siguientes conclusiones es correcta?</p>
+    <div class="paes-opts" id="qu2a">
+      <div class="paes-opt" onclick="ans('qu2a','A')"><div class="ol">A</div><div class="ot">Los preservativos son más efectivos para impedir la propagación de patógenos de mayor tamaño.</div></div>
+      <div class="paes-opt" onclick="ans('qu2a','B')"><div class="ol">B</div><div class="ot">Los preservativos son menos efectivos para impedir la propagación de ITS con tiempos de incubación prolongados.</div></div>
+      <div class="paes-opt" onclick="ans('qu2a','C')"><div class="ol">C</div><div class="ot">Los preservativos son más efectivos para impedir patógenos bacterianos que virales.</div></div>
+      <div class="paes-opt" onclick="ans('qu2a','D')"><div class="ol">D</div><div class="ot">Los preservativos son menos efectivos para impedir ITS que producen lesiones con secreción.</div></div>
+    </div>
+    <div class="paes-fb" id="qu2a-fb"></div>
+  </div>
+
+  <!-- P2 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">A comienzos del siglo XIX, un investigador experimentó exponiendo muestras seminales a distintas soluciones ácidas y alcohólicas. Concluyó que estas exposiciones disminuían o inhibían la capacidad de fertilización de las células sexuales.</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones indica un método anticonceptivo que pudo haber tenido como base este experimento?</p>
+    <div class="paes-opts" id="qu2b">
+      <div class="paes-opt" onclick="ans('qu2b','A')"><div class="ol">A</div><div class="ot">Preservativo.</div></div>
+      <div class="paes-opt" onclick="ans('qu2b','B')"><div class="ol">B</div><div class="ot">Espermicida.</div></div>
+      <div class="paes-opt" onclick="ans('qu2b','C')"><div class="ol">C</div><div class="ot">Vasectomía.</div></div>
+      <div class="paes-opt" onclick="ans('qu2b','D')"><div class="ol">D</div><div class="ot">Diafragma.</div></div>
+    </div>
+    <div class="paes-fb" id="qu2b-fb"></div>
+  </div>
+
+  <!-- P3 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <p class="paes-q">Una pareja utiliza un método anticonceptivo que no protege contra las ITS, sin embargo, presenta alta efectividad y no modifica los patrones menstruales ni hormonales. ¿Qué método anticonceptivo cumple con estas características?</p>
+    <div class="paes-opts" id="qu2c">
+      <div class="paes-opt" onclick="ans('qu2c','A')"><div class="ol">A</div><div class="ot">Ligadura de oviductos.</div></div>
+      <div class="paes-opt" onclick="ans('qu2c','B')"><div class="ol">B</div><div class="ot">Implante subdérmico.</div></div>
+      <div class="paes-opt" onclick="ans('qu2c','C')"><div class="ol">C</div><div class="ot">Condón femenino.</div></div>
+      <div class="paes-opt" onclick="ans('qu2c','D')"><div class="ol">D</div><div class="ot">Anillo vaginal.</div></div>
+    </div>
+    <div class="paes-fb" id="qu2c-fb"></div>
+  </div>
+
+  <!-- IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Un investigador aplica una droga a un cultivo de neuronas que bloquea completamente la unión de neurotransmisores a los receptores postsinápticos, sin afectar su liberación en el botón sináptico.</div>
+    <p class="paes-q">¿Cuál de las siguientes es la consecuencia más directa de este bloqueo?</p>
+    <div class="paes-opts" id="qu2d">
+      <div class="paes-opt" onclick="ans('qu2d','A')"><div class="ol">A</div><div class="ot">Se acelera la propagación del impulso en la neurona postsináptica.</div></div>
+      <div class="paes-opt" onclick="ans('qu2d','B')"><div class="ol">B</div><div class="ot">Se interrumpe la transmisión de la señal en ese punto de la sinapsis.</div></div>
+      <div class="paes-opt" onclick="ans('qu2d','C')"><div class="ol">C</div><div class="ot">Se detiene la liberación de neurotransmisores en el botón sináptico.</div></div>
+      <div class="paes-opt" onclick="ans('qu2d','D')"><div class="ol">D</div><div class="ot">La vaina de mielina deja de conducir el impulso.</div></div>
+    </div>
+    <div class="paes-fb" id="qu2d-fb"></div>
+  </div>
+
+  <!-- IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <p class="paes-q">Una persona presenta una infección asintomática de larga data que, al no ser tratada a tiempo, deriva en infertilidad. ¿Qué ITS es más coherente con esta descripción?</p>
+    <div class="paes-opts" id="qu2e">
+      <div class="paes-opt" onclick="ans('qu2e','A')"><div class="ol">A</div><div class="ot">VIH.</div></div>
+      <div class="paes-opt" onclick="ans('qu2e','B')"><div class="ol">B</div><div class="ot">Herpes.</div></div>
+      <div class="paes-opt" onclick="ans('qu2e','C')"><div class="ol">C</div><div class="ot">Clamidia.</div></div>
+      <div class="paes-opt" onclick="ans('qu2e','D')"><div class="ol">D</div><div class="ot">Gonorrea.</div></div>
+    </div>
+    <div class="paes-fb" id="qu2e-fb"></div>
+  </div>
+
+  <!-- IA nueva 1 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Una persona toca accidentalmente una superficie muy caliente y retira la mano antes de sentir dolor conscientemente.</div>
+    <p class="paes-q">¿Cuál es el centro integrador que permite esta respuesta tan rápida?</p>
+    <div class="paes-opts" id="qu2f">
+      <div class="paes-opt" onclick="ans('qu2f','A')"><div class="ol">A</div><div class="ot">El cerebro.</div></div>
+      <div class="paes-opt" onclick="ans('qu2f','B')"><div class="ol">B</div><div class="ot">El cerebelo.</div></div>
+      <div class="paes-opt" onclick="ans('qu2f','C')"><div class="ol">C</div><div class="ot">La médula espinal.</div></div>
+      <div class="paes-opt" onclick="ans('qu2f','D')"><div class="ol">D</div><div class="ot">El nervio periférico.</div></div>
+    </div>
+    <div class="paes-fb" id="qu2f-fb"></div>
+  </div>
+
+  <!-- IA nueva 2 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Una mujer registra su temperatura basal cada mañana durante un ciclo de 28 días: observa un aumento sostenido de temperatura a partir del día 14, que se mantiene hasta el día 26 aproximadamente.</div>
+    <p class="paes-q">¿Qué hormona explica principalmente el aumento sostenido de temperatura entre los días 14 y 26?</p>
+    <div class="paes-opts" id="qu2g">
+      <div class="paes-opt" onclick="ans('qu2g','A')"><div class="ol">A</div><div class="ot">FSH.</div></div>
+      <div class="paes-opt" onclick="ans('qu2g','B')"><div class="ol">B</div><div class="ot">Progesterona.</div></div>
+      <div class="paes-opt" onclick="ans('qu2g','C')"><div class="ol">C</div><div class="ot">Estrógeno en la fase folicular.</div></div>
+      <div class="paes-opt" onclick="ans('qu2g','D')"><div class="ol">D</div><div class="ot">LH previo a la ovulación.</div></div>
+    </div>
+    <div class="paes-fb" id="qu2g-fb"></div>
+  </div>
+
+  <!-- IA nueva 3 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <p class="paes-q">¿Cuál de las siguientes dimensiones de la sexualidad humana corresponde al cuidado, respeto y responsabilidad hacia uno mismo y los demás en una relación?</p>
+    <div class="paes-opts" id="qu2h">
+      <div class="paes-opt" onclick="ans('qu2h','A')"><div class="ol">A</div><div class="ot">Dimensión biológica.</div></div>
+      <div class="paes-opt" onclick="ans('qu2h','B')"><div class="ol">B</div><div class="ot">Dimensión afectiva y social.</div></div>
+      <div class="paes-opt" onclick="ans('qu2h','C')"><div class="ol">C</div><div class="ot">Dimensión exclusivamente reproductiva.</div></div>
+      <div class="paes-opt" onclick="ans('qu2h','D')"><div class="ol">D</div><div class="ot">Dimensión hormonal.</div></div>
+    </div>
+    <div class="paes-fb" id="qu2h-fb"></div>
+  </div>
+</div>
+
+<!-- ═══ U3 HERENCIA Y EVOLUCIÓN ═══ -->
+<div class="section" id="u3">
+  <div class="h-header" style="background:rgba(167,139,250,.08);border:1.5px solid rgba(167,139,250,.3)">
+    <span class="icon">🧬</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--c-cc);margin-bottom:4px">Unidad 3 de 4 · Alta frecuencia — la más extensa</div>
+    <h2 class="cc">Herencia y Evolución</h2>
+    <p>Ciclo celular, meiosis, manipulación genética y evolución biológica. Es la unidad con más densidad de preguntas del electivo — la vamos a construir bloque por bloque, sin saltarnos ningún paso.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title cc">🔄 El ciclo celular: la "vida" de una célula entre división y división</p>
+    <p>Toda célula pasa por un ciclo que se repite: crece, se prepara, y se divide. Este ciclo tiene dos grandes partes: la <strong>interfase</strong> (donde la célula pasa la mayor parte del tiempo, creciendo y preparándose) y la <strong>mitosis</strong> (la división propiamente tal). Veamos la interfase en detalle, porque suele ser la parte que más se confunde:</p>
+    <ol style="margin-top:8px;padding-left:20px">
+      <li style="margin-bottom:6px"><strong>G1 (crecimiento):</strong> la célula crece en tamaño y fabrica las proteínas y organelos que va a necesitar. Es la fase más larga.</li>
+      <li style="margin-bottom:6px"><strong>S (síntesis):</strong> se <strong>replica todo el ADN</strong>. Al final de esta fase, cada cromosoma tiene dos copias idénticas (cromátidas hermanas) unidas por un punto llamado centrómero.</li>
+      <li style="margin-bottom:6px"><strong>G2 (preparación final):</strong> la célula termina de fabricar lo necesario para la división y verifica que todo esté en orden antes de entrar a mitosis.</li>
+    </ol>
+    <p style="margin-top:8px">Después de G2 viene la <strong>mitosis</strong> (profase, metafase, anafase, telofase), que reparte el material genético duplicado en dos células hijas <strong>genéticamente idénticas</strong> entre sí y a la célula madre.</p>
+  </div>
+  <div style="background:#071812;border-radius:14px;padding:18px 14px;margin:14px 0">
+  <svg width="100%" viewBox="0 0 600 220">
+    <circle cx="300" cy="110" r="95" fill="none" stroke="rgba(167,139,250,.25)" stroke-width="26"/>
+    <path d="M300 15 A95 95 0 0 1 385 60" fill="none" stroke="#34d399" stroke-width="26"/>
+    <path d="M385 60 A95 95 0 0 1 385 160" fill="none" stroke="#f59e0b" stroke-width="26"/>
+    <path d="M385 160 A95 95 0 0 1 300 205" fill="none" stroke="#06b6d4" stroke-width="26"/>
+    <path d="M300 205 A95 95 0 0 1 300 15" fill="none" stroke="#f472b6" stroke-width="26"/>
+    <text x="345" y="38" style="font-size:11px;fill:#022c1e;font-weight:900">G1</text>
+    <text x="393" y="112" style="font-size:11px;fill:#1c1408;font-weight:900">S</text>
+    <text x="345" y="188" style="font-size:11px;fill:#0c2a3a;font-weight:900">G2</text>
+    <text x="220" y="112" style="font-size:10px;fill:#2d0820;font-weight:900">MITOSIS</text>
+    <circle cx="385" cy="60" r="5" fill="#ef4444"/>
+    <text x="400" y="45" style="font-size:9px;fill:#fca5a5;font-weight:800">Punto G1–S</text>
+    <text x="400" y="56" style="font-size:8px;fill:var(--text-dim)">¿ADN íntegro?</text>
+    <circle cx="300" cy="205" r="5" fill="#ef4444"/>
+    <text x="230" y="222" style="font-size:9px;fill:#fca5a5;font-weight:800">Punto G2–M · ¿Replicación correcta?</text>
+    <circle cx="230" cy="150" r="5" fill="#ef4444"/>
+    <text x="130" y="150" style="font-size:9px;fill:#fca5a5;font-weight:800">Punto Metafase</text>
+    <text x="130" y="161" style="font-size:8px;fill:var(--text-dim)">¿Cromosomas alineados?</text>
+  </svg>
+  </div>
+
+  <div class="card">
+    <p class="card-title cc">🎬 Las 4 fases de la mitosis, explicadas como una obra de teatro</p>
+    <p>Para que no se te olviden nunca, piensa en la mitosis como una obra de teatro en 4 actos, en orden:</p>
+    <div class="org-grid">
+      <div class="org-card" style="border-color:#34d399"><div class="org-name" style="color:#34d399">1. Profase</div><div class="org-fn">"Se prepara el escenario": la cromatina se condensa en cromosomas visibles, la envoltura nuclear empieza a desaparecer y se forma el huso mitótico.</div></div>
+      <div class="org-card" style="border-color:#06b6d4"><div class="org-name" style="color:#06b6d4">2. Metafase</div><div class="org-fn">"Todos se alinean": los cromosomas se ubican exactamente en el centro (línea ecuatorial) de la célula, sostenidos por el huso mitótico.</div></div>
+      <div class="org-card" style="border-color:#f59e0b"><div class="org-name" style="color:#f59e0b">3. Anafase</div><div class="org-fn">"Se separan": las cromátidas hermanas de cada cromosoma se separan y migran hacia polos opuestos de la célula.</div></div>
+      <div class="org-card" style="border-color:#f472b6"><div class="org-name" style="color:#f472b6">4. Telofase</div><div class="org-fn">"Cae el telón, dos veces": se forman dos nuevas envolturas nucleares y la célula se divide en dos (citocinesis), dando dos células hijas idénticas.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cc">⚠️ Puntos de control: el "control de calidad" del ciclo celular</p>
+    <p>La célula no avanza a ciegas por el ciclo: en tres momentos clave, se detiene y "revisa" que todo esté en orden antes de continuar. Esto es exactamente como un control de calidad en una fábrica antes de dejar pasar el producto a la siguiente etapa:</p>
+    <ul style="margin-top:8px;padding-left:20px">
+      <li style="margin-bottom:6px"><strong>Punto G1–S:</strong> revisa que el ADN esté íntegro (sin daño) antes de replicarlo.</li>
+      <li style="margin-bottom:6px"><strong>Punto G2–M:</strong> revisa que la replicación del ADN en la fase S haya sido correcta y completa antes de entrar a mitosis.</li>
+      <li style="margin-bottom:6px"><strong>Punto de metafase:</strong> revisa que todos los cromosomas estén correctamente alineados y conectados al huso mitótico antes de permitir que avancen a anafase.</li>
+    </ul>
+    <div class="tip-box" style="margin-top:10px;border-color:#ef4444">
+      <div class="tip-label" style="color:#ef4444">⚠️ Puntos de control y cáncer</div>
+      <p>Cuando estos puntos de control <strong>fallan</strong> por mutaciones (por ejemplo, en los genes que los regulan), la célula se divide sin control, acumulando errores genéticos generación tras generación. Esto puede derivar en <strong>cáncer</strong>: un crecimiento celular descontrolado. Por eso, muchos tratamientos oncológicos buscan justamente "reactivar" estos puntos de control o detener la división de células que ya escaparon a ellos.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cc">🧵 Cromatina: el ADN se empaqueta distinto según la fase</p>
+    <p>El ADN no está "suelto" dentro del núcleo como un hilo enredado sin orden — está empaquetado en distintos grados según la fase del ciclo celular. En <strong>interfase</strong>, la cromatina está más "abierta" (menos condensada), lo que permite que las proteínas puedan acceder al ADN para leerlo y copiarlo. En <strong>metafase</strong>, alcanza su <strong>máxima condensación</strong>, formando los cromosomas compactos y visibles que conocemos — esto facilita que se puedan mover y separar sin enredarse durante la división. Esta diferencia se puede medir experimentalmente: moléculas fluorescentes que se intercalan en el ADN emiten más señal luminosa cuando el ADN está más compacto (más moléculas próximas entre sí), por lo que la señal es máxima en metafase.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title cc">🧬 Meiosis: la fuente de variabilidad genética</p>
+    <p>La meiosis es distinta de la mitosis en un punto fundamental: no produce células idénticas, sino <strong>gametos genéticamente distintos entre sí y con la mitad de cromosomas</strong> (n en vez de 2n). Tiene <strong>dos divisiones consecutivas</strong> (Meiosis I y Meiosis II), cada una con sus propias fases profase-metafase-anafase-telofase.</p>
+    <div class="grid-2" style="margin-top:10px">
+      <div style="background:var(--card2);border-radius:12px;padding:14px;border-left:3px solid #a78bfa">
+        <strong style="color:#a78bfa">Meiosis I — se separan cromosomas HOMÓLOGOS</strong>
+        <p style="margin-top:6px">En la Anafase I, se separan los <strong>cromosomas homólogos completos</strong> (cada uno todavía con sus dos cromátidas hermanas). Antes de esto, durante la profase I, ocurre el <strong>entrecruzamiento (crossing-over)</strong>: los cromosomas homólogos intercambian segmentos de ADN entre sí. Este intercambio es la <strong>principal fuente de variabilidad genética</strong>, porque mezcla combinaciones nuevas que no existían en ninguno de los dos padres por separado.</p>
+      </div>
+      <div style="background:var(--card2);border-radius:12px;padding:14px;border-left:3px solid #c084fc">
+        <strong style="color:#c084fc">Meiosis II — se separan CROMÁTIDAS hermanas</strong>
+        <p style="margin-top:6px">Es similar a una mitosis normal, pero partiendo de células que ya son haploides (n). En la Anafase II se separan las cromátidas hermanas de cada cromosoma. Resultado final tras las dos divisiones: <strong>4 gametos</strong>, cada uno con n cromosomas de una sola cromátida, y genéticamente distintos entre sí.</p>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 Cómo distinguir Anafase I de Anafase II en un dibujo</div>
+      <p>Pregúntate: <strong>¿lo que se separa son cromosomas completos (con sus 2 cromátidas todavía unidas) o cromátidas sueltas (ya separadas una de la otra)?</strong> Si son cromosomas completos con forma de "X" separándose → Anafase I. Si son cromátidas individuales (forma de "I" o "V" simple) separándose → Anafase II.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cc">🧪 Manipulación genética: aplicando lo que sabemos del ADN</p>
+    <p>La ingeniería genética permite eliminar, duplicar o insertar material hereditario mediante biotecnología, aprovechando el conocimiento de cómo funciona el ADN y sus genes. Estas son las aplicaciones que la PAES evalúa con más frecuencia:</p>
+    <div class="pgrid">
+      <div class="pc" style="background:var(--card2);border-radius:12px;padding:12px"><h4 style="color:#f59e0b;font-family:'Fredoka One',cursive;font-size:.95rem">💉 Insulina humana</h4><p style="font-size:.85rem;color:var(--text-dim);margin-top:6px">Bacterias modificadas producen insulina humana, usada para tratar la diabetes — mucho más seguro y escalable que extraerla de animales.</p></div>
+      <div class="pc" style="background:var(--card2);border-radius:12px;padding:12px"><h4 style="color:#34d399;font-family:'Fredoka One',cursive;font-size:.95rem">🌽 Cultivos transgénicos</h4><p style="font-size:.85rem;color:var(--text-dim);margin-top:6px">Plantas como el algodón o la papa Bt reciben genes de <em>Bacillus thuringiensis</em>, que producen una toxina insecticida natural, haciéndolas resistentes a plagas.</p></div>
+      <div class="pc" style="background:var(--card2);border-radius:12px;padding:12px"><h4 style="color:#06b6d4;font-family:'Fredoka One',cursive;font-size:.95rem">🧼 Enzimas en detergentes</h4><p style="font-size:.85rem;color:var(--text-dim);margin-top:6px">Enzimas producidas por microorganismos modificados limpian eficazmente incluso a baja temperatura, ahorrando energía.</p></div>
+      <div class="pc" style="background:var(--card2);border-radius:12px;padding:12px"><h4 style="color:#f472b6;font-family:'Fredoka One',cursive;font-size:.95rem">🧵 Fibras textiles</h4><p style="font-size:.85rem;color:var(--text-dim);margin-top:6px">Se desarrollan fibras de alto rendimiento mediante organismos genéticamente modificados para la industria textil.</p></div>
+    </div>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 Los pasos típicos para crear un organismo transgénico</div>
+      <p><strong>1)</strong> Identificar el gen de interés (por ejemplo, el gen de la toxina Bt) → <strong>2)</strong> Insertar ese gen en un <strong>plásmido</strong> (un anillo de ADN que sirve como "vehículo" de transporte) → <strong>3)</strong> Introducir el plásmido en la célula receptora (bacteria o célula vegetal) → <strong>4)</strong> Verificar que el gen se exprese correctamente en el organismo modificado. Este orden es clave: la PAES suele preguntar "¿qué paso es indispensable?", y la respuesta casi siempre involucra el plásmido como vehículo intermedio, no la inserción directa del gen o de la proteína.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cc">🦴 Evidencias de la evolución biológica</p>
+    <p>¿Cómo sabemos que las especies evolucionan, si no podemos verlo ocurrir en tiempo real? La ciencia se basa en cuatro líneas de evidencia independientes que, juntas, apuntan hacia la misma conclusión:</p>
+    <div class="org-grid">
+      <div class="org-card" style="border-color:#34d399"><div class="org-name" style="color:#34d399">Anatomía comparada</div><div class="org-fn"><strong>Homólogas</strong>: mismo origen embrionario, distinta función (el brazo humano y el ala de un murciélago vienen de la misma estructura ancestral). <strong>Análogas</strong>: distinto origen, misma función, por convergencia (el ala de un insecto y el ala de un ave cumplen la misma función pero evolucionaron por separado).</div></div>
+      <div class="org-card" style="border-color:#06b6d4"><div class="org-name" style="color:#06b6d4">Embriología</div><div class="org-fn">Embriones de especies muy distintas (por ejemplo, pez y humano) muestran similitudes sorprendentes en etapas tempranas del desarrollo, sugiriendo un origen evolutivo compartido.</div></div>
+      <div class="org-card" style="border-color:#f59e0b"><div class="org-name" style="color:#f59e0b">Biología molecular</div><div class="org-fn">Cuanto más parecidas son las secuencias de ADN o proteínas entre dos especies, más recientemente compartieron un ancestro común.</div></div>
+      <div class="org-card" style="border-color:#f472b6"><div class="org-name" style="color:#f472b6">Registro fósil</div><div class="org-fn">Los estratos geológicos más profundos (más antiguos) contienen los organismos más simples y antiguos; los estratos más superficiales, organismos más recientes y complejos.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title cc">🦋 Lamarck, Darwin y Wallace: dos ideas muy distintas sobre "cómo" evolucionan las especies</p>
+    <div class="grid-2">
+      <div style="background:var(--card2);border-radius:12px;padding:14px;border-left:3px solid #ef4444">
+        <strong style="color:#f87171">Lamarck (su idea NO se sostiene hoy)</strong>
+        <p style="margin-top:6px">Propuso la <strong>herencia de caracteres adquiridos</strong>: que los organismos se adaptan durante su vida (por ejemplo, una jirafa que estira el cuello para alcanzar hojas altas) y que ese cambio adquirido se transmite genéticamente a su descendencia. Esto es incorrecto: los cambios que un organismo adquiere durante su vida (ejercitar un músculo, broncearse) <strong>no modifican su ADN reproductivo</strong> y por tanto no se heredan.</p>
+      </div>
+      <div style="background:var(--card2);border-radius:12px;padding:14px;border-left:3px solid #34d399">
+        <strong style="color:#6ee7b7">Darwin y Wallace (selección natural)</strong>
+        <p style="margin-top:6px">Propusieron, de forma independiente pero casi simultánea, el mecanismo de <strong>selección natural</strong>: existe variación natural entre los individuos de una población (algunos son distintos entre sí, por azar) → el ambiente favorece la supervivencia y reproducción de los individuos mejor adaptados a esas condiciones → esos individuos dejan más descendencia → sus características se vuelven más frecuentes en las siguientes generaciones.</p>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 La diferencia clave en una frase</div>
+      <p>Lamarck decía que el organismo "decide" cambiar y ese cambio se hereda. Darwin y Wallace dijeron que la variación <strong>ya existe al azar en la población</strong>, y es el ambiente el que "selecciona" quién sobrevive y se reproduce más — el organismo no elige nada.</p>
+    </div>
+  </div>
+
+  <div class="tip-box" style="border-color:var(--c-cc)">
+    <div class="tip-label" style="color:var(--c-cc)">💡 Clave PAES — resumen de toda la unidad</div>
+    <p>La PAES suele dar un <strong>ejemplo concreto de selección natural</strong> (ej. distribución del tamaño del riñón según la salinidad de las presas de un ave) y pedirte que identifiques el patrón esperado según la teoría — no memorices ejemplos, entiende la lógica: <strong>variación existente → presión ambiental → reproducción diferencial → cambio en la frecuencia del rasgo</strong>.</p>
+  </div>
+
+  <div class="kw-grid">
+    <span class="kw cc" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3)">puntos de control</span>
+    <span class="kw cc" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3)">cromátidas hermanas</span>
+    <span class="kw cc" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3)">entrecruzamiento</span>
+    <span class="kw cc" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3)">plásmido</span>
+    <span class="kw cc" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3)">estructuras homólogas / análogas</span>
+    <span class="kw cc" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3)">selección natural</span>
+  </div>
+
+  <p style="color:var(--text-dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 9 preguntas</p>
+
+  <!-- P1 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Un investigador diseñó una molécula fluorescente que se intercala en el ADN, útil para estudiar los grados de compactación del material genético: a mayor proximidad entre moléculas, mayor intensidad luminosa. La agregó a células en cultivo y registró la intensidad de la señal a lo largo del ciclo celular.</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones corresponde a la pregunta de investigación que pudo haber guiado este estudio?</p>
+    <div class="paes-opts" id="qu3a">
+      <div class="paes-opt" onclick="ans('qu3a','A')"><div class="ol">A</div><div class="ot">¿Cuál es el mecanismo por el cual la molécula fluorescente se intercala en el ADN durante el ciclo celular?</div></div>
+      <div class="paes-opt" onclick="ans('qu3a','B')"><div class="ol">B</div><div class="ot">¿Cómo se degrada la molécula fluorescente a lo largo del ciclo celular?</div></div>
+      <div class="paes-opt" onclick="ans('qu3a','C')"><div class="ol">C</div><div class="ot">¿Cómo la molécula fluorescente modifica los grados de compactación del ADN durante el ciclo celular?</div></div>
+      <div class="paes-opt" onclick="ans('qu3a','D')"><div class="ol">D</div><div class="ot">¿Cuál es el grado de compactación del ADN a lo largo del ciclo celular?</div></div>
+    </div>
+    <div class="paes-fb" id="qu3a-fb"></div>
+  </div>
+
+  <!-- P2 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Unos estudiantes observaron al microscopio muestras de la gónada de un insecto con 2n=6 (3 pares de cromosomas homólogos). Dibujaron una célula en la que los cromosomas homólogos completos, cada uno con sus dos cromátidas, se separan hacia polos opuestos.</div>
+    <p class="paes-q">¿Qué opción establece correctamente la etapa en que esta se encuentra y la dotación cromosómica de los gametos que se formarán al finalizar la meiosis?</p>
+    <div class="paes-opts" id="qu3b">
+      <div class="paes-opt" onclick="ans('qu3b','A')"><div class="ol">A</div><div class="ot">Anafase II – 3 cromosomas.</div></div>
+      <div class="paes-opt" onclick="ans('qu3b','B')"><div class="ol">B</div><div class="ot">Anafase I – 6 cromosomas.</div></div>
+      <div class="paes-opt" onclick="ans('qu3b','C')"><div class="ol">C</div><div class="ot">Anafase I – 3 cromosomas.</div></div>
+      <div class="paes-opt" onclick="ans('qu3b','D')"><div class="ol">D</div><div class="ot">Anafase II – 6 cromosomas.</div></div>
+    </div>
+    <div class="paes-fb" id="qu3b-fb"></div>
+  </div>
+
+  <!-- P3 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Un grupo científico quiso incorporar en una planta de papa los genes que codifican la toxina Bt (insecticida natural de <em>Bacillus thuringiensis</em>), para obtener una papa transgénica resistente a insectos.</div>
+    <p class="paes-q">¿Cuál de los siguientes pasos es indispensable para obtener esta planta de papa transgénica?</p>
+    <div class="paes-opts" id="qu3c">
+      <div class="paes-opt" onclick="ans('qu3c','A')"><div class="ol">A</div><div class="ot">Reproducir bacterias en un medio de cultivo con la toxina Bt.</div></div>
+      <div class="paes-opt" onclick="ans('qu3c','B')"><div class="ol">B</div><div class="ot">Insertar los genes que codifican la toxina Bt en un plásmido.</div></div>
+      <div class="paes-opt" onclick="ans('qu3c','C')"><div class="ol">C</div><div class="ot">Incorporar la toxina Bt en un plásmido presente en la planta.</div></div>
+      <div class="paes-opt" onclick="ans('qu3c','D')"><div class="ol">D</div><div class="ot">Introducir el genoma completo de <em>Bacillus thuringiensis</em> en células de la planta.</div></div>
+    </div>
+    <div class="paes-fb" id="qu3c-fb"></div>
+  </div>
+
+  <!-- P4 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Algunas especies de aves del género <em>Cinclodes</em> consumen presas marinas con alta carga salina; otras especies habitan ambientes de agua dulce. El tamaño del riñón es un rasgo adaptativo asociado a la concentración salina de las presas procesadas.</div>
+    <p class="paes-q">De acuerdo con la teoría de evolución por selección natural, ¿qué relación esperarías entre el tipo de ambiente (marino vs. dulceacuícola) y el tamaño renal de cada especie de <em>Cinclodes</em>?</p>
+    <div class="paes-opts" id="qu3d">
+      <div class="paes-opt" onclick="ans('qu3d','A')"><div class="ol">A</div><div class="ot">Las especies de ambiente marino desarrollarían riñones de mayor tamaño, adaptados a procesar alta carga salina.</div></div>
+      <div class="paes-opt" onclick="ans('qu3d','B')"><div class="ol">B</div><div class="ot">El tamaño del riñón sería igual en ambos ambientes, porque es un rasgo fijo de la especie.</div></div>
+      <div class="paes-opt" onclick="ans('qu3d','C')"><div class="ol">C</div><div class="ot">Las especies de agua dulce tendrían riñones más grandes que las marinas.</div></div>
+      <div class="paes-opt" onclick="ans('qu3d','D')"><div class="ol">D</div><div class="ot">El tamaño renal dependería solo de la edad del ave, no del ambiente.</div></div>
+    </div>
+    <div class="paes-fb" id="qu3d-fb"></div>
+  </div>
+
+  <!-- IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">En un laboratorio, un compuesto experimental impide que la célula avance de metafase a anafase cuando detecta cromosomas mal alineados en el huso mitótico.</div>
+    <p class="paes-q">¿Qué punto de control del ciclo celular está siendo simulado por este compuesto?</p>
+    <div class="paes-opts" id="qu3e">
+      <div class="paes-opt" onclick="ans('qu3e','A')"><div class="ol">A</div><div class="ot">Punto de control G1–S.</div></div>
+      <div class="paes-opt" onclick="ans('qu3e','B')"><div class="ol">B</div><div class="ot">Punto de control G2–M.</div></div>
+      <div class="paes-opt" onclick="ans('qu3e','C')"><div class="ol">C</div><div class="ot">Punto de control de metafase.</div></div>
+      <div class="paes-opt" onclick="ans('qu3e','D')"><div class="ol">D</div><div class="ot">No corresponde a ningún punto de control conocido.</div></div>
+    </div>
+    <div class="paes-fb" id="qu3e-fb"></div>
+  </div>
+
+  <!-- IA nueva 1 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <p class="paes-q">¿En qué fase de la interfase se replica completamente el ADN de la célula?</p>
+    <div class="paes-opts" id="qu3f">
+      <div class="paes-opt" onclick="ans('qu3f','A')"><div class="ol">A</div><div class="ot">G1.</div></div>
+      <div class="paes-opt" onclick="ans('qu3f','B')"><div class="ol">B</div><div class="ot">S.</div></div>
+      <div class="paes-opt" onclick="ans('qu3f','C')"><div class="ol">C</div><div class="ot">G2.</div></div>
+      <div class="paes-opt" onclick="ans('qu3f','D')"><div class="ol">D</div><div class="ot">Profase.</div></div>
+    </div>
+    <div class="paes-fb" id="qu3f-fb"></div>
+  </div>
+
+  <!-- IA nueva 2 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Durante la profase I de la meiosis, dos cromosomas homólogos intercambian segmentos de ADN entre sí.</div>
+    <p class="paes-q">¿Cuál es la principal consecuencia de este proceso, llamado entrecruzamiento?</p>
+    <div class="paes-opts" id="qu3g">
+      <div class="paes-opt" onclick="ans('qu3g','A')"><div class="ol">A</div><div class="ot">Duplica la cantidad de ADN de la célula.</div></div>
+      <div class="paes-opt" onclick="ans('qu3g','B')"><div class="ol">B</div><div class="ot">Genera nuevas combinaciones genéticas, aumentando la variabilidad de los gametos.</div></div>
+      <div class="paes-opt" onclick="ans('qu3g','C')"><div class="ol">C</div><div class="ot">Impide que la célula complete la meiosis.</div></div>
+      <div class="paes-opt" onclick="ans('qu3g','D')"><div class="ol">D</div><div class="ot">Reduce el número de cromosomas de 2n a n.</div></div>
+    </div>
+    <div class="paes-fb" id="qu3g-fb"></div>
+  </div>
+
+  <!-- IA nueva 3 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones ejemplifica correctamente estructuras análogas (no homólogas)?</p>
+    <div class="paes-opts" id="qu3h">
+      <div class="paes-opt" onclick="ans('qu3h','A')"><div class="ol">A</div><div class="ot">El brazo humano y la aleta de una ballena.</div></div>
+      <div class="paes-opt" onclick="ans('qu3h','B')"><div class="ol">B</div><div class="ot">El ala de un murciélago y el ala de una mosca.</div></div>
+      <div class="paes-opt" onclick="ans('qu3h','C')"><div class="ol">C</div><div class="ot">La pata delantera de un perro y el ala de un ave.</div></div>
+      <div class="paes-opt" onclick="ans('qu3h','D')"><div class="ol">D</div><div class="ot">El brazo humano y la pata delantera de un caballo.</div></div>
+    </div>
+    <div class="paes-fb" id="qu3h-fb"></div>
+  </div>
+</div>
+
+<!-- ═══ U4 ORGANISMO Y AMBIENTE ═══ -->
+<div class="section" id="u4">
+  <div class="h-header" style="background:rgba(52,211,153,.08);border:1.5px solid rgba(52,211,153,.3)">
+    <span class="icon">🌱</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--c-fot);margin-bottom:4px">Unidad 4 de 4 · Frecuencia media</div>
+    <h2 class="fot">Organismo y Ambiente</h2>
+    <p>Fotosíntesis, respiración celular y el flujo de materia y energía en los ecosistemas. Conecta lo celular con lo ecológico — y es transversal también al módulo común. Vamos a entender cada etapa antes de pasar a la siguiente.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title fot">🌿 Autótrofos vs. heterótrofos: quién fabrica el alimento y quién lo consume</p>
+    <p>Todo ecosistema depende de una base energética. Los <strong>autótrofos</strong> (plantas, algas, algunas bacterias) fabrican su propio alimento capturando energía externa — generalmente luz — y transformándola en energía química almacenada en moléculas orgánicas como la glucosa. Los <strong>heterótrofos</strong> (animales, hongos, la mayoría de las bacterias) no pueden hacer esto: dependen de consumir otros organismos (autótrofos u otros heterótrofos) para obtener esa energía ya fabricada.</p>
+    <p style="margin-top:8px">Esto no es un detalle menor: <strong>sin autótrofos, no hay energía disponible para ninguna cadena alimentaria del ecosistema</strong>. Son literalmente la base de la que depende todo lo demás — de ahí que se les llame "productores".</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title fot">☀️ Fotosíntesis: dos etapas, dos lugares distintos dentro del cloroplasto</p>
+    <p>La fotosíntesis no ocurre en un solo paso — tiene dos etapas que dependen una de la otra pero ocurren en lugares distintos del cloroplasto:</p>
+    <div class="grid-2">
+      <div style="background:var(--card2);border-radius:12px;padding:14px;border-left:3px solid #facc15">
+        <strong style="color:#facc15">Fase lumínica — ocurre en los tilacoides</strong>
+        <p style="margin-top:6px">Aquí es donde ocurre la <strong>fotólisis del agua</strong>: la molécula de agua se rompe usando energía lumínica, y de ahí sale el <strong>oxígeno que las plantas liberan al aire</strong> — un dato que mucha gente asume mal: el O₂ que respiramos NO viene del CO₂, viene del H₂O. Esta fase también genera dos moléculas "energéticas" (ATP y NADPH) que se necesitan para la siguiente fase.</p>
+      </div>
+      <div style="background:var(--card2);border-radius:12px;padding:14px;border-left:3px solid #34d399">
+        <strong style="color:#34d399">Ciclo de Calvin — ocurre en el estroma</strong>
+        <p style="margin-top:6px">Aquí se <strong>fija el CO₂</strong> del aire, usando el ATP y NADPH producidos en la fase lumínica, para finalmente producir <strong>glucosa</strong>. Esta fase no necesita luz directamente, pero <strong>sí depende</strong> de los productos generados por la fase lumínica — por eso, sin luz, el ciclo de Calvin también se detiene después de un rato, aunque no la necesite de forma directa.</p>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:10px">
+      <div class="tip-label">💡 El error más común que comete la gente</div>
+      <p>Mucha gente cree que el O₂ que liberan las plantas proviene del CO₂ que absorben. Es al revés: el <strong>oxígeno viene del agua</strong> (fase lumínica) y el <strong>carbono del CO₂ termina en la glucosa</strong> (Ciclo de Calvin). Este es uno de los puntos que la PAES pregunta con más frecuencia, muchas veces usando experimentos con agua marcada radiactivamente para demostrarlo.</p>
+    </div>
+    <p style="margin-top:10px"><strong>Variables que afectan la tasa fotosintética:</strong> luz, concentración de CO₂ y temperatura. A mayor intensidad de luz o de CO₂, generalmente aumenta la fotosíntesis (hasta un punto de saturación). Con temperatura muy alta (sobre los 40-45°C aproximadamente), las <strong>enzimas se desnaturalizan</strong> y la tasa fotosintética cae bruscamente a cero, porque las enzimas pierden su forma funcional y ya no pueden catalizar las reacciones.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title fot">🔋 Respiración celular: liberando la energía guardada</p>
+    <p>Si la fotosíntesis "guarda" energía en forma de glucosa, la <strong>respiración celular</strong> hace el proceso inverso: <strong>libera esa energía</strong> para que la célula la pueda usar en forma de ATP. Ocurre en la <strong>mitocondria</strong>, consume <strong>O₂</strong> y libera <strong>CO₂</strong> como producto de desecho. Un punto clave: la respiración celular ocurre <strong>en todos los organismos</strong>, autótrofos y heterótrofos por igual, y <strong>durante todo el día</strong> (de día y de noche) — a diferencia de la fotosíntesis, que solo ocurre cuando hay luz.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title fot">⚖️ Punto de compensación fotosintético: cuando ambos procesos se equilibran</p>
+    <p>Como una planta hace fotosíntesis (solo con luz) Y respiración celular (todo el tiempo) simultáneamente, hay un momento del día en que ambos procesos consumen y producen la misma cantidad de CO₂: es el <strong>punto de compensación</strong>. En ese instante, el intercambio neto de CO₂ con el ambiente es cero — la planta "ni gana ni pierde" CO₂ desde el punto de vista del intercambio con el aire.</p>
+    <p style="margin-top:8px">Durante la <strong>noche</strong>, sin luz, solo hay respiración: la planta libera CO₂ neto (lo usa constantemente y no lo compensa). Al <strong>amanecer</strong>, la fotosíntesis comienza a aumentar con la luz creciente, hasta cruzar la línea constante de la respiración — ese es el primer punto de compensación del día. Durante el día, la fotosíntesis supera a la respiración (ganancia neta de materia orgánica). Al <strong>atardecer</strong>, ocurre el cruce inverso: la fotosíntesis vuelve a caer por debajo de la respiración — segundo punto de compensación.</p>
+  </div>
+  <div style="background:#071812;border-radius:14px;padding:18px 14px;margin:14px 0">
+  <svg width="100%" viewBox="0 0 560 220">
+    <line x1="50" y1="180" x2="530" y2="180" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+    <line x1="50" y1="20" x2="50" y2="180" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+    <text x="290" y="205" text-anchor="middle" style="font-size:10px;fill:var(--text-dim)">Tiempo (24 h) — Noche · Día · Noche</text>
+    <text x="20" y="100" transform="rotate(-90 20 100)" style="font-size:10px;fill:var(--text-dim)">Uso/producción CO₂</text>
+    <line x1="50" y1="130" x2="530" y2="130" stroke="#f87171" stroke-width="2.5"/>
+    <text x="480" y="122" style="font-size:9px;fill:#fca5a5;font-weight:800">Respiración (constante)</text>
+    <path d="M50 130 L140 130 Q210 70 290 40 Q370 70 440 130 L530 130" fill="none" stroke="#facc15" stroke-width="2.5"/>
+    <text x="230" y="30" style="font-size:9px;fill:#fde68a;font-weight:800">Fotosíntesis (varía con la luz)</text>
+    <circle cx="140" cy="130" r="5" fill="#34d399"/>
+    <circle cx="440" cy="130" r="5" fill="#34d399"/>
+    <text x="120" y="150" style="font-size:8px;fill:#6ee7b7;font-weight:800">Pc</text>
+    <text x="420" y="150" style="font-size:8px;fill:#6ee7b7;font-weight:800">Pc</text>
+    <text x="90" y="195" style="font-size:8px;fill:var(--text-dim)">Noche</text>
+    <text x="270" y="195" style="font-size:8px;fill:var(--text-dim)">Día</text>
+    <text x="470" y="195" style="font-size:8px;fill:var(--text-dim)">Noche</text>
+  </svg>
+  </div>
+
+  <div class="card">
+    <p class="card-title fot">♻️ Reciclaje del carbono y el oxígeno: dos procesos que se complementan</p>
+    <p>Fotosíntesis y respiración son, en cierto sentido, procesos espejo:</p>
+    <table class="weight-table" style="margin-top:8px">
+      <tr><th>Proceso</th><th>Consume</th><th>Libera</th></tr>
+      <tr><td style="color:#facc15">Fotosíntesis</td><td>CO₂ + H₂O + luz</td><td>O₂ + glucosa</td></tr>
+      <tr><td style="color:#f87171">Respiración celular</td><td>O₂ + glucosa</td><td>CO₂ + H₂O + energía (ATP)</td></tr>
+    </table>
+    <p style="margin-top:8px">Juntas, estas dos reacciones mantienen el <strong>equilibrio de gases en la atmósfera</strong> y sostienen el flujo continuo de energía en los ecosistemas: la energía entra al sistema como luz solar, se transforma en energía química por fotosíntesis, y se libera gradualmente por respiración a lo largo de toda la cadena alimentaria.</p>
+  </div>
+
+  <div class="tip-box" style="border-color:var(--c-fot)">
+    <div class="tip-label" style="color:var(--c-fot)">💡 Clave PAES — resumen de toda la unidad</div>
+    <p>Cuando la pregunta muestra un gráfico con dos curvas (fotosíntesis y respiración) a lo largo de 24 horas, ubica primero la línea <strong>constante</strong> (respiración) y luego identifica dónde la curva de fotosíntesis la <strong>cruza</strong> — ahí están los puntos de compensación, que ocurren dos veces al día (amanecer y atardecer), nunca una sola vez ni durante la noche.</p>
+  </div>
+
+  <div class="kw-grid">
+    <span class="kw fot" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">autótrofo / heterótrofo</span>
+    <span class="kw fot" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">fotólisis del agua</span>
+    <span class="kw fot" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">Ciclo de Calvin</span>
+    <span class="kw fot" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">punto de compensación</span>
+    <span class="kw fot" style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)">respiración celular</span>
+  </div>
+
+  <p style="color:var(--text-dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 8 preguntas</p>
+
+  <!-- P1 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Un equipo de agrónomos investigaba la productividad de un cultivo que abre sus estomas durante el día. Analizaron el punto de compensación (Pc): momento en que la tasa fotosintética iguala la tasa de respiración mitocondrial. Los gráficos de resultado están a la misma escala, representando Noche–Día–Noche.</div>
+    <p class="paes-q">¿Cuál de estos gráficos presenta correctamente el (los) punto(s) de compensación que puede(n) ocurrir en el cultivo durante 24 horas?</p>
+    <div class="paes-opts" id="qu4a">
+      <div class="paes-opt" onclick="ans('qu4a','A')"><div class="ol">A</div><div class="ot">Un único punto de compensación, al mediodía.</div></div>
+      <div class="paes-opt" onclick="ans('qu4a','B')"><div class="ol">B</div><div class="ot">Dos puntos de compensación: uno al amanecer y otro al atardecer, con fotosíntesis superando a la respiración solo entre ambos.</div></div>
+      <div class="paes-opt" onclick="ans('qu4a','C')"><div class="ol">C</div><div class="ot">Ningún punto de compensación, porque la fotosíntesis siempre supera a la respiración durante el día.</div></div>
+      <div class="paes-opt" onclick="ans('qu4a','D')"><div class="ol">D</div><div class="ot">Un punto de compensación durante la noche.</div></div>
+    </div>
+    <div class="paes-fb" id="qu4a-fb"></div>
+  </div>
+
+  <!-- P2 IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <p class="paes-q">Un estudiante debe describir un proceso de los ciclos biogeoquímicos que reduzca la concentración de dióxido de carbono presente en la atmósfera. ¿Cuál de los siguientes procesos debería reseñar?</p>
+    <div class="paes-opts" id="qu4b">
+      <div class="paes-opt" onclick="ans('qu4b','A')"><div class="ol">A</div><div class="ot">La nitrificación.</div></div>
+      <div class="paes-opt" onclick="ans('qu4b','B')"><div class="ol">B</div><div class="ot">La fotosíntesis.</div></div>
+      <div class="paes-opt" onclick="ans('qu4b','C')"><div class="ol">C</div><div class="ot">La descomposición.</div></div>
+      <div class="paes-opt" onclick="ans('qu4b','D')"><div class="ol">D</div><div class="ot">La respiración.</div></div>
+    </div>
+    <div class="paes-fb" id="qu4b-fb"></div>
+  </div>
+
+  <!-- IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Se cultivan dos grupos de algas idénticas: el grupo 1 en agua normal, el grupo 2 en agua marcada con oxígeno radiactivo (¹⁸O). Al medir el O₂ liberado durante la fotosíntesis, el grupo 2 muestra oxígeno radiactivo en el gas liberado.</div>
+    <p class="paes-q">¿Qué conclusión es correcta a partir de este experimento?</p>
+    <div class="paes-opts" id="qu4c">
+      <div class="paes-opt" onclick="ans('qu4c','A')"><div class="ol">A</div><div class="ot">El O₂ liberado en la fotosíntesis proviene del CO₂ fijado.</div></div>
+      <div class="paes-opt" onclick="ans('qu4c','B')"><div class="ol">B</div><div class="ot">El O₂ liberado en la fotosíntesis proviene del agua (fotólisis).</div></div>
+      <div class="paes-opt" onclick="ans('qu4c','C')"><div class="ol">C</div><div class="ot">El O₂ liberado proviene de la glucosa sintetizada en el Ciclo de Calvin.</div></div>
+      <div class="paes-opt" onclick="ans('qu4c','D')"><div class="ol">D</div><div class="ot">El resultado no permite determinar el origen del O₂.</div></div>
+    </div>
+    <div class="paes-fb" id="qu4c-fb"></div>
+  </div>
+
+  <!-- IA -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <p class="paes-q">Una planta se somete a temperaturas superiores a 45°C durante varias horas. ¿Qué se espera que ocurra con su tasa fotosintética?</p>
+    <div class="paes-opts" id="qu4d">
+      <div class="paes-opt" onclick="ans('qu4d','A')"><div class="ol">A</div><div class="ot">Aumenta progresivamente, sin límite.</div></div>
+      <div class="paes-opt" onclick="ans('qu4d','B')"><div class="ol">B</div><div class="ot">Cae bruscamente porque las enzimas del proceso se desnaturalizan.</div></div>
+      <div class="paes-opt" onclick="ans('qu4d','C')"><div class="ol">C</div><div class="ot">Se detiene por falta de CO₂ disponible.</div></div>
+      <div class="paes-opt" onclick="ans('qu4d','D')"><div class="ol">D</div><div class="ot">No cambia, porque la fotosíntesis no depende de la temperatura.</div></div>
+    </div>
+    <div class="paes-fb" id="qu4d-fb"></div>
+  </div>
+
+  <!-- IA nueva 1 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <p class="paes-q">¿En qué parte del cloroplasto ocurre el Ciclo de Calvin?</p>
+    <div class="paes-opts" id="qu4e">
+      <div class="paes-opt" onclick="ans('qu4e','A')"><div class="ol">A</div><div class="ot">En los tilacoides.</div></div>
+      <div class="paes-opt" onclick="ans('qu4e','B')"><div class="ol">B</div><div class="ot">En el estroma.</div></div>
+      <div class="paes-opt" onclick="ans('qu4e','C')"><div class="ol">C</div><div class="ot">En la membrana externa del cloroplasto.</div></div>
+      <div class="paes-opt" onclick="ans('qu4e','D')"><div class="ol">D</div><div class="ot">En el espacio intermembrana.</div></div>
+    </div>
+    <div class="paes-fb" id="qu4e-fb"></div>
+  </div>
+
+  <!-- IA nueva 2 -->
+  <div class="paes-box">
+    <div class="ai-tag">🤖 Pregunta de práctica — elaborada para esta plataforma</div>
+    <div class="paes-ctx">Un investigador mide el intercambio de CO₂ de una planta durante 24 horas y observa que durante toda la noche hay liberación neta de CO₂ al ambiente.</div>
+    <p class="paes-q">¿Qué proceso explica esta liberación nocturna de CO₂?</p>
+    <div class="paes-opts" id="qu4f">
+      <div class="paes-opt" onclick="ans('qu4f','A')"><div class="ol">A</div><div class="ot">La fotosíntesis, que continúa en la oscuridad.</div></div>
+      <div class="paes-opt" onclick="ans('qu4f','B')"><div class="ol">B</div><div class="ot">La respiración celular, que ocurre las 24 horas del día.</div></div>
+      <div class="paes-opt" onclick="ans('qu4f','C')"><div class="ol">C</div><div class="ot">La fotólisis del agua durante la noche.</div></div>
+      <div class="paes-opt" onclick="ans('qu4f','D')"><div class="ol">D</div><div class="ot">El Ciclo de Calvin nocturno.</div></div>
+    </div>
+    <div class="paes-fb" id="qu4f-fb"></div>
+  </div>
+</div>
+
+<!-- ═══ ENSAYO DE CIERRE ═══ -->
+<div class="section" id="ensayo">
+  <div class="card">
+    <p class="card-title" style="color:var(--verde)">⏱️ Ensayo de Cierre cronometrado · 26 preguntas 🤖</p>
+    <p>Responde las 26 preguntas del Electivo de Biología completo dentro del tiempo límite. Son preguntas <strong>generadas por IA</strong> siguiendo el formato y la dificultad de la PAES — no son preguntas reales de un ensayo oficial. Simula las condiciones reales de la prueba: contenido de las 4 unidades, mezclado.</p>
+  </div>
+  <div class="tip-box" style="margin-bottom:16px">
+    <div class="tip-label">💡 Estrategia</div>
+    <p>Administra tu tiempo: son 26 preguntas en 30 minutos, poco más de un minuto por pregunta. Si una pregunta te complica mucho, sigue avanzando y vuelve después si te queda tiempo.</p>
+  </div>
+  <div class="timer-box">
+    <div>
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Tiempo restante</div>
+      <div class="timer-display" id="timer-disp">30:00</div>
+    </div>
+    <div style="text-align:right">
+      <div id="timer-status" style="font-size:.85rem;color:var(--text-dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+      <button id="start-btn" onclick="startEnsayo()" style="padding:8px 20px;background:var(--verde);color:#071812;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+    </div>
+  </div>
+  <div id="ensayo-qs" style="display:none"></div>
+  <button class="submit-btn" id="submit-btn" onclick="submitEnsayo()" disabled style="display:none">✅ Terminar y ver resultados</button>
+  <div id="ensayo-results"></div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Electivo</h3>
+      <p>Biología · 4 Unidades</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    🔒 El asistente está pausado mientras rindes el Ensayo de Cierre cronometrado. Vuelve a abrirlo cuando termines.
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de este electivo. Puedo ayudarte con dudas sobre las 4 unidades: Organización, Estructura y Actividad Celular; Procesos y Funciones Biológicas; Herencia y Evolución; y Organismo y Ambiente. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">← Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente →</button>
+</div>
+<footer>🧬 Electivo Biología · PAES Ciencias · Admisión 2027</footer>
+<script>
+
+var SECS=["portada","diagnostico","u1","u2","u3","u4","ensayo"];
+var SLABELS=["Inicio","🩺 Diagnóstico","🔬 U1 Organización Celular","🧠 U2 Procesos y Funciones","🧬 U3 Herencia y Evolución","🌱 U4 Organismo y Ambiente","⏱️ Ensayo de Cierre"];
+var curSec=0;
+function showSec(id,idx,btn){
+  SECS.forEach(function(s){document.getElementById(s).classList.remove("active");});
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec=idx;
+  updateLinNav();
+  document.getElementById("prog").style.width=Math.round(((idx+1)/SECS.length)*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function linNav(d){
+  var n=Math.max(0,Math.min(SECS.length-1,curSec+d));
+  if(n===curSec)return;
+  showSec(SECS[n],n,document.querySelectorAll(".nav-btn")[n]);
+}
+function updateLinNav(){
+  document.getElementById("lnav-prev").disabled=(curSec===0);
+  document.getElementById("lnav-next").disabled=(curSec===SECS.length-1);
+  document.getElementById("lnav-label").textContent=SLABELS[curSec];
+}
+updateLinNav();
+
+
+var QA={
+  "qu1a":{c:"D",fb:{
+    A:"Incorrecto. El RE rugoso sintetiza proteínas, no responde a presión mecánica.",
+    B:"Incorrecto. El Golgi modifica y distribuye proteínas; no da soporte estructural frente a fuerzas externas.",
+    C:"Incorrecto. La envoltura nuclear protege el ADN, pero no es la responsable de la estabilidad mecánica de toda la célula.",
+    D:"✅ Correcto. El citoesqueleto (microfilamentos, microtúbulos, filamentos intermedios) es la red que le da forma y resistencia mecánica a la célula, reorganizándose frente a fuerzas externas."
+  }},
+  "qu1b":{c:"B",fb:{
+    A:"Incorrecto. El tipo 1 (forma alargada, muchos núcleos periféricos, RE liso abundante como retículo sarcoplasmático) corresponde a célula muscular esquelética, no a una neurona.",
+    B:"✅ Correcto. Microvellosidades apicales (para absorción), muchas mitocondrias basales (energía para transporte activo) y RE/Golgi abundantes son la firma estructural del enterocito, la célula que recubre el intestino delgado.",
+    C:"Incorrecto. El tipo 3 (forma piramidal truncada, RE rugoso y Golgi muy abundantes, típico de una célula que sintetiza y exporta grandes cantidades de proteína) corresponde a célula secretora pancreática, no a un leucocito.",
+    D:"Incorrecto. El tipo 4 (soma, dendritas y axón) corresponde a una neurona, no a un miocito (célula muscular)."
+  }},
+  "qu1c":{c:"B",fb:{
+    A:"Incorrecto. El lisosoma digiere macromoléculas; no está directamente ligado al consumo de oxígeno.",
+    B:"✅ Correcto. Menor consumo de O₂ y menor producción de energía química (ATP) apunta directamente a la mitocondria, el organelo responsable de la respiración celular.",
+    C:"Incorrecto. El Golgi empaqueta y distribuye proteínas; no consume oxígeno para producir ATP.",
+    D:"Incorrecto. El retículo endoplasmático sintetiza proteínas o lípidos; no es el sitio principal de producción de ATP."
+  }},
+  "qu1d":{c:"D",fb:{
+    A:"Incorrecto. El RE liso no sintetiza proteínas (sintetiza lípidos); los lisosomas digieren, no producen.",
+    B:"Incorrecto. Las mitocondrias producen energía, no proteínas.",
+    C:"Incorrecto. Los peroxisomas degradan moléculas tóxicas; no participan en la síntesis de proteínas.",
+    D:"✅ Correcto. El RE rugoso sintetiza proteínas y el complejo de Golgi las modifica y empaqueta — juntos forman la vía de síntesis y exportación de proteínas que el parásito aprovecha para replicarse."
+  }},
+  "qu1e":{c:"A",fb:{
+    A:"✅ Correcto. La pared celular vegetal, de naturaleza no lipídica (celulosa), protege a la célula de solventes orgánicos que sí disuelven la membrana plasmática lipídica de células animales.",
+    B:"Incorrecto. Toda célula, vegetal o animal, tiene membrana plasmática lipídica.",
+    C:"Incorrecto. No es una capa de cera la que protege — es la pared celular de celulosa.",
+    D:"Incorrecto. Las células vegetales sí tienen organelos membranosos (mitocondrias, cloroplastos, etc.)."
+  }},
+  "qu1f":{c:"C",fb:{
+    A:"Incorrecto. La difusión simple no usa proteínas de transporte como bombas; es paso directo a través de la bicapa.",
+    B:"Incorrecto. La difusión facilitada usa proteínas canal o transportadoras, pero no gasta ATP como sí lo hace una bomba.",
+    C:"✅ Correcto. La bomba sodio-potasio es el ejemplo clásico de transporte activo: usa ATP para mover iones en contra de su gradiente de concentración. Si se inhibe, el transporte activo es lo que falla directamente.",
+    D:"Incorrecto. La exocitosis expulsa partículas grandes mediante vesículas; no está relacionada con la bomba sodio-potasio."
+  }},
+  "qu1g":{c:"C",fb:{
+    A:"Incorrecto. Una célula eucarionte animal tiene núcleo con envoltura propia, claramente delimitado — no una 'zona más densa' sin membrana.",
+    B:"Incorrecto. Igual que la animal, la eucarionte vegetal tiene núcleo con envoltura definida.",
+    C:"✅ Correcto. La ausencia de núcleo definido, con el ADN concentrado en una zona sin membrana (nucleoide) y presencia de ribosomas, es la descripción clásica de una célula procarionte.",
+    D:"Incorrecto. La presencia o ausencia de núcleo ya es suficiente para determinar que es procarionte, sin necesidad de conocer la pared celular."
+  }},
+  "qu1h":{c:"B",fb:{
+    A:"Incorrecto. La producción de ATP es función de la mitocondria, no del peroxisoma.",
+    B:"✅ Correcto. Los peroxisomas contienen enzimas oxidativas que degradan sustancias tóxicas, como el peróxido de hidrógeno, protegiendo a la célula del daño oxidativo — función especialmente importante en el hígado, órgano detoxificador.",
+    C:"Incorrecto. La síntesis de proteínas de exportación depende del RE rugoso y el Golgi, no de los peroxisomas.",
+    D:"Incorrecto. La organización del huso mitótico es función de los centriolos, no de los peroxisomas."
+  }},
+  "qu2a":{c:"D",fb:{
+    A:"Incorrecto. El tamaño del patógeno no es el factor que explica los datos de la tabla.",
+    B:"Incorrecto. El tiempo de incubación no se menciona en los datos entregados.",
+    C:"Incorrecto. VIH y Hepatitis B (virus) tienen protección >90%, similar o mayor a la de gonorrea (bacteria) con 80% — no hay un patrón bacteria>virus.",
+    D:"✅ Correcto. Herpes (10-50%) y en cierta medida sífilis producen lesiones con secreción en zonas de piel no cubiertas por el preservativo, lo que explica la menor protección frente a ITS que se transmiten también por contacto directo de piel."
+  }},
+  "qu2b":{c:"B",fb:{
+    A:"Incorrecto. El preservativo es una barrera física, no un método químico que altere el medio de las células sexuales.",
+    B:"✅ Correcto. Exponer espermatozoides a sustancias químicas que inhiben su capacidad de fertilización es exactamente el principio del espermicida.",
+    C:"Incorrecto. La vasectomía es un método quirúrgico, no basado en exposición química de gametos.",
+    D:"Incorrecto. El diafragma es una barrera física, no un método químico."
+  }},
+  "qu2c":{c:"A",fb:{
+    A:"✅ Correcto. La ligadura de oviductos es un método quirúrgico: no libera hormonas ni altera el ciclo menstrual, tiene muy alta efectividad, y al no ser de barrera, no protege contra ITS.",
+    B:"Incorrecto. El implante subdérmico es hormonal: sí modifica los patrones hormonales del ciclo.",
+    C:"Incorrecto. El condón femenino sí ofrece protección parcial contra ITS al ser un método de barrera, a diferencia de lo que pide el enunciado.",
+    D:"Incorrecto. El anillo vaginal es un método hormonal: libera hormonas y sí altera el ciclo natural."
+  }},
+  "qu2d":{c:"B",fb:{
+    A:"Incorrecto. Si los receptores están bloqueados, no puede generarse una nueva señal eléctrica en la neurona postsináptica.",
+    B:"✅ Correcto. Sin unión al receptor, no se activa la neurona postsináptica: la transmisión se corta exactamente en ese punto de la sinapsis.",
+    C:"Incorrecto. El enunciado indica que la liberación de neurotransmisores no se ve afectada, solo su unión al receptor.",
+    D:"Incorrecto. La vaina de mielina pertenece al axón de la neurona presináptica y no participa en la unión al receptor postsináptico."
+  }},
+  "qu2e":{c:"C",fb:{
+    A:"Incorrecto. El VIH ataca al sistema inmune, pero no se caracteriza principalmente por cursar asintomático y derivar en infertilidad.",
+    B:"Incorrecto. El herpes se caracteriza por lesiones visibles (vesículas), no por ser asintomático.",
+    C:"✅ Correcto. La clamidia es frecuentemente asintomática, y si no se trata a tiempo puede causar infertilidad, especialmente en mujeres.",
+    D:"Incorrecto. La gonorrea suele presentar síntomas más notorios que la clamidia."
+  }},
+  "qu2f":{c:"C",fb:{
+    A:"Incorrecto. El cerebro procesa el dolor conscientemente, pero eso ocurre después de que la mano ya se movió.",
+    B:"Incorrecto. El cerebelo coordina equilibrio y movimientos finos, no los reflejos simples.",
+    C:"✅ Correcto. El arco reflejo tiene su centro integrador en la médula espinal, lo que permite una respuesta inmediata sin esperar el procesamiento del cerebro.",
+    D:"Incorrecto. El nervio periférico conduce el impulso, pero no lo procesa ni genera la respuesta motora."
+  }},
+  "qu2g":{c:"B",fb:{
+    A:"Incorrecto. La FSH actúa principalmente en la fase folicular temprana, estimulando el crecimiento del folículo, no manteniendo la temperatura elevada por 12 días.",
+    B:"✅ Correcto. Tras la ovulación (día 14), el cuerpo lúteo produce progesterona, que eleva y mantiene la temperatura basal durante toda la fase lútea (hasta el día 26-28 aprox.).",
+    C:"Incorrecto. El estrógeno predomina en la fase folicular (antes del día 14), no en la fase posterior a la ovulación.",
+    D:"Incorrecto. El pico de LH es puntual, justo antes de la ovulación, no se mantiene elevado por 12 días."
+  }},
+  "qu2h":{c:"B",fb:{
+    A:"Incorrecto. La dimensión biológica se refiere a la estructura y función de los sistemas reproductores, no al cuidado y respeto en la relación.",
+    B:"✅ Correcto. El cuidado, respeto y responsabilidad hacia uno mismo y los demás corresponde a las dimensiones afectiva y social de la sexualidad, que van más allá de lo biológico.",
+    C:"Incorrecto. Reducir la sexualidad solo a la reproducción ignora las dimensiones afectiva, psicológica y social.",
+    D:"Incorrecto. No existe una 'dimensión hormonal' como categoría separada de la sexualidad integral; las hormonas forman parte de la dimensión biológica."
+  }},
+  "qu3a":{c:"D",fb:{
+    A:"Incorrecto. La pregunta de investigación no busca el mecanismo de intercalación, sino usar la molécula como herramienta de medición.",
+    B:"Incorrecto. El estudio no busca degradación de la molécula, sino usarla para medir compactación del ADN.",
+    C:"Incorrecto. La molécula es una herramienta de medición, no algo que modifique la compactación del ADN.",
+    D:"✅ Correcto. El objetivo del estudio es usar la señal fluorescente como indicador para determinar el grado de compactación del ADN en las distintas etapas del ciclo celular."
+  }},
+  "qu3b":{c:"C",fb:{
+    A:"Incorrecto. La célula dibujada está en Anafase I (se separan cromosomas homólogos completos, cada uno con sus dos cromátidas), no en Anafase II.",
+    B:"Incorrecto. El número de cromosomas que importa aquí es el de los <strong>gametos finales</strong> (n=3), no el conteo de cromátidas visibles en el dibujo.",
+    C:"✅ Correcto. La célula original tiene 2n=6 (3 pares de homólogos). En Anafase I se separan los homólogos completos hacia cada polo. Al terminar la Meiosis II, cada gameto final tendrá n=3 cromosomas, cada uno de una sola cromátida.",
+    D:"Incorrecto. La etapa es Anafase I, y el número final de cromosomas en cada gameto es 3, no 6."
+  }},
+  "qu3c":{c:"B",fb:{
+    A:"Incorrecto. Reproducir bacterias con la toxina ya presente no inserta el gen en la planta.",
+    B:"✅ Correcto. Para transferir el gen a la planta, primero hay que insertarlo en un plásmido (vector) que luego se introduce en las células vegetales.",
+    C:"Incorrecto. No se incorpora la toxina (proteína) directamente; se incorpora el gen que la codifica.",
+    D:"Incorrecto. No es necesario introducir el genoma completo de la bacteria, solo el gen específico de interés."
+  }},
+  "qu3d":{c:"A",fb:{
+    A:"✅ Correcto. Según la selección natural, si el tamaño renal es un rasgo adaptativo a la carga salina, las especies expuestas a presas marinas (más saladas) desarrollarían riñones más grandes, capaces de procesar mayor concentración de sal.",
+    B:"Incorrecto. Si el rasgo es adaptativo, se espera que varíe según la presión ambiental de cada hábitat, no que sea fijo.",
+    C:"Incorrecto. Sería lo opuesto: las especies marinas, expuestas a mayor carga salina, necesitarían mayor capacidad renal.",
+    D:"Incorrecto. El enunciado indica que el rasgo se asocia a la salinidad de las presas, no a la edad."
+  }},
+  "qu3e":{c:"C",fb:{
+    A:"Incorrecto. El punto G1–S revisa la integridad del ADN antes de la replicación, no la alineación de cromosomas.",
+    B:"Incorrecto. El punto G2–M revisa que la replicación del ADN se haya completado correctamente, antes de entrar a mitosis.",
+    C:"✅ Correcto. El punto de control de metafase verifica que los cromosomas estén correctamente alineados en el huso mitótico antes de permitir el paso a anafase.",
+    D:"Incorrecto. Sí corresponde a un punto de control conocido y bien descrito en el ciclo celular."
+  }},
+  "qu3f":{c:"B",fb:{
+    A:"Incorrecto. En G1 la célula crece y fabrica proteínas, pero el ADN todavía no se replica.",
+    B:"✅ Correcto. La fase S (síntesis) es exactamente cuando se replica todo el ADN de la célula, generando las cromátidas hermanas.",
+    C:"Incorrecto. En G2 el ADN ya fue replicado en la fase anterior; aquí la célula solo termina de prepararse para la mitosis.",
+    D:"Incorrecto. La profase es parte de la mitosis, no de la interfase; ocurre después de que el ADN ya se replicó."
+  }},
+  "qu3g":{c:"B",fb:{
+    A:"Incorrecto. El entrecruzamiento intercambia segmentos entre cromosomas ya existentes; no crea ADN nuevo ni lo duplica.",
+    B:"✅ Correcto. El entrecruzamiento mezcla el material genético entre cromosomas homólogos, generando combinaciones nuevas que aumentan la variabilidad genética de los gametos resultantes.",
+    C:"Incorrecto. El entrecruzamiento es un proceso normal de la meiosis; no la interrumpe.",
+    D:"Incorrecto. La reducción de 2n a n ocurre por la separación de homólogos en la Anafase I, no por el entrecruzamiento en sí."
+  }},
+  "qu3h":{c:"B",fb:{
+    A:"Incorrecto. El brazo humano y la aleta de la ballena son homólogas: ambas derivan de la extremidad anterior de un tetrápodo ancestral común, aunque cumplan funciones distintas.",
+    B:"✅ Correcto. El ala de un murciélago (extremidad ósea de mamífero modificada) y el ala de una mosca (extensión del exoesqueleto de un insecto) tienen orígenes evolutivos completamente distintos, pero cumplen la misma función (volar): es el ejemplo clásico de estructuras análogas por convergencia evolutiva.",
+    C:"Incorrecto. La pata delantera de un perro y el ala de un ave son homólogas: ambas son extremidades anteriores de tetrápodos con el mismo origen embrionario, aunque muy modificadas para funciones distintas.",
+    D:"Incorrecto. El brazo humano y la pata delantera de un caballo son homólogas: mismo origen embrionario (extremidad de tetrápodo), distinta función específica."
+  }},
+  "qu4a":{c:"B",fb:{
+    A:"Incorrecto. Durante 24 horas con fase de luz y oscuridad, el cruce entre fotosíntesis y respiración ocurre dos veces, no una.",
+    B:"✅ Correcto. Al amanecer la fotosíntesis empieza a superar a la respiración (primer punto de compensación) y al atardecer vuelve a caer por debajo de ella (segundo punto de compensación); entre ambos, la planta tiene ganancia neta de CO₂ fijado (pierde CO₂ neto, en términos de intercambio con la atmósfera).",
+    C:"Incorrecto. Durante la noche, sin luz, solo hay respiración: no toda la curva de fotosíntesis supera a la respiración.",
+    D:"Incorrecto. De noche no hay fotosíntesis (no hay luz), por lo que no puede haber un cruce de curvas en ese período."
+  }},
+  "qu4b":{c:"B",fb:{
+    A:"Incorrecto. La nitrificación transforma compuestos de nitrógeno, no afecta directamente al CO₂ atmosférico.",
+    B:"✅ Correcto. La fotosíntesis fija CO₂ atmosférico para producir materia orgánica, reduciendo su concentración en el aire.",
+    C:"Incorrecto. La descomposición libera CO₂ a la atmósfera, no lo reduce.",
+    D:"Incorrecto. La respiración libera CO₂, no lo reduce."
+  }},
+  "qu4c":{c:"B",fb:{
+    A:"Incorrecto. Si el O₂ radiactivo viene del CO₂, el marcador debería aparecer en el CO₂ fijado, no en el gas liberado.",
+    B:"✅ Correcto. Al usar agua marcada con ¹⁸O y encontrar ese isótopo en el oxígeno liberado, se confirma que el O₂ de la fotosíntesis proviene de la fotólisis del agua, no del CO₂.",
+    C:"Incorrecto. La glucosa se sintetiza en el Ciclo de Calvin a partir de CO₂ fijado, pero no es la fuente del O₂ liberado.",
+    D:"Incorrecto. El experimento sí permite rastrear el origen del oxígeno mediante el marcaje isotópico."
+  }},
+  "qu4d":{c:"B",fb:{
+    A:"Incorrecto. A temperaturas extremas, las enzimas no aumentan su actividad indefinidamente.",
+    B:"✅ Correcto. Sobre los ~40-45°C las enzimas del proceso fotosintético comienzan a desnaturalizarse, haciendo caer bruscamente la tasa fotosintética.",
+    C:"Incorrecto. El problema principal a esas temperaturas es la desnaturalización enzimática, no la disponibilidad de CO₂.",
+    D:"Incorrecto. La fotosíntesis sí depende fuertemente de la temperatura, ya que es un proceso enzimático."
+  }},
+  "qu4e":{c:"B",fb:{
+    A:"Incorrecto. En los tilacoides ocurre la fase lumínica, no el Ciclo de Calvin.",
+    B:"✅ Correcto. El Ciclo de Calvin ocurre en el estroma, el fluido que rodea a los tilacoides dentro del cloroplasto, donde se fija el CO₂ para producir glucosa.",
+    C:"Incorrecto. La membrana externa del cloroplasto solo regula el paso de sustancias, no realiza reacciones del Ciclo de Calvin.",
+    D:"Incorrecto. El espacio intermembrana no es el sitio del Ciclo de Calvin; ese término se usa más para mitocondrias."
+  }},
+  "qu4f":{c:"B",fb:{
+    A:"Incorrecto. La fotosíntesis requiere luz; no ocurre durante la noche.",
+    B:"✅ Correcto. La respiración celular ocurre las 24 horas del día, tanto en luz como en oscuridad. Durante la noche, sin fotosíntesis que la compense, el resultado neto es liberación de CO₂.",
+    C:"Incorrecto. La fotólisis del agua es parte de la fase lumínica de la fotosíntesis, que requiere luz.",
+    D:"Incorrecto. El Ciclo de Calvin depende de los productos de la fase lumínica (ATP y NADPH), que no se generan sin luz."
+  }},
+};
+
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done="1";
+  var a=QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===a.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById(qid+"-fb");
+  fb.className="paes-fb show "+(opt===a.c?"ok":"no");
+  fb.innerHTML=a.fb[opt];
+}
+
+
+// ═══ DIAGNÓSTICO ═══
+var DIAG=[
+  {u:"U1 · Organización celular",color:"var(--c-cel)",q:"¿Cuál organelo está presente tanto en células procariontes como eucariontes?",opts:{A:"Mitocondria",B:"Ribosoma",C:"Aparato de Golgi",D:"Núcleo"},c:"B"},
+  {u:"U1 · Organización celular",color:"var(--c-cel)",q:"¿Qué estructura le da rigidez a una célula vegetal y es de naturaleza NO lipídica?",opts:{A:"Membrana plasmática",B:"Citoesqueleto",C:"Pared celular",D:"Vacuola"},c:"C"},
+  {u:"U2 · Procesos y funciones",color:"var(--c-sn)",q:"¿En qué estructura del ovocito ocurre el bloqueo de polispermia tras la fecundación?",opts:{A:"Corona radiada",B:"Zona pelúcida",C:"Acrosoma",D:"Citoplasma"},c:"B"},
+  {u:"U2 · Procesos y funciones",color:"var(--c-sn)",q:"¿Cuál de las siguientes ITS es causada por una bacteria?",opts:{A:"VIH",B:"Herpes",C:"Clamidia",D:"Ninguna es viral"},c:"C"},
+  {u:"U3 · Herencia y evolución",color:"var(--c-cc)",q:"¿Qué punto de control revisa que los cromosomas estén correctamente alineados antes de la anafase?",opts:{A:"Punto G1–S",B:"Punto G2–M",C:"Punto de metafase",D:"No existe ese punto"},c:"C"},
+  {u:"U3 · Herencia y evolución",color:"var(--c-cc)",q:"¿Qué proceso de la meiosis separa cromosomas homólogos completos?",opts:{A:"Anafase I",B:"Anafase II",C:"Profase II",D:"Metafase II"},c:"A"},
+  {u:"U4 · Organismo y ambiente",color:"var(--c-fot)",q:"El oxígeno liberado en la fotosíntesis proviene de:",opts:{A:"El CO₂",B:"La glucosa",C:"El agua",D:"El ATP"},c:"C"},
+  {u:"U4 · Organismo y ambiente",color:"var(--c-fot)",q:"¿En qué parte del cloroplasto ocurre el Ciclo de Calvin?",opts:{A:"Tilacoides",B:"Estroma",C:"Membrana externa",D:"Espacio intermembrana"},c:"B"}
+];
+var diagAnswers={};
+function buildDiag(){
+  var cont=document.getElementById("diag-qs");
+  cont.innerHTML="";
+  DIAG.forEach(function(q,i){
+    var d=document.createElement("div");
+    d.className="paes-box";
+    var optsH="";
+    ["A","B","C","D"].forEach(function(l){
+      optsH+='<div class="diag-opt" id="do-'+i+'-'+l+'" onclick="diagAns('+i+',\''+l+'\')"><div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="paes-tag" style="color:'+q.color+'">'+q.u+' · Pregunta '+(i+1)+'</div>'+
+      '<p class="paes-q">'+q.q+'</p>'+
+      '<div class="paes-opts" id="dopts-'+i+'" style="display:flex;flex-direction:column;gap:8px">'+optsH+'</div>';
+    cont.appendChild(d);
+  });
+}
+buildDiag();
+function diagAns(i,opt){
+  if(diagAnswers[i])return;
+  diagAnswers[i]=opt;
+  var q=DIAG[i];
+  var opts=document.getElementById("dopts-"+i);
+  opts.querySelectorAll(".diag-opt").forEach(function(o){
+    o.style.pointerEvents="none";
+    var l=o.id.split("-")[2];
+    if(l===q.c){o.style.borderColor="#059669";o.style.background="rgba(5,150,105,.14)";}
+    else if(l===opt){o.style.borderColor="#ef4444";o.style.background="rgba(239,68,68,.08)";}
+  });
+  if(Object.keys(diagAnswers).length===DIAG.length)showDiagResult();
+}
+function showDiagResult(){
+  var byUnit={};
+  DIAG.forEach(function(q,i){
+    if(!byUnit[q.u])byUnit[q.u]={c:0,t:0,color:q.color};
+    byUnit[q.u].t++;
+    if(diagAnswers[i]===q.c)byUnit[q.u].c++;
+  });
+  var html='<div class="res-topic-grid">';
+  var weakest=null,weakestPct=101;
+  Object.keys(byUnit).forEach(function(u){
+    var r=byUnit[u];var pct=Math.round(r.c/r.t*100);
+    if(pct<weakestPct){weakestPct=pct;weakest=u;}
+    html+='<div class="res-topic-card" style="border-left-color:'+r.color+'"><div class="res-topic-name">'+u+'</div><div class="res-topic-score" style="color:'+r.color+'">'+r.c+'/'+r.t+'</div></div>';
+  });
+  html+='</div>';
+  html+='<p style="margin-top:14px;color:var(--text-dim);font-size:.9rem">Sugerencia: parte reforzando <strong style="color:#f59e0b">'+weakest+'</strong>, donde tuviste el resultado más bajo. Puedes saltar directo a esa unidad desde el menú de navegación.</p>';
+  document.getElementById("diag-result-body").innerHTML=html;
+  document.getElementById("diag-result").style.display="block";
+  document.getElementById("diag-result").scrollIntoView({behavior:"smooth"});
+}
+
+// ═══ ACORDEÓN DE ORGANELOS (U1) ═══
+var ORGANELOS=[
+  {n:"Núcleo",c:"#c084fc",fn:"Contiene el ADN organizado en cromatina. Controla la actividad celular y la síntesis de ARN. Rodeado por envoltura nuclear con poros."},
+  {n:"Nucléolo",c:"#a78bfa",fn:"Región dentro del núcleo donde se ensamblan los ribosomas (síntesis de ARN ribosomal)."},
+  {n:"Mitocondria",c:"#34d399",fn:"Produce energía en forma de ATP mediante respiración celular. Tiene doble membrana y ADN propio."},
+  {n:"RE rugoso",c:"#f59e0b",fn:"Tiene ribosomas adheridos. Sintetiza proteínas destinadas a secreción o a la membrana."},
+  {n:"RE liso",c:"#fbbf24",fn:"Sin ribosomas. Sintetiza lípidos y desintoxica sustancias. Abundante en células musculares (retículo sarcoplasmático) y hepáticas."},
+  {n:"Complejo de Golgi",c:"#06b6d4",fn:"Modifica, empaqueta y dirige proteínas hacia su destino final: secreción, membrana o lisosomas."},
+  {n:"Ribosoma",c:"#6ee7b7",fn:"Sintetiza proteínas. Es el único organelo presente tanto en procariontes como en eucariontes."},
+  {n:"Lisosoma",c:"#f87171",fn:"Contiene enzimas digestivas. Degrada macromoléculas y organelos dañados. Solo en células animales."},
+  {n:"Peroxisoma",c:"#fb923c",fn:"Degrada ácidos grasos y sustancias tóxicas (ej. peróxido de hidrógeno) mediante enzimas oxidativas."},
+  {n:"Cloroplasto",c:"#22c55e",fn:"Realiza la fotosíntesis. Solo en células vegetales y algas. Contiene clorofila y ADN propio."},
+  {n:"Vacuola",c:"#38bdf8",fn:"Almacenamiento de agua, nutrientes o desechos. En vegetales: una vacuola central grande da turgencia a la célula."},
+  {n:"Citoesqueleto",c:"#818cf8",fn:"Red de microfilamentos, microtúbulos y filamentos intermedios. Da forma, soporte mecánico y permite el movimiento interno."},
+  {n:"Centriolos",c:"#e879f9",fn:"Estructuras cilíndricas que organizan el huso mitótico durante la división celular. Solo en células animales."},
+  {n:"Cilios y flagelos",c:"#d8b4fe",fn:"Proyecciones móviles de la membrana. Los cilios generan corrientes (ej. epitelio respiratorio); el flagelo impulsa a la célula (ej. espermatozoide)."}
+];
+function buildAccordion(){
+  var cont=document.getElementById("acc-organelos");
+  if(!cont)return;
+  cont.innerHTML="";
+  ORGANELOS.forEach(function(o,i){
+    var d=document.createElement("div");
+    d.className="accordion-item";
+    d.innerHTML='<div class="accordion-head" onclick="this.parentNode.classList.toggle(\'open\')" style="color:'+o.c+'"><span>'+o.n+'</span><span class="accordion-arrow">▾</span></div>'+
+      '<div class="accordion-body"><p style="font-size:.87rem;color:var(--text-dim);line-height:1.6;padding-top:4px">'+o.fn+'</p></div>';
+    cont.appendChild(d);
+  });
+}
+buildAccordion();
+
+// ═══ FLIP CARDS TIPOS CELULARES (U1) ═══
+var TIPOSCEL=[
+  {n:"Enterocito",c:"#34d399",icon:"🦠",front:"Célula del intestino delgado. Microvellosidades apicales + muchas mitocondrias.",back:"Función: absorción de nutrientes. Las microvellosidades aumentan la superficie de contacto; las mitocondrias dan energía para el transporte activo de nutrientes."},
+  {n:"Célula muscular esquelética",c:"#f59e0b",icon:"💪",front:"Miocito. Forma alargada, multinucleada (núcleos periféricos), RE liso abundante.",back:"Función: contracción. El retículo sarcoplasmático (RE liso especializado) almacena y libera calcio para activar las miofibrillas contráctiles."},
+  {n:"Neurona",c:"#818cf8",icon:"🧠",front:"Soma, dendritas y axón. Muchas mitocondrias.",back:"Función: transmisión de impulsos nerviosos. El alto número de mitocondrias sostiene el gasto energético de mantener el potencial eléctrico de membrana."},
+  {n:"Célula secretora pancreática",c:"#f472b6",icon:"🧪",front:"Forma piramidal truncada. RE rugoso y Golgi muy abundantes.",back:"Función: síntesis y secreción de enzimas digestivas. El RE rugoso sintetiza las proteínas y el Golgi las empaqueta en vesículas de secreción."}
+];
+function buildFlipCards(){
+  var cont=document.getElementById("flip-grid");
+  if(!cont)return;
+  cont.innerHTML="";
+  TIPOSCEL.forEach(function(t){
+    var d=document.createElement("div");
+    d.className="flip-card";
+    d.onclick=function(){this.classList.toggle("flipped");};
+    d.innerHTML='<div class="flip-inner">'+
+      '<div class="flip-face flip-front"><div style="font-size:28px;text-align:center;margin-bottom:6px">'+t.icon+'</div><strong style="color:'+t.c+';text-align:center;display:block">'+t.n+'</strong><p style="font-size:.8rem;color:var(--text-dim);margin-top:6px">'+t.front+'</p><div class="flip-hint">👆 toca para ver la función</div></div>'+
+      '<div class="flip-face flip-back"><strong style="color:'+t.c+'">Función</strong><p style="font-size:.8rem;color:var(--text-dim);margin-top:6px">'+t.back+'</p><div class="flip-hint">👆 toca para volver</div></div>'+
+      '</div>';
+    cont.appendChild(d);
+  });
+}
+buildFlipCards();
+
+
+var EQ=[
+  {tema:"U1 Organización celular",color:"var(--c-cel)",
+   ctx:"Un investigador que estudiaba las características físicas de una célula animal propuso: \"la célula responderá frente a cambios de presión mecánica causados por la exposición a fuerzas externas, modificando la distribución de componentes que le otorgan estabilidad a su estructura\".",
+   q:"Para poner a prueba experimentalmente lo propuesto, ¿cuál de los siguientes componentes celulares debería evaluar el investigador?",
+   opts:{A:"Retículo endoplasmático rugoso",B:"Complejo de Golgi",C:"Envoltura nuclear",D:"Citoesqueleto"},
+   c:"D",fb:"El citoesqueleto (microfilamentos, microtúbulos, filamentos intermedios) es la red que da forma y resiste fuerzas mecánicas externas."
+  },
+  {tema:"U1 Organización celular",color:"var(--c-cel)",
+   ctx:"Investigadores estudiaron si una dieta alta en NaCl altera la respuesta inmunológica. Los fagocitos de animales con dieta alta en NaCl mostraron menor consumo de oxígeno y menor producción de energía química, comparados con animales de dieta normal.",
+   q:"¿Qué organelo fue afectado directamente?",
+   opts:{A:"Lisosoma",B:"Mitocondria",C:"Complejo de Golgi",D:"Retículo endoplasmático"},
+   c:"B",fb:"Menor consumo de O₂ y menor producción de ATP apuntan directamente a la mitocondria, sitio de la respiración celular."
+  },
+  {tema:"U1 Organización celular",color:"var(--c-cel)",
+   ctx:"Cuatro tipos celulares descritos: (1) alargada, multinucleada periférica, RE liso abundante; (2) microvellosidades apicales, muchas mitocondrias basales, RE/Golgi abundantes; (3) piramidal truncada, RE rugoso y Golgi muy abundantes; (4) soma, dendritas y axón.",
+   q:"¿Cuál inferencia es correcta?",
+   opts:{A:"El tipo 1 es una neurona",B:"El tipo 2 es un enterocito",C:"El tipo 3 es un leucocito",D:"El tipo 4 es un miocito"},
+   c:"B",fb:"Microvellosidades + muchas mitocondrias + RE/Golgi abundantes describen al enterocito, célula absortiva del intestino delgado."
+  },
+  {tema:"U1 Organización celular",color:"var(--c-cel)",
+   ctx:"Parásitos intracelulares aprovechan procesos de síntesis de la célula parasitada para facilitar su proliferación.",
+   q:"¿Qué organelos participarían directamente en la producción de proteínas del parásito?",
+   opts:{A:"RE liso y lisosomas",B:"RE liso y mitocondrias",C:"RE rugoso y peroxisomas",D:"RE rugoso y complejo de Golgi"},
+   c:"D",fb:"El RE rugoso sintetiza proteínas y el Golgi las modifica y empaqueta: juntos forman la vía completa de producción de proteínas."
+  },
+  {tema:"U1 Organización celular",color:"var(--c-cel)",ref:"Preg. 5",
+   ctx:"Un investigador trata una célula vegetal y una animal con el mismo solvente orgánico diluido. La animal se destruye; la vegetal permanece intacta.",
+   q:"¿Qué explica esta diferencia?",
+   opts:{A:"La pared celular vegetal, no lipídica, protege a la célula del solvente",B:"La célula vegetal no tiene membrana plasmática",C:"La célula vegetal tiene una capa de cera impermeable",D:"La célula vegetal carece de organelos membranosos"},
+   c:"A",fb:"La pared celular, de naturaleza no lipídica (celulosa), protege a la célula vegetal de solventes orgánicos que sí disuelven la membrana lipídica."
+  },
+  {tema:"U1 Organización celular",color:"var(--c-cel)",ref:"Preg. 6",
+   q:"¿Cuál de las siguientes estructuras es exclusiva de bacterias y NO está presente en células eucariontes?",
+   opts:{A:"Membrana plasmática",B:"Cápsula",C:"Ribosomas",D:"Citoplasma"},
+   c:"B",fb:"La cápsula es una cubierta externa exclusiva de algunas bacterias, usada para adhesión y protección frente al sistema inmune del hospedero."
+  },
+  {tema:"U1 Organización celular",color:"var(--c-cel)",ref:"Preg. 7",
+   ctx:"Un investigador bloquea selectivamente el aparato de Golgi de un cultivo celular. A las 24 horas, las proteínas se acumulan en el retículo endoplasmático y no se secretan.",
+   q:"¿Qué función del Golgi explica esta observación?",
+   opts:{A:"Sintetiza proteínas desde cero",B:"Modifica, empaqueta y dirige proteínas a su destino final",C:"Produce la energía para la secreción",D:"Regula la transcripción del ADN"},
+   c:"B",fb:"El Golgi recibe, modifica, empaqueta y envía proteínas hacia su destino final; sin él, se acumulan en el RE."
+  },
+  {tema:"U2 Procesos y funciones",color:"var(--c-sn)",
+   ctx:"Un estudio evaluó la protección del preservativo frente a ITS: VIH/SIDA y Hepatitis B >90%, Gonorrea 80%, Sífilis 50-80%, Herpes 10-50%.",
+   q:"¿Qué conclusión es correcta?",
+   opts:{A:"Es más efectivo contra patógenos de mayor tamaño",B:"Es menos efectivo con ITS de incubación prolongada",C:"Es más efectivo contra bacterias que contra virus",D:"Es menos efectivo con ITS que producen lesiones con secreción"},
+   c:"D",fb:"Herpes y sífilis producen lesiones cutáneas fuera del área cubierta por el preservativo, reduciendo su efectividad protectora."
+  },
+  {tema:"U2 Procesos y funciones",color:"var(--c-sn)",
+   ctx:"A comienzos del siglo XIX, un investigador expuso muestras seminales a distintas soluciones ácidas y alcohólicas, observando que disminuía o inhibía la fertilización.",
+   q:"¿Qué método anticonceptivo pudo basarse en este experimento?",
+   opts:{A:"Preservativo",B:"Espermicida",C:"Vasectomía",D:"Diafragma"},
+   c:"B",fb:"Exponer espermatozoides a sustancias químicas que inhiben la fertilización es el principio del espermicida."
+  },
+  {tema:"U2 Procesos y funciones",color:"var(--c-sn)",
+   q:"Una pareja usa un método sin protección ITS, de alta efectividad, que no modifica patrones hormonales ni menstruales. ¿Cuál es?",
+   opts:{A:"Ligadura de oviductos",B:"Implante subdérmico",C:"Condón femenino",D:"Anillo vaginal"},
+   c:"A",fb:"La ligadura de oviductos es quirúrgica: no libera hormonas ni altera el ciclo, pero tampoco protege contra ITS."
+  },
+  {tema:"U2 Procesos y funciones",color:"var(--c-sn)",ref:"Preg. 61",
+   ctx:"Un fármaco bloquea la unión de neurotransmisores a receptores postsinápticos, sin afectar su liberación en el botón sináptico.",
+   q:"¿Cuál es la consecuencia directa?",
+   opts:{A:"Se acelera la transmisión postsináptica",B:"Se interrumpe la transmisión en ese punto de la sinapsis",C:"Se detiene la liberación de neurotransmisores",D:"La mielina deja de conducir el impulso"},
+   c:"B",fb:"Sin unión al receptor no se genera nueva señal eléctrica: la transmisión se corta en ese punto de la sinapsis."
+  },
+  {tema:"U2 Procesos y funciones",color:"var(--c-sn)",ref:"Preg. 63",
+   q:"¿Cuál de las siguientes ITS es frecuentemente asintomática y puede causar infertilidad si no se trata?",
+   opts:{A:"VIH",B:"Herpes",C:"Clamidia",D:"Gonorrea"},
+   c:"C",fb:"La clamidia suele cursar sin síntomas notorios, por lo que puede progresar sin tratamiento y derivar en infertilidad."
+  },
+  {tema:"U2 Procesos y funciones",color:"var(--c-sn)",ref:"Preg. 64",
+   q:"¿Qué hormona dispara la ovulación en el ciclo ovárico?",
+   opts:{A:"Progesterona",B:"FSH",C:"Pico de LH",D:"Estrógeno basal"},
+   c:"C",fb:"El pico de LH (hormona luteinizante) alrededor del día 14 del ciclo dispara la ovulación."
+  },
+  {tema:"U3 Herencia y evolución",color:"var(--c-cc)",
+   ctx:"Un investigador usó una molécula fluorescente que se intercala en el ADN, cuya intensidad depende de la proximidad entre moléculas, para observar el ciclo celular.",
+   q:"¿Qué pregunta de investigación guio el estudio?",
+   opts:{A:"¿Cómo se intercala la molécula en el ADN?",B:"¿Cómo se degrada la molécula durante el ciclo?",C:"¿Cómo la molécula modifica la compactación del ADN?",D:"¿Cuál es el grado de compactación del ADN durante el ciclo celular?"},
+   c:"D",fb:"El objetivo es usar la fluorescencia como indicador del grado de compactación del ADN en cada etapa del ciclo."
+  },
+  {tema:"U3 Herencia y evolución",color:"var(--c-cc)",
+   ctx:"Una célula con 2n=6 muestra cromosomas homólogos completos (con sus dos cromátidas) separándose hacia polos opuestos.",
+   q:"¿Etapa y número de cromosomas de los gametos finales?",
+   opts:{A:"Anafase II – 3 cromosomas",B:"Anafase I – 6 cromosomas",C:"Anafase I – 3 cromosomas",D:"Anafase II – 6 cromosomas"},
+   c:"C",fb:"Se separan homólogos completos: es Anafase I. Al terminar Meiosis II, cada gameto tendrá n=3 cromosomas."
+  },
+  {tema:"U3 Herencia y evolución",color:"var(--c-cc)",
+   ctx:"Un equipo quiere incorporar en una papa los genes que codifican la toxina Bt de Bacillus thuringiensis, para obtener una papa transgénica resistente a insectos.",
+   q:"¿Qué paso es indispensable?",
+   opts:{A:"Reproducir bacterias con la toxina en medio de cultivo",B:"Insertar los genes de la toxina Bt en un plásmido",C:"Incorporar la toxina Bt directamente en un plásmido de la planta",D:"Introducir el genoma completo de la bacteria en la planta"},
+   c:"B",fb:"Para transferir el gen a la planta, primero debe insertarse en un plásmido (vector) que luego se introduce en las células vegetales."
+  },
+  {tema:"U3 Herencia y evolución",color:"var(--c-cc)",
+   ctx:"Aves del género Cinclodes que consumen presas marinas (alta carga salina) versus especies de agua dulce; el tamaño renal es un rasgo adaptativo a la salinidad.",
+   q:"Según selección natural, ¿qué relación esperarías?",
+   opts:{A:"Las especies marinas tendrían riñones más grandes",B:"El tamaño renal sería igual en ambos ambientes",C:"Las especies de agua dulce tendrían riñones más grandes",D:"El tamaño renal dependería solo de la edad"},
+   c:"A",fb:"Si el rasgo es adaptativo a la salinidad, las especies expuestas a mayor carga salina (marinas) desarrollarían riñones de mayor capacidad."
+  },
+  {tema:"U3 Herencia y evolución",color:"var(--c-cc)",ref:"Preg. 12",
+   ctx:"Un compuesto experimental impide que la célula pase de metafase a anafase cuando detecta cromosomas mal alineados en el huso mitótico.",
+   q:"¿Qué punto de control está siendo simulado?",
+   opts:{A:"Punto G1–S",B:"Punto G2–M",C:"Punto de metafase",D:"Ninguno de los anteriores"},
+   c:"C",fb:"El punto de control de metafase verifica el correcto alineamiento cromosómico antes de permitir el paso a anafase."
+  },
+  {tema:"U3 Herencia y evolución",color:"var(--c-cc)",ref:"Preg. 13",
+   q:"¿Cuál de los siguientes es un ejemplo de estructuras homólogas?",
+   opts:{A:"El ala de un insecto y el ala de un ave",B:"La aleta de un delfín y el ala de un murciélago",C:"El ojo de un pulpo y el ojo de un vertebrado",D:"Las branquias de un pez y los pulmones de un mamífero"},
+   c:"B",fb:"Las homólogas comparten origen embrionario aunque cumplan funciones distintas: la aleta y el ala derivan de la misma estructura ancestral (extremidad de tetrápodo)."
+  },
+  {tema:"U3 Herencia y evolución",color:"var(--c-cc)",ref:"Preg. 67",
+   q:"¿Cuál de los siguientes aportes corresponde correctamente a Lamarck?",
+   opts:{A:"Propuso la selección natural",B:"Propuso que los caracteres adquiridos en vida se heredan",C:"Descubrió la estructura del ADN",D:"Formuló las leyes de la herencia"},
+   c:"B",fb:"Lamarck propuso —de forma incorrecta— que los cambios adquiridos durante la vida de un organismo se transmiten a su descendencia."
+  },
+  {tema:"U4 Organismo y ambiente",color:"var(--c-fot)",
+   ctx:"El punto de compensación (Pc) es el momento en que la tasa fotosintética iguala a la tasa de respiración mitocondrial, durante un ciclo Noche-Día-Noche.",
+   q:"¿Cómo se comporta el punto de compensación en 24 horas?",
+   opts:{A:"Un único punto, al mediodía",B:"Dos puntos: al amanecer y al atardecer",C:"Ningún punto durante el día",D:"Un punto durante la noche"},
+   c:"B",fb:"La fotosíntesis supera a la respiración solo entre el amanecer y el atardecer: el cruce ocurre dos veces al día."
+  },
+  {tema:"U4 Organismo y ambiente",color:"var(--c-fot)",
+   q:"¿Qué proceso reduce la concentración de CO₂ en la atmósfera?",
+   opts:{A:"Nitrificación",B:"Fotosíntesis",C:"Descomposición",D:"Respiración"},
+   c:"B",fb:"La fotosíntesis fija CO₂ atmosférico para producir materia orgánica, reduciendo su concentración en el aire."
+  },
+  {tema:"U4 Organismo y ambiente",color:"var(--c-fot)",ref:"Preg. 16",
+   ctx:"Un cultivo de algas se expone a agua marcada con oxígeno radiactivo (¹⁸O). El O₂ liberado en la fotosíntesis resulta radiactivo.",
+   q:"¿Qué demuestra este resultado?",
+   opts:{A:"El O₂ proviene del CO₂ fijado",B:"El O₂ proviene del agua (fotólisis)",C:"El O₂ proviene de la glucosa",D:"No permite determinar el origen del O₂"},
+   c:"B",fb:"El marcaje isotópico en el O₂ liberado confirma que proviene de la fotólisis del agua, no del CO₂."
+  },
+  {tema:"U4 Organismo y ambiente",color:"var(--c-fot)",ref:"Preg. 17",
+   q:"¿Qué le ocurre a la tasa fotosintética de una planta expuesta a más de 45°C durante varias horas?",
+   opts:{A:"Aumenta sin límite",B:"Cae bruscamente por desnaturalización enzimática",C:"Se detiene solo por falta de CO₂",D:"No cambia"},
+   c:"B",fb:"Sobre ~40-45°C las enzimas del proceso fotosintético se desnaturalizan, haciendo caer la tasa fotosintética."
+  },
+  {tema:"U1 Organización celular",color:"var(--c-cel)",ref:"Preg. 4",
+   q:"¿Cuál de las siguientes NO es una función del retículo endoplasmático liso?",
+   opts:{A:"Síntesis de lípidos",B:"Desintoxicación de sustancias",C:"Síntesis de proteínas mediante ribosomas adheridos",D:"Almacenamiento de calcio en células musculares"},
+   c:"C",fb:"La síntesis de proteínas con ribosomas adheridos es función del RE rugoso, no del liso (que carece de ribosomas)."
+  },
+  {tema:"U2 Procesos y funciones",color:"var(--c-sn)",ref:"Preg. 9",
+   q:"¿Cuál es el centro integrador del arco reflejo simple?",
+   opts:{A:"El cerebro",B:"El cerebelo",C:"La médula espinal",D:"El nervio periférico"},
+   c:"C",fb:"El arco reflejo tiene su centro integrador en la médula espinal, lo que permite una respuesta más rápida que si pasara por el cerebro."
+  }
+];
+
+
+var userAnswers={},timerInterval=null,timeLeft=1800,ensayoStarted=false,ensayoFinished=false;
+
+function buildEnsayo(){
+  var cont=document.getElementById("ensayo-qs");
+  cont.innerHTML="";
+  EQ.forEach(function(q,i){
+    var d=document.createElement("div");
+    d.className="ensayo-q";
+    var ctxH=q.ctx?'<div class="ensayo-ctx">'+q.ctx+'</div>':'';
+    var optsH="";
+    ["A","B","C","D"].forEach(function(l){
+      optsH+='<div class="ensayo-opt" id="eo-'+i+'-'+l+'" data-qi="'+i+'" data-opt="'+l+'" onclick="selAns(this.dataset.qi,this.dataset.opt)">'+
+        '<div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="ensayo-num" style="color:'+q.color+'">Pregunta '+(i+1)+' / '+EQ.length+' · '+q.tema+' · '+q.ref+'</div>'+
+      ctxH+'<div class="ensayo-q-text">'+q.q+'</div>'+
+      '<div class="ensayo-opts" id="eopts-'+i+'">'+optsH+'</div>'+
+      '<div class="ensayo-fb" id="efb-'+i+'"></div>';
+    cont.appendChild(d);
+  });
+}
+buildEnsayo();
+
+function selAns(i,opt){
+  i=parseInt(i);
+  if(!ensayoStarted||ensayoFinished)return;
+  var opts=document.getElementById("eopts-"+i);
+  if(opts.dataset.done)return;
+  userAnswers[i]=opt;
+  opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.remove("selected");});
+  document.getElementById("eo-"+i+"-"+opt).classList.add("selected");
+}
+
+function startEnsayo(){
+  ensayoStarted=true;
+  document.getElementById("start-btn").style.display="none";
+  document.getElementById("timer-status").textContent="¡En marcha! Responde con calma.";
+  var qs=document.getElementById("ensayo-qs"); qs.style.display="block"; qs.style.opacity="1"; qs.style.pointerEvents="auto";
+  var sb=document.getElementById("submit-btn"); sb.style.display="block"; sb.disabled=false;
+  var tb=document.querySelector(".timer-box");
+  if(tb){tb.style.position="sticky";tb.style.top="8px";tb.style.zIndex="155";tb.style.background="rgba(7,24,18,.97)";tb.style.backdropFilter="blur(8px)";tb.style.borderRadius="14px";}
+  var es=document.getElementById("ensayo"); if(es) es.style.paddingBottom="140px";
+  timerInterval=setInterval(function(){
+    timeLeft--;
+    var m=Math.floor(timeLeft/60),s=timeLeft%60;
+    var disp=document.getElementById("timer-disp");
+    disp.textContent=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+    if(timeLeft<=60)disp.className="timer-display danger";
+    else if(timeLeft<=300)disp.className="timer-display warn";
+    if(timeLeft<=0){clearInterval(timerInterval);submitEnsayo();}
+  },1000);
+}
+
+function submitEnsayo(){
+  if(ensayoFinished)return;
+  ensayoFinished=true;
+  clearInterval(timerInterval);
+  document.getElementById("timer-status").textContent="Ensayo terminado";
+  document.getElementById("submit-btn").disabled=true;
+  var correct=0,topicMap={};
+  EQ.forEach(function(q,i){
+    var opts=document.getElementById("eopts-"+i);
+    opts.dataset.done="1";
+    opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.add("locked");});
+    var ua=userAnswers[i];
+    document.getElementById("eo-"+i+"-"+q.c).classList.add("right");
+    if(ua&&ua!==q.c)document.getElementById("eo-"+i+"-"+ua).classList.add("wrong");
+    var isOk=(ua===q.c);
+    var fb=document.getElementById("efb-"+i);
+    fb.className="ensayo-fb show "+(isOk?"ok":"no");
+    fb.textContent=(ua?(isOk?"✅ Correcto. ":"❌ Incorrecto. La respuesta correcta es "+q.c+". "):"⚠️ Sin respuesta. La correcta es "+q.c+". ")+q.fb;
+    if(isOk)correct++;
+    if(!topicMap[q.tema])topicMap[q.tema]={c:0,t:0,color:q.color};
+    topicMap[q.tema].t++;
+    if(isOk)topicMap[q.tema].c++;
+  });
+  var pct=Math.round(correct/EQ.length*100);
+  var mainColor=pct>=70?"var(--verde)":pct>=50?"#f59e0b":"#ef4444";
+  var topicHtml='<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--verde);margin-bottom:8px">Resultado por unidad:</p><div class="res-topic-grid">';
+  Object.keys(topicMap).forEach(function(t){
+    var r=topicMap[t];
+    var tpct=Math.round(r.c/r.t*100);
+    var scoreColor=tpct>=70?"var(--verde)":tpct>=50?"#f59e0b":"#ef4444";
+    topicHtml+='<div class="res-topic-card '+(tpct<50?"bad":tpct<70?"mid":"")+'">'+
+      '<div class="res-topic-name">'+t+'</div>'+
+      '<div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+  });
+  topicHtml+='</div>';
+  var msg=pct>=70?"🎉 ¡Buen resultado! Revisa las unidades donde fallaste.":pct>=50?"💪 Resultado aceptable. Refuerza las unidades en rojo antes de dar la prueba real.":"📚 Necesitas repasar más. Vuelve a las unidades con resultado bajo.";
+  var res=document.getElementById("ensayo-results");
+  res.style.display="block";
+  res.innerHTML='<div class="res-banner" style="color:'+mainColor+'">'+
+    (pct>=70?"🏆":pct>=50?"💪":"📚")+' '+correct+' / '+EQ.length+' correctas</div>'+
+    '<div style="font-size:1rem;color:var(--text-dim);margin-bottom:16px">'+pct+'%</div>'+
+    topicHtml+
+    '<div style="background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;margin-top:16px">'+
+    '<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--verde);margin-bottom:8px">'+msg+'</p>'+
+    '<p style="font-size:.88rem;color:var(--text-dim)">Las unidades con menos del 70% están marcadas. Puedes volver a cualquier sección desde el menú de navegación.</p></div>';
+  res.scrollIntoView({behavior:"smooth"});
+}
+
+</script>
+
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
+// -------------------------------------------------------------------
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico del módulo Electivo de Biología (PAES Ciencias), dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media que ya vieron el Plan Común de Biología y ahora profundizan en el electivo. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre las 4 unidades de este electivo, detalladas abajo. Si el estudiante pregunta por el Plan Común de Biología puedes referirte a él brevemente solo si él lo menciona primero. NO respondes sobre otras materias PAES (Lenguaje, Matemática, Historia), ni sobre Física o Química Electivo.",
+"",
+"CONTENIDO DEL ELECTIVO (4 unidades):",
+"1. Organización, Estructura y Actividad Celular: procariontes vs eucariontes, organelos y su función (RE rugoso/liso, Golgi, mitocondria, lisosoma, peroxisoma, citoesqueleto), pared celular, tipos celulares especializados (enterocito, neurona, célula muscular, secretora pancreática), transporte de membrana.",
+"2. Procesos y Funciones Biológicas: sistema nervioso (neurona, sinapsis química, arco reflejo), reproducción y ciclo ovárico, métodos anticonceptivos, ITS (virales vs bacterianas, síntomas, tratamiento).",
+"3. Herencia y Evolución: ciclo celular y sus puntos de control, mitosis y meiosis (fases, dotación cromosómica, recombinación), relación con cáncer, manipulación genética y organismos transgénicos (plásmidos), evidencias de la evolución, selección natural, estructuras homólogas/análogas, Darwin vs Lamarck.",
+"4. Organismo y Ambiente: fotosíntesis (fase lumínica, fotólisis del agua, Ciclo de Calvin), respiración celular, punto de compensación fotosintético, ciclos biogeoquímicos (CO₂), factores que afectan la fotosíntesis.",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos del módulo tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre alguna de las 4 unidades, con contexto de biología y nivel de exigencia de electivo (más profundo que el plan común). Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta general sobre qué parte del enunciado o contexto se relaciona con esto, 2) acota a un dato o sección específica, 3) señala qué concepto biológico aplica y por qué, 4) contrasta la alternativa elegida por el estudiante con la probablemente correcta, preguntando qué diferencia hay. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otra materia, otro electivo, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para resolver dudas del Electivo de Biología.'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function anyCierreActive(){
+  return ensayoStarted && !ensayoFinished;
+}
+
+function checkTutorBlock(){
+  var blocked = anyCierreActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false; // el botón sigue visible, solo se bloquea el contenido
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Ciencias Biología\n" +
+    "Módulo/Unidad: Ciencias · Biología · Electivo\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy) return;
+  if(anyCierreActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+})();
+</script>
+
+<script>
+
+(function(){
+  var BP=680;
+  function wrapSVGs(){
+    document.querySelectorAll('svg[viewBox]').forEach(function(svg){
+      var vb=(svg.getAttribute('viewBox')||'').split(/\s+/);
+      if(parseFloat(vb[2]||0)<400) return;
+      if(svg.parentNode&&svg.parentNode.classList.contains('svg-wrap')) return;
+      var w=document.createElement('div'); w.className='svg-wrap';
+      svg.parentNode.insertBefore(w,svg); w.appendChild(svg);
+    });
+  }
+  function makeCarousels(){
+    if(window.innerWidth>BP) return;
+    document.querySelectorAll('[style]').forEach(function(el){
+      var cols=el.style.gridTemplateColumns||'';
+      if(!cols.match(/^1fr\s+1fr$|^repeat\(\s*2/)) return;
+      if(el.dataset.noCarousel) return;
+      if(el.classList.contains('mob-carousel')) return;
+      var kids=Array.from(el.children);
+      if(kids.length<2) return;
+      el.classList.add('mob-carousel');
+      el.style.gridTemplateColumns='';
+      var hint=document.createElement('p'); hint.className='mob-hint'; hint.textContent='← desliza para ver más →';
+      el.parentNode.insertBefore(hint,el.nextSibling);
+      var dotsRow=document.createElement('div'); dotsRow.className='mob-dots';
+      kids.forEach(function(_,i){
+        var d=document.createElement('div'); d.className='mob-dot'+(i===0?' active':'');
+        d.addEventListener('click',function(){el.scrollTo({left:i*el.offsetWidth,behavior:'smooth'});});
+        dotsRow.appendChild(d);
+      });
+      el.parentNode.insertBefore(dotsRow,hint.nextSibling);
+      el.addEventListener('scroll',function(){
+        var idx=Math.round(el.scrollLeft/(el.offsetWidth||1));
+        dotsRow.querySelectorAll('.mob-dot').forEach(function(d,i){d.classList.toggle('active',i===idx);});
+      });
+    });
+  }
+  function verticalSteps(){
+    if(window.innerWidth>BP) return;
+    document.querySelectorAll('[style]').forEach(function(el){
+      var s=el.getAttribute('style')||'';
+      if(!s.includes('display:flex')&&!s.includes('display: flex')) return;
+      if(el.style.flexDirection==='column') return;
+      if(el.classList.contains('mob-vert')) return;
+      var arrowKids=Array.from(el.children).filter(function(c){return c.textContent.trim()==='→';});
+      if(arrowKids.length===0) return;
+      el.classList.add('mob-vert');
+      arrowKids.forEach(function(a){a.classList.add('step-arrow');});
+    });
+  }
+  function stackMultiCol(){
+    if(window.innerWidth>BP) return;
+    document.querySelectorAll('[style]').forEach(function(el){
+      var cols=el.style.gridTemplateColumns||'';
+      if(cols.match(/repeat\(\s*[3-9]/)||cols.match(/1fr\s+1fr\s+1fr/)||cols.match(/1fr\s+auto\s+1fr/)) el.classList.add('mob-stack');
+    });
+  }
+  function init(){wrapSVGs();makeCarousels();verticalSteps();stackMultiCol();}
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  window.addEventListener('orientationchange',function(){setTimeout(init,300);});
+})();
+
+</script>
+
+</body>
+</html>
