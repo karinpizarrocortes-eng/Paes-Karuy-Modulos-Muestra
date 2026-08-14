@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ensayo N°1 · Comprensión Lectora · PAES Karuy</title>
+<style>
+  :root{
+    --rose:#be123c;
+    --rose-soft:#fff1f2;
+    --rose-dark:#881337;
+    --ink:#1a1a1a;
+    --gray:#6b7280;
+    --gray-light:#e5e7eb;
+    --bg:#ffffff;
+    --green:#16a34a;
+    --amber:#d97706;
+    --red:#dc2626;
+    --sky:#0284c7;
+    --violet:#7c3aed;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Georgia','Times New Roman',serif;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+  h1,h2,h3{font-family:'Georgia','Times New Roman',serif;}
+  button{font-family:inherit;cursor:pointer;}
+  ::selection{background:var(--rose-soft);}
+
+  /* ---------- PORTADA ---------- */
+  #portada{
+    max-width:640px;
+    margin:0 auto;
+    padding:48px 24px 80px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-weight:700;font-size:14px;letter-spacing:.04em;color:var(--rose);
+    text-transform:uppercase;margin-bottom:32px;
+  }
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--rose);}
+  #portada h1{font-size:32px;line-height:1.15;margin:0 0 6px;}
+  #portada .subt{color:var(--gray);font-size:16px;margin-bottom:28px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}
+  .meta-row{
+    display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;
+  }
+  .meta-chip{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-size:13px;font-weight:600;color:var(--rose-dark);
+    background:var(--rose-soft);border:1px solid #fecdd3;
+    padding:8px 14px;border-radius:999px;
+  }
+  .instrucciones{
+    background:#fafafa;border:1px solid var(--gray-light);border-radius:12px;
+    padding:24px 26px;margin-bottom:32px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .instrucciones h3{font-size:15px;margin:0 0 14px;color:var(--ink);}
+  .instrucciones ol{margin:0;padding-left:20px;color:#374151;font-size:14.5px;line-height:1.65;}
+  .instrucciones li{margin-bottom:8px;}
+  #btnComenzar{
+    width:100%;background:var(--rose);color:#fff;border:none;border-radius:10px;
+    padding:16px 20px;font-size:16px;font-weight:700;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    transition:background .15s ease;
+  }
+  #btnComenzar:hover{background:var(--rose-dark);}
+  .nota-ia{
+    text-align:center;margin-top:14px;font-size:12.5px;color:var(--gray);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+
+  /* ---------- EXAMEN (fondo blanco / letras negras, estilo oficial) ---------- */
+  #examen{display:none;background:#fff;min-height:100vh;}
+  .topbar{
+    position:sticky;top:0;z-index:20;
+    background:#fff;border-bottom:2px solid var(--ink);
+    padding:10px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .topbar .titulo-mini{font-weight:700;font-size:14px;}
+  .topbar .progreso{font-size:13px;color:var(--gray);}
+  #timer{
+    font-weight:800;font-size:18px;font-variant-numeric:tabular-nums;
+    padding:6px 14px;border:2px solid var(--ink);border-radius:8px;
+  }
+  #timer.alerta{color:var(--red);border-color:var(--red);}
+  .btnFinalizar{
+    background:var(--ink);color:#fff;border:none;border-radius:8px;
+    padding:9px 16px;font-size:13px;font-weight:700;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+
+  .tabsTextos{
+    display:flex;gap:0;border-bottom:1px solid var(--gray-light);
+    overflow-x:auto;background:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .tabTexto{
+    flex:0 0 auto;padding:12px 18px;font-size:13px;font-weight:600;color:var(--gray);
+    border-bottom:3px solid transparent;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;
+  }
+  .tabTexto.activo{color:var(--ink);border-bottom-color:var(--rose);}
+
+  .examLayout{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    max-width:1200px;margin:0 auto;
+    min-height:calc(100vh - 110px);
+  }
+  @media (max-width:860px){
+    .examLayout{grid-template-columns:1fr;}
+  }
+  .panelTexto{
+    padding:28px 32px;border-right:1px solid var(--gray-light);
+    max-height:calc(100vh - 110px);overflow-y:auto;
+  }
+  @media (max-width:860px){
+    .panelTexto{border-right:none;border-bottom:8px solid #f3f4f6;max-height:none;}
+  }
+  .panelTexto h2{font-size:20px;margin:0 0 4px;}
+  .panelTexto .tipoTexto{font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:.05em;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;margin-bottom:16px;display:block;}
+  .panelTexto p{font-size:16px;line-height:1.75;margin:0 0 16px;color:#111;}
+
+  .panelPregunta{padding:28px 32px;}
+  .navPregunta{
+    display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .navPregunta button{
+    background:#fff;border:1.5px solid var(--ink);border-radius:8px;
+    padding:7px 14px;font-size:13px;font-weight:600;
+  }
+  .navPregunta button:disabled{opacity:.3;cursor:not-allowed;}
+  .numPregunta{font-weight:700;font-size:13px;color:var(--gray);}
+  .enunciado{font-size:17px;line-height:1.6;margin:0 0 20px;font-weight:600;}
+  .opciones{display:flex;flex-direction:column;gap:10px;}
+  .opcion{
+    display:flex;align-items:flex-start;gap:12px;
+    border:1.5px solid var(--gray-light);border-radius:10px;
+    padding:13px 16px;font-size:15px;line-height:1.5;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:#fff;
+  }
+  .opcion:hover{border-color:var(--ink);}
+  .opcion.marcada{border-color:var(--rose);background:var(--rose-soft);}
+  .opcion .letra{
+    flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;
+  }
+  .opcion.marcada .letra{background:var(--rose);border-color:var(--rose);color:#fff;}
+
+  .palette{
+    margin-top:26px;padding-top:20px;border-top:1px solid var(--gray-light);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .palette .lbl{font-size:12px;color:var(--gray);margin-bottom:10px;text-transform:uppercase;letter-spacing:.04em;}
+  .paletteGrid{display:grid;grid-template-columns:repeat(11,1fr);gap:6px;}
+  .paletteBtn{
+    aspect-ratio:1;border:1.5px solid var(--gray-light);border-radius:6px;background:#fff;
+    font-size:11.5px;font-weight:700;color:var(--gray);
+  }
+  .paletteBtn.respondida{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .paletteBtn.activa{border-color:var(--rose);box-shadow:0 0 0 2px var(--rose-soft);}
+
+  /* ---------- RESULTADOS ---------- */
+  #resultados{display:none;max-width:760px;margin:0 auto;padding:48px 24px 100px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(180deg,#fff 0%,#fff8f8 100%);}
+  .scoreCard{
+    background:linear-gradient(135deg,#ffe4e6 0%,#fecdd3 55%,#fda4af 100%);
+    border:1px solid #fecdd3;border-radius:20px;
+    padding:36px 32px;text-align:center;margin-bottom:28px;
+    box-shadow:0 10px 30px -12px rgba(190,18,60,.35);
+  }
+  .scoreCard .big{font-size:56px;font-weight:800;color:var(--rose-dark);line-height:1;letter-spacing:-.02em;}
+  .scoreCard .sub{color:var(--rose-dark);font-size:14px;margin-top:8px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+  .habBlock{margin-bottom:28px;}
+  .habBlock h3{font-size:15px;margin:0 0 14px;color:var(--ink);}
+  .habRow{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .habRow .dotHab{width:11px;height:11px;border-radius:50%;flex:0 0 auto;}
+  .habRow .nom{width:96px;flex:0 0 auto;font-size:13.5px;font-weight:700;}
+  .habRow .barBg{flex:1;height:14px;background:#f3f4f6;border-radius:99px;overflow:hidden;}
+  .habRow .barFill{height:100%;border-radius:99px;transition:width .6s ease;}
+  .habRow .pct{width:44px;flex:0 0 auto;text-align:right;font-size:13.5px;font-weight:800;color:var(--ink);}
+
+  .diagnostico{
+    background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;
+    padding:22px 24px;margin-bottom:28px;font-size:14.5px;line-height:1.65;color:#374151;
+  }
+  .diagnostico strong{color:var(--rose-dark);}
+
+  .ctaBox{
+    background:linear-gradient(135deg,#be123c 0%,#e11d48 45%,#fb7185 100%);
+    border-radius:18px;padding:30px 28px;text-align:center;margin-bottom:24px;
+    box-shadow:0 14px 34px -14px rgba(190,18,60,.55);
+  }
+  .ctaBox p{color:#fff1f2;font-size:14.5px;margin:0 0 18px;font-weight:600;}
+  .ctaBox a{
+    display:inline-block;background:#fff;color:var(--rose-dark);text-decoration:none;
+    padding:15px 32px;border-radius:12px;font-weight:800;font-size:15.5px;
+    box-shadow:0 4px 14px rgba(0,0,0,.15);transition:transform .15s ease;
+  }
+  .ctaBox a:hover{transform:translateY(-2px);}
+
+  #btnRevisar{
+    width:100%;background:#fff;border:1.5px solid var(--ink);color:var(--ink);
+    border-radius:10px;padding:13px;font-weight:700;font-size:14.5px;margin-bottom:6px;
+  }
+
+  /* ---------- MODAL CONFIRMACION ---------- */
+  #modalOverlay{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50;
+    align-items:center;justify-content:center;padding:20px;
+  }
+  #modalOverlay.activo{display:flex;}
+  .modalBox{
+    background:#fff;border-radius:14px;padding:26px 26px 20px;max-width:380px;width:100%;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .modalBox p{font-size:14.5px;line-height:1.55;color:#374151;margin:0 0 20px;}
+  .modalBtns{display:flex;gap:10px;}
+  .modalBtns button{
+    flex:1;border-radius:8px;padding:11px;font-size:14px;font-weight:700;border:none;
+  }
+  #modalCancelar{background:#f3f4f6;color:var(--ink);}
+  #modalConfirmar{background:var(--rose);color:#fff;}
+
+  #revision{display:none;margin-top:28px;}
+  .revQ{border:1px solid var(--gray-light);border-radius:10px;padding:18px 20px;margin-bottom:14px;}
+  .revQ .revEnun{font-weight:700;font-size:14.5px;margin-bottom:10px;font-family:Georgia,serif;}
+  .revOpt{font-size:13.5px;padding:8px 10px;border-radius:6px;margin-bottom:6px;line-height:1.5;}
+  .revOpt.correcta{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;}
+  .revOpt.marcadaIncorrecta{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;}
+  .revOpt.neutra{background:#fafafa;border:1px solid #f0f0f0;color:#4b5563;}
+  .revHab{display:inline-block;font-size:11px;font-weight:800;padding:4px 10px;border-radius:99px;margin-bottom:10px;}
+
+  .footerNota{text-align:center;font-size:12px;color:var(--gray);margin-top:20px;}
+</style>
+</head>
+<body>
+
+<!-- ================= PORTADA ================= -->
+<div id="portada">
+  <div class="brand"><span class="dot"></span>PAES KARUY</div>
+  <h1>Ensayo N°1 · Comprensión Lectora</h1>
+  <p class="subt">Versión reducida — mitad de la prueba oficial, pensada para rendirse en una sesión de estudio nocturna.</p>
+
+  <div class="meta-row">
+    <span class="meta-chip">33 preguntas</span>
+    <span class="meta-chip">4 textos</span>
+    <span class="meta-chip">1 hora 15 minutos</span>
+    <span class="meta-chip">Sin descuento por error</span>
+  </div>
+
+  <div class="instrucciones">
+    <h3>Instrucciones</h3>
+    <ol>
+      <li>Esta prueba contiene 33 preguntas de selección múltiple con 4 opciones (A, B, C y D), de las cuales solo una es correcta.</li>
+      <li>Dispones de 1 hora y 15 minutos para responder. El cronómetro corre automáticamente y no se puede pausar.</li>
+      <li>No se descuenta puntaje por respuestas erradas, así que te conviene responder todas las preguntas.</li>
+      <li>Puedes moverte libremente entre los 4 textos y sus preguntas usando el panel numerado. Ninguna pregunta indica a qué habilidad corresponde: eso lo verás recién en tus resultados.</li>
+      <li>Al finalizar (o cuando se acabe el tiempo), verás tu puntaje, un desglose por habilidad lectora y una recomendación de estudio personalizada.</li>
+      <li>El tutor IA está desactivado durante esta rendición, igual que en la prueba real.</li>
+    </ol>
+  </div>
+
+  <button id="btnComenzar">Comenzar ensayo</button>
+  <p class="nota-ia">Todas las preguntas son generadas por IA 🤖 · No reproduce contenido oficial DEMRE</p>
+</div>
+
+<!-- ================= EXAMEN ================= -->
+<div id="examen">
+  <div class="topbar">
+    <div class="titulo-mini">Ensayo N°1 · Comp. Lectora</div>
+    <div class="progreso" id="progresoTxt">Pregunta 1 de 33</div>
+    <div id="timer">1:15:00</div>
+    <button class="btnFinalizar" id="btnFinalizar">Finalizar prueba</button>
+  </div>
+  <div class="tabsTextos" id="tabsTextos"></div>
+  <div class="examLayout">
+    <div class="panelTexto" id="panelTexto"></div>
+    <div class="panelPregunta">
+      <div class="navPregunta">
+        <button id="btnPrev">← Anterior</button>
+        <span class="numPregunta" id="numPreguntaLbl"></span>
+        <button id="btnNext">Siguiente →</button>
+      </div>
+      <p class="enunciado" id="enunciadoTxt"></p>
+      <div class="opciones" id="opcionesCont"></div>
+      <div class="palette">
+        <div class="lbl">Ir a pregunta</div>
+        <div class="paletteGrid" id="paletteGrid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL CONFIRMACION ================= -->
+<div id="modalOverlay">
+  <div class="modalBox">
+    <p id="modalTexto">¿Seguro que quieres finalizar la prueba?</p>
+    <div class="modalBtns">
+      <button id="modalCancelar">Seguir respondiendo</button>
+      <button id="modalConfirmar">Finalizar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RESULTADOS ================= -->
+<div id="resultados">
+  <div class="brand"><span class="dot"></span>PAES KARUY</div>
+  <div class="scoreCard">
+    <div class="big" id="scoreBig">0/33</div>
+    <div class="sub" id="scorePct">0% de logro</div>
+  </div>
+
+  <div class="habBlock">
+    <h3>Desglose por habilidad lectora</h3>
+    <div id="habRows"></div>
+  </div>
+
+  <div class="diagnostico" id="diagnosticoTxt"></div>
+
+  <div class="ctaBox">
+    <p id="ctaTexto">Refuerza tus habilidades más débiles con el plan adecuado para ti.</p>
+    <a href="#" id="ctaLink" target="_blank" rel="noopener">Revisa tu opción más adecuada</a>
+  </div>
+
+  <button id="btnRevisar">Revisar respuestas y explicaciones</button>
+  <div id="revision"></div>
+
+  <p class="footerNota">PAES Karuy · Preguntas generadas por IA 🤖 · Ensayo N°1 Comprensión Lectora 2027</p>
+</div>
+
+<script>
+// ============ DATOS: TEXTOS ============
+const TEXTS = [
+  {
+    id:1, tipo:'No literario · Expositivo', titulo:'Luz propia',
+    contenido:`En las profundidades del océano, donde la luz solar no logra penetrar, miles de especies han desarrollado una capacidad sorprendente: producir su propia luz. Este fenómeno, conocido como bioluminiscencia, ocurre cuando un organismo genera luz a través de una reacción química que involucra una sustancia llamada luciferina y una enzima llamada luciferasa. Al combinarse con oxígeno, estas moléculas liberan energía en forma de luz visible, casi sin generar calor.
+La bioluminiscencia no es exclusiva de los abismos marinos. Luciérnagas, hongos y ciertas algas también la producen, aunque con propósitos distintos según el organismo. Algunos peces la utilizan como señuelo para atraer presas hacia su boca; otros, como el calamar vampiro, expulsan una nube luminosa para confundir a sus depredadores y escapar. Las luciérnagas, por su parte, emiten destellos intermitentes como parte de un código de cortejo: cada especie tiene un patrón de parpadeo distinto, que le permite a machos y hembras reconocerse en la oscuridad.
+Los científicos han encontrado en la bioluminiscencia una fuente de inspiración práctica. La proteína verde fluorescente, aislada originalmente de una medusa, se utiliza hoy en laboratorios de todo el mundo para observar procesos celulares que antes eran invisibles al ojo humano, como la actividad de neuronas o la propagación de células cancerígenas. Gracias a esta tecnología, investigadores han podido rastrear en tiempo real cómo se desarrollan ciertas enfermedades, un avance que en 2008 fue reconocido con el Premio Nobel de Química.
+Lo notable es que un mecanismo perfeccionado durante millones de años en la oscuridad del mar terminara iluminando, literalmente, algunos de los rincones más complejos de la biología humana. La naturaleza, una vez más, resultó ser una fuente de soluciones antes que un simple objeto de estudio.`
+  },
+  {
+    id:2, tipo:'No literario · Argumentativo', titulo:'¿Herramienta o atajo?',
+    contenido:`Cada vez más colegios discuten si deben restringir el uso de inteligencia artificial generativa para hacer tareas escolares. Quienes defienden una regulación estricta sostienen que estas herramientas debilitan el desarrollo del pensamiento crítico: si un estudiante puede obtener un ensayo completo en segundos, pierde la oportunidad de ejercitar la escritura, la argumentación y la búsqueda autónoma de información, habilidades que no se adquieren de otra manera que practicándolas una y otra vez.
+Sin embargo, prohibir por completo su uso parece una respuesta desproporcionada frente a un cambio que ya es irreversible. La inteligencia artificial también puede convertirse en un andamiaje pedagógico: un estudiante puede usarla para recibir retroalimentación inmediata sobre un borrador, para practicar ejercicios adicionales de matemática, o para aclarar dudas fuera del horario de clases, cuando no hay un profesor disponible. Bajo esta mirada, el problema no está en la herramienta, sino en cómo se integra al proceso de aprendizaje.
+La experiencia de otros cambios tecnológicos ofrece una pista. Cuando se popularizaron las calculadoras, muchos temieron que los estudiantes perdieran la capacidad de calcular mentalmente; con el tiempo, la enseñanza se ajustó para enfocarse en la comprensión de los conceptos matemáticos por sobre el cálculo mecánico. Algo similar podría ocurrir con la escritura asistida por IA: en vez de prohibirla, los colegios podrían rediseñar sus evaluaciones para medir procesos —como la capacidad de argumentar oralmente o de revisar críticamente un texto— en lugar de solo el producto final.
+La pregunta relevante, entonces, no es si la inteligencia artificial debe estar en la sala de clases, sino de qué manera su presencia puede evaluarse sin renunciar a formar estudiantes capaces de pensar por sí mismos.`
+  },
+  {
+    id:3, tipo:'Literario · Narrativo', titulo:'El taller',
+    contenido:`Mi abuelo murió un martes de julio, y el jueves ya tenía tres ofertas por el taller. Vecinos, principalmente, que veían en esas cuatro paredes de latón una bodega más para sus camionetas. Yo no había vuelto a pisar el lugar en años, pero cuando entré a buscar los papeles de la herencia, algo me detuvo en la puerta.
+Todo seguía exactamente donde él lo había dejado. Las herramientas colgadas por tamaño, como soldados ordenados por estatura. El olor a aserrín mezclado con aceite de motor. Sobre el banco de trabajo, a medio terminar, estaba el mueble que le había prometido a mi madre para su cumpleaños, hacía ya seis meses.
+Me senté en su banquito de tres patas —el mismo en que, de niña, pasaba tardes enteras mirándolo trabajar— y por primera vez entendí algo que él nunca me dijo con palabras: que un oficio se aprende con las manos, pero se hereda con la paciencia.
+Mi hermano me llamó esa noche. Había hablado con uno de los vecinos, que ofrecía un precio razonable, dijo, "razonable para un galpón vacío". Le expliqué que no estaba vacío, que había un mueble sin terminar y una vida entera de herramientas que alguien tendría que aprender a usar. Él se rió, no de mala manera, sino con la resignación de quien ya sabe cómo termina la conversación.
+—Tú no sabes nada de carpintería —me dijo.
+Tenía razón. No sabía. Pero esa noche volví al taller, encendí la lámpara que colgaba sobre el banco, y busqué en internet cómo se terminaba una unión de cola de milano. Terminé el mueble tres semanas después, torcido en un par de esquinas, con más pegamento del necesario. Mi madre lloró cuando lo vio, no por la calidad del trabajo, sino porque entendió, igual que yo, que el taller no se vendería. Al menos no todavía.`
+  },
+  {
+    id:4, tipo:'Literario · Narrativo', titulo:'El guardián de la punta',
+    contenido:`Desde que tenía memoria, Anselmo subía las noventa y tres gradas del faro dos veces cada noche: la primera para encenderlo, la segunda para revisar que la luz no titubeara. En cuarenta años nunca había fallado, ni siquiera la noche en que su mujer dio a luz a su único hijo, ni la noche en que ese mismo hijo se embarcó rumbo al continente y no volvió a escribir.
+Los pescadores del pueblo hablaban de él con una mezcla de respeto y lástima, como se habla de alguien que eligió una vida demasiado pequeña para el tamaño de su lealtad. "Anselmo le habla más al faro que a las personas", decían, y no se equivocaban del todo. Él respondía, cuando alguien se atrevía a preguntarle por qué seguía ahí, que un faro no ilumina para quien ya sabe el camino, sino para quien está perdido y no lo sabe todavía.
+Cuando la autoridad marítima anunció que instalaría un sistema automático y que el cargo de farero quedaría eliminado, el pueblo entero asumió que Anselmo se negaría, que encadenaría su cuerpo a la baranda antes que entregar las llaves. Pero él simplemente asintió, entregó el manual de mantenimiento ordenado por fechas, y pidió como única condición quedarse a vivir en la casa contigua, "por si la máquina se equivoca alguna noche".
+La máquina nunca se equivocó. Anselmo, sin embargo, siguió subiendo las noventa y tres gradas cada noche, ya no para encender nada, sino para sentarse junto a la luz automática y mirar el mar, como quien visita a un reemplazante al que, contra toda lógica, ha terminado por querer.`
+  }
+];
+
+// ============ DATOS: PREGUNTAS ============
+// habilidad: 'Localizar' | 'Interpretar' | 'Evaluar'
+const QUESTIONS = [
+{id:1,textId:1,habilidad:'Localizar',enunciado:'¿Qué dos sustancias participan en la reacción química que produce la bioluminiscencia, según el texto?',opciones:['Luciferina y luciferasa','Clorofila y melanina','Fósforo y oxígeno','Proteína verde fluorescente y luciferina'],correcta:0,expl:['El texto indica que la luciferina y la luciferasa, al combinarse con oxígeno, generan luz.','La clorofila y la melanina no se mencionan en el texto.','El oxígeno participa, pero no junto al fósforo, que no aparece en el texto.','La proteína verde fluorescente es un elemento distinto, mencionado más adelante, no parte de esta reacción.']},
+{id:2,textId:1,habilidad:'Localizar',enunciado:'¿En qué año fue reconocida con el Premio Nobel de Química la investigación relacionada con la proteína verde fluorescente?',opciones:['1998','2008','2018','No se menciona en el texto'],correcta:1,expl:['No corresponde al año mencionado en el texto.','El texto lo indica explícitamente: "en 2008 fue reconocido con el Premio Nobel de Química".','No corresponde al año mencionado en el texto.','El dato sí aparece de forma explícita en el texto.']},
+{id:3,textId:1,habilidad:'Interpretar',enunciado:'¿Qué función cumple la luz que emite el calamar vampiro, según el texto?',opciones:['Atraer presas hacia su boca','Confundir a sus depredadores para escapar','Comunicarse con otros calamares','Iluminar el fondo marino para orientarse'],correcta:1,expl:['Esa función corresponde a otros peces mencionados en el texto, no al calamar vampiro.','El texto señala que expulsa una nube luminosa para confundir depredadores y escapar.','Esta función no se menciona en el texto para ningún organismo.','Esta función no se menciona en el texto.']},
+{id:4,textId:1,habilidad:'Interpretar',enunciado:'¿Qué relación establece el texto entre el patrón de parpadeo de las luciérnagas y el reconocimiento entre individuos?',opciones:['El parpadeo es aleatorio y no cumple ninguna función','Cada especie tiene un patrón distinto que permite el reconocimiento entre machos y hembras','El parpadeo sirve exclusivamente para ahuyentar depredadores','El patrón varía según la temperatura ambiental'],correcta:1,expl:['El texto indica que el patrón cumple una función específica de reconocimiento, no es aleatorio.','El texto explica que cada especie posee un patrón distinto que permite el reconocimiento en la oscuridad.','Esta función no se menciona en el texto para las luciérnagas.','Esta relación no aparece en el texto.']},
+{id:5,textId:1,habilidad:'Interpretar',enunciado:'Según el texto, ¿por qué se afirma que la bioluminiscencia "terminó iluminando... algunos de los rincones más complejos de la biología humana"?',opciones:['Porque permitió construir faros más eficientes','Porque la tecnología derivada de ella permite observar procesos celulares antes invisibles','Porque cura directamente el cáncer','Porque reemplazó el uso de microscopios'],correcta:1,expl:['Esta idea no aparece en el texto.','El párrafo final conecta la bioluminiscencia con el uso de la proteína fluorescente para observar procesos celulares, como la actividad neuronal o el avance de enfermedades.','El texto no afirma que cure el cáncer, solo que permite rastrear su desarrollo.','El texto no establece esa relación de reemplazo.']},
+{id:6,textId:1,habilidad:'Interpretar',enunciado:'¿Qué función cumple la expresión "casi sin generar calor" en el primer párrafo?',opciones:['Contrastar la bioluminiscencia con otras formas de producir luz, como el fuego','Explicar por qué los animales marinos no sobreviven en la superficie','Introducir un dato irrelevante para el resto del texto','Anticipar que la luz se apagará rápidamente'],correcta:0,expl:['La frase destaca una característica distintiva de este tipo de luz frente a otras fuentes que sí generan calor.','El texto no relaciona esta idea con la supervivencia en superficie.','El dato refuerza la caracterización del fenómeno descrito, no es irrelevante.','La frase no se refiere a la duración de la luz.']},
+{id:7,textId:1,habilidad:'Evaluar',enunciado:'¿Cuál de las siguientes afirmaciones evalúa mejor la intención comunicativa general del texto?',opciones:['Advertir sobre los peligros de los animales bioluminiscentes','Informar sobre un fenómeno biológico y sus aplicaciones prácticas, destacando su relevancia','Convencer al lector de estudiar biología marina','Narrar una experiencia personal de investigación científica'],correcta:1,expl:['El texto no tiene un propósito de advertencia sobre peligros.','El texto es expositivo: informa sobre el fenómeno y sus aplicaciones, resaltando su valor.','El texto no busca persuadir al lector sobre una decisión vocacional.','El texto no está narrado como experiencia personal, es un texto expositivo.']},
+{id:8,textId:1,habilidad:'Evaluar',enunciado:'¿Qué recurso utiliza el autor para cerrar el texto y qué efecto genera?',opciones:['Una pregunta retórica que invita a dudar de lo expuesto','Una comparación final que resalta el valor de la naturaleza como fuente de soluciones, reforzando la idea central','Una cita textual de un científico','Una crítica directa a la falta de investigación científica'],correcta:1,expl:['El cierre no incluye una pregunta retórica.','El cierre compara la naturaleza con "una fuente de soluciones antes que un simple objeto de estudio", reforzando la idea desarrollada.','No hay una cita textual en el cierre del texto.','El texto no formula una crítica en su cierre.']},
+
+{id:9,textId:2,habilidad:'Localizar',enunciado:'¿Qué argumento entregan quienes defienden una regulación estricta del uso de IA en las tareas escolares?',opciones:['Que la IA es costosa para los colegios','Que debilita el desarrollo del pensamiento crítico al evitar la práctica de escritura y argumentación','Que genera errores de ortografía','Que reemplaza a los profesores'],correcta:1,expl:['Este argumento no aparece en el texto.','El texto lo indica explícitamente en el primer párrafo.','Este argumento no se menciona en el texto.','Este argumento no se menciona en el texto.']},
+{id:10,textId:2,habilidad:'Localizar',enunciado:'Según el texto, ¿qué cambio se dio en la enseñanza de matemáticas tras la popularización de las calculadoras?',opciones:['Se prohibió su uso en los colegios','La enseñanza se enfocó en la comprensión de conceptos por sobre el cálculo mecánico','Se eliminaron las evaluaciones de matemáticas','Se crearon calculadoras sin funciones básicas'],correcta:1,expl:['El texto no afirma que se haya prohibido su uso.','Esto aparece explícitamente en el tercer párrafo, como ejemplo histórico.','Esta idea no aparece en el texto.','Esta idea no aparece en el texto.']},
+{id:11,textId:2,habilidad:'Interpretar',enunciado:'¿Cuál es la tesis central que sostiene el texto?',opciones:['La IA debe prohibirse completamente en los colegios','El problema no está en la herramienta, sino en cómo se integra al aprendizaje, y la pregunta relevante es cómo evaluar sin renunciar al pensamiento propio','Los colegios deben eliminar todas las evaluaciones escritas','La IA reemplazará completamente a los profesores'],correcta:1,expl:['El texto no defiende la prohibición total, sino una integración regulada.','Esta idea se sintetiza en el segundo y último párrafo del texto.','Esta idea no aparece en el texto.','Esta idea no aparece en el texto.']},
+{id:12,textId:2,habilidad:'Interpretar',enunciado:'¿Qué relación establece el texto entre el caso de las calculadoras y el caso de la IA generativa?',opciones:['Son fenómenos opuestos sin relación posible','Ambos son ejemplos de cómo la tecnología obliga a rediseñar la evaluación en vez de prohibir la herramienta','Las calculadoras fueron más dañinas que la IA','La comparación busca demostrar que ambas tecnologías deben prohibirse'],correcta:1,expl:['El texto sí establece una relación directa entre ambos casos.','Se usa la analogía histórica para argumentar que, en vez de prohibir, la enseñanza puede rediseñarse.','El texto no hace esta comparación de daño.','La comparación busca justificar lo contrario a la prohibición.']},
+{id:13,textId:2,habilidad:'Interpretar',enunciado:'¿Qué función cumple la expresión "andamiaje pedagógico" en el segundo párrafo?',opciones:['Sugerir que la IA reemplaza completamente al profesor','Presentar la IA como un apoyo temporal que sostiene el aprendizaje del estudiante','Indicar que la IA es un obstáculo para aprender','Referirse a la infraestructura física de los colegios'],correcta:1,expl:['El texto no sugiere un reemplazo del profesor.','La metáfora de "andamiaje" alude a algo que sostiene un proceso en construcción, es decir, un apoyo al aprendizaje.','El texto no presenta la IA como obstáculo en ese pasaje.','La expresión es metafórica, no literal.']},
+{id:14,textId:2,habilidad:'Evaluar',enunciado:'¿Qué estrategia argumentativa utiliza el autor al mencionar el caso histórico de las calculadoras?',opciones:['Apelar al miedo del lector','Utilizar un ejemplo análogo del pasado para sustentar su postura sobre el presente','Citar una fuente científica no mencionada','Descalificar directamente a quienes defienden la prohibición'],correcta:1,expl:['El texto no apela al miedo en este pasaje.','Se trata de un argumento por analogía histórica, un recurso válido para sustentar una tesis.','No se cita una fuente científica específica.','El texto no descalifica a la postura contraria, la reconoce y luego argumenta en otra dirección.']},
+{id:15,textId:2,habilidad:'Evaluar',enunciado:'¿Es suficiente la evidencia entregada en el texto para sostener que "la enseñanza se ajustó" tras la llegada de las calculadoras?',opciones:['Sí, porque se entrega una fuente estadística detallada','No hay una fuente citada explícitamente; la afirmación se presenta como un hecho histórico general sin evidencia específica','Sí, porque el texto cita una investigación universitaria','No, porque el texto contradice esa afirmación en el párrafo siguiente'],correcta:1,expl:['El texto no entrega una fuente estadística.','El texto afirma el hecho sin citar estudios o fuentes específicas.','El texto no cita ninguna investigación universitaria.','El texto no contradice esta afirmación en ningún momento.']},
+{id:16,textId:2,habilidad:'Evaluar',enunciado:'¿Qué perspectiva adopta el autor frente al debate planteado en el texto?',opciones:['Una posición neutral que no toma partido en ningún momento','Una posición matizada, que reconoce la preocupación inicial pero se inclina hacia la integración regulada de la IA','Una defensa absoluta y sin matices del uso libre de la IA','Un rechazo total a cualquier forma de tecnología en el aula'],correcta:1,expl:['El texto sí desarrolla una postura hacia el final, no se mantiene neutral.','El texto reconoce el argumento contrario, pero concluye favoreciendo la integración con rediseño evaluativo.','El texto no defiende un uso completamente libre, sino uno regulado.','El texto no rechaza la tecnología, propone integrarla de otra forma.']},
+
+{id:17,textId:3,habilidad:'Localizar',enunciado:'¿Qué objeto quedó a medio terminar sobre el banco de trabajo del abuelo?',opciones:['Una silla','El mueble prometido a la madre de la narradora para su cumpleaños','Una caja de herramientas','El banquito de tres patas'],correcta:1,expl:['El texto no menciona una silla.','El texto lo indica explícitamente en el segundo párrafo.','No corresponde a lo descrito en el texto.','El banquito ya estaba terminado, era usado por la narradora para sentarse.']},
+{id:18,textId:3,habilidad:'Interpretar',enunciado:'¿Qué motiva a la narradora a decidir no vender el taller, al menos por el momento?',opciones:['Una oferta económica más alta de otro comprador','La comprensión de que el taller representa algo más que un espacio físico, ligado al oficio y la memoria del abuelo','La prohibición legal de vender la propiedad','La insistencia de su hermano en conservarlo'],correcta:1,expl:['El texto no menciona una oferta más alta como motivo.','Se infiere del desenlace: la narradora termina el mueble movida por el vínculo afectivo con el abuelo y su oficio.','No se menciona ninguna prohibición legal en el texto.','El hermano defiende la postura contraria, la de vender.']},
+{id:19,textId:3,habilidad:'Interpretar',enunciado:'¿Qué relación se establece entre el hermano y la narradora a partir del diálogo citado en el texto?',opciones:['Ambos comparten la misma valoración emocional del taller','El hermano tiene una mirada más pragmática, mientras la narradora actúa desde el vínculo afectivo','El hermano es quien finalmente termina el mueble','La narradora y el hermano dejan de hablarse tras la discusión'],correcta:1,expl:['El texto muestra posturas distintas entre ambos personajes.','El hermano ofrece razones prácticas ("un galpón vacío"), mientras la narradora actúa por lazo afectivo.','Es la narradora quien termina el mueble, no el hermano.','El texto no indica una ruptura de comunicación entre ambos.']},
+{id:20,textId:3,habilidad:'Interpretar',enunciado:'¿Qué efecto produce en el relato la frase "torcido en un par de esquinas, con más pegamento del necesario"?',opciones:['Muestra que la narradora fracasó completamente en su intento','Resalta que el valor del gesto está en el esfuerzo y no en la perfección técnica del resultado','Indica que el mueble fue desechado posteriormente','Sugiere que la madre se sintió decepcionada'],correcta:1,expl:['El texto no presenta el resultado como un fracaso, pese a sus imperfecciones.','Pese a las imperfecciones, la madre llora de emoción, lo que confirma que el valor está en el gesto.','El texto no menciona que el mueble haya sido desechado.','La reacción de la madre es de emoción, no de decepción.']},
+{id:21,textId:3,habilidad:'Interpretar',enunciado:'¿Qué tipo de conflicto atraviesa a la narradora a lo largo del relato?',opciones:['Un conflicto legal por la herencia','Un conflicto interno entre la practicidad de vender y el vínculo afectivo con el legado del abuelo','Un conflicto con los vecinos que quieren comprar el taller','Un conflicto económico por falta de dinero'],correcta:1,expl:['El relato no desarrolla un conflicto legal.','El conflicto central es interno, entre lo práctico (vender) y lo afectivo (conservar el oficio y la memoria).','Los vecinos son mencionados brevemente, pero no son el foco del conflicto.','El texto no desarrolla un conflicto económico explícito.']},
+{id:22,textId:3,habilidad:'Interpretar',enunciado:'¿Qué función cumple el recuerdo de la narradora "mirándolo trabajar" cuando era niña?',opciones:['Es un dato irrelevante para el desarrollo del relato','Refuerza el vínculo emocional previo con el taller y explica su reacción posterior','Indica que la narradora ya sabía carpintería desde niña','Sugiere que el abuelo la obligaba a acompañarlo'],correcta:1,expl:['El recuerdo es relevante para comprender la decisión final de la narradora.','El recuerdo evidencia una conexión afectiva construida desde la infancia, que ayuda a comprender su decisión final.','El texto indica que ella no sabía nada de carpintería.','El texto no sugiere obligación alguna, sino una elección de la niña.']},
+{id:23,textId:3,habilidad:'Evaluar',enunciado:'¿Cómo se puede valorar la actitud del hermano en el relato?',opciones:['Como cruel e indiferente hacia el recuerdo del abuelo','Como pragmática, sin que el texto la presente como una actitud negativa o cruel','Como la actitud correcta que la narradora finalmente adopta','Como contradictoria con sus propias acciones posteriores'],correcta:1,expl:['El texto describe su risa como "de resignación", no como crueldad.','El texto presenta su postura como una diferencia de enfoque, no como un juicio negativo.','La narradora finalmente no adopta esa postura, decide no vender.','El texto no muestra acciones posteriores contradictorias del hermano.']},
+{id:24,textId:3,habilidad:'Evaluar',enunciado:'¿Qué perspectiva narrativa predomina en el relato y qué efecto genera en el lector?',opciones:['Narrador omnisciente, que genera distancia con los personajes','Narradora en primera persona, que genera cercanía e involucra emocionalmente al lector en su proceso de decisión','Narrador en segunda persona, que genera un efecto de instrucción','Múltiples narradores que alternan capítulos'],correcta:1,expl:['El relato no está narrado desde una perspectiva omnisciente y distante.','El relato está narrado en primera persona ("Mi abuelo murió..."), lo que genera cercanía con la experiencia de la protagonista.','El relato no está narrado en segunda persona.','El relato mantiene una única voz narrativa a lo largo del texto.']},
+
+{id:25,textId:4,habilidad:'Localizar',enunciado:'¿Cuántas gradas subía Anselmo cada noche, según el texto?',opciones:['Cuarenta','Noventa y tres','Sesenta','No se especifica'],correcta:1,expl:['Cuarenta corresponde a los años que llevaba en el oficio, no a las gradas.','El texto lo menciona explícitamente: "las noventa y tres gradas del faro".','Esta cifra no aparece en el texto.','El dato sí se especifica explícitamente en el texto.']},
+{id:26,textId:4,habilidad:'Localizar',enunciado:'¿Qué condición pidió Anselmo al entregar las llaves del faro?',opciones:['Recibir una indemnización económica','Quedarse a vivir en la casa contigua','Seguir encendiendo el faro manualmente','Que se conservara su nombre en una placa'],correcta:1,expl:['El texto no menciona una indemnización.','El texto lo indica explícitamente: pidió "quedarse a vivir en la casa contigua".','El texto no menciona esta condición.','El texto no menciona esta condición.']},
+{id:27,textId:4,habilidad:'Interpretar',enunciado:'¿Qué explica la frase "un faro no ilumina para quien ya sabe el camino, sino para quien está perdido y no lo sabe todavía"?',opciones:['La razón económica del trabajo de Anselmo','El sentido profundo que Anselmo le da a su labor, más allá de la rutina','Una crítica a la automatización','Una queja sobre la soledad del oficio'],correcta:1,expl:['La frase no se refiere a razones económicas.','La cita revela la motivación interna y el sentido que Anselmo atribuye a su trabajo.','La frase no es una crítica a la automatización.','La frase no expresa una queja, sino una reflexión sobre el propósito del oficio.']},
+{id:28,textId:4,habilidad:'Interpretar',enunciado:'¿Qué revela la reacción de Anselmo ante el anuncio de la automatización del faro?',opciones:['Una resistencia violenta y desesperada','Una aceptación serena que contrasta con la expectativa del pueblo, mostrando su carácter','Una indiferencia total hacia su trabajo','Un deseo secreto de abandonar el oficio'],correcta:1,expl:['El texto describe lo contrario: una reacción serena.','El pueblo esperaba resistencia, pero él "simplemente asintió", revelando un rasgo distinto de su carácter.','Su pedido de quedarse cerca del faro contradice la indiferencia.','El texto no sugiere ese deseo, al contrario, sigue ligado al faro.']},
+{id:29,textId:4,habilidad:'Interpretar',enunciado:'¿Qué relación se sugiere entre la vida personal de Anselmo (esposa, hijo) y su trabajo en el faro?',opciones:['Su trabajo fue siempre secundario frente a su familia','Su compromiso con el faro se mantuvo incluso en los momentos familiares más significativos, sugiriendo una lealtad casi absoluta','Abandonó su trabajo cuando nació su hijo','Su hijo lo ayudaba a mantener el faro'],correcta:1,expl:['El texto sugiere lo contrario: el faro tuvo prioridad incluso en momentos familiares clave.','El texto señala que nunca falló, "ni siquiera" la noche del nacimiento de su hijo ni la de su partida.','El texto indica que nunca dejó de subir al faro, ni siquiera esa noche.','El texto no menciona esta ayuda.']},
+{id:30,textId:4,habilidad:'Interpretar',enunciado:'¿Qué función cumple la expresión final "como quien visita a un reemplazante al que, contra toda lógica, ha terminado por querer"?',opciones:['Muestra que Anselmo odia a la máquina que lo reemplazó','Sugiere una relación afectiva inesperada entre Anselmo y el sistema automático que ocupó su lugar','Indica que la máquina finalmente fallará','Anticipa que Anselmo será recontratado'],correcta:1,expl:['El texto expresa lo contrario a odio: un afecto inesperado.','La frase cierra el relato revelando un vínculo emocional paradójico hacia lo que lo reemplazó.','El texto no sugiere que la máquina vaya a fallar.','El texto no anticipa una recontratación.']},
+{id:31,textId:4,habilidad:'Evaluar',enunciado:'¿Cómo evalúan los pescadores del pueblo, según el texto, la vida que eligió Anselmo?',opciones:['Con total admiración, sin reservas','Con una mezcla de respeto y lástima, por considerarla "una vida demasiado pequeña"','Con indiferencia absoluta','Con desprecio y rechazo'],correcta:1,expl:['El texto no describe una admiración sin reservas.','El texto lo indica explícitamente: "una mezcla de respeto y lástima".','El hecho de comentar sobre él contradice la indiferencia.','El texto no describe desprecio ni rechazo.']},
+{id:32,textId:4,habilidad:'Evaluar',enunciado:'¿Qué visión sobre el trabajo y la vocación transmite el relato en su conjunto?',opciones:['Que el valor de un oficio se mide únicamente por su utilidad práctica','Que la entrega a una vocación puede trascender su función práctica y convertirse en parte de la identidad de una persona','Que la automatización siempre mejora la vida de los trabajadores','Que Anselmo debió haber buscado otro trabajo antes'],correcta:1,expl:['El final del relato contradice esta idea: Anselmo sigue ligado al faro aunque ya no cumple una función práctica.','El relato desarrolla el tema de la vocación como algo que trasciende la utilidad, incluso cuando la función práctica desaparece.','El texto no evalúa la automatización en esos términos generales.','El texto no sugiere ese juicio sobre las decisiones pasadas de Anselmo.']},
+{id:33,textId:4,habilidad:'Evaluar',enunciado:'¿Qué recurso narrativo utiliza el autor al describir a Anselmo como alguien que "le habla más al faro que a las personas"?',opciones:['Una comparación literal sin intención figurada','Una caracterización indirecta a través del comentario de otros personajes, que retrata su aislamiento','Una descripción objetiva del autor sobre la personalidad de Anselmo','Un error de coherencia en el relato'],correcta:1,expl:['La frase tiene un valor connotativo, no es una comparación literal.','La caracterización se construye a través del comentario del pueblo (voces externas), es decir, de forma indirecta.','La frase es atribuida al pueblo, no es una descripción directa del autor.','La frase es coherente con el resto de la caracterización del personaje.']}
+];
+
+const TOTAL_Q = QUESTIONS.length;
+const TIME_LIMIT = 75*60; // 1h15min en segundos
+let timeLeft = TIME_LIMIT;
+let timerInterval = null;
+let currentQIndex = 0;
+let answers = {}; // {questionId: optionIndex}
+let finished = false;
+
+// Colores por habilidad (mismos que en los módulos: Localizar celeste, Interpretar violeta, Evaluar ámbar)
+const HAB_COLORS = {
+  Localizar:  {main:'#0284c7', soft:'#e0f2fe', dark:'#075985'},
+  Interpretar:{main:'#7c3aed', soft:'#ede9fe', dark:'#5b21b6'},
+  Evaluar:    {main:'#d97706', soft:'#fef3c7', dark:'#92400e'}
+};
+
+// ============ NAVEGACIÓN PORTADA -> EXAMEN ============
+document.getElementById('btnComenzar').addEventListener('click', ()=>{
+  document.getElementById('portada').style.display='none';
+  document.getElementById('examen').style.display='block';
+  initTabs();
+  initPalette();
+  renderQuestion(0);
+  startTimer();
+});
+
+function initTabs(){
+  const cont = document.getElementById('tabsTextos');
+  cont.innerHTML = TEXTS.map(t=>`<button class="tabTexto" data-tid="${t.id}">Texto ${t.id}</button>`).join('');
+  cont.querySelectorAll('.tabTexto').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const tid = parseInt(btn.dataset.tid);
+      const firstQ = QUESTIONS.findIndex(q=>q.textId===tid);
+      if(firstQ>=0) renderQuestion(firstQ);
+    });
+  });
+}
+
+function initPalette(){
+  const grid = document.getElementById('paletteGrid');
+  grid.innerHTML = QUESTIONS.map((q,i)=>`<button class="paletteBtn" data-idx="${i}">${i+1}</button>`).join('');
+  grid.querySelectorAll('.paletteBtn').forEach(btn=>{
+    btn.addEventListener('click', ()=> renderQuestion(parseInt(btn.dataset.idx)));
+  });
+}
+
+function renderQuestion(idx){
+  currentQIndex = idx;
+  const q = QUESTIONS[idx];
+  const text = TEXTS.find(t=>t.id===q.textId);
+
+  // tabs activo
+  document.querySelectorAll('.tabTexto').forEach(b=>{
+    b.classList.toggle('activo', parseInt(b.dataset.tid)===text.id);
+  });
+
+  // panel texto
+  const panelTexto = document.getElementById('panelTexto');
+  panelTexto.innerHTML = `<span class="tipoTexto">${text.tipo}</span><h2>${text.titulo}</h2>` +
+    text.contenido.split('\n').map(p=>`<p>${p}</p>`).join('');
+
+  // progreso
+  document.getElementById('progresoTxt').textContent = `Pregunta ${idx+1} de ${TOTAL_Q}`;
+  document.getElementById('numPreguntaLbl').textContent = `Pregunta ${idx+1}`;
+
+  // enunciado
+  document.getElementById('enunciadoTxt').textContent = q.enunciado;
+
+  // opciones
+  const letras = ['A','B','C','D'];
+  const cont = document.getElementById('opcionesCont');
+  cont.innerHTML = q.opciones.map((op,i)=>{
+    const marcada = answers[q.id]===i ? 'marcada' : '';
+    return `<button class="opcion ${marcada}" data-oi="${i}"><span class="letra">${letras[i]}</span><span>${op}</span></button>`;
+  }).join('');
+  cont.querySelectorAll('.opcion').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      answers[q.id] = parseInt(btn.dataset.oi);
+      renderQuestion(currentQIndex);
+      updatePalette();
+    });
+  });
+
+  // nav prev/next
+  document.getElementById('btnPrev').disabled = idx===0;
+  document.getElementById('btnNext').disabled = idx===TOTAL_Q-1;
+
+  updatePalette();
+}
+
+function updatePalette(){
+  document.querySelectorAll('.paletteBtn').forEach((btn,i)=>{
+    btn.classList.toggle('respondida', answers[QUESTIONS[i].id]!==undefined);
+    btn.classList.toggle('activa', i===currentQIndex);
+  });
+}
+
+document.getElementById('btnPrev').addEventListener('click', ()=>{
+  if(currentQIndex>0) renderQuestion(currentQIndex-1);
+});
+document.getElementById('btnNext').addEventListener('click', ()=>{
+  if(currentQIndex<TOTAL_Q-1) renderQuestion(currentQIndex+1);
+});
+
+// ============ TIMER ============
+function startTimer(){
+  updateTimerDisplay();
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    updateTimerDisplay();
+    if(timeLeft<=0){
+      clearInterval(timerInterval);
+      finalizarPrueba(true);
+    }
+  },1000);
+}
+
+function updateTimerDisplay(){
+  const h = Math.floor(timeLeft/3600);
+  const m = Math.floor((timeLeft%3600)/60);
+  const s = timeLeft%60;
+  const el = document.getElementById('timer');
+  el.textContent = `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  el.classList.toggle('alerta', timeLeft<=300);
+}
+
+// ============ FINALIZAR ============
+document.getElementById('btnFinalizar').addEventListener('click', ()=>{
+  const sinResponder = TOTAL_Q - Object.keys(answers).length;
+  let msg = '¿Seguro que quieres finalizar la prueba?';
+  if(sinResponder>0) msg = `Tienes ${sinResponder} pregunta(s) sin responder. ¿Seguro que quieres finalizar?`;
+  document.getElementById('modalTexto').textContent = msg;
+  document.getElementById('modalOverlay').classList.add('activo');
+});
+
+document.getElementById('modalCancelar').addEventListener('click', ()=>{
+  document.getElementById('modalOverlay').classList.remove('activo');
+});
+
+document.getElementById('modalConfirmar').addEventListener('click', ()=>{
+  document.getElementById('modalOverlay').classList.remove('activo');
+  finalizarPrueba(false);
+});
+
+function finalizarPrueba(porTiempo){
+  if(finished) return;
+  finished = true;
+  clearInterval(timerInterval);
+  document.getElementById('examen').style.display='none';
+  document.getElementById('resultados').style.display='block';
+  calcularResultados();
+}
+
+// ============ RESULTADOS ============
+function calcularResultados(){
+  let correctas = 0;
+  const habStats = {Localizar:{total:0,correctas:0}, Interpretar:{total:0,correctas:0}, Evaluar:{total:0,correctas:0}};
+
+  QUESTIONS.forEach(q=>{
+    habStats[q.habilidad].total++;
+    if(answers[q.id]===q.correcta){
+      correctas++;
+      habStats[q.habilidad].correctas++;
+    }
+  });
+
+  const pctGlobal = Math.round((correctas/TOTAL_Q)*100);
+  document.getElementById('scoreBig').textContent = `${correctas}/${TOTAL_Q}`;
+  document.getElementById('scorePct').textContent = `${pctGlobal}% de logro`;
+
+  // barras por habilidad
+  const habRows = document.getElementById('habRows');
+  habRows.innerHTML = Object.keys(habStats).map(h=>{
+    const s = habStats[h];
+    const pct = s.total>0 ? Math.round((s.correctas/s.total)*100) : 0;
+    const c = HAB_COLORS[h];
+    return `<div class="habRow">
+      <span class="dotHab" style="background:${c.main}"></span>
+      <span class="nom">${h}</span>
+      <span class="barBg"><span class="barFill" style="width:${pct}%;background:${c.main}"></span></span>
+      <span class="pct">${pct}%</span>
+    </div>`;
+  }).join('');
+
+  // diagnóstico + CTA
+  let habilidadesOrdenadas = Object.keys(habStats).map(h=>({
+    nombre:h,
+    pct: habStats[h].total>0 ? (habStats[h].correctas/habStats[h].total)*100 : 0
+  })).sort((a,b)=>a.pct-b.pct);
+  const masDebil = habilidadesOrdenadas[0];
+
+  let nivel, packSugerido;
+  if(pctGlobal < 50){
+    nivel = 'inicial';
+    packSugerido = 'Escalera Inicial, con foco en fundamentos de comprensión lectora';
+  } else if(pctGlobal < 75){
+    nivel = 'intermedio';
+    packSugerido = 'Escalera Intermedia, para consolidar y subir tu puntaje de forma sostenida';
+  } else {
+    nivel = 'avanzado';
+    packSugerido = 'un pack orientado a tu carrera, para afinar detalles y asegurar tu puntaje';
+  }
+
+  document.getElementById('diagnosticoTxt').innerHTML =
+    `Obtuviste <strong>${correctas} de ${TOTAL_Q}</strong> preguntas correctas (${pctGlobal}% de logro). ` +
+    `Tu habilidad con mayor margen de mejora es <strong>${masDebil.nombre}</strong> (${Math.round(masDebil.pct)}% de logro en esa habilidad). ` +
+    `Según tu resultado, te recomendamos ${packSugerido}, priorizando ejercicios de ${masDebil.nombre.toLowerCase()}.`;
+
+  document.getElementById('ctaTexto').textContent =
+    `Con tu nivel actual, ${packSugerido}.`;
+
+  // revisión detallada
+  renderRevision();
+}
+
+function renderRevision(){
+  const cont = document.getElementById('revision');
+  const letras = ['A','B','C','D'];
+  cont.innerHTML = TEXTS.map(text=>{
+    const qs = QUESTIONS.filter(q=>q.textId===text.id);
+    const qsHtml = qs.map((q,i)=>{
+      const globalIdx = QUESTIONS.indexOf(q)+1;
+      const marcada = answers[q.id];
+      const optsHtml = q.opciones.map((op,oi)=>{
+        let cls='neutra';
+        if(oi===q.correcta) cls='correcta';
+        else if(oi===marcada) cls='marcadaIncorrecta';
+        return `<div class="revOpt ${cls}">${letras[oi]}. ${op}${oi===q.correcta?' ✓':''}${(oi===marcada && oi!==q.correcta)?' (tu respuesta)':''}<br><small>${q.expl[oi]}</small></div>`;
+      }).join('');
+      return `<div class="revQ">
+        <span class="revHab" style="color:${HAB_COLORS[q.habilidad].dark};background:${HAB_COLORS[q.habilidad].soft}">${q.habilidad}</span>
+        <div class="revEnun">${globalIdx}. ${q.enunciado}</div>
+        ${optsHtml}
+      </div>`;
+    }).join('');
+    return `<h3 style="margin-top:24px;">Texto ${text.id} · ${text.titulo}</h3>${qsHtml}`;
+  }).join('');
+}
+
+document.getElementById('btnRevisar').addEventListener('click', ()=>{
+  const rev = document.getElementById('revision');
+  const btn = document.getElementById('btnRevisar');
+  const visible = rev.style.display==='block';
+  rev.style.display = visible ? 'none' : 'block';
+  btn.textContent = visible ? 'Revisar respuestas y explicaciones' : 'Ocultar revisión';
+});
+</script>
+</body>
+</html>
