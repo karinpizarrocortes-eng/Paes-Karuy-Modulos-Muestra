@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 2 – Textos No Literarios: Argumentativos · PAES Competencia Lectora</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#db2777;--rosa-dark:#9d174d;--rosa-glow:rgba(219,39,119,.15);
+  --coral:#fb7185;--bg:#1a0510;--card:#2b0a1c;--card2:#391030;
+  --text:#fde7f0;--text-dim:#c98aa8;--radius:18px;
+  --c-t:#f472b6;--c-arg:#38bdf8;--c-fal:#f59e0b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 10% 20%,rgba(219,39,119,.45) 0%,transparent 100%),
+  radial-gradient(1px 1px at 30% 65%,rgba(255,255,255,.18) 0%,transparent 100%),
+  radial-gradient(1px 1px at 58% 10%,rgba(219,39,119,.3) 0%,transparent 100%),
+  radial-gradient(1px 1px at 75% 45%,rgba(255,255,255,.15) 0%,transparent 100%),
+  radial-gradient(1px 1px at 90% 80%,rgba(219,39,119,.22) 0%,transparent 100%),
+  radial-gradient(1px 1px at 45% 88%,rgba(255,255,255,.12) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--rosa),var(--coral));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(2rem,7vw,3.8rem);
+  background:linear-gradient(135deg,var(--rosa),var(--coral),#f472b6);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(219,39,119,.12);border:1.5px solid rgba(219,39,119,.35);color:var(--rosa);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.07);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.78rem;padding:7px 13px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:var(--rosa-glow);border-color:var(--rosa);color:var(--rosa)}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.35rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.97rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.h-header{border-radius:var(--radius);padding:26px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:52px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.1}
+.h-header p{font-size:.97rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--rosa);background:rgba(219,39,119,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--rosa);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65;margin-bottom:6px}
+.tip-box p:last-child{margin-bottom:0}
+.tip-box p strong{color:var(--text)}
+/* IMAGEN PLACEHOLDER */
+/* ETIQUETAS */
+.ai-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);border-radius:6px;padding:3px 10px;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#a78bfa;margin-bottom:10px;margin-right:6px}
+.par-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);border-radius:6px;padding:3px 10px;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#38bdf8;margin-bottom:10px}
+.skill-tag{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:3px 10px;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;margin-right:6px}
+.skill-loc{background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);color:#38bdf8}
+.skill-int{background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);color:#a78bfa}
+.skill-eva{background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.3);color:#fbbf24}
+.t{color:var(--c-t)!important}.arg{color:var(--c-arg)!important}.fal{color:var(--c-fal)!important}.rosa{color:var(--rosa)!important}
+/* TABS ESQUEMA */
+.tabgroup{margin:10px 0 18px}
+.tabnav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tab-btn{background:var(--card2);border:1.5px solid rgba(255,255,255,.1);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.82rem;padding:9px 16px;border-radius:12px;cursor:pointer;transition:all .2s}
+.tab-btn:hover{border-color:var(--rosa)}
+.tab-btn.active{background:var(--rosa-glow);border-color:var(--rosa);color:var(--rosa)}
+.tab-panel{display:none;background:var(--card2);border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,.07)}
+.tab-panel.active{display:block}
+.tab-panel .ex-text{background:rgba(0,0,0,.2);border-radius:10px;padding:14px 16px;font-size:.9rem;line-height:1.7;color:var(--text-dim);margin-bottom:12px}
+.tab-panel .ex-arrow{text-align:center;font-size:1.3rem;color:var(--rosa);margin:6px 0}
+.tab-panel .ex-highlight{color:var(--text);font-weight:800;background:rgba(219,39,119,.18);padding:1px 5px;border-radius:4px}
+.struct-flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:10px 0}
+.struct-box{flex:1;min-width:140px;background:rgba(0,0,0,.2);border-radius:12px;padding:14px;border:1.5px solid rgba(255,255,255,.1);text-align:center}
+.struct-box .st-label{font-family:"Fredoka One",cursive;font-size:.95rem;color:var(--rosa);margin-bottom:6px}
+.struct-box .st-desc{font-size:.8rem;color:var(--text-dim);line-height:1.5}
+.struct-arrow{align-self:center;font-size:1.4rem;color:var(--text-dim)}
+@media(max-width:680px){.struct-flow{flex-direction:column}.struct-arrow{transform:rotate(90deg)}}
+/* GLOSARIO VISUAL DE FALACIAS */
+.glos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:12px 0}
+.glos-card{background:rgba(0,0,0,.2);border-radius:12px;padding:14px;border-left:3px solid var(--c-fal)}
+.glos-name{font-family:"Fredoka One",cursive;font-size:.95rem;color:var(--c-fal);margin-bottom:6px}
+.glos-def{font-size:.83rem;color:var(--text-dim);line-height:1.6;margin-bottom:6px}
+.glos-ex{font-size:.78rem;color:var(--text-dim);opacity:.85;font-style:italic;border-top:1px solid rgba(255,255,255,.08);padding-top:6px}
+/* PREGUNTAS PRÁCTICA GUIADA */
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px;margin-bottom:16px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.paes-ctx{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-ctx.small{font-size:.85rem}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--rosa);background:rgba(219,39,119,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(219,39,119,.14);border-color:var(--rosa)}
+.paes-opt.wrong{background:rgba(239,68,68,.08);border-color:#ef4444}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--rosa);flex-shrink:0}
+.paes-opt.right .ol{background:var(--rosa);color:#1a0510;border-color:var(--rosa)}
+.paes-opt.wrong .ol{background:#ef4444;color:#fff;border-color:#ef4444}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(219,39,119,.12);color:#f9a8d4;border-left:3px solid var(--rosa)}
+.paes-fb.no{background:rgba(239,68,68,.08);color:#fca5a5;border-left:3px solid #ef4444}
+/* MINI ENSAYO */
+.timer-box{background:var(--card2);border:2px solid rgba(219,39,119,.3);border-radius:14px;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.timer-display{font-family:"Fredoka One",cursive;font-size:2.4rem;color:var(--rosa);letter-spacing:.05em}
+.timer-display.warn{color:#f59e0b}
+.timer-display.danger{color:#ef4444;animation:pulse-border 1s ease-in-out infinite}
+@keyframes pulse-border{0%,100%{opacity:1}50%{opacity:.5}}
+.ensayo-q{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:12px}
+.ensayo-num{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.ensayo-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 12px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.ensayo-q-text{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.ensayo-opts{display:flex;flex-direction:column;gap:7px}
+.ensayo-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 13px;border-radius:9px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(0,0,0,.18);transition:all .18s}
+.ensayo-opt:hover:not(.locked){border-color:var(--rosa);background:rgba(219,39,119,.08)}
+.ensayo-opt.selected{background:rgba(219,39,119,.12);border-color:var(--rosa)}
+.ensayo-opt.locked{cursor:default;pointer-events:none}
+.ensayo-opt.right{background:rgba(219,39,119,.14);border-color:var(--rosa)}
+.ensayo-opt.wrong{background:rgba(239,68,68,.08);border-color:#ef4444}
+.ensayo-opt .ol{color:var(--rosa)}
+.ensayo-opt.selected .ol{background:var(--rosa);color:#1a0510;border-color:var(--rosa)}
+.ensayo-opt.right .ol{background:var(--rosa);color:#1a0510;border-color:var(--rosa)}
+.ensayo-opt.wrong .ol{background:#ef4444;color:#fff;border-color:#ef4444}
+.ensayo-fb{margin-top:8px;padding:9px 13px;border-radius:9px;font-size:.83rem;line-height:1.55;display:none}
+.ensayo-fb.show{display:block}
+.ensayo-fb.ok{background:rgba(219,39,119,.1);color:#f9a8d4;border-left:3px solid var(--rosa)}
+.ensayo-fb.no{background:rgba(239,68,68,.06);color:#fca5a5;border-left:3px solid #ef4444}
+.submit-btn{width:100%;padding:14px;background:var(--rosa);color:#1a0510;border:none;border-radius:12px;font-family:"Fredoka One",cursive;font-size:1.1rem;cursor:pointer;margin-top:10px;transition:background .2s}
+.submit-btn:hover{background:var(--rosa-dark)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+.ensayo-results{display:none;margin-top:20px}
+.res-banner{font-family:"Fredoka One",cursive;font-size:2.5rem;margin-bottom:6px}
+/* NAV LINEAL */
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(26,5,16,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.07);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(219,39,119,.35);background:transparent;color:var(--rosa);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--rosa-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#5c1638}
+html{background:#1a0510;overflow-x:clip;overscroll-behavior-x:none;}
+body{overflow-x:clip;overscroll-behavior-x:none;}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:74px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--coral));border:none;box-shadow:0 4px 18px rgba(219,39,119,.45);cursor:pointer;z-index:210;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid var(--bg)}
+.tutor-fab.blocked .dot{background:#6b7280}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(0,0,0,.4);z-index:220;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--rosa-dark),var(--rosa));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:#fff}
+.tutor-head p{font-size:.7rem;color:rgba(255,255,255,.8);margin-top:1px}
+.tutor-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1}
+.tutor-blocked-msg{padding:16px;font-size:.85rem;color:var(--text-dim);text-align:center;line-height:1.6}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:999px;cursor:pointer;transition:all .18s}
+.tutor-mode-btn:hover{border-color:var(--rosa);color:var(--rosa)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--rosa);color:#1a0510;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.07);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:rgba(219,39,119,.1);color:var(--text-dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--rosa)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--rosa)}
+.tutor-send{background:var(--rosa);border:none;color:#1a0510;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){
+  .container{padding:10px 10px 80px;}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:4px 2px 10px;gap:5px;margin:12px 0 4px;scrollbar-width:none;position:relative !important;top:auto !important;background:rgba(26,5,16,.95);border-radius:14px;padding:8px !important;}
+  .nav::-webkit-scrollbar{display:none;}
+  .nav-btn{flex-shrink:0;font-size:.74rem;padding:9px 13px;min-height:40px;touch-action:manipulation;}
+  .hero{padding:36px 8px 14px;}
+  .hero-emoji{font-size:48px;}
+  .card{padding:14px 12px;}
+  .grid-2{grid-template-columns:1fr;}
+  .paes-box{padding:14px 12px;}
+  .paes-opt{padding:12px 11px;min-height:52px;touch-action:manipulation;}
+  .ol{min-width:30px;height:30px;font-size:.8rem;}
+  .lnav-btn{padding:13px 18px !important;font-size:.95rem !important;min-height:48px;}
+  .submit-btn{width:100% !important;padding:13px !important;}
+  .tabnav{flex-direction:column;}
+  .glos-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:50%"></div></div>
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">🗣️</span>
+  <h1>Textos Argumentativos</h1>
+  <p>PAES Competencia Lectora · No Literarios · Unidad 2</p>
+  <div class="badge">📝 Prueba obligatoria · 65 preguntas (60 puntuables)</div>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('argum',1,this)">🗣️ Textos Argumentativos</button>
+  <button class="nav-btn" onclick="showSec('ensayo',2,this)">⏱️ Mini Ensayo</button>
+</div>
+
+<!-- ═══ PORTADA ═══ -->
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title rosa" style="justify-content:center;font-size:1.7rem">🗣️ Unidad 2 · Textos No Literarios: Argumentativos</p>
+    <p style="font-size:1.05rem;max-width:600px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Los textos argumentativos (columnas de opinión, ensayos, editoriales) <strong>defienden una postura</strong> mediante tesis y argumentos. Esta unidad te enseña a identificar la tesis, evaluar la calidad de los argumentos y detectar fallas argumentativas (falacias).</p>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--rosa)">
+      <p class="card-title rosa">📌 Recuerda</p>
+      <ul>
+        <li>A diferencia del expositivo (Unidad 1), aquí el emisor <strong>sí toma partido</strong> por una postura</li>
+        <li>Usa Localizar, Interpretar y Evaluar (Unidad 0) en partes iguales: aquí se aplican a tesis, argumentos y falacias</li>
+        <li>Analizar la <strong>solidez</strong> de un argumento no es opinar sobre el tema — es un ejercicio objetivo</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--coral)">
+      <p class="card-title" style="color:var(--coral)">⚖️ Neutralidad</p>
+      <p>Los textos de esta unidad pueden tratar temas con carga valórica. El objetivo nunca es que adoptes la postura del emisor, sino que <strong>analices su tesis, sus argumentos y sus recursos retóricos</strong> de forma objetiva, sin que la plataforma valide ni descalifique ninguna postura.</p>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">⏱️ Al final de la unidad</div>
+    <p>Mini ensayo cronometrado con <strong>preguntas reales de la PAES</strong>, corrección inmediata y retroalimentación. La práctica guiada incluye al menos un ítem de <strong>texto pareado</strong>.</p>
+  </div>
+</div>
+
+<!-- ═══ TEXTOS ARGUMENTATIVOS ═══ -->
+<div class="section" id="argum">
+  <div class="h-header" style="background:rgba(244,114,182,.08);border:1.5px solid rgba(244,114,182,.3)">
+    <span class="icon">🗣️</span>
+    <h2 class="t">Tesis, Argumentos y Falacias</h2>
+    <p>Columnas de opinión, ensayos, editoriales y textos persuasivos: cómo se presenta una postura, cómo se sostiene y cómo detectar cuando un razonamiento falla.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title t">📘 ¿Qué es un texto argumentativo?</p>
+    <p>Un texto argumentativo tiene como propósito <strong>defender una postura</strong> (tesis) sobre un tema debatible, respaldándola con razones (argumentos). A diferencia del texto expositivo (Unidad 1), aquí el emisor no se mantiene neutral: toma partido y busca que el lector piense, sienta o actúe de cierta manera.</p>
+    <ul>
+      <li><strong>Tema debatible:</strong> solo tiene sentido argumentar sobre algo que admite más de una postura razonable (no sobre hechos verificables como "el agua hierve a 100 °C").</li>
+      <li><strong>Tesis:</strong> la idea central que el emisor defiende. Puede ser explícita (aparece formulada directamente, casi siempre al inicio o al final) o implícita (se infiere del conjunto del texto).</li>
+      <li><strong>Argumentos:</strong> las razones que sostienen la tesis. Cuantos más argumentos sólidos y variados, más convincente resulta el texto.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <p class="card-title t">🗺️ Esquema interactivo · Mapa Tesis → Argumentos → Falacias</p>
+    <div class="tabgroup" data-group="t">
+      <div class="tabnav">
+        <button class="tab-btn active" onclick="showTabPanel('t','t-tab1',this)">1. Tesis</button>
+        <button class="tab-btn" onclick="showTabPanel('t','t-tab2',this)">2. Tipos de argumento</button>
+        <button class="tab-btn" onclick="showTabPanel('t','t-tab3',this)">3. Falacias</button>
+      </div>
+      <div class="tab-panel active" id="t-tab1">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">La tesis es el punto de partida: todo lo demás en el texto existe para sostenerla.</p>
+        <div class="ex-text">"<span class="ex-highlight">Debiéramos prohibir el uso de bolsas plásticas en todo tipo de comercio</span>, no solo en supermercados."</div>
+        <p style="font-size:.82rem;color:var(--text-dim)">Aquí la tesis es explícita y aparece al inicio. Pregúntate siempre: si tuviera que resumir en una frase qué quiere convencerme de creer o hacer el emisor, ¿cuál sería?</p>
+      </div>
+      <div class="tab-panel" id="t-tab2">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">No todos los argumentos tienen la misma fuerza. Reconocer el tipo te ayuda a evaluar su solidez:</p>
+        <div class="struct-flow">
+          <div class="struct-box"><div class="st-label">De autoridad</div><div class="st-desc">Cita a un experto o institución reconocida</div></div>
+          <div class="struct-box"><div class="st-label">De hecho / dato</div><div class="st-desc">Se apoya en cifras o evidencia verificable</div></div>
+          <div class="struct-box"><div class="st-label">De ejemplo</div><div class="st-desc">Ilustra con un caso concreto</div></div>
+          <div class="struct-box"><div class="st-label">Causal</div><div class="st-desc">Plantea una relación de causa-efecto</div></div>
+          <div class="struct-box"><div class="st-label">De analogía</div><div class="st-desc">Compara con una situación similar y conocida</div></div>
+        </div>
+        <p style="font-size:.82rem;color:var(--text-dim);margin-top:10px">En general, un argumento de hecho/dato bien citado es más sólido que uno basado en una sola anécdota personal (ver "Errores frecuentes" más abajo).</p>
+      </div>
+      <div class="tab-panel" id="t-tab3">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">Una falacia es un argumento que <strong style="color:var(--text)">parece</strong> válido pero tiene una falla lógica. Revisa el glosario visual completo más abajo.</p>
+        <div class="ex-text">"Los jóvenes de hoy no saben lo que es el esfuerzo; están todo el día pegados al celular."</div>
+        <div class="ex-arrow">↓</div>
+        <div class="ex-text" style="color:var(--text)">Esto es un <strong>estereotipo</strong>: atribuye una característica fija a todo un grupo de personas, sin evidencia que respalde una generalización tan amplia.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title fal">📚 Glosario visual · Falacias argumentativas comunes</p>
+    <p style="margin-bottom:10px">Estas son las fallas de argumentación más frecuentes en la PAES. Revísalas antes de la práctica guiada.</p>
+    <div class="glos-grid">
+      <div class="glos-card">
+        <div class="glos-name">Generalización apresurada</div>
+        <div class="glos-def">Concluir una regla general a partir de muy pocos casos.</div>
+        <div class="glos-ex">"Conocí a dos taxistas antipáticos: todos los taxistas son antipáticos."</div>
+      </div>
+      <div class="glos-card">
+        <div class="glos-name">Estereotipo</div>
+        <div class="glos-def">Atribuir características fijas a todo un grupo de personas.</div>
+        <div class="glos-ex">"Los jóvenes de hoy no saben lo que es el esfuerzo."</div>
+      </div>
+      <div class="glos-card">
+        <div class="glos-name">Exageración</div>
+        <div class="glos-def">Presentar una consecuencia extrema y poco probable como si fuera inevitable.</div>
+        <div class="glos-ex">"Si subimos el sueldo mínimo, todas las empresas quebrarán."</div>
+      </div>
+      <div class="glos-card">
+        <div class="glos-name">Descalificación (ad hominem)</div>
+        <div class="glos-def">Atacar a la persona que argumenta en vez de rebatir su argumento.</div>
+        <div class="glos-ex">"No hay que tomarlo en serio: ni siquiera terminó la universidad."</div>
+      </div>
+      <div class="glos-card">
+        <div class="glos-name">Falsa causa</div>
+        <div class="glos-def">Asumir que, porque un evento sigue a otro, el primero causó el segundo.</div>
+        <div class="glos-ex">"Desde que se instaló el nuevo alcalde, ha llovido menos: es su culpa."</div>
+      </div>
+      <div class="glos-card">
+        <div class="glos-name">Falsa dicotomía</div>
+        <div class="glos-def">Presentar solo dos opciones extremas cuando existen más alternativas.</div>
+        <div class="glos-ex">"O apoyas esta ley tal como está, o no te importa el problema."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">💡 Puntos clave PAES</div>
+    <p><strong>1.</strong> Distingue tesis de argumento: la tesis es lo que se defiende; el argumento, la razón que lo sostiene. No los confundas al responder.</p>
+    <p><strong>2.</strong> La postura del emisor no siempre se anuncia explícitamente — a veces se detecta por el tono, los adjetivos o qué información se omite (recuerda la habilidad Evaluar de la Unidad 0).</p>
+    <p><strong>3.</strong> Detectar una falacia no significa que la tesis sea falsa, solo que ese argumento específico no la sostiene bien.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title t">🔎 Ejemplo resuelto paso a paso</p>
+    <div class="paes-ctx">"Debemos aprobar esta ley de inmediato: mi vecino me contó que a él le cambió la vida una medida similar en otro país."</div>
+    <p class="paes-q" style="margin-bottom:10px">¿Qué juicio es más adecuado sobre la solidez de este argumento?</p>
+    <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:14px 16px;font-size:.87rem;color:var(--text-dim);line-height:1.7">
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 1 — Identifica la tesis:</strong> "Debemos aprobar esta ley de inmediato".</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 2 — Identifica el argumento que la sostiene:</strong> el testimonio de un vecino sobre una medida similar en otro país.</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 3 — Clasifica el tipo de argumento:</strong> es un argumento de ejemplo/anecdótico, basado en un solo caso personal, no en datos representativos ni en una fuente experta.</p>
+      <p><strong style="color:var(--text)">Conclusión:</strong> el argumento es débil — una sola anécdota no es evidencia suficiente para sostener una decisión general como aprobar una ley.</p>
+    </div>
+  </div>
+
+  <div class="tip-box" style="border-left-color:#f59e0b;background:rgba(245,158,11,.07)">
+    <div class="tip-label" style="color:#f59e0b">⚠️ Errores frecuentes en la PAES</div>
+    <p><strong>1. Confundir un ejemplo con una prueba:</strong> un ejemplo ilustra una idea, pero por sí solo rara vez la demuestra de forma concluyente.</p>
+    <p><strong>2. Asumir que el tono seguro del emisor implica que su argumento es válido:</strong> la seguridad con la que se afirma algo no lo hace lógicamente correcto.</p>
+    <p><strong>3. Buscar una tesis explícita cuando el texto solo describe:</strong> no todo texto sobre un tema debatible es argumentativo — algunos son expositivos y no defienden ninguna postura (ver práctica guiada).</p>
+    <p><strong>4. Elegir la alternativa que suena "más fuerte" en vez de la que responde exactamente lo preguntado:</strong> vuelve siempre al enunciado antes de decidir.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title t">✏️ Práctica guiada</p>
+    <p style="margin-bottom:14px">Distribuida en partes iguales entre las tres habilidades de la Unidad 0. Incluye un ítem de <strong>texto pareado</strong>.</p>
+
+    <div class="paes-box" id="q1">
+      <div class="paes-tag t"><span class="skill-tag skill-loc">🔍 Localizar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">Debiéramos prohibir el uso de bolsas plásticas en todo tipo de comercio, no solo en supermercados. Cada año, miles de animales marinos mueren al ingerir fragmentos de plástico que terminan en los océanos. Además, existen alternativas económicas y biodegradables que las empresas ya utilizan en otros países.</div>
+      <div class="paes-q">¿Cuál es la tesis del emisor?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q1','A')"><div class="ol">A</div><div class="ot">Los animales marinos están en peligro de extinción.</div></div>
+        <div class="paes-opt" onclick="ans('q1','B')"><div class="ol">B</div><div class="ot">Debe prohibirse el uso de bolsas plásticas en todo tipo de comercio.</div></div>
+        <div class="paes-opt" onclick="ans('q1','C')"><div class="ol">C</div><div class="ot">Existen alternativas biodegradables en otros países.</div></div>
+        <div class="paes-opt" onclick="ans('q1','D')"><div class="ol">D</div><div class="ot">Los supermercados ya prohibieron las bolsas plásticas.</div></div>
+      </div>
+      <div class="paes-fb" id="q1-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q2">
+      <div class="paes-tag t"><span class="skill-tag skill-loc">🔍 Localizar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">(Mismo texto de las bolsas plásticas)</div>
+      <div class="paes-q">¿Qué argumento respalda la tesis del emisor?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q2','A')"><div class="ol">A</div><div class="ot">Que las bolsas plásticas son baratas.</div></div>
+        <div class="paes-opt" onclick="ans('q2','B')"><div class="ol">B</div><div class="ot">Que miles de animales marinos mueren al ingerir fragmentos de plástico.</div></div>
+        <div class="paes-opt" onclick="ans('q2','C')"><div class="ol">C</div><div class="ot">Que los supermercados se oponen a la medida.</div></div>
+        <div class="paes-opt" onclick="ans('q2','D')"><div class="ol">D</div><div class="ot">Que las alternativas son más caras.</div></div>
+      </div>
+      <div class="paes-fb" id="q2-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q3">
+      <div class="paes-tag t"><span class="skill-tag skill-loc">🔍 Localizar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">(Mismo texto de las bolsas plásticas)</div>
+      <div class="paes-q">El argumento sobre los animales marinos que mueren por ingerir plástico corresponde a un argumento de tipo:</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q3','A')"><div class="ol">A</div><div class="ot">De autoridad.</div></div>
+        <div class="paes-opt" onclick="ans('q3','B')"><div class="ol">B</div><div class="ot">De hecho o dato.</div></div>
+        <div class="paes-opt" onclick="ans('q3','C')"><div class="ol">C</div><div class="ot">De analogía.</div></div>
+        <div class="paes-opt" onclick="ans('q3','D')"><div class="ol">D</div><div class="ot">De ejemplo personal.</div></div>
+      </div>
+      <div class="paes-fb" id="q3-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q4">
+      <div class="paes-tag t"><span class="skill-tag skill-int">🧩 Interpretar</span><span class="ai-tag">🤖 Generada</span><span class="par-tag">🔗 Texto pareado</span></div>
+      <div class="paes-ctx small"><strong>Texto 1:</strong> El teletrabajo debería mantenerse como opción permanente en las empresas, ya que mejora la calidad de vida de los trabajadores al eliminar los tiempos de traslado y permite una mejor conciliación con la vida familiar.<br><br><strong>Texto 2:</strong> El teletrabajo debilita la cultura organizacional, pues reduce las instancias de colaboración espontánea entre equipos y dificulta la supervisión directa de las tareas.</div>
+      <div class="paes-q">¿Qué relación se establece entre las tesis de ambos textos?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q4','A')"><div class="ol">A</div><div class="ot">Ambos textos defienden la misma postura sobre el teletrabajo.</div></div>
+        <div class="paes-opt" onclick="ans('q4','B')"><div class="ol">B</div><div class="ot">El Texto 1 defiende el teletrabajo, mientras que el Texto 2 lo cuestiona.</div></div>
+        <div class="paes-opt" onclick="ans('q4','C')"><div class="ol">C</div><div class="ot">Ambos textos rechazan el teletrabajo por distintas razones.</div></div>
+        <div class="paes-opt" onclick="ans('q4','D')"><div class="ol">D</div><div class="ot">El Texto 2 complementa los argumentos del Texto 1.</div></div>
+      </div>
+      <div class="paes-fb" id="q4-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q5">
+      <div class="paes-tag t"><span class="skill-tag skill-int">🧩 Interpretar</span><span class="ai-tag">🤖 Generada</span><span class="par-tag">🔗 Texto pareado</span></div>
+      <div class="paes-ctx small">(Mismos Texto 1 y Texto 2 del teletrabajo)</div>
+      <div class="paes-q">¿En qué tipo de argumento se basa principalmente el Texto 2?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q5','A')"><div class="ol">A</div><div class="ot">Argumento de autoridad, porque cita a un experto.</div></div>
+        <div class="paes-opt" onclick="ans('q5','B')"><div class="ol">B</div><div class="ot">Argumento causal, porque plantea una consecuencia negativa del teletrabajo.</div></div>
+        <div class="paes-opt" onclick="ans('q5','C')"><div class="ol">C</div><div class="ot">Argumento de ejemplo, porque narra un caso particular.</div></div>
+        <div class="paes-opt" onclick="ans('q5','D')"><div class="ol">D</div><div class="ot">Argumento de analogía, porque compara el teletrabajo con otra práctica.</div></div>
+      </div>
+      <div class="paes-fb" id="q5-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q6">
+      <div class="paes-tag t"><span class="skill-tag skill-int">🧩 Interpretar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">Cada vez son más las universidades que optan por eliminar los exámenes finales tradicionales en favor de evaluaciones continuas a lo largo del semestre.</div>
+      <div class="paes-q">A partir de este texto, ¿qué se puede afirmar sobre la postura del emisor respecto a los exámenes finales tradicionales?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q6','A')"><div class="ol">A</div><div class="ot">Los defiende abiertamente como el mejor método de evaluación.</div></div>
+        <div class="paes-opt" onclick="ans('q6','B')"><div class="ol">B</div><div class="ot">No expresa una postura explícita, solo describe una tendencia.</div></div>
+        <div class="paes-opt" onclick="ans('q6','C')"><div class="ol">C</div><div class="ot">Los critica duramente por ser injustos.</div></div>
+        <div class="paes-opt" onclick="ans('q6','D')"><div class="ol">D</div><div class="ot">Propone eliminarlos de inmediato en todas las instituciones.</div></div>
+      </div>
+      <div class="paes-fb" id="q6-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q7">
+      <div class="paes-tag t"><span class="skill-tag skill-eva">⚖️ Evaluar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">Los jóvenes de hoy no saben lo que es el esfuerzo; están todo el día pegados al celular y no les interesa nada más.</div>
+      <div class="paes-q">¿Qué falacia argumentativa se identifica en el texto?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q7','A')"><div class="ol">A</div><div class="ot">Falsa causa.</div></div>
+        <div class="paes-opt" onclick="ans('q7','B')"><div class="ol">B</div><div class="ot">Estereotipo.</div></div>
+        <div class="paes-opt" onclick="ans('q7','C')"><div class="ol">C</div><div class="ot">Falsa dicotomía.</div></div>
+        <div class="paes-opt" onclick="ans('q7','D')"><div class="ol">D</div><div class="ot">Argumento de autoridad.</div></div>
+      </div>
+      <div class="paes-fb" id="q7-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q8">
+      <div class="paes-tag t"><span class="skill-tag skill-eva">⚖️ Evaluar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">No hay que tomar en serio la propuesta de reforma educativa de ese senador: total, ni siquiera terminó sus estudios universitarios.</div>
+      <div class="paes-q">¿Qué falacia se identifica en este argumento?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q8','A')"><div class="ol">A</div><div class="ot">Generalización apresurada.</div></div>
+        <div class="paes-opt" onclick="ans('q8','B')"><div class="ol">B</div><div class="ot">Falsa dicotomía.</div></div>
+        <div class="paes-opt" onclick="ans('q8','C')"><div class="ol">C</div><div class="ot">Descalificación (ad hominem).</div></div>
+        <div class="paes-opt" onclick="ans('q8','D')"><div class="ol">D</div><div class="ot">Falsa causa.</div></div>
+      </div>
+      <div class="paes-fb" id="q8-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q9">
+      <div class="paes-tag t"><span class="skill-tag skill-eva">⚖️ Evaluar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">Debemos aprobar esta ley de inmediato: mi vecino me contó que a él le cambió la vida una medida similar en otro país.</div>
+      <div class="paes-q">¿Qué juicio es más adecuado sobre la solidez de este argumento?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q9','A')"><div class="ol">A</div><div class="ot">Es sólido, porque se basa en una experiencia real.</div></div>
+        <div class="paes-opt" onclick="ans('q9','B')"><div class="ol">B</div><div class="ot">Es débil, porque se basa en un solo testimonio anecdótico y no en evidencia representativa.</div></div>
+        <div class="paes-opt" onclick="ans('q9','C')"><div class="ol">C</div><div class="ot">Es irrefutable, porque proviene de un país extranjero.</div></div>
+        <div class="paes-opt" onclick="ans('q9','D')"><div class="ol">D</div><div class="ot">Es objetivo, porque no involucra opiniones personales.</div></div>
+      </div>
+      <div class="paes-fb" id="q9-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MINI ENSAYO (pestaña separada) ═══ -->
+<div class="section" id="ensayo">
+  <div class="h-header" style="background:rgba(244,114,182,.08);border:1.5px solid rgba(244,114,182,.3)">
+    <span class="icon">⏱️</span>
+    <h2 class="t">Mini Ensayo · Unidad 2</h2>
+    <p>Pon a prueba lo aprendido con preguntas generadas por IA, en condiciones cronometradas.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title t">⏱️ Mini ensayo cronometrado · 7 preguntas generadas por IA · 10 minutos</p>
+    <p><span class="ai-tag">🤖 Texto y preguntas generados por IA</span></p>
+    <p>Contenido generado por IA para practicar en condiciones cronometradas, replicando el mismo formato del mini ensayo.</p>
+  </div>
+  <div class="timer-box">
+    <div>
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Tiempo restante</div>
+      <div class="timer-display" id="timer-disp-me">10:00</div>
+    </div>
+    <div style="text-align:right">
+      <div id="timer-status-me" style="font-size:.85rem;color:var(--text-dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+      <button id="start-btn-me" onclick="startCierre('me')" style="padding:8px 20px;background:var(--rosa);color:#1a0510;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+    </div>
+  </div>
+  <div class="card" id="me-texto-card">
+    <p class="card-title t">📖 Texto para el mini ensayo</p>
+    <p style="font-size:.8rem;color:var(--text-dim);margin-bottom:10px"><em>Texto generado por IA para fines de práctica.</em></p>
+    <p style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--text);margin-bottom:10px">HABLAR MIRÁNDONOS A LOS OJOS</p>
+    <div style="font-size:.88rem;line-height:1.8;color:var(--text-dim)">
+    <p style="margin-bottom:10px">¿Qué es conversar? La pregunta admite una respuesta evidente: conversar es intercambiar palabras con otra persona.</p>
+    <p style="margin-bottom:10px">Dos personas frente a frente, dice el sentido común; basta que una hable y la otra escuche, y luego inviertan los papeles. Pero quien ha estado alguna vez frente a un desconocido en una sala de espera, buscando algo que decir mientras el silencio se espesa, sabe que las cosas no son tan simples. Las palabras no acuden; los gestos se vuelven torpes; la mirada busca dónde posarse para no incomodar ni ser incomodada.</p>
+    <p style="margin-bottom:10px">Rectifiquemos, entonces. Conversar no es solamente intercambiar palabras: es sostener, durante un tiempo, la atención de otra persona y dejarse modificar por lo que esa persona dice. Quien conversa de verdad no repite un guion aprendido, sino que responde a lo que acaba de escuchar, aunque eso lo obligue a abandonar lo que pensaba decir.</p>
+    <p style="margin-bottom:10px">Esa disposición puede parecer, a primera vista, un simple hábito social, algo que se aprende por repetición y cortesía. Sin embargo, exige algo más difícil: la voluntad de ceder terreno, de admitir que el otro puede tener razón, de tolerar la incomodidad de no saber, por un instante, qué se va a responder.</p>
+    <p style="margin-bottom:10px">¿Por qué, entonces, tantas personas prefieren hoy comunicarse a través de una pantalla antes que sostener esa misma conversación cara a cara? Hay quienes sostienen que los mensajes escritos son, sencillamente, más eficientes: permiten pensar la respuesta con calma, evitar el titubeo y decir exactamente lo que se quiere decir, sin las interferencias del tono de voz o el gesto involuntario.</p>
+    <p style="margin-bottom:10px">Otros, en cambio, defienden la idea contraria: que solo la conversación presencial permite advertir el silencio incómodo, la duda en la voz, el gesto que contradice la palabra —señales que ninguna pantalla logra transmitir con la misma fidelidad— y que, por lo tanto, cualquier comunicación mediada empobrece necesariamente el vínculo entre quienes conversan.</p>
+    <p style="margin-bottom:10px">¿Quién de los dos tiene la razón? A nuestro juicio, ninguno por completo. Ambas posturas, al escoger un aspecto de la comunicación y descuidar el resto, terminan por simplificar un fenómeno que es, en realidad, más flexible: hay conversaciones que se benefician de la pausa que ofrece lo escrito, y hay otras que solo pueden ocurrir cuando dos personas se miran a los ojos.</p>
+    <p style="margin-bottom:10px">Quien defiende la eficiencia de lo escrito corre, sin embargo, un riesgo: el de confundir la ausencia de titubeos con la ausencia de verdadera escucha. Es posible responder con rapidez y precisión a un mensaje sin haber modificado en nada la propia postura, sin haberse dejado tocar por lo que el otro dijo.</p>
+    <p style="margin-bottom:10px">Quien defiende, en cambio, la superioridad absoluta de lo presencial corre el riesgo opuesto: el de suponer que basta con compartir un mismo espacio físico para que ocurra una conversación genuina, cuando la experiencia cotidiana muestra sobradamente que dos personas pueden estar sentadas frente a frente y, aun así, no escucharse en absoluto.</p>
+    <p style="margin-bottom:10px">Conversar, entendemos aquí, no depende exclusivamente del medio que se utilice, sino de una disposición: la de dejarse interpelar por lo que el otro dice, sin importar si su voz llega por el aire o a través de una pantalla.</p>
+    <p style="margin-bottom:10px">Esa disposición no es automática ni garantizada. Como toda facultad valiosa, puede cultivarse o descuidarse, y quien deja de practicarla —sea en persona o a distancia— nota, tarde o temprano, que sus intercambios se han vuelto una sucesión de monólogos alternados.</p>
+    <p style="margin-bottom:10px">En definitiva, la pregunta pertinente no es si conviene conversar cara a cara o a través de una pantalla, sino si, al comunicarnos, seguimos dispuestos a escuchar de verdad. Esa disposición —y no el canal que elijamos— es, después de todo, lo único que hace de un intercambio de palabras una conversación.</p>
+    <p style="font-size:.78rem;font-style:italic">Texto generado por IA con fines exclusivamente pedagógicos.</p>
+    </div>
+  </div>
+  <div id="cierre-qs-me" style="display:none"></div>
+  <button class="submit-btn" id="submit-btn-me" onclick="submitCierre('me')" disabled style="display:none">✅ Terminar y ver resultados</button>
+  <div id="cierre-results-me" class="ensayo-results"></div>
+</div>
+
+</div><!-- /container -->
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">← Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente →</button>
+</div>
+<footer>🗣️ Unidad 2 · Textos No Literarios: Argumentativos · PAES Competencia Lectora · Admisión 2027</footer>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 2</h3>
+      <p>Textos Argumentativos</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    ⏱️ No puedo ayudarte mientras estás rindiendo el cierre evaluado. Termina primero y luego revisamos lo que necesites.
+  </div>
+
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas de tesis, tipos de argumento y falacias. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// ═══ NAVEGACIÓN ═══
+var SECS=["portada","argum","ensayo"];
+var SLABELS=["Inicio","🗣️ Textos Argumentativos","⏱️ Mini Ensayo"];
+var curSec=0;
+function showSec(id,idx,btn){
+  SECS.forEach(function(s){document.getElementById(s).classList.remove("active");});
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec=idx;
+  updateLinNav();
+  document.getElementById("prog").style.width=Math.round(((idx+1)/SECS.length)*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function linNav(d){
+  var n=Math.max(0,Math.min(SECS.length-1,curSec+d));
+  if(n===curSec)return;
+  showSec(SECS[n],n,document.querySelectorAll(".nav-btn")[n]);
+}
+function updateLinNav(){
+  document.getElementById("lnav-prev").disabled=(curSec===0);
+  document.getElementById("lnav-next").disabled=(curSec===SECS.length-1);
+  document.getElementById("lnav-label").textContent=SLABELS[curSec];
+}
+updateLinNav();
+
+// ═══ TABS ESQUEMA INTERACTIVO ═══
+function showTabPanel(group,id,btn){
+  document.querySelectorAll('.tabgroup[data-group="'+group+'"] .tab-panel').forEach(function(p){p.classList.remove("active");});
+  document.querySelectorAll('.tabgroup[data-group="'+group+'"] .tab-btn').forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+}
+
+// ═══ FEEDBACK POR ALTERNATIVA — PRÁCTICA GUIADA ═══
+var QA={
+  "q1":{c:"B",fb:{
+    A:"Incorrecto. Es un dato que aparece en el texto, pero no es la postura que se defiende.",
+    B:"✅ Correcto. Esta es la idea central que el emisor busca defender; el resto del texto existe para sostenerla.",
+    C:"Incorrecto. Es un argumento de apoyo, no la tesis.",
+    D:"Incorrecto. El texto no afirma que ya exista tal prohibición."
+  }},
+  "q2":{c:"B",fb:{
+    A:"Incorrecto. El texto no menciona el precio de las bolsas plásticas como argumento.",
+    B:"✅ Correcto. Este dato sobre los animales marinos es el argumento explícito que respalda la tesis.",
+    C:"Incorrecto. El texto no menciona oposición de los supermercados.",
+    D:"Incorrecto. El texto dice que las alternativas son económicas, no más caras."
+  }},
+  "q3":{c:"B",fb:{
+    A:"Incorrecto. No se cita a ningún experto o institución.",
+    B:"✅ Correcto. Es un dato/hecho (la muerte de animales marinos por plástico) presentado como evidencia.",
+    C:"Incorrecto. No se compara con otra situación similar.",
+    D:"Incorrecto. No es un caso personal del emisor, sino un dato general."
+  }},
+  "q4":{c:"B",fb:{
+    A:"Incorrecto. Las tesis son opuestas: uno defiende, el otro cuestiona.",
+    B:"✅ Correcto. El Texto 1 defiende mantener el teletrabajo; el Texto 2 lo cuestiona por sus efectos negativos.",
+    C:"Incorrecto. El Texto 1 defiende el teletrabajo, no lo rechaza.",
+    D:"Incorrecto. Los argumentos de ambos textos van en direcciones opuestas, no se complementan."
+  }},
+  "q5":{c:"B",fb:{
+    A:"Incorrecto. El Texto 2 no cita a ningún experto.",
+    B:"✅ Correcto. El Texto 2 plantea que el teletrabajo (causa) reduce la colaboración y dificulta la supervisión (efectos negativos).",
+    C:"Incorrecto. No se narra ningún caso particular.",
+    D:"Incorrecto. No se establece una comparación con otra práctica."
+  }},
+  "q6":{c:"B",fb:{
+    A:"Incorrecto. El texto no defiende los exámenes finales, solo describe una tendencia.",
+    B:"✅ Correcto. El texto solo informa sobre una tendencia (más universidades eliminan los exámenes finales), sin tomar partido explícitamente: es un texto expositivo, no argumentativo.",
+    C:"Incorrecto. El texto no incluye ninguna crítica explícita.",
+    D:"Incorrecto. El texto no hace ninguna propuesta, solo describe un hecho."
+  }},
+  "q7":{c:"B",fb:{
+    A:"Incorrecto. No se afirma que un evento haya causado otro.",
+    B:"✅ Correcto. Atribuye una característica fija ('no saben lo que es el esfuerzo') a todo un grupo (\"los jóvenes de hoy\"), sin evidencia representativa.",
+    C:"Incorrecto. No se presentan solo dos opciones extremas.",
+    D:"Incorrecto. No se cita a ninguna autoridad o experto."
+  }},
+  "q8":{c:"C",fb:{
+    A:"Incorrecto. No se generaliza a partir de pocos casos, se ataca a una persona específica.",
+    B:"Incorrecto. No se presentan solo dos opciones.",
+    C:"✅ Correcto. Se descalifica al senador por su formación académica, en vez de rebatir el contenido de su propuesta.",
+    D:"Incorrecto. No se establece una relación de causa-efecto entre dos eventos."
+  }},
+  "q9":{c:"B",fb:{
+    A:"Incorrecto. Una experiencia real de una sola persona no es evidencia representativa.",
+    B:"✅ Correcto. Basarse en el testimonio de una sola persona no permite generalizar los efectos de una ley para toda la población.",
+    C:"Incorrecto. Ningún argumento anecdótico es irrefutable.",
+    D:"Incorrecto. Un testimonio personal es, precisamente, una opinión subjetiva."
+  }}
+};
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done="1";
+  var a=QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===a.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById(qid+"-fb");
+  fb.className="paes-fb show "+(opt===a.c?"ok":"no");
+  fb.innerHTML=a.fb[opt];
+}
+
+// ═══ MINI ENSAYO (preguntas y texto generados por IA) ═══
+var CQ={
+  me:[
+    {q:"🤖 Respecto de la acción de conversar, ¿cuál es el propósito de la emisora?",
+     opts:{A:"Justificar la superioridad de la conversación presencial.",B:"Reflexionar sobre qué hace que un intercambio de palabras sea una verdadera conversación.",C:"Proponer un método para comunicarse mejor por escrito.",D:"Analizar las diferencias técnicas entre distintos medios de comunicación."},c:"B",
+     fb:"A lo largo del texto, la emisora reflexiona sobre qué disposición hace que un intercambio de palabras sea una conversación genuina, sin limitarse a defender un medio ni proponer un método."},
+    {q:"🤖 ¿Qué recurso utiliza la emisora para involucrar al lector en la temática que aborda?",
+     opts:{A:"Utiliza ejemplos de la vida cotidiana.",B:"Menciona estudios sobre comunicación.",C:"Formula preguntas para articular la lectura.",D:"Explica con precisión términos técnicos."},c:"C",
+     fb:"El texto está construido a partir de preguntas retóricas (\"¿Qué es conversar?\", \"¿Quién de los dos tiene la razón?\") que invitan al lector a seguir el razonamiento."},
+    {q:"¿Qué postura asume la emisora ante quienes defienden la comunicación escrita como más eficiente?",
+     opts:{A:"De cuestionamiento, pues advierte el riesgo de confundir rapidez con verdadera escucha.",B:"De rechazo total, pues considera que la comunicación escrita empobrece todo vínculo.",C:"De indiferencia, pues no le interesa la discusión sobre los medios de comunicación.",D:"De aceptación plena, pues valora por sobre todo la precisión del lenguaje escrito."},c:"A",
+     fb:"La emisora advierte que la ausencia de titubeos no garantiza verdadera escucha, lo que refleja cuestionamiento, no rechazo total ni indiferencia."},
+    {q:"🤖 En la lectura, ¿qué efecto busca lograr en el lector la incorporación de expresiones como \"rectifiquemos\", \"entendemos aquí\" y \"a nuestro juicio\"?",
+     opts:{A:"Que se incline por una postura sobre los medios de comunicación.",B:"Que se involucre en la reflexión que desarrolla la emisora.",C:"Que se incluya en la tarea de definir qué es conversar.",D:"Que se interese por profundizar en el estudio del lenguaje."},c:"B",
+     fb:"El uso de la primera persona plural ('nosotros') invita al lector a acompañar el razonamiento de la emisora como parte de una reflexión compartida."},
+    {q:"🤖 En el cuarto párrafo, ¿qué característica le atribuye la emisora a quien conversa de verdad?",
+     opts:{A:"Destreza, pues domina técnicas de expresión oral.",B:"Disposición, pues está dispuesto a ceder terreno y tolerar la incertidumbre.",C:"Rapidez, pues responde de inmediato sin titubear.",D:"Formalidad, pues sigue reglas de cortesía social establecidas."},c:"B",
+     fb:"El cuarto párrafo describe esa disposición como \"la voluntad de ceder terreno\" y \"tolerar la incomodidad de no saber\", es decir, una actitud, no una habilidad técnica."},
+    {q:"En relación con quienes descuidan la conversación, ¿qué se entiende por la expresión \"sucesión de monólogos alternados\"?",
+     opts:{A:"Que las personas terminan hablando sin escucharse realmente entre sí.",B:"Que las personas prefieren comunicarse por escrito antes que en persona.",C:"Que las personas dejan de comunicarse por completo con el tiempo.",D:"Que las personas repiten siempre las mismas palabras al conversar."},c:"A",
+     fb:"La expresión describe un intercambio en el que cada uno habla sin dejarse modificar por lo que el otro dice, es decir, sin verdadera escucha."},
+    {q:"Según la emisora, ¿cuál debería ser el criterio central al momento de comunicarse?",
+     opts:{A:"El canal o medio que se utilice para comunicarse.",B:"La rapidez con la que se responde a un mensaje.",C:"La disposición a escuchar de verdad al otro.",D:"La corrección formal del lenguaje empleado."},c:"C",
+     fb:"El texto concluye que \"la pregunta pertinente no es si conviene conversar cara a cara o a través de una pantalla, sino si... seguimos dispuestos a escuchar de verdad\"."}
+  ]
+};
+
+var cierreState={me:{started:false,finished:false,timeLeft:600,interval:null,answers:{}}};
+
+function buildCierre(key){
+  var cont=document.getElementById("cierre-qs-"+key);
+  cont.innerHTML="";
+  CQ[key].forEach(function(q,i){
+    var d=document.createElement("div");
+    d.className="ensayo-q";
+    var optsH="";
+    ["A","B","C","D"].forEach(function(l){
+      optsH+='<div class="ensayo-opt" id="eo-'+key+'-'+i+'-'+l+'" data-qi="'+i+'" data-opt="'+l+'" onclick="selCierre(\''+key+'\',this.dataset.qi,this.dataset.opt)">'+
+        '<div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="ensayo-num" style="color:var(--rosa)">Pregunta '+(i+1)+' / '+CQ[key].length+'</div>'+
+      '<div class="ensayo-q-text">'+q.q+'</div>'+
+      '<div class="ensayo-opts" id="eopts-'+key+'-'+i+'">'+optsH+'</div>'+
+      '<div class="ensayo-fb" id="efb-'+key+'-'+i+'"></div>';
+    cont.appendChild(d);
+  });
+}
+buildCierre("me");
+
+function selCierre(key,i,opt){
+  i=parseInt(i);
+  var st=cierreState[key];
+  if(!st.started||st.finished)return;
+  var opts=document.getElementById("eopts-"+key+"-"+i);
+  if(opts.dataset.done)return;
+  st.answers[i]=opt;
+  opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.remove("selected");});
+  document.getElementById("eo-"+key+"-"+i+"-"+opt).classList.add("selected");
+}
+
+function startCierre(key){
+  var st=cierreState[key];
+  st.started=true;
+  document.getElementById("start-btn-"+key).style.display="none";
+  document.getElementById("timer-status-"+key).textContent="¡En marcha! Responde con calma.";
+  var qs=document.getElementById("cierre-qs-"+key); qs.style.display="block";
+  var sb=document.getElementById("submit-btn-"+key); sb.style.display="block"; sb.disabled=false;
+  st.interval=setInterval(function(){
+    st.timeLeft--;
+    var m=Math.floor(st.timeLeft/60),s=st.timeLeft%60;
+    var disp=document.getElementById("timer-disp-"+key);
+    disp.textContent=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+    if(st.timeLeft<=60)disp.className="timer-display danger";
+    else if(st.timeLeft<=180)disp.className="timer-display warn";
+    if(st.timeLeft<=0){clearInterval(st.interval);submitCierre(key);}
+  },1000);
+}
+
+function submitCierre(key){
+  var st=cierreState[key];
+  if(st.finished)return;
+  st.finished=true;
+  clearInterval(st.interval);
+  document.getElementById("timer-status-"+key).textContent="Ensayo terminado";
+  document.getElementById("submit-btn-"+key).disabled=true;
+  var correct=0;
+  CQ[key].forEach(function(q,i){
+    var opts=document.getElementById("eopts-"+key+"-"+i);
+    opts.dataset.done="1";
+    opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.add("locked");});
+    var ua=st.answers[i];
+    document.getElementById("eo-"+key+"-"+i+"-"+q.c).classList.add("right");
+    if(ua&&ua!==q.c)document.getElementById("eo-"+key+"-"+i+"-"+ua).classList.add("wrong");
+    var isOk=(ua===q.c);
+    var fb=document.getElementById("efb-"+key+"-"+i);
+    fb.className="ensayo-fb show "+(isOk?"ok":"no");
+    fb.textContent=(ua?(isOk?"✅ Correcto. ":"❌ Incorrecto. La respuesta correcta es "+q.c+". "):"⚠️ Sin respuesta. La correcta es "+q.c+". ")+q.fb;
+    if(isOk)correct++;
+  });
+  var pct=Math.round(correct/CQ[key].length*100);
+  var mainColor=pct>=70?"var(--rosa)":pct>=50?"#f59e0b":"#ef4444";
+  var msg=pct>=70?"🎉 ¡Buen resultado!":pct>=50?"💪 Resultado aceptable. Repasa el esquema interactivo y el glosario de falacias antes de avanzar.":"📚 Conviene repasar esta unidad antes de seguir a la Unidad 3.";
+  var res=document.getElementById("cierre-results-"+key);
+  res.style.display="block";
+  res.innerHTML='<div class="res-banner" style="color:'+mainColor+'">'+(pct>=70?"🏆":pct>=50?"💪":"📚")+" "+correct+" / "+CQ[key].length+" correctas</div>"+
+    '<div style="font-size:1rem;color:var(--text-dim);margin-bottom:16px">'+pct+"% de logro</div>"+
+    '<div style="background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;margin-top:6px">'+
+    '<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--rosa);margin-bottom:8px">'+msg+"</p>"+
+    '<p style="font-size:.88rem;color:var(--text-dim)">Revisa la corrección de cada pregunta más arriba.</p></div>';
+  res.scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
+// -------------------------------------------------------------------
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico de la Unidad 2 (Textos No Literarios: Argumentativos) del módulo de Competencia Lectora, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media, muchos sin conocimiento previo del tema. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre el contenido de esta unidad: tesis, argumentos y falacias, y los ejemplos de esta unidad. Puedes referirte a las habilidades de Localizar, Interpretar y Evaluar (Unidad 0) o a los textos expositivos (Unidad 1) si el estudiante los trae a colación para contrastar, pero no profundices en ellos más allá de lo necesario para explicar esta unidad. NO respondes sobre otras materias PAES (Matemática, Ciencias, Historia), ni sobre unidades futuras (U3 Narrativos, Ensayo Final) que el estudiante aún no ha visto.",
+"",
+"CONTENIDO DE LA UNIDAD:",
+"- Texto argumentativo: propósito de defender una postura (tesis) sobre un tema debatible, a diferencia del texto expositivo (Unidad 1) que se mantiene neutral. Tema debatible vs. hecho verificable.",
+"- Tesis: idea central defendida; puede ser explícita (formulada directamente, casi siempre al inicio o al final) o implícita (se infiere del conjunto del texto).",
+"- Tipos de argumento: de autoridad (cita a un experto o institución), de hecho/dato (cifras o evidencia verificable), de ejemplo (ilustra con un caso concreto), causal (relación causa-efecto), de analogía (compara con una situación similar y conocida). Un argumento de hecho/dato bien citado es en general más sólido que uno basado en una sola anécdota.",
+"- Falacias: argumentos que parecen válidos pero tienen una falla lógica (glosario visual de la unidad incluye, entre otras, generalización apresurada y estereotipo). Detectar una falacia no significa que la tesis sea falsa, solo que ese argumento específico no la sostiene bien.",
+"- Errores frecuentes: confundir tesis con argumento; asumir que el tono seguro de un emisor implica un argumento válido; buscar una tesis explícita en un texto que en realidad es expositivo y no argumentativo; elegir la alternativa que 'suena más fuerte' en vez de la que responde exactamente lo preguntado.",
+"- Incluye ejercicio de texto pareado (dos textos breves con posturas distintas sobre un mismo tema).",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos de arriba tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre identificación de tesis, tipo de argumento o detección de falacia, según pida. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta general sobre cuál es la tesis o postura del texto, 2) acota a qué argumento específico sostiene esa tesis, 3) señala qué tipo de argumento es (o si hay una falacia) y por qué, 4) contrasta la alternativa elegida por el estudiante con la probablemente correcta, preguntando qué diferencia hay. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otra materia, otra unidad no vista, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para resolver dudas de Textos Argumentativos (tesis, argumentos y falacias) de esta unidad.'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function anyCierreActive(){
+  var keys = ["me"];
+  for(var i=0;i<keys.length;i++){
+    var st = window.cierreState && window.cierreState[keys[i]];
+    if(st && st.started && !st.finished) return true;
+  }
+  return false;
+}
+
+function checkTutorBlock(){
+  var blocked = anyCierreActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false; // el botón sigue visible, solo se bloquea el contenido
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Competencia Lectora\n" +
+    "Módulo/Unidad: Competencia Lectora · Unidad 2 · Textos No Literarios: Argumentativos\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy || anyCierreActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+checkTutorBlock();
+})();
+</script>
+</body>
+</html>
