@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 3 – Textos Literarios: Narrativos · PAES Competencia Lectora</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#db2777;--rosa-dark:#9d174d;--rosa-glow:rgba(219,39,119,.15);
+  --coral:#fb7185;--bg:#1a0510;--card:#2b0a1c;--card2:#391030;
+  --text:#fde7f0;--text-dim:#c98aa8;--radius:18px;
+  --c-per:#38bdf8;--c-tie:#34d399;--c-con:#f59e0b;--c-nar:#a78bfa;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 10% 20%,rgba(219,39,119,.45) 0%,transparent 100%),
+  radial-gradient(1px 1px at 30% 65%,rgba(255,255,255,.18) 0%,transparent 100%),
+  radial-gradient(1px 1px at 58% 10%,rgba(219,39,119,.3) 0%,transparent 100%),
+  radial-gradient(1px 1px at 75% 45%,rgba(255,255,255,.15) 0%,transparent 100%),
+  radial-gradient(1px 1px at 90% 80%,rgba(219,39,119,.22) 0%,transparent 100%),
+  radial-gradient(1px 1px at 45% 88%,rgba(255,255,255,.12) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--rosa),var(--coral));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(2rem,7vw,3.8rem);
+  background:linear-gradient(135deg,var(--rosa),var(--coral),#f472b6);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(219,39,119,.12);border:1.5px solid rgba(219,39,119,.35);color:var(--rosa);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.07);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.78rem;padding:7px 13px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:var(--rosa-glow);border-color:var(--rosa);color:var(--rosa)}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.35rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.97rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.h-header{border-radius:var(--radius);padding:26px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:52px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.1}
+.h-header p{font-size:.97rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--rosa);background:rgba(219,39,119,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--rosa);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65;margin-bottom:6px}
+.tip-box p:last-child{margin-bottom:0}
+.tip-box p strong{color:var(--text)}
+/* IMAGEN PLACEHOLDER */
+.img-ph{border:2px dashed rgba(219,39,119,.4);border-radius:14px;background:rgba(219,39,119,.04);padding:18px;margin:14px 0;text-align:center;color:var(--text-dim);font-size:.84rem;line-height:1.6}
+.img-ph .img-icon{font-size:1.8rem;display:block;margin-bottom:6px;opacity:.6}
+.img-ph strong{color:var(--rosa);font-size:.82rem}
+/* ETIQUETAS */
+.ai-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);border-radius:6px;padding:3px 10px;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#a78bfa;margin-bottom:10px;margin-right:6px}
+.par-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);border-radius:6px;padding:3px 10px;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#38bdf8;margin-bottom:10px}
+.skill-tag{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:3px 10px;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;margin-right:6px}
+.skill-loc{background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);color:#38bdf8}
+.skill-int{background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);color:#a78bfa}
+.skill-eva{background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.3);color:#fbbf24}
+.per{color:var(--c-per)!important}.tie{color:var(--c-tie)!important}.con{color:var(--c-con)!important}.nar{color:var(--c-nar)!important}.rosa{color:var(--rosa)!important}
+/* TABS ESQUEMA */
+.tabgroup{margin:10px 0 18px}
+.tabnav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tab-btn{background:var(--card2);border:1.5px solid rgba(255,255,255,.1);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.82rem;padding:9px 16px;border-radius:12px;cursor:pointer;transition:all .2s}
+.tab-btn:hover{border-color:var(--rosa)}
+.tab-btn.active{background:var(--rosa-glow);border-color:var(--rosa);color:var(--rosa)}
+.tab-panel{display:none;background:var(--card2);border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,.07)}
+.tab-panel.active{display:block}
+.tab-panel .ex-text{background:rgba(0,0,0,.2);border-radius:10px;padding:14px 16px;font-size:.9rem;line-height:1.7;color:var(--text-dim);margin-bottom:12px}
+.tab-panel .ex-arrow{text-align:center;font-size:1.3rem;color:var(--rosa);margin:6px 0}
+.tab-panel .ex-highlight{color:var(--text);font-weight:800;background:rgba(219,39,119,.18);padding:1px 5px;border-radius:4px}
+/* GLOSARIO VISUAL */
+.glos-sub{font-family:"Fredoka One",cursive;font-size:1rem;color:var(--rosa);margin:16px 0 8px}
+.glos-sub:first-child{margin-top:0}
+.glos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:12px 0}
+.glos-card{background:rgba(0,0,0,.2);border-radius:12px;padding:14px;border-left:3px solid var(--c-nar)}
+.glos-card.rec{border-left-color:var(--c-con)}
+.glos-name{font-family:"Fredoka One",cursive;font-size:.95rem;color:var(--c-nar);margin-bottom:6px}
+.glos-card.rec .glos-name{color:var(--c-con)}
+.glos-def{font-size:.83rem;color:var(--text-dim);line-height:1.6;margin-bottom:6px}
+.glos-ex{font-size:.78rem;color:var(--text-dim);opacity:.85;font-style:italic;border-top:1px solid rgba(255,255,255,.08);padding-top:6px}
+/* PREGUNTAS PRÁCTICA GUIADA */
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px;margin-bottom:16px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.paes-ctx{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-ctx.small{font-size:.85rem}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--rosa);background:rgba(219,39,119,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(219,39,119,.14);border-color:var(--rosa)}
+.paes-opt.wrong{background:rgba(239,68,68,.08);border-color:#ef4444}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--rosa);flex-shrink:0}
+.paes-opt.right .ol{background:var(--rosa);color:#1a0510;border-color:var(--rosa)}
+.paes-opt.wrong .ol{background:#ef4444;color:#fff;border-color:#ef4444}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(219,39,119,.12);color:#f9a8d4;border-left:3px solid var(--rosa)}
+.paes-fb.no{background:rgba(239,68,68,.08);color:#fca5a5;border-left:3px solid #ef4444}
+/* MINI ENSAYO */
+.timer-box{background:var(--card2);border:2px solid rgba(219,39,119,.3);border-radius:14px;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.timer-display{font-family:"Fredoka One",cursive;font-size:2.4rem;color:var(--rosa);letter-spacing:.05em}
+.timer-display.warn{color:#f59e0b}
+.timer-display.danger{color:#ef4444;animation:pulse-border 1s ease-in-out infinite}
+@keyframes pulse-border{0%,100%{opacity:1}50%{opacity:.5}}
+.ensayo-q{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:12px}
+.ensayo-num{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.ensayo-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 12px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.ensayo-q-text{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.ensayo-opts{display:flex;flex-direction:column;gap:7px}
+.ensayo-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 13px;border-radius:9px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(0,0,0,.18);transition:all .18s}
+.ensayo-opt:hover:not(.locked){border-color:var(--rosa);background:rgba(219,39,119,.08)}
+.ensayo-opt.selected{background:rgba(219,39,119,.12);border-color:var(--rosa)}
+.ensayo-opt.locked{cursor:default;pointer-events:none}
+.ensayo-opt.right{background:rgba(219,39,119,.14);border-color:var(--rosa)}
+.ensayo-opt.wrong{background:rgba(239,68,68,.08);border-color:#ef4444}
+.ensayo-opt .ol{color:var(--rosa)}
+.ensayo-opt.selected .ol{background:var(--rosa);color:#1a0510;border-color:var(--rosa)}
+.ensayo-opt.right .ol{background:var(--rosa);color:#1a0510;border-color:var(--rosa)}
+.ensayo-opt.wrong .ol{background:#ef4444;color:#fff;border-color:#ef4444}
+.ensayo-fb{margin-top:8px;padding:9px 13px;border-radius:9px;font-size:.83rem;line-height:1.55;display:none}
+.ensayo-fb.show{display:block}
+.ensayo-fb.ok{background:rgba(219,39,119,.1);color:#f9a8d4;border-left:3px solid var(--rosa)}
+.ensayo-fb.no{background:rgba(239,68,68,.06);color:#fca5a5;border-left:3px solid #ef4444}
+.submit-btn{width:100%;padding:14px;background:var(--rosa);color:#1a0510;border:none;border-radius:12px;font-family:"Fredoka One",cursive;font-size:1.1rem;cursor:pointer;margin-top:10px;transition:background .2s}
+.submit-btn:hover{background:var(--rosa-dark)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+.ensayo-results{display:none;margin-top:20px}
+.res-banner{font-family:"Fredoka One",cursive;font-size:2.5rem;margin-bottom:6px}
+/* NAV LINEAL */
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(26,5,16,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.07);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(219,39,119,.35);background:transparent;color:var(--rosa);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--rosa-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#5c1638}
+html{background:#1a0510;overflow-x:clip;overscroll-behavior-x:none;}
+body{overflow-x:clip;overscroll-behavior-x:none;}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:74px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--coral));border:none;box-shadow:0 4px 18px rgba(219,39,119,.45);cursor:pointer;z-index:210;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid var(--bg)}
+.tutor-fab.blocked .dot{background:#6b7280}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(0,0,0,.4);z-index:220;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--rosa-dark),var(--rosa));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:#fff}
+.tutor-head p{font-size:.7rem;color:rgba(255,255,255,.8);margin-top:1px}
+.tutor-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1}
+.tutor-blocked-msg{padding:16px;font-size:.85rem;color:var(--text-dim);text-align:center;line-height:1.6}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:999px;cursor:pointer;transition:all .18s}
+.tutor-mode-btn:hover{border-color:var(--rosa);color:var(--rosa)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--rosa);color:#1a0510;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.07);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:rgba(219,39,119,.1);color:var(--text-dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--rosa)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--rosa)}
+.tutor-send{background:var(--rosa);border:none;color:#1a0510;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){
+  .container{padding:10px 10px 80px;}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:4px 2px 10px;gap:5px;margin:12px 0 4px;scrollbar-width:none;position:relative !important;top:auto !important;background:rgba(26,5,16,.95);border-radius:14px;padding:8px !important;}
+  .nav::-webkit-scrollbar{display:none;}
+  .nav-btn{flex-shrink:0;font-size:.74rem;padding:9px 13px;min-height:40px;touch-action:manipulation;}
+  .hero{padding:36px 8px 14px;}
+  .hero-emoji{font-size:48px;}
+  .card{padding:14px 12px;}
+  .grid-2{grid-template-columns:1fr;}
+  .paes-box{padding:14px 12px;}
+  .paes-opt{padding:12px 11px;min-height:52px;touch-action:manipulation;}
+  .ol{min-width:30px;height:30px;font-size:.8rem;}
+  .lnav-btn{padding:13px 18px !important;font-size:.95rem !important;min-height:48px;}
+  .submit-btn{width:100% !important;padding:13px !important;}
+  .tabnav{flex-direction:column;}
+  .glos-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:33%"></div></div>
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">📖</span>
+  <h1>Textos Narrativos</h1>
+  <p>PAES Competencia Lectora · Literarios · Unidad 3</p>
+  <div class="badge">📝 Prueba obligatoria · 65 preguntas (60 puntuables)</div>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('narr',1,this)">📖 Textos Narrativos</button>
+  <button class="nav-btn" onclick="showSec('ensayo',2,this)">⏱️ Mini Ensayo</button>
+</div>
+
+<!-- ═══ PORTADA ═══ -->
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title rosa" style="justify-content:center;font-size:1.7rem">📖 Unidad 3 · Textos Literarios: Narrativos</p>
+    <p style="font-size:1.05rem;max-width:600px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Los textos narrativos (cuentos, fragmentos de novela, leyendas) relatan hechos ficticios protagonizados por personajes. Esta es la <strong>única unidad de textos literarios</strong> de la prueba: aquí analizarás personajes, tiempo y espacio, conflicto, recursos literarios y el tipo de narrador.</p>
+  </div>
+  <div class="img-ph">
+    <span class="img-icon">🖼️</span>
+    <strong>Imagen ilustrativa de la unidad</strong> (próximamente)
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--rosa)">
+      <p class="card-title rosa">📌 Recuerda</p>
+      <ul>
+        <li>Usa Localizar, Interpretar y Evaluar (Unidad 0) en partes iguales: aquí se aplican a personajes, conflicto y narrador</li>
+        <li>El <strong>narrador</strong> no es lo mismo que el autor: es una voz construida dentro del relato</li>
+        <li>Los símbolos y recursos literarios cumplen funciones específicas — no son solo "decoración" del relato</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--coral)">
+      <p class="card-title" style="color:var(--coral)">⏱️ Al final de la unidad</p>
+      <p>Mini ensayo cronometrado con <strong>preguntas reales de la PAES</strong>, corrección inmediata y retroalimentación. La práctica guiada incluye al menos un ítem de <strong>texto pareado</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TEXTOS NARRATIVOS ═══ -->
+<div class="section" id="narr">
+  <div class="h-header" style="background:rgba(167,139,250,.08);border:1.5px solid rgba(167,139,250,.3)">
+    <span class="icon">📖</span>
+    <h2 class="nar">Personajes, Tiempo, Conflicto y Narrador</h2>
+    <p>Cuentos, fragmentos de novela y leyendas: cómo analizar quién narra, qué ocurre, dónde y cuándo, y qué conflicto mueve la historia.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title nar">📘 ¿Qué es un texto narrativo?</p>
+    <p>Un texto narrativo relata una sucesión de hechos <strong>ficticios</strong> (aunque puedan inspirarse en la realidad) protagonizados por personajes, organizados en un tiempo y un espacio, y atravesados por un conflicto. A diferencia de los textos no literarios (Unidades 1 y 2), aquí el lenguaje suele ser connotativo: las palabras pueden tener sentidos más allá del literal.</p>
+    <ul>
+      <li><strong>Elementos básicos:</strong> personajes, tiempo, espacio, conflicto y narrador.</li>
+      <li><strong>Lenguaje connotativo:</strong> un objeto o una acción pueden tener un significado simbólico además del literal.</li>
+      <li><strong>Formatos habituales en la PAES:</strong> cuentos completos o fragmentos de novela, y ocasionalmente leyendas.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <p class="card-title nar">🗺️ Esquema interactivo · Ficha de análisis narrativo</p>
+    <p style="margin-bottom:10px">Frente a cualquier relato, revisa siempre estos cuatro elementos — es tu checklist antes de responder:</p>
+    <div class="tabgroup" data-group="n">
+      <div class="tabnav">
+        <button class="tab-btn active" onclick="showTabPanel('n','n-tab1',this)">👤 Personajes</button>
+        <button class="tab-btn" onclick="showTabPanel('n','n-tab2',this)">🕐 Tiempo y espacio</button>
+        <button class="tab-btn" onclick="showTabPanel('n','n-tab3',this)">⚡ Conflicto</button>
+        <button class="tab-btn" onclick="showTabPanel('n','n-tab4',this)">🗣️ Narrador</button>
+      </div>
+      <div class="tab-panel active" id="n-tab1">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">Pregúntate: ¿quién es? ¿qué quiere? ¿qué se lo impide? ¿cómo cambia a lo largo del relato?</p>
+        <div class="ex-text">"Ana llevaba tres años sin hablar con su hermano. Cada vez que sonaba el teléfono y aparecía su nombre, dejaba que sonara hasta el buzón de voz."</div>
+        <p style="font-size:.82rem;color:var(--text-dim)">Aquí ya sabemos algo de la motivación y el dilema de Ana, aunque el texto no lo explique directamente: evita el contacto con su hermano por un conflicto no resuelto.</p>
+      </div>
+      <div class="tab-panel" id="n-tab2">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">El tiempo puede ser el momento histórico (época) o el orden en que se cuentan los hechos (no siempre es lineal). El espacio es el lugar físico, pero también puede tener función simbólica.</p>
+        <div class="ex-text">"El árbol seguía allí, en medio del patio, aunque la casa que alguna vez lo rodeó había sido demolida años atrás."</div>
+        <p style="font-size:.82rem;color:var(--text-dim)">El espacio (el árbol en un patio vacío) sugiere el paso del tiempo y lo que permanece pese a él.</p>
+      </div>
+      <div class="tab-panel" id="n-tab3">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">El conflicto es la tensión central que mueve la historia: puede ser entre personajes, entre un personaje y su entorno, o interno (el personaje contra sí mismo).</p>
+        <div class="ex-text">"Mientras esperaba el resultado del examen, Marta recordó, de pronto, aquel verano en que su padre le enseñó a nadar en el lago, sin miedo a hundirse."</div>
+        <p style="font-size:.82rem;color:var(--text-dim)">El conflicto aquí es interno: el miedo o la incertidumbre actual de Marta, contrastado con un recuerdo de confianza.</p>
+      </div>
+      <div class="tab-panel" id="n-tab4">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">El narrador es la voz que cuenta la historia — nunca es lo mismo que el autor real. Revisa el glosario completo de tipos de narrador más abajo.</p>
+        <div class="ex-text">"Vi a Pedro parado junto a la puerta. No dijo nada, solo se quedó callado, con la mirada fija en el suelo."</div>
+        <p style="font-size:.82rem;color:var(--text-dim)">Este narrador habla en primera persona ("vi") pero no es el protagonista de la escena: es un narrador testigo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title nar">📚 Glosario visual · Tipos de narrador y recursos literarios</p>
+    <p style="margin-bottom:6px">Revisa estos términos antes de la práctica guiada — son la base de casi todas las preguntas de esta unidad.</p>
+
+    <p class="glos-sub">🗣️ Tipos de narrador</p>
+    <div class="glos-grid">
+      <div class="glos-card">
+        <div class="glos-name">Narrador protagonista</div>
+        <div class="glos-def">Cuenta la historia en primera persona y es el personaje principal.</div>
+        <div class="glos-ex">"Cuando llegué a la casa de mi abuela, el olor a pan recién horneado inundaba el pasillo."</div>
+      </div>
+      <div class="glos-card">
+        <div class="glos-name">Narrador testigo</div>
+        <div class="glos-def">Habla en primera persona, pero observa la historia de otro personaje sin ser el centro.</div>
+        <div class="glos-ex">"Vi a Pedro parado junto a la puerta. No dijo nada."</div>
+      </div>
+      <div class="glos-card">
+        <div class="glos-name">Narrador omnisciente</div>
+        <div class="glos-def">Habla en tercera persona y conoce los pensamientos y sentimientos de todos los personajes.</div>
+        <div class="glos-ex">"Por dentro, el miedo lo paralizaba, aunque su rostro mostrara una calma fingida."</div>
+      </div>
+      <div class="glos-card">
+        <div class="glos-name">Narrador objetivo / observador</div>
+        <div class="glos-def">Habla en tercera persona, pero solo describe lo que se ve y se oye, sin acceso a pensamientos.</div>
+        <div class="glos-ex">"Pedro se quedó de pie junto a la puerta, en silencio, con la mirada fija en el suelo."</div>
+      </div>
+    </div>
+
+    <p class="glos-sub">✨ Recursos literarios (orden y estructura del relato)</p>
+    <div class="glos-grid">
+      <div class="glos-card rec">
+        <div class="glos-name">In medias res</div>
+        <div class="glos-def">El relato comienza en medio de la acción, sin presentar antecedentes.</div>
+        <div class="glos-ex">Una historia que empieza con una persecución, sin explicar antes quiénes son los personajes.</div>
+      </div>
+      <div class="glos-card rec">
+        <div class="glos-name">Analepsis (flashback)</div>
+        <div class="glos-def">Se interrumpe el presente del relato para narrar un hecho anterior.</div>
+        <div class="glos-ex">"Mientras esperaba el examen, Marta recordó aquel verano en el lago."</div>
+      </div>
+      <div class="glos-card rec">
+        <div class="glos-name">Prolepsis (flashforward)</div>
+        <div class="glos-def">Se anticipa un hecho que ocurrirá más adelante en la historia.</div>
+        <div class="glos-ex">"Años después, frente al pelotón de fusilamiento, el coronel había de recordar aquella tarde remota..."</div>
+      </div>
+      <div class="glos-card rec">
+        <div class="glos-name">Caja china (relato enmarcado)</div>
+        <div class="glos-def">Una historia contiene otra historia dentro de sí (un personaje narra o lee otro relato).</div>
+        <div class="glos-ex">Un personaje encuentra un diario y su contenido se convierte en un segundo relato dentro del primero.</div>
+      </div>
+      <div class="glos-card rec">
+        <div class="glos-name">Historias paralelas</div>
+        <div class="glos-def">Dos o más líneas narrativas se desarrollan al mismo tiempo y pueden converger.</div>
+        <div class="glos-ex">Un capítulo alterna entre lo que vive un personaje en la ciudad y otro en el campo, en la misma época.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">💡 Puntos clave PAES</div>
+    <p><strong>1.</strong> El narrador nunca es el autor real — es una construcción dentro del texto. No asumas que la opinión del narrador es la del autor.</p>
+    <p><strong>2.</strong> El orden en que se narra un hecho no siempre coincide con el orden en que ocurrió (piensa en las analepsis y prolepsis).</p>
+    <p><strong>3.</strong> Un objeto o un espacio puede cumplir una función simbólica más allá de su descripción literal — pregúntate qué podría representar.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title nar">🔎 Ejemplo resuelto paso a paso</p>
+    <div class="paes-ctx">"El árbol seguía allí, en medio del patio, aunque la casa que alguna vez lo rodeó había sido demolida años atrás. Nadie se atrevió a cortarlo."</div>
+    <p class="paes-q" style="margin-bottom:10px">¿Qué podría simbolizar el árbol en este fragmento?</p>
+    <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:14px 16px;font-size:.87rem;color:var(--text-dim);line-height:1.7">
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 1 — Identifica el elemento a analizar:</strong> el árbol, que sigue en pie pese a que la casa que lo rodeaba fue demolida.</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 2 — Busca el contraste:</strong> la casa (lo construido, lo humano) desapareció; el árbol (lo que estaba antes) permanece.</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 3 — Conecta con la reacción de los demás:</strong> "nadie se atrevió a cortarlo" sugiere respeto o algo que va más allá de lo práctico — como si representara algo que no se quiere perder.</p>
+      <p><strong style="color:var(--text)">Conclusión:</strong> el árbol simboliza la permanencia de la memoria o el pasado, pese al paso del tiempo y los cambios materiales.</p>
+    </div>
+  </div>
+
+  <div class="tip-box" style="border-left-color:#f59e0b;background:rgba(245,158,11,.07)">
+    <div class="tip-label" style="color:#f59e0b">⚠️ Errores frecuentes en la PAES</div>
+    <p><strong>1. Confundir al narrador con el autor:</strong> aunque el narrador hable en primera persona, no es correcto atribuir sus opiniones directamente a quien escribió el texto.</p>
+    <p><strong>2. Confundir el orden de la narración con el orden de los hechos:</strong> un relato puede empezar por el final o insertar recuerdos sin que eso signifique que "algo está mal" en la historia.</p>
+    <p><strong>3. Interpretar un símbolo de forma demasiado literal:</strong> preguntarse "¿qué representa?" es distinto de preguntarse "¿qué es, literalmente?".</p>
+    <p><strong>4. Asumir que todo detalle es simbólico:</strong> no todo elemento del relato tiene una función simbólica — a veces un dato es solo un dato de ambientación.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title nar">✏️ Práctica guiada</p>
+    <p style="margin-bottom:14px">Distribuida en partes iguales entre las tres habilidades de la Unidad 0. Incluye un ítem de <strong>texto pareado</strong>.</p>
+
+    <div class="paes-box" id="q1">
+      <div class="paes-tag nar"><span class="skill-tag skill-loc">🔍 Localizar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">Cuando llegué a la casa de mi abuela, el olor a pan recién horneado inundaba el pasillo. Ella me esperaba en la cocina, con las manos cubiertas de harina, sonriendo como si supiera que yo llegaría justo a esa hora.</div>
+      <div class="paes-q">¿Qué tipo de narrador presenta el fragmento?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q1','A')"><div class="ol">A</div><div class="ot">Narrador omnisciente.</div></div>
+        <div class="paes-opt" onclick="ans('q1','B')"><div class="ol">B</div><div class="ot">Narrador protagonista.</div></div>
+        <div class="paes-opt" onclick="ans('q1','C')"><div class="ol">C</div><div class="ot">Narrador testigo.</div></div>
+        <div class="paes-opt" onclick="ans('q1','D')"><div class="ol">D</div><div class="ot">Narrador objetivo.</div></div>
+      </div>
+      <div class="paes-fb" id="q1-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q2">
+      <div class="paes-tag nar"><span class="skill-tag skill-loc">🔍 Localizar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">(Mismo texto de la casa de la abuela)</div>
+      <div class="paes-q">¿Dónde se desarrolla la escena descrita?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q2','A')"><div class="ol">A</div><div class="ot">En un restaurante.</div></div>
+        <div class="paes-opt" onclick="ans('q2','B')"><div class="ol">B</div><div class="ot">En la cocina de la casa de la abuela.</div></div>
+        <div class="paes-opt" onclick="ans('q2','C')"><div class="ol">C</div><div class="ot">En un pasillo de un edificio.</div></div>
+        <div class="paes-opt" onclick="ans('q2','D')"><div class="ol">D</div><div class="ot">En una panadería.</div></div>
+      </div>
+      <div class="paes-fb" id="q2-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q3">
+      <div class="paes-tag nar"><span class="skill-tag skill-loc">🔍 Localizar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">(Mismo texto de la casa de la abuela)</div>
+      <div class="paes-q">¿Qué elemento del fragmento permite anticipar el ambiente cálido y familiar de la escena?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q3','A')"><div class="ol">A</div><div class="ot">El color del pasillo.</div></div>
+        <div class="paes-opt" onclick="ans('q3','B')"><div class="ol">B</div><div class="ot">El olor a pan recién horneado.</div></div>
+        <div class="paes-opt" onclick="ans('q3','C')"><div class="ol">C</div><div class="ot">El nombre de la abuela.</div></div>
+        <div class="paes-opt" onclick="ans('q3','D')"><div class="ol">D</div><div class="ot">La hora de llegada.</div></div>
+      </div>
+      <div class="paes-fb" id="q3-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q4">
+      <div class="paes-tag nar"><span class="skill-tag skill-int">🧩 Interpretar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">Ana llevaba tres años sin hablar con su hermano. Cada vez que sonaba el teléfono y aparecía su nombre, dejaba que sonara hasta el buzón de voz. Esa tarde, sin embargo, algo la hizo contestar.</div>
+      <div class="paes-q">¿Qué se puede inferir sobre el conflicto que enfrenta Ana?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q4','A')"><div class="ol">A</div><div class="ot">Un conflicto económico con su hermano.</div></div>
+        <div class="paes-opt" onclick="ans('q4','B')"><div class="ol">B</div><div class="ot">Un distanciamiento personal no resuelto con su hermano.</div></div>
+        <div class="paes-opt" onclick="ans('q4','C')"><div class="ol">C</div><div class="ot">Un problema laboral que involucra a su hermano.</div></div>
+        <div class="paes-opt" onclick="ans('q4','D')"><div class="ol">D</div><div class="ot">Una competencia profesional con su hermano.</div></div>
+      </div>
+      <div class="paes-fb" id="q4-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q5">
+      <div class="paes-tag nar"><span class="skill-tag skill-int">🧩 Interpretar</span><span class="ai-tag">🤖 Generada</span><span class="par-tag">🔗 Texto pareado</span></div>
+      <div class="paes-ctx small"><strong>Texto 1:</strong> Pedro no se atrevía a decir la verdad. Por dentro, el miedo lo paralizaba, aunque su rostro mostrara una calma fingida.<br><br><strong>Texto 2:</strong> Vi a Pedro parado junto a la puerta. No dijo nada, solo se quedó callado, con la mirada fija en el suelo.</div>
+      <div class="paes-q">¿Qué diferencia existe entre los narradores de ambos textos?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q5','A')"><div class="ol">A</div><div class="ot">El narrador del Texto 1 es testigo y el del Texto 2 es protagonista.</div></div>
+        <div class="paes-opt" onclick="ans('q5','B')"><div class="ol">B</div><div class="ot">El narrador del Texto 1 conoce los pensamientos de Pedro, mientras que el del Texto 2 solo describe lo que observa desde fuera.</div></div>
+        <div class="paes-opt" onclick="ans('q5','C')"><div class="ol">C</div><div class="ot">Ambos narradores conocen los pensamientos de Pedro.</div></div>
+        <div class="paes-opt" onclick="ans('q5','D')"><div class="ol">D</div><div class="ot">Ambos narradores son personajes de la historia.</div></div>
+      </div>
+      <div class="paes-fb" id="q5-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q6">
+      <div class="paes-tag nar"><span class="skill-tag skill-int">🧩 Interpretar</span><span class="ai-tag">🤖 Generada</span><span class="par-tag">🔗 Texto pareado</span></div>
+      <div class="paes-ctx small">(Mismos Texto 1 y Texto 2 sobre Pedro)</div>
+      <div class="paes-q">¿Cuál de los dos textos entrega mayor información sobre el estado emocional interno de Pedro?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q6','A')"><div class="ol">A</div><div class="ot">El Texto 1, porque el narrador tiene acceso a sus pensamientos.</div></div>
+        <div class="paes-opt" onclick="ans('q6','B')"><div class="ol">B</div><div class="ot">El Texto 2, porque describe con más detalle su comportamiento.</div></div>
+        <div class="paes-opt" onclick="ans('q6','C')"><div class="ol">C</div><div class="ot">Ambos entregan la misma cantidad de información interna.</div></div>
+        <div class="paes-opt" onclick="ans('q6','D')"><div class="ol">D</div><div class="ot">Ninguno de los dos menciona el estado emocional de Pedro.</div></div>
+      </div>
+      <div class="paes-fb" id="q6-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q7">
+      <div class="paes-tag nar"><span class="skill-tag skill-eva">⚖️ Evaluar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">El árbol seguía allí, en medio del patio, aunque la casa que alguna vez lo rodeó había sido demolida años atrás. Nadie se atrevió a cortarlo.</div>
+      <div class="paes-q">¿Qué podría simbolizar el árbol en este fragmento?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q7','A')"><div class="ol">A</div><div class="ot">La fragilidad de la naturaleza frente a la construcción humana.</div></div>
+        <div class="paes-opt" onclick="ans('q7','B')"><div class="ol">B</div><div class="ot">La permanencia de la memoria o el pasado, pese al paso del tiempo.</div></div>
+        <div class="paes-opt" onclick="ans('q7','C')"><div class="ol">C</div><div class="ot">El desinterés de las personas por el medioambiente.</div></div>
+        <div class="paes-opt" onclick="ans('q7','D')"><div class="ol">D</div><div class="ot">La superioridad de la naturaleza sobre las construcciones humanas.</div></div>
+      </div>
+      <div class="paes-fb" id="q7-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q8">
+      <div class="paes-tag nar"><span class="skill-tag skill-eva">⚖️ Evaluar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">(Texto de Ana y su hermano, ver pregunta anterior sobre el conflicto)</div>
+      <div class="paes-q">Un lector afirma que Ana es un personaje que evita enfrentar sus conflictos. ¿En qué se basa esta interpretación?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q8','A')"><div class="ol">A</div><div class="ot">En que Ana finalmente contesta el teléfono.</div></div>
+        <div class="paes-opt" onclick="ans('q8','B')"><div class="ol">B</div><div class="ot">En que Ana deja sonar las llamadas de su hermano durante tres años.</div></div>
+        <div class="paes-opt" onclick="ans('q8','C')"><div class="ol">C</div><div class="ot">En que Ana tiene una relación cercana con su hermano.</div></div>
+        <div class="paes-opt" onclick="ans('q8','D')"><div class="ol">D</div><div class="ot">En que Ana no tiene ningún conflicto pendiente.</div></div>
+      </div>
+      <div class="paes-fb" id="q8-fb"></div>
+    </div>
+
+    <div class="paes-box" id="q9">
+      <div class="paes-tag nar"><span class="skill-tag skill-eva">⚖️ Evaluar</span><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">Mientras esperaba el resultado del examen, Marta recordó, de pronto, aquel verano en que su padre le enseñó a nadar en el lago, sin miedo a hundirse.</div>
+      <div class="paes-q">¿Qué función cumple el recuerdo insertado en este fragmento?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('q9','A')"><div class="ol">A</div><div class="ot">Interrumpe la historia sin aportar información relevante.</div></div>
+        <div class="paes-opt" onclick="ans('q9','B')"><div class="ol">B</div><div class="ot">Contrasta el miedo o la incertidumbre actual de Marta con un momento de confianza pasada.</div></div>
+        <div class="paes-opt" onclick="ans('q9','C')"><div class="ol">C</div><div class="ot">Demuestra que Marta no le teme a los exámenes.</div></div>
+        <div class="paes-opt" onclick="ans('q9','D')"><div class="ol">D</div><div class="ot">Explica por qué Marta decidió rendir el examen.</div></div>
+      </div>
+      <div class="paes-fb" id="q9-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MINI ENSAYO (pestaña separada) ═══ -->
+<div class="section" id="ensayo">
+  <div class="h-header" style="background:rgba(167,139,250,.08);border:1.5px solid rgba(167,139,250,.3)">
+    <span class="icon">⏱️</span>
+    <h2 class="nar">Mini Ensayo · Unidad 3</h2>
+    <p>Pon a prueba lo aprendido con un cuento y preguntas generados por IA, en condiciones cronometradas.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title nar">⏱️ Mini ensayo cronometrado · 11 preguntas · 16 minutos</p>
+    <p><span class="ai-tag">🤖 Texto y preguntas generados por IA</span></p>
+  </div>
+  <div class="timer-box">
+    <div>
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Tiempo restante</div>
+      <div class="timer-display" id="timer-disp-me">16:00</div>
+    </div>
+    <div style="text-align:right">
+      <div id="timer-status-me" style="font-size:.85rem;color:var(--text-dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+      <button id="start-btn-me" onclick="startCierre('me')" style="padding:8px 20px;background:var(--rosa);color:#1a0510;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+    </div>
+  </div>
+  <div class="card" id="me-texto-card">
+    <p class="card-title nar">📖 Texto para el mini ensayo</p>
+    <p style="font-size:.8rem;color:var(--text-dim);margin-bottom:10px"><em>Cuento de elaboración propia (IA), original para esta unidad. No corresponde a ningún texto oficial de la PAES.</em></p>
+    <p style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--text);margin-bottom:10px">EL RELOJERO DE ALTO TRÉBOL</p>
+    <div style="font-size:.88rem;line-height:1.8;color:var(--text-dim)">
+    <p style="margin-bottom:10px">Nada volvió a medirse igual después de que él cruzara el puente colgante hacia nuestro pueblo.</p>
+    <p style="margin-bottom:10px">Algunos recuerdan que solo don Aurelio, el herrero, salió a recibirlo en la entrada del camino, arrepintiéndose los demás de no haber estado también allí. Bruno, que entonces era apenas un muchacho que arreaba mulas para los viajeros, cuenta que lo vio pasar tan cerca que el borde de su abrigo de cuero le rozó la mejilla.</p>
+    <p style="margin-bottom:10px">Iba sentado, dice, en el peldaño de la carreta, mirando el valle con ojos que parecían contar algo que nadie más veía. Sobre su pecho colgaban decenas de relojes pequeños, de bronce y de latón, que tintineaban con cada sacudida del camino. Bruno jura que le habló en una lengua de sonidos redondos, y que sintió, por primera vez, ese vértigo que —años después, siendo hombre— reconocería frente a las cosas que no se pueden explicar del todo: un hormigueo en las manos, un silencio raro en el pecho, una prisa por acercarse sin saber a qué.</p>
+    <p style="margin-bottom:10px">Bruno se incorporó y lo siguió a corta distancia. El guardabosque se le sumó, cerrando los ojos, respirando ese olor a aceite de máquina y a madera de otros climas que desprendía su ropa.</p>
+    <p style="margin-bottom:10px">Antes de llegar a la plaza, una hilera de curiosos, viejos, niños y solteronas, lo escoltaba. Nadie podía contener el paso detrás de él. En las tres cuadras que duró el trayecto se detuvieron los pocos carros, enmudecieron las gallinas del mercado y los relojes de las casas —dicen algunos, aunque suene exagerado— se atrasaron todos al mismo tiempo.</p>
+    <p style="margin-bottom:10px">Desde la escalinata de la posada se volvió, con esos ojos de quien ha visto demasiados amaneceres distintos, y nos sonrió apenas, murmurando palabras que nadie tradujo. Hizo un gesto leve con la mano y entró a la posada, acompañado por un deferente don Aurelio, que no se extrañó de que la posadera le entregara, en un impulso que ella misma no supo explicar, las llaves del cuarto más grande. La misma posadera asegura, hasta hoy, que sintió un frío raro al tocarle la mano, aunque conviene tomar su relato con reservas: ella siempre fue dada a exagerar sus recuerdos, y terminó sus días hablando sola en el corredor de su casa, convencida de escuchar tictacs donde no los había.</p>
+    <p style="margin-bottom:10px">La noticia de su llegada corrió más rápido que el aviso de la epidemia del 89, y a su taller, instalado esa misma tarde en la plaza, se acercaron decenas de curiosos horas antes de que abriera. Llegaron en filas silenciosas, sin empujarse, como si todos entendieran que había suficiente asombro para repartir entre todos. Las mujeres del pueblo llegaron con una curiosidad recelosa, dispuestas a decir que sus relojes eran iguales a cualquier otro. Pero al ver las piezas diminutas engranadas como si respiraran, enmudecieron de sorpresa y de una vergüenza dulce por haber dudado.</p>
+    <p style="margin-bottom:10px">Cuando empezó a explicar cómo un resorte podía guardar el tiempo, en una jerga técnica que pocos entendían, los ojos se humedecieron igual, porque el mensaje no estaba en las palabras sino en el gesto de sus manos, tan preciso que parecía una forma de cariño.</p>
+    <p style="margin-bottom:10px">Cuando terminó, nadie hizo ruido en la plaza. El silencio dio paso a un aplauso lento y sostenido que le llenó los ojos de algo parecido a la gratitud, lo que el único periódico del pueblo llamaría, al día siguiente, "una tarde de asombro compartido".</p>
+    <p style="margin-bottom:10px">Yo fui la más joven de los que estuvieron ahí, y la única que sigue con vida para contarlo, guardando todavía la entrada de papel, amarilla y descosida, con su nombre mal escrito por la prisa del boletero.</p>
+    <p style="margin-bottom:10px">Esa noche, dicen, los hombres durmieron afuera del taller, envueltos en sus ponchos, mientras la escarcha cubría los techos. Las mujeres nos apretamos en el corredor de la posada, esperando que algo de su calma se nos pegara.</p>
+    <p style="margin-bottom:10px">Por la mañana partió con su maletín de herramientas y el silencio escoltante de don Aurelio y de medio pueblo. Con un pie en el estribo de la carreta nos hizo adiós, y sus ojos brillaron de un modo que nos hizo llorar como niños largo rato después de que la carreta se perdiera en la curva del camino.</p>
+    <p style="margin-bottom:10px">Desde entonces han pasado cuarenta años y dos sequías que se mantuvieron, no sé por qué, a una distancia prudente. No nos importa la razón.</p>
+    <p style="margin-bottom:10px">Porque desde que él cruzó el puente hacia Alto Trébol, aquí el tiempo se cuenta distinto.</p>
+    <p style="margin-bottom:10px">Las madres les enseñan a sus hijos su historia. El herrero que lo sucedió le fabricó una veleta con forma de reloj, orgullo de la plaza, donde todavía se sienta Bruno, ya anciano, cuando la nostalgia le pesa en las piernas.</p>
+    <p style="margin-bottom:10px">La gobernación no nos autoriza a cambiarle el nombre al pueblo, alegando trámites de catastro y no sé qué de un límite provincial que se movió sin que nadie lo notara. Seguimos, año tras año, enviando solicitudes que no sabemos si alguien lee, para que el pueblo se llame como él firmaba sus relojes, aunque cueste pronunciarlo y haya que rehacer todos los mapas de la región. No nos rendiremos.</p>
+    <p style="margin-bottom:10px">La provincia sabe que somos el pueblo de su recuerdo, y por eso ni la epidemia ni las sequías se ensañaron con nosotros: se quedaron lejos, como si supieran que éramos los guardianes de esa memoria.</p>
+    <p style="margin-bottom:10px">El único museo de Alto Trébol está dedicado a él. Sus herramientas de trabajo —el destornillador fino, la lupa de relojero, el cuaderno de bocetos— se conservan en una vitrina custodiada, no sea que algún curioso las tome para la herejía de usarlas. Algunos donaron pañuelos que llevaban el día de su visita, por si guardaban un poco de su calma. Se armó, con mucho cuidado, un cofre forrado en fieltro con sus iniciales grabadas.</p>
+    <p style="margin-bottom:10px">Alguna vez llegó alguien de sus tierras que hablaba nuestro idioma y nos dijo que era apenas un relojero fracasado, que allá nadie recordaba su nombre y que, seguramente, sería ahora un viejo cualquiera contando su único viaje a estas montañas.</p>
+    <p style="margin-bottom:10px">Pero no podemos creer eso: es injusto y no tiene fundamento. Willemburg, creo que se llamaba su país. No importa. Él nos trajo una manera distinta de medir los días, y hemos criado a nuestros hijos custodiando ese regalo. Somos su pueblo, porque desde el día de su paso fugaz por estas tierras, no volvimos a contar el tiempo igual.</p>
+    <p style="margin-bottom:10px">Y se lo agradecemos.</p>
+    </div>
+  </div>
+  <div id="cierre-qs-me" style="display:none"></div>
+  <button class="submit-btn" id="submit-btn-me" onclick="submitCierre('me')" disabled style="display:none">✅ Terminar y ver resultados</button>
+  <div id="cierre-results-me" class="ensayo-results"></div>
+</div>
+
+</div><!-- /container -->
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">← Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente →</button>
+</div>
+<footer>📖 Unidad 3 · Textos Literarios: Narrativos · PAES Competencia Lectora · Admisión 2027</footer>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 3</h3>
+      <p>Textos Narrativos</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    ⏱️ No puedo ayudarte mientras estás rindiendo el ensayo cronometrado. Termina primero y luego revisamos lo que necesites.
+  </div>
+
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre textos narrativos: tipos de narrador, personajes, ambiente, símbolos y textos pareados. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══ NAVEGACIÓN ═══
+var SECS=["portada","narr","ensayo"];
+var SLABELS=["Inicio","📖 Textos Narrativos","⏱️ Mini Ensayo"];
+var curSec=0;
+function showSec(id,idx,btn){
+  SECS.forEach(function(s){document.getElementById(s).classList.remove("active");});
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec=idx;
+  updateLinNav();
+  document.getElementById("prog").style.width=Math.round(((idx+1)/SECS.length)*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function linNav(d){
+  var n=Math.max(0,Math.min(SECS.length-1,curSec+d));
+  if(n===curSec)return;
+  showSec(SECS[n],n,document.querySelectorAll(".nav-btn")[n]);
+}
+function updateLinNav(){
+  document.getElementById("lnav-prev").disabled=(curSec===0);
+  document.getElementById("lnav-next").disabled=(curSec===SECS.length-1);
+  document.getElementById("lnav-label").textContent=SLABELS[curSec];
+}
+updateLinNav();
+
+// ═══ TABS ESQUEMA INTERACTIVO ═══
+function showTabPanel(group,id,btn){
+  document.querySelectorAll('.tabgroup[data-group="'+group+'"] .tab-panel').forEach(function(p){p.classList.remove("active");});
+  document.querySelectorAll('.tabgroup[data-group="'+group+'"] .tab-btn').forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+}
+
+// ═══ FEEDBACK POR ALTERNATIVA — PRÁCTICA GUIADA ═══
+var QA={
+  "q1":{c:"B",fb:{
+    A:"Incorrecto. El narrador omnisciente habla en tercera persona y conoce los pensamientos de todos; aquí habla en primera persona ('llegué').",
+    B:"✅ Correcto. El narrador habla en primera persona y es quien vive la escena (\"cuando llegué\", \"me esperaba\"): es protagonista de su propio relato.",
+    C:"Incorrecto. El narrador testigo observa la historia de otro personaje; aquí el narrador es el centro de la escena.",
+    D:"Incorrecto. El narrador objetivo no revela impresiones subjetivas como \"como si supiera que yo llegaría\"."
+  }},
+  "q2":{c:"B",fb:{
+    A:"Incorrecto. No se menciona ningún restaurante.",
+    B:"✅ Correcto. El texto indica explícitamente que la abuela esperaba \"en la cocina\".",
+    C:"Incorrecto. El pasillo es solo el lugar por donde se percibe el olor, no donde ocurre la escena principal.",
+    D:"Incorrecto. No se menciona una panadería, sino la casa de la abuela."
+  }},
+  "q3":{c:"B",fb:{
+    A:"Incorrecto. El color del pasillo no se menciona en el texto.",
+    B:"✅ Correcto. El olor a pan recién horneado es el detalle sensorial que construye la atmósfera cálida y familiar.",
+    C:"Incorrecto. El nombre de la abuela no se menciona en el fragmento.",
+    D:"Incorrecto. La hora de llegada no se especifica ni contribuye al ambiente descrito."
+  }},
+  "q4":{c:"B",fb:{
+    A:"Incorrecto. El texto no menciona ningún conflicto económico.",
+    B:"✅ Correcto. Evitar las llamadas durante tres años sugiere un distanciamiento personal no resuelto entre los hermanos.",
+    C:"Incorrecto. No hay ninguna mención a un contexto laboral.",
+    D:"Incorrecto. No se menciona ninguna competencia profesional."
+  }},
+  "q5":{c:"B",fb:{
+    A:"Incorrecto. Es al revés: el Texto 1 tiene acceso a los pensamientos (omnisciente), no es testigo.",
+    B:"✅ Correcto. El Texto 1 revela lo que Pedro siente por dentro (\"el miedo lo paralizaba\"); el Texto 2 solo describe lo observable desde fuera.",
+    C:"Incorrecto. Solo el narrador del Texto 1 tiene acceso a los pensamientos de Pedro.",
+    D:"Incorrecto. Ninguno de los dos es necesariamente un personaje central de la historia."
+  }},
+  "q6":{c:"A",fb:{
+    A:"✅ Correcto. Solo el narrador del Texto 1 tiene acceso directo a los pensamientos y emociones internas de Pedro.",
+    B:"Incorrecto. El Texto 2 describe comportamiento externo, no el estado emocional interno.",
+    C:"Incorrecto. El Texto 1 entrega información interna explícita; el Texto 2 no.",
+    D:"Incorrecto. El Texto 1 sí menciona explícitamente el miedo de Pedro."
+  }},
+  "q7":{c:"B",fb:{
+    A:"Incorrecto. El árbol no se presenta como frágil, sino como algo que permanece.",
+    B:"✅ Correcto. El árbol resiste pese a la demolición de la casa, y nadie se atreve a cortarlo: representa la permanencia del pasado o la memoria.",
+    C:"Incorrecto. El texto no sugiere desinterés, sino respeto (\"nadie se atrevió a cortarlo\").",
+    D:"Incorrecto. El texto no plantea una comparación de superioridad entre naturaleza y construcción humana."
+  }},
+  "q8":{c:"B",fb:{
+    A:"Incorrecto. Que finalmente conteste no respalda la idea de que evita sus conflictos.",
+    B:"✅ Correcto. Dejar sonar las llamadas de su hermano durante tres años es la evidencia textual de que evita enfrentar el conflicto.",
+    C:"Incorrecto. El texto sugiere lo contrario: una relación distanciada.",
+    D:"Incorrecto. El texto indica que sí existe un conflicto pendiente entre ambos."
+  }},
+  "q9":{c:"B",fb:{
+    A:"Incorrecto. El recuerdo sí aporta información relevante sobre el estado emocional de Marta.",
+    B:"✅ Correcto. El recuerdo de nadar sin miedo contrasta con la posible incertidumbre o nerviosismo actual de Marta frente al examen.",
+    C:"Incorrecto. El fragmento no afirma que Marta no tema a los exámenes; más bien sugiere lo contrario.",
+    D:"Incorrecto. El fragmento no explica por qué decidió rendir el examen, solo inserta un recuerdo mientras espera el resultado."
+  }}
+};
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done="1";
+  var a=QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===a.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById(qid+"-fb");
+  fb.className="paes-fb show "+(opt===a.c?"ok":"no");
+  fb.innerHTML=a.fb[opt];
+}
+
+// ═══ MINI ENSAYO (texto y preguntas generados por IA) ═══
+var CQ={
+  me:[
+    {q:"🤖 ¿Qué actitud tiene el narrador colectivo con respecto al relojero?",
+     opts:{A:"De asombro, ya que le atribuye poderes sobrenaturales.",B:"De respeto, ya que compartió con el pueblo una lengua nueva.",C:"De agradecimiento, ya que su visita transformó al pueblo en un lugar especial.",D:"De curiosidad, porque desea revelar el misterio que lo rodea."},c:"C",
+     fb:"El relato cierra explícitamente con \"Y se lo agradecemos\", tras describir cómo la visita del relojero transformó la manera en que el pueblo vive el tiempo."},
+    {q:"🤖 Un lector afirma que el relato transmite un prejuicio sobre la desconfianza de las mujeres del pueblo hacia lo desconocido. ¿En qué situación se basa esta interpretación?",
+     opts:{A:"En la actitud de la posadera al recibirlo en el cuarto.",B:"En la actitud recelosa con que las mujeres asisten al taller, dispuestas a restarle mérito.",C:"En el afán de la narradora por señalar su corta edad.",D:"En que algunos dicen que era un relojero fracasado."},c:"B",
+     fb:"El texto indica que las mujeres llegaron \"con una curiosidad recelosa, dispuestas a decir que sus relojes eran iguales a cualquier otro\", actitud que sostiene una lectura de desconfianza hacia lo desconocido."},
+    {q:"🤖 Al final del relato, la narradora defiende la veracidad de su testimonio ante quien cuestiona la fama del relojero. ¿Cómo se construye lo verdadero en este relato?",
+     opts:{A:"A través de la transmisión del recuerdo colectivo sobre el relojero.",B:"A través de la mención de lugares reales donde vivió el relojero.",C:"A través del reconocimiento que le da una autoridad al relojero.",D:"A través del debate generado en torno a su mérito como artesano."},c:"A",
+     fb:"El relato se construye a partir de múltiples testimonios (Bruno, don Aurelio, la posadera, la narradora) que conforman una memoria colectiva sobre el relojero."},
+    {q:"🤖 En el relato, ¿cuál de las siguientes características del relojero se asocia a su procedencia extranjera?",
+     opts:{A:"Los relojes de bronce que llevaba colgando.",B:"El olor a aceite de máquina y madera de otros climas que desprendía su ropa.",C:"Sus ojos que parecían contar algo.",D:"Su abrigo de cuero."},c:"B",
+     fb:"El texto describe explícitamente \"ese olor a aceite de máquina y a madera de otros climas que desprendía su ropa\", asociándolo a su origen foráneo."},
+    {q:"🤖 Considerando el siguiente fragmento, ¿cuál es el efecto que tuvo en el pueblo la llegada del relojero? «se detuvieron los pocos carros, enmudecieron las gallinas del mercado y los relojes de las casas... se atrasaron todos al mismo tiempo».",
+     opts:{A:"Serenidad ante su presencia.",B:"Necesidad de hablar de él.",C:"Fascinación al verlo pasar.",D:"Inquietud por su recorrido."},c:"C",
+     fb:"La imagen de que carros, animales y relojes se detienen a su paso transmite una fascinación colectiva ante su llegada."},
+    {q:"🤖 ¿Por qué al testimonio de la posadera se le toma con reservas?",
+     opts:{A:"Porque su relato estaba influido por un estado mental alterado.",B:"Porque su recuerdo se había distorsionado con el paso del tiempo.",C:"Porque sus impulsos la hacían actuar de forma irresponsable.",D:"Porque sus declaraciones fueron modificadas por otros."},c:"A",
+     fb:"El texto indica que la posadera \"terminó sus días hablando sola... convencida de escuchar tictacs donde no los había\", lo que pone en duda la fiabilidad de su testimonio."},
+    {q:"🤖 En el relato, ¿qué testimonio es poco confiable para reconstruir la visita del relojero?",
+     opts:{A:"El de Bruno.",B:"El de don Aurelio.",C:"El del guardabosque.",D:"El de la posadera."},c:"D",
+     fb:"Como se explicó en la pregunta anterior, el testimonio de la posadera se presenta con reservas por su estado mental."},
+    {q:"🤖 ¿Con qué finalidad se menciona la \"epidemia del 89\" en el relato?",
+     opts:{A:"Para explicar la motivación del relojero para viajar.",B:"Para justificar la necesidad de un evento alegre en el pueblo.",C:"Para mostrar que el pueblo se ha mantenido igual por décadas.",D:"Para dimensionar el impacto que tuvo la noticia de su llegada."},c:"D",
+     fb:"El texto compara la velocidad con que corrió la noticia de su llegada con el aviso de la epidemia del 89, una comparación que dimensiona el impacto del evento."},
+    {q:"🤖 Un lector considera que la devoción del pueblo por el relojero llega a lo irracional. ¿Qué hecho del relato permite fundamentar esta interpretación?",
+     opts:{A:"El deseo de que el pueblo llevara su nombre.",B:"El cuidado de las herramientas que dejó en el taller.",C:"La conservación de la veleta hecha en su honor.",D:"La creencia de que los pañuelos donados guardan algo de su calma."},c:"D",
+     fb:"Creer que los pañuelos podrían conservar \"un poco de su calma\" es el hecho más irracional entre las opciones, al atribuir cualidades casi mágicas a objetos comunes."},
+    {q:"🤖 ¿Cómo es la reacción de la gobernación frente a la solicitud del pueblo?",
+     opts:{A:"Displicente, ya que es indiferente al deseo del pueblo.",B:"Violenta, ya que impone su voluntad sobre la del pueblo.",C:"Negligente, ya que descuida los derechos del pueblo.",D:"Indulgente, ya que perdona las acciones del pueblo."},c:"A",
+     fb:"El texto indica que la gobernación no autoriza el cambio de nombre \"alegando trámites de catastro\", una respuesta burocrática e indiferente ante la petición reiterada del pueblo."},
+    {q:"🤖 ¿Qué objetos del museo cuida especialmente la narradora?",
+     opts:{A:"Los mapas de los lugares que recorrió el relojero.",B:"Las herramientas de trabajo que usaba el relojero.",C:"La veleta hecha en su honor.",D:"Los pañuelos donados por las mujeres del pueblo."},c:"B",
+     fb:"El texto describe que se conservan \"sus herramientas de trabajo —el destornillador fino, la lupa de relojero, el cuaderno de bocetos—\" como parte del tesoro custodiado por el pueblo."}
+  ]
+};
+
+var cierreState={me:{started:false,finished:false,timeLeft:960,interval:null,answers:{}}};
+
+function buildCierre(key){
+  var cont=document.getElementById("cierre-qs-"+key);
+  cont.innerHTML="";
+  CQ[key].forEach(function(q,i){
+    var d=document.createElement("div");
+    d.className="ensayo-q";
+    var optsH="";
+    ["A","B","C","D"].forEach(function(l){
+      optsH+='<div class="ensayo-opt" id="eo-'+key+'-'+i+'-'+l+'" data-qi="'+i+'" data-opt="'+l+'" onclick="selCierre(\''+key+'\',this.dataset.qi,this.dataset.opt)">'+
+        '<div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="ensayo-num" style="color:var(--rosa)">Pregunta '+(i+1)+' / '+CQ[key].length+'</div>'+
+      '<div class="ensayo-q-text">'+q.q+'</div>'+
+      '<div class="ensayo-opts" id="eopts-'+key+'-'+i+'">'+optsH+'</div>'+
+      '<div class="ensayo-fb" id="efb-'+key+'-'+i+'"></div>';
+    cont.appendChild(d);
+  });
+}
+buildCierre("me");
+
+function selCierre(key,i,opt){
+  i=parseInt(i);
+  var st=cierreState[key];
+  if(!st.started||st.finished)return;
+  var opts=document.getElementById("eopts-"+key+"-"+i);
+  if(opts.dataset.done)return;
+  st.answers[i]=opt;
+  opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.remove("selected");});
+  document.getElementById("eo-"+key+"-"+i+"-"+opt).classList.add("selected");
+}
+
+function startCierre(key){
+  var st=cierreState[key];
+  st.started=true;
+  document.getElementById("start-btn-"+key).style.display="none";
+  document.getElementById("timer-status-"+key).textContent="¡En marcha! Responde con calma.";
+  var qs=document.getElementById("cierre-qs-"+key); qs.style.display="block";
+  var sb=document.getElementById("submit-btn-"+key); sb.style.display="block"; sb.disabled=false;
+  st.interval=setInterval(function(){
+    st.timeLeft--;
+    var m=Math.floor(st.timeLeft/60),s=st.timeLeft%60;
+    var disp=document.getElementById("timer-disp-"+key);
+    disp.textContent=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+    if(st.timeLeft<=60)disp.className="timer-display danger";
+    else if(st.timeLeft<=180)disp.className="timer-display warn";
+    if(st.timeLeft<=0){clearInterval(st.interval);submitCierre(key);}
+  },1000);
+}
+
+function submitCierre(key){
+  var st=cierreState[key];
+  if(st.finished)return;
+  st.finished=true;
+  clearInterval(st.interval);
+  document.getElementById("timer-status-"+key).textContent="Ensayo terminado";
+  document.getElementById("submit-btn-"+key).disabled=true;
+  var correct=0;
+  CQ[key].forEach(function(q,i){
+    var opts=document.getElementById("eopts-"+key+"-"+i);
+    opts.dataset.done="1";
+    opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.add("locked");});
+    var ua=st.answers[i];
+    document.getElementById("eo-"+key+"-"+i+"-"+q.c).classList.add("right");
+    if(ua&&ua!==q.c)document.getElementById("eo-"+key+"-"+i+"-"+ua).classList.add("wrong");
+    var isOk=(ua===q.c);
+    var fb=document.getElementById("efb-"+key+"-"+i);
+    fb.className="ensayo-fb show "+(isOk?"ok":"no");
+    fb.textContent=(ua?(isOk?"✅ Correcto. ":"❌ Incorrecto. La respuesta correcta es "+q.c+". "):"⚠️ Sin respuesta. La correcta es "+q.c+". ")+q.fb;
+    if(isOk)correct++;
+  });
+  var pct=Math.round(correct/CQ[key].length*100);
+  var mainColor=pct>=70?"var(--rosa)":pct>=50?"#f59e0b":"#ef4444";
+  var msg=pct>=70?"🎉 ¡Buen resultado!":pct>=50?"💪 Resultado aceptable. Repasa el esquema interactivo y el glosario antes de avanzar.":"📚 Conviene repasar esta unidad antes del ensayo final del módulo.";
+  var res=document.getElementById("cierre-results-"+key);
+  res.style.display="block";
+  res.innerHTML='<div class="res-banner" style="color:'+mainColor+'">'+(pct>=70?"🏆":pct>=50?"💪":"📚")+" "+correct+" / "+CQ[key].length+" correctas</div>"+
+    '<div style="font-size:1rem;color:var(--text-dim);margin-bottom:16px">'+pct+"% de logro</div>"+
+    '<div style="background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;margin-top:6px">'+
+    '<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--rosa);margin-bottom:8px">'+msg+"</p>"+
+    '<p style="font-size:.88rem;color:var(--text-dim)">Revisa la corrección de cada pregunta más arriba.</p></div>';
+  res.scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+<!-- ═══ ASISTENTE IA — LÓGICA ═══ -->
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
+// -------------------------------------------------------------------
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico de la Unidad 3 (Textos Literarios: Narrativos) del módulo de Competencia Lectora, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media, muchos sin conocimiento previo del tema. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre el contenido de esta unidad (textos narrativos literarios) y los ejemplos de esta unidad. Puedes referirte a las habilidades de Localizar, Interpretar y Evaluar (vistas en la Unidad 0) si el estudiante las trae a colación, pero no profundices en ellas más allá de lo necesario para explicar esta unidad. NO respondes sobre otras materias PAES (Matemática, Ciencias, Historia), ni sobre unidades futuras (Ensayo Final) que el estudiante aún no ha visto.",
+"",
+"CONTENIDO DE LA UNIDAD: texto narrativo literario — tipos de narrador (protagonista, testigo, omnisciente, objetivo) y su grado de conocimiento sobre los hechos y personajes; caracterización directa e indirecta de personajes; función del ambiente y de los detalles sensoriales en la atmósfera del relato; símbolos y su interpretación a partir de evidencia textual; función de un recuerdo, flashback o digresión dentro de la historia; lectura de textos pareados (comparar narradores, focos narrativos o información entre dos fragmentos). Errores frecuentes: confundir al narrador con el autor, confundir el orden de la narración con el orden de los hechos, interpretar un símbolo de forma demasiado literal, o asumir que todo detalle del relato es simbólico.",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos de arriba tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre tipo de narrador, caracterización, símbolo, función de un recuerdo o texto pareado, según pida. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta general sobre qué parte del relato se relaciona con esto, 2) acota a un fragmento o personaje específico, 3) señala qué elemento narrativo aplica (narrador, símbolo, caracterización, función textual) y por qué, 4) contrasta la alternativa elegida por el estudiante con la probablemente correcta, preguntando qué diferencia hay. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otra materia, otra unidad no vista, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para resolver dudas de Textos Narrativos de esta unidad.'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function anyCierreActive(){
+  var keys = ["me"];
+  for(var i=0;i<keys.length;i++){
+    var st = window.cierreState && window.cierreState[keys[i]];
+    if(st && st.started && !st.finished) return true;
+  }
+  return false;
+}
+
+function checkTutorBlock(){
+  var blocked = anyCierreActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false; // el botón sigue visible, solo se bloquea el contenido
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Competencia Lectora\n" +
+    "Módulo/Unidad: Competencia Lectora · Unidad 3 · Textos Literarios: Narrativos\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy || anyCierreActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+checkTutorBlock();
+})();
+</script>
+</body>
+</html>
