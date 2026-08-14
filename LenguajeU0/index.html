@@ -1130,9 +1130,8 @@ function submitCierre(key){
 (function(){
 
 // -------------------------------------------------------------------
-// CAMBIAR ESTA URL cuando exista el backend propio (ver documentación
-// entregada aparte). Mientras tanto, apunta directo a la API de
-// Anthropic para poder probar el asistente dentro de este entorno.
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
 // -------------------------------------------------------------------
 var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
 
@@ -1276,35 +1275,33 @@ window.tutorSend = function(){
       messages: tutorHistory
     })
   })
-  .then(function(res){
-    if(!res.ok) throw new Error("HTTP " + res.status);
-    return res.json();
-  })
+  .then(function(res){ return res.json(); })
   .then(function(data){
     hideTyping();
-    var reply = (data.content && data.content[0] && data.content[0].text)
-      ? data.content[0].text
-      : simulateTutorReply(text);
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
     addMsg("bot", reply);
     tutorHistory.push({role:"assistant", content:reply});
     tutorBusy = false;
     document.getElementById("tutorSendBtn").disabled = false;
   })
   .catch(function(err){
-    console.error("Error tutor IA:", err);
     hideTyping();
-    var reply = simulateTutorReply(text);
-    addMsg("bot", reply);
-    tutorHistory.push({role:"assistant", content:reply});
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
     tutorBusy = false;
     document.getElementById("tutorSendBtn").disabled = false;
   });
 };
 
 // -------------------------------------------------------------------
-// MODO DEMO: respuestas simuladas para la presentación (sin backend).
-// Cuando el proxy del profesor esté listo, restaurar la llamada real
-// a TUTOR_ENDPOINT (ver versión anterior de tutorSend en el historial).
+// Función de respaldo (ya no se usa en tutorSend, se deja por si se
+// necesita volver al modo demo sin conexión).
 // -------------------------------------------------------------------
 function simulateTutorReply(text){
   var t = text.toLowerCase();
