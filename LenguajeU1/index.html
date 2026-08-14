@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 1 – Textos No Literarios: Expositivos · PAES Competencia Lectora</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#db2777;--rosa-dark:#9d174d;--rosa-glow:rgba(219,39,119,.15);
+  --coral:#fb7185;--bg:#1a0510;--card:#2b0a1c;--card2:#391030;
+  --text:#fde7f0;--text-dim:#c98aa8;--radius:18px;
+  --c-a:#38bdf8;--c-b:#34d399;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 10% 20%,rgba(219,39,119,.45) 0%,transparent 100%),
+  radial-gradient(1px 1px at 30% 65%,rgba(255,255,255,.18) 0%,transparent 100%),
+  radial-gradient(1px 1px at 58% 10%,rgba(219,39,119,.3) 0%,transparent 100%),
+  radial-gradient(1px 1px at 75% 45%,rgba(255,255,255,.15) 0%,transparent 100%),
+  radial-gradient(1px 1px at 90% 80%,rgba(219,39,119,.22) 0%,transparent 100%),
+  radial-gradient(1px 1px at 45% 88%,rgba(255,255,255,.12) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--rosa),var(--coral));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(2rem,7vw,3.8rem);
+  background:linear-gradient(135deg,var(--rosa),var(--coral),#f472b6);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(219,39,119,.12);border:1.5px solid rgba(219,39,119,.35);color:var(--rosa);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.07);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.78rem;padding:7px 13px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:var(--rosa-glow);border-color:var(--rosa);color:var(--rosa)}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.35rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.97rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.h-header{border-radius:var(--radius);padding:26px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:52px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.1}
+.h-header p{font-size:.97rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--rosa);background:rgba(219,39,119,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--rosa);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65}
+.tip-box p strong{color:var(--text)}
+/* IMAGEN PLACEHOLDER */
+/* ETIQUETAS */
+.ai-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);border-radius:6px;padding:3px 10px;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#a78bfa;margin-bottom:10px;margin-right:6px}
+.par-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);border-radius:6px;padding:3px 10px;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#38bdf8;margin-bottom:10px}
+.a{color:var(--c-a)!important}.b{color:var(--c-b)!important}.rosa{color:var(--rosa)!important}
+/* TABLA PESO */
+.weight-table{width:100%;border-collapse:collapse;margin:12px 0}
+.weight-table th{background:rgba(219,39,119,.12);color:var(--rosa);font-size:.8rem;padding:8px 12px;text-align:left;font-family:"Fredoka One",cursive;font-weight:400}
+.weight-table td{padding:9px 12px;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);color:var(--text-dim)}
+.w-bar{display:inline-block;height:6px;border-radius:3px;background:var(--rosa);vertical-align:middle;margin-right:8px;opacity:.7}
+/* TABS ESQUEMA */
+.tabgroup{margin:10px 0 18px}
+.tabnav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tab-btn{background:var(--card2);border:1.5px solid rgba(255,255,255,.1);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.82rem;padding:9px 16px;border-radius:12px;cursor:pointer;transition:all .2s}
+.tab-btn:hover{border-color:var(--rosa)}
+.tab-btn.active{background:var(--rosa-glow);border-color:var(--rosa);color:var(--rosa)}
+.tab-panel{display:none;background:var(--card2);border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,.07)}
+.tab-panel.active{display:block}
+.tab-panel .ex-text{background:rgba(0,0,0,.2);border-radius:10px;padding:14px 16px;font-size:.9rem;line-height:1.7;color:var(--text-dim);margin-bottom:12px}
+.tab-panel .ex-arrow{text-align:center;font-size:1.3rem;color:var(--rosa);margin:6px 0}
+.tab-panel .ex-highlight{color:var(--text);font-weight:800;background:rgba(219,39,119,.18);padding:1px 5px;border-radius:4px}
+.struct-flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:10px 0}
+.struct-box{flex:1;min-width:140px;background:rgba(0,0,0,.2);border-radius:12px;padding:14px;border:1.5px solid rgba(255,255,255,.1);text-align:center}
+.struct-box .st-label{font-family:"Fredoka One",cursive;font-size:.95rem;color:var(--rosa);margin-bottom:6px}
+.struct-box .st-desc{font-size:.8rem;color:var(--text-dim);line-height:1.5}
+.struct-arrow{align-self:center;font-size:1.4rem;color:var(--text-dim)}
+@media(max-width:680px){.struct-flow{flex-direction:column}.struct-arrow{transform:rotate(90deg)}}
+/* TABLA DE DATOS (esquema/practica) */
+.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:rgba(0,0,0,.2);border-radius:10px;overflow:hidden}
+.data-table th{background:rgba(52,211,153,.15);color:var(--c-b);font-size:.82rem;padding:9px 12px;text-align:left;font-weight:900}
+.data-table td{padding:9px 12px;font-size:.86rem;color:var(--text-dim);border-bottom:1px solid rgba(255,255,255,.05)}
+/* PREGUNTAS PRÁCTICA GUIADA */
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px;margin-bottom:16px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.paes-ctx{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-ctx.small{font-size:.85rem}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--rosa);background:rgba(219,39,119,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(219,39,119,.14);border-color:var(--rosa)}
+.paes-opt.wrong{background:rgba(239,68,68,.08);border-color:#ef4444}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--rosa);flex-shrink:0}
+.paes-opt.right .ol{background:var(--rosa);color:#1a0510;border-color:var(--rosa)}
+.paes-opt.wrong .ol{background:#ef4444;color:#fff;border-color:#ef4444}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(219,39,119,.12);color:#f9a8d4;border-left:3px solid var(--rosa)}
+.paes-fb.no{background:rgba(239,68,68,.08);color:#fca5a5;border-left:3px solid #ef4444}
+/* MINI ENSAYO */
+.timer-box{background:var(--card2);border:2px solid rgba(219,39,119,.3);border-radius:14px;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.timer-display{font-family:"Fredoka One",cursive;font-size:2.4rem;color:var(--rosa);letter-spacing:.05em}
+.timer-display.warn{color:#f59e0b}
+.timer-display.danger{color:#ef4444;animation:pulse-border 1s ease-in-out infinite}
+@keyframes pulse-border{0%,100%{opacity:1}50%{opacity:.5}}
+.ensayo-q{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:12px}
+.ensayo-num{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.ensayo-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 12px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.ensayo-q-text{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.ensayo-opts{display:flex;flex-direction:column;gap:7px}
+.ensayo-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 13px;border-radius:9px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(0,0,0,.18);transition:all .18s}
+.ensayo-opt:hover:not(.locked){border-color:var(--rosa);background:rgba(219,39,119,.08)}
+.ensayo-opt.selected{background:rgba(219,39,119,.12);border-color:var(--rosa)}
+.ensayo-opt.locked{cursor:default;pointer-events:none}
+.ensayo-opt.right{background:rgba(219,39,119,.14);border-color:var(--rosa)}
+.ensayo-opt.wrong{background:rgba(239,68,68,.08);border-color:#ef4444}
+.ensayo-opt .ol{color:var(--rosa)}
+.ensayo-opt.selected .ol{background:var(--rosa);color:#1a0510;border-color:var(--rosa)}
+.ensayo-opt.right .ol{background:var(--rosa);color:#1a0510;border-color:var(--rosa)}
+.ensayo-opt.wrong .ol{background:#ef4444;color:#fff;border-color:#ef4444}
+.ensayo-fb{margin-top:8px;padding:9px 13px;border-radius:9px;font-size:.83rem;line-height:1.55;display:none}
+.ensayo-fb.show{display:block}
+.ensayo-fb.ok{background:rgba(219,39,119,.1);color:#f9a8d4;border-left:3px solid var(--rosa)}
+.ensayo-fb.no{background:rgba(239,68,68,.06);color:#fca5a5;border-left:3px solid #ef4444}
+.submit-btn{width:100%;padding:14px;background:var(--rosa);color:#1a0510;border:none;border-radius:12px;font-family:"Fredoka One",cursive;font-size:1.1rem;cursor:pointer;margin-top:10px;transition:background .2s}
+.submit-btn:hover{background:var(--rosa-dark)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+.ensayo-results{display:none;margin-top:20px}
+.res-banner{font-family:"Fredoka One",cursive;font-size:2.5rem;margin-bottom:6px}
+/* NAV LINEAL */
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(26,5,16,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.07);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(219,39,119,.35);background:transparent;color:var(--rosa);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--rosa-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#5c1638}
+html{background:#1a0510;overflow-x:clip;overscroll-behavior-x:none;}
+body{overflow-x:clip;overscroll-behavior-x:none;}
+.svg-wrap{overflow-x:scroll;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pinch-zoom;scrollbar-width:thin;scrollbar-color:rgba(219,39,119,.35) transparent;border-radius:12px;margin:12px 0;background:#1a0510;max-width:100%;box-sizing:border-box;}
+.svg-wrap::-webkit-scrollbar{height:4px;}
+.svg-wrap::-webkit-scrollbar-thumb{background:rgba(219,39,119,.4);border-radius:2px;}
+.svg-wrap > svg{display:block !important;min-width:520px;width:520px !important;max-width:none !important;border-radius:0 !important;margin:0 !important;height:auto;}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:74px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--coral));border:none;box-shadow:0 4px 18px rgba(219,39,119,.45);cursor:pointer;z-index:210;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid var(--bg)}
+.tutor-fab.blocked .dot{background:#6b7280}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(0,0,0,.4);z-index:220;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--rosa-dark),var(--rosa));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:#fff}
+.tutor-head p{font-size:.7rem;color:rgba(255,255,255,.8);margin-top:1px}
+.tutor-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1}
+.tutor-blocked-msg{padding:16px;font-size:.85rem;color:var(--text-dim);text-align:center;line-height:1.6}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:999px;cursor:pointer;transition:all .18s}
+.tutor-mode-btn:hover{border-color:var(--rosa);color:var(--rosa)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--rosa);color:#1a0510;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.07);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:rgba(219,39,119,.1);color:var(--text-dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--rosa)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--rosa)}
+.tutor-send{background:var(--rosa);border:none;color:#1a0510;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){
+  .container{padding:10px 10px 80px;}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:4px 2px 10px;gap:5px;margin:12px 0 4px;scrollbar-width:none;position:relative !important;top:auto !important;background:rgba(26,5,16,.95);border-radius:14px;padding:8px !important;}
+  .nav::-webkit-scrollbar{display:none;}
+  .nav-btn{flex-shrink:0;font-size:.74rem;padding:9px 13px;min-height:40px;touch-action:manipulation;}
+  .hero{padding:36px 8px 14px;}
+  .hero-emoji{font-size:48px;}
+  .card{padding:14px 12px;}
+  .grid-2{grid-template-columns:1fr;}
+  .paes-box{padding:14px 12px;}
+  .paes-opt{padding:12px 11px;min-height:52px;touch-action:manipulation;}
+  .ol{min-width:30px;height:30px;font-size:.8rem;}
+  .lnav-btn{padding:13px 18px !important;font-size:.95rem !important;min-height:48px;}
+  .submit-btn{width:100% !important;padding:13px !important;}
+  .tabnav{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:33%"></div></div>
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">📰</span>
+  <h1>Textos Expositivos</h1>
+  <p>PAES Competencia Lectora · No Literarios · Unidad 1</p>
+  <div class="badge">📝 Prueba obligatoria · 65 preguntas (60 puntuables)</div>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('partea',1,this)">📄 Parte A · Continuo</button>
+  <button class="nav-btn" onclick="showSec('ensayoa',2,this)">⏱️ Ensayo A</button>
+  <button class="nav-btn" onclick="showSec('parteb',3,this)">📊 Parte B · Discontinuo</button>
+  <button class="nav-btn" onclick="showSec('ensayob',4,this)">⏱️ Ensayo B</button>
+</div>
+
+<!-- ═══ PORTADA ═══ -->
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title rosa" style="justify-content:center;font-size:1.7rem">📰 Unidad 1 · Textos No Literarios: Expositivos</p>
+    <p style="font-size:1.05rem;max-width:600px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Los textos expositivos <strong>informan o explican</strong> un tema (artículos científicos, reportajes, noticias). Esta unidad se divide en dos partes: <strong>Parte A</strong>, sobre el texto expositivo continuo, y <strong>Parte B</strong>, sobre cómo leer tablas, gráficos e infografías dentro de estos textos.</p>
+  </div>
+  <div class="card">
+    <p class="card-title rosa">📊 Qué cubre cada parte</p>
+    <table class="weight-table">
+      <tr><th>Parte</th><th>Contenido</th></tr>
+      <tr><td>📄 Parte A</td><td><span class="w-bar" style="width:50px;background:var(--c-a)"></span><strong style="color:var(--c-a)">Texto expositivo continuo: estructura, progresión temática, función de segmentos</strong></td></tr>
+      <tr><td>📊 Parte B</td><td><span class="w-bar" style="width:50px;background:var(--c-b)"></span><strong style="color:var(--c-b)">Formatos discontinuos y multimodales: tablas, gráficos e infografías</strong></td></tr>
+    </table>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--rosa)">
+      <p class="card-title rosa">📌 Recuerda</p>
+      <ul>
+        <li>Usa las 3 habilidades de la Unidad 0 (Localizar, Interpretar, Evaluar): aquí se aplican al texto expositivo</li>
+        <li>El texto expositivo no defiende una postura — <strong>informa o explica</strong>, a diferencia del argumentativo (Unidad 2)</li>
+        <li>Los datos, tablas y gráficos son parte del texto: también se leen e interpretan</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--coral)">
+      <p class="card-title" style="color:var(--coral)">⏱️ Al final de cada parte</p>
+      <ul>
+        <li>Mini ensayo cronometrado con <strong>preguntas reales de la PAES</strong></li>
+        <li>Retroalimentación y corrección inmediata</li>
+        <li>Incluye al menos un ítem de <strong>texto pareado</strong> en la práctica guiada</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PARTE A: TEXTO EXPOSITIVO CONTINUO ═══ -->
+<div class="section" id="partea">
+  <div class="h-header" style="background:rgba(56,189,248,.08);border:1.5px solid rgba(56,189,248,.3)">
+    <span class="icon">📄</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--c-a);margin-bottom:4px">Parte A de 2</div>
+    <h2 class="a">Texto Expositivo Continuo</h2>
+    <p>Artículos científicos, reportajes, noticias y textos informativos redactados en párrafos corridos, sin tablas ni gráficos.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title a">📘 ¿Qué es un texto expositivo?</p>
+    <p>Un texto expositivo tiene un único propósito: <strong>informar o explicar</strong> un tema de la manera más clara y objetiva posible. No busca convencer al lector de una postura — eso es tarea del texto argumentativo, que verás en la Unidad 2. Lo reconoces porque:</p>
+    <ul>
+      <li><strong>Lenguaje denotativo y preciso:</strong> las palabras se usan en su sentido literal, sin ambigüedad ni doble sentido.</li>
+      <li><strong>Distancia del emisor:</strong> quien escribe describe y explica, pero no opina abiertamente sobre si algo es bueno o malo.</li>
+      <li><strong>Apoyo en datos verificables:</strong> cifras, definiciones, citas de expertos o estudios, más que opiniones personales.</li>
+    </ul>
+    <p>En la PAES aparece como artículos científicos o de divulgación, reportajes periodísticos, noticias, o entradas informativas de sitios institucionales — como los que ya trabajaste en la Unidad 0.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title a">🗺️ Esquema interactivo · Tipos de organización</p>
+    <p style="margin-bottom:10px">Todo texto expositivo tiene una estructura general (introducción-desarrollo-cierre), pero además organiza su <strong>desarrollo</strong> según un patrón específico. Reconocer el patrón te ayuda a anticipar qué viene después y a responder preguntas sobre la función de cada párrafo.</p>
+    <div class="tabgroup" data-group="a">
+      <div class="tabnav">
+        <button class="tab-btn active" onclick="showTabPanel('a','a-tab1',this)">Estructura general</button>
+        <button class="tab-btn" onclick="showTabPanel('a','a-tab2',this)">Definición-clasificación</button>
+        <button class="tab-btn" onclick="showTabPanel('a','a-tab3',this)">Comparación-contraste</button>
+        <button class="tab-btn" onclick="showTabPanel('a','a-tab4',this)">Causa-consecuencia</button>
+        <button class="tab-btn" onclick="showTabPanel('a','a-tab5',this)">Problema-solución</button>
+        <button class="tab-btn" onclick="showTabPanel('a','a-tab6',this)">Secuencia</button>
+      </div>
+      <div class="tab-panel active" id="a-tab1">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">Casi todo texto expositivo sigue una estructura de tres momentos:</p>
+        <div class="struct-flow">
+          <div class="struct-box"><div class="st-label">Introducción</div><div class="st-desc">Presenta el tema y, a veces, adelanta cómo se organizará la información</div></div>
+          <div class="struct-arrow">→</div>
+          <div class="struct-box"><div class="st-label">Desarrollo</div><div class="st-desc">Explica el tema por subtemas, con datos, ejemplos y definiciones</div></div>
+          <div class="struct-arrow">→</div>
+          <div class="struct-box"><div class="st-label">Cierre</div><div class="st-desc">Sintetiza la idea central o proyecta su importancia</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="a-tab2">
+        <p style="margin-bottom:8px;color:var(--text-dim);font-size:.85rem">Presenta qué es algo y luego sus tipos o categorías.</p>
+        <p style="margin-bottom:10px;font-size:.82rem"><strong style="color:var(--text)">Conectores típicos:</strong> es decir, se entiende por, se clasifica en, existen dos tipos.</p>
+        <div class="ex-text">"La fotosíntesis es el proceso mediante el cual las plantas producen su propio alimento. <span class="ex-highlight">Existen dos tipos principales</span>: la fotosíntesis oxigénica, realizada por plantas y algas, y la anoxigénica, propia de ciertas bacterias."</div>
+      </div>
+      <div class="tab-panel" id="a-tab3">
+        <p style="margin-bottom:8px;color:var(--text-dim);font-size:.85rem">Establece semejanzas y diferencias entre dos o más elementos.</p>
+        <p style="margin-bottom:10px;font-size:.82rem"><strong style="color:var(--text)">Conectores típicos:</strong> en cambio, a diferencia de, mientras que, del mismo modo.</p>
+        <div class="ex-text">"<span class="ex-highlight">A diferencia del</span> pansori coreano, que se interpreta con un solo tambor, el flamenco puede incluir guitarra, cajón y palmas."</div>
+      </div>
+      <div class="tab-panel" id="a-tab4">
+        <p style="margin-bottom:8px;color:var(--text-dim);font-size:.85rem">Explica por qué ocurre algo y qué efectos produce.</p>
+        <p style="margin-bottom:10px;font-size:.82rem"><strong style="color:var(--text)">Conectores típicos:</strong> debido a, por lo tanto, como resultado, esto provoca.</p>
+        <div class="ex-text">"La sobreexplotación de las napas subterráneas <span class="ex-highlight">provocó</span> que numerosos pozos se secaran durante el verano."</div>
+      </div>
+      <div class="tab-panel" id="a-tab5">
+        <p style="margin-bottom:8px;color:var(--text-dim);font-size:.85rem">Plantea una dificultad y las medidas para resolverla.</p>
+        <p style="margin-bottom:10px;font-size:.82rem"><strong style="color:var(--text)">Conectores típicos:</strong> ante esto, para enfrentar, se propone, como medida.</p>
+        <div class="ex-text">"<span class="ex-highlight">Ante</span> la escasez de agua, algunas municipalidades comenzaron a distribuirla mediante camiones aljibe."</div>
+      </div>
+      <div class="tab-panel" id="a-tab6">
+        <p style="margin-bottom:8px;color:var(--text-dim);font-size:.85rem">Organiza la información según un orden temporal o de pasos.</p>
+        <p style="margin-bottom:10px;font-size:.82rem"><strong style="color:var(--text)">Conectores típicos:</strong> primero, luego, posteriormente, finalmente.</p>
+        <div class="ex-text">"Los pictogramas se convirtieron <span class="ex-highlight">primero</span> en ideogramas, luego dieron paso a distintos sistemas de escritura estilizados, y finalmente al alfabeto."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">💡 Puntos clave PAES</div>
+    <p>Antes de leer las alternativas, pregúntate: <strong>¿qué función cumple este párrafo dentro del texto completo?</strong> (definir, ejemplificar, contrastar, sintetizar). Muchas preguntas de esta unidad piden identificar esa función, no solo el contenido.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title a">🔎 Ejemplo resuelto paso a paso</p>
+    <div class="paes-ctx">El aguacate (<em>Persea americana</em>) es originario de Mesoamérica y ha sido cultivado por más de 5000 años. Actualmente, es uno de los productos agrícolas de mayor exportación en países como México, Perú y Chile. Su alto contenido de grasas monoinsaturadas lo ha convertido en un alimento valorado dentro de dietas saludables, aunque su cultivo intensivo también ha generado preocupación por el alto consumo de agua que requiere.</div>
+    <p class="paes-q" style="margin-bottom:10px">¿Qué tipo de organización predomina en el texto?</p>
+    <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:14px 16px;font-size:.87rem;color:var(--text-dim);line-height:1.7">
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 1 — Identifica el tema:</strong> el texto trata sobre el aguacate en general.</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 2 — Busca conectores de organización:</strong> no hay "en cambio" ni "a diferencia de" (descarta comparación); no hay "primero... luego" (descarta secuencia); se menciona una preocupación, pero no se propone ninguna medida para resolverla (descarta problema-solución completo).</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 3 — Verifica qué function cumple cada oración:</strong> la primera define qué es y de dónde viene; las siguientes agregan datos (exportación, propiedades, consumo de agua) que amplían esa definición inicial, sin contrastarla ni resolver un problema.</p>
+      <p><strong style="color:var(--text)">Conclusión:</strong> el texto define el aguacate y luego añade datos complementarios sobre él. La preocupación por el agua es un dato secundario, no el eje central.</p>
+    </div>
+  </div>
+
+  <div class="tip-box" style="border-left-color:#f59e0b;background:rgba(245,158,11,.07)">
+    <div class="tip-label" style="color:#f59e0b">⚠️ Errores frecuentes en la PAES</div>
+    <p><strong>1. Confundir un dato de apoyo con la idea principal:</strong> en el ejemplo anterior, "la preocupación por el consumo de agua" es un detalle, no el tema central del texto.</p>
+    <p><strong>2. Elegir una alternativa verdadera pero que no responde la pregunta:</strong> una opción puede ser cierta según el texto y aun así no ser la respuesta, si no contesta exactamente lo que se pregunta.</p>
+    <p><strong>3. Caer en distractores por repetición literal:</strong> una alternativa puede repetir palabras exactas del texto pero cambiar su sentido o sacarlas de contexto — no elijas por "reconocer palabras", elige por sentido.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title a">✏️ Práctica guiada</p>
+    <p style="margin-bottom:14px">Incluye un ítem de <strong>texto pareado</strong> (dos textos breves comparados en un mismo set).</p>
+
+    <div class="paes-box" id="a-p1">
+      <div class="paes-tag a"><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">El uso de emojis en la comunicación digital ha crecido exponencialmente desde su creación en Japón en 1999. A diferencia de las palabras, un emoji puede transmitir una emoción o una idea completa mediante una sola imagen estandarizada, lo que recuerda al funcionamiento de los antiguos pictogramas. Sin embargo, a diferencia de estos, los emojis se combinan con el lenguaje escrito en lugar de reemplazarlo por completo.</div>
+      <div class="paes-q">¿Cuál es la idea principal del texto?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('a-p1','A')"><div class="ol">A</div><div class="ot">Los emojis reemplazaron completamente al lenguaje escrito.</div></div>
+        <div class="paes-opt" onclick="ans('a-p1','B')"><div class="ol">B</div><div class="ot">Los emojis funcionan de manera similar a los pictogramas, aunque se usan junto al lenguaje escrito.</div></div>
+        <div class="paes-opt" onclick="ans('a-p1','C')"><div class="ol">C</div><div class="ot">Los emojis se inventaron en Japón en el siglo XX.</div></div>
+        <div class="paes-opt" onclick="ans('a-p1','D')"><div class="ol">D</div><div class="ot">Los pictogramas antiguos eran más eficientes que los emojis.</div></div>
+      </div>
+      <div class="paes-fb" id="a-p1-fb"></div>
+    </div>
+
+    <div class="paes-box" id="a-p2">
+      <div class="paes-tag a"><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx">(Mismo texto de los emojis) "...lo que recuerda al funcionamiento de los antiguos pictogramas. Sin embargo, a diferencia de estos, los emojis se combinan con el lenguaje escrito..."</div>
+      <div class="paes-q">¿Qué función cumple la expresión "a diferencia de estos" en el texto?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('a-p2','A')"><div class="ol">A</div><div class="ot">Introduce una comparación entre los emojis y los pictogramas.</div></div>
+        <div class="paes-opt" onclick="ans('a-p2','B')"><div class="ol">B</div><div class="ot">Contradice la idea de que los emojis transmiten emociones.</div></div>
+        <div class="paes-opt" onclick="ans('a-p2','C')"><div class="ol">C</div><div class="ot">Concluye el tema tratado en el texto.</div></div>
+        <div class="paes-opt" onclick="ans('a-p2','D')"><div class="ol">D</div><div class="ot">Ejemplifica el uso de un emoji específico.</div></div>
+      </div>
+      <div class="paes-fb" id="a-p2-fb"></div>
+    </div>
+
+    <div class="paes-box" id="a-p3">
+      <div class="paes-tag a"><span class="ai-tag">🤖 Generada</span><span class="par-tag">🔗 Texto pareado</span></div>
+      <div class="paes-ctx small"><strong>Texto 1:</strong> La escritura cuneiforme fue desarrollada por los sumerios alrededor del año 3600 a. C. Consistía en marcas en forma de cuña realizadas sobre tablillas de arcilla húmeda mediante un instrumento llamado estilete. Se considera el sistema de escritura más antiguo conocido.<br><br><strong>Texto 2:</strong> Los jeroglíficos egipcios combinaban pictogramas e ideogramas y se utilizaban principalmente para inscripciones formales, como las que se encuentran en tumbas y templos. Su ejecución era compleja, por lo que existía un sistema paralelo, el hierático, para la escritura cotidiana.</div>
+      <div class="paes-q">¿Qué relación se establece entre ambos sistemas de escritura?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('a-p3','A')"><div class="ol">A</div><div class="ot">Ambos se utilizaron exclusivamente en contextos religiosos.</div></div>
+        <div class="paes-opt" onclick="ans('a-p3','B')"><div class="ol">B</div><div class="ot">Ambos combinaban pictogramas con marcas en cuña.</div></div>
+        <div class="paes-opt" onclick="ans('a-p3','C')"><div class="ol">C</div><div class="ot">Ambos son sistemas antiguos, pero se diferencian en su soporte y contexto de uso.</div></div>
+        <div class="paes-opt" onclick="ans('a-p3','D')"><div class="ol">D</div><div class="ot">Ambos fueron reemplazados por el alfabeto fenicio.</div></div>
+      </div>
+      <div class="paes-fb" id="a-p3-fb"></div>
+    </div>
+
+    <div class="paes-box" id="a-p4">
+      <div class="paes-tag a"><span class="ai-tag">🤖 Generada</span><span class="par-tag">🔗 Texto pareado</span></div>
+      <div class="paes-ctx small">(Mismos Texto 1 y Texto 2 del ejercicio anterior)</div>
+      <div class="paes-q">Según el Texto 1, ¿en qué soporte se realizaba la escritura cuneiforme?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('a-p4','A')"><div class="ol">A</div><div class="ot">Papiro</div></div>
+        <div class="paes-opt" onclick="ans('a-p4','B')"><div class="ol">B</div><div class="ot">Tablillas de arcilla húmeda</div></div>
+        <div class="paes-opt" onclick="ans('a-p4','C')"><div class="ol">C</div><div class="ot">Piedra</div></div>
+        <div class="paes-opt" onclick="ans('a-p4','D')"><div class="ol">D</div><div class="ot">Pergamino</div></div>
+      </div>
+      <div class="paes-fb" id="a-p4-fb"></div>
+    </div>
+
+    <div class="paes-box" id="a-p5">
+      <div class="paes-tag a"><span class="ai-tag">🤖 Generada</span><span class="par-tag">🔗 Texto pareado</span></div>
+      <div class="paes-ctx small">(Mismos Texto 1 y Texto 2)</div>
+      <div class="paes-q">¿Por qué los egipcios necesitaron un sistema paralelo al jeroglífico (el hierático)?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('a-p5','A')"><div class="ol">A</div><div class="ot">Porque el jeroglífico había sido reemplazado por el cuneiforme.</div></div>
+        <div class="paes-opt" onclick="ans('a-p5','B')"><div class="ol">B</div><div class="ot">Porque el jeroglífico era complejo y poco práctico para el uso cotidiano.</div></div>
+        <div class="paes-opt" onclick="ans('a-p5','C')"><div class="ol">C</div><div class="ot">Porque el hierático era el único sistema reconocido oficialmente.</div></div>
+        <div class="paes-opt" onclick="ans('a-p5','D')"><div class="ol">D</div><div class="ot">Porque el jeroglífico solo podía usarse en tablillas de arcilla.</div></div>
+      </div>
+      <div class="paes-fb" id="a-p5-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MINI ENSAYO PARTE A (pestaña separada) ═══ -->
+<div class="section" id="ensayoa">
+  <div class="h-header" style="background:rgba(56,189,248,.08);border:1.5px solid rgba(56,189,248,.3)">
+    <span class="icon">⏱️</span>
+    <h2 class="a">Mini Ensayo · Parte A</h2>
+    <p>Pon a prueba lo aprendido sobre textos expositivos continuos, en condiciones cronometradas.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title a">⏱️ Mini ensayo cronometrado · 8 preguntas generadas por IA · 12 minutos</p>
+    <p><span class="ai-tag">🤖 Texto y preguntas generados por IA</span></p>
+    <p>Contenido generado por IA para practicar en condiciones cronometradas, replicando el mismo formato del mini ensayo.</p>
+  </div>
+  <div class="timer-box">
+    <div>
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Tiempo restante</div>
+      <div class="timer-display" id="timer-disp-pa">12:00</div>
+    </div>
+    <div style="text-align:right">
+      <div id="timer-status-pa" style="font-size:.85rem;color:var(--text-dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+      <button id="start-btn-pa" onclick="startCierre('pa')" style="padding:8px 20px;background:var(--rosa);color:#1a0510;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+    </div>
+  </div>
+  <div class="card" id="pa-texto-card">
+    <p class="card-title a">📖 Texto para el mini ensayo</p>
+    <p style="font-size:.8rem;color:var(--text-dim);margin-bottom:10px"><em>Texto generado por IA para fines de práctica.</em></p>
+    <p style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--text);margin-bottom:10px">DEL PAPIRO A LA PASTA DE CELULOSA: UNA HISTORIA DEL PAPEL</p>
+    <div style="font-size:.88rem;line-height:1.8;color:var(--text-dim)">
+    <p style="margin-bottom:10px">Desde que existe la escritura, la humanidad ha buscado un soporte liviano, económico y duradero sobre el cual registrarla. El papiro, la primera respuesta ampliamente adoptada a esta necesidad, se elaboraba a partir del tallo de una planta acuática que crecía en las orillas del río Nilo. Los egipcios cortaban el tallo en láminas delgadas, las entrecruzaban en capas perpendiculares y las prensaban hasta formar una superficie lisa. El resultado era liviano y fácil de enrollar, pero también frágil frente a la humedad.</p>
+    <p style="margin-bottom:10px">Una limitación importante del papiro era su origen: la planta crecía casi exclusivamente en el delta del Nilo, lo que convertía a Egipto en el único proveedor a gran escala del Mediterráneo antiguo. Cuando, en distintos períodos, las relaciones comerciales con Egipto se tensionaron, otros reinos debieron buscar alternativas para no depender de un solo proveedor.</p>
+    <p style="margin-bottom:10px">Esa necesidad impulsó el desarrollo del pergamino, elaborado a partir de piel de animal (generalmente oveja o cabra) sometida a un proceso de raspado, estirado y secado. El pergamino resultaba considerablemente más resistente que el papiro y permitía escribir por ambos lados sin que la tinta traspasara, aunque su fabricación era más lenta y, por lo tanto, más costosa: producir un solo volumen extenso podía requerir las pieles de decenas de animales.</p>
+    <p style="margin-bottom:10px">Un desarrollo independiente y posterior tuvo lugar en China, donde se atribuye a un funcionario de la corte, hacia el año 105 d. C., el perfeccionamiento de una técnica para fabricar hojas a partir de fibras vegetales trituradas —como corteza, cáñamo o retazos de tela— disueltas en agua y secadas sobre un tamiz (aunque hallazgos arqueológicos sugieren que formas más rudimentarias de este papel ya existían antes de esa fecha). A diferencia del papiro y el pergamino, este método permitía usar materiales mucho más abundantes y económicos.</p>
+    <p style="margin-bottom:10px">La técnica china tardó siglos en llegar a Occidente. Se difundió primero hacia Asia Central y el mundo árabe a través de las rutas comerciales, y solo hacia los siglos XI y XII alcanzó la península ibérica, desde donde se expandió lentamente al resto de Europa. Durante buena parte de ese trayecto, papiro, pergamino y papel convivieron, cada uno reservado a usos distintos según su costo y disponibilidad.</p>
+    <p style="margin-bottom:10px">El papel no desplazó de forma masiva al pergamino en Europa sino hasta la invención de la imprenta de tipos móviles, en el siglo XV. La multiplicación de copias que hizo posible esta tecnología exigía un soporte que pudiera producirse con rapidez y a bajo costo, algo que el pergamino, por su lenta fabricación, no podía ofrecer a esa escala.</p>
+    <p style="margin-bottom:10px">Siglos más tarde, la creciente demanda de papel derivada de la expansión de la prensa y la alfabetización masiva volvió a plantear un problema de escasez: los trapos de tela, materia prima tradicional del papel europeo, no alcanzaban a cubrir la producción necesaria. La solución llegó a mediados del siglo XIX, cuando se perfeccionaron procesos para extraer pasta de celulosa directamente de la madera, materia prima virtualmente inagotable en comparación con los trapos, lo que permitió abaratar drásticamente el costo del papel e impulsar la prensa masiva y la educación pública.</p>
+    <p style="margin-bottom:10px">Vista en conjunto, la historia del papel no es la historia de un único invento, sino de una sucesión de soluciones distintas a un mismo problema: registrar información de manera liviana, duradera y, sobre todo, accesible para la mayor cantidad de personas posible. Cada nueva técnica surgió como respuesta a las limitaciones económicas o materiales de la anterior, y ese mismo impulso —abaratar y masificar el acceso a la escritura— sigue operando hoy en la transición hacia los soportes digitales.</p>
+    <div style="margin:14px 0;text-align:center">
+      <svg viewBox="0 0 460 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:460px;display:block;margin:0 auto">
+        <line x1="30" y1="65" x2="430" y2="65" stroke="#c98aa8" stroke-width="2"/>
+        <circle cx="60" cy="65" r="6" fill="#34d399"/><text x="60" y="90" text-anchor="middle" font-size="10" fill="#fde7f0">Papiro</text><text x="60" y="45" text-anchor="middle" font-size="9" fill="#c98aa8">Egipto</text>
+        <circle cx="180" cy="65" r="6" fill="#38bdf8"/><text x="180" y="90" text-anchor="middle" font-size="10" fill="#fde7f0">Pergamino</text><text x="180" y="45" text-anchor="middle" font-size="9" fill="#c98aa8">Mediterráneo</text>
+        <circle cx="300" cy="65" r="6" fill="#fbbf24"/><text x="300" y="90" text-anchor="middle" font-size="10" fill="#fde7f0">Papel (fibra)</text><text x="300" y="45" text-anchor="middle" font-size="9" fill="#c98aa8">China → Europa</text>
+        <circle cx="410" cy="65" r="6" fill="#a78bfa"/><text x="410" y="90" text-anchor="middle" font-size="10" fill="#fde7f0">Pasta de madera</text><text x="410" y="45" text-anchor="middle" font-size="9" fill="#c98aa8">S. XIX</text>
+        <text x="230" y="115" text-anchor="middle" font-size="10" fill="#c98aa8">Figura 2 (ilustrativa) · Línea de tiempo de los soportes de escritura</text>
+      </svg>
+    </div>
+    <p style="font-size:.78rem;font-style:italic">Texto e imagen generados por IA con fines exclusivamente pedagógicos.</p>
+    </div>
+  </div>
+  <div id="cierre-qs-pa" style="display:none"></div>
+  <button class="submit-btn" id="submit-btn-pa" onclick="submitCierre('pa')" disabled style="display:none">✅ Terminar y ver resultados</button>
+  <div id="cierre-results-pa" class="ensayo-results"></div>
+</div>
+
+<!-- ═══ PARTE B: FORMATOS DISCONTINUOS Y MULTIMODALES ═══ -->
+<div class="section" id="parteb">
+  <div class="h-header" style="background:rgba(52,211,153,.08);border:1.5px solid rgba(52,211,153,.3)">
+    <span class="icon">📊</span>
+    <div style="font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--c-b);margin-bottom:4px">Parte B de 2</div>
+    <h2 class="b">Formatos Discontinuos y Multimodales</h2>
+    <p>Tablas, mapas, gráficos e infografías: recursos no lingüísticos que también deben leerse e interpretarse, muchas veces combinados con texto continuo.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title b">📘 ¿Qué son los formatos discontinuos y multimodales?</p>
+    <p>A diferencia del texto continuo (que se lee en párrafos seguidos), los formatos discontinuos organizan la información de forma <strong>no lineal</strong>: tablas, gráficos, mapas e infografías. Se llaman "multimodales" porque combinan más de un modo de representar información — palabras, números, imágenes y color a la vez.</p>
+    <p>En la PAES, estos recursos casi siempre aparecen <strong>integrados a un texto expositivo continuo</strong>, no de forma aislada. Por eso nunca debes analizar el gráfico o la tabla solos: siempre léelos junto con el párrafo que los introduce y comenta.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title b">🗺️ Esquema interactivo · Tipos de recursos discontinuos</p>
+    <div class="tabgroup" data-group="b">
+      <div class="tabnav">
+        <button class="tab-btn active" onclick="showTabPanel('b','b-tab1',this)">Gráfico de barras</button>
+        <button class="tab-btn" onclick="showTabPanel('b','b-tab2',this)">Gráfico de líneas</button>
+        <button class="tab-btn" onclick="showTabPanel('b','b-tab3',this)">Gráfico circular</button>
+        <button class="tab-btn" onclick="showTabPanel('b','b-tab4',this)">Tabla</button>
+        <button class="tab-btn" onclick="showTabPanel('b','b-tab5',this)">Infografía / mapa</button>
+      </div>
+      <div class="tab-panel active" id="b-tab1">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">Compara valores entre categorías distintas (países, grupos, años puntuales). Antes de interpretar, identifica cuatro elementos:</p>
+        <div class="struct-flow">
+          <div class="struct-box"><div class="st-label">Ejes</div><div class="st-desc">¿Qué representa cada eje? ¿En qué unidad (%, años, cantidad)?</div></div>
+          <div class="struct-box"><div class="st-label">Categorías</div><div class="st-desc">¿Qué se compara? (grupos, años, lugares)</div></div>
+          <div class="struct-box"><div class="st-label">Tendencia</div><div class="st-desc">¿Los valores suben, bajan o se mantienen?</div></div>
+          <div class="struct-box"><div class="st-label">Fuente</div><div class="st-desc">¿De dónde vienen los datos? ¿Es confiable?</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="b-tab2">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">Muestra la <strong style="color:var(--text)">evolución</strong> de un valor a través del tiempo. Lo esencial es la dirección de la línea, no cada punto por separado.</p>
+        <div class="ex-text">Si una línea sube de izquierda a derecha, el valor <span class="ex-highlight">aumenta</span> con el tiempo; si baja, <span class="ex-highlight">disminuye</span>; si sube y baja varias veces, hay <span class="ex-highlight">fluctuación</span> (altibajos), no una tendencia única.</div>
+        <p style="font-size:.82rem;color:var(--text-dim)">Error común: describir toda la línea con una sola palabra ("aumentó") cuando en realidad subió, bajó y volvió a subir — hay que describir el patrón completo.</p>
+      </div>
+      <div class="tab-panel" id="b-tab3">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">Representa <strong style="color:var(--text)">partes de un total</strong> (siempre suma 100 %). Cada "porción" es proporcional a su peso relativo, no a un valor absoluto.</p>
+        <div class="ex-text">Si "Alimentación" ocupa el 35 % de un gráfico circular sobre gastos, eso no dice cuánto dinero es en pesos — solo qué proporción representa dentro del total de gastos de ese hogar.</div>
+      </div>
+      <div class="tab-panel" id="b-tab4">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">En una tabla, cada <strong style="color:var(--text)">fila</strong> es un caso y cada <strong style="color:var(--text)">columna</strong> es una variable. Ejemplo:</p>
+        <table class="data-table">
+          <tr><th>Edad</th><th>Horas de sueño recomendadas</th></tr>
+          <tr><td>Recién nacido (0-3 meses)</td><td>14-17 horas</td></tr>
+          <tr><td>Niño pequeño (1-2 años)</td><td>11-14 horas</td></tr>
+          <tr><td>Adolescente (14-17 años)</td><td>8-10 horas</td></tr>
+          <tr><td>Adulto (18-64 años)</td><td>7-9 horas</td></tr>
+        </table>
+        <p style="font-size:.82rem;color:var(--text-dim);margin-top:8px">Para leerla: fija un encabezado de columna, recorre la fila que te interesa, y compara valores entre filas para ver tendencias.</p>
+      </div>
+      <div class="tab-panel" id="b-tab5">
+        <p style="margin-bottom:10px;color:var(--text-dim);font-size:.88rem">Combina texto breve, iconos, colores y a veces un mapa para sintetizar información compleja de un vistazo.</p>
+        <div class="ex-text">Los colores y símbolos <strong style="color:var(--text)">no son decorativos</strong>: cumplen una función. Un tono rojo intenso suele asociarse a alerta o urgencia; un ícono de termómetro ascendente refuerza visualmente la idea de "aumento de temperatura", como viste en la Unidad 0 (habilidad Evaluar).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">💡 Puntos clave PAES</div>
+    <p>Las preguntas sobre gráficos y tablas casi nunca piden solo "leer un dato": piden la <strong>función</strong> que ese recurso cumple en el texto (¿ilustra?, ¿refuerza un dato?, ¿contrasta información?). Lee siempre el párrafo que rodea al gráfico o tabla, no solo el recurso visual aislado.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title b">🔎 Ejemplo resuelto paso a paso</p>
+    <div class="paes-ctx">Un gráfico circular muestra la distribución del presupuesto mensual de un hogar: Alimentación 35 %, Vivienda 30 %, Transporte 15 %, Salud 10 %, Otros 10 %.</div>
+    <p class="paes-q" style="margin-bottom:10px">¿Qué categoría representa la mayor proporción del presupuesto?</p>
+    <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:14px 16px;font-size:.87rem;color:var(--text-dim);line-height:1.7">
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 1 — Identifica el tipo de recurso:</strong> es un gráfico circular, así que todas las categorías juntas representan el 100 % del presupuesto.</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 2 — Ordena los valores:</strong> 35 % > 30 % > 15 % > 10 % = 10 %.</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Paso 3 — Compara con lo que pregunta el enunciado:</strong> te piden la mayor proporción, no la segunda ni el total de dos categorías juntas.</p>
+      <p><strong style="color:var(--text)">Conclusión:</strong> Alimentación (35 %) es la categoría con mayor proporción.</p>
+    </div>
+    <p style="margin-top:12px;font-size:.87rem;color:var(--text-dim)"><strong style="color:var(--text)">Para profundizar:</strong> si el hogar redujera a la mitad su gasto en Transporte (de 15 % a 7,5 %) y el total se mantiene en 100 %, ese 7,5 % que "sobra" tendría que redistribuirse entre las demás categorías — los porcentajes de un gráfico circular siempre están relacionados entre sí, cambiar uno afecta a los demás.</p>
+  </div>
+
+  <div class="tip-box" style="border-left-color:#f59e0b;background:rgba(245,158,11,.07)">
+    <div class="tip-label" style="color:#f59e0b">⚠️ Errores frecuentes en la PAES</div>
+    <p><strong>1. Confundir valores absolutos con porcentajes:</strong> "más pacientes" no es lo mismo que "mayor porcentaje de pacientes" si las muestras comparadas tienen tamaños distintos.</p>
+    <p><strong>2. Ignorar la fuente y el año del dato:</strong> son claves para evaluar la vigencia y confiabilidad de la información (recuerda la habilidad Evaluar de la Unidad 0).</p>
+    <p><strong>3. Asumir una tendencia futura a partir de solo dos puntos de datos:</strong> dos mediciones no bastan para afirmar que algo "seguirá subiendo" o "seguirá bajando".</p>
+    <p><strong>4. No leer bien las unidades del eje:</strong> confundir "miles" con "millones", o "puntos porcentuales" con "porcentaje", cambia por completo la interpretación correcta.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title b">✏️ Práctica guiada</p>
+    <p style="margin-bottom:14px">Incluye un ítem de <strong>texto pareado</strong> (dos gráficos comparados en un mismo set).</p>
+
+    <div class="paes-box" id="b-p1">
+      <div class="paes-tag b"><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx small">
+        <table class="data-table" style="margin:0">
+          <tr><th>Edad</th><th>Horas de sueño recomendadas</th></tr>
+          <tr><td>Recién nacido (0-3 meses)</td><td>14-17 horas</td></tr>
+          <tr><td>Niño pequeño (1-2 años)</td><td>11-14 horas</td></tr>
+          <tr><td>Adolescente (14-17 años)</td><td>8-10 horas</td></tr>
+          <tr><td>Adulto (18-64 años)</td><td>7-9 horas</td></tr>
+        </table>
+      </div>
+      <div class="paes-q">Según la tabla, ¿cuántas horas de sueño se recomiendan para un adolescente?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('b-p1','A')"><div class="ol">A</div><div class="ot">14-17 horas</div></div>
+        <div class="paes-opt" onclick="ans('b-p1','B')"><div class="ol">B</div><div class="ot">11-14 horas</div></div>
+        <div class="paes-opt" onclick="ans('b-p1','C')"><div class="ol">C</div><div class="ot">8-10 horas</div></div>
+        <div class="paes-opt" onclick="ans('b-p1','D')"><div class="ol">D</div><div class="ot">7-9 horas</div></div>
+      </div>
+      <div class="paes-fb" id="b-p1-fb"></div>
+    </div>
+
+    <div class="paes-box" id="b-p2">
+      <div class="paes-tag b"><span class="ai-tag">🤖 Generada</span></div>
+      <div class="paes-ctx small">(Misma tabla de horas de sueño)</div>
+      <div class="paes-q">¿Qué tendencia general se observa en la tabla a medida que aumenta la edad?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('b-p2','A')"><div class="ol">A</div><div class="ot">Las horas de sueño recomendadas aumentan.</div></div>
+        <div class="paes-opt" onclick="ans('b-p2','B')"><div class="ol">B</div><div class="ot">Las horas de sueño recomendadas disminuyen.</div></div>
+        <div class="paes-opt" onclick="ans('b-p2','C')"><div class="ol">C</div><div class="ot">Las horas de sueño se mantienen constantes.</div></div>
+        <div class="paes-opt" onclick="ans('b-p2','D')"><div class="ol">D</div><div class="ot">No existe relación entre edad y horas de sueño.</div></div>
+      </div>
+      <div class="paes-fb" id="b-p2-fb"></div>
+    </div>
+
+    <div class="paes-box" id="b-p3">
+      <div class="paes-tag b"><span class="ai-tag">🤖 Generada</span><span class="par-tag">🔗 Texto pareado</span></div>
+      <div class="paes-ctx small">Dos colegios midieron el porcentaje de estudiantes que practica algún deporte semanalmente.<br><strong>Gráfico 1 (Colegio A):</strong> 2019: 40 % — 2023: 65 %.<br><strong>Gráfico 2 (Colegio B):</strong> 2019: 55 % — 2023: 50 %.</div>
+      <div class="paes-q">¿Qué diferencia se observa entre ambos colegios?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('b-p3','A')"><div class="ol">A</div><div class="ot">En ambos colegios la práctica deportiva aumentó de igual forma.</div></div>
+        <div class="paes-opt" onclick="ans('b-p3','B')"><div class="ol">B</div><div class="ot">En el Colegio A la práctica deportiva aumentó, mientras que en el Colegio B disminuyó levemente.</div></div>
+        <div class="paes-opt" onclick="ans('b-p3','C')"><div class="ol">C</div><div class="ot">En ambos colegios la práctica deportiva disminuyó.</div></div>
+        <div class="paes-opt" onclick="ans('b-p3','D')"><div class="ol">D</div><div class="ot">El Colegio B tuvo un mayor aumento que el Colegio A.</div></div>
+      </div>
+      <div class="paes-fb" id="b-p3-fb"></div>
+    </div>
+
+    <div class="paes-box" id="b-p4">
+      <div class="paes-tag b"><span class="ai-tag">🤖 Generada</span><span class="par-tag">🔗 Texto pareado</span></div>
+      <div class="paes-ctx small">(Mismos Gráfico 1 y Gráfico 2 del ejercicio anterior)</div>
+      <div class="paes-q">Según el Gráfico 1, ¿cuál fue el incremento porcentual de estudiantes que practica deporte entre 2019 y 2023 en el Colegio A?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('b-p4','A')"><div class="ol">A</div><div class="ot">15 puntos porcentuales</div></div>
+        <div class="paes-opt" onclick="ans('b-p4','B')"><div class="ol">B</div><div class="ot">25 puntos porcentuales</div></div>
+        <div class="paes-opt" onclick="ans('b-p4','C')"><div class="ol">C</div><div class="ot">40 puntos porcentuales</div></div>
+        <div class="paes-opt" onclick="ans('b-p4','D')"><div class="ol">D</div><div class="ot">65 puntos porcentuales</div></div>
+      </div>
+      <div class="paes-fb" id="b-p4-fb"></div>
+    </div>
+
+    <div class="paes-box" id="b-p5">
+      <div class="paes-tag b"><span class="ai-tag">🤖 Generada</span><span class="par-tag">🔗 Texto pareado</span></div>
+      <div class="paes-ctx small">(Mismos Gráfico 1 y Gráfico 2)</div>
+      <div class="paes-q">Si un tercer colegio presentara los mismos valores que el Colegio B, ¿qué podría inferirse sobre sus políticas de fomento deportivo entre 2019 y 2023?</div>
+      <div class="paes-opts">
+        <div class="paes-opt" onclick="ans('b-p5','A')"><div class="ol">A</div><div class="ot">Fueron más efectivas que las del Colegio A.</div></div>
+        <div class="paes-opt" onclick="ans('b-p5','B')"><div class="ol">B</div><div class="ot">Posiblemente no lograron mantener o aumentar la participación deportiva.</div></div>
+        <div class="paes-opt" onclick="ans('b-p5','C')"><div class="ol">C</div><div class="ot">Lograron un aumento sostenido similar al Colegio A.</div></div>
+        <div class="paes-opt" onclick="ans('b-p5','D')"><div class="ol">D</div><div class="ot">No es posible sacar ninguna conclusión de los datos.</div></div>
+      </div>
+      <div class="paes-fb" id="b-p5-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MINI ENSAYO PARTE B (pestaña separada) ═══ -->
+<div class="section" id="ensayob">
+  <div class="h-header" style="background:rgba(52,211,153,.08);border:1.5px solid rgba(52,211,153,.3)">
+    <span class="icon">⏱️</span>
+    <h2 class="b">Mini Ensayo · Parte B</h2>
+    <p>Pon a prueba lo aprendido sobre formatos discontinuos y multimodales, en condiciones cronometradas.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title b">⏱️ Mini ensayo cronometrado · 9 preguntas generadas por IA · 13 minutos</p>
+    <p><span class="ai-tag">🤖 Texto y preguntas generados por IA</span></p>
+    <p>Contenido generado por IA con gráfico, replicando el mismo formato del mini ensayo.</p>
+  </div>
+  <div class="timer-box">
+    <div>
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Tiempo restante</div>
+      <div class="timer-display" id="timer-disp-pb">13:00</div>
+    </div>
+    <div style="text-align:right">
+      <div id="timer-status-pb" style="font-size:.85rem;color:var(--text-dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+      <button id="start-btn-pb" onclick="startCierre('pb')" style="padding:8px 20px;background:var(--rosa);color:#1a0510;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+    </div>
+  </div>
+  <div class="card" id="pb-texto-card">
+    <p class="card-title b">📖 Texto para el mini ensayo</p>
+    <p style="font-size:.8rem;color:var(--text-dim);margin-bottom:10px"><em>Texto generado por IA para fines de práctica.</em></p>
+    <p style="font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--text);margin-bottom:10px">LEER TAMBIÉN ES RECREO</p>
+    <div style="font-size:.88rem;line-height:1.8;color:var(--text-dim)">
+    <p style="margin-bottom:10px">Diversos diagnósticos escolares muestran que gran parte del tiempo de recreo se destina a juegos, pantallas o simple desplazamiento entre patios, mientras que la lectura voluntaria ocupa un lugar marginal en ese espacio. A partir de esta constatación, un equipo de educadores diseñó e implementó el programa "Recreo Lector", orientado a habilitar un espacio de lectura libre durante los recreos de enseñanza básica.</p>
+    <p style="margin-bottom:10px">Un diagnóstico previo, aplicado en ocho establecimientos, mostró que solo un 18 % de los estudiantes de 4° a 6° básico elegía leer de manera voluntaria durante algún recreo de la semana, mientras que un 62 % declaraba no tener acceso cercano a libros de su interés durante la jornada escolar. Frente a estas cifras, la coordinación pedagógica de los establecimientos solicitó evaluar si un espacio dedicado, con mediación de un monitor, podía modificar estos hábitos.</p>
+    <p style="font-weight:800;color:var(--text);margin-bottom:6px">Un programa piloto necesario</p>
+    <p style="margin-bottom:10px">Estos antecedentes motivaron la implementación de un piloto de seis semanas en el que se habilitó, en cada establecimiento, un "rincón lector" atendido por un monitor durante los recreos de mayor duración. El monitor no daba clases ni evaluaba: solo facilitaba el préstamo de libros y acompañaba a quienes quisieran leer en grupo o en silencio.</p>
+    <p style="margin-bottom:10px">"Recreo Lector" contempla sesiones de duración variable según el horario de cada establecimiento (20, 30 o 40 minutos), a cargo de un monitor capacitado en mediación lectora, con un catálogo rotativo de libros ilustrados, cómics y novelas breves elegido por los propios estudiantes en una encuesta previa.</p>
+    <p style="font-weight:800;color:var(--text);margin-bottom:6px">Sobre las mediciones</p>
+    <p style="margin-bottom:10px">Para medir la participación se utilizó un registro de préstamos y asistencia llevado por cada monitor, además de una bitácora de observación que anotaba el tipo de lectura predominante (individual, grupal o en voz alta) en cada sesión. Se registraron 96 sesiones de recreo en total, con un promedio de 34 estudiantes por sesión.</p>
+    <p style="font-weight:800;color:var(--text);margin-bottom:6px">Principales resultados y conclusiones</p>
+    <p style="margin-bottom:10px">Durante las seis semanas de aplicación se registraron 96 sesiones de "Recreo Lector", con una asistencia acumulada de 3.264 participaciones y un promedio de préstamo de 1,4 libros por estudiante en el período.</p>
+    <p style="margin-bottom:10px">La muestra se distribuyó en un 22 % en establecimientos rurales y un 78 % en urbanos, con una participación levemente mayor de estudiantes mujeres (54 %) que hombres (46 %).</p>
+    <p style="margin-bottom:10px">El nivel de asistencia a las sesiones programadas alcanzó un 81 % del total posible, cifra considerada alta por el equipo dado que la participación era completamente voluntaria.</p>
+    <p style="margin-bottom:10px">Al comparar la duración de las sesiones, el estudio mostró que el mayor incremento proporcional en la cantidad de estudiantes que se acercaban a leer se dio en las sesiones de 20 minutos; en sesiones más largas, la asistencia crecía en menor proporción respecto del tiempo adicional disponible.</p>
+    <div id="pb-graph" style="margin:14px 0"></div>
+    <p style="font-size:.76rem;color:var(--text-dim);opacity:.75;margin-top:-6px;margin-bottom:10px"><em>Gráfico ilustrativo generado por IA, construido a partir del patrón de datos descrito en el texto.</em></p>
+    <p style="margin-bottom:10px">Respecto del tipo de lectura, la bitácora mostró que la lectura individual en silencio fue la modalidad predominante, seguida de la lectura grupal en voz alta; muy pocas sesiones registraron actividades de escritura o dibujo asociadas a los libros, pese a que el catálogo incluía cómics con espacios para actividades complementarias.</p>
+    <p style="margin-bottom:10px">Finalmente, una encuesta a docentes mostró que el programa es altamente valorado por los profesores jefe, quienes consideran que contribuye al hábito lector de sus estudiantes. Sin embargo, la participación de bibliotecarios especializados en las sesiones fue baja, alcanzando solo un 30 %, concentrándose principalmente en la selección inicial del catálogo.</p>
+    <p style="font-size:.78rem;font-style:italic">Texto e imagen generados por IA con fines exclusivamente pedagógicos.</p>
+    </div>
+  </div>
+  <div id="cierre-qs-pb" style="display:none"></div>
+  <button class="submit-btn" id="submit-btn-pb" onclick="submitCierre('pb')" disabled style="display:none">✅ Terminar y ver resultados</button>
+  <div id="cierre-results-pb" class="ensayo-results"></div>
+</div>
+
+</div><!-- /container -->
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">← Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente →</button>
+</div>
+<footer>📰 Unidad 1 · Textos No Literarios: Expositivos · PAES Competencia Lectora · Admisión 2027</footer>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 1</h3>
+      <p>Textos Expositivos</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    ⏱️ No puedo ayudarte mientras estás rindiendo el cierre evaluado. Termina primero y luego revisamos lo que necesites.
+  </div>
+
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas de textos expositivos continuos (Parte A) y formatos discontinuos/multimodales (Parte B). ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══ NAVEGACIÓN ═══
+var SECS=["portada","partea","ensayoa","parteb","ensayob"];
+var SLABELS=["Inicio","📄 Parte A · Continuo","⏱️ Ensayo A","📊 Parte B · Discontinuo","⏱️ Ensayo B"];
+var curSec=0;
+function showSec(id,idx,btn){
+  SECS.forEach(function(s){document.getElementById(s).classList.remove("active");});
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec=idx;
+  updateLinNav();
+  document.getElementById("prog").style.width=Math.round(((idx+1)/SECS.length)*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function linNav(d){
+  var n=Math.max(0,Math.min(SECS.length-1,curSec+d));
+  if(n===curSec)return;
+  showSec(SECS[n],n,document.querySelectorAll(".nav-btn")[n]);
+}
+function updateLinNav(){
+  document.getElementById("lnav-prev").disabled=(curSec===0);
+  document.getElementById("lnav-next").disabled=(curSec===SECS.length-1);
+  document.getElementById("lnav-label").textContent=SLABELS[curSec];
+}
+updateLinNav();
+
+// ═══ TABS ESQUEMA INTERACTIVO ═══
+function showTabPanel(group,id,btn){
+  document.querySelectorAll('.tabgroup[data-group="'+group+'"] .tab-panel').forEach(function(p){p.classList.remove("active");});
+  document.querySelectorAll('.tabgroup[data-group="'+group+'"] .tab-btn').forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+}
+
+// ═══ GRÁFICO ILUSTRATIVO PARTE B (SVG simple, elaboración propia) ═══
+(function(){
+  var svg='<svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:460px;display:block;margin:0 auto">'+
+    '<text x="230" y="18" text-anchor="middle" font-size="12" font-weight="800" fill="#fde7f0" font-family="Nunito,sans-serif">Figura 1 (ilustrativa). Incremento proporcional de asistencia según duración de la sesión</text>'+
+    '<line x1="50" y1="190" x2="420" y2="190" stroke="#c98aa8" stroke-width="1"/>'+
+    '<line x1="50" y1="190" x2="50" y2="40" stroke="#c98aa8" stroke-width="1"/>'+
+    '<rect x="90" y="70" width="60" height="120" fill="#34d399"/>'+
+    '<text x="120" y="64" text-anchor="middle" font-size="12" fill="#fde7f0" font-weight="800">~70%</text>'+
+    '<text x="120" y="208" text-anchor="middle" font-size="11" fill="#c98aa8">20 min</text>'+
+    '<rect x="220" y="97" width="60" height="93" fill="#38bdf8"/>'+
+    '<text x="250" y="91" text-anchor="middle" font-size="12" fill="#fde7f0" font-weight="800">~55%</text>'+
+    '<text x="250" y="208" text-anchor="middle" font-size="11" fill="#c98aa8">30 min</text>'+
+    '<rect x="350" y="130" width="60" height="60" fill="#fbbf24"/>'+
+    '<text x="380" y="124" text-anchor="middle" font-size="12" fill="#fde7f0" font-weight="800">~35%</text>'+
+    '<text x="380" y="208" text-anchor="middle" font-size="11" fill="#c98aa8">40 min</text>'+
+    '<text x="15" y="45" font-size="10" fill="#c98aa8" transform="rotate(-90 15 45)"></text>'+
+    '</svg>';
+  document.getElementById("pb-graph").innerHTML=svg;
+})();
+
+// ═══ FEEDBACK POR ALTERNATIVA — PRÁCTICA GUIADA ═══
+var QA={
+  "a-p1":{c:"B",fb:{
+    A:"Incorrecto. El texto dice que los emojis se combinan con el lenguaje escrito, no que lo reemplazan.",
+    B:"✅ Correcto. El texto compara emojis con pictogramas y aclara que, a diferencia de estos, se usan junto al lenguaje escrito.",
+    C:"Incorrecto. El año y país de origen es un dato secundario, no la idea principal.",
+    D:"Incorrecto. El texto no hace ese juicio de eficiencia entre ambos sistemas."
+  }},
+  "a-p2":{c:"A",fb:{
+    A:"✅ Correcto. La expresión marca el contraste entre cómo funcionaban los pictogramas y cómo funcionan los emojis.",
+    B:"Incorrecto. La expresión no contradice la comparación inicial, la matiza.",
+    C:"Incorrecto. El texto continúa después de esta expresión, no concluye ahí.",
+    D:"Incorrecto. No se menciona ningún emoji específico como ejemplo."
+  }},
+  "a-p3":{c:"C",fb:{
+    A:"Incorrecto. El Texto 2 menciona un contexto formal, pero el Texto 1 no indica un uso exclusivamente religioso.",
+    B:"Incorrecto. Solo el Texto 2 combina pictogramas e ideogramas; el Texto 1 usa marcas en cuña.",
+    C:"✅ Correcto. Ambos son sistemas de escritura antiguos, pero usan soportes distintos (arcilla con cuñas vs. inscripciones) y contextos distintos (uso general vs. uso formal).",
+    D:"Incorrecto. Ninguno de los dos textos menciona al alfabeto fenicio."
+  }},
+  "a-p4":{c:"B",fb:{
+    A:"Incorrecto. El papiro no se menciona en el Texto 1.",
+    B:"✅ Correcto. El Texto 1 indica explícitamente \"tablillas de arcilla húmeda\".",
+    C:"Incorrecto. La piedra no se menciona en el Texto 1.",
+    D:"Incorrecto. El pergamino no se menciona en el Texto 1."
+  }},
+  "a-p5":{c:"B",fb:{
+    A:"Incorrecto. El Texto 2 no indica que el jeroglífico fuera reemplazado por el cuneiforme.",
+    B:"✅ Correcto. El Texto 2 indica que el jeroglífico \"era complejo\", por lo que se necesitaba un sistema más rápido para lo cotidiano.",
+    C:"Incorrecto. El texto no dice que el hierático fuera el único sistema oficial.",
+    D:"Incorrecto. Las tablillas de arcilla corresponden al sistema cuneiforme (Texto 1), no al jeroglífico."
+  }},
+  "b-p1":{c:"C",fb:{
+    A:"Incorrecto. 14-17 horas corresponde al recién nacido, no al adolescente.",
+    B:"Incorrecto. 11-14 horas corresponde al niño pequeño, no al adolescente.",
+    C:"✅ Correcto. La fila \"Adolescente (14-17 años)\" indica \"8-10 horas\".",
+    D:"Incorrecto. 7-9 horas corresponde al adulto, no al adolescente."
+  }},
+  "b-p2":{c:"B",fb:{
+    A:"Incorrecto. Los valores bajan a medida que aumenta la edad, no suben.",
+    B:"✅ Correcto. De 14-17 horas en el recién nacido se llega a 7-9 horas en el adulto: los valores disminuyen con la edad.",
+    C:"Incorrecto. Los valores cambian claramente entre filas, no se mantienen constantes.",
+    D:"Incorrecto. La tabla muestra una relación clara e inversa entre edad y horas recomendadas."
+  }},
+  "b-p3":{c:"B",fb:{
+    A:"Incorrecto. Los datos muestran cambios distintos: uno sube, el otro baja levemente.",
+    B:"✅ Correcto. El Colegio A pasó de 40 % a 65 % (aumento), mientras que el Colegio B pasó de 55 % a 50 % (leve disminución).",
+    C:"Incorrecto. Solo el Colegio B disminuyó; el Colegio A aumentó.",
+    D:"Incorrecto. Es el Colegio A el que tuvo un aumento; el Colegio B disminuyó."
+  }},
+  "b-p4":{c:"B",fb:{
+    A:"Incorrecto. 15 puntos no corresponde a la diferencia entre 40 % y 65 %.",
+    B:"✅ Correcto. 65 % − 40 % = 25 puntos porcentuales de incremento.",
+    C:"Incorrecto. 40 puntos no corresponde a la diferencia calculada.",
+    D:"Incorrecto. 65 % es el valor final de 2023, no el incremento."
+  }},
+  "b-p5":{c:"B",fb:{
+    A:"Incorrecto. Los datos del Colegio B muestran una leve disminución, no una mejora respecto al Colegio A.",
+    B:"✅ Correcto. Una disminución de 55 % a 50 % sugiere que las políticas de fomento no lograron mantener o aumentar la participación deportiva.",
+    C:"Incorrecto. El Colegio A sí tuvo un aumento sostenido; el Colegio B no.",
+    D:"Incorrecto. Los datos sí permiten esta inferencia razonable sobre la efectividad de las políticas."
+  }}
+};
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done="1";
+  var a=QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===a.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById(qid+"-fb");
+  fb.className="paes-fb show "+(opt===a.c?"ok":"no");
+  fb.innerHTML=a.fb[opt];
+}
+
+// ═══ MINI ENSAYOS (preguntas y textos generados por IA) ═══
+var CQ={
+  pa:[
+    {q:"🤖 ¿Con qué finalidad se menciona, en el segundo párrafo, la tensión en las relaciones comerciales con Egipto?",
+     opts:{A:"Para explicar por qué otros reinos buscaron alternativas al papiro.",B:"Para describir un conflicto político de la Antigüedad.",C:"Para contrastar el papiro egipcio con el pergamino griego.",D:"Para ilustrar la fragilidad del papiro frente a la humedad."},c:"A",
+     fb:"El texto usa ese antecedente para justificar por qué se necesitaba un soporte alternativo al papiro, dando paso al pergamino."},
+    {q:"🤖 ¿Qué se puede inferir sobre el costo de producción del pergamino?",
+     opts:{A:"Que era menor al del papiro porque no dependía de una sola región.",B:"Que era alto porque requería las pieles de muchos animales para un solo volumen.",C:"Que se abarató progresivamente gracias a la producción china de papel.",D:"Que dependía exclusivamente del precio del papiro en el mismo período."},c:"B",
+     fb:"El texto señala que \"producir un solo volumen extenso podía requerir las pieles de decenas de animales\", lo que permite inferir un alto costo."},
+    {q:"Respecto de los materiales usados, ¿qué diferencia principal existe entre el papel chino y el pergamino?",
+     opts:{A:"El papel se fabricaba con fibras vegetales abundantes y económicas.",B:"El papel solo podía escribirse por un lado de la hoja.",C:"El pergamino se elaboraba con fibras vegetales trituradas.",D:"El pergamino permitía una producción más rápida y masiva."},c:"A",
+     fb:"El texto indica explícitamente que el método chino \"permitía usar materiales mucho más abundantes y económicos\" que el pergamino."},
+    {q:"🤖 ¿Qué función cumple la aclaración entre paréntesis sobre los hallazgos arqueológicos, en el cuarto párrafo?",
+     opts:{A:"Contradice la fecha de invención atribuida al funcionario chino.",B:"Añade un dato complementario que matiza la fecha mencionada.",C:"Introduce una nueva postura del emisor sobre el origen del papel.",D:"Corrige un error de la tradición histórica sobre China."},c:"B",
+     fb:"El paréntesis agrega información adicional (formas más rudimentarias ya existentes) sin cambiar el argumento central del párrafo."},
+    {q:"Según el texto, ¿por qué el papel tardó siglos en llegar a Europa?",
+     opts:{A:"Porque debió difundirse gradualmente a través de rutas comerciales y regiones intermedias.",B:"Porque el pergamino era considerado superior en toda Europa.",C:"Porque la imprenta aún no se había inventado en esa época.",D:"Porque China prohibió la exportación de la técnica por siglos."},c:"A",
+     fb:"El texto describe un recorrido gradual: Asia Central, mundo árabe, península ibérica y luego el resto de Europa."},
+    {q:"🤖 En relación con la imprenta de tipos móviles, ¿qué relación de causa-consecuencia se establece en el sexto párrafo?",
+     opts:{A:"La imprenta surgió porque el papel ya era el soporte dominante en Europa.",B:"La necesidad de multiplicar copias impulsó el desplazamiento del pergamino por el papel.",C:"El pergamino dejó de fabricarse por decisión de la Iglesia católica.",D:"La imprenta redujo la demanda de papel en el siglo XV."},c:"B",
+     fb:"El texto indica que la multiplicación de copias exigía un soporte rápido y económico, algo que el pergamino no podía ofrecer a esa escala."},
+    {q:"¿Cuál es la idea principal del último párrafo?",
+     opts:{A:"La historia del papel es la historia de un único invento definitivo.",B:"Cada técnica de soporte fue una solución distinta a un mismo problema de acceso.",C:"El papel dejará de usarse por completo debido a los soportes digitales.",D:"El papiro fue el soporte más importante de toda la historia."},c:"B",
+     fb:"El párrafo final plantea que las distintas técnicas responden a un mismo impulso: abaratar y masificar el acceso a la escritura."},
+    {q:"🤖 Un estudiante necesita justificar la relevancia de la Figura 2 para el desarrollo del tema. ¿Cuál de los siguientes argumentos valida su relevancia?",
+     opts:{A:"La figura demuestra que el papiro fue superior a los demás soportes.",B:"La figura ilustra la distribución geográfica actual del papel.",C:"La figura ejemplifica la sucesión cronológica de los soportes descritos en el texto.",D:"La figura transmite una opinión del emisor sobre los soportes digitales."},c:"C",
+     fb:"La línea de tiempo resume visualmente la secuencia de soportes (papiro, pergamino, papel, pasta de madera) descrita en el texto."}
+  ],
+  pb:[
+    {q:"🤖 ¿Cuál es la función del segundo párrafo respecto del programa presentado en la lectura?",
+     opts:{A:"Describir los resultados finales del programa \"Recreo Lector\".",B:"Criticar la falta de espacios de lectura en los colegios.",C:"Exponer el diagnóstico que motivó la creación del programa.",D:"Comparar la lectura voluntaria con el uso de pantallas."},c:"C",
+     fb:"El segundo párrafo entrega las cifras del diagnóstico previo (18 % de lectura voluntaria, 62 % sin acceso a libros), que motivan la solicitud de evaluar el programa."},
+    {q:"Según la lectura, ¿para qué se usó la bitácora de observación?",
+     opts:{A:"Para evaluar el desempeño lector de cada estudiante.",B:"Para registrar el tipo de lectura predominante en cada sesión.",C:"Para medir el nivel de comprensión lectora alcanzado.",D:"Para controlar la asistencia de los monitores al programa."},c:"B",
+     fb:"El texto indica que la bitácora anotaba \"el tipo de lectura predominante (individual, grupal o en voz alta) en cada sesión\"."},
+    {q:"🤖 ¿Qué perspectiva adopta el emisor en la sección \"Principales resultados y conclusiones\"?",
+     opts:{A:"Analítica, pues ofrece datos concretos a partir del registro de las sesiones realizadas.",B:"Reflexiva, pues pondera las posibles causas del bajo hábito lector escolar.",C:"Problematizadora, pues plantea nuevas interrogantes a partir de los resultados.",D:"Crítica, pues cuestiona la validez de los resultados obtenidos por el programa."},c:"A",
+     fb:"La sección entrega cifras concretas (asistencia, préstamos, distribución por zona) de manera analítica, sin cuestionar ni problematizar los resultados."},
+    {q:"En la investigación mencionada, ¿con qué finalidad se registró información sobre la distribución rural y urbana de la muestra?",
+     opts:{A:"Para representar la cobertura geográfica del programa \"Recreo Lector\".",B:"Para evaluar si el tipo de establecimiento influía en la participación.",C:"Para contar con una mayor cantidad de registros para el estudio.",D:"Para aumentar la cantidad de sesiones observadas en total."},c:"A",
+     fb:"El dato de distribución rural/urbana se entrega para representar cómo se compuso la muestra observada, no para evaluar un impacto diferenciado."},
+    {q:"🤖 A partir del párrafo sobre la duración de las sesiones, ¿qué revela el estudio respecto de las sesiones de 20 minutos?",
+     opts:{A:"Que generaron el mayor incremento proporcional de estudiantes que se acercaban a leer.",B:"Que fueron las menos utilizadas por los establecimientos participantes.",C:"Que requirieron una mayor cantidad de monitores capacitados.",D:"Que presentaron la menor asistencia acumulada del período."},c:"A",
+     fb:"El texto indica que \"el mayor incremento proporcional... se dio en las sesiones de 20 minutos\", coherente con la Figura 1."},
+    {q:"🤖 En el penúltimo párrafo, ¿qué contraste se expresa respecto del tipo de lectura registrada?",
+     opts:{A:"La lectura individual en silencio versus la lectura grupal en voz alta.",B:"La lectura de cómics versus la lectura de novelas breves.",C:"La lectura escolar versus la lectura fuera del horario de clases.",D:"La lectura mediada por monitores versus la lectura sin mediación."},c:"A",
+     fb:"El párrafo contrasta la lectura individual en silencio (predominante) con la lectura grupal en voz alta (segunda modalidad más frecuente)."},
+    {q:"¿Cuál es uno de los propósitos del programa que se cumplió según el estudio?",
+     opts:{A:"La reducción de la duración de las sesiones de lectura.",B:"El aumento del hábito lector percibido por los profesores jefe.",C:"El incremento en la participación de los bibliotecarios especializados.",D:"La eliminación completa del uso de pantallas en los recreos."},c:"B",
+     fb:"El texto indica que el programa \"es altamente valorado por los profesores jefe, quienes consideran que contribuye al hábito lector de sus estudiantes\"."},
+    {q:"Según la lectura, ¿qué actividad fue menos frecuente entre las registradas durante las sesiones?",
+     opts:{A:"La lectura individual en silencio.",B:"La lectura grupal en voz alta.",C:"Las actividades de escritura o dibujo asociadas a los libros.",D:"El préstamo de libros del catálogo rotativo."},c:"C",
+     fb:"El texto señala que \"muy pocas sesiones registraron actividades de escritura o dibujo asociadas a los libros\"."},
+    {q:"🤖 Con respecto a los datos de duración de las sesiones, ¿qué función cumple el gráfico incluido en la lectura?",
+     opts:{A:"Ilustra los distintos tipos de lectura practicados por los estudiantes.",B:"Demuestra la cantidad total de libros prestados durante el período.",C:"Muestra la importancia de aumentar la frecuencia semanal de las sesiones.",D:"Refuerza el dato sobre el mayor incremento de asistencia en sesiones breves."},c:"D",
+     fb:"El párrafo que acompaña al gráfico concluye que las sesiones de 20 minutos generan el mayor incremento proporcional de asistencia; el gráfico refuerza visualmente ese dato."}
+  ]
+};
+
+var cierreState={
+  pa:{started:false,finished:false,timeLeft:720,interval:null,answers:{}},
+  pb:{started:false,finished:false,timeLeft:780,interval:null,answers:{}}
+};
+
+function buildCierre(key){
+  var cont=document.getElementById("cierre-qs-"+key);
+  cont.innerHTML="";
+  CQ[key].forEach(function(q,i){
+    var d=document.createElement("div");
+    d.className="ensayo-q";
+    var optsH="";
+    ["A","B","C","D"].forEach(function(l){
+      optsH+='<div class="ensayo-opt" id="eo-'+key+'-'+i+'-'+l+'" data-qi="'+i+'" data-opt="'+l+'" onclick="selCierre(\''+key+'\',this.dataset.qi,this.dataset.opt)">'+
+        '<div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="ensayo-num" style="color:var(--rosa)">Pregunta '+(i+1)+' / '+CQ[key].length+'</div>'+
+      '<div class="ensayo-q-text">'+q.q+'</div>'+
+      '<div class="ensayo-opts" id="eopts-'+key+'-'+i+'">'+optsH+'</div>'+
+      '<div class="ensayo-fb" id="efb-'+key+'-'+i+'"></div>';
+    cont.appendChild(d);
+  });
+}
+buildCierre("pa");buildCierre("pb");
+
+function selCierre(key,i,opt){
+  i=parseInt(i);
+  var st=cierreState[key];
+  if(!st.started||st.finished)return;
+  var opts=document.getElementById("eopts-"+key+"-"+i);
+  if(opts.dataset.done)return;
+  st.answers[i]=opt;
+  opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.remove("selected");});
+  document.getElementById("eo-"+key+"-"+i+"-"+opt).classList.add("selected");
+}
+
+function startCierre(key){
+  var st=cierreState[key];
+  st.started=true;
+  document.getElementById("start-btn-"+key).style.display="none";
+  document.getElementById("timer-status-"+key).textContent="¡En marcha! Responde con calma.";
+  var qs=document.getElementById("cierre-qs-"+key); qs.style.display="block";
+  var sb=document.getElementById("submit-btn-"+key); sb.style.display="block"; sb.disabled=false;
+  st.interval=setInterval(function(){
+    st.timeLeft--;
+    var m=Math.floor(st.timeLeft/60),s=st.timeLeft%60;
+    var disp=document.getElementById("timer-disp-"+key);
+    disp.textContent=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+    if(st.timeLeft<=60)disp.className="timer-display danger";
+    else if(st.timeLeft<=180)disp.className="timer-display warn";
+    if(st.timeLeft<=0){clearInterval(st.interval);submitCierre(key);}
+  },1000);
+}
+
+function submitCierre(key){
+  var st=cierreState[key];
+  if(st.finished)return;
+  st.finished=true;
+  clearInterval(st.interval);
+  document.getElementById("timer-status-"+key).textContent="Ensayo terminado";
+  document.getElementById("submit-btn-"+key).disabled=true;
+  var correct=0;
+  CQ[key].forEach(function(q,i){
+    var opts=document.getElementById("eopts-"+key+"-"+i);
+    opts.dataset.done="1";
+    opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.add("locked");});
+    var ua=st.answers[i];
+    document.getElementById("eo-"+key+"-"+i+"-"+q.c).classList.add("right");
+    if(ua&&ua!==q.c)document.getElementById("eo-"+key+"-"+i+"-"+ua).classList.add("wrong");
+    var isOk=(ua===q.c);
+    var fb=document.getElementById("efb-"+key+"-"+i);
+    fb.className="ensayo-fb show "+(isOk?"ok":"no");
+    fb.textContent=(ua?(isOk?"✅ Correcto. ":"❌ Incorrecto. La respuesta correcta es "+q.c+". "):"⚠️ Sin respuesta. La correcta es "+q.c+". ")+q.fb;
+    if(isOk)correct++;
+  });
+  var pct=Math.round(correct/CQ[key].length*100);
+  var mainColor=pct>=70?"var(--rosa)":pct>=50?"#f59e0b":"#ef4444";
+  var msg=pct>=70?"🎉 ¡Buen resultado!":pct>=50?"💪 Resultado aceptable. Repasa el esquema interactivo antes de avanzar.":"📚 Conviene repasar esta parte antes de seguir a la Unidad 2.";
+  var res=document.getElementById("cierre-results-"+key);
+  res.style.display="block";
+  res.innerHTML='<div class="res-banner" style="color:'+mainColor+'">'+(pct>=70?"🏆":pct>=50?"💪":"📚")+" "+correct+" / "+CQ[key].length+" correctas</div>"+
+    '<div style="font-size:1rem;color:var(--text-dim);margin-bottom:16px">'+pct+"% de logro</div>"+
+    '<div style="background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;margin-top:6px">'+
+    '<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--rosa);margin-bottom:8px">'+msg+"</p>"+
+    '<p style="font-size:.88rem;color:var(--text-dim)">Revisa la corrección de cada pregunta más arriba.</p></div>';
+  res.scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('svg[viewBox]').forEach(function(svg){
+    var vb=(svg.getAttribute('viewBox')||'').split(/\s+/);
+    if(parseFloat(vb[2]||0)<400) return;
+    if(svg.parentNode&&svg.parentNode.classList.contains('svg-wrap')) return;
+    var w=document.createElement('div'); w.className='svg-wrap';
+    svg.parentNode.insertBefore(w,svg); w.appendChild(svg);
+  });
+})();
+</script>
+
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
+// -------------------------------------------------------------------
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico de la Unidad 1 (Textos No Literarios: Expositivos) del módulo de Competencia Lectora, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media, muchos sin conocimiento previo del tema. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre el contenido de esta unidad: Parte A (texto expositivo continuo) y Parte B (formatos discontinuos y multimodales), y los ejemplos de esta unidad. Puedes referirte a las habilidades de Localizar, Interpretar y Evaluar (vistas en la Unidad 0) si el estudiante las trae a colación, pero no profundices en ellas más allá de lo necesario para explicar esta unidad. NO respondes sobre otras materias PAES (Matemática, Ciencias, Historia), ni sobre unidades futuras (U2 Argumentativos, U3 Narrativos, Ensayo Final) que el estudiante aún no ha visto.",
+"",
+"CONTENIDO DE LA UNIDAD:",
+"- Parte A — Texto expositivo continuo: propósito informar/explicar (no argumentar); lenguaje denotativo y preciso; distancia del emisor; apoyo en datos verificables. Estructura general (introducción-desarrollo-cierre) y patrones organizativos del desarrollo: definición-clasificación, comparación-contraste, causa-consecuencia, problema-solución, secuencia. Función de un párrafo dentro del texto (definir, ejemplificar, contrastar, sintetizar). Errores frecuentes: confundir un dato de apoyo con la idea principal, elegir una alternativa verdadera que no responde la pregunta, caer en distractores por repetición literal de palabras. Incluye ejercicio de texto pareado (dos textos breves comparados).",
+"- Parte B — Formatos discontinuos y multimodales: lectura e interpretación de gráfico de barras, gráfico de líneas, gráfico circular, tablas e infografías/mapas dentro de textos expositivos; relación entre el texto que acompaña al recurso visual y la información que este entrega.",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos de arriba tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre Parte A (estructura, patrón organizativo, función de un segmento) o Parte B (lectura de un gráfico, tabla o infografía) según pida. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta general sobre qué parte del texto o recurso visual se relaciona con esto, 2) acota a un párrafo, sección o elemento específico del gráfico/tabla, 3) señala qué patrón organizativo o tipo de lectura aplica y por qué, 4) contrasta la alternativa elegida por el estudiante con la probablemente correcta, preguntando qué diferencia hay. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otra materia, otra unidad no vista, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para resolver dudas de Textos Expositivos (Parte A y Parte B) de esta unidad.'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function anyCierreActive(){
+  var keys = ["pa","pb"];
+  for(var i=0;i<keys.length;i++){
+    var st = window.cierreState && window.cierreState[keys[i]];
+    if(st && st.started && !st.finished) return true;
+  }
+  return false;
+}
+
+function checkTutorBlock(){
+  var blocked = anyCierreActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false; // el botón sigue visible, solo se bloquea el contenido
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Competencia Lectora\n" +
+    "Módulo/Unidad: Competencia Lectora · Unidad 1 · Textos No Literarios: Expositivos\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy || anyCierreActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+checkTutorBlock();
+})();
+</script>
+</body>
+</html>
