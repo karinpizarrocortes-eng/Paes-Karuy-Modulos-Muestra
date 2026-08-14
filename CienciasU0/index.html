@@ -76,6 +76,26 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .tutor-send{background:var(--verde);border:none;color:#06210d;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
 .tutor-send:disabled{opacity:.4;cursor:default}
 @media(max-width:680px){.tutor-input{font-size:16px}}
+@media(max-width:680px){
+  .container{padding:10px 10px 80px;}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:4px 2px 10px;gap:5px;margin:12px 0 4px;position:relative !important;top:auto !important;background:rgba(10,26,12,.95);border-radius:14px;padding:8px !important;}
+  .nav::-webkit-scrollbar{display:none;}
+  .nav-btn{flex-shrink:0;font-size:.74rem;padding:9px 13px;min-height:40px;touch-action:manipulation;}
+  .hero{padding:36px 8px 14px;}
+  .hero-emoji{font-size:48px;}
+  .card{padding:14px 12px;}
+  .h-header{padding:20px 16px;}
+  .grid-2{grid-template-columns:1fr;}
+  .paes-box{padding:14px 12px;}
+  .paes-opt{padding:12px 11px;min-height:52px;touch-action:manipulation;}
+  .ol{min-width:30px;height:30px;font-size:.8rem;}
+  .lnav-btn{padding:13px 18px !important;font-size:.95rem !important;min-height:48px;}
+  .prac-group-hdr{padding:12px 14px;gap:8px;}
+  .prac-group-hdr .gname{font-size:.95rem;}
+  .stat-row{gap:10px;}
+  .recap-row{padding:12px 14px;gap:10px;}
+  .tutor-input{font-size:16px;}
+}
 .card ul,.card ol{padding-left:22px}
 .card li{margin-bottom:7px}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -364,6 +384,54 @@ footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#2d5a35}
     </div>
     <div class="paes-fb" id="q1-fb"></div>
   </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h1">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un apicultor notó que las colmenas ubicadas cerca de campos con mayor diversidad de flores silvestres producían más miel que las colmenas ubicadas cerca de monocultivos.</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones corresponde a la <strong>hipótesis</strong> que guiaría una investigación sobre esta observación?</p>
+    <div class="paes-opts" id="q1b">
+      <div class="paes-opt" onclick="ans('q1b','A')"><div class="ol">A</div><div class="ot">Las colmenas cercanas a campos con mayor diversidad floral producen más miel que las cercanas a monocultivos.</div></div>
+      <div class="paes-opt" onclick="ans('q1b','B')"><div class="ol">B</div><div class="ot">La diversidad floral en el entorno de una colmena podría relacionarse con la cantidad de miel producida por esa colmena.</div></div>
+      <div class="paes-opt" onclick="ans('q1b','C')"><div class="ol">C</div><div class="ot">La cantidad de miel producida determina la diversidad floral de los campos cercanos.</div></div>
+      <div class="paes-opt" onclick="ans('q1b','D')"><div class="ol">D</div><div class="ot">Las colmenas cercanas a monocultivos nunca producen miel.</div></div>
+    </div>
+    <div class="paes-fb" id="q1b-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h1">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un estudiante lee que ciertas enzimas digestivas funcionan mejor en ambientes ácidos, mientras otras lo hacen mejor en ambientes básicos. Le interesa investigar cómo el pH afecta la actividad de una enzima específica extraída de saliva humana.</div>
+    <p class="paes-q">¿Cuál de las siguientes es una <strong>pregunta de investigación</strong> que puede responderse mediante un experimento?</p>
+    <div class="paes-opts" id="q1c">
+      <div class="paes-opt" onclick="ans('q1c','A')"><div class="ol">A</div><div class="ot">¿Por qué existen enzimas ácidas y básicas en la naturaleza?</div></div>
+      <div class="paes-opt" onclick="ans('q1c','B')"><div class="ol">B</div><div class="ot">¿Cómo varía la velocidad de reacción de la enzima salival a distintos niveles de pH?</div></div>
+      <div class="paes-opt" onclick="ans('q1c','C')"><div class="ol">C</div><div class="ot">¿Es la saliva humana más importante que el jugo gástrico?</div></div>
+      <div class="paes-opt" onclick="ans('q1c','D')"><div class="ol">D</div><div class="ot">¿Qué opinan los estudiantes sobre las enzimas digestivas?</div></div>
+    </div>
+    <div class="paes-fb" id="q1c-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h1">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">En un patio de colegio, los estudiantes notaron que después de llover aparecían más lombrices de tierra en la superficie del suelo que en días secos.</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones corresponde a una <strong>hipótesis válida</strong> para investigar este fenómeno?</p>
+    <div class="paes-opts" id="q1d">
+      <div class="paes-opt" onclick="ans('q1d','A')"><div class="ol">A</div><div class="ot">La humedad del suelo se relaciona con la cantidad de lombrices que salen a la superficie.</div></div>
+      <div class="paes-opt" onclick="ans('q1d','B')"><div class="ol">B</div><div class="ot">Las lombrices salen a la superficie después de llover.</div></div>
+      <div class="paes-opt" onclick="ans('q1d','C')"><div class="ol">C</div><div class="ot">Las lombrices odian el sol y por eso salen cuando llueve.</div></div>
+      <div class="paes-opt" onclick="ans('q1d','D')"><div class="ol">D</div><div class="ot">Siempre que llueve, aparecen lombrices en la superficie.</div></div>
+    </div>
+    <div class="paes-fb" id="q1d-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h1">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Una bióloga observa que los peces de un río contaminado con metales pesados presentan menor tamaño corporal que los peces de la misma especie en un río sin contaminación cercano.</div>
+    <p class="paes-q">¿Cuál de las siguientes <strong>preguntas de investigación</strong> puede responderse directamente con este tipo de observación?</p>
+    <div class="paes-opts" id="q1e">
+      <div class="paes-opt" onclick="ans('q1e','A')"><div class="ol">A</div><div class="ot">¿Existe una relación entre la concentración de metales pesados en el agua y el tamaño corporal de los peces?</div></div>
+      <div class="paes-opt" onclick="ans('q1e','B')"><div class="ol">B</div><div class="ot">¿Por qué los metales pesados llegan al agua de los ríos?</div></div>
+      <div class="paes-opt" onclick="ans('q1e','C')"><div class="ol">C</div><div class="ot">¿Qué opinan los pescadores sobre la contaminación del río?</div></div>
+      <div class="paes-opt" onclick="ans('q1e','D')"><div class="ol">D</div><div class="ot">¿Cuál es el mecanismo molecular exacto por el que los metales pesados afectan el ADN de los peces?</div></div>
+    </div>
+    <div class="paes-fb" id="q1e-fb"></div>
+  </div>
 </div>
 
 <!-- H2 -->
@@ -421,6 +489,54 @@ footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#2d5a35}
       <div class="paes-opt" onclick="ans('q2','D')"><div class="ol">D</div><div class="ot">El tiempo de duración del experimento.</div></div>
     </div>
     <div class="paes-fb" id="q2-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h2">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un equipo de investigación diseñó un estudio en el que privó de sueño a un grupo de ratones durante 24 horas y luego evaluó su desempeño en un laberinto, comparando los resultados con un grupo de ratones que durmió normalmente.</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones corresponde al <strong>objetivo</strong> de esta investigación?</p>
+    <div class="paes-opts" id="q2b">
+      <div class="paes-opt" onclick="ans('q2b','A')"><div class="ol">A</div><div class="ot">Determinar el efecto de la privación de sueño sobre el desempeño en el laberinto.</div></div>
+      <div class="paes-opt" onclick="ans('q2b','B')"><div class="ol">B</div><div class="ot">Describir la anatomía del hipocampo de los ratones.</div></div>
+      <div class="paes-opt" onclick="ans('q2b','C')"><div class="ol">C</div><div class="ot">Registrar la cantidad de comida consumida por los ratones.</div></div>
+      <div class="paes-opt" onclick="ans('q2b','D')"><div class="ol">D</div><div class="ot">Comparar el peso corporal de los ratones antes del experimento.</div></div>
+    </div>
+    <div class="paes-fb" id="q2b-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h2">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Para estudiar si la concentración de sal en el agua afecta la flotabilidad de huevos de gallina, un estudiante coloca huevos idénticos en 4 vasos con distintas concentraciones de sal (0%, 5%, 10%, 15%), usando en todos los casos la misma cantidad de agua, la misma temperatura y huevos de la misma marca.</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones corresponde a una <strong>variable controlada</strong> en este experimento?</p>
+    <div class="paes-opts" id="q2c">
+      <div class="paes-opt" onclick="ans('q2c','A')"><div class="ol">A</div><div class="ot">La concentración de sal en el agua.</div></div>
+      <div class="paes-opt" onclick="ans('q2c','B')"><div class="ol">B</div><div class="ot">La temperatura del agua en todos los vasos.</div></div>
+      <div class="paes-opt" onclick="ans('q2c','C')"><div class="ol">C</div><div class="ot">La flotabilidad observada en cada huevo.</div></div>
+      <div class="paes-opt" onclick="ans('q2c','D')"><div class="ol">D</div><div class="ot">El número de vasos utilizados.</div></div>
+    </div>
+    <div class="paes-fb" id="q2c-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h2">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un equipo describe su plan de trabajo así: "se administrará un suplemento probiótico a un grupo de pacientes con síndrome de intestino irritable y un placebo a otro grupo, midiendo síntomas digestivos cada semana durante 8 semanas mediante una escala validada".</div>
+    <p class="paes-q">¿A qué <strong>componente</strong> de la investigación científica corresponde el texto entre comillas?</p>
+    <div class="paes-opts" id="q2d">
+      <div class="paes-opt" onclick="ans('q2d','A')"><div class="ol">A</div><div class="ot">Al objetivo.</div></div>
+      <div class="paes-opt" onclick="ans('q2d','B')"><div class="ol">B</div><div class="ot">Al marco conceptual.</div></div>
+      <div class="paes-opt" onclick="ans('q2d','C')"><div class="ol">C</div><div class="ot">Al diseño experimental.</div></div>
+      <div class="paes-opt" onclick="ans('q2d','D')"><div class="ol">D</div><div class="ot">A la conclusión.</div></div>
+    </div>
+    <div class="paes-fb" id="q2d-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h2">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un grupo de estudiantes cultivó plantas de poroto bajo tres colores de luz artificial (roja, azul y blanca), manteniendo igual la cantidad de agua, el tipo de suelo y la temperatura, y midió la altura de las plantas después de 3 semanas.</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones corresponde a la <strong>variable independiente</strong> de este experimento?</p>
+    <div class="paes-opts" id="q2e">
+      <div class="paes-opt" onclick="ans('q2e','A')"><div class="ol">A</div><div class="ot">La altura de las plantas después de 3 semanas.</div></div>
+      <div class="paes-opt" onclick="ans('q2e','B')"><div class="ol">B</div><div class="ot">El color de la luz artificial aplicada a cada grupo.</div></div>
+      <div class="paes-opt" onclick="ans('q2e','C')"><div class="ol">C</div><div class="ot">La cantidad de agua entregada a las plantas.</div></div>
+      <div class="paes-opt" onclick="ans('q2e','D')"><div class="ol">D</div><div class="ot">El tipo de suelo utilizado.</div></div>
+    </div>
+    <div class="paes-fb" id="q2e-fb"></div>
   </div>
 </div>
 
@@ -485,6 +601,54 @@ footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#2d5a35}
     </div>
     <div class="paes-fb" id="q3-fb"></div>
   </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h3">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Se midió la actividad de una enzima digestiva (unidades/min) a distintos niveles de pH: pH 2 → 5 u/min, pH 4 → 45 u/min, pH 7 → 90 u/min, pH 9 → 12 u/min.</div>
+    <p class="paes-q">¿Cuál de las siguientes <strong>conclusiones</strong> es correcta a partir de estos datos?</p>
+    <div class="paes-opts" id="q3b">
+      <div class="paes-opt" onclick="ans('q3b','A')"><div class="ol">A</div><div class="ot">La enzima funciona mejor en ambientes muy ácidos (pH 2).</div></div>
+      <div class="paes-opt" onclick="ans('q3b','B')"><div class="ol">B</div><div class="ot">La actividad enzimática alcanza su máximo cerca de pH neutro y disminuye en pH muy ácido o muy básico.</div></div>
+      <div class="paes-opt" onclick="ans('q3b','C')"><div class="ol">C</div><div class="ot">El pH no afecta la actividad de esta enzima.</div></div>
+      <div class="paes-opt" onclick="ans('q3b','D')"><div class="ol">D</div><div class="ot">La enzima solo funciona a pH 9.</div></div>
+    </div>
+    <div class="paes-fb" id="q3b-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h3">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Se registró el tamaño de una población de conejos en una reserva durante 5 años: Año 1 = 50, Año 2 = 120, Año 3 = 280, Año 4 = 310, Año 5 = 305.</div>
+    <p class="paes-q">¿Cuál de las siguientes <strong>conclusiones</strong> es consistente con estos datos?</p>
+    <div class="paes-opts" id="q3c">
+      <div class="paes-opt" onclick="ans('q3c','A')"><div class="ol">A</div><div class="ot">La población creció de forma indefinida durante los 5 años.</div></div>
+      <div class="paes-opt" onclick="ans('q3c','B')"><div class="ol">B</div><div class="ot">La población creció rápidamente al inicio y luego se estabilizó, mostrando una leve disminución hacia el año 5.</div></div>
+      <div class="paes-opt" onclick="ans('q3c','C')"><div class="ol">C</div><div class="ot">La población disminuyó constantemente durante todo el período.</div></div>
+      <div class="paes-opt" onclick="ans('q3c','D')"><div class="ol">D</div><div class="ot">El tamaño de la población no cambió significativamente.</div></div>
+    </div>
+    <div class="paes-fb" id="q3c-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h3">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">En una comuna se observó que, en los meses donde aumentaron las ventas de helados, también aumentaron los casos de ahogamiento en piscinas.</div>
+    <p class="paes-q">¿Cuál de las siguientes es la <strong>interpretación</strong> más adecuada de esta asociación?</p>
+    <div class="paes-opts" id="q3d">
+      <div class="paes-opt" onclick="ans('q3d','A')"><div class="ol">A</div><div class="ot">Comer helados causa directamente los ahogamientos.</div></div>
+      <div class="paes-opt" onclick="ans('q3d','B')"><div class="ol">B</div><div class="ot">Ambos fenómenos podrían estar relacionados con una tercera variable, como la temporada de mayor calor.</div></div>
+      <div class="paes-opt" onclick="ans('q3d','C')"><div class="ol">C</div><div class="ot">Los ahogamientos causan un aumento en las ventas de helados.</div></div>
+      <div class="paes-opt" onclick="ans('q3d','D')"><div class="ol">D</div><div class="ot">No existe ninguna relación posible entre ambos datos.</div></div>
+    </div>
+    <div class="paes-fb" id="q3d-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h3">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Se midió el nivel de anticuerpos (UI/mL) en dos grupos de voluntarios 30 días después de recibir una vacuna: Grupo A (dosis única) → promedio 45 UI/mL; Grupo B (dos dosis) → promedio 210 UI/mL.</div>
+    <p class="paes-q">¿Cuál de las siguientes <strong>conclusiones</strong> está directamente respaldada por estos datos?</p>
+    <div class="paes-opts" id="q3e">
+      <div class="paes-opt" onclick="ans('q3e','A')"><div class="ol">A</div><div class="ot">El esquema de dos dosis generó, en promedio, un nivel de anticuerpos mayor que el de una dosis única.</div></div>
+      <div class="paes-opt" onclick="ans('q3e','B')"><div class="ol">B</div><div class="ot">La vacuna no genera ningún tipo de protección con una sola dosis.</div></div>
+      <div class="paes-opt" onclick="ans('q3e','C')"><div class="ol">C</div><div class="ot">Todas las personas del Grupo B tienen exactamente 210 UI/mL de anticuerpos.</div></div>
+      <div class="paes-opt" onclick="ans('q3e','D')"><div class="ol">D</div><div class="ot">El esquema de una dosis es más seguro que el de dos dosis.</div></div>
+    </div>
+    <div class="paes-fb" id="q3e-fb"></div>
+  </div>
 </div>
 
 <!-- H4 -->
@@ -541,6 +705,54 @@ footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#2d5a35}
     </div>
     <div class="paes-fb" id="q4-fb"></div>
   </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h4">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un agricultor aplicó un nuevo fertilizante a todas sus plantaciones de tomate y, al final de la temporada, obtuvo una cosecha mayor que el año anterior. Concluyó que el fertilizante fue el responsable del aumento.</div>
+    <p class="paes-q">¿Cuál es la principal <strong>limitación</strong> de este estudio para sostener esa conclusión?</p>
+    <div class="paes-opts" id="q4b">
+      <div class="paes-opt" onclick="ans('q4b','A')"><div class="ol">A</div><div class="ot">No se usó suficiente fertilizante.</div></div>
+      <div class="paes-opt" onclick="ans('q4b','B')"><div class="ol">B</div><div class="ot">No hubo un grupo control sin el fertilizante para comparar en las mismas condiciones.</div></div>
+      <div class="paes-opt" onclick="ans('q4b','C')"><div class="ol">C</div><div class="ot">El estudio duró demasiado tiempo.</div></div>
+      <div class="paes-opt" onclick="ans('q4b','D')"><div class="ol">D</div><div class="ot">No se registró el tipo de tomate cultivado.</div></div>
+    </div>
+    <div class="paes-fb" id="q4b-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h4">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un laboratorio prueba el efecto de un nuevo compuesto sobre células cancerígenas en cultivo, realizando el experimento UNA sola vez con una sola placa de cultivo.</div>
+    <p class="paes-q">¿Qué acción permitiría mejorar la <strong>confiabilidad</strong> de los resultados obtenidos?</p>
+    <div class="paes-opts" id="q4c">
+      <div class="paes-opt" onclick="ans('q4c','A')"><div class="ol">A</div><div class="ot">Repetir el experimento varias veces con distintas placas de cultivo.</div></div>
+      <div class="paes-opt" onclick="ans('q4c','B')"><div class="ol">B</div><div class="ot">Usar una placa de cultivo más grande.</div></div>
+      <div class="paes-opt" onclick="ans('q4c','C')"><div class="ol">C</div><div class="ot">Cambiar el nombre del compuesto evaluado.</div></div>
+      <div class="paes-opt" onclick="ans('q4c','D')"><div class="ol">D</div><div class="ot">Reducir el tiempo de observación de las células.</div></div>
+    </div>
+    <div class="paes-fb" id="q4c-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h4">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un estudio tenía como objetivo "determinar si el ejercicio aeróbico mejora la memoria de corto plazo en adultos mayores". El procedimiento consistió en medir solo la presión arterial de los participantes antes y después de un programa de ejercicio.</div>
+    <p class="paes-q">¿Cuál es el principal problema de <strong>coherencia</strong> en este estudio?</p>
+    <div class="paes-opts" id="q4d">
+      <div class="paes-opt" onclick="ans('q4d','A')"><div class="ol">A</div><div class="ot">El procedimiento mide una variable (presión arterial) que no corresponde al objetivo planteado (memoria).</div></div>
+      <div class="paes-opt" onclick="ans('q4d','B')"><div class="ol">B</div><div class="ot">El ejercicio aeróbico no es un tratamiento válido en estudios científicos.</div></div>
+      <div class="paes-opt" onclick="ans('q4d','C')"><div class="ol">C</div><div class="ot">Los adultos mayores no pueden participar en estudios de este tipo.</div></div>
+      <div class="paes-opt" onclick="ans('q4d','D')"><div class="ol">D</div><div class="ot">La presión arterial no puede medirse antes y después de un tratamiento.</div></div>
+    </div>
+    <div class="paes-fb" id="q4d-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h4">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un equipo evalúa si una nueva dieta mejora el crecimiento de pollos. Asigna 50 pollos a la dieta nueva y solo 5 pollos a la dieta estándar (grupo control), manteniendo todas las demás condiciones iguales entre ambos grupos.</div>
+    <p class="paes-q">¿Cuál de las siguientes opciones representa una <strong>limitación</strong> de este diseño?</p>
+    <div class="paes-opts" id="q4e">
+      <div class="paes-opt" onclick="ans('q4e','A')"><div class="ol">A</div><div class="ot">El grupo control es mucho más pequeño que el grupo experimental, lo que reduce la confiabilidad de la comparación.</div></div>
+      <div class="paes-opt" onclick="ans('q4e','B')"><div class="ol">B</div><div class="ot">Se usó una dieta nueva, lo cual no está permitido en investigación científica.</div></div>
+      <div class="paes-opt" onclick="ans('q4e','C')"><div class="ol">C</div><div class="ot">Se mantuvieron iguales las demás condiciones entre los grupos.</div></div>
+      <div class="paes-opt" onclick="ans('q4e','D')"><div class="ol">D</div><div class="ot">El estudio incluyó un grupo control.</div></div>
+    </div>
+    <div class="paes-fb" id="q4e-fb"></div>
+  </div>
 </div>
 
 <!-- H5 -->
@@ -586,7 +798,7 @@ footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#2d5a35}
     <span class="kw c-h5" style="background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.3)">modelo</span>
   </div>
   <div class="paes-box">
-    <div class="paes-tag c-h5">📄 Pregunta tipo PAES · Habilidad 5 · Comunicar</div>
+    <div class="paes-tag c-h5">🤖 Pregunta creada · inspirada en modelo PAES</div>
     <div class="paes-context">Una estudiante midió la temperatura de 5 soluciones distintas cada 30 segundos durante 10 minutos. Quiere presentar los resultados de manera que se pueda <strong>comparar cómo cambia la temperatura de cada solución a lo largo del tiempo</strong>.</div>
     <p class="paes-q">¿Cuál de los siguientes recursos es el más adecuado para <strong>comunicar</strong> estos resultados?</p>
     <div class="paes-opts" id="q5">
@@ -596,6 +808,54 @@ footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#2d5a35}
       <div class="paes-opt" onclick="ans('q5','D')"><div class="ol">D</div><div class="ot">Un diagrama de flujo con los pasos del procedimiento experimental.</div></div>
     </div>
     <div class="paes-fb" id="q5-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h5">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un equipo de salud pública quiere mostrar qué porcentaje de la población de una comuna corresponde a cada grupo sanguíneo (A, B, AB, O), como proporción del total de personas estudiadas.</div>
+    <p class="paes-q">¿Cuál de los siguientes recursos es el más adecuado para <strong>comunicar</strong> esta información?</p>
+    <div class="paes-opts" id="q5b">
+      <div class="paes-opt" onclick="ans('q5b','A')"><div class="ol">A</div><div class="ot">Un gráfico de líneas con el tiempo en el eje X.</div></div>
+      <div class="paes-opt" onclick="ans('q5b','B')"><div class="ol">B</div><div class="ot">Un gráfico circular (torta) mostrando el porcentaje de cada grupo sanguíneo respecto al total.</div></div>
+      <div class="paes-opt" onclick="ans('q5b','C')"><div class="ol">C</div><div class="ot">Un diagrama de flujo del proceso de donación de sangre.</div></div>
+      <div class="paes-opt" onclick="ans('q5b','D')"><div class="ol">D</div><div class="ot">Una tabla con el nombre de cada donante y su grupo sanguíneo.</div></div>
+    </div>
+    <div class="paes-fb" id="q5b-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h5">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un estudiante quiere explicar, de forma clara y ordenada, la secuencia de pasos que ocurren desde la transcripción del ADN hasta la producción de una proteína.</div>
+    <p class="paes-q">¿Cuál de los siguientes recursos es el más adecuado para <strong>comunicar</strong> esta información?</p>
+    <div class="paes-opts" id="q5c">
+      <div class="paes-opt" onclick="ans('q5c','A')"><div class="ol">A</div><div class="ot">Un gráfico de barras comparando la cantidad de proteínas producidas.</div></div>
+      <div class="paes-opt" onclick="ans('q5c','B')"><div class="ol">B</div><div class="ot">Un diagrama de flujo que muestre la secuencia ordenada de pasos del proceso.</div></div>
+      <div class="paes-opt" onclick="ans('q5c','C')"><div class="ol">C</div><div class="ot">Un gráfico circular con los porcentajes de cada tipo de proteína.</div></div>
+      <div class="paes-opt" onclick="ans('q5c','D')"><div class="ol">D</div><div class="ot">Una tabla con los nombres de aminoácidos y su peso molecular.</div></div>
+    </div>
+    <div class="paes-fb" id="q5c-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h5">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un estudiante realizó un experimento de laboratorio y necesita registrar, con exactitud, el peso en gramos de 8 muestras distintas para un informe que será revisado por su profesor.</div>
+    <p class="paes-q">¿Cuál de los siguientes recursos es el más adecuado para comunicar estos datos con <strong>precisión</strong>?</p>
+    <div class="paes-opts" id="q5d">
+      <div class="paes-opt" onclick="ans('q5d','A')"><div class="ol">A</div><div class="ot">Un gráfico circular con los pesos de cada muestra.</div></div>
+      <div class="paes-opt" onclick="ans('q5d','B')"><div class="ol">B</div><div class="ot">Una tabla con el nombre de cada muestra y su peso exacto en gramos.</div></div>
+      <div class="paes-opt" onclick="ans('q5d','C')"><div class="ol">C</div><div class="ot">Un gráfico de líneas con el tiempo en el eje X.</div></div>
+      <div class="paes-opt" onclick="ans('q5d','D')"><div class="ol">D</div><div class="ot">Un diagrama de flujo con los pasos del experimento.</div></div>
+    </div>
+    <div class="paes-fb" id="q5d-fb"></div>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag c-h5">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <div class="paes-context">Un grupo de estudiantes midió la altura promedio de plantas de tomate tratadas con 3 tipos distintos de fertilizante (orgánico, químico, sin fertilizante) al finalizar el experimento, y quiere comparar fácilmente estos tres grupos entre sí.</div>
+    <p class="paes-q">¿Cuál de los siguientes recursos es el más adecuado para comunicar esta <strong>comparación</strong>?</p>
+    <div class="paes-opts" id="q5e">
+      <div class="paes-opt" onclick="ans('q5e','A')"><div class="ol">A</div><div class="ot">Un gráfico de barras con la altura promedio de las plantas para cada tipo de fertilizante.</div></div>
+      <div class="paes-opt" onclick="ans('q5e','B')"><div class="ol">B</div><div class="ot">Un gráfico de líneas con el tiempo en el eje X.</div></div>
+      <div class="paes-opt" onclick="ans('q5e','C')"><div class="ol">C</div><div class="ot">Un gráfico circular con la proporción de cada fertilizante utilizado.</div></div>
+      <div class="paes-opt" onclick="ans('q5e','D')"><div class="ol">D</div><div class="ot">Un diagrama de flujo con los pasos del riego.</div></div>
+    </div>
+    <div class="paes-fb" id="q5e-fb"></div>
   </div>
 </div>
 
@@ -629,20 +889,20 @@ footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#2d5a35}
   </div>
   <div class="tip-box" style="margin-top:18px">
     <div class="tip-label">🚀 Próximo paso</div>
-    <p>Ve a la sección <strong>Práctica</strong>: 15 preguntas originales estilo PAES, 3 por habilidad, para cerrar esta unidad demostrando lo que aprendiste.</p>
+    <p>Ve a la sección <strong>Práctica</strong>: 25 preguntas originales estilo PAES, 5 por habilidad, para cerrar esta unidad demostrando lo que aprendiste.</p>
   </div>
 </div>
 
 <!-- PRÁCTICA -->
 <div class="section" id="practica">
   <div class="card">
-    <p class="card-title verde">🎯 Práctica guiada · 15 preguntas · 3 por habilidad</p>
+    <p class="card-title verde">🎯 Práctica guiada · 25 preguntas · 5 por habilidad</p>
     <p>Responde cada pregunta. Dentro de cada grupo, las preguntas se revelan de a una. Al terminar, verás tu diagnóstico con impacto real en puntos PAES.</p>
   </div>
   <div id="prac-container"></div>
   <div id="final-results">
     <div class="res-hdr">📊 Tu diagnóstico de habilidades</div>
-    <div class="res-sub">Basado en tus 15 respuestas</div>
+    <div class="res-sub">Basado en tus 25 respuestas</div>
     <div id="res-rows"></div>
     <div class="res-summary-box" id="res-summary"></div>
   </div>
@@ -724,7 +984,27 @@ var QA = {
   "q2":{"c":"C","fb":{"A":"Incorrecto. La concentración de fertilizante es lo que el investigador MANIPULA deliberadamente → variable independiente.","B":"Incorrecto. El agua se mantiene igual para todos los grupos → variable controlada.","C":"✅ Correcto. La altura de las plantas es lo que se MIDE como resultado de aplicar el fertilizante → variable dependiente.","D":"Incorrecto. Las 6 semanas son iguales para todos los grupos → variable controlada."}},
   "q3":{"c":"B","fb":{"A":"Incorrecto. La tabla muestra que a 60 °C el crecimiento cae drásticamente; usar 'siempre' contradice los datos.","B":"✅ Correcto. El crecimiento aumenta hasta los 37 °C y luego cae fuertemente a 60 °C, mostrando un óptimo intermedio y caída en extremos.","C":"Incorrecto. A 4 °C sí hay colonias (2), por lo tanto hubo sobrevivencia; la tabla no habla de 'imposibilidad' bajo los 20 °C.","D":"Incorrecto. Los datos muestran variación clara del crecimiento según la temperatura."}},
   "q4":{"c":"C","fb":{"A":"Incorrecto. Usar 10 semillas por grupo es una decisión metodológica razonable, no un error.","B":"Incorrecto. Usar el mismo tipo de semilla en los tres grupos es un control correcto, no un error.","C":"✅ Correcto. Al variar también la luz y el tamaño de maceta entre grupos, no se puede saber si el efecto en la germinación se debe al tipo de agua o a estas otras diferencias no controladas.","D":"Incorrecto. Registrar los resultados es parte necesaria del procedimiento, no un error."}},
-  "q5":{"c":"B","fb":{"A":"Incorrecto. La tabla organiza datos con precisión, pero no permite visualizar fácilmente tendencias a lo largo del tiempo.","B":"✅ Correcto. El gráfico de líneas es ideal para mostrar cambios en el tiempo y comparar varias series (una línea por solución).","C":"Incorrecto. El diagrama de barras sirve para comparar categorías, no para mostrar evolución temporal.","D":"Incorrecto. El diagrama de flujo representa pasos de un proceso, no resultados cuantitativos."}}
+  "q5":{"c":"B","fb":{"A":"Incorrecto. La tabla organiza datos con precisión, pero no permite visualizar fácilmente tendencias a lo largo del tiempo.","B":"✅ Correcto. El gráfico de líneas es ideal para mostrar cambios en el tiempo y comparar varias series (una línea por solución).","C":"Incorrecto. El diagrama de barras sirve para comparar categorías, no para mostrar evolución temporal.","D":"Incorrecto. El diagrama de flujo representa pasos de un proceso, no resultados cuantitativos."}},
+  "q1b":{"c":"B","fb":{"A":"Es una descripción de lo observado, no una predicción tentativa a poner a prueba.","B":"✅ Correcto. Usa lenguaje tentativo ('podría relacionarse') y vincula dos variables medibles: diversidad floral y producción de miel.","C":"Invierte la relación esperada entre las variables.","D":"El uso de 'nunca' hace una afirmación absoluta, no tentativa, y no es coherente con que sí exista producción de miel en monocultivos."}},
+  "q1c":{"c":"B","fb":{"A":"Es una pregunta demasiado amplia y filosófica; no puede resolverse mediante un experimento controlado simple.","B":"✅ Correcto. Es específica, mide una variable (velocidad de reacción) en función de otra (pH), y puede evaluarse experimentalmente.","C":"Es una pregunta de valor/opinión, no se puede responder con evidencia experimental.","D":"Mide opiniones, no el fenómeno biológico que se quiere estudiar."}},
+  "q1d":{"c":"A","fb":{"A":"✅ Correcto. Relaciona dos variables (humedad del suelo y cantidad de lombrices en superficie) con lenguaje tentativo y es testeable.","B":"Es una descripción del fenómeno observado, no una predicción tentativa que relacione variables.","C":"Usa lenguaje no científico ('odian') y no plantea una relación testeable entre variables medibles.","D":"'Siempre' es una afirmación absoluta, no tentativa."}},
+  "q1e":{"c":"A","fb":{"A":"✅ Correcto. Se relaciona directamente con la observación: compara la contaminación con el tamaño corporal, dos variables medibles en el terreno.","B":"Esa pregunta trata sobre el origen de la contaminación, no sobre la relación observada entre contaminación y tamaño corporal.","C":"Es una pregunta de opinión, no puede responderse con datos biológicos del fenómeno.","D":"Requiere técnicas moleculares de laboratorio que van más allá de lo que permite esta observación de campo."}},
+  "q2b":{"c":"A","fb":{"A":"✅ Correcto. Indica claramente qué se busca determinar: el efecto de una variable (privación de sueño) sobre otra (desempeño en el laberinto).","B":"La anatomía del hipocampo no se menciona como parte de lo que se evalúa en este diseño.","C":"El consumo de alimento no forma parte del objetivo descrito.","D":"El peso corporal no es lo que se mide como resultado en este estudio."}},
+  "q2c":{"c":"B","fb":{"A":"Es la variable INDEPENDIENTE: lo que el estudiante manipula deliberadamente.","B":"✅ Correcto. Se mantiene constante en todos los grupos ('la misma temperatura'), por lo que es una variable controlada.","C":"Es la variable DEPENDIENTE: lo que se observa como resultado.","D":"El número de vasos no es una variable del experimento, es parte del diseño del muestreo."}},
+  "q2d":{"c":"C","fb":{"A":"El objetivo indica QUÉ se busca lograr, no el plan detallado del estudio.","B":"El marco conceptual corresponde a teorías y antecedentes, no al plan de trabajo.","C":"✅ Correcto. Describe cómo se hará el estudio: grupos, tratamiento, medición y frecuencia. Eso es el diseño experimental.","D":"La conclusión se redacta al final, a partir de los resultados obtenidos."}},
+  "q2e":{"c":"B","fb":{"A":"Es la variable DEPENDIENTE: lo que se mide como resultado.","B":"✅ Correcto. Es lo que el equipo manipula deliberadamente entre los grupos: el color de luz.","C":"Es una variable CONTROLADA: se mantiene igual para todos los grupos.","D":"También es una variable CONTROLADA: el tipo de suelo es el mismo en todos los grupos."}},
+  "q3b":{"c":"B","fb":{"A":"A pH 2 la actividad es la más baja (5 u/min), no la más alta.","B":"✅ Correcto. La actividad sube hasta pH 7 y luego cae en pH 9, mostrando un óptimo cercano al pH neutro.","C":"Los datos muestran variación clara de la actividad según el pH.","D":"A pH 9 la actividad es baja (12 u/min), no la única en la que funciona."}},
+  "q3c":{"c":"B","fb":{"A":"Entre el año 4 y 5 el crecimiento se detiene e incluso baja levemente; no es indefinido.","B":"✅ Correcto. Hay un crecimiento rápido entre los años 1 y 3, luego una estabilización y una leve baja hacia el año 5.","C":"La población aumentó fuertemente en los primeros años; no disminuyó todo el período.","D":"Los datos muestran cambios grandes, de 50 a 310 individuos."}},
+  "q3d":{"c":"B","fb":{"A":"Es un error común: confundir correlación con causalidad directa entre dos variables sin relación biológica plausible.","B":"✅ Correcto. Una variable externa (la temporada cálida) puede explicar el aumento simultáneo de ambos fenómenos, sin que uno cause al otro.","C":"No hay ningún mecanismo por el cual los ahogamientos aumenten las ventas de helados.","D":"Sí existe una asociación en los datos, aunque no sea causal directa."}},
+  "q3e":{"c":"A","fb":{"A":"✅ Correcto. Compara directamente los promedios reportados entre ambos grupos, sin agregar información no incluida en los datos.","B":"El Grupo A sí presenta anticuerpos (45 UI/mL en promedio); no se puede concluir 'ningún tipo de protección'.","C":"210 UI/mL es un promedio, no implica que todos los individuos tengan exactamente ese valor.","D":"La seguridad de la vacuna no fue medida en este estudio; solo se midieron niveles de anticuerpos."}},
+  "q4b":{"c":"B","fb":{"A":"La cantidad de fertilizante no es el problema metodológico central del estudio.","B":"✅ Correcto. Sin un grupo control, no se puede descartar que otros factores (clima, suelo, etc.) explicaran el aumento en la cosecha.","C":"La duración del estudio no es, en sí, un problema de validez aquí.","D":"No registrar el tipo de tomate no es la limitación principal frente a la falta de grupo control."}},
+  "q4c":{"c":"A","fb":{"A":"✅ Correcto. Repetir el experimento (réplicas) permite verificar que el resultado no se deba al azar, aumentando la confiabilidad.","B":"El tamaño de la placa no aumenta la confiabilidad estadística del resultado.","C":"El nombre del compuesto no tiene relación con la confiabilidad del experimento.","D":"Reducir el tiempo de observación podría incluso perder información relevante, no mejora la confiabilidad."}},
+  "q4d":{"c":"A","fb":{"A":"✅ Correcto. El objetivo habla de memoria, pero el procedimiento mide presión arterial: no hay coherencia entre lo que se busca y lo que se mide.","B":"El ejercicio aeróbico es un tratamiento válido y frecuente en este tipo de estudios.","C":"Los adultos mayores sí pueden participar en estudios de este tipo, con los resguardos éticos correspondientes.","D":"Medir antes y después es una práctica metodológica válida; el problema es qué variable se mide."}},
+  "q4e":{"c":"A","fb":{"A":"✅ Correcto. Un grupo control mucho más pequeño (5 vs 50) reduce la confiabilidad estadística de la comparación entre ambos grupos.","B":"Probar tratamientos nuevos es una práctica científica válida y común.","C":"Mantener iguales las demás condiciones es una fortaleza del diseño, no una limitación.","D":"Tener un grupo control es una fortaleza del diseño, no una limitación."}},
+  "q5b":{"c":"B","fb":{"A":"No hay una variable temporal en este caso; el gráfico de líneas no aplica.","B":"✅ Correcto. El gráfico circular es ideal para mostrar cómo se reparte un total en categorías, como porcentajes de grupos sanguíneos.","C":"El diagrama de flujo representa pasos de un proceso, no proporciones de una población.","D":"Una tabla con nombres individuales no permite visualizar fácilmente las proporciones generales."}},
+  "q5c":{"c":"B","fb":{"A":"El gráfico de barras compara cantidades entre categorías, no representa una secuencia de pasos.","B":"✅ Correcto. El diagrama de flujo es el recurso adecuado para mostrar una secuencia ordenada de etapas de un proceso.","C":"El gráfico circular muestra proporciones de un total, no una secuencia de pasos.","D":"Una tabla de datos no comunica el orden ni la relación entre las etapas del proceso."}},
+  "q5d":{"c":"B","fb":{"A":"El gráfico circular es para proporciones de un total, no para valores exactos individuales.","B":"✅ Correcto. Cuando se necesita registrar valores exactos y consultables, la tabla es el recurso más preciso.","C":"No hay una variable temporal en este caso; el gráfico de líneas no aplica.","D":"El diagrama de flujo representa pasos de un proceso, no valores numéricos de muestras."}},
+  "q5e":{"c":"A","fb":{"A":"✅ Correcto. El gráfico de barras permite comparar directamente un valor (altura promedio) entre categorías discretas (tipos de fertilizante).","B":"No se trata de una tendencia en el tiempo, sino de una comparación entre grupos distintos.","C":"El gráfico circular mostraría proporciones, no permite comparar alturas promedio entre grupos.","D":"El diagrama de flujo representa pasos de un proceso, no resultados numéricos comparables."}}
 };
 
 function ans(qid, opt) {
@@ -754,19 +1034,33 @@ var PG = [
         c:"B",
         fb:{"A":"Es solo una descripción de la observación, no relaciona variables ni predice nada.","B":"✅ Correcto. Relaciona dos variables con lenguaje tentativo y es testeable.","C":"Invierte la relación esperada entre las variables.","D":"'Es causado definitivamente por' implica causalidad ya comprobada, no una hipótesis tentativa."}
       },
-      { ref:"Pregunta original",
+      { ref:"🤖 Pregunta creada",
         ctx:"Un científico observa que bacterias expuestas a concentraciones bajas de antibióticos sobreviven más que las expuestas a concentraciones altas, y que algunas de las sobrevivientes se reproducen normalmente incluso en presencia del fármaco.",
         q:"¿Cuál es la hipótesis más adecuada para guiar una investigación sobre este fenómeno?",
         opts:{"A":"Las bacterias expuestas a antibióticos siempre desarrollan resistencia con el tiempo.","B":"Si las bacterias son expuestas a concentraciones subletales de antibiótico, entonces aumentará la proporción de bacterias resistentes en la población.","C":"Los antibióticos eliminan a todas las bacterias en cualquier concentración.","D":"Las bacterias que sobreviven al antibiótico son más pequeñas que las demás."},
         c:"B",
         fb:{"A":"Usa 'siempre', lo que la hace absoluta y no testeable con este contexto.","B":"✅ Correcto. Tiene estructura Si...entonces, es específica, relaciona variables (concentración subletal y resistencia) y es testeable.","C":"Es una afirmación contraria a la observación y no es testeable.","D":"El tamaño no se menciona en el contexto; es una inferencia sin base."}
       },
-      { ref:"Pregunta original",
+      { ref:"🤖 Pregunta creada",
         ctx:"Una estudiante observa que en su jardín, las plantas que reciben sombra parcial tienen hojas más grandes que las que reciben sol directo todo el día. Le interesa investigar si esta diferencia se debe a la intensidad lumínica.",
         q:"¿Cuál de las siguientes preguntas de investigación puede ser respondida directamente con este tipo de observación?",
         opts:{"A":"¿Cómo afecta la temperatura del suelo al tamaño de las hojas?","B":"¿Existe una relación entre la intensidad lumínica recibida y el tamaño de las hojas de las plantas del jardín?","C":"¿Por qué las plantas con sombra parcial producen más clorofila?","D":"¿Cuál es el mecanismo molecular que regula el tamaño foliar en plantas?"},
         c:"B",
         fb:{"A":"La temperatura no se menciona en la observación; no puede responderse con estos datos.","B":"✅ Correcto. La observación compara directamente la intensidad lumínica (sol vs. sombra) con el tamaño de las hojas. Esta pregunta sí puede responderse con el estudio descrito.","C":"La producción de clorofila no se menciona en la observación; requeriría otro tipo de análisis.","D":"Mecanismos moleculares requieren técnicas de laboratorio muy distintas."}
+      },
+      { ref:"🤖 Pregunta creada",
+        ctx:"Un grupo de estudiantes notó que, en las semanas en que dormían menos horas por las noches de estudio, presentaban más días con dolores de cabeza que en semanas de sueño normal.",
+        q:"¿Cuál de las siguientes opciones corresponde a una hipótesis válida para investigar esta observación?",
+        opts:{"A":"La cantidad de horas de sueño podría relacionarse con la frecuencia de dolores de cabeza en estudiantes.","B":"Los estudiantes siempre tienen dolores de cabeza cuando duermen menos de 6 horas.","C":"Dormir menos horas es causado definitivamente por el estrés académico.","D":"Los estudiantes duermen menos durante las semanas de evaluaciones."},
+        c:"A",
+        fb:{"A":"✅ Correcto. Relaciona dos variables (horas de sueño y frecuencia de dolores de cabeza) con lenguaje tentativo y es testeable.","B":"'Siempre' es una afirmación absoluta, no una hipótesis tentativa.","C":"Introduce una variable (estrés académico) no mencionada en la observación y afirma causalidad absoluta.","D":"Es una descripción de lo observado, no relaciona las dos variables de interés de forma predictiva."}
+      },
+      { ref:"🤖 Pregunta creada",
+        ctx:"Científicos observaron que los arrecifes de coral ubicados en aguas con temperaturas más altas presentaban mayor porcentaje de blanqueamiento coralino que los arrecifes en aguas más frías.",
+        q:"¿Cuál de las siguientes preguntas de investigación puede responderse directamente con este tipo de observación?",
+        opts:{"A":"¿Existe una relación entre la temperatura del agua y el porcentaje de blanqueamiento coralino?","B":"¿Qué opinan los turistas sobre el estado de los arrecifes de coral?","C":"¿Cuál es el mecanismo genético exacto que provoca el blanqueamiento a nivel celular?","D":"¿Por qué aumenta la temperatura del agua de mar en algunas zonas?"},
+        c:"A",
+        fb:{"A":"✅ Correcto. Se relaciona directamente con la observación: compara la temperatura del agua con el porcentaje de blanqueamiento, ambas variables medibles en el estudio.","B":"Es una pregunta de opinión, no se puede responder con datos biológicos del fenómeno observado.","C":"Requiere técnicas moleculares que van más allá de lo que permite esta observación de campo.","D":"Esa pregunta trata sobre el origen del aumento de temperatura, no sobre la relación observada con el blanqueamiento coralino."}
       }
     ]
   },
@@ -792,6 +1086,20 @@ var PG = [
         opts:{"A":"Determinar el efecto de distintas dosis del suplemento sobre la producción y peso de los huevos.","B":"Investigar el color de la cáscara de los huevos producidos.","C":"Conocer el costo de producción del suplemento vitamínico.","D":"Evaluar la resistencia a enfermedades de las gallinas tratadas."},
         c:"A",
         fb:{"A":"✅ Correcto. El estudio evalúa distintas dosis para determinar su efecto sobre lo que se mide: producción y peso de huevos.","B":"El color de la cáscara no se menciona entre lo que se registra.","C":"El costo no forma parte de lo que se midió en el protocolo descrito.","D":"La resistencia a enfermedades no se menciona en el diseño descrito."}
+      },
+      { ref:"🤖 Pregunta creada",
+        ctx:"Un estudiante midió la producción de CO₂ (mL) generada por levadura a distintas temperaturas (10°C, 25°C, 40°C, 55°C), usando en todos los grupos la misma cantidad de azúcar, el mismo tipo de levadura y el mismo volumen de agua.",
+        q:"¿Cuál de las siguientes opciones corresponde a una variable controlada en este experimento?",
+        opts:{"A":"La temperatura de incubación.","B":"La producción de CO₂ generada.","C":"La cantidad de azúcar utilizada en cada grupo.","D":"El número de matraces utilizados en el experimento."},
+        c:"C",
+        fb:{"A":"Es la variable INDEPENDIENTE: lo que se manipula deliberadamente entre grupos.","B":"Es la variable DEPENDIENTE: lo que se mide como resultado.","C":"✅ Correcto. Se mantiene igual en todos los grupos ('la misma cantidad de azúcar'), por lo tanto es una variable controlada.","D":"El número de matraces no es una variable del experimento, sino parte del diseño del muestreo."}
+      },
+      { ref:"🤖 Pregunta creada",
+        ctx:"Un equipo describe su plan de trabajo como: 'se medirá la frecuencia cardíaca de 30 voluntarios antes y después de realizar 20 minutos de ejercicio aeróbico de intensidad moderada, usando un pulsómetro digital'.",
+        q:"¿A qué componente de la investigación científica corresponde el texto entre comillas?",
+        opts:{"A":"Al objetivo.","B":"Al marco conceptual.","C":"Al diseño experimental.","D":"A la conclusión."},
+        c:"C",
+        fb:{"A":"El objetivo indica QUÉ se busca lograr, no el procedimiento detallado.","B":"El marco conceptual son teorías y antecedentes previos, no el plan de trabajo.","C":"✅ Correcto. Describe el procedimiento concreto: quiénes participan, qué se hace y cómo se mide. Eso es el diseño experimental.","D":"La conclusión se redacta al final, a partir de los resultados obtenidos."}
       }
     ]
   },
@@ -811,12 +1119,26 @@ var PG = [
         c:"B",
         fb:{"A":"Incorrecta: la especie 4 tiene MF y nódulos pero NO tiene fijación de nitrógeno.","B":"✅ Correcto. MF está presente en todas las especies con fijación (2 y 5) y ausente en todas sin fijación (1 y 3). Es necesario pero no suficiente.","C":"Incorrecta: los nódulos están presentes en todas las especies, con o sin MF.","D":"Incorrecta: la especie 4 tiene MF pero no presenta fijación de nitrógeno."}
       },
-      { ref:"Pregunta original",
+      { ref:"🤖 Pregunta creada",
         ctx:"En un experimento se midió la concentración de O₂ disuelto (mg/L) en dos acuarios durante 24 horas: Acuario A solo tenía plantas acuáticas; Acuario B tenía plantas acuáticas y peces. En ambos acuarios la concentración de O₂ aumentó durante el día y disminuyó durante la noche. Sin embargo, la concentración nocturna de O₂ en el Acuario B fue consistentemente menor que en el Acuario A.",
         q:"A partir de los resultados, ¿cuál de las siguientes inferencias es correcta?",
         opts:{"A":"Las plantas acuáticas no realizan fotosíntesis durante la noche.","B":"Los peces consumen O₂ durante la noche, lo que explica la menor concentración en el Acuario B.","C":"Los peces realizan fotosíntesis durante el día, aumentando la concentración de O₂.","D":"La concentración de O₂ solo depende de la temperatura del agua, no de los organismos presentes."},
         c:"B",
         fb:{"A":"Esta es una afirmación correcta (las plantas sólo fotosintentizan con luz), pero no explica la diferencia entre acuarios.","B":"✅ Correcto. La única diferencia entre los acuarios es la presencia de peces. La menor [O₂] nocturna en B se explica por el consumo de O₂ de los peces (respiración), que continúa de noche.","C":"Los peces no realizan fotosíntesis; solo respiran. Esta opción es incorrecta.","D":"La tabla muestra claramente que ambos acuarios difieren en la [O₂] nocturna; la temperatura no está en los datos."}
+      },
+      { ref:"🤖 Pregunta creada",
+        ctx:"Se midió el nivel de glucosa en sangre (mg/dL) de un grupo de voluntarios 1 hora después de consumir tres tipos de comida: alta en azúcar → 165 mg/dL; alta en fibra → 110 mg/dL; alta en proteína → 95 mg/dL (nivel basal promedio: 90 mg/dL).",
+        q:"¿Cuál de las siguientes conclusiones es correcta a partir de estos datos?",
+        opts:{"A":"La comida alta en azúcar generó el mayor aumento de glucosa respecto al nivel basal, entre las tres opciones evaluadas.","B":"Ninguna de las comidas modificó el nivel de glucosa en sangre.","C":"La comida alta en proteína generó el mayor aumento de glucosa.","D":"Todas las comidas generaron el mismo aumento de glucosa."},
+        c:"A",
+        fb:{"A":"✅ Correcto. 165 mg/dL es el valor más alto de los tres, y representa el mayor aumento respecto al basal de 90 mg/dL.","B":"Los tres valores están por sobre el nivel basal (90 mg/dL), por lo tanto sí hubo cambios.","C":"La comida alta en proteína generó el menor aumento (95 mg/dL), no el mayor.","D":"Los tres valores son distintos entre sí (165, 110 y 95 mg/dL)."}
+      },
+      { ref:"🤖 Pregunta creada",
+        ctx:"Un investigador expuso una población bacteriana a un antibiótico durante 10 generaciones sucesivas. En la generación 1, el 2% de las bacterias sobrevivía a la exposición; en la generación 10, el 78% sobrevivía.",
+        q:"¿Cuál de las siguientes es una inferencia correcta a partir de estos datos?",
+        opts:{"A":"La proporción de bacterias resistentes al antibiótico aumentó a lo largo de las generaciones.","B":"El antibiótico dejó de tener cualquier efecto sobre la población desde la generación 1.","C":"Todas las bacterias de la generación 10 son idénticas genéticamente a las de la generación 1.","D":"La resistencia bacteriana no tiene relación con la exposición al antibiótico."},
+        c:"A",
+        fb:{"A":"✅ Correcto. El porcentaje de sobrevivientes aumentó de 2% a 78% entre generaciones, lo que indica un aumento en la proporción de bacterias resistentes.","B":"En la generación 1 solo el 2% sobrevivía, lo que muestra que el antibiótico sí tuvo un efecto fuerte inicialmente.","C":"El aumento en la resistencia sugiere cambios en la población a lo largo de las generaciones, no identidad genética total.","D":"Los datos muestran justamente una relación clara entre la exposición al antibiótico y el cambio en la proporción de sobrevivientes."}
       }
     ]
   },
@@ -842,31 +1164,59 @@ var PG = [
         opts:{"A":"Una remisión similar de síntomas tanto con el inmunosupresor como con el trasplante.","B":"Una remisión de síntomas que se mantiene incluso al suspender el inmunosupresor tras el trasplante.","C":"Una mejora sostenida de síntomas usando el inmunosupresor después del trasplante.","D":"Una mejora de síntomas registrada antes del trasplante, usando solo el inmunosupresor."},
         c:"B",
         fb:{"A":"Si ambos tratamientos dan igual resultado, no se puede atribuir el efecto solo al trasplante.","B":"✅ Correcto. Que la remisión se mantenga SIN el inmunosupresor aísla el efecto del trasplante.","C":"Esto solo demuestra que el inmunosupresor funciona, no el trasplante.","D":"Una mejora antes del trasplante solo evalúa el inmunosupresor."}
+      },
+      { ref:"🤖 Pregunta creada",
+        ctx:"Un equipo evalúa si una nueva dieta mejora el crecimiento de pollos. Asigna 50 pollos a la dieta nueva y solo 5 pollos a la dieta estándar (grupo control), manteniendo todas las demás condiciones iguales entre ambos grupos.",
+        q:"¿Cuál de las siguientes opciones representa una limitación de este diseño?",
+        opts:{"A":"El grupo control es mucho más pequeño que el grupo experimental, lo que reduce la confiabilidad de la comparación.","B":"Se usó una dieta nueva, lo cual no está permitido en investigación científica.","C":"Se mantuvieron iguales las demás condiciones entre los grupos.","D":"El estudio incluyó un grupo control."},
+        c:"A",
+        fb:{"A":"✅ Correcto. Un grupo control mucho más pequeño (5 vs 50) reduce la confiabilidad estadística de la comparación entre ambos grupos.","B":"Probar tratamientos nuevos es una práctica científica válida y común.","C":"Mantener iguales las demás condiciones es una fortaleza del diseño, no una limitación.","D":"Tener un grupo control es una fortaleza del diseño, no una limitación."}
+      },
+      { ref:"🤖 Pregunta creada",
+        ctx:"Investigadores descubrieron una bacteria capaz de degradar cierto tipo de plástico (PET) en condiciones de laboratorio, transformándolo en compuestos más simples en pocas semanas.",
+        q:"¿Cuál de las siguientes aplicaciones tecnológicas es la más coherente con este hallazgo?",
+        opts:{"A":"Un sistema de biorremediación que use esta bacteria para tratar plásticos en plantas de reciclaje.","B":"Una vacuna contra enfermedades respiratorias.","C":"Un fertilizante para aumentar el crecimiento de plantas de trigo.","D":"Un método para purificar agua potable de metales pesados."},
+        c:"A",
+        fb:{"A":"✅ Correcto. Usar la capacidad de la bacteria para degradar PET es coherente con una aplicación de biorremediación de plásticos.","B":"No hay relación entre degradar plástico y el sistema respiratorio.","C":"El hallazgo trata sobre degradación de plástico, no sobre nutrientes para plantas.","D":"El hallazgo no menciona capacidad para eliminar metales pesados del agua."}
       }
     ]
   },
   { hid:5, icon:"💬", name:"Comunicar", color:"var(--h5c)", n:6,
     qs:[
-      { ref:"Pregunta original",
+      { ref:"🤖 Pregunta creada",
         ctx:"Una estudiante midió la temperatura de 5 soluciones distintas cada 30 segundos durante 10 minutos. Quiere presentar los resultados de manera que se pueda comparar cómo cambia la temperatura de cada solución a lo largo del tiempo.",
         q:"¿Cuál de los siguientes recursos es el más adecuado para comunicar estos resultados?",
         opts:{"A":"Una tabla con todos los valores de temperatura registrados para cada solución y cada momento.","B":"Un gráfico de líneas con el tiempo en el eje X y la temperatura en el eje Y, con una línea por solución.","C":"Un diagrama de barras con la temperatura promedio de cada solución.","D":"Un diagrama de flujo con los pasos del procedimiento experimental."},
         c:"B",
         fb:{"A":"La tabla muestra datos precisos, pero no permite visualizar fácilmente tendencias en el tiempo.","B":"✅ Correcto. El gráfico de líneas es ideal para mostrar cambios en el tiempo y comparar varias series simultáneamente.","C":"El diagrama de barras sirve para comparar categorías, no para mostrar evolución temporal.","D":"El diagrama de flujo representa pasos de un proceso, no resultados cuantitativos."}
       },
-      { ref:"Pregunta original",
+      { ref:"🤖 Pregunta creada",
         ctx:"Una investigadora mide la tasa de fotosíntesis (μmol O₂/hora) de una planta a distintas concentraciones de CO₂: 200, 400, 600 y 800 ppm. Quiere presentar los datos de modo que se pueda observar la tendencia entre la concentración de CO₂ y la tasa fotosintética.",
         q:"¿Cuál recurso es el más adecuado?",
         opts:{"A":"Una tabla con las concentraciones de CO₂ y las tasas fotosintéticas correspondientes.","B":"Un gráfico de líneas con la concentración de CO₂ en el eje X y la tasa fotosintética en el eje Y.","C":"Un diagrama de flujo del proceso de fotosíntesis.","D":"Un gráfico circular mostrando el porcentaje de cada concentración de CO₂."},
         c:"B",
         fb:{"A":"La tabla permite ver valores exactos, pero no visualiza la tendencia de la relación entre variables.","B":"✅ Correcto. El gráfico de líneas muestra claramente la tendencia (relación continua) entre la concentración de CO₂ y la tasa fotosintética.","C":"El diagrama de flujo representa procesos, no resultados cuantitativos.","D":"El gráfico circular muestra proporciones de un total, no relaciones entre variables continuas."}
       },
-      { ref:"Pregunta original",
+      { ref:"🤖 Pregunta creada",
         ctx:"Un grupo de estudiantes registró el número de especies de aves observadas en 4 ecosistemas diferentes: bosque nativo (42 especies), pradera (18 especies), humedal (31 especies) y desierto (9 especies). Quieren comunicar sus resultados de modo que sea fácil comparar la cantidad de especies entre ecosistemas.",
         q:"¿Qué recurso es el más adecuado?",
         opts:{"A":"Un gráfico de líneas con los ecosistemas en el eje X y el número de especies en el eje Y.","B":"Un diagrama de dispersión entre los ecosistemas y las especies.","C":"Un gráfico de barras con el número de especies por ecosistema.","D":"Un gráfico circular con la proporción de cada ecosistema respecto al total."},
         c:"C",
         fb:{"A":"El gráfico de líneas se usa para tendencias continuas en el tiempo; los ecosistemas son categorías discretas.","B":"El diagrama de dispersión se usa para mostrar correlación entre dos variables numéricas.","C":"✅ Correcto. El gráfico de barras es ideal para comparar valores entre categorías discretas (ecosistemas). Permite visualizar rápidamente cuál tiene más o menos especies.","D":"El gráfico circular muestra proporciones; en este caso interesa comparar cantidades absolutas."}
+      },
+      { ref:"🤖 Pregunta creada",
+        ctx:"Un laboratorio ambiental midió la concentración de 4 minerales distintos (calcio, magnesio, hierro, zinc) en una muestra de agua potable, y necesita un informe con los valores exactos en mg/L para cumplir una norma sanitaria.",
+        q:"¿Cuál de los siguientes recursos es el más adecuado para comunicar esta información?",
+        opts:{"A":"Un gráfico circular con el porcentaje de cada mineral.","B":"Una tabla con el nombre de cada mineral y su concentración exacta en mg/L.","C":"Un gráfico de líneas con el tiempo en el eje X.","D":"Un diagrama de flujo del proceso de potabilización."},
+        c:"B",
+        fb:{"A":"El gráfico circular muestra proporciones, no valores exactos necesarios para cumplir una norma.","B":"✅ Correcto. Para reportar valores exactos y verificables, la tabla es el recurso más adecuado.","C":"No hay una variable temporal en este caso; el gráfico de líneas no aplica.","D":"El diagrama de flujo representa pasos de un proceso, no concentraciones numéricas."}
+      },
+      { ref:"🤖 Pregunta creada",
+        ctx:"Un equipo registró el número de especies de insectos polinizadores encontrados en 4 tipos de cultivo: monocultivo de maíz (6 especies), policultivo (22 especies), cultivo orgánico (18 especies) y cultivo convencional (9 especies). Quieren comparar fácilmente estos cuatro grupos.",
+        q:"¿Cuál de los siguientes recursos es el más adecuado para comunicar esta comparación?",
+        opts:{"A":"Un gráfico de barras con el número de especies de insectos por tipo de cultivo.","B":"Un gráfico de líneas con el tiempo en el eje X.","C":"Un gráfico circular con la proporción de cada tipo de cultivo.","D":"Un diagrama de flujo con los pasos del cultivo."},
+        c:"A",
+        fb:{"A":"✅ Correcto. El gráfico de barras permite comparar directamente un valor (número de especies) entre categorías discretas (tipos de cultivo).","B":"No se trata de una tendencia en el tiempo, sino de una comparación entre grupos distintos.","C":"El gráfico circular muestra proporciones de un total, no permite comparar cantidades absolutas entre grupos fácilmente.","D":"El diagrama de flujo representa pasos de un proceso, no resultados numéricos comparables."}
       }
     ]
   }
@@ -885,7 +1235,7 @@ function buildPractice() {
     hdr.style.borderLeft = "4px solid "+g.color;
     hdr.innerHTML = "<div class='gi'>" + g.icon + "</div>" +
       "<div><div class='gname' style='color:"+g.color+"'>" + "H"+g.hid+" · "+g.name + "</div>" +
-      "<div style='font-size:.8rem;color:var(--text-dim)'>3 preguntas</div></div>" +
+      "<div style='font-size:.8rem;color:var(--text-dim)'>"+g.qs.length+" preguntas</div></div>" +
       "<div class='gscore' id='gs"+gi+"'></div>";
     sec.appendChild(hdr);
     g.qs.forEach(function(q, qi) {
@@ -936,7 +1286,7 @@ function pAns(gi, qi, opt) {
   fb.textContent = q.fb[opt];
   // show next button
   var nqBtn = document.getElementById("nq-"+gi+"-"+qi);
-  if(qi < 2) {
+  if(qi < PG[gi].qs.length - 1) {
     nqBtn.textContent = "Siguiente pregunta →";
     nqBtn.style.display = "inline-block";
   } else {
@@ -955,8 +1305,10 @@ function nextQ(gi, qi) {
 function finishGroup(gi) {
   doneGroups++;
   var sc = pScores[gi];
-  var icons = ["","",""]; for(var i=0;i<3;i++){ icons[i]=(i<sc.c?"✅":"❌"); }
-  document.getElementById("gs"+gi).innerHTML = icons.join(" ") + " <span style='color:"+(sc.c>=2?"var(--verde)":"var(--rojo)")+"'>" + sc.c+"/3" + "</span>";
+  var total = PG[gi].qs.length;
+  var majority = Math.ceil(total/2);
+  var icons = []; for(var i=0;i<total;i++){ icons.push(i<sc.c?"✅":"❌"); }
+  document.getElementById("gs"+gi).innerHTML = icons.join(" ") + " <span style='color:"+(sc.c>=majority?"var(--verde)":"var(--rojo)")+"'>" + sc.c+"/"+total + "</span>";
   if(doneGroups >= PG.length) {
     setTimeout(function(){ showFinalResults(); }, 600);
   }
@@ -970,8 +1322,10 @@ function showFinalResults() {
   var badList = [];
   PG.forEach(function(g, gi) {
     var sc = pScores[gi];
-    var pct = sc.c / 3;
-    var ok = (sc.c >= 2);
+    var total = g.qs.length;
+    var majority = Math.ceil(total/2);
+    var pct = sc.c / total;
+    var ok = (sc.c >= majority);
     if(!ok){ totalLost += g.n; badList.push(g.icon+" "+g.name); }
     var ptsRisk = ok ? 0 : (1000 - ST[Math.max(0, 75-g.n)]);
     var row = document.createElement("div");
@@ -979,13 +1333,13 @@ function showFinalResults() {
     row.style.borderLeft = "4px solid " + (ok?"var(--verde)":"var(--rojo)");
     row.innerHTML = "<div style='font-size:1.3rem'>"+(ok?"✅":"❌")+"</div>" +
       "<div style='flex:1'><div style='font-weight:800;font-size:.9rem'>"+g.icon+" "+g.name+"</div>" +
-      "<div class='"+(ok?"res-ok-txt":"res-bad-txt")+"'>"+(ok?"Bien manejada — "+sc.c+"/3 correctas":"Necesita refuerzo — "+sc.c+"/3 correctas · ~"+g.n+" preguntas PAES")+"</div></div>"+
+      "<div class='"+(ok?"res-ok-txt":"res-bad-txt")+"'>"+(ok?"Bien manejada — "+sc.c+"/"+total+" correctas":"Necesita refuerzo — "+sc.c+"/"+total+" correctas · ~"+g.n+" preguntas PAES")+"</div></div>"+
       (ok?"":"<div class='res-pts-txt'>⚠️ ~"+ptsRisk+" pts</div>");
     rows.appendChild(row);
   });
   var sum = document.getElementById("res-summary");
   if(badList.length===0){
-    sum.innerHTML = "<h3>🏆 ¡Resultado excelente!</h3><p>Respondiste correctamente la mayoría de las preguntas en todas las habilidades. Estás en muy buen camino para la PAES.</p><p>Sigue practicando con preguntas reales para consolidar tu nivel antes del día de la prueba.</p>";
+    sum.innerHTML = "<h3>🏆 ¡Resultado excelente!</h3><p>Respondiste correctamente la mayoría de las preguntas en todas las habilidades. Estás en muy buen camino para la PAES.</p><p>Sigue practicando para consolidar tu nivel antes del día de la prueba.</p>";
   } else {
     var maxLost = 1000 - ST[Math.max(0,75-totalLost)];
     sum.innerHTML = "<h3>📋 Tu plan de acción</h3>" +
