@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 1 – El Siglo XIX en Europa, América y Chile · PAES Historia y Ciencias Sociales</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dorado:#d4a24c;--dorado-dark:#a97c2f;--dorado-glow:rgba(212,162,76,.15);
+  --sepia:#c17a3d;--azul:#3498db;--morado:#9b59b6;--naranja:#e67e22;
+  --amarillo:#f1c40f;--rojo:#e74c3c;--cyan:#22d3ee;
+  --bg:#140f08;--card:#1e1710;--card2:#2a2013;
+  --text:#f3e8d4;--text-dim:#b8a37e;--radius:18px;
+  --c-en:#3498db;--c-fr:#d4a24c;--c-ec:#e67e22;--c-so:#f87171;--c-lt:#9b59b6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 8% 15%,rgba(212,162,76,.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 25% 60%,rgba(255,255,255,.15) 0%,transparent 100%),
+    radial-gradient(1px 1px at 55% 8%,rgba(212,162,76,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 72% 40%,rgba(255,255,255,.13) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 75%,rgba(212,162,76,.22) 0%,transparent 100%),
+    radial-gradient(1px 1px at 40% 85%,rgba(255,255,255,.12) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--dorado),var(--sepia));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(1.8rem,6.5vw,3.4rem);
+  background:linear-gradient(135deg,var(--dorado),var(--sepia),var(--dorado));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.15;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(212,162,76,.12);border:1.5px solid rgba(212,162,76,.35);color:var(--dorado);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.08);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.78rem;padding:7px 13px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:var(--dorado-glow);border-color:var(--dorado);color:var(--dorado)}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.35rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.97rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 14px;font-size:.84rem;font-weight:700;color:var(--text-dim);display:inline-flex;align-items:center;gap:6px}
+.h-header{border-radius:var(--radius);padding:26px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:52px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.5rem,4.5vw,2.4rem);line-height:1.15}
+.h-header p{font-size:.97rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--dorado);background:rgba(212,162,76,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--dorado);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65}
+.tip-box p strong{color:var(--text)}
+.kw-grid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.kw{border-radius:8px;padding:5px 11px;font-size:.8rem;font-weight:800}
+/* PREGUNTAS */
+
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px;margin-bottom:16px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.paes-ctx{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-ctx-src{font-size:.74rem;color:var(--text-dim);opacity:.7;font-style:italic;margin-top:6px}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.paes-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--dorado);flex-shrink:0}
+.paes-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.paes-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(212,162,76,.12);color:#f3d896;border-left:3px solid var(--dorado)}
+.paes-fb.no{background:rgba(231,76,60,.08);color:#fca5a5;border-left:3px solid var(--rojo)}
+/* COLORES TEMA */
+.en{color:var(--c-en)!important}.fr{color:var(--c-fr)!important}.ec{color:var(--c-ec)!important}
+.so{color:var(--c-so)!important}.lt{color:var(--c-lt)!important}.dorado{color:var(--dorado)!important}
+/* TABLA PESO */
+.weight-table{width:100%;border-collapse:collapse;margin:12px 0}
+.weight-table th{background:rgba(212,162,76,.12);color:var(--dorado);font-size:.8rem;padding:8px 12px;text-align:left;font-family:"Fredoka One",cursive;font-weight:400}
+.weight-table td{padding:9px 12px;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);color:var(--text-dim)}
+.w-bar{display:inline-block;height:6px;border-radius:3px;background:var(--dorado);vertical-align:middle;margin-right:8px;opacity:.7}
+/* LÍNEA DE TIEMPO */
+.tl-wrap{overflow-x:auto;padding-bottom:8px}
+.tl-grid{display:grid;grid-template-columns:110px repeat(4,1fr);gap:2px;min-width:680px}
+.tl-head{font-family:"Fredoka One",cursive;font-size:.85rem;text-align:center;padding:10px 6px;border-radius:10px 10px 0 0}
+.tl-row-label{display:flex;align-items:center;font-size:.78rem;font-weight:900;color:var(--text-dim);padding:8px 6px}
+.tl-cell{background:var(--card2);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:9px 10px;font-size:.76rem;color:var(--text-dim);line-height:1.5;min-height:64px}
+.tl-cell strong{color:var(--text);display:block;font-size:.78rem;margin-bottom:2px}
+/* NAV LINEAL */
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(20,15,8,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.08);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(212,162,76,.35);background:transparent;color:var(--dorado);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--dorado-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+/* MINI ENSAYO */
+.timer-box{background:var(--card2);border:2px solid rgba(212,162,76,.3);border-radius:14px;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.timer-display{font-family:"Fredoka One",cursive;font-size:2.4rem;color:var(--dorado);letter-spacing:.05em}
+.timer-display.warn{color:#f59e0b}
+.timer-display.danger{color:var(--rojo);animation:pulse-b 1s ease-in-out infinite}
+@keyframes pulse-b{0%,100%{opacity:1}50%{opacity:.5}}
+.ensayo-q{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:12px}
+.ensayo-num{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.ensayo-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 12px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.ensayo-q-text{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.ensayo-opts{display:flex;flex-direction:column;gap:7px}
+.ensayo-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 13px;border-radius:9px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(0,0,0,.18);transition:all .18s}
+.ensayo-opt:hover:not(.locked){border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.ensayo-opt.selected{background:rgba(212,162,76,.12);border-color:var(--dorado)}
+.ensayo-opt.locked{cursor:default;pointer-events:none}
+.ensayo-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.ensayo-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ensayo-opt .ol{color:var(--dorado)}
+.ensayo-opt.selected .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.ensayo-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.ensayo-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ensayo-fb{margin-top:8px;padding:9px 13px;border-radius:9px;font-size:.83rem;line-height:1.55;display:none}
+.ensayo-fb.show{display:block}
+.ensayo-fb.ok{background:rgba(212,162,76,.1);color:#f3d896;border-left:3px solid var(--dorado)}
+.ensayo-fb.no{background:rgba(231,76,60,.06);color:#fca5a5;border-left:3px solid var(--rojo)}
+.submit-btn{width:100%;padding:14px;background:var(--dorado);color:#1a1206;border:none;border-radius:12px;font-family:"Fredoka One",cursive;font-size:1.1rem;cursor:pointer;margin-top:10px;transition:background .2s}
+.submit-btn:hover{background:var(--dorado-dark)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+#ensayo-results{display:none;margin-top:20px}
+.res-banner{font-family:"Fredoka One",cursive;font-size:2.5rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0}
+.res-topic-card{background:var(--card2);border-radius:12px;padding:13px 16px;border-left:3px solid var(--dorado)}
+.res-topic-card.bad{border-left-color:var(--rojo)}
+.res-topic-card.mid{border-left-color:#f59e0b}
+.res-topic-name{font-size:.79rem;font-weight:900;color:var(--text-dim);margin-bottom:4px}
+.res-topic-score{font-family:"Fredoka One",cursive;font-size:1.3rem}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#5c4a2a}
+/* SKILL TAG */
+.skill-tag{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:6px;margin-bottom:8px}
+.skill-h1{background:rgba(212,162,76,.12);color:var(--dorado);border:1px solid rgba(212,162,76,.3)}
+.skill-h2{background:rgba(56,189,248,.12);color:#38bdf8;border:1px solid rgba(56,189,248,.3)}
+.skill-h3{background:rgba(248,113,113,.12);color:#f87171;border:1px solid rgba(248,113,113,.3)}
+/* TOGGLE COMPARADOR */
+.toggle-wrap{margin:14px 0}
+.toggle-btns{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.toggle-btn{flex:1;min-width:140px;background:var(--card2);border:1.5px solid rgba(255,255,255,.1);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.85rem;padding:10px 14px;border-radius:10px;cursor:pointer;transition:all .2s}
+.toggle-btn.active{border-color:var(--dorado);color:var(--dorado);background:rgba(212,162,76,.1)}
+.toggle-panel{display:none;background:var(--card2);border-radius:12px;padding:16px 18px;border-left:4px solid var(--dorado);animation:fadeUp .3s ease}
+.toggle-panel.show{display:block}
+.toggle-panel h4{font-family:"Fredoka One",cursive;font-size:1.05rem;margin-bottom:8px;color:var(--dorado)}
+.toggle-panel li{font-size:.88rem}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--sepia));border:none;color:#1a1206;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(212,162,76,.4);z-index:250;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid #1a1206;display:none}
+.tutor-fab.blocked .dot{background:#6b7280;display:block}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:20px 0 0 0;box-shadow:-4px 0 30px rgba(0,0,0,.5);z-index:260;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--dorado),var(--sepia));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:#1a1206}
+.tutor-head p{font-size:.7rem;color:rgba(26,18,6,.75);margin-top:1px}
+.tutor-close{background:rgba(0,0,0,.15);border:none;color:#1a1206;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1;flex-shrink:0}
+.tutor-blocked-msg{padding:24px 18px;text-align:center;color:var(--text-dim);font-size:.88rem;line-height:1.7}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--dorado);color:var(--dorado)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--dorado);color:#1a1206;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.07);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:rgba(212,162,76,.1);color:var(--text-dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--dorado)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--dorado)}
+.tutor-send{background:var(--dorado);border:none;color:#1a1206;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+/* GRÁFICO DE BARRAS */
+.chart-wrap{margin:14px 0}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.bar-label{width:110px;font-size:.8rem;font-weight:800;color:var(--text-dim);flex-shrink:0}
+.bar-track{flex:1;background:rgba(255,255,255,.05);border-radius:6px;height:22px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:.72rem;font-weight:900;color:#1a1206;transition:width 1s ease}
+/* LÍNEA DE TIEMPO EXPANDIBLE */
+.tl-cell{cursor:pointer;position:relative}
+.tl-cell:hover{border-color:rgba(212,162,76,.4)}
+.tl-cell .tl-more{display:none;margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.1);font-size:.73rem;color:var(--text-dim)}
+.tl-cell.open .tl-more{display:block}
+.tl-cell .tl-plus{position:absolute;top:6px;right:8px;font-size:.7rem;color:var(--dorado);opacity:.7}
+/* PRÁCTICA GUIADA */
+.prac-group{margin-bottom:24px}
+.prac-group-hdr{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.prac-group-hdr .gi{font-size:1.5rem}
+.prac-group-hdr .gname{font-family:"Fredoka One",cursive;font-size:1.05rem}
+.prac-group-hdr .gscore{margin-left:auto;font-size:.85rem;font-weight:800}
+.pq{display:none;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:10px}
+.pq.show{display:block;animation:fadeUp .3s ease}
+.pq-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 13px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.pq-q{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pq-opts{display:flex;flex-direction:column;gap:7px}
+.nxt-q{margin-top:12px;padding:8px 22px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:"Fredoka One",cursive;font-size:.95rem;cursor:pointer;display:none}
+.nxt-q:hover{background:var(--dorado-dark)}
+
+@media(max-width:680px){
+  .container{padding:10px 10px 80px}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:8px !important;gap:5px;margin:12px 0 4px;scrollbar-width:none;position:relative !important;top:auto !important;background:rgba(20,15,8,.95);border-radius:14px}
+  .nav::-webkit-scrollbar{display:none}
+  .nav-btn{flex-shrink:0;font-size:.74rem;padding:9px 13px;min-height:40px;touch-action:manipulation}
+  .hero{padding:36px 8px 14px}
+  .hero-emoji{font-size:48px}
+  .card{padding:14px 12px}
+  .grid-2{grid-template-columns:1fr}
+  .paes-box{padding:14px 12px}
+  .paes-opt{padding:12px 11px;min-height:52px;touch-action:manipulation}
+  .ol{min-width:30px;height:30px;font-size:.8rem}
+  .lnav-btn{padding:13px 18px !important;font-size:.95rem !important;min-height:48px}
+  .submit-btn{width:100% !important;padding:13px !important}
+  .toggle-btn{min-width:100%}
+  .bar-label{width:82px;font-size:.72rem}
+}
+</style>
+</head>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:14%"></div></div>
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">🏛️</span>
+  <h1>El Siglo XIX en Europa, América y Chile</h1>
+  <p>PAES Historia y Ciencias Sociales · Unidad 1</p>
+  <div class="badge">📜 Admisión 2027</div>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('en',1,this)">🌍 Estado-nación</button>
+  <button class="nav-btn" onclick="showSec('fr',2,this)">🏛️ Rep. en Chile</button>
+  <button class="nav-btn" onclick="showSec('ec',3,this)">📈 Economía</button>
+  <button class="nav-btn" onclick="showSec('so',4,this)">🏙️ Sociedad</button>
+  <button class="nav-btn" onclick="showSec('lt',5,this)">🕰️ Línea de tiempo</button>
+  <button class="nav-btn" onclick="showSec('ensayo',6,this)">⏱️ Mini Ensayo</button>
+</div>
+
+<!-- ═══ PORTADA ═══ -->
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title" style="justify-content:center;color:var(--dorado);font-size:1.6rem">🏛️ Unidad 1 · El Siglo XIX en Europa, América y Chile</p>
+    <p style="font-size:1.05rem;max-width:600px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Esta unidad cubre el primer bloque temático del eje <strong>Historia: Mundo, América y Chile</strong>: el surgimiento del Estado-nación, la formación de la República en Chile, su inserción económica internacional, y las transformaciones sociales de fin de siglo.</p>
+  </div>
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">📊 Los 4 subtemas de esta unidad</p>
+    <table class="weight-table">
+      <tr><th>Subtema</th><th>Qué cubre</th></tr>
+      <tr><td>🌍 <strong style="color:var(--c-en)">Estado-nación</strong></td><td>Ideas liberales y republicanas en Europa y América; impactos del nuevo modelo de Estado.</td></tr>
+      <tr><td>🏛️ <strong style="color:var(--c-fr)">Formación de la República</strong></td><td>Organización política de Chile independiente: conservadores, liberales, Constitución de 1833.</td></tr>
+      <tr><td>📈 <strong style="color:var(--c-ec)">Inserción económica</strong></td><td>Chile como exportador de materias primas en la economía industrializada del Atlántico.</td></tr>
+      <tr><td>🏙️ <strong style="color:var(--c-so)">Transformaciones sociales</strong></td><td>Urbanización, migración, Cuestión Social y nuevos actores (obreros, sectores medios).</td></tr>
+    </table>
+    <p style="margin-top:12px;font-size:.82rem;color:var(--text-dim)">* Según la muestra de exámenes PAES disponibles (Regular e Invierno 2024–2026), este bloque temático concentra aproximadamente entre 15 y 20 de las 65 preguntas — es el más extenso del eje Historia.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--dorado)">
+      <p class="card-title" style="color:var(--dorado)">📌 Recuerda</p>
+      <ul>
+        <li>Aplica las <strong>3 habilidades</strong> de la Unidad 0 en cada pregunta</li>
+        <li>Casi todas las preguntas parten de una <strong>fuente</strong>: texto, mapa, tabla o imagen</li>
+        <li>Los 4 subtemas están conectados: las ideas liberales explican tanto la política como la economía chilena del periodo</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--sepia)">
+      <p class="card-title" style="color:var(--sepia)">⏱️ Al final de esta unidad</p>
+      <ul>
+        <li>Mini ensayo cronometrado con <strong>18 preguntas</strong> 🤖 generadas por IA (revisadas por docente)</li>
+        <li>Resultado con <strong>desglose por subtema</strong></li>
+        <li>Sabrás exactamente qué reforzar antes de avanzar a la Unidad 2</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">💡 Clave PAES</div>
+    <p>No memorices fechas sueltas: entiende <strong>por qué</strong> ocurre cada proceso y cómo se conecta con el siguiente. El liberalismo explica la política, la economía y hasta los conflictos sociales de todo el siglo XIX chileno.</p>
+  </div>
+</div>
+
+<!-- ═══ ESTADO-NACIÓN ═══ -->
+<div class="section" id="en">
+  <div class="h-header" style="background:rgba(52,152,219,.1);border:1.5px solid rgba(52,152,219,.3)">
+    <span class="icon">🌍</span>
+    <h2 class="en">El Estado-nación en Europa y América durante el siglo XIX</h2>
+    <p>Las ideas republicanas y liberales transformaron la forma de organizar el poder político en ambos continentes durante todo el siglo.</p>
+  </div>
+  <div class="card">
+    <p class="card-title en">📖 ¿Qué es el Estado-nación?</p>
+    <p>Es un modelo de organización política donde un <strong>territorio</strong>, un <strong>gobierno soberano</strong> y una <strong>identidad nacional compartida</strong> (lengua, símbolos, historia común) coinciden. Reemplaza al modelo anterior, donde el poder se justificaba por derecho divino de un monarca (Antiguo Régimen).</p>
+    <p style="margin-top:10px">En Europa surge tras revoluciones (Francesa 1789, oleadas de 1830 y 1848). En América surge tras los procesos de independencia de las colonias españolas y portuguesa, a comienzos del siglo XIX.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title en">⚖️ Principios liberales y republicanos</p>
+      <ul>
+        <li><strong>Soberanía popular:</strong> el poder emana del pueblo, no de un monarca</li>
+        <li><strong>Separación de poderes:</strong> Ejecutivo, Legislativo y Judicial se controlan entre sí</li>
+        <li><strong>Igualdad ante la ley:</strong> fin de los privilegios estamentales/nobiliarios</li>
+        <li><strong>Libertades individuales:</strong> de expresión, de culto, de propiedad</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title en">⚠️ La gran contradicción liberal</p>
+      <p>El liberalismo predicaba <strong>igualdad ante la ley</strong>, pero en la práctica el <strong>sufragio censitario</strong> (voto solo para quienes tenían cierto nivel de renta o propiedad) excluía a la mayoría de la población.</p>
+      <p style="margin-top:8px">Esta tensión entre el <em>discurso</em> igualitario y la <em>práctica</em> excluyente es una de las claves más preguntadas en la PAES sobre este periodo.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title en">🌎 Impactos del surgimiento del Estado-nación</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-en)"><div style="font-weight:900;color:var(--c-en);font-size:.85rem;margin-bottom:4px">Construcción de identidad</div><p style="font-size:.82rem">Símbolos patrios, educación pública, servicio militar: herramientas para "crear" una nación.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--rojo)"><div style="font-weight:900;color:var(--rojo);font-size:.85rem;margin-bottom:4px">Impacto en pueblos originarios</div><p style="font-size:.82rem">Políticas de imposición cultural y asimilación forzada a la nueva institucionalidad republicana.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Difusión de ideas</div><p style="font-size:.82rem">La prensa escrita y las elites educadas en Europa fueron claves para difundir el ideario liberal en América.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--morado)"><div style="font-weight:900;color:var(--morado);font-size:.85rem;margin-bottom:4px">Inestabilidad institucional</div><p style="font-size:.82rem">Las nuevas repúblicas tardaron en consolidarse: faltaba experiencia política y acuerdos eran difíciles.</p></div>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw en" style="background:rgba(52,152,219,.1);border:1px solid rgba(52,152,219,.3)">soberanía popular</span>
+    <span class="kw en" style="background:rgba(52,152,219,.1);border:1px solid rgba(52,152,219,.3)">separación de poderes</span>
+    <span class="kw en" style="background:rgba(52,152,219,.1);border:1px solid rgba(52,152,219,.3)">sufragio censitario</span>
+    <span class="kw en" style="background:rgba(52,152,219,.1);border:1px solid rgba(52,152,219,.3)">Estado-nación</span>
+    <span class="kw en" style="background:rgba(52,152,219,.1);border:1px solid rgba(52,152,219,.3)">identidad nacional</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag en">🤖 Pregunta generada · revisada por docente</div>
+    <span class="skill-tag skill-h3">🧠 Pensamiento crítico</span>
+    <div class="paes-ctx">Un estudiante debe confeccionar un ensayo sobre la expansión de las ideas liberales y republicanas en Europa durante la primera mitad del siglo XIX.</div>
+    <p class="paes-q">Considerando este contexto histórico, ¿cuál es un planteamiento adecuado para iniciar este ensayo?</p>
+    <div class="paes-opts" id="qen1">
+      <div class="paes-opt" onclick="ans('qen1','A')"><div class="ol">A</div><div class="ot">La nobleza tradicional fue la principal impulsora de la soberanía popular.</div></div>
+      <div class="paes-opt" onclick="ans('qen1','B')"><div class="ol">B</div><div class="ot">Las oleadas revolucionarias de 1830 y 1848 fueron un mecanismo clave para instalar el ideario liberal.</div></div>
+      <div class="paes-opt" onclick="ans('qen1','C')"><div class="ol">C</div><div class="ot">El sufragio censitario garantizó la participación política de toda la población.</div></div>
+      <div class="paes-opt" onclick="ans('qen1','D')"><div class="ol">D</div><div class="ot">Las monarquías absolutas se fortalecieron como resultado directo del liberalismo.</div></div>
+    </div>
+    <div class="paes-fb" id="qen1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-en)">
+    <p class="card-title en">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre Estado-nación en Europa y América.</p>
+  </div>
+  <div id="prac-mount-en"></div>
+</div>
+
+<!-- ═══ FORMACIÓN DE LA REPÚBLICA EN CHILE ═══ -->
+<div class="section" id="fr">
+  <div class="h-header" style="background:rgba(212,162,76,.1);border:1.5px solid rgba(212,162,76,.3)">
+    <span class="icon">🏛️</span>
+    <h2 class="fr">Chile durante el siglo XIX: formación de la República</h2>
+    <p>Características políticas y culturales de la organización de la República chilena durante la primera mitad del siglo XIX.</p>
+  </div>
+  <div class="card">
+    <p class="card-title fr">📖 El problema: organizar un país nuevo</p>
+    <p>Tras la Independencia (1810-1818), Chile enfrentó el mismo desafío que el resto de América Latina: <strong>no había experiencia previa</strong> en gobierno republicano. Entre 1818 y 1830 se ensayaron varias constituciones que fracasaron, en un contexto de inestabilidad económica y disputas entre facciones de la elite.</p>
+  </div>
+  <div class="card">
+    <p class="card-title fr">⚔️ Pipiolos vs. Pelucones — compara ambos bandos</p>
+    <p style="margin-bottom:10px">Haz clic en cada bando para ver sus características.</p>
+    <div class="toggle-wrap">
+      <div class="toggle-btns">
+        <button class="toggle-btn active" id="tbtn-pip" onclick="showToggle('fr',['pip','pel'],'pip')">🕊️ Pipiolos (liberales)</button>
+        <button class="toggle-btn" id="tbtn-pel" onclick="showToggle('fr',['pip','pel'],'pel')">🛡️ Pelucones (conservadores)</button>
+      </div>
+      <div class="toggle-panel show" id="tpanel-pip">
+        <h4>🕊️ Pipiolos (liberales)</h4>
+        <ul>
+          <li>Favorecían un gobierno <strong>descentralizado</strong> y con mayor peso del Congreso</li>
+          <li>Impulsaban ampliar gradualmente la participación política</li>
+          <li>Base social: sectores comerciales y profesionales emergentes</li>
+          <li>Perdieron la Guerra Civil de 1829-1830</li>
+        </ul>
+      </div>
+      <div class="toggle-panel" id="tpanel-pel">
+        <h4>🛡️ Pelucones (conservadores)</h4>
+        <ul>
+          <li>Favorecían un gobierno <strong>centralizado</strong> con un Ejecutivo fuerte</li>
+          <li>Priorizaban el orden y la autoridad por sobre la participación popular</li>
+          <li>Base social: aristocracia terrateniente tradicional</li>
+          <li>Ganaron la Guerra Civil e impusieron la Constitución de 1833, liderados en la práctica por <strong>Diego Portales</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title fr">📜 Constitución de 1833</p>
+    <ul>
+      <li><strong>Presidencialismo fuerte:</strong> el Presidente concentra amplias atribuciones</li>
+      <li><strong>Centralismo:</strong> el poder se ejerce desde Santiago</li>
+      <li><strong>Sufragio censitario:</strong> solo votan hombres con cierta renta/propiedad</li>
+      <li><strong>Catolicismo como religión de Estado</strong></li>
+    </ul>
+  </div>
+  <div class="card">
+    <p class="card-title fr">🎓 Construir una identidad nacional</p>
+    <p>La elite dirigente necesitaba "crear" un sentido de nación en una población recién independizada. La estrategia principal fue <strong>ampliar la cobertura de la educación pública</strong>, transmitiendo desde la escuela los símbolos, la historia y los valores de la nueva República.</p>
+  </div>
+  <div class="card">
+    <p class="card-title" style="color:var(--rojo)">⚠️ El otro lado: pueblos indígenas</p>
+    <p>Durante la primera mitad del siglo XIX, el surgimiento del Estado-nación en Chile significó para los pueblos indígenas ser <strong>sometidos a políticas de imposición cultural</strong>: la nueva institucionalidad republicana no los incorporó como sujetos políticos propios, sino que buscó asimilarlos a la cultura y las leyes del Estado central.</p>
+  </div>
+  <div class="kw-grid">
+    <span class="kw fr" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">pipiolos y pelucones</span>
+    <span class="kw fr" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">Constitución de 1833</span>
+    <span class="kw fr" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">presidencialismo</span>
+    <span class="kw fr" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">sufragio censitario</span>
+    <span class="kw fr" style="background:rgba(212,162,76,.1);border:1px solid rgba(212,162,76,.3)">República autoritaria</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag fr">🤖 Pregunta generada · revisada por docente</div>
+    <span class="skill-tag skill-h3">🧠 Pensamiento crítico</span>
+    <div class="paes-ctx">Tras el triunfo conservador en la Guerra Civil de 1829-1830, la nueva Constitución de 1833 estableció un Ejecutivo con amplias atribuciones y un fuerte control desde el gobierno central.</div>
+    <p class="paes-q">En este contexto, ¿qué tipo de régimen político se consolidó en Chile con la Constitución de 1833?</p>
+    <div class="paes-opts" id="qfr1">
+      <div class="paes-opt" onclick="ans('qfr1','A')"><div class="ol">A</div><div class="ot">Una monarquía constitucional con Parlamento electo.</div></div>
+      <div class="paes-opt" onclick="ans('qfr1','B')"><div class="ol">B</div><div class="ot">Una república con rasgos autoritarios, presidencialista y centralista.</div></div>
+      <div class="paes-opt" onclick="ans('qfr1','C')"><div class="ol">C</div><div class="ot">Una federación de provincias con amplia autonomía regional.</div></div>
+      <div class="paes-opt" onclick="ans('qfr1','D')"><div class="ol">D</div><div class="ot">Una democracia directa con participación popular amplia.</div></div>
+    </div>
+    <div class="paes-fb" id="qfr1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-fr)">
+    <p class="card-title fr">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre la formación de la República en Chile.</p>
+  </div>
+  <div id="prac-mount-fr"></div>
+</div>
+
+<!-- ═══ ECONOMÍA ═══ -->
+<div class="section" id="ec">
+  <div class="h-header" style="background:rgba(230,126,34,.1);border:1.5px solid rgba(230,126,34,.3)">
+    <span class="icon">📈</span>
+    <h2 class="ec">Chile durante el siglo XIX: inserción económica</h2>
+    <p>La inserción de la economía chilena en la industrialización del mundo atlántico y en los mercados internacionales.</p>
+  </div>
+  <div class="card">
+    <p class="card-title ec">📖 El modelo: exportar materias primas</p>
+    <p>Mientras Europa y Estados Unidos vivían la Revolución Industrial, Chile se insertó en ese mercado mundial como <strong>proveedor de materias primas</strong>, no como productor industrial. El país exportaba minerales y alimentos, e importaba manufacturas.</p>
+    <p style="margin-top:10px">Este modelo generó riqueza, pero también <strong>dependencia</strong>: la economía chilena creció al ritmo de la demanda externa, no de decisiones internas.</p>
+  </div>
+  <div class="card">
+    <p class="card-title ec">⛏️ Los ciclos exportadores del siglo XIX</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-ec)"><div style="font-weight:900;color:var(--c-ec);font-size:.85rem;margin-bottom:4px">1830s-1850s · Plata y cobre</div><p style="font-size:.82rem">Demanda de Inglaterra, EE.UU. y Asia por el desarrollo industrial y científico-tecnológico.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">1850s-1860s · Trigo</div><p style="font-size:.82rem">La fiebre del oro en California y Australia disparó la demanda de alimentos.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--rojo)"><div style="font-weight:900;color:var(--rojo);font-size:.85rem;margin-bottom:4px">1880s-1900s · Salitre</div><p style="font-size:.82rem">Tras la Guerra del Pacífico (1879-1884), el Norte Grande se vuelve el motor económico del país.</p></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title ec">🏦 El rol del Estado</p>
+      <p>El Estado chileno del siglo XIX fue <strong>liberal en lo económico</strong>: no intervino en la producción, pero sí se benefició fuertemente de este auge exportador a través de la <strong>recaudación fiscal</strong>, modernizando las leyes tributarias sobre las exportaciones mineras.</p>
+    </div>
+    <div class="card">
+      <p class="card-title ec">🚂 Infraestructura y capital extranjero</p>
+      <p>Ferrocarriles y puertos se construyeron con fuerte participación de <strong>capital e inmigrantes extranjeros</strong> (especialmente ingleses), que dominaban buena parte del comercio mayorista en ciudades como Santiago y Valparaíso.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title ec">📊 Fuente real: comerciantes mayoristas en 1849</p>
+    <p style="margin-bottom:10px">Datos de Santiago y Valparaíso, 1849 (Bauer, A. (1994). <em>La sociedad rural chilena</em>). Observa quién dominaba el comercio de importación-exportación:</p>
+    <div class="chart-wrap" id="chart-1849"></div>
+    <p style="margin-top:10px;font-size:.82rem;color:var(--text-dim)">💡 El 63% de los comerciantes mayoristas eran extranjeros (ingleses, alemanes, franceses, entre otros) — evidencia directa de cómo la economía chilena estaba conectada e intervenida por capital foráneo.</p>
+  </div>
+  <div class="kw-grid">
+    <span class="kw ec" style="background:rgba(230,126,34,.1);border:1px solid rgba(230,126,34,.3)">exportación de materias primas</span>
+    <span class="kw ec" style="background:rgba(230,126,34,.1);border:1px solid rgba(230,126,34,.3)">mercado internacional</span>
+    <span class="kw ec" style="background:rgba(230,126,34,.1);border:1px solid rgba(230,126,34,.3)">recaudación fiscal</span>
+    <span class="kw ec" style="background:rgba(230,126,34,.1);border:1px solid rgba(230,126,34,.3)">dependencia económica</span>
+    <span class="kw ec" style="background:rgba(230,126,34,.1);border:1px solid rgba(230,126,34,.3)">ciclo salitrero</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag ec">🤖 Pregunta generada · revisada por docente</div>
+    <span class="skill-tag skill-h3">🧠 Pensamiento crítico</span>
+    <div class="paes-ctx">Durante el siglo XIX la economía chilena se organizó sobre la base de los principios del liberalismo económico. La exportación de minerales permitió abrirse a los mercados internacionales, generando un importante volumen de riqueza.</div>
+    <p class="paes-q">¿De qué manera el Estado chileno consiguió beneficiarse de esta situación sin abandonar su carácter liberal?</p>
+    <div class="paes-opts" id="qec1">
+      <div class="paes-opt" onclick="ans('qec1','A')"><div class="ol">A</div><div class="ot">Interviniendo directamente en la producción de las haciendas y minas.</div></div>
+      <div class="paes-opt" onclick="ans('qec1','B')"><div class="ol">B</div><div class="ot">Nacionalizando las principales empresas exportadoras del país.</div></div>
+      <div class="paes-opt" onclick="ans('qec1','C')"><div class="ol">C</div><div class="ot">Mejorando la recaudación fiscal al modernizar las leyes tributarias sobre las exportaciones.</div></div>
+      <div class="paes-opt" onclick="ans('qec1','D')"><div class="ol">D</div><div class="ot">Impulsando un modelo de industrialización manufacturera estatal.</div></div>
+    </div>
+    <div class="paes-fb" id="qec1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-ec)">
+    <p class="card-title ec">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre la inserción económica de Chile.</p>
+  </div>
+  <div id="prac-mount-ec"></div>
+</div>
+
+<!-- ═══ SOCIEDAD ═══ -->
+<div class="section" id="so">
+  <div class="h-header" style="background:rgba(248,113,113,.1);border:1.5px solid rgba(248,113,113,.3)">
+    <span class="icon">🏙️</span>
+    <h2 class="so">Chile durante el siglo XIX: transformaciones sociales</h2>
+    <p>Transformaciones de la sociedad chilena en el tránsito del siglo XIX al siglo XX, producto del auge exportador.</p>
+  </div>
+  <div class="card">
+    <p class="card-title so">📖 La otra cara del auge exportador</p>
+    <p>La riqueza generada por el salitre no se distribuyó equitativamente. A fines del siglo XIX creció la <strong>migración campo-ciudad</strong> y la <strong>urbanización</strong>, generando pobreza urbana concentrada en <strong>conventillos</strong>: viviendas colectivas hacinadas, con condiciones sanitarias precarias.</p>
+  </div>
+  <div class="card">
+    <p class="card-title so">⚠️ La Cuestión Social</p>
+    <p>Nombre con que se conoce el conjunto de problemas sociales (hacinamiento, enfermedades, bajos salarios, jornadas extensas) que afectaron a los sectores populares entre fines del siglo XIX y comienzos del XX, producto de la incipiente industrialización.</p>
+    <p style="margin-top:8px">Se estimuló por la <strong>movilización del propio movimiento obrero</strong>, que exigía mejores condiciones laborales.</p>
+  </div>
+  <div class="card">
+    <p class="card-title so">✊ 3 respuestas ideológicas — compáralas</p>
+    <p style="margin-bottom:10px">Haz clic en cada ideología para ver su estrategia frente a la Cuestión Social.</p>
+    <div class="toggle-wrap">
+      <div class="toggle-btns">
+        <button class="toggle-btn active" id="tbtn-ana" onclick="showToggle('so',['ana','soc','mut'],'ana')">🏴 Anarquismo</button>
+        <button class="toggle-btn" id="tbtn-soc" onclick="showToggle('so',['ana','soc','mut'],'soc')">🚩 Socialismo/mancomunales</button>
+        <button class="toggle-btn" id="tbtn-mut" onclick="showToggle('so',['ana','soc','mut'],'mut')">🤝 Mutualismo</button>
+      </div>
+      <div class="toggle-panel show" id="tpanel-ana">
+        <h4>🏴 Anarquismo</h4>
+        <ul>
+          <li>Estrategia central: <strong>huelga general + autogestión obrera</strong></li>
+          <li>Se opone directamente al Estado como institución</li>
+          <li>Fuerte en el mundo obrero urbano y portuario</li>
+        </ul>
+      </div>
+      <div class="toggle-panel" id="tpanel-soc">
+        <h4>🚩 Socialismo y mancomunales</h4>
+        <ul>
+          <li>Organización sindical de <strong>mineros y obreros del salitre</strong></li>
+          <li>Buscaba representación política propia de la clase trabajadora</li>
+          <li>Antecedente directo de los futuros partidos obreros del siglo XX</li>
+        </ul>
+      </div>
+      <div class="toggle-panel" id="tpanel-mut">
+        <h4>🤝 Mutualismo</h4>
+        <ul>
+          <li>La corriente <strong>más temprana</strong> (desde mediados del s. XIX)</li>
+          <li>Sociedades de ayuda mutua: fondos comunes para enfermedad, funerales, cesantía</li>
+          <li>Estrategia moderada: no buscaba enfrentar al Estado ni a los empleadores</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title so">👥 Nuevos actores sociales</p>
+    <p>La expansión de la <strong>educación pública</strong> y del aparato estatal (funcionarios, profesionales) permitió el surgimiento de <strong>sectores medios</strong> como nuevo actor social, distinto tanto de la oligarquía como del proletariado.</p>
+  </div>
+  <div class="kw-grid">
+    <span class="kw so" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3)">Cuestión Social</span>
+    <span class="kw so" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3)">conventillo</span>
+    <span class="kw so" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3)">urbanización</span>
+    <span class="kw so" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3)">anarquismo</span>
+    <span class="kw so" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3)">sectores medios</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag so">🤖 Pregunta generada · revisada por docente</div>
+    <span class="skill-tag skill-h2">📜 Análisis de fuentes</span>
+    <div class="paes-ctx">La Cuestión Social tensionó a la sociedad chilena hacia fines del siglo XIX y comienzos del XX. Frente a este problema, distintas corrientes obreras propusieron soluciones diferentes: el mutualismo buscaba la ayuda mutua entre trabajadores, mientras el anarquismo rechazaba de raíz al Estado como institución.</div>
+    <p class="paes-q">¿Cuál fue la estrategia central que propuso el anarquismo frente a la Cuestión Social?</p>
+    <div class="paes-opts" id="qso1">
+      <div class="paes-opt" onclick="ans('qso1','A')"><div class="ol">A</div><div class="ot">La huelga general y la autogestión obrera, en oposición directa al Estado.</div></div>
+      <div class="paes-opt" onclick="ans('qso1','B')"><div class="ol">B</div><div class="ot">La creación de cajas de ahorro y ayuda mutua entre asociados.</div></div>
+      <div class="paes-opt" onclick="ans('qso1','C')"><div class="ol">C</div><div class="ot">La alianza con el Estado para dictar leyes de protección laboral.</div></div>
+      <div class="paes-opt" onclick="ans('qso1','D')"><div class="ol">D</div><div class="ot">La colaboración con la Iglesia Católica en el marco del socialcristianismo.</div></div>
+    </div>
+    <div class="paes-fb" id="qso1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-so)">
+    <p class="card-title so">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre las transformaciones sociales de fin de siglo.</p>
+  </div>
+  <div id="prac-mount-so"></div>
+</div>
+
+<!-- ═══ LÍNEA DE TIEMPO COMPARADA ═══ -->
+<div class="section" id="lt">
+  <div class="h-header" style="background:rgba(155,89,182,.1);border:1.5px solid rgba(155,89,182,.3)">
+    <span class="icon">🕰️</span>
+    <h2 class="lt">Línea de tiempo comparada · Europa, América y Chile</h2>
+    <p>Usa esta línea de tiempo para ubicar los procesos de esta unidad en relación unos con otros — aplica directamente la habilidad de pensamiento temporal y espacial.</p>
+  </div>
+  <div class="card">
+    <p class="card-title lt">🗺️ Cómo leerla</p>
+    <p>Cada columna es un periodo. Cada fila es una región. Fíjate en qué procesos son <strong>simultáneos</strong> (misma columna, distinta fila) y cuáles son <strong>sucesivos</strong> (misma fila, distinta columna). <strong>Haz clic en cualquier celda</strong> para ver un dato adicional.</p>
+  </div>
+  <div class="card">
+    <div class="tl-wrap">
+      <div class="tl-grid">
+        <div></div>
+        <div class="tl-head" style="background:rgba(155,89,182,.15);color:var(--c-lt)">1810–1830</div>
+        <div class="tl-head" style="background:rgba(155,89,182,.15);color:var(--c-lt)">1830–1860</div>
+        <div class="tl-head" style="background:rgba(155,89,182,.15);color:var(--c-lt)">1860–1880</div>
+        <div class="tl-head" style="background:rgba(155,89,182,.15);color:var(--c-lt)">1880–1900</div>
+
+        <div class="tl-row-label en">🌍 Europa</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Restauración monárquica</strong>tras la caída de Napoleón (1815). Persisten tensiones con las ideas liberales.<div class="tl-more">El Congreso de Viena (1815) reorganizó las fronteras europeas restaurando monarquías. Las ideas de la Revolución Francesa seguían circulando de forma clandestina.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Oleadas revolucionarias</strong>1830 y 1848: expansión del liberalismo y el nacionalismo por el continente.<div class="tl-more">La revolución de 1848 es conocida como la "Primavera de los Pueblos": estallidos casi simultáneos en Francia, los Estados alemanes, el Imperio austríaco e Italia.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Consolidación de Estados-nación</strong>unificación de Italia (1861) y Alemania (1871).<div class="tl-more">Otto von Bismarck lideró la unificación alemana mediante tres guerras sucesivas (contra Dinamarca, Austria y Francia).</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Segunda Revolución Industrial</strong>acero, electricidad, motor de combustión. Imperialismo europeo en África y Asia.<div class="tl-more">El "reparto de África" entre potencias europeas se formalizó en la Conferencia de Berlín (1884-1885), sin participación africana.</div></div>
+
+        <div class="tl-row-label en">🗽 América</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Independencias</strong>procesos emancipadores en gran parte de Hispanoamérica (1810-1825).<div class="tl-more">Simón Bolívar y José de San Martín lideraron los principales procesos independentistas en Sudamérica, desde direcciones geográficas opuestas.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Organización de los nuevos Estados</strong>ensayos constitucionales, inestabilidad, caudillismo en varios países.<div class="tl-more">El caudillismo —liderazgo personalista de figuras militares— fue especialmente marcado en países como Argentina y México durante este periodo.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Consolidación institucional</strong>desigual entre países. Guerras entre nuevas repúblicas por límites territoriales.<div class="tl-more">Ejemplo: la Guerra de la Triple Alianza (1864-1870) entre Paraguay y la alianza de Argentina, Brasil y Uruguay, una de las más devastadoras del continente.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Inserción exportadora</strong>economías latinoamericanas proveen materias primas al mundo industrializado.<div class="tl-more">México, Argentina y Brasil se consolidan como los principales receptores de inversión extranjera de la región en este periodo.</div></div>
+
+        <div class="tl-row-label fr">🇨🇱 Chile</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Independencia</strong>(1810-1818) y primeros ensayos constitucionales fallidos.<div class="tl-more">Incluye la Patria Vieja (1810-1814), la Reconquista española (1814-1817) y la Patria Nueva tras las batallas de Chacabuco (1817) y Maipú (1818).</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Guerra Civil 1829-1830</strong>triunfo conservador. Constitución de 1833: República autoritaria y presidencialista.<div class="tl-more">Diego Portales nunca fue presidente, pero como ministro definió el modelo político desde las sombras hasta su asesinato en 1837.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Auge del trigo</strong>exportación a California y Australia. Primeros ferrocarriles y capital extranjero.<div class="tl-more">En este periodo también se inicia la llamada "ocupación de la Araucanía": la expansión del Estado chileno sobre territorio mapuche.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Guerra del Pacífico</strong>(1879-1884) y auge salitrero. Cuestión Social y movimiento obrero.<div class="tl-more">Chile incorpora los territorios de Tarapacá y Antofagasta tras la guerra, obteniendo el monopolio mundial de la producción de salitre.</div></div>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:.82rem;color:var(--text-dim)">💡 Ejemplo de simultaneidad: mientras Chile vive su Guerra Civil (1829-1830), en Europa recién se gesta la primera gran oleada revolucionaria liberal (1830) — procesos distintos, pero de la misma época.</p>
+  </div>
+</div>
+
+<!-- ═══ MINI ENSAYO ═══ -->
+<div class="section" id="ensayo">
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">⏱️ Mini Ensayo cronometrado · 18 preguntas 🤖 generadas por IA</p>
+    <p>Responde las 18 preguntas dentro del tiempo límite. Las respuestas se evalúan al terminar. <strong>Simula las condiciones reales de la prueba.</strong></p>
+  </div>
+  <div class="tip-box" style="margin-bottom:16px">
+    <div class="tip-label">💡 Estrategia</div>
+    <p>Lee la fuente completa antes de ver las alternativas. Identifica qué habilidad evalúa la pregunta (temporal-espacial, fuentes o crítico). Descarta primero las alternativas que usan conocimiento externo no dado en el texto.</p>
+  </div>
+  <div class="timer-box">
+    <div>
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Tiempo restante</div>
+      <div class="timer-display" id="timer-disp">32:00</div>
+    </div>
+    <div style="text-align:right">
+      <div id="timer-status" style="font-size:.85rem;color:var(--text-dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+      <button id="start-btn" onclick="startEnsayo()" style="padding:8px 20px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+    </div>
+  </div>
+  <div id="ensayo-qs" style="display:none"></div>
+  <button class="submit-btn" id="submit-btn" onclick="submitEnsayo()" disabled style="display:none">✅ Terminar y ver resultados</button>
+  <div id="ensayo-results"></div>
+</div>
+
+</div><!-- /container -->
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">← Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente →</button>
+</div>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 1</h3>
+      <p>El Siglo XIX en Europa, América y Chile</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    🔒 El asistente está pausado mientras rindes el Mini Ensayo cronometrado. Vuelve a abrirlo cuando termines.
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre el Estado-nación, la formación de la República en Chile, la inserción económica y las transformaciones sociales del siglo XIX. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<footer>🏛️ Unidad 1 · El Siglo XIX en Europa, América y Chile · PAES Historia y Ciencias Sociales · Admisión 2027<br><span style="font-size:.72rem;opacity:.7">Todas las preguntas de práctica (🤖) son generadas por IA y no corresponden a preguntas reales de la PAES ni reproducen material oficial de DEMRE.</span></footer>
+
+<script>
+// ═══ NAVEGACIÓN ═══
+var SECS=["portada","en","fr","ec","so","lt","ensayo"];
+var SLABELS=["Inicio","🌍 Estado-nación","🏛️ Rep. en Chile","📈 Economía","🏙️ Sociedad","🕰️ Línea de tiempo","⏱️ Mini Ensayo"];
+var curSec=0;
+function showSec(id,idx,btn){
+  SECS.forEach(function(s){document.getElementById(s).classList.remove("active");});
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec=idx;
+  updateLinNav();
+  document.getElementById("prog").style.width=Math.round(((idx+1)/SECS.length)*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function linNav(d){
+  var n=Math.max(0,Math.min(SECS.length-1,curSec+d));
+  if(n===curSec)return;
+  showSec(SECS[n],n,document.querySelectorAll(".nav-btn")[n]);
+}
+function updateLinNav(){
+  document.getElementById("lnav-prev").disabled=(curSec===0);
+  document.getElementById("lnav-next").disabled=(curSec===SECS.length-1);
+  document.getElementById("lnav-label").textContent=SLABELS[curSec];
+}
+updateLinNav();
+
+// ═══ FEEDBACK POR ALTERNATIVA (preguntas dentro del contenido) ═══
+var QA={
+  "qen1":{c:"B",fb:{
+    A:"Incorrecto. La nobleza tradicional tendió a defender el Antiguo Régimen, no la soberanía popular.",
+    B:"✅ Correcto. Las revoluciones de 1830 y 1848 fueron el mecanismo político concreto que permitió avanzar el ideario liberal en Europa.",
+    C:"Incorrecto. El sufragio censitario restringía el voto a quienes tenían cierta renta o propiedad, excluyendo a la mayoría.",
+    D:"Incorrecto. El liberalismo debilitó, no fortaleció, a las monarquías absolutas."
+  }},
+  "qfr1":{c:"B",fb:{
+    A:"Incorrecto. Chile no adoptó una monarquía; siguió organizado como república.",
+    B:"✅ Correcto. La Constitución de 1833 estableció un sistema republicano con fuerte presidencialismo y centralismo: rasgos autoritarios dentro de una forma republicana.",
+    C:"Incorrecto. El modelo de 1833 fue centralista, opuesto a una federación con autonomía regional.",
+    D:"Incorrecto. El sufragio censitario y el fuerte presidencialismo limitaban, no ampliaban, la participación popular directa."
+  }},
+  "qec1":{c:"C",fb:{
+    A:"Incorrecto. El Estado liberal del siglo XIX no intervenía directamente en la producción de haciendas y minas.",
+    B:"Incorrecto. No hubo nacionalización de empresas exportadoras en este periodo liberal.",
+    C:"✅ Correcto. El Estado se benefició principalmente recaudando impuestos sobre las exportaciones mineras, modernizando su sistema tributario, sin intervenir en la producción.",
+    D:"Incorrecto. El Estado chileno del siglo XIX era liberal en economía: no impulsó industrialización manufacturera estatal."
+  }},
+  "qso1":{c:"A",fb:{
+    A:"✅ Correcto. El anarquismo proponía la huelga general y la autogestión de los propios trabajadores, en oposición directa al Estado como institución.",
+    B:"Incorrecto. Las cajas de ahorro y ayuda mutua son propias del mutualismo, no del anarquismo.",
+    C:"Incorrecto. El anarquismo rechazaba al Estado como institución; no buscaba aliarse con él.",
+    D:"Incorrecto. La colaboración con la Iglesia describe al socialcristianismo, una corriente distinta y opuesta al anarquismo."
+  }}
+};
+
+// ═══ LÍNEA DE TIEMPO EXPANDIBLE ═══
+function toggleTL(el){
+  el.classList.toggle("open");
+  el.querySelector(".tl-plus").textContent = el.classList.contains("open") ? "－" : "＋";
+}
+
+// ═══ COMPARADOR TOGGLE (pipiolos/pelucones, ideologías obreras) ═══
+function showToggle(prefix, ids, activeId){
+  ids.forEach(function(id){
+    document.getElementById("tpanel-"+id).classList.toggle("show", id===activeId);
+    document.getElementById("tbtn-"+id).classList.toggle("active", id===activeId);
+  });
+}
+
+// ═══ GRÁFICO DE BARRAS · comerciantes mayoristas 1849 ═══
+function buildChart1849(){
+  var data=[
+    {label:"Chilenos",value:37,color:"var(--dorado)"},
+    {label:"Ingleses",value:24,color:"var(--c-ec)"},
+    {label:"Alemanes",value:11,color:"var(--c-en)"},
+    {label:"Franceses",value:10,color:"var(--c-so)"},
+    {label:"Norteam.",value:7,color:"var(--c-lt)"},
+    {label:"Españoles",value:3,color:"var(--amarillo)"},
+    {label:"Otros",value:7,color:"var(--text-dim)"}
+  ];
+  var cont=document.getElementById("chart-1849");
+  if(!cont)return;
+  var maxV=Math.max.apply(null,data.map(function(d){return d.value;}));
+  var html="";
+  data.forEach(function(d){
+    var w=Math.round(d.value/maxV*100);
+    html+='<div class="bar-row"><div class="bar-label">'+d.label+'</div>'+
+      '<div class="bar-track"><div class="bar-fill" style="width:'+w+'%;background:'+d.color+'">'+d.value+'%</div></div></div>';
+  });
+  cont.innerHTML=html;
+}
+buildChart1849();
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done="1";
+  var a=QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===a.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById(qid+"-fb");
+  fb.className="paes-fb show "+(opt===a.c?"ok":"no");
+  fb.innerHTML=a.fb[opt];
+}
+
+// ═══ PRÁCTICA GUIADA · 20 preguntas 🤖 (4 subtemas × 5) ═══
+var PG=[
+  { hid:"en", icon:"🌍", name:"Estado-nación", color:"var(--c-en)",
+    qs:[
+      { skill:"h1", ctx:"En 1848 estallaron revoluciones liberales casi al mismo tiempo en Francia, los Estados alemanes y el Imperio austríaco, aunque cada una tuvo su propio desarrollo local.",
+        q:"¿Qué concepto de pensamiento temporal describe mejor esta situación?",
+        opts:{A:"Sucesión.",B:"Simultaneidad.",C:"Periodización.",D:"Continuidad."},
+        c:"B",fb:{A:"Incorrecto. Sucesión implica hechos uno después de otro; aquí ocurren al mismo tiempo.",B:"✅ Correcto. Distintos hechos en distintos lugares ocurriendo en la misma época es simultaneidad.",C:"Incorrecto. Periodización es dividir el tiempo en etapas, no lo que se describe aquí.",D:"Incorrecto. Continuidad implica que algo se mantiene igual; aquí hay un estallido de cambio."}
+      },
+      { skill:"h2", ctx:"Se dispone de dos fuentes sobre el liberalismo europeo: un discurso parlamentario de 1830 defendiendo el sufragio censitario, y un manual escolar publicado en 2020 que resume el periodo para estudiantes.",
+        q:"¿Cuál de las dos fuentes es primaria?",
+        opts:{A:"El discurso de 1830, porque fue producido en la época del hecho por un protagonista directo.",B:"El manual de 2020, porque analiza el periodo con más distancia temporal.",C:"Ambas son secundarias porque tratan el mismo tema.",D:"Ninguna puede clasificarse sin conocer el nombre del autor."},
+        c:"A",fb:{A:"✅ Correcto. El discurso fue producido en el momento mismo del hecho histórico: es una fuente primaria.",B:"Incorrecto. El manual de 2020 interpreta el pasado desde el presente: es una fuente secundaria.",C:"Incorrecto. Compartir tema no las hace del mismo tipo; lo relevante es cuándo fueron producidas.",D:"Incorrecto. La fecha de producción, no el autor, es el criterio principal para esta clasificación."}
+      },
+      { skill:"h3", ctx:"El liberalismo del siglo XIX defendía la igualdad ante la ley, pero el sufragio censitario excluía a la mayoría de la población del derecho a voto.",
+        q:"¿Qué se puede inferir válidamente de esta información?",
+        opts:{A:"Que el liberalismo se aplicó siempre de manera perfectamente coherente.",B:"Que existió una tensión entre el discurso igualitario liberal y su aplicación práctica restringida.",C:"Que el sufragio censitario garantizó la participación de toda la población.",D:"Que la igualdad ante la ley nunca fue parte del ideario liberal."},
+        c:"B",fb:{A:"Incorrecto. El propio texto describe una contradicción, no una aplicación coherente.",B:"✅ Correcto. Predicar igualdad y a la vez restringir el voto es precisamente esa tensión discurso-práctica.",C:"Incorrecto. El sufragio censitario excluía, no garantizaba, la participación de toda la población.",D:"Incorrecto. El texto indica que la igualdad ante la ley sí era parte del discurso liberal."}
+      },
+      { skill:"h1", ctx:"La Revolución Francesa de 1789 provocó cambios políticos radicales en pocos años; en cambio, la extensión del sufragio a toda la población adulta en Europa tomó más de un siglo en concretarse.",
+        q:"¿Qué concepto permite distinguir ambos procesos?",
+        opts:{A:"Simultaneidad.",B:"Ritmo de cambio.",C:"Distribución geográfica.",D:"Multicausalidad."},
+        c:"B",fb:{A:"Incorrecto. No son hechos ocurriendo al mismo tiempo, sino con distinta velocidad.",B:"✅ Correcto. Uno es un cambio abrupto y el otro gradual: eso es ritmo de cambio.",C:"Incorrecto. No se compara dónde ocurren, sino qué tan rápido.",D:"Incorrecto. Multicausalidad se refiere a múltiples causas, no a la velocidad del cambio."}
+      },
+      { skill:"h3", ctx:"El concepto de 'soberanía popular' establece que el poder político emana del pueblo y no de un monarca por derecho divino.",
+        q:"¿Cuál de las siguientes situaciones aplica correctamente este concepto?",
+        opts:{A:"Un rey que gobierna porque su autoridad proviene de Dios.",B:"Un presidente elegido mediante votación por los ciudadanos habilitados para votar.",C:"Un noble que hereda el poder político de su familia.",D:"Un gobierno militar que toma el poder por la fuerza."},
+        c:"B",fb:{A:"Incorrecto. Esto describe exactamente lo opuesto: el derecho divino de los reyes.",B:"✅ Correcto. Un presidente elegido por votación aplica directamente la idea de que el poder emana del pueblo.",C:"Incorrecto. La herencia de poder es propia del Antiguo Régimen, no de la soberanía popular.",D:"Incorrecto. La toma del poder por la fuerza no representa la voluntad popular expresada en elecciones."}
+      }
+    ]
+  },
+  { hid:"fr", icon:"🏛️", name:"Rep. en Chile", color:"var(--c-fr)",
+    qs:[
+      { skill:"h1", ctx:"Chile vivió su Guerra Civil entre pipiolos y pelucones en 1829-1830. La Constitución de 1833 rigió el país, con reformas, hasta 1925.",
+        q:"¿Qué noción temporal describe mejor la vigencia de la Constitución de 1833?",
+        opts:{A:"Simultaneidad.",B:"Duración.",C:"Ritmo de cambio.",D:"Sucesión."},
+        c:"B",fb:{A:"Incorrecto. No se comparan dos hechos ocurriendo a la vez.",B:"✅ Correcto. El tiempo que un proceso se extiende (casi un siglo, en este caso) es duración.",C:"Incorrecto. Ritmo de cambio compara velocidades, no la extensión de vigencia de un solo proceso.",D:"Incorrecto. Sucesión es el orden en que ocurren distintos hechos, no cuánto dura uno solo."}
+      },
+      { skill:"h2", ctx:"Se dispone de dos fuentes sobre la Constitución de 1833: el texto constitucional original de 1833, y un artículo académico de 2015 que analiza sus consecuencias políticas.",
+        q:"¿Qué tipo de fuente es el texto constitucional original?",
+        opts:{A:"Fuente secundaria interpretativa.",B:"Fuente primaria.",C:"Fuente oral.",D:"Fuente estadística."},
+        c:"B",fb:{A:"Incorrecto. Una fuente secundaria interpreta el pasado después; este es el documento original de la época.",B:"✅ Correcto. El texto constitucional de 1833 fue producido en el mismo momento del hecho histórico: es primaria.",C:"Incorrecto. Es un documento escrito, no un testimonio oral.",D:"Incorrecto. No contiene datos numéricos; es un texto normativo."}
+      },
+      { skill:"h3", ctx:"Los conservadores (pelucones) ganaron la Guerra Civil de 1829-1830 e impusieron un sistema presidencialista, centralista y con sufragio censitario.",
+        q:"¿Qué se puede inferir sobre las prioridades políticas de los pelucones a partir de esta información?",
+        opts:{A:"Priorizaban la participación amplia de todos los sectores sociales.",B:"Priorizaban el orden y la concentración del poder por sobre la ampliación de la participación política.",C:"Buscaban eliminar completamente la figura presidencial.",D:"Promovían un sistema federal con poder descentralizado."},
+        c:"B",fb:{A:"Incorrecto. El sufragio censitario es precisamente lo contrario a una participación amplia.",B:"✅ Correcto. Presidencialismo fuerte + centralismo + sufragio restringido reflejan una prioridad por el orden y el control del poder.",C:"Incorrecto. Reforzaron la figura presidencial, no la eliminaron.",D:"Incorrecto. El centralismo es lo opuesto a un sistema federal descentralizado."}
+      },
+      { skill:"h1", ctx:"Entre 1818 y 1830, Chile ensayó varias constituciones que fracasaron rápidamente. En cambio, la Constitución de 1833 se mantuvo vigente, con reformas, durante casi un siglo.",
+        q:"¿Qué concepto describe la diferencia entre ambos periodos?",
+        opts:{A:"Ritmo de cambio: alta inestabilidad institucional versus consolidación duradera.",B:"Simultaneidad de ambos procesos.",C:"Distribución geográfica desigual.",D:"Multicausalidad económica."},
+        c:"A",fb:{A:"✅ Correcto. Un periodo de cambios rápidos y fallidos frente a uno de estabilidad prolongada es una diferencia de ritmo de cambio.",B:"Incorrecto. No ocurrieron al mismo tiempo, sino uno después del otro.",C:"Incorrecto. No se compara dónde ocurren los hechos, sino su velocidad de cambio.",D:"Incorrecto. No se pregunta por causas económicas, sino por la comparación temporal entre dos periodos."}
+      },
+      { skill:"h3", ctx:"La elite dirigente chilena de la primera mitad del siglo XIX buscó ampliar la cobertura de la educación pública para forjar una identidad nacional compartida.",
+        q:"¿Cuál es una consecuencia lógica esperable de esta estrategia?",
+        opts:{A:"La disminución del analfabetismo y mayor difusión de símbolos y valores nacionales entre la población escolarizada.",B:"La eliminación inmediata del sufragio censitario.",C:"El fin de las diferencias entre pipiolos y pelucones.",D:"La incorporación política plena de los pueblos indígenas."},
+        c:"A",fb:{A:"✅ Correcto. Más cobertura escolar implica, lógicamente, menos analfabetismo y mayor difusión de contenidos cívicos entre quienes asisten a la escuela.",B:"Incorrecto. La educación pública no modificó por sí sola las reglas del sufragio.",C:"Incorrecto. Las diferencias políticas entre facciones no dependían de la política educativa.",D:"Incorrecto. Como se vio en la sección anterior, el proceso más bien buscó asimilar, no incorporar plenamente, a los pueblos indígenas."}
+      }
+    ]
+  },
+  { hid:"ec", icon:"📈", name:"Economía", color:"var(--c-ec)",
+    qs:[
+      { skill:"h2", ctx:"Una tabla de exportaciones chilenas del siglo XIX muestra que el cobre representaba más del 50% de las exportaciones en la década de 1820, mientras que el salitre superó el 50% hacia 1890.",
+        q:"¿Qué tipo de fuente es esta tabla y qué permite hacer?",
+        opts:{A:"Es una fuente cualitativa que permite conocer opiniones de la época.",B:"Es una fuente cuantitativa que permite comparar la evolución de la estructura exportadora en el tiempo.",C:"Es una fuente primaria testimonial poco confiable.",D:"Es una fuente que solo sirve para estudiar procesos políticos."},
+        c:"B",fb:{A:"Incorrecto. Contiene datos numéricos (porcentajes), no opiniones: es cuantitativa.",B:"✅ Correcto. Los datos porcentuales permiten comparar directamente cómo cambió la estructura exportadora entre 1820 y 1890.",C:"Incorrecto. No es un testimonio personal, es un registro de datos.",D:"Incorrecto. Es precisamente útil para el eje económico, no solo el político."}
+      },
+      { skill:"h1", ctx:"El ciclo del cobre y la plata predominó entre 1830 y 1850. El ciclo del trigo se desarrolló entre 1850 y 1860. El ciclo del salitre predominó desde 1880 hasta comienzos del siglo XX.",
+        q:"¿Qué relación temporal existe entre estos tres ciclos económicos?",
+        opts:{A:"Simultaneidad: los tres ciclos ocurrieron exactamente al mismo tiempo.",B:"Sucesión: un ciclo predominante fue reemplazado por otro a lo largo del tiempo.",C:"No existe ninguna relación temporal entre ellos.",D:"Los tres ciclos tuvieron exactamente la misma duración."},
+        c:"B",fb:{A:"Incorrecto. Los rangos de años no se superponen: no son simultáneos.",B:"✅ Correcto. Cada ciclo predomina en un periodo distinto, uno después de otro: es sucesión.",C:"Incorrecto. Sí existe una relación clara: son etapas sucesivas del mismo proceso económico.",D:"Incorrecto. Las duraciones son distintas: 20, 10 y más de 20 años respectivamente."}
+      },
+      { skill:"h3", ctx:"Chile exportaba materias primas (minerales, trigo, salitre) e importaba manufacturas durante todo el siglo XIX, en un contexto de fuerte presencia de capital extranjero en el comercio.",
+        q:"¿Qué se puede inferir sobre la relación económica de Chile con las potencias industrializadas?",
+        opts:{A:"Una relación de independencia económica total.",B:"Una relación de dependencia, donde Chile proveía materias primas al mundo industrializado y dependía de sus mercados y capitales.",C:"Una relación de igualdad productiva entre Chile y las potencias industriales.",D:"Una relación en la que Chile era el principal productor mundial de manufacturas."},
+        c:"B",fb:{A:"Incorrecto. La fuerte presencia de capital extranjero contradice la idea de independencia total.",B:"✅ Correcto. Exportar materias primas e importar manufacturas, dependiendo de mercados y capital externo, es el patrón clásico de dependencia económica.",C:"Incorrecto. No había igualdad productiva: Chile no industrializaba, solo exportaba insumos.",D:"Incorrecto. Chile importaba, no producía, las manufacturas."}
+      },
+      { skill:"h2", ctx:"Un investigador quiere comparar dos interpretaciones sobre el modelo económico exportador chileno del siglo XIX: una que lo valora por el crecimiento que generó, y otra que lo critica por la dependencia externa que produjo.",
+        q:"¿Qué habilidad histórica está aplicando principalmente este investigador?",
+        opts:{A:"Pensamiento temporal y espacial.",B:"Análisis de fuentes de información, al comparar distintas interpretaciones sobre un mismo proceso.",C:"Ninguna habilidad histórica en particular.",D:"Solo conocimiento memorístico de fechas."},
+        c:"B",fb:{A:"Incorrecto. No se trata de ubicar el proceso en el tiempo o el espacio, sino de comparar interpretaciones.",B:"✅ Correcto. Comparar interpretaciones distintas sobre un mismo proceso histórico es exactamente análisis de fuentes de información.",C:"Incorrecto. Comparar interpretaciones es una habilidad histórica explícita del temario PAES.",D:"Incorrecto. No se están memorizando fechas, se están comparando visiones distintas."}
+      },
+      { skill:"h3", ctx:"El Estado chileno del siglo XIX no intervenía en la producción minera o agrícola, pero sí recaudaba impuestos sobre las exportaciones.",
+        q:"¿Qué tipo de rol económico jugó el Estado chileno durante este periodo?",
+        opts:{A:"Un rol interventor, controlando directamente la producción.",B:"Un rol liberal en la producción, pero activo en la recaudación fiscal sobre el comercio exterior.",C:"Un rol completamente ausente, sin ningún tipo de participación económica.",D:"Un rol de propietario único de todas las minas del país."},
+        c:"B",fb:{A:"Incorrecto. El texto indica explícitamente que no intervenía en la producción.",B:"✅ Correcto. El Estado combinaba liberalismo productivo con un rol fiscal activo sobre las exportaciones.",C:"Incorrecto. Recaudar impuestos es una forma de participación económica, no una ausencia total.",D:"Incorrecto. Las minas eran de propiedad privada, no estatal."}
+      }
+    ]
+  },
+  { hid:"so", icon:"🏙️", name:"Sociedad", color:"var(--c-so)",
+    qs:[
+      { skill:"h1", ctx:"La Cuestión Social se agudizó entre fines del siglo XIX y comienzos del siglo XX, mientras que las primeras leyes de protección laboral en Chile se dictaron recién en las décadas siguientes.",
+        q:"¿Qué relación temporal describe mejor esta secuencia?",
+        opts:{A:"Simultaneidad exacta entre el problema y su solución legislativa.",B:"Sucesión: el problema social se manifestó antes que la respuesta legislativa del Estado.",C:"Ninguna relación temporal entre ambos procesos.",D:"La legislación laboral precedió a la Cuestión Social."},
+        c:"B",fb:{A:"Incorrecto. Hubo un desfase temporal, no coincidencia exacta.",B:"✅ Correcto. El problema se manifestó primero; la respuesta legislativa llegó después: eso es sucesión.",C:"Incorrecto. Sí existe relación: una es causa/antecedente de la otra en el tiempo.",D:"Incorrecto. Es al revés: la Cuestión Social antecede a las leyes laborales."}
+      },
+      { skill:"h2", ctx:"Una fotografía de 1920 muestra el interior de un conventillo santiaguino, con varias familias compartiendo un mismo patio reducido.",
+        q:"¿Qué tipo de evidencia aporta esta fuente sobre la sociedad chilena de la época?",
+        opts:{A:"Evidencia visual directa de las condiciones de hacinamiento de los sectores populares urbanos.",B:"Evidencia cuantitativa sobre el número exacto de habitantes del país.",C:"Evidencia sobre las políticas económicas del gobierno.",D:"Evidencia sobre la vida de la oligarquía chilena."},
+        c:"A",fb:{A:"✅ Correcto. La imagen muestra directamente las condiciones de vida hacinadas de los sectores populares urbanos.",B:"Incorrecto. Una fotografía no entrega cifras exactas de población.",C:"Incorrecto. La imagen no muestra políticas de gobierno, sino condiciones de vida.",D:"Incorrecto. El conventillo es vivienda popular, no de la oligarquía."}
+      },
+      { skill:"h3", ctx:"La Cuestión Social se explica por la combinación de la migración campo-ciudad, la industrialización incipiente, los bajos salarios y la falta de regulación laboral estatal.",
+        q:"¿Qué característica de este proceso histórico se describe en el fragmento?",
+        opts:{A:"Que tuvo una única causa: la migración campo-ciudad.",B:"Que fue resultado de múltiples factores combinados, es decir, multicausalidad.",C:"Que no tuvo relación con la industrialización.",D:"Que fue exclusivamente un problema legislativo, sin causas sociales o económicas."},
+        c:"B",fb:{A:"Incorrecto. El texto menciona varios factores, no solo la migración.",B:"✅ Correcto. Migración, industrialización, salarios bajos y falta de regulación son varios factores combinados: multicausalidad.",C:"Incorrecto. El texto menciona explícitamente la industrialización incipiente como factor.",D:"Incorrecto. El texto describe causas sociales y económicas, no solo legislativas."}
+      },
+      { skill:"h1", ctx:"El mutualismo surge desde mediados del siglo XIX como la corriente obrera más temprana. El anarquismo y el socialismo se fortalecen más tarde, especialmente entre fines del siglo XIX y comienzos del XX.",
+        q:"¿Qué concepto de pensamiento temporal describe la relación entre estas corrientes?",
+        opts:{A:"Simultaneidad exacta entre las tres corrientes desde su origen.",B:"Sucesión: el mutualismo antecede cronológicamente al fortalecimiento del anarquismo y el socialismo.",C:"Las tres corrientes desaparecieron al mismo tiempo.",D:"No es posible establecer relación temporal entre corrientes ideológicas."},
+        c:"B",fb:{A:"Incorrecto. El mutualismo es anterior; no surgieron exactamente al mismo tiempo.",B:"✅ Correcto. El mutualismo aparece primero, y solo después se fortalecen el anarquismo y el socialismo: eso es sucesión.",C:"Incorrecto. El texto no menciona su desaparición.",D:"Incorrecto. Sí es posible: el texto mismo establece un orden cronológico entre ellas."}
+      },
+      { skill:"h3", ctx:"La expansión de la educación pública y del aparato estatal en Chile permitió el surgimiento de funcionarios y profesionales como un grupo social distinto tanto de la oligarquía como del proletariado.",
+        q:"¿A qué concepto histórico corresponde este nuevo grupo social?",
+        opts:{A:"Sectores medios.",B:"Proletariado industrial.",C:"Aristocracia terrateniente.",D:"Pueblos originarios."},
+        c:"A",fb:{A:"✅ Correcto. Funcionarios y profesionales, distintos de la oligarquía y el proletariado, son exactamente lo que se conoce como sectores medios.",B:"Incorrecto. El proletariado son los trabajadores industriales, no funcionarios ni profesionales.",C:"Incorrecto. La aristocracia terrateniente es parte de la oligarquía tradicional, no un grupo nuevo.",D:"Incorrecto. El texto no se refiere a pueblos originarios, sino a un nuevo grupo urbano ligado al Estado."}
+      }
+    ]
+  }
+];
+
+function buildPractice(){
+  var SKLBL={h1:"🕰️ Temporal-espacial",h2:"📜 Fuentes",h3:"🧠 Crítico"};
+  PG.forEach(function(g,gi){
+    var cont=document.getElementById("prac-mount-"+g.hid);
+    if(!cont)return;
+    var sec=document.createElement("div");
+    sec.className="prac-group";
+    sec.id="pg"+gi;
+    var hdr=document.createElement("div");
+    hdr.className="prac-group-hdr";
+    hdr.style.borderLeft="4px solid "+g.color;
+    hdr.innerHTML="<div class='gi'>"+g.icon+"</div>"+
+      "<div><div class='gname' style='color:"+g.color+"'>Progreso</div>"+
+      "<div style='font-size:.8rem;color:var(--text-dim)'>5 preguntas</div></div>"+
+      "<div class='gscore' id='gs"+gi+"'></div>";
+    sec.appendChild(hdr);
+    g.qs.forEach(function(q,qi){
+      var qel=document.createElement("div");
+      qel.className="pq"+(qi===0?" show":"");
+      qel.id="pq-"+gi+"-"+qi;
+      var ctxH=q.ctx?'<div class="pq-ctx">'+q.ctx+'</div>':'';
+      var optsH="";
+      ["A","B","C","D"].forEach(function(l){
+        optsH+="<div class='paes-opt' id='po-"+gi+"-"+qi+"-"+l+"' onclick='pAns("+gi+","+qi+",\""+l+"\")'>"+
+          "<div class='ol'>"+l+"</div><div class='ot'>"+q.opts[l]+"</div></div>";
+      });
+      qel.innerHTML="<span class='skill-tag skill-"+q.skill+"'>"+SKLBL[q.skill]+"</span>"+
+        ctxH+"<div class='pq-q'>"+q.q+"</div>"+
+        "<div class='pq-opts' id='po-group-"+gi+"-"+qi+"'>"+optsH+"</div>"+
+        "<div class='paes-fb' id='pfb-"+gi+"-"+qi+"'></div>"+
+        "<button class='nxt-q' id='nq-"+gi+"-"+qi+"' onclick='nextQ("+gi+","+qi+")'>Siguiente →</button>";
+      sec.appendChild(qel);
+    });
+    cont.appendChild(sec);
+  });
+}
+buildPractice();
+
+var pScores={};
+PG.forEach(function(g,gi){pScores[gi]={c:0,t:0};});
+var doneGroups=0;
+var NQ_PRAC=5;
+
+function pAns(gi,qi,opt){
+  var opts=document.getElementById("po-group-"+gi+"-"+qi);
+  if(opts.dataset.done)return;
+  opts.dataset.done="1";
+  var q=PG[gi].qs[qi];
+  var correct=(opt===q.c);
+  pScores[gi].t++;
+  if(correct)pScores[gi].c++;
+  opts.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===q.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById("pfb-"+gi+"-"+qi);
+  fb.className="paes-fb show "+(correct?"ok":"no");
+  fb.textContent=q.fb[opt];
+  var nqBtn=document.getElementById("nq-"+gi+"-"+qi);
+  if(qi<NQ_PRAC-1){
+    nqBtn.textContent="Siguiente pregunta →";
+    nqBtn.style.display="inline-block";
+  }else{
+    nqBtn.style.display="none";
+    finishGroup(gi);
+  }
+}
+
+function nextQ(gi,qi){
+  document.getElementById("nq-"+gi+"-"+qi).style.display="none";
+  var nextEl=document.getElementById("pq-"+gi+"-"+(qi+1));
+  if(nextEl){nextEl.classList.add("show");nextEl.scrollIntoView({behavior:"smooth",block:"start"});}
+}
+
+function finishGroup(gi){
+  doneGroups++;
+  var sc=pScores[gi];
+  var icons=[];for(var i=0;i<NQ_PRAC;i++){icons.push(i<sc.c?"✅":"❌");}
+  document.getElementById("gs"+gi).innerHTML=icons.join(" ")+" <span style='color:"+(sc.c>=3?"var(--dorado)":"var(--rojo)")+"'>"+sc.c+"/"+NQ_PRAC+"</span>";
+}
+
+// ═══ MINI ENSAYO · 18 preguntas 🤖 generadas por IA (revisadas por docente) ═══
+var EQ=[
+  {tema:"Estado-nación",color:"var(--c-en)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Durante la primera mitad del siglo XIX, las ideas liberales impulsaron transformaciones políticas profundas en Europa. ¿Cuál fue el mecanismo político concreto que permitió avanzar la instalación del ideario liberal en el continente?",
+   opts:{A:"El fortalecimiento de las monarquías absolutas.",B:"Las oleadas revolucionarias de 1830 y 1848.",C:"El debilitamiento de los movimientos nacionalistas.",D:"El establecimiento inmediato de sistemas democráticos directos."},
+   c:"B",fb:"Las revoluciones de 1830 y 1848 fueron el mecanismo político concreto que permitió avanzar el ideario liberal en Europa. No hubo democracia directa ni debilitamiento del nacionalismo, y las monarquías absolutas se vieron debilitadas, no fortalecidas."
+  },
+  {tema:"Estado-nación",color:"var(--c-en)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Durante el siglo XIX, las ideas liberales se difundieron ampliamente entre las elites de América Latina. ¿Qué factor facilitó especialmente esta difusión?",
+   opts:{A:"La total uniformidad de pensamiento entre las elites criollas.",B:"La ausencia completa de conflictos internos tras la independencia.",C:"La formación y los viajes de miembros de las elites locales en Europa.",D:"La estabilidad institucional de los nuevos gobiernos republicanos."},
+   c:"C",fb:"Muchos miembros de las elites criollas se formaron o viajaron a Europa, donde tomaron contacto directo con las ideas liberales y las trajeron a América. No hubo uniformidad de pensamiento ni estabilidad institucional en este periodo, y sí existieron conflictos internos."
+  },
+  {tema:"Economía",color:"var(--c-ec)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Durante la década de 1820, el cobre y la plata fueron los principales productos de exportación de Chile. La demanda de mercados como Inglaterra y Estados Unidos provocó un alza sostenida en el precio del cobre en barra y un aumento en su producción.",
+   q:"¿Cuál de las siguientes opciones explica mejor la fuerte demanda internacional por estos minerales en dicho periodo?",
+   opts:{A:"La necesidad de metales para los procesos de la Revolución Industrial.",B:"La acumulación de metales preciosos como reserva monetaria de las potencias.",C:"El monopolio comercial que las potencias ejercían sobre Chile como colonia.",D:"La exportación de materias primas hacia colonias europeas en América."},
+   c:"A",fb:"La Revolución Industrial generó una enorme demanda de metales como el cobre para maquinaria, cableado y construcción. Chile ya era una república independiente, no una colonia, por lo que las opciones sobre monopolio colonial no corresponden al periodo."
+  },
+  {tema:"Rep. en Chile",color:"var(--c-fr)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Durante la primera mitad del siglo XIX en Chile, la elite gobernante enfrentó el desafío de forjar una identidad nacional compartida en una población recién independizada. ¿Cuál fue la principal estrategia utilizada para este propósito?",
+   opts:{A:"Instaurar la enseñanza secundaria obligatoria en todo el país.",B:"Ampliar la cobertura de la educación pública primaria.",C:"Estatizar por completo las escuelas administradas por la Iglesia.",D:"Crear una red de universidades en cada provincia."},
+   c:"B",fb:"La ampliación de la educación pública primaria fue la vía principal para difundir los símbolos y valores de la nueva nación. La enseñanza secundaria obligatoria y la red de universidades provinciales no existieron en este periodo, ni hubo una estatización general de escuelas religiosas."
+  },
+  {tema:"Rep. en Chile",color:"var(--c-fr)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Tras la Independencia, la nueva institucionalidad republicana chilena estableció una ciudadanía jurídica común para toda la población y eliminó formalmente el antiguo sistema de castas coloniales.",
+   q:"¿Cuál fue uno de los impactos políticos de este proceso para los pueblos originarios?",
+   opts:{A:"La creación de territorios indígenas autónomos del poder central.",B:"La asimilación de la población indígena a la institucionalidad republicana.",C:"La inclusión de representantes indígenas en los poderes del Estado.",D:"El reconocimiento de un sistema judicial propio para los pueblos originarios."},
+   c:"B",fb:"Una ciudadanía jurídica común y la supresión del sistema de castas implican que la población indígena fue incorporada (asimilada) a una única institucionalidad republicana, sin reconocer autonomías, representación propia ni sistemas judiciales diferenciados."
+  },
+  {tema:"Rep. en Chile",color:"var(--c-fr)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Entre 1818 y 1833, Chile enfrentó una situación marcada por tres elementos: la inexperiencia de la elite en la práctica política republicana, la inestabilidad económica, y la aplicación de múltiples ensayos constitucionales fallidos.",
+   q:"¿Qué representan en conjunto estos tres elementos para la naciente República?",
+   opts:{A:"Las ventajas obtenidas tras el proceso de Independencia.",B:"Las causas directas del proceso de emancipación nacional.",C:"Las dificultades enfrentadas para organizar la naciente República.",D:"Las consecuencias exclusivas del régimen portaliano posterior a 1833."},
+   c:"C",fb:"Los tres elementos (inexperiencia política, inestabilidad económica, ensayos constitucionales fallidos) son precisamente los obstáculos que Chile enfrentó al intentar organizarse como República independiente, antes de 1830."
+  },
+  {tema:"Sociedad",color:"var(--c-so)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Entre fines del siglo XIX y comienzos del XX en Chile, la Cuestión Social afectó fuertemente a los sectores populares. ¿Cuál de las siguientes fue una consecuencia efectiva de este fenómeno?",
+   opts:{A:"La creación de las primeras leyes de protección laboral.",B:"La implementación inmediata de un sistema público de salud universal.",C:"La erradicación completa de los conventillos en las ciudades.",D:"La difusión del socialcristianismo como política oficial del Estado."},
+   c:"A",fb:"Como respuesta tardía y parcial a la Cuestión Social, el Estado comenzó a dictar las primeras leyes de protección laboral a comienzos del siglo XX. No existió un sistema público de salud universal ni se erradicaron los conventillos en este periodo."
+  },
+  {tema:"Sociedad",color:"var(--c-so)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Una fotografía de comienzos del siglo XX muestra el interior de un conventillo santiaguino, con varias familias conviviendo en un mismo patio de espacio reducido y compartido.",
+   q:"¿Qué impacto de las transformaciones económicas del siglo XIX en los sectores populares se evidencia en esta fuente?",
+   opts:{A:"El desarrollo de un movimiento organizado de pobladores.",B:"La convivencia en condiciones de hacinamiento.",C:"La disminución de los índices de mortalidad infantil.",D:"El establecimiento de una segregación socioespacial planificada."},
+   c:"B",fb:"La imagen muestra directamente familias compartiendo un mismo espacio reducido: eso es hacinamiento, evidencia visual central de las condiciones de vida en los conventillos de la época."
+  },
+  {tema:"Economía",color:"var(--c-ec)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Hacia mediados del siglo XIX, del total de comerciantes mayoristas registrados en Santiago y Valparaíso, más del 60% eran extranjeros (ingleses, alemanes, franceses y otros), concentrados principalmente en el puerto de Valparaíso.",
+   q:"¿Qué rasgo de la economía chilena de mediados del siglo XIX se evidencia en esta información?",
+   opts:{A:"La escasa participación de las potencias europeas en la dinámica comercial nacional.",B:"El protagonismo de Valparaíso como principal punto de conexión con los mercados internacionales.",C:"La consolidación del país como exportador de productos industriales manufacturados.",D:"El carácter proteccionista de las estrategias económicas de los gobiernos liberales."},
+   c:"B",fb:"La fuerte presencia de comerciantes extranjeros en Valparaíso evidencia su rol como principal puerto y punto de conexión con los mercados internacionales. Chile exportaba materias primas, no manufacturas, y el modelo económico era liberal, no proteccionista."
+  },
+  {tema:"Estado-nación",color:"var(--c-en)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"A mediados del siglo XIX, distintos movimientos en América y Europa impulsaron el fin de la esclavitud, apoyándose en el principio liberal de que todas las personas nacen con los mismos derechos ante la ley.",
+   q:"¿Qué principio liberal fundamenta directamente este tipo de movimientos?",
+   opts:{A:"La separación de poderes.",B:"La igualdad de derechos.",C:"El sufragio censitario.",D:"El centralismo político."},
+   c:"B",fb:"La igualdad de derechos es el principio liberal que sustenta que ninguna persona pueda ser propiedad de otra. La separación de poderes organiza el Estado, el sufragio censitario restringía derechos políticos, y el centralismo es un principio de organización territorial: ninguno de los tres se relaciona directamente con el fin de la esclavitud."
+  },
+  {tema:"Estado-nación",color:"var(--c-en)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Varias constituciones latinoamericanas de la primera mitad del siglo XIX declaraban la igualdad de todos los ciudadanos ante la ley, pero al mismo tiempo exigían un nivel mínimo de renta o propiedad para poder votar.",
+   q:"¿Qué contradicción del liberalismo del siglo XIX se evidencia en esta situación?",
+   opts:{A:"Entre el discurso de igualdad legal y la restricción real de la participación política.",B:"Entre el catolicismo y las nuevas ideas científicas.",C:"Entre el centralismo y el federalismo.",D:"Entre la industrialización europea y la falta de tecnología americana."},
+   c:"A",fb:"Declarar igualdad legal mientras se restringe el voto por renta o propiedad es exactamente esa contradicción entre discurso y práctica, tan preguntada en la PAES. El texto no menciona tensiones religiosas, centralismo/federalismo ni comparaciones tecnológicas."
+  },
+  {tema:"Rep. en Chile",color:"var(--c-fr)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Entre 1818 y 1833, varias constituciones chilenas establecieron requisitos de renta y propiedad para poder votar y ser elegido.",
+   q:"¿Qué consecuencia política tuvo este tipo de exigencias para el nuevo sistema republicano chileno?",
+   opts:{A:"Garantizó la participación política de todos los sectores sociales.",B:"Aseguró que el poder político permaneciera en manos de los grupos con más recursos económicos.",C:"Eliminó por completo la influencia de la Iglesia Católica en la política.",D:"Impulsó la creación de partidos obreros desde el inicio de la República."},
+   c:"B",fb:"Exigir renta y propiedad para votar y ser elegido aseguraba que el poder quedara en manos de quienes ya tenían recursos: es lo contrario a garantizar participación amplia. El texto no menciona a la Iglesia, y los partidos obreros surgen recién a fines del siglo XIX y XX."
+  },
+  {tema:"Economía",color:"var(--c-ec)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Hacia fines del siglo XIX, empresarios salitreros chilenos financiaron campañas para publicitar el salitre como fertilizante agrícola en distintos países, buscando aumentar su consumo frente a otros productos similares.",
+   q:"¿Qué propósito económico tenía este tipo de estrategia?",
+   opts:{A:"Reducir la producción nacional de salitre.",B:"Aumentar la competitividad del salitre chileno en el mercado internacional.",C:"Eliminar la participación del Estado en la actividad exportadora.",D:"Reemplazar el salitre por productos industriales manufacturados."},
+   c:"B",fb:"Publicitar el producto en distintos mercados buscaba aumentar su consumo y competitividad frente a fertilizantes alternativos. No se buscaba reducir la producción, y el salitre era la materia prima misma, no fue reemplazado por manufacturas."
+  },
+  {tema:"Economía",color:"var(--c-ec)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Durante la segunda mitad del siglo XIX se construyeron en Chile numerosas líneas de ferrocarril que conectaban las zonas mineras y agrícolas con los puertos de exportación. Gran parte de esta infraestructura fue financiada con capital inglés.",
+   q:"¿Qué característica de la economía chilena del periodo se evidencia en esta situación?",
+   opts:{A:"La total independencia financiera del país respecto de potencias extranjeras.",B:"La fuerte presencia de capital e inversión extranjera en el desarrollo de infraestructura exportadora.",C:"El predominio de la industria manufacturera nacional.",D:"La ausencia de conexión entre las zonas productivas y los puertos."},
+   c:"B",fb:"El financiamiento inglés de los ferrocarriles evidencia la fuerte presencia de capital extranjero en la economía chilena. El texto describe justamente lo contrario a independencia financiera total, ausencia de conexión, o predominio manufacturero nacional."
+  },
+  {tema:"Economía",color:"var(--c-ec)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"El ciclo de la plata y el cobre predominó en las exportaciones chilenas entre 1830 y 1850. Posteriormente, entre 1880 y 1900, el salitre pasó a ser el principal producto de exportación.",
+   q:"¿Qué concepto de pensamiento temporal describe la relación entre ambos ciclos económicos?",
+   opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Distribución geográfica."},
+   c:"B",fb:"Un ciclo predomina primero y luego es reemplazado por otro en un periodo posterior: eso es sucesión, no simultaneidad (los rangos de años no se superponen), multicausalidad (no se habla de causas) ni distribución geográfica (no se compara dónde, sino cuándo)."
+  },
+  {tema:"Sociedad",color:"var(--c-so)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Un estudio de la época señala que el aumento en la circulación de periódicos y revistas a comienzos del siglo XX coincidió con el fortalecimiento de los sectores medios como actores sociales y culturales.",
+   q:"Según esta información, ¿qué factor cultural habría influido en el posicionamiento de los sectores medios como nuevo actor social?",
+   opts:{A:"El aumento de la difusión de la prensa escrita.",B:"La desaparición de la oligarquía terrateniente.",C:"El fin de la migración campo-ciudad.",D:"La abolición del sufragio censitario."},
+   c:"A",fb:"El texto indica directamente que el aumento de la prensa escrita coincidió con el fortalecimiento de los sectores medios. No menciona la desaparición de la oligarquía, el fin de la migración ni el sufragio censitario."
+  },
+  {tema:"Sociedad",color:"var(--c-so)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Frente a la desigualdad generada por el modelo económico exportador de fines del siglo XIX, los propios trabajadores organizaron sindicatos, mutuales y llevaron adelante huelgas para exigir mejoras laborales.",
+   q:"¿Qué tipo de respuesta social se describe en este fragmento?",
+   opts:{A:"Una respuesta institucional impulsada por el Estado.",B:"Una respuesta organizada desde el propio movimiento obrero.",C:"Una respuesta exclusivamente de la Iglesia Católica.",D:"Una respuesta impulsada por la oligarquía salitrera."},
+   c:"B",fb:"Sindicatos, mutuales y huelgas organizadas por los propios trabajadores son ejemplos directos de una respuesta desde el movimiento obrero, no desde el Estado, la Iglesia ni la oligarquía salitrera (que era la contraparte empleadora)."
+  },
+  {tema:"Sociedad",color:"var(--c-so)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"A pesar de que la Cuestión Social se manifestó con fuerza desde fines del siglo XIX, el Estado chileno dictó sus primeras leyes de protección laboral recién en las primeras décadas del siglo XX.",
+   q:"¿Qué característica del rol del Estado frente a la Cuestión Social se evidencia en esta información?",
+   opts:{A:"Una respuesta legislativa inmediata apenas surgieron los primeros conflictos sociales.",B:"Una respuesta tardía, posterior a años de movilización y conflicto social.",C:"La ausencia total de cualquier tipo de legislación laboral durante todo el siglo XX.",D:"Una respuesta impulsada exclusivamente por la oligarquía salitrera."},
+   c:"B",fb:"El desfase temporal entre el surgimiento del problema (fines del s. XIX) y la legislación (décadas del s. XX) evidencia una respuesta tardía del Estado, no inmediata, ni una ausencia total de legislación, ni una iniciativa de la oligarquía salitrera (que más bien se resistía a estas leyes)."
+  }
+];
+
+var userAnswers={},timerInterval=null,timeLeft=1920,ensayoStarted=false,ensayoFinished=false;
+// Tabla oficial de transformación de puntaje P → PAES (DEMRE, PAES Invierno 2026, Historia y Cs. Sociales)
+var ST=[100,114,142,167,190,211,232,252,270,286,300,315,332,349,364,378,388,398,408,420,435,451,466,478,488,495,502,511,522,536,551,566,579,588,596,603,611,622,636,651,667,680,691,701,710,722,736,752,769,785,799,814,829,848,868,889,910,933,958,987,1000];
+
+function buildEnsayo(){
+  var cont=document.getElementById("ensayo-qs");
+  cont.innerHTML="";
+  var SKLBL={h1:"🕰️ Temporal-espacial",h2:"📜 Fuentes",h3:"🧠 Crítico"};
+  EQ.forEach(function(q,i){
+    var d=document.createElement("div");
+    d.className="ensayo-q";
+    var ctxH=q.ctx?'<div class="ensayo-ctx">'+q.ctx+'</div>':'';
+    var optsH="";
+    ["A","B","C","D"].forEach(function(l){
+      optsH+='<div class="ensayo-opt" id="eo-'+i+'-'+l+'" data-qi="'+i+'" data-opt="'+l+'" onclick="selAns(this.dataset.qi,this.dataset.opt)">'+
+        '<div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="ensayo-num" style="color:'+q.color+'">Pregunta '+(i+1)+' / '+EQ.length+' · '+q.tema+' · <span style="opacity:.7;font-weight:700">'+q.ref+'</span></div>'+
+      '<span class="skill-tag skill-'+q.skill+'">'+SKLBL[q.skill]+'</span>'+
+      ctxH+'<div class="ensayo-q-text">'+q.q+'</div>'+
+      '<div class="ensayo-opts" id="eopts-'+i+'">'+optsH+'</div>'+
+      '<div class="ensayo-fb" id="efb-'+i+'"></div>';
+    cont.appendChild(d);
+  });
+}
+buildEnsayo();
+
+function selAns(i,opt){
+  i=parseInt(i);
+  if(!ensayoStarted||ensayoFinished)return;
+  var opts=document.getElementById("eopts-"+i);
+  if(opts.dataset.done)return;
+  userAnswers[i]=opt;
+  opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.remove("selected");});
+  document.getElementById("eo-"+i+"-"+opt).classList.add("selected");
+}
+
+function startEnsayo(){
+  ensayoStarted=true;
+  updateTutorBlock();
+  document.getElementById("start-btn").style.display="none";
+  document.getElementById("timer-status").textContent="¡En marcha! Responde con calma.";
+  var qs=document.getElementById("ensayo-qs"); qs.style.display="block"; qs.style.opacity="1"; qs.style.pointerEvents="auto";
+  var sb=document.getElementById("submit-btn"); sb.style.display="block"; sb.disabled=false;
+  var tb=document.querySelector(".timer-box");
+  if(tb){tb.style.position="sticky";tb.style.top="8px";tb.style.zIndex="155";tb.style.background="rgba(20,15,8,.97)";tb.style.backdropFilter="blur(8px)";tb.style.borderRadius="14px";}
+  var es=document.getElementById("ensayo"); if(es) es.style.paddingBottom="140px";
+  timerInterval=setInterval(function(){
+    timeLeft--;
+    var m=Math.floor(timeLeft/60),s=timeLeft%60;
+    var disp=document.getElementById("timer-disp");
+    disp.textContent=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+    if(timeLeft<=60)disp.className="timer-display danger";
+    else if(timeLeft<=180)disp.className="timer-display warn";
+    if(timeLeft<=0){clearInterval(timerInterval);submitEnsayo();}
+  },1000);
+}
+
+function submitEnsayo(){
+  if(ensayoFinished)return;
+  ensayoFinished=true;
+  clearInterval(timerInterval);
+  document.getElementById("timer-status").textContent="Ensayo terminado";
+  document.getElementById("submit-btn").disabled=true;
+  var correct=0,topicMap={};
+  EQ.forEach(function(q,i){
+    var opts=document.getElementById("eopts-"+i);
+    opts.dataset.done="1";
+    opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.add("locked");});
+    var ua=userAnswers[i];
+    document.getElementById("eo-"+i+"-"+q.c).classList.add("right");
+    if(ua&&ua!==q.c)document.getElementById("eo-"+i+"-"+ua).classList.add("wrong");
+    var isOk=(ua===q.c);
+    var fb=document.getElementById("efb-"+i);
+    fb.className="ensayo-fb show "+(isOk?"ok":"no");
+    fb.textContent=(ua?(isOk?"✅ Correcto. ":"❌ Incorrecto. La respuesta correcta es "+q.c+". "):"⚠️ Sin respuesta. La correcta es "+q.c+". ")+q.fb;
+    if(isOk)correct++;
+    if(!topicMap[q.tema])topicMap[q.tema]={c:0,t:0,color:q.color};
+    topicMap[q.tema].t++;
+    if(isOk)topicMap[q.tema].c++;
+  });
+  var pct=Math.round(correct/EQ.length*100);
+  var mainColor=pct>=70?"var(--dorado)":pct>=50?"#f59e0b":"var(--rojo)";
+  var topicHtml='<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--dorado);margin-bottom:8px">Resultado por subtema:</p><div class="res-topic-grid">';
+  Object.keys(topicMap).forEach(function(t){
+    var r=topicMap[t];
+    var tpct=Math.round(r.c/r.t*100);
+    var scoreColor=tpct>=70?"var(--dorado)":tpct>=50?"#f59e0b":"var(--rojo)";
+    topicHtml+='<div class="res-topic-card '+(tpct<50?"bad":tpct<70?"mid":"")+'">'+
+      '<div class="res-topic-name">'+t+'</div>'+
+      '<div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+  });
+  topicHtml+='</div>';
+  // Estimación usando la tabla oficial de transformación P→PAES (proyectando el ritmo a las 60 preguntas puntuables)
+  var estP=Math.round(correct/EQ.length*60);
+  var estScore=ST[Math.max(0,Math.min(60,estP))];
+  var msg=pct>=70?"🎉 ¡Buen resultado! Revisa los subtemas donde fallaste.":pct>=50?"💪 Resultado aceptable. Refuerza los subtemas en rojo antes de continuar.":"📚 Necesitas repasar más. Vuelve a las secciones con resultado bajo.";
+  var res=document.getElementById("ensayo-results");
+  res.style.display="block";
+  res.innerHTML='<div class="res-banner" style="color:'+mainColor+'">'+
+    (pct>=70?"🏆":pct>=50?"💪":"📚")+' '+correct+' / '+EQ.length+' correctas</div>'+
+    '<div style="font-size:1rem;color:var(--text-dim);margin-bottom:16px">'+pct+'% · Si mantuvieras este ritmo en las 60 preguntas puntuables, tu puntaje estimado sería ~'+estScore+' pts PAES</div>'+
+    topicHtml+
+    '<div style="background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;margin-top:16px">'+
+    '<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--dorado);margin-bottom:8px">'+msg+'</p>'+
+    '<p style="font-size:.88rem;color:var(--text-dim)">Los subtemas con menos del 70% están marcados. Puedes volver a cualquier sección desde el menú de navegación.</p></div>';
+  res.scrollIntoView({behavior:"smooth"});
+  updateTutorBlock();
+}
+
+// ═══ ASISTENTE IA ═══
+var TUTOR_ENDPOINT = "https://api.anthropic.com/v1/messages";
+var SYSTEM_PROMPT = `Eres el asistente de estudio de la Unidad 1 "El Siglo XIX en Europa, América y Chile" del módulo PAES Historia y Ciencias Sociales de la plataforma PAES Karuy. Tu rol es ayudar a estudiantes de enseñanza media chilenos a prepararse para la PAES 2027.
+- Solo respondes dudas relacionadas con el contenido de ESTA unidad: el Estado-nación en Europa y América, la formación de la República en Chile (pipiolos/pelucones, Constitución de 1833), la inserción económica de Chile en el siglo XIX (ciclos exportadores), y las transformaciones sociales de fin de siglo (Cuestión Social, movimiento obrero, sectores medios).
+- Nunca entregues directamente la alternativa correcta de una pregunta de "Práctica guiada" o de los recuadros de ejemplo (paes-box) si el estudiante aún no la ha respondido en el módulo. Guíalo con preguntas socráticas para que razone hacia la respuesta.
+- Si ya la respondió, sí puedes explicar por qué la alternativa es correcta o incorrecta.
+- Las preguntas de práctica que generes en modo "Más práctica" son SIEMPRE nuevas y originales; indica explícitamente que son "🤖 generadas por IA, no son preguntas reales de la PAES".
+- No reproduzcas preguntas reales de folletos DEMRE; todo el contenido que generes debe ser original.
+- Trata los temas de esta unidad (liberalismo, Constitución de 1833, Cuestión Social, movimiento obrero) con neutralidad política; no tomes postura ideológica.
+- Si el estudiante trae temas relacionados con el golpe de Estado, la dictadura o los derechos humanos, indícale que esos contenidos corresponden a la Unidad 3B y que allí serán revisados por el docente, sin profundizar tú mismo en esos temas.
+- Si el estudiante expresa angustia, estrés extremo o malestar emocional relacionado con la PAES, valida brevemente cómo se siente, sugiere que hable con un profesor, orientador o adulto de confianza, y luego ofrece retomar el contenido si quiere.
+- Mantén un tono cercano, breve y claro, adecuado para un estudiante de enseñanza media chileno.
+- Si te piden generar contenido de otra unidad o módulo que no conoces en detalle, dilo con honestidad en vez de inventar.`;
+
+var tutorHistory = [];
+var tutorOpen = false;
+
+window.toggleTutor = function() {
+  if(ensayoStarted && !ensayoFinished){
+    tutorOpen = !tutorOpen;
+    document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+    return;
+  }
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  document.getElementById("tutorDot").style.display = "none";
+};
+
+function updateTutorBlock(){
+  var blocked = ensayoStarted && !ensayoFinished;
+  var fab = document.getElementById("tutorFab");
+  var body = document.getElementById("tutorBody");
+  var msg = document.getElementById("tutorBlockedMsg");
+  if(!fab) return;
+  fab.disabled = blocked;
+  fab.classList.toggle("blocked", blocked);
+  if(body) body.style.display = blocked ? "none" : "flex";
+  if(msg) msg.style.display = blocked ? "block" : "none";
+  if(blocked){
+    tutorOpen = false;
+    document.getElementById("tutorPanel").classList.remove("open");
+  }
+}
+
+function tutorAppendMsg(role, text) {
+  var wrap = document.getElementById("tutorMsgs");
+  var div = document.createElement("div");
+  div.className = "tutor-msg " + role;
+  div.textContent = text;
+  if(role === "bot") {
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "Reportar esta respuesta";
+    rep.onclick = function(){ tutorReport(text); };
+    div.appendChild(document.createElement("br"));
+    div.appendChild(rep);
+  }
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+  return div;
+}
+
+function tutorTyping(show) {
+  var wrap = document.getElementById("tutorMsgs");
+  var existing = document.getElementById("tutorTypingEl");
+  if(show && !existing) {
+    var t = document.createElement("div");
+    t.className = "tutor-typing";
+    t.id = "tutorTypingEl";
+    t.innerHTML = "<span></span><span></span><span></span>";
+    wrap.appendChild(t);
+    wrap.scrollTop = wrap.scrollHeight;
+  } else if(!show && existing) {
+    existing.remove();
+  }
+}
+
+function tutorReport(msgText) {
+  var report = {
+    unidad: "U1 El Siglo XIX en Europa, América y Chile",
+    fecha: new Date().toISOString(),
+    mensaje_reportado: msgText,
+    historial: tutorHistory
+  };
+  var blob = new Blob([JSON.stringify(report, null, 2)], {type:"application/json"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "reporte_asistente_u1_historia_" + Date.now() + ".json";
+  a.click();
+}
+
+async function tutorCallAPI(userText) {
+  tutorHistory.push({role:"user", content:userText});
+  tutorTyping(true);
+  document.getElementById("tutorSendBtn").disabled = true;
+  try {
+    var res = await fetch(TUTOR_ENDPOINT, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
+        messages: tutorHistory
+      })
+    });
+    var data = await res.json();
+    var text = (data.content || []).map(function(b){ return b.text || ""; }).join("\n") || "No pude generar una respuesta. Intenta de nuevo.";
+    tutorHistory.push({role:"assistant", content:text});
+    tutorTyping(false);
+    tutorAppendMsg("bot", text);
+  } catch(e) {
+    tutorTyping(false);
+    tutorAppendMsg("system", "⚠️ No se pudo conectar con el asistente. Intenta nuevamente en unos segundos.");
+  }
+  document.getElementById("tutorSendBtn").disabled = false;
+}
+
+window.tutorSend = function() {
+  var input = document.getElementById("tutorInput");
+  var val = input.value.trim();
+  if(!val) return;
+  tutorAppendMsg("user", val);
+  input.value = "";
+  tutorCallAPI(val);
+};
+
+window.tutorQuickMode = function(mode) {
+  var prompts = {
+    explicar: "Explícame de otra forma, con una analogía distinta, el concepto de la unidad en el que estoy en este momento.",
+    practica: "Genera una nueva pregunta de práctica 🤖 (original, no real) sobre el tema de esta unidad en el que estoy trabajando, con 4 alternativas, y luego dime cuál es la correcta y por qué cuando yo responda.",
+    corregir: "Quiero que corrijas mi razonamiento. Te voy a escribir mi respuesta a una pregunta de esta unidad y quiero que me ayudes con el método socrático, sin darme la respuesta directamente."
+  };
+  tutorAppendMsg("user", prompts[mode]);
+  tutorCallAPI(prompts[mode]);
+};
+
+updateTutorBlock();
+</script>
+</body>
+</html>
