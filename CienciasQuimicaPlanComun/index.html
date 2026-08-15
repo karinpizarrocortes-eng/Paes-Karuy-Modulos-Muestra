@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Unidad 3 &ndash; Qu&iacute;mica B&aacute;sica &bull; PAES Ciencias</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff8f2;--card:#ffffff;--card2:#fff4ec;--bord:#fddcbf;--bord2:#f9c49a;
+  --text:#1a0a00;--dim:#7c4f2a;--dim2:#c4956a;
+  --org:#ea580c;--org2:#f97316;--org3:#fb923c;--orgl:rgba(234,88,12,.1);
+  --rad:18px;--sh:0 2px 14px rgba(180,80,0,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(400px 320px at 5% 10%,rgba(249,115,22,.07),transparent),
+             radial-gradient(320px 280px at 95% 88%,rgba(234,88,12,.05),transparent)}
+.wr{max-width:960px;margin:0 auto;padding:18px 16px 40px;position:relative;z-index:1}
+.pr{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(180,80,0,.12);z-index:200}
+.prf{height:100%;background:linear-gradient(90deg,var(--org),var(--org2),#fbbf24);transition:width .4s}
+.hero{text-align:center;padding:50px 16px 18px}
+.hi{font-size:70px;display:block;animation:fl 3s ease-in-out infinite;margin-bottom:10px}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(2rem,7vw,3.5rem);
+  background:linear-gradient(130deg,var(--org),var(--org2),#fbbf24);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:7px}
+.hero-s{color:var(--dim);font-size:.88rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--orgl);
+  border:1.5px solid rgba(234,88,12,.35);color:var(--org);padding:5px 15px;border-radius:999px;
+  font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-top:9px}
+.nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:16px 0 2px;
+  position:sticky;top:4px;z-index:90;background:rgba(255,248,242,.92);
+  backdrop-filter:blur(10px);padding:9px;border-radius:var(--rad);border:1px solid var(--bord)}
+.nb{background:transparent;border:1.5px solid var(--bord);color:var(--dim);
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.77rem;padding:6px 12px;
+  border-radius:50px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nb:hover,.nb.act{background:var(--org);border-color:var(--org);color:#fff}
+.nb.locked{opacity:.35;cursor:not-allowed;pointer-events:none;filter:grayscale(.5)}
+.lin-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,248,242,.95);backdrop-filter:blur(8px);border-top:1px solid var(--bord);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:inherit;font-weight:700;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid var(--org3);background:transparent;color:var(--org);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:#fff0e0}
+.lnav-btn:disabled{opacity:.3;cursor:default}
+.lnav-center{font-size:.8rem;font-weight:800;color:var(--dim);text-align:center;flex:1}
+.nav-lock-note{font-size:.72rem;font-weight:800;color:var(--org);text-align:center;margin-top:6px;display:none}
+.nav-lock-note.show{display:block}
+body{padding-bottom:64px}
+.sec{display:none;animation:up .3s ease}.sec.act{display:block}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid var(--bord);border-radius:var(--rad);
+  padding:22px;margin-bottom:14px;box-shadow:var(--sh)}
+.ct{font-family:'Fredoka One',cursive;font-size:1.28rem;margin-bottom:11px;
+  display:flex;align-items:center;gap:8px;color:var(--text)}
+.card p,.card li{font-size:.94rem;line-height:1.75;color:var(--dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:18px}.card li{margin-bottom:5px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.g2{grid-template-columns:1fr}}
+.hsec{background:var(--card);border:1.5px solid var(--bord);border-radius:var(--rad);
+  padding:26px;margin-bottom:14px;box-shadow:var(--sh)}
+.hsec .hi2{font-size:54px;display:block;margin-bottom:9px}
+.hsec h2{font-family:'Fredoka One',cursive;font-size:clamp(1.55rem,5vw,2.3rem);line-height:1.1;margin-bottom:5px}
+.hsec p{font-size:.94rem;line-height:1.7;color:var(--dim);max-width:560px}
+.tip{border-left:4px solid var(--org);background:var(--orgl);border-radius:0 12px 12px 0;padding:12px 15px;margin-bottom:11px}
+.tip-l{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--org);margin-bottom:3px}
+.tip p{font-size:.87rem;color:var(--dim);line-height:1.6}
+.kws{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.kw{border-radius:8px;padding:4px 11px;font-size:.79rem;font-weight:800;
+  border:1px solid var(--bord);background:var(--card2);color:var(--dim)}
+.citem{background:var(--card2);border-radius:12px;padding:14px;border-left:4px solid var(--org);margin-bottom:10px}
+.citem h4{font-family:'Fredoka One',cursive;font-size:1.05rem;color:var(--org);margin-bottom:5px}
+.citem p{font-size:.87rem;color:var(--dim);line-height:1.65}
+/* TABLA PESO */
+.wtable{width:100%;border-collapse:collapse;margin:10px 0}
+.wtable th{background:rgba(234,88,12,.1);color:var(--org);font-size:.79rem;padding:7px 11px;text-align:left;font-family:'Fredoka One',cursive;font-weight:400}
+.wtable td{padding:8px 11px;font-size:.87rem;border-bottom:1px solid var(--bord);color:var(--dim)}
+.wbar{display:inline-block;height:5px;border-radius:3px;background:var(--org);vertical-align:middle;margin-right:7px;opacity:.65}
+/* FLIP CARD */
+.chg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+@media(max-width:500px){.chg-grid{grid-template-columns:1fr}}
+.flip-card{perspective:900px;cursor:pointer;min-height:148px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;min-height:148px}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.flip-front{background:var(--card);border:2px solid var(--bord);box-shadow:var(--sh)}
+.flip-back{transform:rotateY(180deg)}
+.flip-back.fisico{background:rgba(5,150,105,.08);border:2px solid rgba(5,150,105,.35)}
+.flip-back.quimico{background:rgba(220,38,38,.06);border:2px solid rgba(220,38,38,.3)}
+.flip-icon{font-size:2rem;margin-bottom:6px}
+.flip-name{font-weight:900;font-size:.9rem;color:var(--text);margin-bottom:4px}
+.flip-desc{font-size:.78rem;color:var(--dim);line-height:1.4;margin-bottom:8px}
+.flip-hint{font-size:.68rem;color:var(--dim2);letter-spacing:.04em}
+.flip-verdict{font-family:Fredoka One,cursive;font-size:1.1rem;margin-bottom:8px}
+.flip-verdict.fisico{color:#059669}
+.flip-verdict.quimico{color:#dc2626}
+.flip-explain{font-size:.8rem;color:var(--dim);line-height:1.55}
+/* ATOM TABS */
+.atom-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.atbtn{padding:7px 15px;border-radius:50px;border:1.5px solid var(--bord2);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:.81rem;cursor:pointer;transition:all .18s}
+.atbtn.act,.atbtn:hover{background:var(--org);border-color:var(--org);color:#fff}
+.atp{display:none}.atp.act{display:block;animation:up .22s ease}
+/* ORG GROUPS */
+.grp-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.grp-btn{padding:8px 14px;border-radius:50px;border:1.5px solid var(--bord2);
+  background:var(--card);color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:.82rem;cursor:pointer;transition:all .18s}
+.grp-btn:hover,.grp-btn.act{background:var(--org);border-color:var(--org);color:#fff}
+.grp-info{background:var(--card2);border:1px solid var(--bord2);border-radius:12px;
+  padding:16px;min-height:80px;animation:up .22s ease}
+/* GAS VISUAL */
+.gas-demo{background:#0f1c0a;border-radius:12px;padding:18px;margin:12px 0;border:1px solid var(--bord)}
+.gas-box{width:100%;height:90px;border:2px solid rgba(249,115,22,.5);border-radius:8px;
+  position:relative;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;
+  background:rgba(249,115,22,.04)}
+.gas-fill{height:100%;border-radius:6px;transition:width .6s ease;
+  background:linear-gradient(90deg,rgba(249,115,22,.25),rgba(251,146,60,.12))}
+.gas-label{position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  font-family:'Fredoka One',cursive;font-size:1rem;color:rgba(249,115,22,.8)}
+.gas-controls{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}
+.gas-ctrl{flex:1;min-width:160px}
+.gas-ctrl label{font-size:.78rem;font-weight:800;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px}
+.gas-ctrl .sv{font-family:'Fredoka One',cursive;color:#fb923c}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;
+  background:rgba(249,115,22,.2);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
+  border-radius:50%;background:var(--org2);cursor:pointer;border:2px solid #fff}
+/* STOICH */
+.stoich-c{background:var(--card2);border:1.5px solid var(--bord2);border-radius:var(--rad);padding:20px}
+.stoich-field label{font-size:.74rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);display:block;margin-bottom:4px}
+.stoich-field input{width:100%;background:var(--card);border:1.5px solid var(--bord2);border-radius:9px;
+  color:var(--text);font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
+  padding:8px 11px;outline:none;transition:border .18s}
+.stoich-field input:focus{border-color:var(--org)}
+.stoich-field input.calc{color:var(--org);border-color:rgba(234,88,12,.4);background:rgba(255,237,213,.5)}
+.stoich-arrow{font-size:1.3rem;text-align:center;color:var(--org);font-weight:900}
+.stoich-res{font-family:'Fredoka One',cursive;font-size:1.2rem;text-align:center;color:var(--org);
+  padding:12px;background:rgba(255,237,213,.6);border-radius:10px;border:1px solid rgba(234,88,12,.2)}
+/* CONC CALC */
+.conc-c{background:var(--card2);border:1.5px solid var(--bord2);border-radius:var(--rad);padding:18px}
+.conc-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:500px){.conc-row{grid-template-columns:1fr}}
+.cf label{font-size:.74rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);display:block;margin-bottom:4px}
+.cf input{width:100%;background:var(--card);border:1.5px solid var(--bord2);border-radius:9px;
+  color:var(--text);font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
+  padding:8px 11px;outline:none;transition:border .18s}
+.cf input:focus{border-color:var(--org)}
+.cf input.calc{color:var(--org);border-color:rgba(234,88,12,.4);background:rgba(255,237,213,.5)}
+.cf .un{font-size:.73rem;color:var(--dim);margin-top:2px}
+.cbr{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.cb{padding:7px 15px;border-radius:50px;border:1.5px solid rgba(234,88,12,.25);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;font-size:.81rem;cursor:pointer;transition:all .18s}
+.cb.act,.cb:hover{background:var(--org);border-color:var(--org);color:#fff}
+.cres{font-family:'Fredoka One',cursive;font-size:1.2rem;text-align:center;color:var(--org);
+  padding:12px;background:rgba(255,237,213,.6);border-radius:10px;border:1px solid rgba(234,88,12,.18)}
+/* PAES Q */
+.pbox{background:var(--card2);border:1px solid var(--bord2);border-radius:var(--rad);padding:20px;margin-top:7px;margin-bottom:14px}
+.ptag{font-size:.67rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.ai-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(129,140,248,.1);border:1px solid rgba(129,140,248,.28);border-radius:6px;padding:3px 10px;font-size:.67rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#7c3aed;margin-bottom:9px}
+.pctx{background:rgba(234,88,12,.05);border-radius:9px;padding:11px 13px;font-size:.86rem;color:var(--dim);line-height:1.65;margin-bottom:11px}
+.pctx table{width:100%;border-collapse:collapse;margin-top:7px}
+.pctx th,.pctx td{padding:5px 8px;font-size:.8rem;border-bottom:1px solid var(--bord);text-align:left}
+.pctx th{color:var(--org);font-size:.71rem;letter-spacing:.04em}
+.pq{font-size:.92rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pos{display:flex;flex-direction:column;gap:7px}
+.po{display:flex;align-items:flex-start;gap:8px;padding:9px 12px;border-radius:9px;
+  cursor:pointer;border:1.5px solid var(--bord);background:var(--card);transition:all .16s;box-shadow:var(--sh)}
+.po:hover{border-color:var(--org);background:var(--orgl)}
+.po.locked{cursor:default;pointer-events:none}
+.po.right{background:rgba(234,88,12,.1);border-color:var(--org)}
+.po.wrong{background:rgba(220,38,38,.06);border-color:#dc2626}
+.ol{min-width:24px;height:24px;border-radius:50%;border:1.5px solid var(--bord2);
+  display:flex;align-items:center;justify-content:center;font-size:.73rem;font-weight:900;
+  color:var(--org);flex-shrink:0}
+.po.right .ol{background:var(--org);color:#fff;border-color:var(--org)}
+.po.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.ot{font-size:.86rem;color:var(--dim);line-height:1.5}
+.pfb{margin-top:9px;padding:9px 13px;border-radius:9px;font-size:.84rem;line-height:1.55;display:none}
+.pfb.show{display:block}
+.pfb.ok{background:rgba(234,88,12,.1);color:#9a3412;border-left:3px solid var(--org)}
+.pfb.no{background:rgba(220,38,38,.07);color:#991b1b;border-left:3px solid #dc2626}
+.po.cor{background:rgba(234,88,12,.12);border-color:var(--org)}
+.po.inc{background:rgba(220,38,38,.08);border-color:#dc2626}
+.po.cor .ol{background:var(--org);color:#fff;border-color:var(--org)}
+.po.inc .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.pfb.show{display:block}
+.pfb.ok{background:rgba(234,88,12,.09);color:var(--org);border-left:3px solid var(--org)}
+.pfb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+/* SVG WRAP */
+.svg-wrap{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:rgba(234,88,12,.35) transparent;border-radius:12px;margin:12px 0;background:var(--card2);max-width:100%;box-sizing:border-box}
+.svg-wrap::-webkit-scrollbar{height:4px}
+.svg-wrap::-webkit-scrollbar-thumb{background:rgba(234,88,12,.4);border-radius:2px}
+.svg-wrap>svg{display:block!important;min-width:500px;width:500px!important;max-width:none!important;border-radius:0!important;margin:0!important;height:auto}
+/* ENSAYO */
+.tip-box{border-left:4px solid var(--org);background:rgba(234,88,12,.07);border-radius:0 13px 13px 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--org);margin-bottom:4px}
+.tip-box p{font-size:.88rem;color:var(--dim);line-height:1.6}
+.tip-box p strong{color:var(--text)}
+.res-banner{font-family:'Fredoka One',cursive;font-size:2.3rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px;margin:12px 0}
+.res-topic-card{background:var(--card2);border-radius:11px;padding:11px 14px;border-left:3px solid var(--org)}
+.res-topic-card.bad{border-left-color:#dc2626}
+.res-topic-card.mid{border-left-color:#d97706}
+.res-topic-name{font-size:.74rem;font-weight:900;color:var(--dim);margin-bottom:3px}
+.res-topic-score{font-family:'Fredoka One',cursive;font-size:1.2rem}
+.tbox{background:var(--card);border:2px solid rgba(234,88,12,.3);border-radius:13px;
+  padding:13px 18px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;flex-wrap:wrap;gap:8px;box-shadow:var(--sh)}
+.td{font-family:'Fredoka One',cursive;font-size:2.3rem;color:var(--org);letter-spacing:.04em}
+.td.w{color:#d97706}.td.d{color:#dc2626;animation:bk .8s ease-in-out infinite}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.35}}
+.eq{background:var(--card);border:1px solid var(--bord);border-radius:11px;padding:16px;margin-bottom:10px;box-shadow:var(--sh)}
+.enum{font-size:.69rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.ectx{background:rgba(234,88,12,.05);border-radius:8px;padding:9px 12px;font-size:.85rem;color:var(--dim);line-height:1.6;margin-bottom:9px}
+.eqt{font-size:.89rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:10px}
+.eopts{display:flex;flex-direction:column;gap:6px}
+.eopt{display:flex;align-items:flex-start;gap:8px;padding:8px 11px;border-radius:8px;cursor:pointer;
+  border:1.5px solid var(--bord);background:var(--card);transition:all .16s}
+.eopt:hover:not(.locked){border-color:var(--org);background:var(--orgl)}
+.eopt.sel{background:var(--orgl);border-color:var(--org)}
+.eopt.locked{cursor:default;pointer-events:none}
+.eopt.right{background:rgba(234,88,12,.12);border-color:var(--org)}
+.eopt.wrong{background:rgba(220,38,38,.05);border-color:#dc2626}
+.eopt .ol{color:var(--org)}
+.eopt.sel .ol{background:var(--org);color:#fff;border-color:var(--org)}
+.eopt.right .ol{background:var(--org);color:#fff;border-color:var(--org)}
+.eopt.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.efb{margin-top:6px;padding:8px 12px;border-radius:8px;font-size:.82rem;line-height:1.55;display:none}
+.efb.show{display:block}
+.efb.ok{background:rgba(234,88,12,.09);color:var(--org);border-left:3px solid var(--org)}
+.efb.no{background:rgba(220,38,68,.05);color:#b91c1c;border-left:3px solid #dc2626}
+.sbtn{width:100%;padding:13px;background:var(--org);color:#fff;border:none;border-radius:11px;
+  font-family:'Fredoka One',cursive;font-size:1.05rem;cursor:pointer;margin-top:9px;
+  transition:background .18s;box-shadow:0 4px 12px rgba(234,88,12,.28)}
+.sbtn:hover{background:var(--org2)}.sbtn:disabled{opacity:.32;cursor:default}
+/* NAV LINEAL */
+.lnav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,248,242,.94);
+  backdrop-filter:blur(10px);border-top:1px solid var(--bord);padding:9px 18px;
+  display:flex;align-items:center;justify-content:space-between;z-index:180;gap:9px}
+.lb{font-family:'Fredoka One',cursive;font-size:.92rem;padding:7px 18px;border-radius:50px;
+  border:1.5px solid rgba(234,88,12,.38);background:transparent;color:var(--org);
+  cursor:pointer;transition:all .18s;white-space:nowrap}
+.lb:hover{background:var(--org);color:#fff;border-color:var(--org)}
+.lb:disabled{opacity:.22;cursor:default}
+.lm{font-size:.77rem;font-weight:800;color:var(--dim);text-align:center;flex:1}
+/* ORG CARDS */
+.org-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:9px;margin:10px 0}
+.org-card{background:var(--card2);border-radius:11px;padding:12px;border-left:3px solid var(--org)}
+.org-name{font-weight:900;font-size:.87rem;color:var(--org);margin-bottom:3px}
+.org-fn{font-size:.79rem;color:var(--dim);line-height:1.5}
+footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
+@media(max-width:680px){
+  .wr{padding:10px 10px 80px}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;padding:7px!important;scrollbar-width:none;position:relative!important;top:auto!important}
+  .nav::-webkit-scrollbar{display:none}
+  .nb{flex-shrink:0;font-size:.74rem;padding:9px 11px;min-height:40px;touch-action:manipulation}
+  .card{padding:14px 12px}
+  .g2{grid-template-columns:1fr}
+  .pbox{padding:14px 12px}
+  .po{padding:11px 10px;min-height:50px;touch-action:manipulation}
+  .ol{min-width:28px;height:28px;font-size:.78rem}
+  .lb{padding:11px 14px!important;min-height:46px}
+  .conc-row{grid-template-columns:1fr}
+  .svg-wrap>svg{min-width:420px;width:420px!important}
+  .chg-grid{grid-template-columns:1fr}
+}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--org),var(--org2));border:none;color:#fff;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(234,88,12,.4);z-index:250;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid #fff;display:none}
+.tutor-fab.blocked .dot{background:#6b7280;display:block}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid var(--bord);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(120,50,0,.25);z-index:260;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--org),var(--org2));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:'Fredoka One',cursive;font-size:1rem;color:#fff}
+.tutor-head p{font-size:.7rem;color:rgba(255,255,255,.8);margin-top:1px}
+.tutor-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1;flex-shrink:0}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid var(--bord);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid var(--bord2);color:var(--dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--org);color:var(--org)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--org);color:#fff;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid var(--bord);border-bottom-left-radius:4px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--dim2);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.7}
+.tutor-report:hover{opacity:1;color:var(--org)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--dim2);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--bord);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid var(--bord2);border-radius:12px;color:var(--text);padding:9px 12px;font-family:'Nunito',sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--org)}
+.tutor-send{background:var(--org);border:none;color:#fff;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+.tutor-blocked-msg{padding:24px 18px;text-align:center;color:var(--dim);font-size:.88rem;line-height:1.7}
+@media(max-width:680px){.tutor-input{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="pr"><div class="prf" id="prf" style="width:12.5%"></div></div>
+<div class="wr">
+<div class="hero">
+  <span class="hi">&#129514;</span>
+  <h1>Qu&iacute;mica B&aacute;sica</h1>
+  <div class="hero-s">PAES Ciencias &bull; Plan Com&uacute;n &bull; Unidad 3</div>
+  <div class="badge">&#128300; ~18 preguntas en la PAES</div>
+</div>
+<div class="nav">
+  <button class="nb act" onclick="go('p0',0,this)">&#127968; Inicio</button>
+  <button class="nb" onclick="go('p1',1,this)">&#128293; Cambios</button>
+  <button class="nb" onclick="go('p2',2,this)">&#9883;&#65039; &Aacute;tomo</button>
+  <button class="nb" onclick="go('p3',3,this)">&#129431; Org&aacute;nica</button>
+  <button class="nb" onclick="go('p4',4,this)">&#128168; Gases</button>
+  <button class="nb" onclick="go('p5',5,this)">&#9878;&#65039; Reacciones</button>
+  <button class="nb" onclick="go('p6',6,this)">&#128167; Soluciones</button>
+  <button class="nb" onclick="go('p7',7,this)">&#9201;&#65039; Ensayo</button>
+</div>
+
+<!-- ======= PORTADA ======= -->
+<div class="sec act" id="p0">
+<div class="card" style="text-align:center;padding:32px 20px">
+  <p class="ct" style="justify-content:center;color:var(--org);font-size:1.6rem">&#129514; Unidad 3 &bull; Qu&iacute;mica B&aacute;sica</p>
+  <p style="font-size:.97rem;max-width:540px;margin:0 auto 18px;color:var(--dim);line-height:1.8">
+    Esta unidad cubre los <strong>contenidos de Qu&iacute;mica del M&oacute;dulo Com&uacute;n</strong>, que corresponden a aproximadamente las preguntas <strong>P37&ndash;P54</strong> de la PAES Ciencias &mdash; 18 preguntas en total.
+  </p>
+</div>
+<div class="card">
+  <p class="ct" style="color:var(--org)">&#128202; Peso estimado de cada tema en la PAES</p>
+  <table class="wtable">
+    <tr><th>Tema</th><th>Preguntas estimadas</th></tr>
+    <tr><td>&#128293; Cambios F&iacute;sicos y Qu&iacute;micos</td><td><span class="wbar" style="width:36px"></span><strong style="color:#dc2626">~2 preguntas</strong></td></tr>
+    <tr><td>&#9883;&#65039; Estructura At&oacute;mica y Tabla Peri&oacute;dica</td><td><span class="wbar" style="width:45px"></span><strong style="color:#7c3aed">~3 preguntas</strong></td></tr>
+    <tr><td>&#129431; Qu&iacute;mica Org&aacute;nica</td><td><span class="wbar" style="width:36px"></span><strong style="color:#059669">~2&ndash;3 preguntas</strong></td></tr>
+    <tr><td>&#128168; Leyes de los Gases</td><td><span class="wbar" style="width:36px"></span><strong style="color:var(--org2)">~2&ndash;3 preguntas</strong></td></tr>
+    <tr><td>&#9878;&#65039; Reacciones y Estequiometr&iacute;a</td><td><span class="wbar" style="width:45px"></span><strong style="color:var(--org)">~3&ndash;4 preguntas</strong></td></tr>
+    <tr><td>&#128167; Soluciones y Concentraci&oacute;n</td><td><span class="wbar" style="width:45px"></span><strong style="color:#0891b2">~3&ndash;4 preguntas</strong></td></tr>
+  </table>
+</div>
+<div class="g2">
+  <div class="card" style="border-left:4px solid var(--org)">
+    <p class="ct" style="color:var(--org)">&#128204; Recuerda</p>
+    <ul>
+      <li>Cada pregunta combina <strong>contenido + habilidad cient&iacute;fica</strong> (H1&ndash;H5)</li>
+      <li>La estequiometr&iacute;a y soluciones requieren c&aacute;lculo con moles</li>
+      <li>Los grupos funcionales org&aacute;nicos se reconocen visualmente</li>
+      <li><strong>Sin descuento</strong> por respuesta incorrecta &mdash; ¡responde siempre!</li>
+    </ul>
+  </div>
+  <div class="card" style="border-left:4px solid #0891b2">
+    <p class="ct" style="color:#0891b2">&#9201;&#65039; Al final de esta unidad</p>
+    <ul>
+      <li>Mini ensayo cronometrado con <strong>10 preguntas reales PAES</strong></li>
+      <li>Resultado con <strong>desglose por tema</strong></li>
+      <li>Sabrás exactamente qué reforzar antes de avanzar</li>
+    </ul>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid var(--org)">
+  <p class="ct" style="color:var(--org)">&#128218; Temario Qu&iacute;mica Plan Com&uacute;n &mdash; Admisi&oacute;n 2027</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;font-size:.83rem">
+    <div style="background:var(--card2);border-radius:10px;padding:11px;border-left:3px solid #dc2626">
+      <div style="font-weight:900;color:#dc2626;margin-bottom:4px">&#128293; Cambios F&iacute;sicos y Qu&iacute;micos</div>
+      <div style="color:var(--dim);line-height:1.6">Indicios de cambio qu&iacute;mico &middot; evidencia experimental &middot; propiedades de sustancias</div>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:11px;border-left:3px solid #7c3aed">
+      <div style="font-weight:900;color:#7c3aed;margin-bottom:4px">&#9883; Estructura At&oacute;mica y Enlace</div>
+      <div style="color:var(--dim);line-height:1.6">Part&iacute;culas &middot; Z y A &middot; is&oacute;topos &middot; modelos &middot; tabla peri&oacute;dica &middot; enlace i&oacute;nico vs covalente</div>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:11px;border-left:3px solid #059669">
+      <div style="font-weight:900;color:#059669;margin-bottom:4px">&#129431; Qu&iacute;mica Org&aacute;nica</div>
+      <div style="color:var(--dim);line-height:1.6">Hidrocarburos &middot; tipos de carbono 1&deg;&ndash;4&deg; &middot; grupos funcionales</div>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:11px;border-left:3px solid #d97706">
+      <div style="font-weight:900;color:#b45309;margin-bottom:4px">&#128168; Leyes de los Gases</div>
+      <div style="color:var(--dim);line-height:1.6">Boyle (P&middot;V=cte) &middot; Charles (V/T=cte) &middot; Gay-Lussac (P/T=cte)</div>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:11px;border-left:3px solid var(--org)">
+      <div style="font-weight:900;color:var(--org);margin-bottom:4px">&#9878;&#65039; Reacciones y Estequiometr&iacute;a</div>
+      <div style="color:var(--dim);line-height:1.6">Tipos &middot; balanceo &middot; mol &middot; reactivo limitante &middot; c&aacute;lculos</div>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:11px;border-left:3px solid #0891b2">
+      <div style="font-weight:900;color:#0891b2;margin-bottom:4px">&#128167; Soluciones y Concentraci&oacute;n</div>
+      <div style="color:var(--dim);line-height:1.6">Solubilidad &middot; molaridad M=n/V &middot; diluciones C₁V₁=C₂V₂ &middot; %m/m y %m/v</div>
+    </div>
+  </div>
+</div>
+<div class="tip">
+  <div class="tip-l">&#127919; Clave PAES</div>
+  <p>Reacciones y Soluciones concentran la mayor cantidad de c&aacute;lculos. Domina el mol y la f&oacute;rmula C=n/V. Para Org&aacute;nica, practica reconocer grupos funcionales visualmente. En Gases, las tres leyes son predecibles &mdash; siempre identificar qu&eacute; variable est&aacute; <strong>constante</strong>.</p>
+</div>
+</div>
+
+<!-- ======= CAMBIOS F/Q ======= -->
+<div class="sec" id="p1">
+<div class="hsec" style="border-color:rgba(220,38,38,.3)">
+  <span class="hi2">&#128293;</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#dc2626;margin-bottom:3px">Tema 1 de 6</div>
+  <h2 style="color:#dc2626">Cambios F&iacute;sicos y Qu&iacute;micos</h2>
+  <p>La materia puede cambiar sin alterar su composici&oacute;n (f&iacute;sico) o formando nuevas sustancias (qu&iacute;mico).</p>
+</div>
+
+<div class="g2">
+  <div style="background:rgba(5,150,105,.07);border:2px solid rgba(5,150,105,.3);border-radius:14px;padding:16px">
+    <div style="font-family:Fredoka One,cursive;font-size:1.1rem;color:#059669;margin-bottom:8px">&#9989; Cambio F&iacute;sico</div>
+    <p style="font-size:.87rem;color:var(--dim);line-height:1.65"><strong>Qu&eacute; es:</strong> La sustancia cambia de forma, estado o tama&ntilde;o pero su composici&oacute;n qu&iacute;mica es la misma. <strong>No se forman nuevas sustancias.</strong><br><br>
+    <strong>Indicios:</strong> Cambio de estado, cortar, disolver reversible, mezcla sin reacci&oacute;n.<br><br>
+    <strong>Ejemplos:</strong> Derretir hielo, romper vidrio, evaporar agua.</p>
+  </div>
+  <div style="background:rgba(220,38,38,.06);border:2px solid rgba(220,38,38,.28);border-radius:14px;padding:16px">
+    <div style="font-family:Fredoka One,cursive;font-size:1.1rem;color:#dc2626;margin-bottom:8px">&#128293; Cambio Qu&iacute;mico</div>
+    <p style="font-size:.87rem;color:var(--dim);line-height:1.65"><strong>Qu&eacute; es:</strong> Se forman <em>nuevas sustancias</em> con composici&oacute;n distinta. Generalmente irreversible.<br><br>
+    <strong>Indicios:</strong> Cambio de color permanente, burbujeo, calor, precipitado, olor nuevo.<br><br>
+    <strong>Ejemplos:</strong> Oxidar hierro, quemar madera, cocinar huevo.</p>
+  </div>
+</div>
+
+<!-- SVG 5 indicios -->
+<div class="card" style="margin-top:14px">
+  <p class="ct" style="color:#dc2626">&#128064; 5 indicios clave de cambio qu&iacute;mico</p>
+  <div class="svg-wrap"><svg width="100%" viewBox="0 0 620 160" role="img">
+  <title>5 indicios de cambio quimico</title>
+  <!-- Fondo -->
+  <rect width="620" height="160" fill="#fff4ec" rx="10"/>
+  <!-- Indicios -->
+  <!-- 1 Cambio de color -->
+  <rect x="10" y="14" width="110" height="134" rx="10" fill="rgba(220,38,38,.07)" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="65" y="38" text-anchor="middle" style="font-size:26px">&#127752;</text>
+  <text x="65" y="60" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#dc2626">Cambio de</text>
+  <text x="65" y="75" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#dc2626">color</text>
+  <text x="65" y="97" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">permanente</text>
+  <text x="65" y="112" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">e irreversible</text>
+  <text x="65" y="130" text-anchor="middle" style="font-size:8px;fill:#b45309;font-style:italic">Ej: manzana</text>
+  <text x="65" y="143" text-anchor="middle" style="font-size:8px;fill:#b45309;font-style:italic">que se oxida</text>
+  <!-- 2 Burbujeo -->
+  <rect x="130" y="14" width="110" height="134" rx="10" fill="rgba(37,99,235,.06)" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="185" y="38" text-anchor="middle" style="font-size:26px">&#128167;</text>
+  <text x="185" y="60" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#1d4ed8">Burbujeo</text>
+  <text x="185" y="75" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#1d4ed8">/ gas</text>
+  <text x="185" y="97" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">Producción de</text>
+  <text x="185" y="112" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">gas nuevo</text>
+  <text x="185" y="130" text-anchor="middle" style="font-size:8px;fill:#b45309;font-style:italic">Ej: limón +</text>
+  <text x="185" y="143" text-anchor="middle" style="font-size:8px;fill:#b45309;font-style:italic">bicarbonato</text>
+  <!-- 3 Temperatura -->
+  <rect x="250" y="14" width="110" height="134" rx="10" fill="rgba(234,88,12,.07)" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="305" y="38" text-anchor="middle" style="font-size:26px">&#127777;&#65039;</text>
+  <text x="305" y="60" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#ea580c">Cambio de</text>
+  <text x="305" y="75" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#ea580c">temperatura</text>
+  <text x="305" y="97" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">Exotérmica o</text>
+  <text x="305" y="112" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">endotérmica</text>
+  <text x="305" y="130" text-anchor="middle" style="font-size:8px;fill:#b45309;font-style:italic">Ej: combustión</text>
+  <text x="305" y="143" text-anchor="middle" style="font-size:8px;fill:#b45309;font-style:italic">libera calor</text>
+  <!-- 4 Precipitado -->
+  <rect x="370" y="14" width="110" height="134" rx="10" fill="rgba(124,58,237,.07)" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="425" y="38" text-anchor="middle" style="font-size:26px">&#9878;&#65039;</text>
+  <text x="425" y="60" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#7c3aed">Formación de</text>
+  <text x="425" y="75" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#7c3aed">precipitado</text>
+  <text x="425" y="97" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">Sólido insoluble</text>
+  <text x="425" y="112" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">en solución</text>
+  <text x="425" y="130" text-anchor="middle" style="font-size:8px;fill:#b45309;font-style:italic">Ej: BaSO₄</text>
+  <text x="425" y="143" text-anchor="middle" style="font-size:8px;fill:#b45309;font-style:italic">insoluble</text>
+  <!-- 5 Olor nuevo -->
+  <rect x="490" y="14" width="120" height="134" rx="10" fill="rgba(5,150,105,.07)" stroke="#059669" stroke-width="1.5"/>
+  <text x="550" y="38" text-anchor="middle" style="font-size:26px">&#128166;</text>
+  <text x="550" y="60" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#059669">Olor o luz</text>
+  <text x="550" y="75" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#059669">nueva</text>
+  <text x="550" y="97" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">Sustancia</text>
+  <text x="550" y="112" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">volátil nueva</text>
+  <text x="550" y="130" text-anchor="middle" style="font-size:8px;fill:#b45309;font-style:italic">Ej: vinagre +</text>
+  <text x="550" y="143" text-anchor="middle" style="font-size:8px;fill:#b45309;font-style:italic">NaHCO₃</text>
+  </svg></div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">&#128073; Pregunta clave PAES</div>
+    <p>Para decidir si es físico o químico: <strong>¿se formó una sustancia nueva con propiedades distintas?</strong> Si sí &rarr; químico. Si no &rarr; físico.</p>
+  </div>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#dc2626">&#127918; &iquest;F&iacute;sico o Qu&iacute;mico? &mdash; haz clic para revelar</p>
+  <p style="font-size:.86rem;color:var(--dim);margin-bottom:12px">Toca cada tarjeta para ver la respuesta y explicación.</p>
+  <div class="chg-grid">
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="flip-icon">&#128167;</div><div class="flip-name">Condensación en espejo</div><div class="flip-desc">Exhalar sobre un espejo frío y aparecer gotitas</div><div class="flip-hint">&#128070; Toca para revelar</div></div>
+        <div class="flip-back fisico"><div class="flip-verdict fisico">&#9989; Cambio Físico</div><div class="flip-explain">El vapor de agua cambia de estado (gas &rarr; líquido), pero sigue siendo H₂O. No se forma ninguna sustancia nueva. Reversible.</div></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="flip-icon">&#128297;</div><div class="flip-name">Oxidación del hierro</div><div class="flip-desc">Metal que se torna rojizo con el tiempo</div><div class="flip-hint">&#128070; Toca para revelar</div></div>
+        <div class="flip-back quimico"><div class="flip-verdict quimico">&#128293; Cambio Químico</div><div class="flip-explain">El hierro reacciona con O₂ y humedad formando óxido ferroso (Fe₂O₃), sustancia nueva con propiedades distintas. Irreversible.</div></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="flip-icon">&#128293;</div><div class="flip-name">Fundir hierro</div><div class="flip-desc">Hierro sólido que se derrite en un horno</div><div class="flip-hint">&#128070; Toca para revelar</div></div>
+        <div class="flip-back fisico"><div class="flip-verdict fisico">&#9989; Cambio Físico</div><div class="flip-explain">Solo cambia el estado (sólido &rarr; líquido). El hierro sigue siendo hierro. Al enfriarse vuelve a solidificarse.</div></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="flip-icon">&#127819;</div><div class="flip-name">Limón + Bicarbonato</div><div class="flip-desc">Burbujeo intenso al mezclarlos</div><div class="flip-hint">&#128070; Toca para revelar</div></div>
+        <div class="flip-back quimico"><div class="flip-verdict quimico">&#128293; Cambio Químico</div><div class="flip-explain">El ácido reacciona con NaHCO₃ produciendo CO₂ (burbujas), agua y sal. Se forman sustancias completamente nuevas.</div></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="flip-icon">&#128165;</div><div class="flip-name">Romper un vaso</div><div class="flip-desc">Vidrio que se hace pedazos</div><div class="flip-hint">&#128070; Toca para revelar</div></div>
+        <div class="flip-back fisico"><div class="flip-verdict fisico">&#9989; Cambio Físico</div><div class="flip-explain">Solo cambia la forma. La composición del vidrio (SiO₂) es exactamente la misma antes y después.</div></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="flip-inner">
+        <div class="flip-front"><div class="flip-icon">&#127795;</div><div class="flip-name">Quemar madera</div><div class="flip-desc">Madera que se convierte en ceniza y humo</div><div class="flip-hint">&#128070; Toca para revelar</div></div>
+        <div class="flip-back quimico"><div class="flip-verdict quimico">&#128293; Cambio Químico</div><div class="flip-explain">La celulosa reacciona con O₂ produciendo CO₂, vapor de agua y ceniza. Los productos son completamente diferentes a la madera.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="kws"><span class="kw">cambio físico</span><span class="kw">cambio químico</span><span class="kw">nueva sustancia</span><span class="kw">cambio de estado</span><span class="kw">reacción</span><span class="kw">burbujeo</span><span class="kw">precipitado</span></div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#dc2626">&#128196; Pregunta real &bull; PAES Invierno 2026 &bull; Módulo Común &bull; P37</div>
+  <div class="pctx">Se analizan cuatro situaciones cotidianas para identificar si son cambios físicos o químicos.</div>
+  <p class="pq">¿Cuál de las siguientes situaciones se fundamenta en un <strong>cambio físico</strong>?</p>
+  <div class="pos" id="qcam">
+    <div class="po" onclick="ans('qcam','A')"><div class="ol">A</div><div class="ot">Cuando una señal metálica en la carretera se torna rojiza en el tiempo.</div></div>
+    <div class="po" onclick="ans('qcam','B')"><div class="ol">B</div><div class="ot">Cuando se exhala sobre un espejo empañándolo y se forman minúsculas gotas de agua.</div></div>
+    <div class="po" onclick="ans('qcam','C')"><div class="ol">C</div><div class="ot">Cuando se retira la cáscara de una manzana y esta se torna de color marrón.</div></div>
+    <div class="po" onclick="ans('qcam','D')"><div class="ol">D</div><div class="ot">Cuando se agrega unas gotas de limón a bicarbonato de sodio y se produce un burbujeo intenso.</div></div>
+  </div>
+  <div class="pfb" id="qcam-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">&#129302; Práctica elaborada &bull; Habilidad H1</div>
+  <p class="pq">¿Cuál de las siguientes situaciones produce un <strong>cambio químico</strong>?</p>
+  <div class="pos" id="qcam2">
+    <div class="po" onclick="ans('qcam2','A')"><div class="ol">A</div><div class="ot">Romper un trozo de azúcar en pedazos más pequeños.</div></div>
+    <div class="po" onclick="ans('qcam2','B')"><div class="ol">B</div><div class="ot">Disolver azúcar en agua caliente.</div></div>
+    <div class="po" onclick="ans('qcam2','C')"><div class="ol">C</div><div class="ot">Caramelizar azúcar en una sartén hasta que se torna marrón.</div></div>
+    <div class="po" onclick="ans('qcam2','D')"><div class="ol">D</div><div class="ot">Moler azúcar hasta convertirla en polvo fino.</div></div>
+  </div>
+  <div class="pfb" id="qcam2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">&#129302; Práctica elaborada &bull; Habilidad H1</div>
+  <p class="pq">¿Cuál de los siguientes es un <strong>indicio</strong> de que ocurrió un cambio químico?</p>
+  <div class="pos" id="qcam3">
+    <div class="po" onclick="ans('qcam3','A')"><div class="ol">A</div><div class="ot">El agua se congela a 0°C al bajar la temperatura.</div></div>
+    <div class="po" onclick="ans('qcam3','B')"><div class="ol">B</div><div class="ot">Un clavo de hierro se torna naranja y escamoso al estar en contacto con agua.</div></div>
+    <div class="po" onclick="ans('qcam3','C')"><div class="ol">C</div><div class="ot">El azúcar se disuelve al agregar agua caliente.</div></div>
+    <div class="po" onclick="ans('qcam3','D')"><div class="ol">D</div><div class="ot">El vidrio se rompe en pedazos al caer al suelo.</div></div>
+  </div>
+  <div class="pfb" id="qcam3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">&#129302; Práctica elaborada &bull; Habilidad H3</div>
+  <div class="pctx">Se realiza un experimento mezclando vinagre (CH₃COOH) con bicarbonato de sodio (NaHCO₃). Se observa burbujeo intenso y enfriamiento de la mezcla.</div>
+  <p class="pq">¿Cuál de las siguientes conclusiones es correcta respecto al tipo de cambio observado?</p>
+  <div class="pos" id="qcam4">
+    <div class="po" onclick="ans('qcam4','A')"><div class="ol">A</div><div class="ot">Es un cambio físico porque el burbujeo es causado por el cambio de temperatura.</div></div>
+    <div class="po" onclick="ans('qcam4','B')"><div class="ol">B</div><div class="ot">Es un cambio físico porque las sustancias pueden recuperarse por evaporación.</div></div>
+    <div class="po" onclick="ans('qcam4','C')"><div class="ol">C</div><div class="ot">Es un cambio químico porque se forman nuevas sustancias (CO₂, agua y acetato de sodio).</div></div>
+    <div class="po" onclick="ans('qcam4','D')"><div class="ol">D</div><div class="ot">Es un cambio físico porque no hubo cambio de color permanente.</div></div>
+  </div>
+  <div class="pfb" id="qcam4-fb"></div>
+</div>
+</div>
+
+<!-- ======= ÁTOMO ======= -->
+<div class="sec" id="p2">
+<div class="hsec" style="border-color:rgba(124,58,237,.3)">
+  <span class="hi2">⚗️</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#7c3aed;margin-bottom:3px">Tema 2 de 6</div>
+  <h2 style="color:#7c3aed">Estructura Atómica y Tabla Periódica</h2>
+  <p>El átomo, sus partículas, modelos históricos, isótopos y enlace químico.</p>
+</div>
+
+<div class="card" style="border-left:4px solid #7c3aed">
+  <p class="ct" style="color:#7c3aed">📘 Partes del átomo y notación</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;font-size:.85rem">
+    <div style="background:rgba(220,38,38,.07);border:1.5px solid rgba(220,38,38,.25);border-radius:12px;padding:13px;text-align:center">
+      <div style="font-family:Fredoka One,cursive;font-size:1.4rem;color:#dc2626;margin-bottom:4px">p⁺</div>
+      <div style="font-weight:900;color:var(--text);margin-bottom:4px">Protón</div>
+      <div style="color:var(--dim);font-size:.8rem">Carga +1. En el núcleo. <strong>Número atómico Z</strong> = cantidad de protones. Define el elemento.</div>
+    </div>
+    <div style="background:rgba(107,114,128,.08);border:1.5px solid rgba(107,114,128,.25);border-radius:12px;padding:13px;text-align:center">
+      <div style="font-family:Fredoka One,cursive;font-size:1.4rem;color:#6b7280;margin-bottom:4px">n⁰</div>
+      <div style="font-weight:900;color:var(--text);margin-bottom:4px">Neutrón</div>
+      <div style="color:var(--dim);font-size:.8rem">Sin carga. En el núcleo. Neutrones = <strong>A − Z</strong> (masa menos atómico).</div>
+    </div>
+    <div style="background:rgba(37,99,235,.07);border:1.5px solid rgba(37,99,235,.25);border-radius:12px;padding:13px;text-align:center">
+      <div style="font-family:Fredoka One,cursive;font-size:1.4rem;color:#2563eb;margin-bottom:4px">e⁻</div>
+      <div style="font-weight:900;color:var(--text);margin-bottom:4px">Electrón</div>
+      <div style="color:var(--dim);font-size:.8rem">Carga −1. Orbitan el núcleo. En átomo <strong>neutro</strong>: e⁻ = Z.</div>
+    </div>
+  </div>
+  <div style="background:rgba(234,88,12,.07);border-radius:12px;padding:13px;text-align:center">
+    <div style="font-weight:900;color:var(--org);margin-bottom:6px">📌 Notación atómica</div>
+    <div style="font-family:Fredoka One,cursive;font-size:2rem;color:var(--text);margin:8px 0"><sup style="font-size:1.1rem">A</sup>X<sub style="font-size:.9rem">Z</sub></div>
+    <p style="font-size:.86rem;color:var(--dim);line-height:1.65">A = número de masa (protones + neutrones) &nbsp;·&nbsp; Z = número atómico (protones)<br>Neutrones = A − Z &nbsp;&nbsp; Electrones (si neutro) = Z</p>
+  </div>
+</div>
+
+<!-- SVG Experimento Rutherford -->
+<div class="card">
+  <p class="ct" style="color:#7c3aed">🔬 Experimento de Rutherford — por qué cambió todo</p>
+  <div class="svg-wrap"><svg width="100%" viewBox="0 0 580 260" role="img">
+  <title>Experimento de Rutherford con lámina de oro</title>
+  <rect width="580" height="260" fill="#fff4ec" rx="10"/>
+  <!-- Fuente alfa -->
+  <rect x="14" y="95" width="56" height="50" rx="6" fill="rgba(5,150,105,.12)" stroke="#059669" stroke-width="1.5"/>
+  <text x="42" y="115" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#059669">Fuente</text>
+  <text x="42" y="133" text-anchor="middle" style="font-size:12px;fill:#059669;font-weight:700">α</text>
+  <!-- Lámina de oro -->
+  <rect x="225" y="30" width="16" height="170" rx="3" fill="rgba(202,138,4,.25)" stroke="#d97706" stroke-width="2"/>
+  <text x="233" y="22" text-anchor="middle" style="font-size:11px;fill:#92400e;font-weight:700">Lámina Au</text>
+  <!-- Partículas que PASAN sin desviarse (mayoría) -->
+  <line x1="70" y1="95" x2="555" y2="95" stroke="#059669" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr_r)"/>
+  <line x1="70" y1="108" x2="555" y2="108" stroke="#059669" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr_r)"/>
+  <line x1="70" y1="121" x2="555" y2="121" stroke="#059669" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr_r)"/>
+  <line x1="70" y1="134" x2="555" y2="134" stroke="#059669" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr_r)"/>
+  <defs><marker id="arr_r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#059669" stroke-width="1.5"/></marker>
+  <marker id="arr_r2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#dc2626" stroke-width="1.5"/></marker>
+  <marker id="arr_r3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#7c3aed" stroke-width="1.5"/></marker></defs>
+  <!-- Partícula que REBOTA (pocas) -->
+  <path d="M70 114 L235 114 L100 60" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arr_r2)"/>
+  <!-- Partícula que se DESVÍA (algunas) -->
+  <path d="M70 114 L235 114 L340 190" fill="none" stroke="#7c3aed" stroke-width="2" marker-end="url(#arr_r3)"/>
+  <!-- Pantalla de detección -->
+  <path d="M420 15 Q575 130 420 245" fill="none" stroke="rgba(0,0,0,.2)" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="530" y="130" text-anchor="middle" style="font-size:11px;fill:#7c4f2a;font-weight:700">Pantalla</text>
+  <!-- Leyenda -->
+  <line x1="14" y1="220" x2="56" y2="220" stroke="#059669" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="64" y="224" style="font-size:11px;fill:#059669;font-weight:600">Pasan sin desviarse (mayoría → espacio vacío)</text>
+  <line x1="14" y1="240" x2="56" y2="240" stroke="#dc2626" stroke-width="2"/>
+  <text x="64" y="244" style="font-size:11px;fill:#dc2626;font-weight:600">Rebotan (poquísimas → núcleo positivo y denso)</text>
+  </svg></div>
+  <div class="g2" style="margin-top:10px">
+    <div style="background:rgba(5,150,105,.07);border-radius:10px;padding:11px;border-left:3px solid #059669;font-size:.83rem">
+      <div style="font-weight:900;color:#059669;margin-bottom:4px">✅ Conclusión principal</div>
+      <div style="color:var(--dim)">El átomo es <strong>principalmente espacio vacío</strong>. La masa positiva está concentrada en un <strong>núcleo pequeño y denso</strong>.</div>
+    </div>
+    <div style="background:rgba(220,38,38,.05);border-radius:10px;padding:11px;border-left:3px solid #dc2626;font-size:.83rem">
+      <div style="font-weight:900;color:#dc2626;margin-bottom:4px">⚠️ Limitación de Rutherford</div>
+      <div style="color:var(--dim)">No explicaba por qué los electrones no caen al núcleo (la física clásica decía que deberían). Bohr lo resolvió.</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#7c3aed">🕐 Modelos atómicos históricos — explora cada uno</p>
+  <div class="atom-tabs">
+    <button class="atbtn act" onclick="atab('dalton',this)">Dalton</button>
+    <button class="atbtn" onclick="atab('thomson',this)">Thomson</button>
+    <button class="atbtn" onclick="atab('rutherford',this)">Rutherford</button>
+    <button class="atbtn" onclick="atab('bohr',this)">Bohr</button>
+  </div>
+  <div id="at-dalton" class="atp act">
+    <div style="text-align:center;margin:12px 0">
+<svg width="200" height="170" viewBox="0 0 200 170" style="display:inline-block" role="img"><title>Modelo de Dalton: esfera maciza</title>
+<defs><radialGradient id="gd" cx="38%" cy="35%"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#7c2d12"/></radialGradient></defs>
+<circle cx="100" cy="65" r="52" fill="url(#gd)" stroke="#9a3412" stroke-width="2"/>
+<text x="100" y="58" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:14px;fill:#fff">Átomo</text>
+<text x="100" y="76" text-anchor="middle" style="font-size:11px;fill:rgba(255,255,255,.9)">esfera maciza</text>
+<text x="100" y="92" text-anchor="middle" style="font-size:10px;fill:rgba(255,255,255,.75)">indivisible</text>
+<text x="100" y="142" text-anchor="middle" style="font-size:11px;fill:#7c4f2a;font-weight:700">Sin subpartículas</text>
+<text x="100" y="158" text-anchor="middle" style="font-size:11px;fill:#7c4f2a;font-weight:700">Modelo "bola de billar"</text>
+</svg></div>
+    <div class="citem" style="border-color:#7c3aed">
+      <h4>Dalton (1803) — El átomo como esfera maciza</h4>
+      <p>Átomos: pequeñas esferas indivisibles e indestructibles. Todos los átomos del mismo elemento son idénticos.<br><br>
+      <strong>Limitación:</strong> No explica propiedades eléctricas ni isótopos.</p>
+    </div>
+  </div>
+  <div id="at-thomson" class="atp">
+    <div style="text-align:center;margin:12px 0">
+<svg width="200" height="150" viewBox="0 0 200 150" style="display:inline-block" role="img"><title>Modelo de Thomson: budín de pasas</title>
+<defs><radialGradient id="gt" cx="38%" cy="35%"><stop offset="0%" stop-color="#f59e0b" stop-opacity=".6"/><stop offset="100%" stop-color="#b45309" stop-opacity=".8"/></radialGradient></defs>
+<circle cx="100" cy="72" r="58" fill="url(#gt)" stroke="#d97706" stroke-width="2"/>
+<circle cx="78" cy="50" r="7" fill="#1d4ed8" stroke="#1e40af" stroke-width="1"/>
+<text x="78" y="54" text-anchor="middle" style="font-size:8px;fill:#fff;font-weight:900">e⁻</text>
+<circle cx="118" cy="55" r="7" fill="#1d4ed8" stroke="#1e40af" stroke-width="1"/>
+<text x="118" y="59" text-anchor="middle" style="font-size:8px;fill:#fff;font-weight:900">e⁻</text>
+<circle cx="85" cy="88" r="7" fill="#1d4ed8" stroke="#1e40af" stroke-width="1"/>
+<text x="85" y="92" text-anchor="middle" style="font-size:8px;fill:#fff;font-weight:900">e⁻</text>
+<circle cx="122" cy="84" r="7" fill="#1d4ed8" stroke="#1e40af" stroke-width="1"/>
+<text x="122" y="88" text-anchor="middle" style="font-size:8px;fill:#fff;font-weight:900">e⁻</text>
+<circle cx="100" cy="70" r="7" fill="#1d4ed8" stroke="#1e40af" stroke-width="1"/>
+<text x="100" y="74" text-anchor="middle" style="font-size:8px;fill:#fff;font-weight:900">e⁻</text>
+<text x="100" y="140" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">e⁻ incrustados en esfera positiva · "Budín de pasas"</text>
+</svg></div>
+    <div class="citem" style="border-color:#7c3aed">
+      <h4>Thomson (1897) — El "budín de pasas"</h4>
+      <p>Descubrió el electrón. Propuso esfera de carga positiva con electrones incrustados.<br><br>
+      <strong>Limitación:</strong> No podía explicar el experimento de Rutherford.</p>
+    </div>
+  </div>
+  <div id="at-rutherford" class="atp">
+    <div style="text-align:center;margin:12px 0">
+<svg width="220" height="160" viewBox="0 0 220 160" style="display:inline-block" role="img"><title>Modelo de Rutherford: núcleo central</title>
+<circle cx="110" cy="75" r="70" fill="rgba(234,88,12,.04)" stroke="rgba(234,88,12,.15)" stroke-width="1.5" stroke-dasharray="5,3"/>
+<circle cx="110" cy="75" r="10" fill="#dc2626" stroke="#991b1b" stroke-width="1.5"/>
+<text x="110" y="79" text-anchor="middle" style="font-size:7px;fill:#fff;font-weight:900">p⁺,n⁰</text>
+<circle cx="175" cy="50" r="7" fill="#1d4ed8" stroke="#1e40af" stroke-width="1"/>
+<text x="175" y="54" text-anchor="middle" style="font-size:8px;fill:#fff">e⁻</text>
+<circle cx="52" cy="90" r="7" fill="#1d4ed8" stroke="#1e40af" stroke-width="1"/>
+<text x="52" y="94" text-anchor="middle" style="font-size:8px;fill:#fff">e⁻</text>
+<circle cx="140" cy="132" r="7" fill="#1d4ed8" stroke="#1e40af" stroke-width="1"/>
+<text x="140" y="136" text-anchor="middle" style="font-size:8px;fill:#fff">e⁻</text>
+<text x="110" y="155" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">Núcleo denso central · 99,99% espacio vacío</text>
+</svg></div>
+    <div class="citem" style="border-color:#7c3aed">
+      <h4>Rutherford (1911) — El núcleo</h4>
+      <p>Átomo es principalmente espacio vacío. Toda la masa positiva concentrada en un núcleo pequeño y denso. Electrones orbitan a distancia.<br><br>
+      <strong>Limitación:</strong> No explica la estabilidad del átomo.</p>
+    </div>
+  </div>
+  <div id="at-bohr" class="atp">
+    <div style="text-align:center;margin:12px 0">
+<svg width="220" height="170" viewBox="0 0 220 170" style="display:inline-block" role="img"><title>Modelo de Bohr: órbitas cuantizadas</title>
+<circle cx="110" cy="80" r="14" fill="#dc2626" stroke="#991b1b" stroke-width="1.5"/>
+<text x="110" y="78" text-anchor="middle" style="font-size:7.5px;fill:#fff;font-weight:900">p⁺</text>
+<text x="110" y="88" text-anchor="middle" style="font-size:6.5px;fill:rgba(255,255,255,.85)">n⁰</text>
+<circle cx="110" cy="80" r="36" fill="none" stroke="rgba(234,88,12,.4)" stroke-width="1.5"/>
+<text x="146" y="77" style="font-size:7.5px;fill:#b45309">K</text>
+<circle cx="146" cy="80" r="6" fill="#1d4ed8" stroke="#1e40af" stroke-width="1"/>
+<text x="146" y="84" text-anchor="middle" style="font-size:7px;fill:#fff">e⁻</text>
+<circle cx="74" cy="80" r="6" fill="#1d4ed8" stroke="#1e40af" stroke-width="1"/>
+<text x="74" y="84" text-anchor="middle" style="font-size:7px;fill:#fff">e⁻</text>
+<circle cx="110" cy="80" r="64" fill="none" stroke="rgba(234,88,12,.25)" stroke-width="1.5"/>
+<text x="174" y="77" style="font-size:7.5px;fill:#b45309">L</text>
+<circle cx="174" cy="80" r="6" fill="#059669" stroke="#047857" stroke-width="1"/>
+<text x="174" y="84" text-anchor="middle" style="font-size:7px;fill:#fff">e⁻</text>
+<circle cx="110" cy="16" r="6" fill="#059669" stroke="#047857" stroke-width="1"/>
+<text x="110" y="20" text-anchor="middle" style="font-size:7px;fill:#fff">e⁻</text>
+<circle cx="46" cy="80" r="6" fill="#059669" stroke="#047857" stroke-width="1"/>
+<text x="46" y="84" text-anchor="middle" style="font-size:7px;fill:#fff">e⁻</text>
+<path d="M146 80 Q160 40 174 80" fill="none" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arr_b)"/>
+<defs><marker id="arr_b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#7c3aed" stroke-width="1.5"/></marker></defs>
+<text x="168" y="42" style="font-size:7px;fill:#7c3aed">hv (fotón)</text>
+<text x="110" y="160" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">Órbitas definidas · salto = absorbe/emite luz</text>
+</svg></div>
+    <div class="citem" style="border-color:#7c3aed">
+      <h4>Bohr (1913) — Órbitas cuantizadas</h4>
+      <p>Electrones en órbitas circulares definidas. Pueden saltar entre niveles absorbiendo o emitiendo energía (fotones).<br><br>
+      <strong>Importancia:</strong> Explica el espectro atómico del hidrógeno.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="border-left:4px solid #0891b2">
+  <p class="ct" style="color:#0891b2">📊 Tabla Periódica (H → Ca) — igual a la del examen</p>
+  <div class="svg-wrap"><svg width="100%" viewBox="0 0 660 220" role="img" style="display:block;min-width:620px;width:620px!important">
+<title>Tabla periódica parcial H a Ca</title>
+<!-- Fila 1 -->
+<rect x="8" y="8" width="44" height="34" rx="5" fill="rgba(37,99,235,.1)" stroke="#3b82f6" stroke-width="1"/>
+<text x="30" y="22" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#1d4ed8">H</text>
+<text x="30" y="36" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">1 · 1,0</text>
+<rect x="608" y="8" width="44" height="34" rx="5" fill="rgba(124,58,237,.1)" stroke="#7c3aed" stroke-width="1"/>
+<text x="630" y="22" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#5b21b6">He</text>
+<text x="630" y="36" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">2 · 4,0</text>
+<!-- Fila 2 -->
+<rect x="8" y="50" width="44" height="34" rx="5" fill="rgba(234,88,12,.14)" stroke="#ea580c" stroke-width="1.5"/>
+<text x="30" y="64" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#c2410c">Li</text>
+<text x="30" y="78" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">3 · 6,9</text>
+<rect x="60" y="50" width="44" height="34" rx="5" fill="rgba(202,138,4,.1)" stroke="#d97706" stroke-width="1"/>
+<text x="82" y="64" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#92400e">Be</text>
+<text x="82" y="78" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">4 · 9,0</text>
+<rect x="360" y="50" width="44" height="34" rx="5" fill="rgba(5,150,105,.1)" stroke="#059669" stroke-width="1"/>
+<text x="382" y="64" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#065f46">B</text>
+<text x="382" y="78" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">5 · 10,8</text>
+<rect x="412" y="50" width="44" height="34" rx="5" fill="rgba(37,99,235,.1)" stroke="#3b82f6" stroke-width="1"/>
+<text x="434" y="64" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#1d4ed8">C</text>
+<text x="434" y="78" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">6 · 12,0</text>
+<rect x="464" y="50" width="44" height="34" rx="5" fill="rgba(37,99,235,.1)" stroke="#3b82f6" stroke-width="1"/>
+<text x="486" y="64" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#1d4ed8">N</text>
+<text x="486" y="78" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">7 · 14,0</text>
+<rect x="516" y="50" width="44" height="34" rx="5" fill="rgba(37,99,235,.1)" stroke="#3b82f6" stroke-width="1"/>
+<text x="538" y="64" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#1d4ed8">O</text>
+<text x="538" y="78" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">8 · 16,0</text>
+<rect x="560" y="50" width="44" height="34" rx="5" fill="rgba(37,99,235,.1)" stroke="#3b82f6" stroke-width="1"/>
+<text x="582" y="64" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#1d4ed8">F</text>
+<text x="582" y="78" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">9 · 19,0</text>
+<rect x="608" y="50" width="44" height="34" rx="5" fill="rgba(124,58,237,.1)" stroke="#7c3aed" stroke-width="1"/>
+<text x="630" y="64" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#5b21b6">Ne</text>
+<text x="630" y="78" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">10·20,2</text>
+<!-- Fila 3 -->
+<rect x="8" y="92" width="44" height="34" rx="5" fill="rgba(234,88,12,.14)" stroke="#ea580c" stroke-width="1.5"/>
+<text x="30" y="106" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#c2410c">Na</text>
+<text x="30" y="120" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">11·23,0</text>
+<rect x="60" y="92" width="44" height="34" rx="5" fill="rgba(202,138,4,.1)" stroke="#d97706" stroke-width="1"/>
+<text x="82" y="106" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#92400e">Mg</text>
+<text x="82" y="120" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">12·24,3</text>
+<rect x="360" y="92" width="44" height="34" rx="5" fill="rgba(100,116,139,.1)" stroke="#64748b" stroke-width="1"/>
+<text x="382" y="106" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#475569">Al</text>
+<text x="382" y="120" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">13·27,0</text>
+<rect x="412" y="92" width="44" height="34" rx="5" fill="rgba(37,99,235,.1)" stroke="#3b82f6" stroke-width="1"/>
+<text x="434" y="106" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#1d4ed8">Si</text>
+<text x="434" y="120" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">14·28,1</text>
+<rect x="464" y="92" width="44" height="34" rx="5" fill="rgba(37,99,235,.1)" stroke="#3b82f6" stroke-width="1"/>
+<text x="486" y="106" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#1d4ed8">P</text>
+<text x="486" y="120" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">15·31,0</text>
+<rect x="516" y="92" width="44" height="34" rx="5" fill="rgba(37,99,235,.1)" stroke="#3b82f6" stroke-width="1"/>
+<text x="538" y="106" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#1d4ed8">S</text>
+<text x="538" y="120" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">16·32,0</text>
+<rect x="560" y="92" width="44" height="34" rx="5" fill="rgba(37,99,235,.1)" stroke="#3b82f6" stroke-width="1"/>
+<text x="582" y="106" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#1d4ed8">Cl</text>
+<text x="582" y="120" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">17·35,5</text>
+<rect x="608" y="92" width="44" height="34" rx="5" fill="rgba(124,58,237,.1)" stroke="#7c3aed" stroke-width="1"/>
+<text x="630" y="106" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#5b21b6">Ar</text>
+<text x="630" y="120" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">18·39,9</text>
+<!-- Fila 4: K y Ca -->
+<rect x="8" y="134" width="44" height="34" rx="5" fill="rgba(234,88,12,.14)" stroke="#ea580c" stroke-width="1.5"/>
+<text x="30" y="148" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#c2410c">K</text>
+<text x="30" y="162" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">19·39,1</text>
+<rect x="60" y="134" width="44" height="34" rx="5" fill="rgba(202,138,4,.1)" stroke="#d97706" stroke-width="1"/>
+<text x="82" y="148" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13.5px;fill:#92400e">Ca</text>
+<text x="82" y="162" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">20·40,0</text>
+<rect x="112" y="134" width="240" height="34" rx="5" fill="rgba(0,0,0,.03)" stroke="#e8d5c4" stroke-width="1"/>
+<text x="232" y="155" text-anchor="middle" style="font-size:10.5px;fill:#b09060">Metales de transición (no en PAES)</text>
+<!-- Leyenda -->
+<rect x="8" y="182" width="12" height="10" rx="2" fill="rgba(234,88,12,.18)" stroke="#ea580c" stroke-width="1"/>
+<text x="24" y="191" style="font-size:9.5px;fill:#7c4f2a">Met. alcalinos (IA)</text>
+<rect x="130" y="182" width="12" height="10" rx="2" fill="rgba(202,138,4,.12)" stroke="#d97706" stroke-width="1"/>
+<text x="146" y="191" style="font-size:9.5px;fill:#7c4f2a">Met. alcalino-térr. (IIA)</text>
+<rect x="285" y="182" width="12" height="10" rx="2" fill="rgba(37,99,235,.1)" stroke="#3b82f6" stroke-width="1"/>
+<text x="301" y="191" style="font-size:9.5px;fill:#7c4f2a">No metales</text>
+<rect x="380" y="182" width="12" height="10" rx="2" fill="rgba(124,58,237,.1)" stroke="#7c3aed" stroke-width="1"/>
+<text x="396" y="191" style="font-size:9.5px;fill:#7c4f2a">Gas noble (VIIIA)</text>
+<text x="330" y="213" text-anchor="middle" style="font-size:10px;fill:#b09060;font-style:italic">★ PAES adjunta esta tabla H→Ca. Número atómico y masa atómica incluidos.</text>
+  </svg></div>
+  <div class="g2" style="margin-top:10px">
+    <div style="background:rgba(220,38,38,.05);border-radius:9px;padding:10px;border-top:3px solid #dc2626;font-size:.81rem">
+      <div style="font-weight:900;color:#dc2626;margin-bottom:3px">Radio atómico ↑</div>
+      <div style="color:var(--dim)">↓ en el grupo (baja hacia abajo) · ← en el período (izquierda)</div>
+    </div>
+    <div style="background:rgba(234,88,12,.05);border-radius:9px;padding:10px;border-top:3px solid var(--org);font-size:.81rem">
+      <div style="font-weight:900;color:var(--org);margin-bottom:3px">Electroneg. y E. ionización ↑</div>
+      <div style="color:var(--dim)">↑ en el grupo (sube hacia arriba) · → en el período (derecha)</div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="border-left:4px solid #0891b2">
+  <p class="ct" style="color:#0891b2">⚡ Enlace Iónico vs Covalente e Hibridación</p>
+  <div class="g2" style="margin-bottom:11px">
+    <div style="background:rgba(234,88,12,.06);border:1.5px solid rgba(234,88,12,.3);border-radius:11px;padding:13px">
+      <div style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--org);margin-bottom:6px">⚡ Iónico</div>
+      <ul style="font-size:.83rem;color:var(--dim);line-height:1.8;padding-left:15px">
+        <li><strong>Metal + No metal</strong></li>
+        <li>Transferencia de e⁻ → catión(+) y anión(−)</li>
+        <li>Red cristalina · alto punto de fusión</li>
+        <li><em>Ej: NaCl, MgO, KF, CaCl₂</em></li>
+      </ul>
+    </div>
+    <div style="background:rgba(37,99,235,.05);border:1.5px solid rgba(37,99,235,.25);border-radius:11px;padding:13px">
+      <div style="font-family:Fredoka One,cursive;font-size:1rem;color:#1d4ed8;margin-bottom:6px">🔗 Covalente</div>
+      <ul style="font-size:.83rem;color:var(--dim);line-height:1.8;padding-left:15px">
+        <li><strong>No metal + No metal</strong></li>
+        <li>Comparte e⁻ · moléculas</li>
+        <li><em>Ej: H₂O, CO₂, HCl, N₂, CH₄</em></li>
+      </ul>
+    </div>
+  </div>
+  <div style="background:rgba(37,99,235,.04);border-radius:10px;padding:12px">
+    <div style="font-weight:900;color:#1d4ed8;margin-bottom:8px">🔮 Hibridación del carbono</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:.82rem">
+      <div style="background:#fff;border-radius:8px;padding:9px;text-align:center;border:1px solid rgba(37,99,235,.18)">
+        <div style="font-family:Fredoka One,cursive;color:#1d4ed8;font-size:1rem">sp</div>
+        <div style="color:var(--dim)">2 grupos · lineal 180°<br><em>CO₂, acetileno</em></div>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:9px;text-align:center;border:1px solid rgba(37,99,235,.18)">
+        <div style="font-family:Fredoka One,cursive;color:#1d4ed8;font-size:1rem">sp²</div>
+        <div style="color:var(--dim)">3 grupos · trigonal 120°<br><em>etileno, benceno</em></div>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:9px;text-align:center;border:1px solid rgba(37,99,235,.18)">
+        <div style="font-family:Fredoka One,cursive;color:#1d4ed8;font-size:1rem">sp³</div>
+        <div style="color:var(--dim)">4 grupos · tetraédrico 109,5°<br><em>metano, etano</em></div>
+      </div>
+    </div>
+    <div class="tip" style="margin-top:10px">
+      <div class="tip-l">🎯 Regla rápida</div>
+      <p><strong>Enlace:</strong> Metal + No metal = iónico · Solo no metales = covalente.<br>
+      <strong>Hibridación:</strong> Cuenta grupos directamente unidos al C → 2=sp · 3=sp² · 4=sp³</p>
+    </div>
+  </div>
+</div>
+
+<div class="kws"><span class="kw">protón (Z)</span><span class="kw">neutrón (A-Z)</span><span class="kw">electrón</span><span class="kw">isótopo</span><span class="kw">Rutherford</span><span class="kw">Bohr</span><span class="kw">iónico</span><span class="kw">covalente</span><span class="kw">hibridación</span></div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H1 · Modelo atómico de Bohr</div>
+  <div class="pctx">En el modelo atómico de Bohr, los electrones giran en órbitas circulares de energía definida alrededor del núcleo, sin emitir energía mientras permanecen en ellas.</div>
+  <p class="pq">Según este modelo, ¿qué le ocurre a un electrón cuando absorbe una cantidad de energía suficiente?</p>
+  <div class="pos" id="qruth">
+    <div class="po" onclick="ans('qruth','A')"><div class="ol">A</div><div class="ot">Salta a una órbita de mayor energía, más alejada del núcleo.</div></div>
+    <div class="po" onclick="ans('qruth','B')"><div class="ol">B</div><div class="ot">Se transforma en un protón dentro del núcleo.</div></div>
+    <div class="po" onclick="ans('qruth','C')"><div class="ol">C</div><div class="ot">El núcleo se desintegra liberando neutrones.</div></div>
+    <div class="po" onclick="ans('qruth','D')"><div class="ol">D</div><div class="ot">Permanece en la misma órbita, pero gira más lento.</div></div>
+  </div>
+  <div class="pfb" id="qruth-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H1 · Isótopos</div>
+  <div class="pctx">Se presentan tres átomos: X (Z=17, A=35), Y (Z=17, A=37), Z (Z=18, A=36). Recordar: neutrones = A − Z.</div>
+  <p class="pq">¿Cuál de las siguientes opciones es <strong>correcta</strong>?</p>
+  <div class="pos" id="qiso">
+    <div class="po" onclick="ans('qiso','A')"><div class="ol">A</div><div class="ot">X e Y tienen igual número de protones pero distinto número de neutrones.</div></div>
+    <div class="po" onclick="ans('qiso','B')"><div class="ol">B</div><div class="ot">X y Z son isótopos del mismo elemento.</div></div>
+    <div class="po" onclick="ans('qiso','C')"><div class="ol">C</div><div class="ot">Y y Z tienen igual número de neutrones.</div></div>
+    <div class="po" onclick="ans('qiso','D')"><div class="ol">D</div><div class="ot">X e Y son elementos diferentes.</div></div>
+  </div>
+  <div class="pfb" id="qiso-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H1 · Tipo de enlace</div>
+  <p class="pq">¿Cuál de los siguientes pares de elementos forma un compuesto <strong>covalente</strong>?</p>
+  <div class="pos" id="qcov">
+    <div class="po" onclick="ans('qcov','A')"><div class="ol">A</div><div class="ot">K y Cl</div></div>
+    <div class="po" onclick="ans('qcov','B')"><div class="ol">B</div><div class="ot">Ca y O</div></div>
+    <div class="po" onclick="ans('qcov','C')"><div class="ol">C</div><div class="ot">N y Cl</div></div>
+    <div class="po" onclick="ans('qcov','D')"><div class="ol">D</div><div class="ot">Mg y F</div></div>
+  </div>
+  <div class="pfb" id="qcov-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H1 · Isótopos y notación</div>
+  <div class="pctx">Número atómico Z=38 y número de masa A=89.</div>
+  <p class="pq">¿De qué está constituido el isótopo ⁸⁹₃₈Sr?</p>
+  <div class="pos" id="qsr89">
+    <div class="po" onclick="ans('qsr89','A')"><div class="ol">A</div><div class="ot">89 protones, 89 electrones y 38 neutrones</div></div>
+    <div class="po" onclick="ans('qsr89','B')"><div class="ol">B</div><div class="ot">38 protones, 38 electrones y 51 neutrones</div></div>
+    <div class="po" onclick="ans('qsr89','C')"><div class="ol">C</div><div class="ot">51 protones, 51 electrones y 38 neutrones</div></div>
+    <div class="po" onclick="ans('qsr89','D')"><div class="ol">D</div><div class="ot">38 protones, 38 electrones y 89 neutrones</div></div>
+  </div>
+  <div class="pfb" id="qsr89-fb"></div>
+</div>
+</div>
+
+<!-- ======= ORGÁNICA ======= -->
+<div class="sec" id="p3">
+<div class="hsec" style="border-color:rgba(5,150,105,.3)">
+  <span class="hi2">🌿</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#059669;margin-bottom:3px">Tema 3 de 6</div>
+  <h2 style="color:#059669">Química Orgánica</h2>
+  <p>Hidrocarburos, tipos de carbono 1°–4° y grupos funcionales.</p>
+</div>
+
+<div class="card" style="border-left:4px solid #059669">
+  <p class="ct" style="color:#059669">🔬 El carbono: versátil y único</p>
+  <div class="g2">
+    <div class="citem" style="border-color:#059669">
+      <h4>🌿 ¿Por qué el carbono?</h4>
+      <p>La química orgánica estudia compuestos con <strong>carbono (C)</strong>. El C puede formar 4 enlaces y encadenarse consigo mismo indefinidamente, formando cadenas largas, ramas y anillos. Esta versatilidad es la base de millones de compuestos.</p>
+    </div>
+    <div class="citem" style="border-color:#059669">
+      <h4>🔗 Tipos de enlace C–C</h4>
+      <p><strong>Simple (C–C):</strong> carbono sp³. Rotación libre (alcanos).<br>
+      <strong>Doble (C=C):</strong> carbono sp². Rígido (alquenos).<br>
+      <strong>Triple (C≡C):</strong> carbono sp. Muy rígido (alquinos).<br><br>
+      Regla PAES: para comparar, controlar otras variables (misma longitud de cadena).</p>
+    </div>
+  </div>
+</div>
+
+<!-- SVG Hidrocarburos -->
+<div class="card">
+  <p class="ct" style="color:#059669">⛽ Clasificación de Hidrocarburos</p>
+  <div class="svg-wrap"><svg width="100%" viewBox="0 0 580 220" role="img" style="display:block;min-width:560px;width:560px!important">
+  <title>Tipos de hidrocarburos con fórmulas estructurales</title>
+  <rect width="580" height="220" fill="#f0fdf4" rx="10"/>
+  <!-- Alcano -->
+  <rect x="10" y="14" width="130" height="192" rx="10" fill="rgba(5,150,105,.07)" stroke="#059669" stroke-width="1.5"/>
+  <text x="75" y="36" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:15px;fill:#059669">Alcano</text>
+  <text x="75" y="52" text-anchor="middle" style="font-size:12px;fill:#7c4f2a">CₙH₂ₙ₊₂</text>
+  <!-- Metano estructural simplificado -->
+  <text x="75" y="80" text-anchor="middle" style="font-size:13px;fill:#1a0a00;font-weight:900">CH₄</text>
+  <text x="75" y="98" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">metano</text>
+  <!-- Etano -->
+  <text x="75" y="122" text-anchor="middle" style="font-size:13px;fill:#1a0a00;font-weight:900">H₃C—CH₃</text>
+  <text x="75" y="140" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">etano</text>
+  <text x="75" y="165" text-anchor="middle" style="font-size:11.5px;fill:#059669;font-weight:800">Solo simples (sp³)</text>
+  <text x="75" y="183" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">Sin dobles</text>
+  <text x="75" y="199" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">ni triples</text>
+  <!-- Alqueno -->
+  <rect x="150" y="14" width="130" height="192" rx="10" fill="rgba(234,88,12,.07)" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="215" y="36" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:15px;fill:#ea580c">Alqueno</text>
+  <text x="215" y="52" text-anchor="middle" style="font-size:12px;fill:#7c4f2a">CₙH₂ₙ</text>
+  <text x="215" y="80" text-anchor="middle" style="font-size:13px;fill:#1a0a00;font-weight:900">H₂C═CH₂</text>
+  <text x="215" y="98" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">etileno (eteno)</text>
+  <text x="215" y="122" text-anchor="middle" style="font-size:13px;fill:#1a0a00;font-weight:900">CH₂═CH—CH₃</text>
+  <text x="215" y="140" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">propeno</text>
+  <text x="215" y="165" text-anchor="middle" style="font-size:11.5px;fill:#ea580c;font-weight:800">≥1 doble (sp²)</text>
+  <text x="215" y="183" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">Carbono</text>
+  <text x="215" y="199" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">trigonal 120°</text>
+  <!-- Alquino -->
+  <rect x="290" y="14" width="130" height="192" rx="10" fill="rgba(37,99,235,.07)" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="355" y="36" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:15px;fill:#1d4ed8">Alquino</text>
+  <text x="355" y="52" text-anchor="middle" style="font-size:12px;fill:#7c4f2a">CₙH₂ₙ₋₂</text>
+  <text x="355" y="80" text-anchor="middle" style="font-size:13px;fill:#1a0a00;font-weight:900">HC≡CH</text>
+  <text x="355" y="98" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">acetileno (etino)</text>
+  <text x="355" y="122" text-anchor="middle" style="font-size:13px;fill:#1a0a00;font-weight:900">HC≡C—CH₃</text>
+  <text x="355" y="140" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">propino</text>
+  <text x="355" y="165" text-anchor="middle" style="font-size:11.5px;fill:#1d4ed8;font-weight:800">≥1 triple (sp)</text>
+  <text x="355" y="183" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">Carbono</text>
+  <text x="355" y="199" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">lineal 180°</text>
+  <!-- Cicloalcano -->
+  <rect x="430" y="14" width="140" height="192" rx="10" fill="rgba(124,58,237,.07)" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="500" y="36" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:14px;fill:#7c3aed">Cicloalcano</text>
+  <text x="500" y="52" text-anchor="middle" style="font-size:12px;fill:#7c4f2a">CₙH₂ₙ</text>
+  <!-- Hexágono para ciclohexano -->
+  <polygon points="500,70 525,82 525,106 500,118 475,106 475,82" fill="none" stroke="#7c3aed" stroke-width="2"/>
+  <text x="500" y="140" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">ciclohexano C₆H₁₂</text>
+  <text x="500" y="165" text-anchor="middle" style="font-size:11.5px;fill:#7c3aed;font-weight:800">Simple en anillo</text>
+  <text x="500" y="183" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">Mayor Teb que</text>
+  <text x="500" y="199" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">alcano lineal</text>
+  </svg></div>
+  
+  <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px">
+    <div style="background:rgba(220,38,38,.06);border-radius:10px;padding:9px;border-left:3px solid #dc2626;font-size:.82rem">
+      <div style="font-weight:900;color:#dc2626;margin-bottom:3px">1° Primario</div>
+      <div style="color:var(--dim)">Unido a <strong>1 C vecino</strong>. En los extremos.</div>
+    </div>
+    <div style="background:rgba(234,88,12,.06);border-radius:10px;padding:9px;border-left:3px solid var(--org);font-size:.82rem">
+      <div style="font-weight:900;color:var(--org);margin-bottom:3px">2° Secundario</div>
+      <div style="color:var(--dim)">Unido a <strong>2 C vecinos</strong>.</div>
+    </div>
+    <div style="background:rgba(5,150,105,.06);border-radius:10px;padding:9px;border-left:3px solid #059669;font-size:.82rem">
+      <div style="font-weight:900;color:#059669;margin-bottom:3px">3° Terciario</div>
+      <div style="color:var(--dim)">Unido a <strong>3 C vecinos</strong>.</div>
+    </div>
+    <div style="background:rgba(124,58,237,.06);border-radius:10px;padding:9px;border-left:3px solid #7c3aed;font-size:.82rem">
+      <div style="font-weight:900;color:#7c3aed;margin-bottom:3px">4° Cuaternario</div>
+      <div style="color:var(--dim)">Unido a <strong>4 C vecinos</strong>. Sin H.</div>
+    </div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">🎯 PAES — comparar Teb</div>
+    <p>A mayor n° de C → mayor Teb. Los <strong>cicloalcanos tienen Teb MAYOR</strong> que alcanos lineales con igual n° de C.</p>
+  </div>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#059669">🔎 Grupos funcionales — haz clic para explorar</p>
+  <div class="grp-row">
+    <button class="grp-btn" onclick="showGrp('hid',this)">Hidrocarburo</button>
+    <button class="grp-btn" onclick="showGrp('alc',this)">Alcohol —OH</button>
+    <button class="grp-btn" onclick="showGrp('ald',this)">Aldehído —CHO</button>
+    <button class="grp-btn" onclick="showGrp('cet',this)">Cetona —CO</button>
+    <button class="grp-btn" onclick="showGrp('aci',this)">Ác. carboxílico</button>
+    <button class="grp-btn act" onclick="showGrp('ete',this)">Éter —O—</button>
+    <button class="grp-btn" onclick="showGrp('est',this)">Éster —COO—</button>
+  </div>
+  <div class="grp-info" id="gi">
+    <h4 id="gi-name" style="font-family:Fredoka One,cursive;font-size:1.05rem;margin-bottom:5px">Éter (R-O-R)</h4>
+    <p id="gi-desc" style="font-size:.86rem;color:var(--dim);line-height:1.65;margin-bottom:5px">Tienen un oxígeno entre dos grupos orgánicos (R-O-R) sin H unido al oxígeno. El éter etílico fue el primer anestésico quirúrgico.</p>
+    <p id="gi-ej" style="font-size:.82rem;color:var(--dim);font-weight:700"></p>
+  </div>
+</div>
+
+<div class="kws"><span class="kw">carbono (sp, sp², sp³)</span><span class="kw">hidrocarburo</span><span class="kw">grupo funcional</span><span class="kw">alcohol</span><span class="kw">éter</span><span class="kw">éster</span><span class="kw">cetona</span><span class="kw">carbono primario</span></div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H1 · Grupos funcionales</div>
+  <div class="pctx">Compuesto orgánico: <strong>CH₃ — CH₂ — CO — CH₃</strong><br>Un carbono unido por doble enlace a un oxígeno, ubicado en el interior de la cadena.</div>
+  <p class="pq">¿Qué grupo funcional presenta este compuesto?</p>
+  <div class="pos" id="qgrp">
+    <div class="po" onclick="ans('qgrp','A')"><div class="ol">A</div><div class="ot">Alcohol — grupo —OH unido a un carbono.</div></div>
+    <div class="po" onclick="ans('qgrp','B')"><div class="ol">B</div><div class="ot">Cetona — grupo C=O en el interior de la cadena.</div></div>
+    <div class="po" onclick="ans('qgrp','C')"><div class="ol">C</div><div class="ot">Éter — oxígeno entre dos grupos orgánicos (R—O—R).</div></div>
+    <div class="po" onclick="ans('qgrp','D')"><div class="ol">D</div><div class="ot">Éster — grupo —COO— (carbonilo + oxígeno).</div></div>
+  </div>
+  <div class="pfb" id="qgrp-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Punto de ebullición</div>
+  <div class="pctx">Alcanos lineales: C₄H₁₀ Teb=−1°C, C₆H₁₄ Teb=69°C. Cicloalcanos: C₄H₈ Teb=12°C, C₆H₁₂ Teb=81°C.</div>
+  <p class="pq">¿Cuál es una conclusión correcta sobre sus temperaturas de ebullición?</p>
+  <div class="pos" id="qteb">
+    <div class="po" onclick="ans('qteb','A')"><div class="ol">A</div><div class="ot">Los cicloalcanos tienen menor Teb que los alcanos lineales de igual n° de C.</div></div>
+    <div class="po" onclick="ans('qteb','B')"><div class="ol">B</div><div class="ot">A igual n° de C, las temperaturas permanecen constantes en ambos tipos.</div></div>
+    <div class="po" onclick="ans('qteb','C')"><div class="ol">C</div><div class="ot">Los cicloalcanos tienen menor Teb y similar Tf que los alcanos lineales.</div></div>
+    <div class="po" onclick="ans('qteb','D')"><div class="ol">D</div><div class="ot">A mayor número de C, aumenta la Teb en alcanos lineales Y en cicloalcanos.</div></div>
+  </div>
+  <div class="pfb" id="qteb-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H1 · Grupos funcionales</div>
+  <div class="pctx">La glicina es el aminoácido más simple: H₂N−CH₂−COOH</div>
+  <p class="pq">¿Qué funciones orgánicas se encuentran en la glicina?</p>
+  <div class="pos" id="qval">
+    <div class="po" onclick="ans('qval','A')"><div class="ol">A</div><div class="ot">Alcohol y amina</div></div>
+    <div class="po" onclick="ans('qval','B')"><div class="ol">B</div><div class="ot">Cetona y alcohol</div></div>
+    <div class="po" onclick="ans('qval','C')"><div class="ol">C</div><div class="ot">Amina y ácido carboxílico</div></div>
+    <div class="po" onclick="ans('qval','D')"><div class="ol">D</div><div class="ot">Amida y ácido carboxílico</div></div>
+  </div>
+  <div class="pfb" id="qval-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H1 · Tipos de carbono</div>
+  <div class="pctx">En la molécula CH₃ — CH(CH₃) — CH₂ — CH₃, identifica los tipos de carbono de la cadena principal.</div>
+  <p class="pq">El carbono que tiene un grupo metilo (CH₃) lateral unido a él, más dos carbonos de la cadena principal, es de tipo:</p>
+  <div class="pos" id="qcarb">
+    <div class="po" onclick="ans('qcarb','A')"><div class="ol">A</div><div class="ot">Primario, porque está unido a un solo carbono lateral.</div></div>
+    <div class="po" onclick="ans('qcarb','B')"><div class="ol">B</div><div class="ot">Secundario, porque está unido a dos carbonos vecinos de la cadena principal.</div></div>
+    <div class="po" onclick="ans('qcarb','C')"><div class="ol">C</div><div class="ot">Terciario, porque está unido a tres carbonos vecinos en total (dos de cadena + uno lateral).</div></div>
+    <div class="po" onclick="ans('qcarb','D')"><div class="ol">D</div><div class="ot">Cuaternario, porque el carbono tiene cuatro enlaces en total.</div></div>
+  </div>
+  <div class="pfb" id="qcarb-fb"></div>
+</div>
+</div>
+
+<!-- ======= GASES ======= -->
+<div class="sec" id="p4">
+<div class="hsec" style="border-color:rgba(249,115,22,.3)">
+  <span class="hi2">💨</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--org2);margin-bottom:3px">Tema 4 de 6</div>
+  <h2 style="color:var(--org2)">Leyes de los Gases</h2>
+  <p>Relaciones entre presión, volumen y temperatura de un gas ideal.</p>
+</div>
+
+<div class="card" style="border-left:4px solid var(--org2)">
+  <p class="ct" style="color:var(--org2)">📘 Las tres leyes principales</p>
+  <div style="display:flex;flex-direction:column;gap:11px;font-size:.87rem">
+    <div style="background:rgba(249,115,22,.07);border:1.5px solid rgba(249,115,22,.3);border-radius:12px;padding:13px">
+      <div style="font-family:Fredoka One,cursive;font-size:1.05rem;color:var(--org2);margin-bottom:5px">📏 Ley de Boyle — presión y volumen</div>
+      <p>A <strong>temperatura constante</strong>, P y V son inversamente proporcionales: <strong>P · V = constante</strong>.<br>Si comprimes (menor V) → P aumenta. Si expandes → P baja.</p>
+    </div>
+    <div style="background:rgba(234,88,12,.07);border:1.5px solid rgba(234,88,12,.3);border-radius:12px;padding:13px">
+      <div style="font-family:Fredoka One,cursive;font-size:1.05rem;color:var(--org);margin-bottom:5px">🌡️ Ley de Charles — volumen y temperatura</div>
+      <p>A <strong>presión constante</strong>, V y T (en K) son directamente proporcionales: <strong>V/T = constante</strong>.<br>Si calientas → V aumenta. Si enfrías → V disminuye.</p>
+    </div>
+    <div style="background:rgba(251,146,60,.07);border:1.5px solid rgba(251,146,60,.3);border-radius:12px;padding:13px">
+      <div style="font-family:Fredoka One,cursive;font-size:1.05rem;color:var(--org3);margin-bottom:5px">💥 Ley de Gay-Lussac — presión y temperatura</div>
+      <p>A <strong>volumen constante</strong>, P y T son directamente proporcionales: <strong>P/T = constante</strong>.<br>Si calientas un recipiente rígido → P aumenta (peligroso en aerosoles).</p>
+    </div>
+  </div>
+</div>
+
+<!-- SVG 3 gráficos de leyes -->
+<div class="card">
+  <p class="ct" style="color:var(--org2)">📊 Gráficos de las tres leyes</p>
+  <div class="svg-wrap"><svg width="100%" viewBox="0 0 560 180" role="img">
+  <title>Gráficos de las tres leyes de los gases</title>
+  <rect width="560" height="180" fill="#fff4ec" rx="10"/>
+  <!-- BOYLE: P vs V (hipérbola) -->
+  <rect x="10" y="10" width="170" height="160" rx="8" fill="rgba(249,115,22,.05)" stroke="rgba(249,115,22,.3)" stroke-width="1"/>
+  <text x="95" y="28" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:11px;fill:#ea580c">Boyle: P vs V</text>
+  <text x="95" y="42" text-anchor="middle" style="font-size:8.5px;fill:#7c4f2a">(T constante)</text>
+  <!-- Ejes -->
+  <line x1="32" y1="150" x2="32" y2="55" stroke="#7c4f2a" stroke-width="1"/>
+  <line x1="32" y1="150" x2="165" y2="150" stroke="#7c4f2a" stroke-width="1"/>
+  <text x="95" y="168" text-anchor="middle" style="font-size:8px;fill:#7c4f2a">Volumen →</text>
+  <text x="22" y="105" text-anchor="middle" style="font-size:8px;fill:#7c4f2a;transform:rotate(-90deg)" transform="rotate(-90,22,105)">P →</text>
+  <!-- Hipérbola -->
+  <path d="M38 58 Q50 65 60 75 Q80 95 100 110 Q120 125 140 135 Q155 141 165 145" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Etiqueta -->
+  <text x="95" y="132" text-anchor="middle" style="font-size:9px;fill:#ea580c;font-weight:900">P↑ → V↓</text>
+  <text x="95" y="144" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">inversa</text>
+
+  <!-- CHARLES: V vs T (recta) -->
+  <rect x="195" y="10" width="170" height="160" rx="8" fill="rgba(234,88,12,.05)" stroke="rgba(234,88,12,.3)" stroke-width="1"/>
+  <text x="280" y="28" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:11px;fill:#ea580c">Charles: V vs T</text>
+  <text x="280" y="42" text-anchor="middle" style="font-size:8.5px;fill:#7c4f2a">(P constante)</text>
+  <line x1="217" y1="150" x2="217" y2="55" stroke="#7c4f2a" stroke-width="1"/>
+  <line x1="217" y1="150" x2="350" y2="150" stroke="#7c4f2a" stroke-width="1"/>
+  <text x="280" y="168" text-anchor="middle" style="font-size:8px;fill:#7c4f2a">Temperatura K →</text>
+  <!-- Recta directa -->
+  <line x1="220" y1="145" x2="348" y2="65" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="280" y="132" text-anchor="middle" style="font-size:9px;fill:#ea580c;font-weight:900">T↑ → V↑</text>
+  <text x="280" y="144" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">directa</text>
+
+  <!-- GAY-LUSSAC: P vs T (recta) -->
+  <rect x="380" y="10" width="170" height="160" rx="8" fill="rgba(251,146,60,.05)" stroke="rgba(251,146,60,.3)" stroke-width="1"/>
+  <text x="465" y="28" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:10px;fill:#f97316">Gay-Lussac: P vs T</text>
+  <text x="465" y="42" text-anchor="middle" style="font-size:8.5px;fill:#7c4f2a">(V constante)</text>
+  <line x1="402" y1="150" x2="402" y2="55" stroke="#7c4f2a" stroke-width="1"/>
+  <line x1="402" y1="150" x2="535" y2="150" stroke="#7c4f2a" stroke-width="1"/>
+  <text x="465" y="168" text-anchor="middle" style="font-size:8px;fill:#7c4f2a">Temperatura K →</text>
+  <line x1="405" y1="145" x2="533" y2="65" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="465" y="132" text-anchor="middle" style="font-size:9px;fill:#f97316;font-weight:900">T↑ → P↑</text>
+  <text x="465" y="144" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">directa</text>
+  </svg></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:10px;font-size:.82rem">
+    <div style="background:var(--card2);border-radius:9px;padding:9px;text-align:center;border-top:3px solid #ea580c">
+      <div style="font-family:Fredoka One,cursive;color:#ea580c;margin-bottom:3px">Boyle</div>
+      <div style="color:var(--dim)"><strong>P₁V₁ = P₂V₂</strong><br>T constante</div>
+    </div>
+    <div style="background:var(--card2);border-radius:9px;padding:9px;text-align:center;border-top:3px solid var(--org)">
+      <div style="font-family:Fredoka One,cursive;color:var(--org);margin-bottom:3px">Charles</div>
+      <div style="color:var(--dim)"><strong>V₁/T₁ = V₂/T₂</strong><br>P constante</div>
+    </div>
+    <div style="background:var(--card2);border-radius:9px;padding:9px;text-align:center;border-top:3px solid #f97316">
+      <div style="font-family:Fredoka One,cursive;color:#f97316;margin-bottom:3px">Gay-Lussac</div>
+      <div style="color:var(--dim)"><strong>P₁/T₁ = P₂/T₂</strong><br>V constante</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:var(--org2)">🌡️ Ley de Charles — visualización interactiva</p>
+  <p style="font-size:.86rem;color:var(--dim);margin-bottom:10px">Ajusta la temperatura y observa cómo cambia el volumen del gas (presión constante).</p>
+  <div class="gas-demo">
+    <div class="gas-controls">
+      <div class="gas-ctrl"><label>Temperatura — <span class="sv" id="tv">300</span> K</label>
+        <input type="range" id="tsl" min="150" max="600" step="10" value="300" oninput="updGas()"></div>
+      <div class="gas-ctrl"><label>Temperatura en °C: <span class="sv" id="tc">27</span></label></div>
+    </div>
+    <div style="margin-top:12px;display:flex;align-items:center;gap:10px">
+      <div style="font-size:.75rem;color:rgba(255,255,255,.45);white-space:nowrap">Volumen:</div>
+      <div style="flex:1"><div class="gas-box"><div class="gas-fill" id="gfill" style="width:50%"></div><div class="gas-label" id="gvol">V = V₀</div></div></div>
+    </div>
+    <p style="font-size:.75rem;color:rgba(255,255,255,.35);margin-top:8px;text-align:center">V/T = constante &nbsp;&bull;&nbsp; Referencia: T₀ = 300 K = V₀</p>
+  </div>
+</div>
+
+<div class="card" style="border-left:4px solid var(--org2)">
+  <p class="ct" style="color:var(--org2)">📌 Variables en experimentos con gases</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;font-size:.87rem">
+    <div style="background:var(--card2);border-radius:10px;padding:11px;border-left:3px solid #dc2626;text-align:center">
+      <div style="font-weight:900;color:#dc2626;margin-bottom:4px">Variable independiente</div>
+      <div style="color:var(--dim);font-size:.82rem">La que el investigador cambia deliberadamente (ej: temperatura)</div>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:11px;border-left:3px solid #059669;text-align:center">
+      <div style="font-weight:900;color:#059669;margin-bottom:4px">Variable dependiente</div>
+      <div style="color:var(--dim);font-size:.82rem">La que se mide como resultado (ej: volumen)</div>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:11px;border-left:3px solid var(--org);text-align:center">
+      <div style="font-weight:900;color:var(--org);margin-bottom:4px">Variable controlada</div>
+      <div style="color:var(--dim);font-size:.82rem">La que se mantiene fija (ej: presión)</div>
+    </div>
+  </div>
+</div>
+
+<div class="kws"><span class="kw">Ley de Boyle</span><span class="kw">Ley de Charles</span><span class="kw">Gay-Lussac</span><span class="kw">V/T = cte</span><span class="kw">P·V = cte</span><span class="kw">Kelvin</span><span class="kw">var. independiente</span></div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Variables experimentales</div>
+  <div class="pctx">Un estudiante calienta un gas dentro de un cilindro con émbolo móvil, manteniendo la <strong>presión constante</strong> (Ley de Charles). Va anotando el volumen que ocupa el gas a distintas temperaturas.</div>
+  <p class="pq">¿Cuál instrumento midió la <strong>variable dependiente</strong> de este experimento?</p>
+  <div class="pos" id="qgas">
+    <div class="po" onclick="ans('qgas','A')"><div class="ol">A</div><div class="ot">Un termómetro que registra la temperatura a la que se somete el gas.</div></div>
+    <div class="po" onclick="ans('qgas','B')"><div class="ol">B</div><div class="ot">Una balanza analítica que mide con precisión la masa del gas.</div></div>
+    <div class="po" onclick="ans('qgas','C')"><div class="ol">C</div><div class="ot">Un barómetro que mide la presión en tiempo real.</div></div>
+    <div class="po" onclick="ans('qgas','D')"><div class="ol">D</div><div class="ot">La escala graduada del cilindro, que registra el volumen del gas.</div></div>
+  </div>
+  <div class="pfb" id="qgas-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Ley de Boyle · Cálculo</div>
+  <div class="pctx">Un gas ocupa un volumen de 4 L a una presión de 2 atm. La temperatura se mantiene constante.</div>
+  <p class="pq">¿Cuál será el volumen del gas si la presión aumenta a 8 atm? (Boyle: P₁V₁ = P₂V₂)</p>
+  <div class="pos" id="qgas2">
+    <div class="po" onclick="ans('qgas2','A')"><div class="ol">A</div><div class="ot">16 L — al aumentar P, aumenta V.</div></div>
+    <div class="po" onclick="ans('qgas2','B')"><div class="ol">B</div><div class="ot">2 L — al aumentar P, disminuye V a la mitad.</div></div>
+    <div class="po" onclick="ans('qgas2','C')"><div class="ol">C</div><div class="ot">1 L — al cuadruplicarse P, V se divide en 4.</div></div>
+    <div class="po" onclick="ans('qgas2','D')"><div class="ol">D</div><div class="ot">0,5 L — al cuadruplicarse P, V se divide en 8.</div></div>
+  </div>
+  <div class="pfb" id="qgas2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Ley de Charles · Cálculo</div>
+  <div class="pctx">Un globo contiene gas a 27°C (300 K) y ocupa 3 L. La presión se mantiene constante.</div>
+  <p class="pq">¿Cuál será el volumen si se calienta a 127°C (400 K)? (Charles: V₁/T₁ = V₂/T₂)</p>
+  <div class="pos" id="qgas3">
+    <div class="po" onclick="ans('qgas3','A')"><div class="ol">A</div><div class="ot">2,25 L — al aumentar T, V disminuye.</div></div>
+    <div class="po" onclick="ans('qgas3','B')"><div class="ol">B</div><div class="ot">3 L — el volumen no cambia con la temperatura.</div></div>
+    <div class="po" onclick="ans('qgas3','C')"><div class="ol">C</div><div class="ot">4 L — al aumentar T en 4/3, V también aumenta en 4/3.</div></div>
+    <div class="po" onclick="ans('qgas3','D')"><div class="ol">D</div><div class="ot">9 L — al aumentar T en 127°C, V se triplica.</div></div>
+  </div>
+  <div class="pfb" id="qgas3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Gay-Lussac</div>
+  <p class="pq">Un científico estudia cómo varía la presión de un gas dentro de un recipiente rígido al cambiar la temperatura. ¿Cuál es la hipótesis que pone a prueba?</p>
+  <div class="pos" id="qgas4">
+    <div class="po" onclick="ans('qgas4','A')"><div class="ol">A</div><div class="ot">A mayor temperatura, menor presión del gas a volumen constante.</div></div>
+    <div class="po" onclick="ans('qgas4','B')"><div class="ol">B</div><div class="ot">A mayor temperatura, mayor presión del gas a volumen constante.</div></div>
+    <div class="po" onclick="ans('qgas4','C')"><div class="ol">C</div><div class="ot">A mayor presión, mayor volumen del gas a temperatura constante.</div></div>
+    <div class="po" onclick="ans('qgas4','D')"><div class="ol">D</div><div class="ot">La presión del gas no depende de la temperatura si el volumen es constante.</div></div>
+  </div>
+  <div class="pfb" id="qgas4-fb"></div>
+</div>
+</div>
+
+<!-- ======= REACCIONES ======= -->
+<div class="sec" id="p5">
+<div class="hsec" style="border-color:rgba(234,88,12,.3)">
+  <span class="hi2">⚗️</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--org);margin-bottom:3px">Tema 5 de 6</div>
+  <h2 style="color:var(--org)">Reacciones Químicas y Estequiometría</h2>
+  <p>Cómo se producen las reacciones, cómo se leen y cómo calcular cantidades.</p>
+</div>
+
+<div class="card" style="border-left:4px solid var(--org)">
+  <p class="ct" style="color:var(--org)">📘 Conceptos fundamentales</p>
+  <div class="citem" style="border-color:var(--org)">
+    <h4>La ecuación química balanceada</h4>
+    <p>Una ecuación balanceada respeta la <strong>conservación de la masa</strong> (igual número de átomos a ambos lados). Los <strong>coeficientes estequiométricos</strong> indican la proporción molar.<br><br>
+    Ejemplo: N₂O₅ + H₂O → 2 HNO₃<br>
+    1 mol de N₂O₅ + 1 mol de H₂O produce <strong>2 mol</strong> de HNO₃.</p>
+  </div>
+  <div class="citem" style="border-color:var(--org)">
+    <h4>El mol — la unidad de cantidad</h4>
+    <p>El <strong>mol</strong> = 6,022×10²³ partículas (número de Avogadro). 1 mol de cualquier elemento pesa su masa atómica en gramos (ej: 1 mol de C = 12 g).<br><br>
+    Los coeficientes representan moles: si la ecuación dice 1:2, entonces 1 mol de A produce 2 mol de B.</p>
+  </div>
+  <div class="citem" style="border-color:var(--org)">
+    <h4>Reactivo limitante y reactivo en exceso</h4>
+    <p>El <strong>reactivo limitante</strong> se agota primero y determina cuánto producto se forma. El <strong>reactivo en exceso</strong> queda sobrando.<br><br>
+    <strong>Cómo identificarlo:</strong> Calcula cuántos moles de producto produce cada reactivo. El que produce menos es el limitante.</p>
+  </div>
+</div>
+
+<!-- SVG Tipos de reacciones -->
+<div class="card">
+  <p class="ct" style="color:var(--org)">📊 Tipos de reacciones + Diagrama estequiométrico</p>
+  <div class="svg-wrap"><svg width="100%" viewBox="0 0 600 200" role="img" style="display:block;min-width:560px;width:560px!important">
+    <title>Tipos de reacciones químicas</title>
+    <!-- Síntesis -->
+    <rect x="8" y="10" width="128" height="80" rx="8" fill="rgba(5,150,105,.07)" stroke="#059669" stroke-width="1.5"/>
+    <text x="72" y="28" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13px;fill:#059669">① Síntesis</text>
+    <text x="72" y="45" text-anchor="middle" style="font-size:12px;fill:#7c4f2a">A + B → AB</text>
+    <text x="72" y="62" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">2Mg + O₂ →</text>
+    <text x="72" y="76" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">2MgO</text>
+    <!-- Descomposición -->
+    <rect x="148" y="10" width="128" height="80" rx="8" fill="rgba(220,38,38,.06)" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="212" y="28" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13px;fill:#dc2626">② Descomposición</text>
+    <text x="212" y="45" text-anchor="middle" style="font-size:12px;fill:#7c4f2a">AB → A + B</text>
+    <text x="212" y="62" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">2H₂O →</text>
+    <text x="212" y="76" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">2H₂ + O₂</text>
+    <!-- Reemplazo -->
+    <rect x="288" y="10" width="128" height="80" rx="8" fill="rgba(124,58,237,.06)" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="352" y="28" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13px;fill:#7c3aed">③ Reemplazo</text>
+    <text x="352" y="45" text-anchor="middle" style="font-size:12px;fill:#7c4f2a">A+BC→AC+B</text>
+    <text x="352" y="62" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">Zn+2HCl→</text>
+    <text x="352" y="76" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">ZnCl₂ + H₂</text>
+    <!-- Combustión -->
+    <rect x="428" y="10" width="164" height="80" rx="8" fill="rgba(234,88,12,.07)" stroke="var(--org)" stroke-width="1.5"/>
+    <text x="510" y="28" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:13px;fill:var(--org)">④ Combustión</text>
+    <text x="510" y="43" text-anchor="middle" style="font-size:11.5px;fill:#7c4f2a">CₓHᵧ + O₂ →</text>
+    <text x="510" y="57" text-anchor="middle" style="font-size:11.5px;fill:#7c4f2a">CO₂ + H₂O</text>
+    <text x="510" y="72" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">CH₄+2O₂→</text>
+    <text x="510" y="83" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">CO₂+2H₂O</text>
+    <!-- Diagrama estequiometría -->
+    <text x="300" y="110" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:14px;fill:var(--org)">Cálculo estequiométrico paso a paso</text>
+    <rect x="8" y="120" width="100" height="30" rx="6" fill="rgba(234,88,12,.1)" stroke="var(--org)" stroke-width="1"/>
+    <text x="58" y="139" text-anchor="middle" style="font-size:11.5px;fill:var(--org);font-weight:900">g de A dados</text>
+    <path d="M108 135 L148 135" stroke="#b45309" stroke-width="1.5" marker-end="url(#ae_r)"/>
+    <text x="128" y="130" text-anchor="middle" style="font-size:10px;fill:#7c4f2a">÷M_A</text>
+    <defs><marker id="ae_r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#b45309" stroke-width="1.5"/></marker></defs>
+    <rect x="148" y="120" width="100" height="30" rx="6" fill="rgba(5,150,105,.08)" stroke="#059669" stroke-width="1"/>
+    <text x="198" y="139" text-anchor="middle" style="font-size:11.5px;fill:#059669;font-weight:900">mol de A</text>
+    <path d="M248 135 L288 135" stroke="#b45309" stroke-width="1.5" marker-end="url(#ae_r)"/>
+    <text x="268" y="130" text-anchor="middle" style="font-size:9.5px;fill:#7c4f2a">×(coef B/A)</text>
+    <rect x="288" y="120" width="100" height="30" rx="6" fill="rgba(5,150,105,.08)" stroke="#059669" stroke-width="1"/>
+    <text x="338" y="139" text-anchor="middle" style="font-size:11.5px;fill:#059669;font-weight:900">mol de B</text>
+    <path d="M388 135 L428 135" stroke="#b45309" stroke-width="1.5" marker-end="url(#ae_r)"/>
+    <text x="408" y="130" text-anchor="middle" style="font-size:10px;fill:#7c4f2a">×M_B</text>
+    <rect x="428" y="120" width="100" height="30" rx="6" fill="rgba(234,88,12,.1)" stroke="var(--org)" stroke-width="1"/>
+    <text x="478" y="139" text-anchor="middle" style="font-size:11.5px;fill:var(--org);font-weight:900">g de B</text>
+    <text x="300" y="185" text-anchor="middle" style="font-size:11px;fill:#7c4f2a">M = masa molar (g/mol). coef = coeficiente balanceado.</text>
+  </svg></div>
+  <div style="background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2);border-radius:10px;padding:12px;margin-top:10px">
+    <div style="font-weight:900;color:#dc2626;margin-bottom:8px">⚠️ Errores más comunes en PAES</div>
+    <div style="background:#fff;border-radius:8px;padding:10px;margin-bottom:10px;font-size:.83rem;line-height:1.6">
+      <div style="font-weight:800;color:#dc2626;margin-bottom:4px">① Cambiar subíndices en vez de coeficientes</div>
+      <div style="color:var(--dim)">Para balancear H₂ + O₂ → H₂O, <strong>no</strong> se debe tocar el subíndice así: H₂ + O₂ → H₂O<sub>2</sub> (¡eso crea agua oxigenada, una sustancia distinta!).<br>
+      Lo correcto es agregar <strong>coeficientes</strong> delante de las fórmulas: <strong>2H₂ + O₂ → 2H₂O</strong>. El coeficiente multiplica toda la molécula sin alterar su fórmula.</div>
+    </div>
+    <div style="background:#fff;border-radius:8px;padding:10px;margin-bottom:10px;font-size:.83rem;line-height:1.6">
+      <div style="font-weight:800;color:#dc2626;margin-bottom:4px">② No identificar el reactivo limitante</div>
+      <div style="color:var(--dim)">El reactivo limitante es el que se <strong>agota primero</strong> y determina cuánto producto se forma — no es necesariamente el que está en menor cantidad de gramos, sino el que rinde menos moles de producto al aplicar la proporción estequiométrica.</div>
+    </div>
+    <div style="background:#fff;border-radius:8px;padding:10px;font-size:.83rem;line-height:1.6">
+      <div style="font-weight:800;color:#dc2626;margin-bottom:4px">③ Confundir moles con gramos</div>
+      <div style="color:var(--dim)">10 mol de NO <strong>no</strong> es lo mismo que 10 g de NO. Para pasar de mol a gramos hay que multiplicar por la masa molar: gramos = mol × M (g/mol).</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:var(--org)">🧮 Calculadora estequiométrica</p>
+  <p style="font-size:.87rem;color:var(--dim);margin-bottom:12px">Ingresa los coeficientes y moles conocidos para calcular moles del otro compuesto.</p>
+  <div class="stoich-c">
+    <div style="margin-bottom:12px;font-size:.85rem">
+      <label style="font-size:.74rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);display:block;margin-bottom:6px">Ecuación: a A + b B → c C</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px">
+        <div class="stoich-field"><label>Coef. A</label><input type="number" id="coefA" value="1" min="1" oninput="calcStoich()"><div class="un">coeficiente</div></div>
+        <div class="stoich-field"><label>Coef. B/C</label><input type="number" id="coefB" value="2" min="1" oninput="calcStoich()"><div class="un">coeficiente</div></div>
+        <div class="stoich-field"><label>Moles A (conocido)</label><input type="number" id="molesA" placeholder="ej: 4" min="0" oninput="calcStoich()"><div class="un">mol</div></div>
+        <div class="stoich-field"><label>Moles B/C (resultado)</label><input type="number" id="molesB" class="calc" readonly placeholder="calculado"><div class="un">mol</div></div>
+      </div>
+    </div>
+    <div class="stoich-res" id="sres">Ingresa los moles de A para calcular los de B/C</div>
+  </div>
+  <p style="font-size:.81rem;color:var(--dim);margin-top:8px">💡 Ejemplo P47: coef A = 1 (N₂O₅), coef B = 2 (HNO₃), moles A = 2 → resultado = 4 mol HNO₃</p>
+</div>
+
+<div class="kws"><span class="kw">ecuación balanceada</span><span class="kw">mol</span><span class="kw">estequiometría</span><span class="kw">reactivo limitante</span><span class="kw">conservación de masa</span><span class="kw">coeficiente</span></div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Estequiometría</div>
+  <div class="pctx">Reacción: 2 Al(s) + 3 Cl₂(g) → 2 AlCl₃(s). Se quieren obtener 6,0 mol de AlCl₃ con suficiente Cl₂.</div>
+  <p class="pq">¿Cuántos moles de Al se necesitan?</p>
+  <div class="pos" id="qesto">
+    <div class="po" onclick="ans('qesto','A')"><div class="ol">A</div><div class="ot">3,0 mol</div></div>
+    <div class="po" onclick="ans('qesto','B')"><div class="ol">B</div><div class="ot">4,0 mol</div></div>
+    <div class="po" onclick="ans('qesto','C')"><div class="ol">C</div><div class="ot">6,0 mol</div></div>
+    <div class="po" onclick="ans('qesto','D')"><div class="ol">D</div><div class="ot">9,0 mol</div></div>
+  </div>
+  <div class="pfb" id="qesto-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Proporción de reacción</div>
+  <div class="pctx">Reacción: 2 H₂(g) + O₂(g) → 2 H₂O(g). Exp. 1: 4g H₂ + 32g O₂ → 36g H₂O, sin exceso. Exp. 2: 2g H₂ + 32g O₂ → 18g H₂O + 16g O₂ en exceso. Exp. 3: 6g H₂ + 32g O₂ → 36g H₂O + 2g de H₂ en exceso.</div>
+  <p class="pq">¿En qué proporción de masa reaccionan completamente el H₂ y el O₂?</p>
+  <div class="pos" id="qrlim2">
+    <div class="po" onclick="ans('qrlim2','A')"><div class="ol">A</div><div class="ot">1:8</div></div>
+    <div class="po" onclick="ans('qrlim2','B')"><div class="ol">B</div><div class="ot">1:4</div></div>
+    <div class="po" onclick="ans('qrlim2','C')"><div class="ol">C</div><div class="ot">2:1</div></div>
+    <div class="po" onclick="ans('qrlim2','D')"><div class="ol">D</div><div class="ot">8:1</div></div>
+  </div>
+  <div class="pfb" id="qrlim2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Reactivo limitante</div>
+  <div class="pctx">Reacción: Pb(NO₃)₂ + 2 KI → PbI₂(s) + 2 KNO₃. En un tubo se mezclan 0,0004 mol de Pb(NO₃)₂ con 0,0006 mol de KI. Se forma un precipitado amarillo de PbI₂.</div>
+  <p class="pq">¿Cuál es el reactivo limitante de esta reacción?</p>
+  <div class="pos" id="qrlim">
+    <div class="po" onclick="ans('qrlim','A')"><div class="ol">A</div><div class="ot">Pb(NO₃)₂, porque se usa en menor cantidad de moles.</div></div>
+    <div class="po" onclick="ans('qrlim','B')"><div class="ol">B</div><div class="ot">KI, porque se necesitan 0,0008 mol para reaccionar con todo el Pb(NO₃)₂ y solo hay 0,0006 mol.</div></div>
+    <div class="po" onclick="ans('qrlim','C')"><div class="ol">C</div><div class="ot">Pb(NO₃)₂, porque es el reactivo en exceso.</div></div>
+    <div class="po" onclick="ans('qrlim','D')"><div class="ol">D</div><div class="ot">Ninguno; ambos reactivos se consumen completamente.</div></div>
+  </div>
+  <div class="pfb" id="qrlim-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Reactivo limitante</div>
+  <div class="pctx">Ecuación: 2 SO₂(g) + O₂(g) → 2 SO₃(g)</div>
+  <p class="pq">Al reaccionar 8,0 mol de SO₂ con 3,0 mol de O₂, ¿cuál es la cantidad máxima de SO₃ formada?</p>
+  <div class="pos" id="qno2">
+    <div class="po" onclick="ans('qno2','A')"><div class="ol">A</div><div class="ot">3,0 mol</div></div>
+    <div class="po" onclick="ans('qno2','B')"><div class="ol">B</div><div class="ot">6,0 mol</div></div>
+    <div class="po" onclick="ans('qno2','C')"><div class="ol">C</div><div class="ot">8,0 mol</div></div>
+    <div class="po" onclick="ans('qno2','D')"><div class="ol">D</div><div class="ot">11,0 mol</div></div>
+  </div>
+  <div class="pfb" id="qno2-fb"></div>
+</div>
+</div>
+
+<!-- ======= SOLUCIONES ======= -->
+<div class="sec" id="p6">
+<div class="hsec" style="border-color:rgba(8,145,178,.3)">
+  <span class="hi2">💧</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#0891b2;margin-bottom:3px">Tema 6 de 6</div>
+  <h2 style="color:#0891b2">Soluciones y Concentración</h2>
+  <p>Mezclas homogéneas, concentración molar, diluciones y porcentajes.</p>
+</div>
+
+<div class="card" style="border-left:4px solid #0891b2">
+  <p class="ct" style="color:#0891b2">📘 Conceptos clave</p>
+  <div class="citem" style="border-color:#0891b2">
+    <h4>💧 Solución, solvente y soluto</h4>
+    <p>Una <strong>solución</strong> es una mezcla homogénea. El <strong>solvente</strong> disuelve (generalmente en mayor cantidad). El <strong>soluto</strong> es lo que se disuelve (sal, azúcar, ácido).<br><br>
+    <em>Ejemplo:</em> Agua con sal: agua = solvente, NaCl = soluto.</p>
+  </div>
+  <div class="citem" style="border-color:#0891b2">
+    <h4>📄 Concentración molar (Molaridad)</h4>
+    <p>Moles de soluto por litro de solución:<br><br>
+    <strong style="font-size:1.1rem;color:#0891b2">C = n / V</strong><br><br>
+    C: mol/L &nbsp; n: moles de soluto &nbsp; V: volumen en litros<br><br>
+    <em>Ejemplo:</em> 2 mol de NaCl en 0,5 L → C = 2/0,5 = <strong>4 mol/L</strong></p>
+  </div>
+  <div class="citem" style="border-color:#0891b2">
+    <h4>🔌 Diluciones</h4>
+    <p>Al diluir, los <strong>moles totales de soluto no cambian</strong>, pero el volumen aumenta y la concentración disminuye.<br><br>
+    <strong>Fórmula de dilución:</strong> C₁V₁ = C₂V₂<br><br>
+    Para mezclar varias soluciones: C<sub>final</sub> = (n₁ + n₂ + …) / (V₁ + V₂ + …)</p>
+  </div>
+</div>
+
+<!-- SVG tipos de solución + curva solubilidad -->
+<div class="card">
+  <p class="ct" style="color:#0891b2">📊 Tipos de solución y curva de solubilidad</p>
+  <div class="g2">
+    <div>
+      <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:10px">
+        <div style="background:rgba(5,150,105,.07);border-radius:10px;padding:10px;text-align:center;border-left:3px solid #059669;font-size:.82rem">
+          <div style="font-family:Fredoka One,cursive;color:#059669;margin-bottom:3px">Insaturada</div>
+          <div style="color:var(--dim)">[soluto] &lt; máximo · puede disolver más</div>
+        </div>
+        <div style="background:rgba(234,88,12,.06);border-radius:10px;padding:10px;text-align:center;border-left:3px solid var(--org);font-size:.82rem">
+          <div style="font-family:Fredoka One,cursive;color:var(--org);margin-bottom:3px">Saturada</div>
+          <div style="color:var(--dim)">[soluto] = máximo · equilibrio</div>
+        </div>
+        <div style="background:rgba(220,38,38,.05);border-radius:10px;padding:10px;text-align:center;border-left:3px solid #dc2626;font-size:.82rem">
+          <div style="font-family:Fredoka One,cursive;color:#dc2626;margin-bottom:3px">Sobresaturada</div>
+          <div style="color:var(--dim)">Más del máximo · al agitar precipita</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <svg width="100%" viewBox="0 0 230 175" style="display:block" role="img">
+      <title>Curva de solubilidad versus temperatura</title>
+      <rect width="230" height="175" fill="#fff4ec" rx="8"/>
+      <line x1="35" y1="10" x2="35" y2="150" stroke="#e8d5c4" stroke-width="1.5"/>
+      <line x1="35" y1="150" x2="215" y2="150" stroke="#e8d5c4" stroke-width="1.5"/>
+      <text x="29" y="15" text-anchor="end" style="font-size:8px;fill:#7c4f2a">80</text>
+      <text x="29" y="48" text-anchor="end" style="font-size:8px;fill:#7c4f2a">60</text>
+      <text x="29" y="82" text-anchor="end" style="font-size:8px;fill:#7c4f2a">57</text>
+      <text x="29" y="125" text-anchor="end" style="font-size:8px;fill:#7c4f2a">20</text>
+      <text x="62" y="163" text-anchor="middle" style="font-size:8px;fill:#7c4f2a">10°C</text>
+      <text x="130" y="163" text-anchor="middle" style="font-size:8px;fill:#7c4f2a">37°C</text>
+      <text x="210" y="163" text-anchor="middle" style="font-size:8px;fill:#7c4f2a">90°C</text>
+      <text x="8" y="85" text-anchor="middle" style="font-size:7.5px;fill:#0891b2;font-weight:900" transform="rotate(-90,8,85)">g/100g H₂O</text>
+      <path d="M62 125 Q100 105 130 82 Q175 42 210 18" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="62" cy="125" r="4" fill="#ea580c"/>
+      <circle cx="130" cy="82" r="4" fill="#ea580c"/>
+      <line x1="62" y1="125" x2="62" y2="82" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="4,2"/>
+      <line x1="62" y1="82" x2="130" y2="82" stroke="#7c3aed" stroke-width="1.2" stroke-dasharray="4,2"/>
+      <text x="96" y="78" text-anchor="middle" style="font-size:7.5px;fill:#7c3aed;font-weight:900">↓ 37g precipitan</text>
+      <text x="96" y="89" text-anchor="middle" style="font-size:7px;fill:#7c3aed">(57−20=37)</text>
+      <text x="180" y="55" style="font-size:7.5px;fill:#dc2626;font-style:italic">Sobresaturada</text>
+      <text x="100" y="140" style="font-size:7.5px;fill:#059669;font-style:italic">Insaturada</text>
+      <text x="115" y="170" text-anchor="middle" style="font-size:7.5px;fill:#7c4f2a">Temperatura →</text>
+      </svg>
+    </div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">🎯 Precipitación al enfriar</div>
+    <p>Masa precipitada = solubilidad(T alta) − solubilidad(T baja). La curva de sólidos <strong>sube con la temperatura</strong>.</p>
+  </div>
+</div>
+
+<!-- SVG Dilución -->
+<div class="card">
+  <p class="ct" style="color:#0891b2">🔬 Diluciones — visualización</p>
+  <div class="svg-wrap"><svg width="100%" viewBox="0 0 560 160" role="img" style="display:block;min-width:540px;width:540px!important">
+  <title>Dilución: C₁V₁ = C₂V₂</title>
+  <defs><marker id="ae2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#b45309" stroke-width="1.5"/></marker></defs>
+  <rect x="20" y="20" width="70" height="100" rx="6" fill="rgba(8,145,178,.08)" stroke="#0891b2" stroke-width="2"/>
+  <rect x="20" y="60" width="70" height="60" rx="0" fill="rgba(8,145,178,.35)"/>
+  <text x="55" y="45" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#0891b2">C₁ = 1 M</text>
+  <text x="55" y="95" text-anchor="middle" style="font-size:10.5px;fill:#fff;font-weight:900">V₁=50mL</text>
+  <text x="55" y="108" text-anchor="middle" style="font-size:10px;fill:rgba(255,255,255,.85)">0,05 mol</text>
+  <text x="55" y="135" text-anchor="middle" style="font-size:10px;fill:#7c4f2a">Concentrada</text>
+  <path d="M95 70 L145 70" stroke="#b45309" stroke-width="2" marker-end="url(#ae2)"/>
+  <text x="120" y="62" text-anchor="middle" style="font-size:10px;fill:#7c4f2a">+ agua</text>
+  <rect x="145" y="20" width="90" height="120" rx="6" fill="rgba(8,145,178,.08)" stroke="#0891b2" stroke-width="2"/>
+  <rect x="145" y="80" width="90" height="60" rx="0" fill="rgba(8,145,178,.15)"/>
+  <text x="190" y="43" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:12px;fill:#0891b2">C₂ = 0,5 M</text>
+  <text x="190" y="60" text-anchor="middle" style="font-size:10px;fill:#7c4f2a">C₁V₁ = C₂V₂</text>
+  <text x="190" y="105" text-anchor="middle" style="font-size:10.5px;fill:#0891b2;font-weight:900">V₂=100mL</text>
+  <text x="190" y="118" text-anchor="middle" style="font-size:10px;fill:#7c4f2a">0,05 mol</text>
+  <text x="190" y="155" text-anchor="middle" style="font-size:10px;fill:#7c4f2a">Diluida</text>
+  <rect x="255" y="30" width="280" height="100" rx="8" fill="rgba(5,150,105,.06)" stroke="#059669" stroke-width="1.5"/>
+  <text x="395" y="52" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:11px;fill:#059669">Ley de diluciones</text>
+  <text x="395" y="70" text-anchor="middle" style="font-family:Fredoka One,cursive;font-size:14px;fill:#059669">C₁V₁ = C₂V₂</text>
+  <text x="395" y="90" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">Los moles de soluto se conservan.</text>
+  <text x="395" y="104" text-anchor="middle" style="font-size:9px;fill:#7c4f2a">Solo aumenta el volumen de solvente.</text>
+  <text x="395" y="118" text-anchor="middle" style="font-size:8.5px;fill:#b45309">1×50 = 0,5×100 = 0,05 mol ✓</text>
+  </svg></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:9px;margin-top:10px;font-size:.82rem">
+    <div style="text-align:center;background:var(--card2);border-radius:8px;padding:9px;border:1px solid var(--bord)">
+      <div style="font-family:Fredoka One,cursive;font-size:1rem;color:#0891b2">M = n / V</div>
+      <div style="color:var(--dim);margin-top:3px">mol/L · moles · litros</div>
+    </div>
+    <div style="text-align:center;background:var(--card2);border-radius:8px;padding:9px;border:1px solid var(--bord)">
+      <div style="font-family:Fredoka One,cursive;font-size:1rem;color:#0891b2">C₁V₁ = C₂V₂</div>
+      <div style="color:var(--dim);margin-top:3px">mol se conservan al diluir</div>
+    </div>
+    <div style="text-align:center;background:var(--card2);border-radius:8px;padding:9px;border:1px solid var(--bord)">
+      <div style="font-family:Fredoka One,cursive;font-size:1rem;color:#0891b2">%m/m</div>
+      <div style="color:var(--dim);margin-top:3px">(g soluto/g solución)×100</div>
+    </div>
+    <div style="text-align:center;background:var(--card2);border-radius:8px;padding:9px;border:1px solid var(--bord)">
+      <div style="font-family:Fredoka One,cursive;font-size:1rem;color:#0891b2">%m/v</div>
+      <div style="color:var(--dim);margin-top:3px">(g soluto/mL solución)×100</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#0891b2">🧮 Calculadora de concentración — interactiva</p>
+  <div class="cbr">
+    <button class="cb act" onclick="conc('C',this)">Calcular C (mol/L)</button>
+    <button class="cb" onclick="conc('n',this)">Calcular n (moles)</button>
+    <button class="cb" onclick="conc('V',this)">Calcular V (litros)</button>
+  </div>
+  <div class="conc-c">
+    <div class="conc-row">
+      <div class="cf"><label>C — Concentración</label><input type="number" id="cC" placeholder="?" min="0" oninput="calcConc()"><div class="un">mol / L</div></div>
+      <div class="cf"><label>n — Moles de soluto</label><input type="number" id="cn" placeholder="?" min="0" oninput="calcConc()"><div class="un">mol</div></div>
+      <div class="cf"><label>V — Volumen</label><input type="number" id="cV" placeholder="?" min="0" oninput="calcConc()"><div class="un">litros (L)</div></div>
+    </div>
+    <div class="cres" id="cres">C = n / V &nbsp;&nbsp;·&nbsp;&nbsp; n = C × V &nbsp;&nbsp;·&nbsp;&nbsp; V = n / C</div>
+  </div>
+</div>
+
+<div class="kws"><span class="kw">solución</span><span class="kw">soluto</span><span class="kw">solvente</span><span class="kw">concentración molar</span><span class="kw">C = n/V</span><span class="kw">dilución</span><span class="kw">C₁V₁=C₂V₂</span><span class="kw">%m/m</span></div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Variables experimentales</div>
+  <div class="pctx">Un estudiante diluye vinagre comercial con agua:<br>Exp 1: 5,0 mL comercial en 50 mL final &nbsp; Exp 2: 5,0 mL en 100 mL &nbsp; Exp 3: 1,0 mL en 100 mL</div>
+  <p class="pq">¿Cuál es la <strong>variable fija</strong> del experimento?</p>
+  <div class="pos" id="qsol">
+    <div class="po" onclick="ans('qsol','A')"><div class="ol">A</div><div class="ot">El volumen de solución final.</div></div>
+    <div class="po" onclick="ans('qsol','B')"><div class="ol">B</div><div class="ot">El volumen de vinagre comercial usado.</div></div>
+    <div class="po" onclick="ans('qsol','C')"><div class="ol">C</div><div class="ot">La concentración de ácido acético en la solución final.</div></div>
+    <div class="po" onclick="ans('qsol','D')"><div class="ol">D</div><div class="ot">La concentración de ácido acético en el vinagre comercial.</div></div>
+  </div>
+  <div class="pfb" id="qsol-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Cálculo de concentración</div>
+  <div class="pctx">Se mezclan: 20 mL de NaOH 0,50 mol/L + 30 mL de NaOH 0,20 mol/L.</div>
+  <p class="pq">¿Cuál es la concentración de la solución resultante?</p>
+  <div class="pos" id="qmezcla">
+    <div class="po" onclick="ans('qmezcla','A')"><div class="ol">A</div><div class="ot">0,35 mol/L</div></div>
+    <div class="po" onclick="ans('qmezcla','B')"><div class="ol">B</div><div class="ot">0,32 mol/L</div></div>
+    <div class="po" onclick="ans('qmezcla','C')"><div class="ol">C</div><div class="ot">0,30 mol/L</div></div>
+    <div class="po" onclick="ans('qmezcla','D')"><div class="ol">D</div><div class="ot">0,70 mol/L</div></div>
+  </div>
+  <div class="pfb" id="qmezcla-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Curva de solubilidad</div>
+  <div class="pctx">Curva de solubilidad: a 60°C = 45 g/100g agua; a 15°C = 15 g/100g agua.</div>
+  <p class="pq">Al enfriar de 60°C a 15°C una solución saturada, ¿qué masa de soluto precipita?</p>
+  <div class="pos" id="qprec">
+    <div class="po" onclick="ans('qprec','A')"><div class="ol">A</div><div class="ot">15 g</div></div>
+    <div class="po" onclick="ans('qprec','B')"><div class="ol">B</div><div class="ot">30 g</div></div>
+    <div class="po" onclick="ans('qprec','C')"><div class="ol">C</div><div class="ot">45 g</div></div>
+    <div class="po" onclick="ans('qprec','D')"><div class="ol">D</div><div class="ot">60 g</div></div>
+  </div>
+  <div class="pfb" id="qprec-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ai-tag">🤖 Práctica elaborada · Habilidad H2 · Concentración % m/m</div>
+  <p class="pq">¿Qué masa de solvente hay en 400 g de una disolución al 25% masa/masa?</p>
+  <div class="pos" id="qsolv">
+    <div class="po" onclick="ans('qsolv','A')"><div class="ol">A</div><div class="ot">25 g</div></div>
+    <div class="po" onclick="ans('qsolv','B')"><div class="ol">B</div><div class="ot">75 g</div></div>
+    <div class="po" onclick="ans('qsolv','C')"><div class="ol">C</div><div class="ot">100 g</div></div>
+    <div class="po" onclick="ans('qsolv','D')"><div class="ol">D</div><div class="ot">300 g</div></div>
+  </div>
+  <div class="pfb" id="qsolv-fb"></div>
+</div>
+</div>
+
+<div class="sec" id="p7">
+<div class="card">
+  <p class="ct" style="color:var(--org)">⏱️ Mini Ensayo cronometrado · 10 preguntas</p>
+  <p style="font-size:.88rem;color:var(--dim);line-height:1.6">Responde las 10 preguntas dentro del tiempo límite. Son preguntas <strong>generadas por IA</strong> siguiendo el formato y la dificultad de la PAES — no son preguntas reales de un ensayo oficial. Las respuestas se evalúan al terminar. <strong>Simula las condiciones reales de la prueba.</strong></p>
+</div>
+<div class="tip-box" style="margin-bottom:16px">
+  <div class="tip-label">💡 Estrategia</div>
+  <p>Lee el enunciado completo antes de ver las alternativas. Identifica qué tema de química evalúa la pregunta. Descarta primero las alternativas claramente incorrectas.</p>
+</div>
+<div class="tbox" id="tbox">
+  <div>
+    <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:2px">Tiempo restante</div>
+    <div class="td" id="timer-disp">8:00</div>
+  </div>
+  <div style="text-align:right">
+    <div id="timer-status" style="font-size:.85rem;color:var(--dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+    <button id="start-btn" onclick="startEnsayo()" style="padding:8px 20px;background:var(--org);color:#fff;border:none;border-radius:50px;font-family:inherit;font-weight:700;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+  </div>
+</div>
+<div id="ensayo-qs" style="display:none"></div>
+<button class="sbtn" id="submit-btn" onclick="submitEnsayo()" disabled style="display:none">✅ Terminar y ver resultados</button>
+<div id="ensayo-results"></div>
+</div>
+
+</div><!-- #sections -->
+
+<div class="lin-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">← Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente →</button>
+</div>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 3</h3>
+      <p>Química Básica · Plan Común</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    🔒 El asistente está pausado mientras rindes el Mini Ensayo cronometrado. Vuelve a abrirlo cuando termines.
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre Cambios Físicos y Químicos, el Átomo, Química Orgánica, Gases, Reacciones Químicas y Soluciones. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:2.5rem 1rem 5rem;color:var(--dim);font-size:.85rem;border-top:1px solid var(--bord);margin-top:2rem">
+  <div style="margin-bottom:.5rem">🧪 <b>Unidad 3 · Química Básica</b> · PAES Ciencias Plan Común</div>
+  <div>Módulo de preparación para Admisión 2027 · Plataforma e-learning asincrónica</div>
+</footer>
+
+
+<script>
+// ── QA DATA ──────────────────────────────────────────────────────
+const QA = {
+  qcam:{c:'B',fb:{A:'Incorrecto. La evaporación transforma el estado del agua pero no cambia su composición química — el agua líquida y el vapor de agua son H₂O.',B:'✅ Correcto. La condensación es un cambio <b>físico</b>: el vapor de agua pasa a líquido, pero la sustancia sigue siendo H₂O. No se forman sustancias nuevas.',C:'Incorrecto. La combustión de la madera produce CO₂, agua y cenizas: son sustancias completamente distintas a la madera. Es cambio químico.',D:'Incorrecto. La fermentación del azúcar convierte C₆H₁₂O₆ en CO₂ y etanol. Se forman nuevas sustancias: es cambio químico.'}},
+  qcam2:{c:'C',fb:{A:'Incorrecto. Disolver azúcar en agua es cambio físico: el azúcar puede recuperarse evaporando el agua. No hay nueva sustancia.',B:'Incorrecto. Triturar un sólido cambia su forma, no su composición química. Sigue siendo la misma sustancia.',C:'✅ Correcto. Caramelizar el azúcar lo transforma en compuestos de color café (caramelo) con propiedades diferentes. Es un cambio <b>químico</b> irreversible.',D:'Incorrecto. Destilar agua separa mezclas por diferencia de temperatura de ebullición. No se forman nuevas sustancias.'}},
+  qcam3:{c:'B',fb:{A:'Incorrecto. El cambio de estado del hielo (hielo → agua) es físico: la sustancia H₂O no cambia.',B:'✅ Correcto. La formación de herrumbre (óxido) en el clavo es un <b>indicio de cambio químico</b>: se forma una nueva sustancia (Fe₂O₃) con propiedades distintas al hierro original.',C:'Incorrecto. Cortar el papel cambia la forma, no la composición. Es cambio físico.',D:'Incorrecto. La mezcla de arena y sal es un cambio físico: ambas sustancias mantienen sus propiedades y pueden separarse.'}},
+  qcam4:{c:'C',fb:{A:'Incorrecto. La evidencia de un cambio químico es la formación de nuevas sustancias, no solo el cambio de temperatura.',B:'Incorrecto. El cambio de color puede ser indicio, pero la evidencia más directa es la formación de nuevas sustancias con propiedades distintas.',C:'✅ Correcto. El vinagre (CH₃COOH) y el bicarbonato (NaHCO₃) reaccionan produciendo CO₂, agua y acetato de sodio: <b>nuevas sustancias</b>. Eso confirma el cambio químico.',D:'Incorrecto. La liberación de calor puede ocurrir también en cambios físicos como la condensación. No es evidencia suficiente por sí sola.'}},
+  qruth:{c:'A',fb:{A:'✅ Correcto. Cuando un electrón absorbe energía, <b>salta a una órbita de mayor energía</b> (más alejada del núcleo). Al volver a su órbita original libera esa energía como luz.',B:'Incorrecto. Un electrón nunca se convierte en protón; son partículas distintas con cargas opuestas y masas muy diferentes.',C:'Incorrecto. Absorber energía no desintegra el núcleo; ese es un proceso nuclear distinto (radiactividad), no un salto electrónico.',D:'Incorrecto. En el modelo de Bohr los electrones no cambian de velocidad dentro de una misma órbita al absorber energía; cambian de órbita.'}},
+  qiso:{c:'A',fb:{A:'✅ Correcto. X (Cl-35) e Y (Cl-37) tienen ambos Z=17 (mismo elemento, cloro), pero neutrones distintos: X=35−17=18 y Y=37−17=20. Son <b>isótopos</b>.',B:'Incorrecto. X tiene Z=17 (cloro) y Z tiene Z=18 (argón): son elementos distintos, no isótopos entre sí.',C:'Incorrecto. Y tiene neutrones=37−17=20 y Z tiene neutrones=36−18=18; son distintos.',D:'Incorrecto. X e Y tienen el mismo número atómico (Z=17), por lo tanto son el <b>mismo elemento</b> (cloro), solo isótopos distintos.'}},
+  qcov:{c:'C',fb:{A:'Incorrecto. K es metal alcalino y Cl es no metal. El K cede un electrón al Cl → enlace iónico.',B:'Incorrecto. Ca es metal alcalinotérreo y O es no metal → el Ca pierde 2e al O → enlace iónico.',C:'✅ Correcto. N y Cl son ambos <b>no metales</b>. Entre no metales los electrones se <b>comparten</b> (no se transfieren) → enlace <b>covalente</b>.',D:'Incorrecto. Mg es metal alcalinotérreo y F es no metal → diferencia de electronegatividad alta → enlace iónico.'}},
+  qsr89:{c:'B',fb:{A:'Incorrecto. El número atómico de Sr es 38, por lo que tiene 38 protones y 38 electrones. El número de masa 89 incluye protones + neutrones: 89−38=51 neutrones.',B:'✅ Correcto. Sr-89: Z=38 → 38 protones y 38 electrones. A=89 → neutrones = 89−38 = <b>51 neutrones</b>.',C:'Incorrecto. Confunde el número de masa con el número de neutrones. Los neutrones = A−Z = 89−38 = 51, no 89.',D:'Incorrecto. El número atómico 38 corresponde a los protones, no a los neutrones. Los neutrones = 89−38 = 51.'}},
+  qgrp:{c:'B',fb:{A:'Incorrecto. El grupo hidroxilo (−OH) es propio de los alcoholes; en este compuesto no hay −OH.',B:'✅ Correcto. El grupo <b>C=O ubicado en el interior de la cadena</b> (unido a dos carbonos) corresponde a una <b>cetona</b>.',C:'Incorrecto. El éter tiene un oxígeno entre dos grupos orgánicos (R−O−R), sin doble enlace C=O.',D:'Incorrecto. El éster requiere el grupo −COO−, con un oxígeno adicional unido al carbonilo.'}},
+  qteb:{c:'D',fb:{A:'Incorrecto. No es una regla general que los alcanos siempre hiervan a mayor temperatura que los cicloalcanos con el mismo número de C; los datos muestran lo contrario.',B:'Incorrecto. Las temperaturas cambian con el número de carbonos, no permanecen constantes.',C:'Incorrecto. Los cicloalcanos de la tabla tienen mayor Teb, no menor.',D:'✅ Correcto. En <b>ambos grupos</b> (alcanos lineales y cicloalcanos), a mayor número de carbonos mayor es la masa molar y mayores son las fuerzas de dispersión de London → <b>mayor punto de ebullición</b>.'}},
+  qval:{c:'C',fb:{A:'Incorrecto. La glicina no tiene grupo −OH de alcohol.',B:'Incorrecto. La glicina no tiene grupo cetona ni alcohol.',C:'✅ Correcto. La glicina tiene un grupo <b>amina</b> (−NH₂) y un grupo <b>ácido carboxílico</b> (−COOH), característicos de todos los aminoácidos.',D:'Incorrecto. No hay grupo amida (−CO−NH−) en la molécula tal como está escrita; sus dos grupos son amina y ácido carboxílico.'}},
+  qcarb:{c:'C',fb:{A:'Incorrecto. Un carbono primario está unido a solo 1 carbono vecino.',B:'Incorrecto. Un carbono secundario está unido a 2 carbonos vecinos.',C:'✅ Correcto. Un carbono <b>terciario</b> está unido directamente a <b>3 carbonos</b> vecinos.',D:'Incorrecto. Un carbono cuaternario está unido a 4 carbonos vecinos (no tiene H directo).'}},
+  qgas:{c:'D',fb:{A:'Incorrecto. La temperatura es la <b>variable independiente</b>: es la que el estudiante cambia deliberadamente.',B:'Incorrecto. La masa del gas no se mide en este experimento; además, no cambia si no entra ni sale gas del sistema.',C:'Incorrecto. La presión se mantiene constante en este experimento (es la variable controlada), no se está midiendo como resultado.',D:'✅ Correcto. En un experimento de Ley de Charles, la temperatura varía (V.I.) y se mide el <b>volumen resultante</b> con la escala del cilindro, que es la <b>variable dependiente</b>.'}},
+  qgas2:{c:'C',fb:{A:'Incorrecto. Aplicando P₁V₁=P₂V₂: (2 atm)(4 L)=(8 atm)(V₂) → V₂=1 L, no 0,5 L.',B:'Incorrecto. Revisa el cálculo: P₁V₁=P₂V₂ → (2)(4)=(8)(V₂) → V₂=8/8=1 L.',C:'✅ Correcto. Ley de Boyle: P₁V₁=P₂V₂ → (2 atm)(4 L)=(8 atm)(V₂) → V₂ = 8/8 = <b>1 L</b>.',D:'Incorrecto. Con la Ley de Boyle el volumen disminuye al aumentar la presión (relación inversa), no aumenta.'}},
+  qgas3:{c:'C',fb:{A:'Incorrecto. Ley de Charles: V₁/T₁=V₂/T₂ → (3 L/300 K)=(V₂/400 K) → V₂=4 L, no 2 L.',B:'Incorrecto. Verifica la operación: (3/300)=(V₂/400) → V₂=(3×400)/300=1200/300=4 L.',C:'✅ Correcto. Ley de Charles: V₁/T₁=V₂/T₂ → 3/300=V₂/400 → V₂=(3×400)/300 = <b>4 L</b>.',D:'Incorrecto. La Ley de Charles es relación directa: al aumentar T, aumenta V. No se usa la Ley de Boyle aquí.'}},
+  qgas4:{c:'B',fb:{A:'Incorrecto. La Ley de Boyle relaciona presión y volumen a temperatura constante, no presión y temperatura.',B:'✅ Correcto. La <b>Ley de Gay-Lussac</b> establece que a volumen constante, la presión es directamente proporcional a la temperatura absoluta: P/T = constante.',C:'Incorrecto. La Ley de Charles relaciona volumen y temperatura a presión constante.',D:'Incorrecto. Aunque el principio de Avogadro relaciona volumen y número de moles, no describe la relación P-T a volumen constante.'}},
+  qesto:{c:'C',fb:{A:'Incorrecto. Revisa los coeficientes: 2Al + 3Cl₂ → 2AlCl₃. La proporción Al:AlCl₃ es 1:1 (2:2), así que para 6,0 mol de AlCl₃ se necesitan 6,0 mol de Al.',B:'Incorrecto. La proporción molar Al:AlCl₃ es 1:1, no requiere un cálculo con otra razón.',C:'✅ Correcto. Los coeficientes 2Al : 2AlCl₃ dan una proporción <b>1:1</b>. Para producir 6,0 mol de AlCl₃ se necesitan <b>6,0 mol de Al</b>.',D:'Incorrecto. No hay que multiplicar por 1,5; la proporción Al:AlCl₃ es exactamente 1:1.'}},
+  qrlim2:{c:'A',fb:{A:'✅ Correcto. En el Exp. 1, 4g de H₂ reaccionan exactamente con 32g de O₂ sin que sobre nada → proporción <b>1:8</b> (4:32 simplificado).',B:'Incorrecto. Revisa el Exp. 1: 4g H₂ con 32g O₂, no 1:4.',C:'Incorrecto. Esta proporción está invertida respecto a los datos del experimento.',D:'Incorrecto. Esta proporción tampoco coincide con 4g H₂ : 32g O₂.'}},
+  qrlim:{c:'B',fb:{A:'Incorrecto. Tener menos moles no define por sí solo al reactivo limitante; depende de la proporción estequiométrica (1 Pb(NO₃)₂ : 2 KI).',B:'✅ Correcto. Se necesitan 2×0,0004=0,0008 mol de KI para reaccionar con todo el Pb(NO₃)₂, pero solo hay 0,0006 mol → el <b>KI se agota primero</b>, es el reactivo limitante.',C:'Incorrecto. El Pb(NO₃)₂ no está en exceso: sobra Pb(NO₃)₂ sin reaccionar porque el KI se acaba antes.',D:'Incorrecto. Como el KI se agota antes que el Pb(NO₃)₂, no ambos se consumen completamente.'}},
+  qno2:{c:'B',fb:{A:'Incorrecto. Revisa la proporción: se necesitan 4,0 mol de O₂ para reaccionar con 8,0 mol de SO₂ (proporción 2:1), pero solo hay 3,0 mol.',B:'✅ Correcto. El O₂ es el reactivo limitante: con 3,0 mol de O₂ (proporción 2SO₂:1O₂) se producen 2×3,0=<b>6,0 mol de SO₃</b>.',C:'Incorrecto. No alcanza a formarse esa cantidad porque el O₂ se agota antes que el SO₂.',D:'Incorrecto. Esa cifra supera la cantidad máxima posible según el reactivo limitante (O₂).'}},
+  qsol:{c:'D',fb:{A:'Incorrecto. El volumen de solución final es lo que se decide para cada experimento; varía entre 50 y 100 mL.',B:'Incorrecto. El volumen de vinagre comercial usado varía entre los experimentos (5,0 mL y 1,0 mL).',C:'Incorrecto. La concentración final es justamente lo que cambia (variable dependiente) al variar las diluciones.',D:'✅ Correcto. La <b>concentración del vinagre comercial</b> es un dato fijo, dado por el fabricante, que no cambia entre experimentos → es la <b>variable fija</b>.'}},
+  qmezcla:{c:'B',fb:{A:'Incorrecto. Revisa el cálculo: n(NaOH)=0,02×0,5+0,03×0,2=0,01+0,006=0,016 mol; V total=0,05 L; C=0,016/0,05=0,32 mol/L.',B:'✅ Correcto. n(NaOH)=(0,020 L×0,50)+(0,030 L×0,20)=0,010+0,006=0,016 mol. V total=0,020+0,030=0,050 L. C=0,016/0,050=<b>0,32 mol/L</b>.',C:'Incorrecto. Verifica los moles totales: 0,010+0,006=0,016 mol, no 0,015 mol.',D:'Incorrecto. Hay que dividir por el volumen total (0,050 L), no sumar directamente las concentraciones.'}},
+  qprec:{c:'B',fb:{A:'Incorrecto. 15 g corresponde a lo que queda disuelto a 15°C, no a lo que precipita.',B:'✅ Correcto. A 60°C se disuelven 45 g; al enfriar a 15°C solo se disuelven 15 g. Precipita: 45−15=<b>30 g</b>.',C:'Incorrecto. 45 g es la solubilidad a 60°C, no la masa que precipita.',D:'Incorrecto. 60°C es la temperatura inicial, no una masa.'}},
+  qsolv:{c:'D',fb:{A:'Incorrecto. 25 g corresponde solo al porcentaje (25%), no a una masa calculada.',B:'Incorrecto. 75 g no corresponde al cálculo: soluto=25%×400=100 g.',C:'Incorrecto. 100 g es la masa de <b>soluto</b> (25% de 400 g), no de solvente.',D:'✅ Correcto. Masa de soluto = 25% × 400 g = 100 g. Masa de solvente = 400 − 100 = <b>300 g</b>.'}}
+};
+
+// ── NAVIGATION ────────────────────────────────────────────────────
+const SECS=['p0','p1','p2','p3','p4','p5','p6','p7'];
+const LBLS=['Inicio','🔥 Cambios F/Q','⚗️ Átomo','🌿 Orgánica','💨 Gases','⚗️ Reacciones','💧 Soluciones','📋 Mini Ensayo'];
+let cur=0;
+let navLocked=false;
+
+function lockNav(){
+  navLocked=true;
+  document.querySelectorAll('.nb').forEach(b=>b.classList.add('locked'));
+  const prev=document.getElementById('lnav-prev'); if(prev)prev.disabled=true;
+  const next=document.getElementById('lnav-next'); if(next)next.disabled=true;
+  const lbl=document.getElementById('lnav-label'); if(lbl)lbl.textContent='🔒 Ensayo en curso';
+}
+
+function unlockNav(){
+  navLocked=false;
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('locked'));
+  updateLinNav();
+}
+
+function go(id,idx,btn){
+  if(navLocked&&id!=='p7')return;
+  SECS.forEach(s=>{const el=document.getElementById(s); if(el)el.classList.remove('act');});
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('act'));
+  const sec=document.getElementById(id);
+  if(sec)sec.classList.add('act');
+  if(btn)btn.classList.add('act');
+  cur=idx;
+  updateLinNav();
+  const prf=document.getElementById('prf');
+  if(prf)prf.style.width=Math.round(((idx+1)/SECS.length)*100)+'%';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function linNav(d){
+  if(navLocked)return;
+  const n=Math.max(0,Math.min(SECS.length-1,cur+d));
+  if(n===cur)return;
+  go(SECS[n],n,document.querySelectorAll('.nb')[n]);
+}
+
+function updateLinNav(){
+  const prev=document.getElementById('lnav-prev');
+  const next=document.getElementById('lnav-next');
+  const lbl=document.getElementById('lnav-label');
+  if(navLocked){
+    if(prev)prev.disabled=true;
+    if(next)next.disabled=true;
+    if(lbl)lbl.textContent='🔒 Ensayo en curso';
+    return;
+  }
+  if(prev)prev.disabled=(cur===0);
+  if(next)next.disabled=(cur===SECS.length-1);
+  if(lbl)lbl.textContent=LBLS[cur];
+}
+
+// ── QUESTION INTERACTIONS ─────────────────────────────────────────
+function ans(id,sel){
+  const q=QA[id]; if(!q)return;
+  const box=document.getElementById(id);
+  const fb=document.getElementById(id+'-fb');
+  if(!box||!fb)return;
+  if(box.dataset.done)return;
+  box.dataset.done='1';
+  box.querySelectorAll('.po').forEach(p=>{
+    const l=p.querySelector('.ol');
+    if(!l)return;
+    const v=l.textContent.trim();
+    if(v===q.c)p.classList.add('cor');
+    else if(v===sel)p.classList.add('inc');
+    p.style.pointerEvents='none';
+  });
+  fb.className='pfb show '+(sel===q.c?'ok':'no');
+  fb.innerHTML=(q.fb[sel]||'');
+}
+
+// ── FLIP CARDS ────────────────────────────────────────────────────
+function flipCard(el){el.classList.toggle('flipped');}
+
+// ── ATOM TABS ─────────────────────────────────────────────────────
+function atab(n,btn){
+  document.querySelectorAll('.atbtn').forEach(b=>b.classList.remove('act'));
+  document.querySelectorAll('.atp').forEach(p=>p.classList.remove('act'));
+  if(btn)btn.classList.add('act');
+  const p=document.getElementById('at-'+n);
+  if(p)p.classList.add('act');
+}
+
+// ── FUNCTIONAL GROUPS ─────────────────────────────────────────────
+const GRPDATA={
+  hid:{name:'Hidrocarburo (sin grupo funcional)',desc:'Formado solo por C e H, unidos por enlaces simples, dobles o triples. Es la cadena base sobre la que se agregan los grupos funcionales.',ej:'Ej: CH₄ (metano), C₂H₆ (etano)'},
+  alc:{name:'Alcohol —OH',desc:'Un grupo hidroxilo (−OH) unido a un carbono saturado. Son polares y pueden formar puentes de hidrógeno, por lo que tienen puntos de ebullición más altos que los hidrocarburos.',ej:'Ej: CH₃CH₂OH (etanol, el alcohol de bebidas)'},
+  ald:{name:'Aldehído —CHO',desc:'Un grupo carbonilo (C=O) ubicado en el carbono terminal de la cadena, unido también a un H. Se forma al oxidar parcialmente un alcohol primario.',ej:'Ej: HCHO (formaldehído), CH₃CHO (acetaldehído)'},
+  cet:{name:'Cetona —CO—',desc:'Un grupo carbonilo (C=O) ubicado dentro de la cadena (no en el extremo), unido a dos carbonos. Se forma al oxidar un alcohol secundario.',ej:'Ej: CH₃COCH₃ (acetona, quitaesmalte)'},
+  aci:{name:'Ácido carboxílico —COOH',desc:'Combina un carbonilo (C=O) y un hidroxilo (−OH) en el mismo carbono. Son ácidos débiles, responsables del sabor agrio de muchas sustancias naturales.',ej:'Ej: CH₃COOH (ácido acético, el del vinagre)'},
+  ete:{name:'Éter R—O—R',desc:'Tienen un oxígeno entre dos grupos orgánicos (R-O-R) sin H unido al oxígeno. El éter etílico fue el primer anestésico quirúrgico.',ej:'Ej: CH₃—O—CH₃ (dimetil éter)'},
+  est:{name:'Éster —COO—',desc:'Se forma por la reacción entre un ácido carboxílico y un alcohol, liberando agua (esterificación). Responsables de muchos aromas frutales.',ej:'Ej: CH₃COOCH₃ (acetato de metilo, olor a pera)'}
+};
+function showGrp(n,btn){
+  document.querySelectorAll('.grp-btn').forEach(b=>b.classList.remove('act'));
+  if(btn)btn.classList.add('act');
+  const d=GRPDATA[n]; if(!d)return;
+  const nameEl=document.getElementById('gi-name');
+  const descEl=document.getElementById('gi-desc');
+  const ejEl=document.getElementById('gi-ej');
+  if(nameEl)nameEl.textContent=d.name;
+  if(descEl)descEl.textContent=d.desc;
+  if(ejEl)ejEl.textContent=d.ej;
+}
+
+// ── GAS LAW SLIDER ────────────────────────────────────────────────
+function updGas(){
+  const sl=document.getElementById('tsl');
+  if(!sl)return;
+  const T=parseInt(sl.value);
+  const tv=document.getElementById('tv');
+  if(tv)tv.textContent=T;
+  const tc=document.getElementById('tc');
+  if(tc)tc.textContent=(T-273);
+  const V=T/300; // relative to V0=1 at T0=300K
+  const pct=Math.max(8,Math.min(100,Math.round(V*50)));
+  const fill=document.getElementById('gfill');
+  if(fill)fill.style.width=pct+'%';
+  const gvol=document.getElementById('gvol');
+  if(gvol)gvol.textContent='V = '+V.toFixed(2)+' V₀';
+}
+
+// ── STOICHIOMETRY CALCULATOR ──────────────────────────────────────
+function calcStoich(){
+  const coefA=parseFloat(document.getElementById('coefA').value);
+  const coefB=parseFloat(document.getElementById('coefB').value);
+  const molesA=parseFloat(document.getElementById('molesA').value);
+  const out=document.getElementById('molesB');
+  const res=document.getElementById('sres');
+  if(!res||!out)return;
+  if(isNaN(coefA)||isNaN(coefB)||coefA<=0||isNaN(molesA)||molesA<0){
+    out.value='';
+    res.textContent='Ingresa los moles de A para calcular los de B/C';
+    return;
+  }
+  const molesB=(molesA*coefB)/coefA;
+  out.value=molesB.toFixed(4);
+  res.innerHTML='Moles B/C = (Moles A × Coef. B) / Coef. A = ('+molesA+' × '+coefB+') / '+coefA+' = <b>'+molesB.toFixed(4)+' mol</b>';
+}
+
+// ── CONCENTRATION CALCULATOR ──────────────────────────────────────
+let concMode='C';
+function conc(mode,btn){
+  concMode=mode;
+  document.querySelectorAll('.cb').forEach(b=>b.classList.remove('act'));
+  if(btn)btn.classList.add('act');
+  ['cC','cn','cV'].forEach(id=>{
+    const inp=document.getElementById(id);
+    if(!inp)return;
+    const key=id.replace('c','');
+    inp.disabled=(key===mode);
+    if(key===mode)inp.value='';
+  });
+  calcConc();
+}
+function calcConc(){
+  const res=document.getElementById('cres');
+  if(!res)return;
+  const C=parseFloat(document.getElementById('cC').value);
+  const n=parseFloat(document.getElementById('cn').value);
+  const V=parseFloat(document.getElementById('cV').value);
+  if(concMode==='C'){
+    if(isNaN(n)||isNaN(V)||V<=0){res.textContent='Ingresa n y V para calcular C.';return;}
+    const r=n/V;
+    document.getElementById('cC').value=r.toFixed(4);
+    res.innerHTML='C = n / V = '+n+' / '+V+' = <b>'+r.toFixed(4)+' mol/L</b>';
+  }else if(concMode==='n'){
+    if(isNaN(C)||isNaN(V)){res.textContent='Ingresa C y V para calcular n.';return;}
+    const r=C*V;
+    document.getElementById('cn').value=r.toFixed(4);
+    res.innerHTML='n = C × V = '+C+' × '+V+' = <b>'+r.toFixed(4)+' mol</b>';
+  }else if(concMode==='V'){
+    if(isNaN(C)||isNaN(n)||C<=0){res.textContent='Ingresa C y n para calcular V.';return;}
+    const r=n/C;
+    document.getElementById('cV').value=r.toFixed(4);
+    res.innerHTML='V = n / C = '+n+' / '+C+' = <b>'+r.toFixed(4)+' L</b>';
+  }
+}
+
+
+// ── ENSAYO DATA ───────────────────────────────────────────────────
+const EQ = [
+  {tema:'Cambios F/Q',color:'#ea580c',ctx:null,
+   q:'Al analizar el proceso de obtención del yodo a partir de algas marinas, se observa que el yodo sólido obtenido pasa a estado gaseoso al calentarse suavemente. Este proceso es un cambio',
+   opts:{A:'químico, porque se absorbe energía.',B:'físico, porque no se alteran las propiedades químicas del yodo.',C:'químico, porque el yodo cambia de apariencia.',D:'físico, porque se libera energía al calentarse.'},c:'B',
+   fb:'La sublimación del yodo (sólido → gas) es un cambio <b>físico</b>: la sustancia sigue siendo I₂, sin formación de nuevas sustancias.'},
+  {tema:'Átomo',color:'#7c3aed',ctx:null,
+   q:'En el experimento de Geiger-Marsden dirigido por Rutherford, se bombardeó una lámina de oro con partículas alfa. La observación que llevó a proponer la existencia de un núcleo atómico fue que',
+   opts:{A:'la mayoría de las partículas alfa rebotaron hacia atrás.',B:'algunas partículas alfa se desviaron en ángulos grandes o rebotaron.',C:'todas las partículas alfa atravesaron la lámina sin desviarse.',D:'las partículas alfa generaron luz al chocar con la lámina.'},c:'B',
+   fb:'La pequeña fracción de partículas que se desvió fuertemente o rebotó indicó la existencia de un <b>núcleo</b> pequeño, denso y cargado positivamente.'},
+  {tema:'Átomo',color:'#7c3aed',ctx:null,
+   q:'El arsénico (As) tiene número atómico 33. Dos de sus isótopos son As-75 y As-72. ¿Cuál de las siguientes afirmaciones sobre estos isótopos es correcta?',
+   opts:{A:'X e Y tienen diferente número de neutrones.',B:'X e Y tienen diferente número de protones.',C:'X e Y tienen diferente número de electrones.',D:'X e Y tienen el mismo número de neutrones.'},c:'A',
+   fb:'Los isótopos tienen el <b>mismo número de protones</b> (Z=33) y <b>diferente número de neutrones</b>. As-75: 42n; As-72: 39n.'},
+  {tema:'Orgánica',color:'#059669',ctx:null,
+   q:'¿Cuál de los siguientes grupos funcionales caracteriza a un éter?',
+   opts:{A:'−OH',B:'>C=O',C:"R−O−R'",D:'−NH₂'},c:'C',
+   fb:"El éter tiene la estructura <b>R−O−R'</b>: un oxígeno unido a dos cadenas de carbono. No confundir con el alcohol (−OH)."},
+  {tema:'Gases',color:'#0891b2',ctx:null,
+   q:'Un estudiante diseña un experimento para estudiar la relación entre temperatura y volumen de un gas a presión constante (Ley de Charles). ¿Cuál es la variable dependiente?',
+   opts:{A:'La temperatura del gas.',B:'La presión del gas.',C:'El número de moles del gas.',D:'El volumen del gas.'},c:'D',
+   fb:'En la Ley de Charles, la temperatura es la V.I. (se varía) y el <b>volumen</b> es la variable dependiente (se mide).'},
+  {tema:'Reacciones',color:'var(--org)',ctx:null,
+   q:'En la reacción: N₂O₅ + H₂O → HNO₃ (sin balancear), ¿cuántos moles de N₂O₅ se necesitan para producir 4 moles de HNO₃?',
+   opts:{A:'1 mol',B:'2 mol',C:'3 mol',D:'4 mol'},c:'B',
+   fb:'Ecuación balanceada: 2N₂O₅ + H₂O → 4HNO₃. Se necesitan <b>2 mol de N₂O₅</b>.'},
+  {tema:'Reacciones',color:'var(--org)',ctx:null,
+   q:'En la reacción: 14X + 3Y → productos, si se dispone de 14 mol de X y 6 mol de Y, ¿cuál es la proporción estequiométrica requerida entre X e Y?',
+   opts:{A:'7:1',B:'7:3',C:'14:3',D:'3:14'},c:'C',
+   fb:'Los coeficientes estequiométricos dan la proporción molar: <b>14 mol X por cada 3 mol Y</b>.'},
+  {tema:'Reacciones',color:'var(--org)',ctx:null,
+   q:'En una reacción entre BaCl₂ y Na₃PO₄, si el BaCl₂ se agota antes de que el Na₃PO₄ se consuma completamente, entonces el BaCl₂ es el',
+   opts:{A:'reactivo en exceso.',B:'producto principal.',C:'catalizador.',D:'reactivo limitante.'},c:'D',
+   fb:'El <b>reactivo limitante</b> es aquel que se consume primero y determina la cantidad máxima de producto.'},
+  {tema:'Soluciones',color:'#0891b2',ctx:null,
+   q:'Un investigador prepara disoluciones de HCl partiendo de una solución comercial concentrada. ¿Cuál de las siguientes variables permanece constante en el experimento?',
+   opts:{A:'El volumen de disolución preparado.',B:'La masa de soluto añadida.',C:'La masa de disolución final.',D:'La concentración de la solución comercial.'},c:'D',
+   fb:'La concentración de la solución comercial es un dato dado por el fabricante → es la <b>variable fija</b>.'},
+  {tema:'Soluciones',color:'#0891b2',ctx:null,
+   q:'Se mezclan 30 mL de una solución de HCl 1 mol/L con 50 mL de agua. ¿Cuál es la concentración molar final de la mezcla?',
+   opts:{A:'1 mol/L',B:'0,5 mol/L',C:'0,375 mol/L',D:'0,25 mol/L'},c:'C',
+   fb:'n(HCl)=0,03 mol; V total=0,08 L. C=0,03/0,08=<b>0,375 mol/L</b>.'}
+];
+
+let ensayoStarted=false, ensayoFinished=false, timerInterval=null, timeLeft=480;
+let userAnswers={};
+
+function buildEnsayo(){
+  const cont=document.getElementById('ensayo-qs');
+  cont.innerHTML='';
+  EQ.forEach((q,i)=>{
+    const d=document.createElement('div');
+    d.className='eq';
+    const ctxH=q.ctx?'<div class="ectx">'+q.ctx+'</div>':'';
+    let optsH='';
+    ['A','B','C','D'].forEach(l=>{
+      optsH+='<div class="eopt" id="eo-'+i+'-'+l+'" data-qi="'+i+'" data-opt="'+l+'" onclick="selAns(this.dataset.qi,this.dataset.opt)">'+
+        '<div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="enum" style="color:'+q.color+'">Pregunta '+(i+1)+' / '+EQ.length+' · '+q.tema+'</div>'+
+      ctxH+'<div class="eqt">'+q.q+'</div>'+
+      '<div class="eopts" id="eopts-'+i+'">'+optsH+'</div>'+
+      '<div class="efb" id="efb-'+i+'"></div>';
+    cont.appendChild(d);
+  });
+}
+buildEnsayo();
+
+function selAns(i,opt){
+  i=parseInt(i);
+  if(!ensayoStarted||ensayoFinished)return;
+  const opts=document.getElementById('eopts-'+i);
+  if(opts.dataset.done)return;
+  userAnswers[i]=opt;
+  opts.querySelectorAll('.eopt').forEach(o=>o.classList.remove('sel'));
+  document.getElementById('eo-'+i+'-'+opt).classList.add('sel');
+}
+
+function startEnsayo(){
+  ensayoStarted=true;
+  lockNav();
+  document.getElementById('start-btn').style.display='none';
+  document.getElementById('timer-status').textContent='¡En marcha! Responde con calma. Navegación bloqueada hasta terminar.';
+  const qs=document.getElementById('ensayo-qs'); qs.style.display='block';
+  const sb=document.getElementById('submit-btn'); sb.style.display='block'; sb.disabled=false;
+  const tb=document.getElementById('tbox');
+  if(tb){tb.style.position='sticky';tb.style.top='4px';tb.style.zIndex='155';}
+  timerInterval=setInterval(()=>{
+    timeLeft--;
+    const m=Math.floor(timeLeft/60),s=timeLeft%60;
+    const disp=document.getElementById('timer-disp');
+    disp.textContent=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
+    if(timeLeft<=60)disp.className='td d';
+    else if(timeLeft<=120)disp.className='td w';
+    if(timeLeft<=0){clearInterval(timerInterval);submitEnsayo();}
+  },1000);
+}
+
+function submitEnsayo(){
+  if(ensayoFinished)return;
+  ensayoFinished=true;
+  unlockNav();
+  clearInterval(timerInterval);
+  document.getElementById('timer-status').textContent='Ensayo terminado';
+  document.getElementById('submit-btn').disabled=true;
+  let correct=0;
+  const topicMap={};
+  EQ.forEach((q,i)=>{
+    const opts=document.getElementById('eopts-'+i);
+    opts.dataset.done='1';
+    opts.querySelectorAll('.eopt').forEach(o=>o.classList.add('locked'));
+    const ua=userAnswers[i];
+    document.getElementById('eo-'+i+'-'+q.c).classList.add('right');
+    if(ua&&ua!==q.c)document.getElementById('eo-'+i+'-'+ua).classList.add('wrong');
+    const isOk=(ua===q.c);
+    const fb=document.getElementById('efb-'+i);
+    fb.className='efb show '+(isOk?'ok':'no');
+    fb.innerHTML=(ua?(isOk?'✅ Correcto. ':'❌ Incorrecto. La respuesta correcta es '+q.c+'. '):'⚠️ Sin respuesta. La correcta es '+q.c+'. ')+q.fb;
+    if(isOk)correct++;
+    if(!topicMap[q.tema])topicMap[q.tema]={c:0,t:0,color:q.color};
+    topicMap[q.tema].t++;
+    if(isOk)topicMap[q.tema].c++;
+  });
+  const pct=Math.round(correct/EQ.length*100);
+  const mainColor=pct>=70?'var(--org)':pct>=50?'#d97706':'#dc2626';
+  let topicHtml='<p style="font-family:\'Fredoka One\',cursive;font-size:1rem;color:var(--org);margin-bottom:8px">Resultado por tema:</p><div class="res-topic-grid">';
+  Object.keys(topicMap).forEach(t=>{
+    const r=topicMap[t];
+    const tpct=Math.round(r.c/r.t*100);
+    const scoreColor=tpct>=70?'var(--org)':tpct>=50?'#d97706':'#dc2626';
+    topicHtml+='<div class="res-topic-card '+(tpct<50?'bad':tpct<70?'mid':'')+'">'+
+      '<div class="res-topic-name">'+t+'</div>'+
+      '<div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+  });
+  topicHtml+='</div>';
+  const msg=pct>=70?'🎉 ¡Buen resultado! Revisa los temas donde fallaste.':pct>=50?'💪 Resultado aceptable. Refuerza los temas marcados antes de continuar.':'📚 Necesitas repasar más. Vuelve a las secciones con resultado bajo.';
+  const res=document.getElementById('ensayo-results');
+  res.style.display='block';
+  res.innerHTML='<div class="res-banner" style="color:'+mainColor+'">'+
+    (pct>=70?'🏆':pct>=50?'💪':'📚')+' '+correct+' / '+EQ.length+' correctas</div>'+
+    '<div style="font-size:1rem;color:var(--dim);margin-bottom:16px">'+pct+'%</div>'+
+    topicHtml+
+    '<div style="background:var(--card2);border:1px solid var(--bord);border-radius:14px;padding:18px;margin-top:16px">'+
+    '<p style="font-family:\'Fredoka One\',cursive;font-size:1rem;color:var(--org);margin-bottom:8px">'+msg+'</p>'+
+    '<p style="font-size:.88rem;color:var(--dim)">Los temas con menos del 70% están marcados. Puedes volver a cualquier sección desde el menú de navegación.</p></div>';
+  res.scrollIntoView({behavior:'smooth'});
+}
+
+// ── INIT ──────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded',()=>{
+  updateLinNav();
+  updGas();
+});
+</script>
+
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
+// -------------------------------------------------------------------
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico de la Unidad 3 (Química Básica) del módulo PAES Ciencias · Plan Común, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media, muchos sin conocimiento previo del tema. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre los 6 temas de esta unidad, detallados abajo. NO respondes sobre otras materias PAES (Lenguaje, Matemática, Historia), ni sobre Biología, Física, u otras unidades de Química que el estudiante aún no ha visto.",
+"",
+"CONTENIDO DE LA UNIDAD (6 temas):",
+"1. Cambios Físicos y Químicos: diferencia entre cambio físico (no forma nuevas sustancias: cambios de estado, disolución, trituración) y cambio químico (forma nuevas sustancias: combustión, oxidación, fermentación), evidencias de cambio químico.",
+"2. El Átomo: modelo atómico (Rutherford, Bohr), partículas subatómicas (protón, neutrón, electrón), número atómico (Z) y número másico (A), isótopos, enlace iónico vs covalente, hibridación del carbono (sp, sp², sp³).",
+"3. Química Orgánica: hidrocarburos (alcanos, alquenos, alquinos), grupos funcionales (alcohol, éter, cetona, aldehído, ácido carboxílico, éster, amina, amida), tipos de carbono (primario, secundario, terciario, cuaternario), puntos de ebullición.",
+"4. Gases: leyes de los gases ideales (Boyle: P·V=cte; Charles: V/T=cte; Gay-Lussac: P/T=cte), variables independiente/dependiente/controlada en experimentos, temperatura en Kelvin.",
+"5. Reacciones Químicas: ecuaciones balanceadas, estequiometría (relación molar entre reactivos y productos), reactivo limitante y en exceso, conservación de la masa.",
+"6. Soluciones: soluto, solvente, concentración molar (C=n/V), mezcla de soluciones de distinta concentración, curvas de solubilidad, concentración porcentual (%m/m).",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos del módulo tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre alguno de los 6 temas, con contexto de química. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta general sobre qué parte del enunciado o contexto se relaciona con esto, 2) acota a un dato o sección específica, 3) señala qué concepto químico aplica y por qué, 4) contrasta la alternativa elegida por el estudiante con la probablemente correcta, preguntando qué diferencia hay. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otra materia, otra unidad no vista, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para resolver dudas de Química Básica de esta unidad.'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function anyCierreActive(){
+  return ensayoStarted && !ensayoFinished;
+}
+
+function checkTutorBlock(){
+  var blocked = anyCierreActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false;
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Ciencias Química\n" +
+    "Módulo/Unidad: Ciencias · Química · Unidad 3 · Química Básica\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy) return;
+  if(anyCierreActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+})();
+</script>
+</body>
+</html>
