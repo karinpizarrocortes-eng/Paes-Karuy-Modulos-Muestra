@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Electivo Qu&iacute;mica &bull; PAES Ciencias &bull; Admisi&oacute;n 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff8f2;--card:#fff;--card2:#fff4ec;--bord:#fddcbf;--bord2:#f9c49a;
+  --text:#1a0a00;--dim:#7c4f2a;--dim2:#c4956a;
+  --org:#ea580c;--org2:#f97316;--org3:#fb923c;--orgl:rgba(234,88,12,.1);
+  --rad:18px;--sh:0 2px 14px rgba(180,80,0,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(380px 320px at 8% 12%,rgba(249,115,22,.08),transparent),
+             radial-gradient(300px 280px at 92% 85%,rgba(234,88,12,.06),transparent)}
+.wr{max-width:960px;margin:0 auto;padding:18px 16px 40px;position:relative;z-index:1}
+/* PROGRESS */
+.pr{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(180,80,0,.1);z-index:200}
+.prf{height:100%;background:linear-gradient(90deg,var(--org),var(--org2),var(--org3));transition:width .4s}
+/* HERO */
+.hero{text-align:center;padding:50px 16px 18px}
+.hi{font-size:70px;display:block;animation:fl 3s ease-in-out infinite;margin-bottom:10px}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(2rem,7vw,3.5rem);
+  background:linear-gradient(130deg,var(--org),#818cf8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:7px}
+.hero-s{color:var(--dim);font-size:.88rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--orgl);
+  border:1.5px solid rgba(234,88,12,.3);color:var(--org);padding:5px 15px;border-radius:999px;
+  font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-top:9px}
+/* NAV */
+.nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:16px 0 2px;
+  position:sticky;top:4px;z-index:90;background:rgba(255,248,242,.88);
+  backdrop-filter:blur(10px);padding:9px;border-radius:var(--rad);border:1px solid var(--bord)}
+.nb{background:transparent;border:1.5px solid var(--bord);color:var(--dim);
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.77rem;padding:6px 12px;
+  border-radius:50px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nb:hover,.nb.act{background:var(--org);border-color:var(--org);color:#fff}
+/* SECTIONS */
+.sec{display:none;animation:up .3s ease}
+.sec.act{display:block}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--bord);border-radius:var(--rad);
+  padding:22px;margin-bottom:14px;box-shadow:var(--sh)}
+.ct{font-family:'Fredoka One',cursive;font-size:1.28rem;margin-bottom:11px;
+  display:flex;align-items:center;gap:8px;color:var(--text)}
+.card p,.card li{font-size:.94rem;line-height:1.75;color:var(--dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:18px}
+.card li{margin-bottom:5px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.g2{grid-template-columns:1fr}}
+.hsec{background:var(--card);border:1.5px solid var(--bord);border-radius:var(--rad);
+  padding:26px;margin-bottom:14px;box-shadow:var(--sh)}
+.hsec .hi2{font-size:54px;display:block;margin-bottom:9px}
+.hsec h2{font-family:'Fredoka One',cursive;font-size:clamp(1.55rem,5vw,2.3rem);line-height:1.1;margin-bottom:5px}
+.hsec p{font-size:.94rem;line-height:1.7;color:var(--dim);max-width:560px}
+.tip{border-left:4px solid var(--org);background:var(--orgl);border-radius:0 12px 12px 0;padding:12px 15px;margin-bottom:11px}
+.tip-l{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--org);margin-bottom:3px}
+.tip p{font-size:.87rem;color:var(--dim);line-height:1.6}
+.kws{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.kw{border-radius:8px;padding:4px 11px;font-size:.79rem;font-weight:800;
+  border:1px solid var(--bord);background:var(--card2);color:var(--dim)}
+.fbox{background:var(--card2);border:1px solid var(--bord2);border-radius:11px;
+  padding:13px;text-align:center;margin-bottom:9px}
+.fsym{font-family:'Fredoka One',cursive;font-size:1.35rem;display:block}
+.fdef{font-size:.79rem;color:var(--dim);margin-top:3px}
+/* WAVE */
+#wcanvas{width:100%;border-radius:11px;background:#061c2e;display:block;border:1px solid var(--bord)}
+.sls{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0}
+.slg{display:flex;flex-direction:column;gap:3px;min-width:190px;flex:1}
+.slg label{font-size:.78rem;font-weight:800;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.sv{font-family:'Fredoka One',cursive;font-size:.98rem;color:var(--org)}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;
+  background:rgba(234,88,12,.18);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
+  border-radius:50%;background:var(--org);cursor:pointer;border:2px solid #fff;
+  box-shadow:0 2px 6px rgba(234,88,12,.4)}
+.wpg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:9px;margin-top:11px}
+.wp{background:var(--card2);border:1px solid var(--bord);border-radius:10px;padding:11px;text-align:center}
+.wp .ws{font-family:'Fredoka One',cursive;font-size:1.45rem;display:block}
+.wp .wn{font-size:.76rem;color:var(--dim);font-weight:700;margin-top:2px}
+/* SPECTRUM */
+.sbar{display:flex;border-radius:11px;overflow:hidden;height:52px;cursor:pointer;margin:12px 0;border:1px solid var(--bord)}
+.sb{flex:1;display:flex;align-items:center;justify-content:center;font-size:.59rem;
+  font-weight:900;color:rgba(255,255,255,.85);text-align:center;line-height:1.3;
+  padding:2px;transition:transform .18s,filter .18s;letter-spacing:.03em}
+.sb:hover{transform:scaleY(1.1);filter:brightness(1.12)}
+.sb.act{transform:scaleY(1.18);outline:2.5px solid rgba(0,0,0,.2)}
+.sinfo{background:var(--card2);border:1px solid var(--bord2);border-radius:12px;
+  padding:15px;min-height:90px;transition:all .2s}
+.sinfo h4{font-family:'Fredoka One',cursive;font-size:1.02rem;margin-bottom:5px}
+.sinfo p{font-size:.85rem;color:var(--dim);line-height:1.65}
+/* TABS */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+.tbtn{padding:7px 15px;border-radius:50px;border:1.5px solid var(--bord2);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:.81rem;cursor:pointer;transition:all .18s}
+.tbtn.act,.tbtn:hover{background:var(--org);border-color:var(--org);color:#fff}
+.tp{display:none}
+.tp.act{display:block;animation:up .22s ease}
+.svgw{background:var(--card2);border:1px solid var(--bord);border-radius:11px;padding:16px;
+  display:flex;justify-content:center;align-items:center;min-height:172px;margin-bottom:10px}
+/* MOTION */
+.trk{background:#061c2e;border-radius:11px;padding:0 10px;margin-bottom:10px;
+  position:relative;height:68px;overflow:hidden;border:1px solid var(--bord)}
+.trk-lbl{position:absolute;top:7px;left:10px;font-size:.66rem;font-weight:900;
+  color:rgba(255,255,255,.45);letter-spacing:.07em;text-transform:uppercase}
+.ball{width:24px;height:24px;border-radius:50%;position:absolute;top:50%;
+  transform:translateY(-50%);left:4px}
+.bmru{background:var(--org3);animation:mru 4s linear infinite;box-shadow:0 0 8px rgba(249,115,22,.6)}
+.bmrua{background:#fb923c;animation:mrua 4s ease-in infinite;box-shadow:0 0 8px rgba(251,146,60,.5)}
+@keyframes mru{0%{left:4px}100%{left:calc(100% - 28px)}}
+@keyframes mrua{0%{left:4px}100%{left:calc(100% - 28px)}}
+/* OHM */
+.ohmc{background:var(--card2);border:1.5px solid rgba(217,119,6,.22);border-radius:var(--rad);padding:18px}
+.orow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:500px){.orow{grid-template-columns:1fr}}
+.of label{font-size:.74rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);display:block;margin-bottom:4px}
+.of input{width:100%;background:var(--card);border:1.5px solid var(--bord2);border-radius:9px;
+  color:var(--text);font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
+  padding:8px 11px;outline:none;transition:border .18s}
+.of input:focus{border-color:var(--org)}
+.of input.calc{color:#d97706;border-color:rgba(217,119,6,.4);background:rgba(255,243,210,.4)}
+.of .un{font-size:.73rem;color:var(--dim);margin-top:2px}
+.ores{font-family:'Fredoka One',cursive;font-size:1.25rem;text-align:center;color:#d97706;
+  padding:13px;background:rgba(255,243,210,.6);border-radius:10px;border:1px solid rgba(217,119,6,.18)}
+.obr{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ob{padding:7px 15px;border-radius:50px;border:1.5px solid rgba(217,119,6,.25);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;font-size:.81rem;cursor:pointer;transition:all .18s}
+.ob.act,.ob:hover{background:#d97706;border-color:#d97706;color:#fff}
+/* PLATES */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:540px){.pgrid{grid-template-columns:1fr}}
+.pc{background:var(--card);border:1.5px solid var(--bord);border-radius:12px;padding:15px;
+  transition:all .2s;box-shadow:var(--sh)}
+.pc:hover{border-color:#dc2626;transform:translateY(-2px)}
+.pc h4{font-family:'Fredoka One',cursive;font-size:.98rem;color:#dc2626;margin-bottom:5px}
+.pc p{font-size:.83rem;color:var(--dim);line-height:1.6}
+.panim{width:100%;height:52px;margin:9px 0;position:relative;border-radius:8px;
+  background:#0f1f2e;overflow:hidden;border:1px solid rgba(220,38,38,.2)}
+.pb{position:absolute;height:100%;width:46%;
+  display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:900;
+  letter-spacing:.04em;border-radius:4px}
+.pl{left:2%;background:linear-gradient(135deg,rgba(220,38,38,.35),rgba(220,38,38,.15));
+  border:1.5px solid rgba(220,38,38,.6);color:#fca5a5}
+.pr{right:2%;background:linear-gradient(135deg,rgba(234,88,12,.35),rgba(234,88,12,.15));
+  border:1.5px solid rgba(234,88,12,.6);color:#fdba74}
+.pa-arrow{position:absolute;top:50%;transform:translateY(-50%);
+  font-size:1rem;font-weight:900;line-height:1;pointer-events:none}
+.da .pl{animation:da-l 2.5s ease-in-out infinite}
+.da .pr{animation:da-r 2.5s ease-in-out infinite}
+.ca .pl{animation:ca-l 2.5s ease-in-out infinite}
+.ca .pr{animation:ca-r 2.5s ease-in-out infinite}
+.ta .pl{animation:ta-l 2.5s ease-in-out infinite}
+.ta .pr{animation:ta-r 2.5s ease-in-out infinite}
+@keyframes da-l{0%,100%{left:2%}50%{left:-8%}}
+@keyframes da-r{0%,100%{right:2%}50%{right:-8%}}
+@keyframes ca-l{0%,100%{left:2%}50%{left:12%}}
+@keyframes ca-r{0%,100%{right:2%}50%{right:12%}}
+@keyframes ta-l{0%,100%{top:0;left:2%}50%{top:12px;left:2%}}
+@keyframes ta-r{0%,100%{top:0;right:2%}50%{top:-12px;right:2%}}
+/* PAES Q */
+.pbox{background:var(--card2);border:1px solid var(--bord2);border-radius:var(--rad);padding:20px;margin-top:7px}
+.ptag{font-size:.67rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.pctx{background:rgba(180,80,0,.05);border-radius:9px;padding:11px 13px;font-size:.86rem;color:var(--dim);line-height:1.65;margin-bottom:11px}
+.pctx table{width:100%;border-collapse:collapse;margin-top:7px}
+.pctx th,.pctx td{padding:5px 8px;font-size:.8rem;border-bottom:1px solid var(--bord);text-align:left}
+.pq{font-size:.92rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pos{display:flex;flex-direction:column;gap:7px}
+.po{display:flex;align-items:flex-start;gap:8px;padding:9px 12px;border-radius:9px;
+  cursor:pointer;border:1.5px solid var(--bord);background:var(--card);transition:all .16s;box-shadow:var(--sh)}
+.po:hover{border-color:var(--org);background:var(--orgl)}
+.po.locked{cursor:default;pointer-events:none}
+.po.right{background:rgba(234,88,12,.1);border-color:var(--org)}
+.po.wrong{background:rgba(220,38,38,.06);border-color:#dc2626}
+.ol{min-width:24px;height:24px;border-radius:50%;border:1.5px solid var(--bord2);
+  display:flex;align-items:center;justify-content:center;font-size:.73rem;font-weight:900;
+  color:var(--org);flex-shrink:0}
+.po.right .ol{background:var(--org);color:#fff;border-color:var(--org)}
+.po.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.ot{font-size:.86rem;color:var(--dim);line-height:1.5}
+.pfb{margin-top:9px;padding:9px 13px;border-radius:9px;font-size:.84rem;line-height:1.55;display:none}
+.pfb.show{display:block}
+.pfb.ok{background:rgba(234,88,12,.08);color:var(--org);border-left:3px solid var(--org)}
+.pfb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+/* ENSAYO */
+.tbox{background:var(--card);border:2px solid rgba(234,88,12,.28);border-radius:13px;
+  padding:13px 18px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;flex-wrap:wrap;gap:8px;box-shadow:0 4px 18px rgba(180,80,0,.18);
+  position:sticky;top:8px;z-index:150;backdrop-filter:blur(6px);background:rgba(255,255,255,.96)}
+.td{font-family:'Fredoka One',cursive;font-size:2.3rem;color:var(--org);letter-spacing:.04em}
+.td.w{color:#d97706}.td.d{color:#dc2626;animation:bk .8s ease-in-out infinite}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.35}}
+.eq{background:var(--card);border:1px solid var(--bord);border-radius:11px;padding:16px;margin-bottom:10px;box-shadow:var(--sh)}
+.enum{font-size:.69rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.ectx{background:rgba(180,80,0,.05);border-radius:8px;padding:9px 12px;font-size:.85rem;color:var(--dim);line-height:1.6;margin-bottom:9px}
+.eqt{font-size:.89rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:10px}
+.eopts{display:flex;flex-direction:column;gap:6px}
+.eopt{display:flex;align-items:flex-start;gap:8px;padding:8px 11px;border-radius:8px;cursor:pointer;
+  border:1.5px solid var(--bord);background:var(--card);transition:all .16s}
+.eopt:hover:not(.locked){border-color:var(--org);background:var(--orgl)}
+.eopt.sel{background:var(--orgl);border-color:var(--org)}
+.eopt.locked{cursor:default;pointer-events:none}
+.eopt.right{background:rgba(234,88,12,.1);border-color:var(--org)}
+.eopt.wrong{background:rgba(220,38,38,.05);border-color:#dc2626}
+.eopt .ol{color:var(--org)}
+.eopt.sel .ol{background:var(--org);color:#fff;border-color:var(--org)}
+.eopt.right .ol{background:var(--org);color:#fff;border-color:var(--org)}
+.eopt.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.efb{margin-top:6px;padding:8px 12px;border-radius:8px;font-size:.82rem;line-height:1.55;display:none}
+.efb.show{display:block}
+.efb.ok{background:rgba(234,88,12,.08);color:var(--org);border-left:3px solid var(--org)}
+.efb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+.sbtn{width:100%;padding:13px;background:var(--org);color:#fff;border:none;border-radius:11px;
+  font-family:'Fredoka One',cursive;font-size:1.05rem;cursor:pointer;margin-top:9px;
+  transition:background .18s;box-shadow:0 4px 12px rgba(234,88,12,.28)}
+.sbtn:hover{background:var(--org2)}.sbtn:disabled{opacity:.32;cursor:default}
+/* BOTTOM NAV */
+.lnav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,248,242,.92);
+  backdrop-filter:blur(10px);border-top:1px solid var(--bord);padding:9px 18px;
+  display:flex;align-items:center;justify-content:space-between;z-index:180;gap:9px}
+.lb{font-family:'Fredoka One',cursive;font-size:.92rem;padding:7px 18px;border-radius:50px;
+  border:1.5px solid rgba(234,88,12,.38);background:transparent;color:var(--org);
+  cursor:pointer;transition:all .18s;white-space:nowrap}
+.lb:hover{background:var(--org);color:#fff;border-color:var(--org)}
+.lb:disabled{opacity:.22;cursor:default}
+.lm{font-size:.77rem;font-weight:800;color:var(--dim);text-align:center;flex:1}
+.ab{position:fixed;bottom:62px;right:14px;width:42px;height:42px;border-radius:50%;
+  background:var(--card);border:1.5px solid rgba(234,88,12,.32);color:var(--org);
+  font-size:1.05rem;cursor:pointer;z-index:190;display:flex;align-items:center;justify-content:center;
+  transition:all .18s;box-shadow:var(--sh)}
+.ab:hover{background:var(--org);color:#fff;border-color:var(--org)}
+.ab.on{background:var(--org);color:#fff;border-color:var(--org);animation:pa 1.2s ease-in-out infinite}
+@keyframes pa{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,.4)}50%{box-shadow:0 0 0 8px rgba(234,88,12,0)}}
+footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--org),var(--org2));border:none;color:#fff;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(234,88,12,.4);z-index:250;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid var(--bg);display:none}
+.tutor-fab.blocked .dot{background:#6b7280;display:block}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid var(--bord);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(120,50,0,.18);z-index:260;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--org),var(--org2));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:'Fredoka One',cursive;font-size:1rem;color:#fff}
+.tutor-head p{font-size:.7rem;color:rgba(255,255,255,.85);margin-top:1px}
+.tutor-close{background:rgba(255,255,255,.18);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1;flex-shrink:0}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid var(--bord);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid var(--bord2);color:var(--dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--org);color:var(--org)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--org);color:#fff;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid var(--bord);border-bottom-left-radius:4px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--dim2);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--org)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--dim2);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--bord);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid var(--bord2);border-radius:12px;color:var(--text);padding:9px 12px;font-family:'Nunito',sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--org)}
+.tutor-send{background:var(--org);border:none;color:#fff;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+.tutor-blocked-msg{padding:24px 18px;text-align:center;color:var(--dim);font-size:.88rem;line-height:1.7}
+@media(max-width:680px){.tutor-input{font-size:16px}}
+/* DECK / SLIDES */
+.deck{margin-bottom:16px}
+.deck-viewport{overflow:hidden;border-radius:var(--rad)}
+.deck-track{display:flex;transition:transform .38s cubic-bezier(.4,0,.2,1)}
+.deck-slide{flex:0 0 100%;min-width:100%;box-sizing:border-box}
+.deck-slide .card{margin-bottom:0;height:100%}
+.deck-diag{background:var(--card2);border:1px solid var(--bord);border-radius:12px;
+  padding:10px;margin-bottom:14px;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.deck-diag svg{width:100%;height:auto;max-height:190px}
+.deck-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px}
+.deck-arrow{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--bord2);
+  background:var(--card);color:var(--org);font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0;box-shadow:var(--sh)}
+.deck-arrow:hover{background:var(--org);color:#fff;border-color:var(--org)}
+.deck-arrow:disabled{opacity:.25;cursor:default;background:var(--card);color:var(--org)}
+.deck-dots{display:flex;gap:7px;align-items:center}
+.deck-dot{width:8px;height:8px;border-radius:50%;background:var(--bord2);border:none;cursor:pointer;padding:0;transition:all .2s}
+.deck-dot.act{width:22px;border-radius:5px;background:var(--org)}
+.deck-count{font-size:.74rem;font-weight:800;color:var(--dim);text-align:center;margin-top:5px}
+.deck-hint{font-size:.72rem;color:var(--dim2);text-align:center;margin-bottom:8px;display:flex;
+  align-items:center;justify-content:center;gap:5px}
+@media(max-width:640px){.deck-diag svg{max-height:150px}}
+/* RESULTADOS POR TEMA */
+.res-banner{font-family:'Fredoka One',cursive;font-size:2.5rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0}
+.res-topic-card{background:var(--card2);border-radius:12px;padding:13px 16px;border:1px solid var(--bord);border-left:3px solid var(--org)}
+.res-topic-card.bad{border-left-color:#dc2626}
+.res-topic-card.mid{border-left-color:#d97706}
+.res-topic-name{font-size:.79rem;font-weight:900;color:var(--dim);margin-bottom:4px}
+.res-topic-score{font-family:'Fredoka One',cursive;font-size:1.3rem}
+.res-review{background:var(--card2);border:1px solid var(--bord2);border-radius:14px;padding:16px;margin-top:14px}
+.res-review-item{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:9px 0;border-bottom:1px solid var(--bord)}
+.res-review-item:last-child{border-bottom:none}
+.res-review-btn{font-family:'Nunito',sans-serif;font-weight:800;font-size:.78rem;padding:6px 14px;
+  border-radius:50px;border:1.5px solid var(--org);background:transparent;color:var(--org);cursor:pointer;white-space:nowrap;transition:all .18s}
+.res-review-btn:hover{background:var(--org);color:#fff}
+.weight-table{width:100%;border-collapse:collapse}
+.weight-table th,.weight-table td{border:1px solid var(--bord);padding:8px 10px;font-size:.84rem;text-align:left;color:var(--dim);vertical-align:top}
+.weight-table th{background:var(--card2);color:var(--text);font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+.weight-table tr:nth-child(even) td{background:var(--card2)}
+</style>
+</head>
+<body>
+<div class="pr"><div class="prf" id="prf" style="width:14.3%"></div></div>
+<div class="wr">
+
+<div class="hero">
+  <span class="hi">&#129514;</span>
+  <h1>Electivo Qu&iacute;mica</h1>
+  <div class="hero-s">PAES Ciencias &bull; M&oacute;dulo Electivo &bull; Admisi&oacute;n 2027</div>
+  <div class="badge">&#127919; 26 preguntas en la PAES</div>
+</div>
+
+<div class="nav">
+  <button class="nb act" onclick="go('p0',0,this)">&#127968; Inicio</button>
+  <button class="nb" onclick="go('pd',1,this)">&#129658; Diagn&oacute;stico</button>
+  <button class="nb" onclick="go('p1',2,this)">&#9883;&#65039; U1 At&oacute;mica</button>
+  <button class="nb" onclick="go('p2',3,this)">&#129431; U2 Org&aacute;nica</button>
+  <button class="nb" onclick="go('p3',4,this)">&#9878;&#65039; U3 Reacciones</button>
+  <button class="nb" onclick="go('p4',5,this)">&#9201; Ensayo</button>
+</div>
+
+<div class="sec act" id="p0">
+<div class="card" style="text-align:center;padding:28px 20px">
+  <p class="ct" style="justify-content:center;color:var(--org);font-size:1.5rem">🧪 Electivo · Química</p>
+  <p style="font-size:.97rem;max-width:560px;margin:0 auto 18px;color:var(--dim);line-height:1.8">Cubre las <strong>26 preguntas del Módulo Electivo de Química</strong>, que se suman a las 18 de Química del Módulo Común. Mismos ejes de Química Básica, llevados a mayor profundidad: modelos atómicos con detalle, química orgánica completa (hibridación, grupos funcionales, nomenclatura) y estequiometría con cálculo real — sin dar nada por sabido.</p>
+  <div class="badge">🎯 26 preguntas · 3 unidades · Admisión 2027</div>
+</div>
+<div class="card">
+  <p class="ct" style="color:var(--org)">📊 Peso estimado de cada unidad</p>
+  <table style="width:100%;border-collapse:collapse;margin-top:8px">
+    <tr><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--org)">Unidad</th><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--org)">Frecuencia</th></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">⚛️ U1 · Estructura Atómica</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord);color:#0369a1;font-weight:800">Alta · ~8 preguntas</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">🧬 U2 · Química Orgánica</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord);color:#15803d;font-weight:800">Alta · ~8 preguntas</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem">⚖️ U3 · Reacciones y Estequiometría</td><td style="padding:7px 10px;font-size:.87rem;color:var(--org);font-weight:800">Muy alta · ~10 preguntas</td></tr>
+  </table>
+</div>
+<div class="g2">
+  <div class="card" style="border-left:4px solid var(--org)">
+    <p class="ct" style="color:var(--org)">📌 Contexto PAES</p>
+    <ul><li>La Unidad 3 (Reacciones y Estequiometría) es la más numérica de las tres: balanceo, mol, reactivo limitante, concentraciones y diluciones con cálculo</li>
+    <li>La Unidad 2 (Orgánica) exige reconocer estructuras y fórmulas más que memorizar: hay que "leer" moléculas</li>
+    <li>Fórmulas clave: n=m/M, %m/v, C₁V₁=C₂V₂ — todas se explican paso a paso, con ejemplos resueltos</li></ul>
+  </div>
+  <div class="card" style="border-left:4px solid #0369a1">
+    <p class="ct" style="color:#0369a1">💡 Esta unidad tiene</p>
+    <ul><li>Carrusel de los 4 modelos atómicos con evidencia experimental</li>
+    <li>Diagrama de hibridación e isomería del carbono</li>
+    <li>Mapa de grupos funcionales orgánicos con ejemplos</li>
+    <li>Calculadora de estequiometría y diluciones paso a paso</li>
+    <li>Ensayo de cierre cronometrado con 26 preguntas 🤖 generadas por IA siguiendo el formato y dificultad del electivo</li></ul>
+  </div>
+</div>
+</div>
+
+<!-- DIAGNÓSTICO -->
+<div class="sec" id="pd">
+<div class="hsec" style="border-color:rgba(217,119,6,.3)">
+  <span class="hi2">🩺</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#d97706;margin-bottom:3px">Antes de empezar</div>
+  <h2 style="color:#d97706">Mini Diagnóstico</h2>
+  <p>6 preguntas rápidas, dos por unidad. No es cronometrado ni se guarda como nota: solo para saber por dónde partir.</p>
+</div>
+<div id="diag-qs"></div>
+<div class="card" id="diag-result" style="display:none;text-align:center">
+  <p class="ct" style="justify-content:center;color:#d97706">📋 Tu diagnóstico</p>
+  <div id="diag-result-body"></div>
+</div>
+</div>
+
+<!-- ESTRUCTURA ATOMICA -->
+<div class="sec" id="p1">
+<div class="hsec" style="border-color:rgba(3,105,161,.3)">
+  <span class="hi2">⚛️</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#0369a1;margin-bottom:3px">Unidad 1 de 3 · Alta frecuencia</div>
+  <h2 style="color:#0369a1">Estructura Atómica</h2>
+  <p>Cómo se clasifica y separa la materia, qué propiedades físicas la describen, y cómo fue evolucionando el modelo del átomo hasta llegar a protones, neutrones y electrones. Partimos de cero: qué es una mezcla, qué es un elemento, y por qué el átomo no es una bolita sólida.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p1">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 190" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="15" width="520" height="35" rx="8" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.5"/>
+<text x="280" y="38" font-size="15" font-weight="900" fill="#0369a1" text-anchor="middle">MATERIA</text>
+<line x1="150" y1="50" x2="80" y2="75" stroke="#0369a1" stroke-width="1.5"/>
+<line x1="410" y1="50" x2="480" y2="75" stroke="#0369a1" stroke-width="1.5"/>
+<rect x="20" y="75" width="150" height="32" rx="7" fill="#bae6fd" stroke="#0369a1" stroke-width="1.3"/>
+<text x="95" y="96" font-size="12.5" font-weight="800" fill="#0c4a6e" text-anchor="middle">Sustancia pura</text>
+<rect x="390" y="75" width="150" height="32" rx="7" fill="#fed7aa" stroke="#ea580c" stroke-width="1.3"/>
+<text x="465" y="96" font-size="12.5" font-weight="800" fill="#9a3412" text-anchor="middle">Mezcla</text>
+<line x1="55" y1="107" x2="20" y2="132" stroke="#0369a1" stroke-width="1.3"/>
+<line x1="135" y1="107" x2="170" y2="132" stroke="#0369a1" stroke-width="1.3"/>
+<rect x="5" y="132" width="105" height="30" rx="6" fill="#e0f2fe" stroke="#0369a1" stroke-width="1"/>
+<text x="57" y="151" font-size="11" font-weight="700" fill="#0c4a6e" text-anchor="middle">Elemento</text>
+<rect x="130" y="132" width="105" height="30" rx="6" fill="#e0f2fe" stroke="#0369a1" stroke-width="1"/>
+<text x="182" y="151" font-size="11" font-weight="700" fill="#0c4a6e" text-anchor="middle">Compuesto</text>
+<line x1="430" y1="107" x2="395" y2="132" stroke="#ea580c" stroke-width="1.3"/>
+<line x1="500" y1="107" x2="530" y2="132" stroke="#ea580c" stroke-width="1.3"/>
+<rect x="375" y="132" width="115" height="30" rx="6" fill="#fed7aa" stroke="#ea580c" stroke-width="1"/>
+<text x="432" y="151" font-size="10.5" font-weight="700" fill="#9a3412" text-anchor="middle">Homogénea</text>
+<rect x="500" y="132" width="55" height="30" rx="6" fill="#fed7aa" stroke="#ea580c" stroke-width="1"/>
+<text x="527" y="151" font-size="9.5" font-weight="700" fill="#9a3412" text-anchor="middle">Heterog.</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0369a1">🧪 ¿Cómo se clasifica la materia?</p>
+  <p>Todo lo que tiene masa y ocupa un lugar en el espacio es materia. Lo primero que hay que distinguir es si estamos frente a una <strong>sustancia pura</strong> (composición fija, no se puede separar por métodos físicos) o una <strong>mezcla</strong> (dos o más sustancias combinadas físicamente, en proporciones variables).</p>
+  <div class="pgrid" style="margin-top:8px">
+    <div class="pc"><h4 style="color:#0369a1">Elemento</h4><p>Sustancia pura formada por un solo tipo de átomo. Ej: oro (Au), oxígeno (O₂).</p></div>
+    <div class="pc"><h4 style="color:#0369a1">Compuesto</h4><p>Sustancia pura formada por dos o más elementos unidos químicamente en proporción fija. Ej: agua (H₂O).</p></div>
+    <div class="pc"><h4 style="color:#ea580c">Mezcla homogénea</h4><p>Sus componentes NO se distinguen a simple vista; tiene una sola fase. Ej: agua con sal disuelta, aire.</p></div>
+    <div class="pc"><h4 style="color:#ea580c">Mezcla heterogénea</h4><p>Sus componentes SÍ se distinguen; tiene más de una fase. Ej: agua con aceite, ensalada.</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El dato que más se olvida</div>
+    <p>Un compuesto se puede "romper" en sus elementos, pero solo con una <strong>reacción química</strong> (por ejemplo, electrólisis del agua). Una mezcla se separa con <strong>métodos físicos</strong> (filtrar, calentar, decantar) porque sus componentes no están unidos químicamente, solo combinados.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 190" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="30" width="125" height="120" rx="10" fill="#fff4ec" stroke="#f9c49a" stroke-width="1.3"/>
+<path d="M40,60 L70,60 L70,130 M55,60 L55,45" stroke="#7c4f2a" stroke-width="2" fill="none"/>
+<circle cx="55" cy="130" r="7" fill="#fddcbf" stroke="#7c4f2a" stroke-width="1.3"/>
+<text x="72" y="145" font-size="10.5" font-weight="800" fill="#7c4f2a" text-anchor="middle">Filtración</text>
+<rect x="145" y="30" width="125" height="120" rx="10" fill="#fff4ec" stroke="#f9c49a" stroke-width="1.3"/>
+<ellipse cx="207" cy="110" rx="35" ry="18" fill="#fde68a" stroke="#7c4f2a" stroke-width="1.3"/>
+<circle cx="195" cy="102" r="3" fill="#7c4f2a"/><circle cx="210" cy="108" r="3" fill="#7c4f2a"/><circle cx="220" cy="98" r="3" fill="#7c4f2a"/>
+<path d="M175,90 Q207,55 240,90" stroke="#7c4f2a" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
+<text x="207" y="145" font-size="10.5" font-weight="800" fill="#7c4f2a" text-anchor="middle">Tamizado</text>
+<rect x="280" y="30" width="125" height="120" rx="10" fill="#fff4ec" stroke="#f9c49a" stroke-width="1.3"/>
+<path d="M310,55 L360,55 L360,90 L340,130 L320,90 Z" fill="#fef3c7" stroke="#7c4f2a" stroke-width="1.3"/>
+<ellipse cx="335" cy="95" rx="18" ry="6" fill="#fbbf24" opacity=".55"/>
+<text x="342" y="145" font-size="10.5" font-weight="800" fill="#7c4f2a" text-anchor="middle">Decantación</text>
+<rect x="415" y="30" width="130" height="120" rx="10" fill="#fff4ec" stroke="#f9c49a" stroke-width="1.3"/>
+<rect x="430" y="95" width="40" height="30" rx="4" fill="#fde68a" stroke="#7c4f2a" stroke-width="1.3"/>
+<path d="M470,100 L505,100 L505,70 L520,70" stroke="#7c4f2a" stroke-width="2" fill="none"/>
+<circle cx="522" cy="70" r="5" fill="#bae6fd" stroke="#7c4f2a" stroke-width="1"/>
+<path d="M450,95 L450,60" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="2 2"/>
+<text x="480" y="145" font-size="10.5" font-weight="800" fill="#7c4f2a" text-anchor="middle">Destilación</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0369a1">🔬 Métodos de separación de mezclas</p>
+  <p>Cada método aprovecha una <strong>propiedad física distinta</strong> de los componentes de la mezcla. Elegir el método correcto depende de qué propiedad diferencia a las sustancias:</p>
+  <div class="pgrid" style="margin-top:8px">
+    <div class="pc"><h4>🧻 Filtración</h4><p>Separa un sólido insoluble de un líquido, usando el <strong>tamaño de partícula</strong> (un filtro con poros pequeños retiene el sólido).</p></div>
+    <div class="pc"><h4>🕳️ Tamizado</h4><p>Separa sólidos de distinto <strong>tamaño de partícula</strong> entre sí, haciéndolos pasar por una malla (tamiz).</p></div>
+    <div class="pc"><h4>🧴 Decantación</h4><p>Separa líquidos no miscibles o un sólido que sedimenta, usando la <strong>diferencia de densidad</strong>.</p></div>
+    <div class="pc"><h4>♨️ Destilación</h4><p>Separa líquidos miscibles entre sí, usando la <strong>diferencia de temperatura de ebullición</strong>: el más volátil se evapora primero y se condensa aparte.</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Aplicación real</div>
+    <p>La potabilización de agua combina varios de estos métodos: se agregan floculantes para formar partículas grandes y pesadas (que luego <strong>decantan</strong>), y después el agua pasa por <strong>filtración</strong> para retener lo que quedó en suspensión.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 190" xmlns="http://www.w3.org/2000/svg">
+<line x1="60" y1="20" x2="60" y2="160" stroke="#7c4f2a" stroke-width="1.5"/>
+<line x1="60" y1="160" x2="540" y2="160" stroke="#7c4f2a" stroke-width="1.5"/>
+<text x="30" y="30" font-size="10" fill="#7c4f2a">T(°C)</text>
+<rect x="90" y="60" width="60" height="100" fill="#bae6fd" opacity=".6"/>
+<text x="120" y="175" font-size="10" fill="#0369a1" text-anchor="middle">Sólido</text>
+<rect x="150" y="45" width="140" height="15" fill="#93c5fd" opacity=".7"/>
+<text x="220" y="42" font-size="9" fill="#1d4ed8" text-anchor="middle">fusión (Tf)</text>
+<rect x="290" y="30" width="140" height="130" fill="#fde68a" opacity=".55"/>
+<text x="360" y="175" font-size="10" fill="#92400e" text-anchor="middle">Líquido</text>
+<rect x="430" y="18" width="15" height="12" fill="#fca5a5" opacity=".8"/>
+<text x="475" y="25" font-size="9" fill="#b91c1c" text-anchor="middle">ebullición (Te)</text>
+<rect x="445" y="20" width="80" height="140" fill="#fecaca" opacity=".4"/>
+<text x="485" y="175" font-size="10" fill="#b91c1c" text-anchor="middle">Gas</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0369a1">🌡️ Propiedades físicas de la materia</p>
+  <p>Cada sustancia tiene un "carné de identidad" hecho de propiedades físicas medibles: <strong>temperatura de fusión (Tf)</strong>, <strong>temperatura de ebullición (Te)</strong>, <strong>masa</strong>, <strong>volumen</strong> y <strong>densidad</strong> (ρ = masa/volumen). Estas propiedades no dependen de cuánta cantidad de sustancia tengas: 1 gramo de oro y 1 kilo de oro tienen la misma densidad y la misma Tf.</p>
+  <p style="margin-top:8px">El truco más usado en la PAES: dado Tf y Te de una sustancia, identificar su estado a <strong>temperatura ambiente (≈20-25 °C)</strong>:</p>
+  <ul style="margin-top:6px">
+    <li>Si 25 °C está <strong>por debajo</strong> de Tf → la sustancia es <strong>sólida</strong>.</li>
+    <li>Si 25 °C está <strong>entre</strong> Tf y Te → la sustancia es <strong>líquida</strong>.</li>
+    <li>Si 25 °C está <strong>por encima</strong> de Te → la sustancia es <strong>gaseosa</strong>.</li>
+  </ul>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0369a1">ρ = m / V</span><div class="fdef">densidad = masa / volumen</div></div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Trampa frecuente</div>
+    <p>Si te dan masa y densidad y piden volumen (o viceversa), despeja con cuidado: <strong>V = m/ρ</strong>. Un error común es multiplicar cuando corresponde dividir. Siempre revisa las unidades: si ρ está en g/cm³, la masa debe estar en gramos.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+<circle cx="70" cy="90" r="32" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.5"/>
+<circle cx="60" cy="85" r="4" fill="#0369a1"/><circle cx="80" cy="90" r="4" fill="#0369a1"/><circle cx="65" cy="100" r="4" fill="#0369a1"/><circle cx="78" cy="78" r="4" fill="#0369a1"/>
+<text x="70" y="140" font-size="10.5" font-weight="800" fill="#0369a1" text-anchor="middle">Dalton</text>
+<text x="70" y="153" font-size="8" fill="#7c4f2a" text-anchor="middle">esfera maciza</text>
+<circle cx="195" cy="90" r="32" fill="#fde68a" stroke="#92400e" stroke-width="1.5"/>
+<circle cx="185" cy="82" r="3.5" fill="#b91c1c"/><circle cx="205" cy="95" r="3.5" fill="#b91c1c"/><circle cx="190" cy="102" r="3.5" fill="#b91c1c"/><circle cx="208" cy="80" r="3.5" fill="#b91c1c"/>
+<text x="195" y="140" font-size="10.5" font-weight="800" fill="#92400e" text-anchor="middle">Thomson</text>
+<text x="195" y="153" font-size="8" fill="#7c4f2a" text-anchor="middle">"budín de pasas"</text>
+<circle cx="320" cy="90" r="4" fill="#b91c1c"/>
+<ellipse cx="320" cy="90" rx="35" ry="14" fill="none" stroke="#0369a1" stroke-width="1.2" stroke-dasharray="2 2"/>
+<circle cx="352" cy="90" r="3" fill="#0369a1"/>
+<text x="320" y="140" font-size="10.5" font-weight="800" fill="#0369a1" text-anchor="middle">Rutherford</text>
+<text x="320" y="153" font-size="8" fill="#7c4f2a" text-anchor="middle">núcleo + órbita</text>
+<circle cx="460" cy="90" r="4" fill="#b91c1c"/>
+<circle cx="460" cy="90" r="18" fill="none" stroke="#15803d" stroke-width="1.2"/>
+<circle cx="460" cy="90" r="32" fill="none" stroke="#15803d" stroke-width="1.2"/>
+<circle cx="478" cy="90" r="3" fill="#15803d"/><circle cx="460" cy="58" r="3" fill="#15803d"/>
+<text x="460" y="140" font-size="10.5" font-weight="800" fill="#15803d" text-anchor="middle">Bohr</text>
+<text x="460" y="153" font-size="8" fill="#7c4f2a" text-anchor="middle">niveles de energía</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0369a1">🕰️ La evolución del modelo atómico</p>
+  <p>El modelo del átomo no se descubrió de una vez: fue cambiando cada vez que un experimento mostraba algo que el modelo anterior no podía explicar.</p>
+  <div class="pgrid" style="margin-top:8px">
+    <div class="pc"><h4 style="color:#0369a1">Dalton (1803)</h4><p>El átomo es una <strong>esfera maciza e indivisible</strong>, como una bolita de billar. No tiene partes internas.</p></div>
+    <div class="pc"><h4 style="color:#92400e">Thomson (1897)</h4><p>Descubrió el electrón. Propuso el modelo del <strong>"budín de pasas"</strong>: una esfera de carga positiva con electrones (negativos) incrustados.</p></div>
+    <div class="pc"><h4 style="color:#0369a1">Rutherford (1911)</h4><p>Con su experimento de la lámina de oro, descubrió que el átomo tiene un <strong>núcleo pequeño, denso y positivo</strong>, con los electrones girando alrededor, en un átomo mayormente vacío.</p></div>
+    <div class="pc"><h4 style="color:#15803d">Bohr (1913)</h4><p>Propuso que los electrones giran en <strong>niveles de energía definidos (órbitas)</strong>, no en cualquier lugar, y solo pueden saltar entre niveles absorbiendo o emitiendo energía.</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El experimento clave de Rutherford</div>
+    <p>Bombardeó una lámina de oro con partículas alfa (positivas). La mayoría atravesó sin desviarse — evidencia de que el átomo es mayormente <strong>espacio vacío</strong> — pero algunas rebotaron, lo que reveló un <strong>núcleo pequeño y muy denso</strong>, cargado positivamente.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+<circle cx="150" cy="85" r="30" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="150" y="90" font-size="11" font-weight="900" fill="#b91c1c" text-anchor="middle">núcleo</text>
+<circle cx="140" cy="78" r="5" fill="#dc2626"/><circle cx="160" cy="78" r="5" fill="#dc2626"/><circle cx="150" cy="93" r="5" fill="#dc2626"/>
+<circle cx="130" cy="90" r="5" fill="#94a3b8"/><circle cx="170" cy="90" r="5" fill="#94a3b8"/><circle cx="150" cy="70" r="5" fill="#94a3b8"/>
+<ellipse cx="150" cy="85" rx="70" ry="30" fill="none" stroke="#0369a1" stroke-width="1.2" stroke-dasharray="3 3"/>
+<circle cx="220" cy="85" r="4" fill="#0369a1"/>
+<text x="330" y="45" font-size="12" font-weight="800" fill="#1a0a00">Notación nuclear:</text>
+<text x="320" y="90" font-size="26" font-weight="900" fill="#0369a1" text-anchor="middle">A</text>
+<text x="320" y="115" font-size="26" font-weight="900" fill="#b91c1c" text-anchor="middle">Z</text>
+<text x="345" y="105" font-size="30" font-weight="900" fill="#1a0a00">X</text>
+<text x="300" y="140" font-size="9" fill="#7c4f2a">A = número másico (p+n)</text>
+<text x="300" y="153" font-size="9" fill="#7c4f2a">Z = número atómico (p)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0369a1">🔢 Protón, neutrón, electrón y su notación</p>
+  <div class="pgrid" style="margin-top:4px">
+    <div class="pc"><h4 style="color:#b91c1c">Protón (p⁺)</h4><p>Carga positiva, está en el núcleo. Su cantidad define el <strong>número atómico (Z)</strong>, que identifica al elemento.</p></div>
+    <div class="pc"><h4 style="color:#64748b">Neutrón (n⁰)</h4><p>Sin carga, está en el núcleo. Junto a los protones forma el <strong>número másico (A = Z + n)</strong>.</p></div>
+    <div class="pc"><h4 style="color:#0369a1">Electrón (e⁻)</h4><p>Carga negativa, gira alrededor del núcleo. En un átomo neutro, <strong>e⁻ = p⁺</strong>.</p></div>
+  </div>
+  <p style="margin-top:10px"><strong>Isótopos:</strong> átomos del mismo elemento (mismo Z) con distinto número de neutrones, por lo tanto distinto A. <strong>Iones:</strong> átomos que ganaron o perdieron electrones (no protones), por lo que su carga ya no es neutra.</p>
+  <div class="pgrid" style="margin-top:8px">
+    <div class="pc"><h4>Catión (+)</h4><p><strong>Perdió</strong> electrones → tiene menos e⁻ que p⁺. Ej: Na⁺ tiene 11 p⁺ y 10 e⁻.</p></div>
+    <div class="pc"><h4>Anión (−)</h4><p><strong>Ganó</strong> electrones → tiene más e⁻ que p⁺. Ej: Cl⁻ tiene 17 p⁺ y 18 e⁻.</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El error más común en la PAES</div>
+    <p>Cuando un átomo se ioniza, <strong>solo cambian los electrones, nunca los protones</strong> (eso cambiaría el elemento). Para contar electrones de un ion: e⁻ = Z − carga. Por ejemplo, si Z=16 y el ion es 2−, entonces e⁻ = 16−(−2) = 18.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p1" onclick="deckNav('p1',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p1"><button class="deck-dot act" onclick="deckGoto('p1',0)"></button><button class="deck-dot" onclick="deckGoto('p1',1)"></button><button class="deck-dot" onclick="deckGoto('p1',2)"></button><button class="deck-dot" onclick="deckGoto('p1',3)"></button><button class="deck-dot" onclick="deckGoto('p1',4)"></button></div><button class="deck-arrow" id="deck-next-p1" onclick="deckNav('p1',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p1">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#0369a1">elemento / compuesto</span>
+  <span class="kw" style="color:#0369a1">mezcla homogénea/heterogénea</span>
+  <span class="kw" style="color:#0369a1">densidad ρ=m/V</span>
+  <span class="kw" style="color:#0369a1">modelo de Bohr</span>
+  <span class="kw" style="color:#0369a1">número atómico Z</span>
+  <span class="kw" style="color:#0369a1">isótopo</span>
+  <span class="kw" style="color:#0369a1">ion</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<!-- IA 1 -->
+<div class="pbox">
+  <div class="ptag" style="color:#0369a1">🤖 Pregunta de práctica</div>
+  <div class="pctx">Un estudiante tiene sobre la mesa: agua con arena, aire, agua con sal disuelta y una ensalada de frutas.</div>
+  <p class="pq">¿Cuáles de estas mezclas son homogéneas?</p>
+  <div class="pos" id="qa1">
+    <div class="po" onclick="ans('qa1','A')"><div class="ol">A</div><div class="ot">Agua con arena y ensalada de frutas.</div></div>
+    <div class="po" onclick="ans('qa1','B')"><div class="ol">B</div><div class="ot">Aire y agua con sal disuelta.</div></div>
+    <div class="po" onclick="ans('qa1','C')"><div class="ol">C</div><div class="ot">Agua con arena y aire.</div></div>
+    <div class="po" onclick="ans('qa1','D')"><div class="ol">D</div><div class="ot">Ensalada de frutas y agua con sal disuelta.</div></div>
+  </div>
+  <div class="pfb" id="qa1-fb"></div>
+</div>
+
+<!-- IA 2 -->
+<div class="pbox">
+  <div class="ptag" style="color:#0369a1">🤖 Pregunta de práctica</div>
+  <div class="pctx">Un metal tiene densidad de 8,9 g/cm³. Un estudiante mide un trozo de este metal y obtiene un volumen de 5 cm³.</div>
+  <p class="pq">¿Cuál es la masa aproximada de ese trozo de metal?</p>
+  <div class="pos" id="qa2">
+    <div class="po" onclick="ans('qa2','A')"><div class="ol">A</div><div class="ot">0,6 g</div></div>
+    <div class="po" onclick="ans('qa2','B')"><div class="ol">B</div><div class="ot">1,8 g</div></div>
+    <div class="po" onclick="ans('qa2','C')"><div class="ol">C</div><div class="ot">13,9 g</div></div>
+    <div class="po" onclick="ans('qa2','D')"><div class="ol">D</div><div class="ot">44,5 g</div></div>
+  </div>
+  <div class="pfb" id="qa2-fb"></div>
+</div>
+
+<!-- IA 3 -->
+<div class="pbox">
+  <div class="ptag" style="color:#0369a1">🤖 Pregunta de práctica</div>
+  <div class="pctx">El experimento de la lámina de oro de Rutherford mostró que la mayoría de las partículas alfa atravesaban la lámina sin desviarse, pero unas pocas rebotaban en ángulos grandes.</div>
+  <p class="pq">¿Qué conclusión sobre la estructura del átomo permitió obtener este resultado?</p>
+  <div class="pos" id="qa3">
+    <div class="po" onclick="ans('qa3','A')"><div class="ol">A</div><div class="ot">El átomo es una esfera maciza y uniforme, como proponía Dalton.</div></div>
+    <div class="po" onclick="ans('qa3','B')"><div class="ol">B</div><div class="ot">El átomo tiene un núcleo pequeño, denso y positivo, rodeado de espacio prácticamente vacío.</div></div>
+    <div class="po" onclick="ans('qa3','C')"><div class="ol">C</div><div class="ot">Los electrones están distribuidos uniformemente en toda la esfera atómica.</div></div>
+    <div class="po" onclick="ans('qa3','D')"><div class="ol">D</div><div class="ot">Los electrones giran en niveles de energía definidos alrededor del núcleo.</div></div>
+  </div>
+  <div class="pfb" id="qa3-fb"></div>
+</div>
+
+<!-- IA 4 -->
+<div class="pbox">
+  <div class="ptag" style="color:#0369a1">🤖 Pregunta de práctica</div>
+  <div class="pctx">El azufre tiene número atómico Z=16. Se forma el ion sulfuro S²⁻.</div>
+  <p class="pq">¿Cuántos electrones tiene el ion S²⁻?</p>
+  <div class="pos" id="qa4">
+    <div class="po" onclick="ans('qa4','A')"><div class="ol">A</div><div class="ot">14</div></div>
+    <div class="po" onclick="ans('qa4','B')"><div class="ol">B</div><div class="ot">16</div></div>
+    <div class="po" onclick="ans('qa4','C')"><div class="ol">C</div><div class="ot">18</div></div>
+    <div class="po" onclick="ans('qa4','D')"><div class="ol">D</div><div class="ot">20</div></div>
+  </div>
+  <div class="pfb" id="qa4-fb"></div>
+</div>
+
+</div>
+
+
+<!-- QUIMICA ORGANICA -->
+<div class="sec" id="p2">
+<div class="hsec" style="border-color:rgba(21,128,61,.3)">
+  <span class="hi2">🧬</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#15803d;margin-bottom:3px">Unidad 2 de 3 · Alta frecuencia</div>
+  <h2 style="color:#15803d">Química Orgánica</h2>
+  <p>El átomo de carbono y todo lo que puede construir con él: hibridación, tipos de enlace, formas de representar una molécula, y los grupos funcionales que le dan identidad a cada familia de compuestos orgánicos.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p2">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+<circle cx="280" cy="85" r="14" fill="#166534" stroke="#052e16" stroke-width="1.5"/>
+<text x="280" y="90" font-size="11" font-weight="900" fill="#fff" text-anchor="middle">C</text>
+<line x1="280" y1="85" x2="280" y2="30" stroke="#166534" stroke-width="2.2"/>
+<circle cx="280" cy="22" r="9" fill="#dcfce7" stroke="#166534" stroke-width="1.3"/>
+<line x1="280" y1="85" x2="220" y2="125" stroke="#166534" stroke-width="2.2"/>
+<circle cx="210" cy="132" r="9" fill="#dcfce7" stroke="#166534" stroke-width="1.3"/>
+<line x1="280" y1="85" x2="340" y2="125" stroke="#166534" stroke-width="2.2"/>
+<circle cx="350" cy="132" r="9" fill="#dcfce7" stroke="#166534" stroke-width="1.3"/>
+<line x1="280" y1="85" x2="230" y2="60" stroke="#166534" stroke-width="2.2" stroke-dasharray="4 2"/>
+<circle cx="215" cy="52" r="9" fill="#dcfce7" stroke="#166534" stroke-width="1.3"/>
+<text x="450" y="80" font-size="12" font-weight="800" fill="#1a0a00">109,5°</text>
+<text x="450" y="98" font-size="9" fill="#7c4f2a">geometría</text>
+<text x="450" y="112" font-size="9" fill="#7c4f2a">tetraédrica</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#15803d">🌟 El átomo de carbono: tetravalencia</p>
+  <p>El carbono tiene <strong>4 electrones de valencia</strong>, por lo que siempre forma <strong>4 enlaces</strong> (tetravalencia). Esto, sumado a que puede unirse consigo mismo formando cadenas larguísimas, es lo que explica que exista un universo entero de compuestos orgánicos.</p>
+  <p style="margin-top:8px">Cuando el carbono forma 4 enlaces simples, adopta una <strong>geometría tetraédrica</strong>, con ángulos de aproximadamente <strong>109,5°</strong> entre sus enlaces — no es plano, es tridimensional.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El dato que más se olvida</div>
+    <p>El carbono nunca forma más ni menos de 4 enlaces en compuestos orgánicos estables. Si ves una estructura con un carbono con solo 3 enlaces dibujados, falta un enlace a hidrógeno (el H muchas veces no se dibuja explícitamente).</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+<circle cx="90" cy="90" r="12" fill="#166534"/><circle cx="150" cy="90" r="12" fill="#166534"/>
+<line x1="102" y1="90" x2="138" y2="90" stroke="#166534" stroke-width="3"/>
+<text x="120" y="130" font-size="10" font-weight="800" fill="#166534" text-anchor="middle">sp³ · simple</text>
+<text x="120" y="145" font-size="8.5" fill="#7c4f2a" text-anchor="middle">1 sigma</text>
+<circle cx="255" cy="90" r="12" fill="#166534"/><circle cx="315" cy="90" r="12" fill="#166534"/>
+<line x1="267" y1="85" x2="303" y2="85" stroke="#166534" stroke-width="3"/>
+<line x1="267" y1="95" x2="303" y2="95" stroke="#166534" stroke-width="3"/>
+<text x="285" y="130" font-size="10" font-weight="800" fill="#166534" text-anchor="middle">sp² · doble</text>
+<text x="285" y="145" font-size="8.5" fill="#7c4f2a" text-anchor="middle">1 sigma + 1 pi</text>
+<circle cx="420" cy="90" r="12" fill="#166534"/><circle cx="480" cy="90" r="12" fill="#166534"/>
+<line x1="432" y1="83" x2="468" y2="83" stroke="#166534" stroke-width="2.5"/>
+<line x1="432" y1="90" x2="468" y2="90" stroke="#166534" stroke-width="2.5"/>
+<line x1="432" y1="97" x2="468" y2="97" stroke="#166534" stroke-width="2.5"/>
+<text x="450" y="130" font-size="10" font-weight="800" fill="#166534" text-anchor="middle">sp · triple</text>
+<text x="450" y="145" font-size="8.5" fill="#7c4f2a" text-anchor="middle">1 sigma + 2 pi</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#15803d">🔗 Hibridación y tipos de enlace</p>
+  <p>Según cuántos enlaces forme, el carbono "mezcla" sus orbitales de forma distinta (hibridación):</p>
+  <div class="pgrid" style="margin-top:6px">
+    <div class="pc"><h4 style="color:#15803d">sp³ — 4 enlaces simples</h4><p>Geometría tetraédrica (109,5°). Ej: metano CH₄, etano.</p></div>
+    <div class="pc"><h4 style="color:#15803d">sp² — 1 enlace doble</h4><p>Geometría plana trigonal (120°). Ej: eteno (etileno).</p></div>
+    <div class="pc"><h4 style="color:#15803d">sp — 1 enlace triple</h4><p>Geometría lineal (180°). Ej: etino (acetileno).</p></div>
+  </div>
+  <p style="margin-top:10px">Todo enlace simple es un enlace <strong>sigma (σ)</strong>. Un enlace doble = 1 σ + 1 <strong>pi (π)</strong>. Un enlace triple = 1 σ + 2 π. A mayor cantidad de enlaces entre los mismos átomos, <strong>menor es la longitud de enlace</strong> y <strong>mayor la energía de enlace</strong> (cuesta más romperlo): C-C (0,154 nm) > C=C (0,130 nm) > C≡C (0,120 nm).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Trampa frecuente</div>
+    <p>Contar enlaces sigma y pi en una molécula: cuenta cada línea de un enlace simple como 1σ, cada doble como 1σ+1π, y cada triple como 1σ+2π. Súmalos por separado.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+<text x="70" y="40" font-size="11" font-weight="800" fill="#15803d" text-anchor="middle">Molecular</text>
+<text x="70" y="90" font-size="16" font-weight="900" fill="#1a0a00" text-anchor="middle">C₄H₁₀</text>
+<text x="205" y="40" font-size="11" font-weight="800" fill="#15803d" text-anchor="middle">Empírica</text>
+<text x="205" y="90" font-size="16" font-weight="900" fill="#1a0a00" text-anchor="middle">C₂H₅</text>
+<text x="340" y="40" font-size="11" font-weight="800" fill="#15803d" text-anchor="middle">Condensada</text>
+<text x="340" y="90" font-size="13" font-weight="900" fill="#1a0a00" text-anchor="middle">CH₃CH₂CH₂CH₃</text>
+<text x="480" y="40" font-size="11" font-weight="800" fill="#15803d" text-anchor="middle">Desarrollada</text>
+<g transform="translate(440,55)">
+<line x1="0" y1="30" x2="20" y2="15" stroke="#166534" stroke-width="1.6"/>
+<line x1="20" y1="15" x2="40" y2="30" stroke="#166534" stroke-width="1.6"/>
+<line x1="40" y1="30" x2="60" y2="15" stroke="#166534" stroke-width="1.6"/>
+<line x1="60" y1="15" x2="80" y2="30" stroke="#166534" stroke-width="1.6"/>
+</g>
+</svg></div><div class="card">
+  <p class="ct" style="color:#15803d">🖼️ Formas de representar una molécula</p>
+  <p>La misma molécula (por ejemplo, el butano) se puede escribir de distintas formas, según cuánta información quieras mostrar:</p>
+  <div class="pgrid" style="margin-top:6px">
+    <div class="pc"><h4>Fórmula molecular</h4><p>Solo cuenta los átomos totales. Ej: C₄H₁₀. No dice cómo están conectados.</p></div>
+    <div class="pc"><h4>Fórmula empírica</h4><p>La proporción más simple entre los átomos. Para el butano C₄H₁₀ es C₂H₅ (se puede simplificar).</p></div>
+    <div class="pc"><h4>Fórmula desarrollada (expandida)</h4><p>Dibuja cada átomo y cada enlace, incluyendo todos los H. La más detallada.</p></div>
+    <div class="pc"><h4>Fórmula semidesarrollada</h4><p>Agrupa los H junto a cada carbono (CH₃-CH₂-CH₂-CH₃), sin dibujar cada enlace C-H.</p></div>
+    <div class="pc"><h4>Fórmula condensada</h4><p>Similar a la semidesarrollada, escrita en una sola línea de texto.</p></div>
+    <div class="pc"><h4>Lineal o topológica</h4><p>Solo dibuja el "esqueleto" de enlaces C-C con líneas en zigzag; cada vértice es un carbono y los H se sobreentienden.</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 ¿Cuándo usar cada una?</div>
+    <p>Para distinguir <strong>isómeros</strong> (misma fórmula molecular, distinta estructura) o formas espaciales distintas de una molécula, necesitas al menos la fórmula semidesarrollada o un modelo 3D (esferas y varillas) — la fórmula molecular sola no alcanza, porque no muestra cómo están conectados los átomos.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+<rect x="15" y="15" width="530" height="34" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.3"/>
+<text x="280" y="37" font-size="13" font-weight="900" fill="#15803d" text-anchor="middle">HIDROCARBUROS</text>
+<line x1="140" y1="49" x2="90" y2="70" stroke="#15803d" stroke-width="1.3"/>
+<line x1="420" y1="49" x2="470" y2="70" stroke="#15803d" stroke-width="1.3"/>
+<rect x="20" y="70" width="140" height="32" rx="6" fill="#f0fdf4" stroke="#15803d" stroke-width="1"/>
+<text x="90" y="91" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Alifáticos</text>
+<rect x="200" y="70" width="140" height="32" rx="6" fill="#f0fdf4" stroke="#15803d" stroke-width="1"/>
+<text x="270" y="91" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Cíclicos</text>
+<rect x="400" y="70" width="140" height="32" rx="6" fill="#f0fdf4" stroke="#15803d" stroke-width="1"/>
+<text x="470" y="91" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Aromáticos</text>
+<text x="90" y="120" font-size="9" fill="#7c4f2a" text-anchor="middle">alcanos C-C</text>
+<text x="90" y="132" font-size="9" fill="#7c4f2a" text-anchor="middle">alquenos C=C</text>
+<text x="90" y="144" font-size="9" fill="#7c4f2a" text-anchor="middle">alquinos C≡C</text>
+<text x="270" y="120" font-size="9" fill="#7c4f2a" text-anchor="middle">cadena cerrada</text>
+<text x="270" y="132" font-size="9" fill="#7c4f2a" text-anchor="middle">ciclohexano</text>
+<polygon points="470,108 483,116 483,132 470,140 457,132 457,116" fill="none" stroke="#166534" stroke-width="1.5"/>
+<circle cx="470" cy="124" r="6" fill="none" stroke="#166534" stroke-width="1.3"/>
+</svg></div><div class="card">
+  <p class="ct" style="color:#15803d">⛓️ Hidrocarburos: familias</p>
+  <p>Los hidrocarburos están formados solo por carbono e hidrógeno. Se organizan en tres grandes familias:</p>
+  <div class="pgrid" style="margin-top:6px">
+    <div class="pc"><h4>Alifáticos</h4><p>Cadenas abiertas. Se subdividen en <strong>alcanos</strong> (solo enlaces simples C-C), <strong>alquenos</strong> (con al menos un doble C=C) y <strong>alquinos</strong> (con al menos un triple C≡C).</p></div>
+    <div class="pc"><h4>Cíclicos</h4><p>Cadenas cerradas en forma de anillo, como el ciclohexano. Pueden ser saturados o insaturados.</p></div>
+    <div class="pc"><h4>Aromáticos</h4><p>Contienen un anillo bencénico (benceno, C₆H₆), con enlaces deslocalizados especialmente estables.</p></div>
+  </div>
+  <p style="margin-top:10px">Un dato útil para la PAES: a mayor cantidad de carbonos en una cadena lineal (más masa molar), <strong>mayor es la temperatura de ebullición</strong>, porque hay más fuerzas intermoleculares que vencer. También influye la ramificación: cadenas más ramificadas suelen tener menor Te que las lineales de igual número de carbonos.</p>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 190" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="10" width="130" height="42" rx="7" fill="#fee2e2" stroke="#b91c1c" stroke-width="1"/>
+<text x="75" y="28" font-size="10" font-weight="800" fill="#b91c1c" text-anchor="middle">Alcohol -OH</text>
+<text x="75" y="44" font-size="9" fill="#7c4f2a" text-anchor="middle">R-OH</text>
+<rect x="150" y="10" width="130" height="42" rx="7" fill="#fef3c7" stroke="#92400e" stroke-width="1"/>
+<text x="215" y="28" font-size="10" font-weight="800" fill="#92400e" text-anchor="middle">Éter -O-</text>
+<text x="215" y="44" font-size="9" fill="#7c4f2a" text-anchor="middle">R-O-R'</text>
+<rect x="290" y="10" width="130" height="42" rx="7" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1"/>
+<text x="355" y="28" font-size="10" font-weight="800" fill="#1d4ed8" text-anchor="middle">Aldehído -CHO</text>
+<text x="355" y="44" font-size="9" fill="#7c4f2a" text-anchor="middle">R-CHO</text>
+<rect x="430" y="10" width="120" height="42" rx="7" fill="#e0e7ff" stroke="#4338ca" stroke-width="1"/>
+<text x="490" y="28" font-size="10" font-weight="800" fill="#4338ca" text-anchor="middle">Cetona C=O</text>
+<text x="490" y="44" font-size="9" fill="#7c4f2a" text-anchor="middle">R-CO-R'</text>
+<rect x="10" y="62" width="130" height="42" rx="7" fill="#dcfce7" stroke="#15803d" stroke-width="1"/>
+<text x="75" y="80" font-size="9.5" font-weight="800" fill="#15803d" text-anchor="middle">Ác. carboxílico</text>
+<text x="75" y="96" font-size="9" fill="#7c4f2a" text-anchor="middle">R-COOH</text>
+<rect x="150" y="62" width="130" height="42" rx="7" fill="#fae8ff" stroke="#a21caf" stroke-width="1"/>
+<text x="215" y="80" font-size="10" font-weight="800" fill="#a21caf" text-anchor="middle">Éster -COO-</text>
+<text x="215" y="96" font-size="9" fill="#7c4f2a" text-anchor="middle">R-COO-R'</text>
+<rect x="290" y="62" width="130" height="42" rx="7" fill="#e0f2fe" stroke="#0369a1" stroke-width="1"/>
+<text x="355" y="80" font-size="10" font-weight="800" fill="#0369a1" text-anchor="middle">Amina -NH₂</text>
+<text x="355" y="96" font-size="9" fill="#7c4f2a" text-anchor="middle">R-NH₂</text>
+<rect x="430" y="62" width="120" height="42" rx="7" fill="#fce7f3" stroke="#be185d" stroke-width="1"/>
+<text x="490" y="80" font-size="9.5" font-weight="800" fill="#be185d" text-anchor="middle">Amida -CONH₂</text>
+<text x="490" y="96" font-size="9" fill="#7c4f2a" text-anchor="middle">R-CONH₂</text>
+<rect x="10" y="114" width="130" height="42" rx="7" fill="#f1f5f9" stroke="#334155" stroke-width="1"/>
+<text x="75" y="132" font-size="10" font-weight="800" fill="#334155" text-anchor="middle">Haluro -X</text>
+<text x="75" y="148" font-size="9" fill="#7c4f2a" text-anchor="middle">R-Cl, R-Br</text>
+<rect x="150" y="114" width="130" height="42" rx="7" fill="#ecfeff" stroke="#0e7490" stroke-width="1"/>
+<text x="215" y="132" font-size="10" font-weight="800" fill="#0e7490" text-anchor="middle">Fenol -OH</text>
+<text x="215" y="148" font-size="9" fill="#7c4f2a" text-anchor="middle">OH sobre anillo</text>
+<rect x="290" y="114" width="130" height="42" rx="7" fill="#fff7ed" stroke="#c2410c" stroke-width="1"/>
+<text x="355" y="132" font-size="10" font-weight="800" fill="#c2410c" text-anchor="middle">Nitrilo -CN</text>
+<text x="355" y="148" font-size="9" fill="#7c4f2a" text-anchor="middle">R-C≡N</text>
+<rect x="430" y="114" width="120" height="42" rx="7" fill="#f5f5f4" stroke="#57534e" stroke-width="1"/>
+<text x="490" y="132" font-size="10" font-weight="800" fill="#57534e" text-anchor="middle">Sulfuro -S-</text>
+<text x="490" y="148" font-size="9" fill="#7c4f2a" text-anchor="middle">R-S-R'</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#15803d">🏷️ Grupos funcionales orgánicos</p>
+  <p>El <strong>grupo funcional</strong> es el "sector" de la molécula que le da su identidad química: define cómo reacciona, su nombre y sus propiedades. Los más evaluados en la PAES:</p>
+  <div class="pgrid" style="margin-top:6px">
+    <div class="pc"><h4>Alcohol (-OH)</h4><p>Ej: etanol. Terminación <strong>-ol</strong>.</p></div>
+    <div class="pc"><h4>Ácido carboxílico (-COOH)</h4><p>Ej: ácido acético (vinagre). Terminación <strong>-oico</strong>.</p></div>
+    <div class="pc"><h4>Aldehído (-CHO)</h4><p>Grupo carbonilo en el extremo de la cadena. Terminación <strong>-al</strong>.</p></div>
+    <div class="pc"><h4>Cetona (C=O interno)</h4><p>Grupo carbonilo dentro de la cadena, entre dos carbonos. Terminación <strong>-ona</strong>.</p></div>
+    <div class="pc"><h4>Éster (-COO-)</h4><p>Se forma al reaccionar un ácido carboxílico con un alcohol. Terminación <strong>-ato de -ilo</strong>.</p></div>
+    <div class="pc"><h4>Éter (-O-)</h4><p>Un oxígeno entre dos cadenas de carbono.</p></div>
+    <div class="pc"><h4>Amina (-NH₂)</h4><p>Derivado del amoniaco; carácter básico.</p></div>
+    <div class="pc"><h4>Amida (-CONH₂)</h4><p>Combina carbonilo y nitrógeno.</p></div>
+    <div class="pc"><h4>Haluro (R-X)</h4><p>Halógeno unido a la cadena de carbono (F, Cl, Br, I).</p></div>
+    <div class="pc"><h4>Fenol</h4><p>Grupo -OH unido directamente a un anillo aromático.</p></div>
+    <div class="pc"><h4>Nitrilo (-C≡N)</h4><p>Triple enlace entre carbono y nitrógeno.</p></div>
+    <div class="pc"><h4>Sulfuro (-S-)</h4><p>Azufre entre dos cadenas de carbono, análogo al éter.</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Cómo reconocerlos rápido en la PAES</div>
+    <p>Busca primero el oxígeno o nitrógeno "extra" en la molécula: si hay un O al final de la cadena con doble enlace y un H → aldehído. Si el O está en el medio → cetona o éter. Si hay -COOH completo → ácido carboxílico. Practicar a identificar el patrón visual es más rápido que memorizar reglas.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p2" onclick="deckNav('p2',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p2"><button class="deck-dot act" onclick="deckGoto('p2',0)"></button><button class="deck-dot" onclick="deckGoto('p2',1)"></button><button class="deck-dot" onclick="deckGoto('p2',2)"></button><button class="deck-dot" onclick="deckGoto('p2',3)"></button><button class="deck-dot" onclick="deckGoto('p2',4)"></button></div><button class="deck-arrow" id="deck-next-p2" onclick="deckNav('p2',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p2">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#15803d">tetravalencia</span>
+  <span class="kw" style="color:#15803d">hibridación sp/sp²/sp³</span>
+  <span class="kw" style="color:#15803d">enlace σ / π</span>
+  <span class="kw" style="color:#15803d">isómeros</span>
+  <span class="kw" style="color:#15803d">grupo funcional</span>
+  <span class="kw" style="color:#15803d">alcano/alqueno/alquino</span>
+  <span class="kw" style="color:#15803d">nomenclatura IUPAC</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<!-- IA 1 -->
+<div class="pbox">
+  <div class="ptag" style="color:#15803d">🤖 Pregunta de práctica</div>
+  <div class="pctx">Una molécula presenta un carbono unido a otro carbono mediante un enlace triple.</div>
+  <p class="pq">¿Qué hibridación tiene ese carbono y cuántos enlaces pi contiene ese enlace triple?</p>
+  <div class="pos" id="qb1">
+    <div class="po" onclick="ans('qb1','A')"><div class="ol">A</div><div class="ot">sp³, con 3 enlaces pi.</div></div>
+    <div class="po" onclick="ans('qb1','B')"><div class="ol">B</div><div class="ot">sp², con 1 enlace pi.</div></div>
+    <div class="po" onclick="ans('qb1','C')"><div class="ol">C</div><div class="ot">sp, con 2 enlaces pi.</div></div>
+    <div class="po" onclick="ans('qb1','D')"><div class="ol">D</div><div class="ot">sp, con 1 enlace pi.</div></div>
+  </div>
+  <div class="pfb" id="qb1-fb"></div>
+</div>
+
+<!-- IA 2 -->
+<div class="pbox">
+  <div class="ptag" style="color:#15803d">🤖 Pregunta de práctica</div>
+  <div class="pctx">Dos compuestos orgánicos tienen ambos la fórmula molecular C₄H₁₀O, pero estructuras distintas: uno es un alcohol (R-OH) y el otro es un éter (R-O-R').</div>
+  <p class="pq">¿Qué relación es correcta entre ambos compuestos?</p>
+  <div class="pos" id="qb2">
+    <div class="po" onclick="ans('qb2','A')"><div class="ol">A</div><div class="ot">Tienen distinta masa molar, porque son moléculas distintas.</div></div>
+    <div class="po" onclick="ans('qb2','B')"><div class="ol">B</div><div class="ot">Son isómeros: misma fórmula molecular, distinta estructura y distinto grupo funcional.</div></div>
+    <div class="po" onclick="ans('qb2','C')"><div class="ol">C</div><div class="ot">Son el mismo compuesto representado de dos formas distintas.</div></div>
+    <div class="po" onclick="ans('qb2','D')"><div class="ol">D</div><div class="ot">Tienen distinta fórmula empírica, ya que sus estructuras son diferentes.</div></div>
+  </div>
+  <div class="pfb" id="qb2-fb"></div>
+</div>
+
+<!-- IA 3 -->
+<div class="pbox">
+  <div class="ptag" style="color:#15803d">🤖 Pregunta de práctica</div>
+  <div class="pctx">Se analiza un compuesto orgánico y se determina que posee un grupo carbonilo (C=O) ubicado en el extremo de la cadena de carbono, unido también a un átomo de hidrógeno.</div>
+  <p class="pq">¿A qué grupo funcional corresponde este compuesto?</p>
+  <div class="pos" id="qb3">
+    <div class="po" onclick="ans('qb3','A')"><div class="ol">A</div><div class="ot">Cetona.</div></div>
+    <div class="po" onclick="ans('qb3','B')"><div class="ol">B</div><div class="ot">Aldehído.</div></div>
+    <div class="po" onclick="ans('qb3','C')"><div class="ol">C</div><div class="ot">Ácido carboxílico.</div></div>
+    <div class="po" onclick="ans('qb3','D')"><div class="ol">D</div><div class="ot">Éster.</div></div>
+  </div>
+  <div class="pfb" id="qb3-fb"></div>
+</div>
+
+<!-- IA 4 -->
+<div class="pbox">
+  <div class="ptag" style="color:#15803d">🤖 Pregunta de práctica</div>
+  <div class="pctx">Se comparan el propano, el butano y el pentano, todos hidrocarburos de cadena lineal y saturada.</div>
+  <p class="pq">A medida que aumenta el número de carbonos en la cadena, ¿qué ocurre con la temperatura de ebullición?</p>
+  <div class="pos" id="qb4">
+    <div class="po" onclick="ans('qb4','A')"><div class="ol">A</div><div class="ot">Aumenta, porque hay más fuerzas intermoleculares que vencer para pasar a estado gaseoso.</div></div>
+    <div class="po" onclick="ans('qb4','B')"><div class="ol">B</div><div class="ot">Disminuye, porque las moléculas más grandes pesan menos.</div></div>
+    <div class="po" onclick="ans('qb4','C')"><div class="ol">C</div><div class="ot">Se mantiene constante, ya que todos son alcanos.</div></div>
+    <div class="po" onclick="ans('qb4','D')"><div class="ol">D</div><div class="ot">No se puede determinar sin conocer la ramificación de cada uno.</div></div>
+  </div>
+  <div class="pfb" id="qb4-fb"></div>
+</div>
+
+</div>
+
+
+<!-- REACCIONES Y ESTEQUIOMETRIA -->
+<div class="sec" id="p3">
+<div class="hsec" style="border-color:rgba(234,88,12,.3)">
+  <span class="hi2">⚖️</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--org);margin-bottom:3px">Unidad 3 de 3 · Muy alta frecuencia</div>
+  <h2 style="color:var(--org)">Reacciones y Estequiometría</h2>
+  <p>La unidad más numérica del electivo: leyes ponderales, balanceo de ecuaciones, cálculo mol-masa, reactivo limitante, fórmula empírica, y todas las formas de expresar la concentración de una solución, incluida la dilución.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p3">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+<line x1="280" y1="30" x2="280" y2="60" stroke="#7c4f2a" stroke-width="3"/>
+<line x1="180" y1="60" x2="380" y2="60" stroke="#7c4f2a" stroke-width="3"/>
+<line x1="180" y1="60" x2="150" y2="105" stroke="#7c4f2a" stroke-width="2"/>
+<line x1="180" y1="60" x2="210" y2="105" stroke="#7c4f2a" stroke-width="2"/>
+<ellipse cx="180" cy="110" rx="45" ry="8" fill="none" stroke="#7c4f2a" stroke-width="2"/>
+<line x1="380" y1="60" x2="350" y2="105" stroke="#7c4f2a" stroke-width="2"/>
+<line x1="380" y1="60" x2="410" y2="105" stroke="#7c4f2a" stroke-width="2"/>
+<ellipse cx="380" cy="110" rx="45" ry="8" fill="none" stroke="#7c4f2a" stroke-width="2"/>
+<rect x="255" y="130" width="50" height="18" fill="#7c4f2a"/>
+<text x="150" y="90" font-size="12" font-weight="800" fill="var(--org)" text-anchor="middle">Reactantes</text>
+<text x="380" y="90" font-size="12" font-weight="800" fill="var(--org)" text-anchor="middle">Productos</text>
+<text x="280" y="20" font-size="11" font-weight="900" fill="#1a0a00" text-anchor="middle">masa igual</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--org)">⚖️ Leyes ponderales</p>
+  <p>Las leyes ponderales describen las relaciones de <strong>masa</strong> en una reacción química, y fueron la base experimental para deducir la existencia del átomo:</p>
+  <div class="pgrid" style="margin-top:6px">
+    <div class="pc"><h4>Ley de conservación de la masa (Lavoisier)</h4><p>La masa total de los reactantes es igual a la masa total de los productos. "La materia no se crea ni se destruye, solo se transforma."</p></div>
+    <div class="pc"><h4>Ley de proporciones definidas (Proust)</h4><p>Un compuesto siempre tiene la misma proporción en masa de sus elementos, sin importar cómo se haya formado. Ej: el agua siempre es 8:1 en masa de O a H.</p></div>
+    <div class="pc"><h4>Ley de proporciones múltiples (Dalton)</h4><p>Cuando dos elementos forman más de un compuesto, las masas de uno que se combinan con una masa fija del otro están en relación de números enteros pequeños.</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Cómo se usa en la PAES</div>
+    <p>Si te dan tablas con masas de un elemento que se combinan con otro en distintos compuestos, y piden identificar la <strong>fórmula empírica</strong> de alguno de ellos, estás aplicando directamente la ley de proporciones definidas: la razón de masas (o de moles) debe coincidir con la razón de átomos en la fórmula.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+<text x="110" y="70" font-size="20" font-weight="900" fill="var(--org)" text-anchor="middle">2 Fe</text>
+<text x="180" y="70" font-size="18" font-weight="900" fill="#1a0a00" text-anchor="middle">+</text>
+<text x="260" y="70" font-size="20" font-weight="900" fill="var(--org)" text-anchor="middle">6 HCl</text>
+<path d="M330,65 L365,65 M355,58 L365,65 L355,72" fill="none" stroke="#1a0a00" stroke-width="2.5"/>
+<text x="430" y="70" font-size="20" font-weight="900" fill="#0369a1" text-anchor="middle">2 FeCl₃</text>
+<text x="500" y="70" font-size="18" font-weight="900" fill="#1a0a00" text-anchor="middle">+</text>
+<text x="110" y="120" font-size="18" font-weight="900" fill="#0369a1" text-anchor="middle">3 H₂</text>
+<text x="280" y="130" font-size="10" fill="#7c4f2a" text-anchor="middle">Fe: 2=2 ✓  H: 6=6 ✓  Cl: 6=6 ✓</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--org)">🔥 Balanceo de ecuaciones químicas</p>
+  <p>Una ecuación química balanceada respeta la ley de conservación de la masa: <strong>el mismo número de átomos de cada elemento</strong> debe aparecer a ambos lados de la flecha. Los <strong>coeficientes estequiométricos</strong> (los números grandes delante de cada fórmula) se ajustan para lograr ese equilibrio — nunca se cambian los subíndices dentro de una fórmula, porque eso cambiaría la sustancia.</p>
+  <p style="margin-top:8px">Componentes de una reacción: <strong>reactantes</strong> (lo que se consume, a la izquierda de la flecha) y <strong>productos</strong> (lo que se forma, a la derecha).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Método práctico para balancear</div>
+    <p>Cuenta los átomos de cada elemento en ambos lados. Empieza balanceando el elemento que aparece en menos moléculas, y deja el H y el O para el final. Verifica siempre al terminar, elemento por elemento.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 190" xmlns="http://www.w3.org/2000/svg">
+<polygon points="280,20 460,150 100,150" fill="none" stroke="var(--org)" stroke-width="2"/>
+<text x="280" y="45" font-size="14" font-weight="900" fill="var(--org)" text-anchor="middle">mol (n)</text>
+<text x="150" y="135" font-size="13" font-weight="900" fill="#0369a1" text-anchor="middle">masa (g)</text>
+<text x="410" y="135" font-size="13" font-weight="900" fill="#15803d" text-anchor="middle">N° partículas</text>
+<text x="220" y="90" font-size="10" fill="#7c4f2a">×M</text>
+<text x="200" y="105" font-size="10" fill="#7c4f2a">÷M</text>
+<text x="340" y="90" font-size="10" fill="#7c4f2a">×Nₐ</text>
+<text x="355" y="105" font-size="10" fill="#7c4f2a">÷Nₐ</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--org)">🧮 El mol y la estequiometría</p>
+  <p>El <strong>mol</strong> es la unidad que conecta el mundo microscópico (átomos, moléculas) con el mundo que podemos pesar en una balanza. Un mol equivale a <strong>6,022×10²³ partículas</strong> (número de Avogadro, Nₐ) y a la <strong>masa molar (M)</strong> de la sustancia expresada en gramos.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--org)">n = m / M</span><div class="fdef">moles = masa (g) / masa molar (g/mol)</div></div>
+  <p style="margin-top:10px">La <strong>estequiometría</strong> usa los coeficientes de la ecuación balanceada como una "receta de cocina" en moles: si 2 mol de A reaccionan con 3 mol de B, esa proporción 2:3 se mantiene siempre, sin importar cuánto reactante uses.</p>
+  <p style="margin-top:8px"><strong>Reactivo limitante:</strong> el que se acaba primero y determina cuánto producto se forma. <strong>Reactivo en exceso:</strong> el que sobra al terminar la reacción.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Cómo identificar el reactivo limitante</div>
+    <p>Convierte las cantidades de cada reactante a moles, divide cada uno por su coeficiente en la ecuación balanceada, y el que dé el <strong>menor resultado</strong> es el reactivo limitante.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+<circle cx="140" cy="85" r="55" fill="none" stroke="var(--org)" stroke-width="14" stroke-dasharray="185 345" stroke-dashoffset="0"/>
+<circle cx="140" cy="85" r="55" fill="none" stroke="#0369a1" stroke-width="14" stroke-dasharray="115 345" stroke-dashoffset="-185"/>
+<circle cx="140" cy="85" r="55" fill="none" stroke="#15803d" stroke-width="14" stroke-dasharray="45 345" stroke-dashoffset="-300"/>
+<text x="140" y="90" font-size="11" font-weight="900" fill="#1a0a00" text-anchor="middle">NO₂</text>
+<text x="350" y="45" font-size="12" font-weight="800" fill="var(--org)">N: 30,4 %</text>
+<text x="350" y="75" font-size="12" font-weight="800" fill="#0369a1">O: 69,6 %</text>
+<text x="350" y="115" font-size="10" fill="#7c4f2a">%elemento = (masa elemento / masa total) × 100</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--org)">🎯 Fórmula empírica, molecular y análisis porcentual</p>
+  <p>El <strong>análisis porcentual</strong> indica qué porcentaje de la masa total de un compuesto corresponde a cada elemento. A partir de esos porcentajes (o de masas experimentales) se puede determinar la <strong>fórmula empírica</strong>: la proporción entera más simple entre los átomos.</p>
+  <p style="margin-top:8px">Pasos típicos: (1) si tienes %, asume 100 g de muestra y transforma cada % directamente a gramos; (2) convierte cada masa a <strong>moles</strong> dividiendo por su masa atómica; (3) divide todos los moles por el menor de ellos para obtener la razón más simple.</p>
+  <p style="margin-top:8px">La <strong>fórmula molecular</strong> es un múltiplo entero de la fórmula empírica: fórmula molecular = (fórmula empírica)ₙ, donde n = masa molar real / masa de la fórmula empírica.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Trampa frecuente en tablas de masas</div>
+    <p>Cuando te dan una tabla con masas de dos elementos en distintos "compuestos hipotéticos", conviertes cada masa a moles y divides para obtener la razón atómica — no compares las masas directamente, porque cada elemento tiene distinta masa atómica.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+<path d="M70,30 L70,90 L100,140 L40,140 Z" fill="#fed7aa" stroke="#9a3412" stroke-width="1.5"/>
+<circle cx="55" cy="115" r="3" fill="#9a3412"/><circle cx="65" cy="125" r="3" fill="#9a3412"/><circle cx="78" cy="110" r="3" fill="#9a3412"/><circle cx="60" cy="105" r="3" fill="#9a3412"/>
+<text x="70" y="20" font-size="10" font-weight="800" fill="#9a3412" text-anchor="middle">Concentrada</text>
+<path d="M220,25 L220,145 M220,25 L340,25 M340,25 L340,145" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M0,0" stroke="none"/>
+<path d="M240,50 L240,90 L260,130 L220,130 Z" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5" transform="translate(40,0)"/>
+<circle cx="298" cy="112" r="2.5" fill="#1d4ed8"/><circle cx="308" cy="118" r="2.5" fill="#1d4ed8"/>
+<text x="280" y="20" font-size="10" font-weight="800" fill="#1d4ed8" text-anchor="middle">+ agua = Diluida</text>
+<path d="M0,0"/>
+<text x="450" y="70" font-size="18" font-weight="900" fill="var(--org)" text-anchor="middle">C₁V₁ = C₂V₂</text>
+<text x="450" y="95" font-size="9.5" fill="#7c4f2a" text-anchor="middle">se conserva el n° de moles</text>
+<text x="450" y="110" font-size="9.5" fill="#7c4f2a" text-anchor="middle">de soluto al diluir</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--org)">💧 Concentración de soluciones y dilución</p>
+  <p>Una solución tiene un <strong>soluto</strong> (lo que se disuelve, menor cantidad) y un <strong>solvente</strong> (donde se disuelve, mayor cantidad). Existen varias formas de expresar cuánto soluto hay:</p>
+  <div class="pgrid" style="margin-top:6px">
+    <div class="pc"><h4>Molaridad (mol/L)</h4><p>C = mol de soluto / L de solución. La más usada.</p></div>
+    <div class="pc"><h4>Molalidad (mol/kg)</h4><p>m = mol de soluto / kg de <strong>solvente</strong> (no de solución).</p></div>
+    <div class="pc"><h4>Fracción molar</h4><p>X = mol de un componente / mol totales de la solución.</p></div>
+    <div class="pc"><h4>%m/m, %m/v, %v/v</h4><p>Porcentaje de soluto respecto a la masa o volumen total de solución. ppm = partes por millón, para trazas muy diluidas.</p></div>
+  </div>
+  <p style="margin-top:10px"><strong>Dilución:</strong> agregar más solvente a una solución no cambia la cantidad de moles de soluto, solo el volumen total — por eso la concentración baja. La relación clave es:</p>
+  <div class="fbox" style="margin-top:6px"><span class="fsym" style="color:var(--org)">C₁·V₁ = C₂·V₂</span><div class="fdef">concentración inicial × volumen inicial = concentración final × volumen final</div></div>
+  <p style="margin-top:8px">Cuando se <strong>mezclan dos soluciones</strong> del mismo soluto, los moles totales se suman y el volumen total también, y la nueva concentración es el promedio ponderado de ambas.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Trampa frecuente</div>
+    <p>"Volúmenes aditivos" significa que el volumen final es simplemente la suma de los volúmenes que mezclaste — úsalo para saber cuánta agua agregar: V agua = V final − V inicial.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p3" onclick="deckNav('p3',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p3"><button class="deck-dot act" onclick="deckGoto('p3',0)"></button><button class="deck-dot" onclick="deckGoto('p3',1)"></button><button class="deck-dot" onclick="deckGoto('p3',2)"></button><button class="deck-dot" onclick="deckGoto('p3',3)"></button><button class="deck-dot" onclick="deckGoto('p3',4)"></button></div><button class="deck-arrow" id="deck-next-p3" onclick="deckNav('p3',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p3">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:var(--org)">n=m/M</span>
+  <span class="kw" style="color:var(--org)">reactivo limitante</span>
+  <span class="kw" style="color:var(--org)">balanceo</span>
+  <span class="kw" style="color:var(--org)">fórmula empírica</span>
+  <span class="kw" style="color:var(--org)">molaridad</span>
+  <span class="kw" style="color:var(--org)">C₁V₁=C₂V₂</span>
+  <span class="kw" style="color:var(--org)">%m/v</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<!-- IA 1 -->
+<div class="pbox">
+  <div class="ptag" style="color:var(--org)">🤖 Pregunta de práctica</div>
+  <div class="pctx">Se tiene la siguiente ecuación química sin balancear: Al + O₂ → Al₂O₃</div>
+  <p class="pq">¿Cuáles son los coeficientes correctos para balancear esta ecuación (en el orden Al, O₂, Al₂O₃)?</p>
+  <div class="pos" id="qc1">
+    <div class="po" onclick="ans('qc1','A')"><div class="ol">A</div><div class="ot">1, 1, 1</div></div>
+    <div class="po" onclick="ans('qc1','B')"><div class="ol">B</div><div class="ot">2, 3, 2</div></div>
+    <div class="po" onclick="ans('qc1','C')"><div class="ol">C</div><div class="ot">4, 3, 2</div></div>
+    <div class="po" onclick="ans('qc1','D')"><div class="ol">D</div><div class="ot">2, 3, 1</div></div>
+  </div>
+  <div class="pfb" id="qc1-fb"></div>
+</div>
+
+<!-- IA 2 -->
+<div class="pbox">
+  <div class="ptag" style="color:var(--org)">🤖 Pregunta de práctica</div>
+  <div class="pctx">Se desea calcular la cantidad de moles contenidos en 36 g de agua (H₂O), sabiendo que su masa molar es 18 g/mol.</div>
+  <p class="pq">¿Cuántos moles de agua hay en esa muestra?</p>
+  <div class="pos" id="qc2">
+    <div class="po" onclick="ans('qc2','A')"><div class="ol">A</div><div class="ot">0,5 mol</div></div>
+    <div class="po" onclick="ans('qc2','B')"><div class="ol">B</div><div class="ot">2 mol</div></div>
+    <div class="po" onclick="ans('qc2','C')"><div class="ol">C</div><div class="ot">18 mol</div></div>
+    <div class="po" onclick="ans('qc2','D')"><div class="ol">D</div><div class="ot">648 mol</div></div>
+  </div>
+  <div class="pfb" id="qc2-fb"></div>
+</div>
+
+<!-- IA 3 -->
+<div class="pbox">
+  <div class="ptag" style="color:var(--org)">🤖 Pregunta de práctica</div>
+  <div class="pctx">Se preparan 200 mL de una solución acuosa 2,0 mol/L de NaCl. Luego, un estudiante agrega agua destilada hasta completar 400 mL de solución.</div>
+  <p class="pq">¿Cuál es la concentración final de la solución diluida?</p>
+  <div class="pos" id="qc3">
+    <div class="po" onclick="ans('qc3','A')"><div class="ol">A</div><div class="ot">4,0 mol/L</div></div>
+    <div class="po" onclick="ans('qc3','B')"><div class="ol">B</div><div class="ot">2,0 mol/L</div></div>
+    <div class="po" onclick="ans('qc3','C')"><div class="ol">C</div><div class="ot">1,0 mol/L</div></div>
+    <div class="po" onclick="ans('qc3','D')"><div class="ol">D</div><div class="ot">0,5 mol/L</div></div>
+  </div>
+  <div class="pfb" id="qc3-fb"></div>
+</div>
+
+<!-- IA 4 -->
+<div class="pbox">
+  <div class="ptag" style="color:var(--org)">🤖 Pregunta de práctica</div>
+  <div class="pctx">En una reacción, 2 mol de H₂ reaccionan con 1 mol de O₂ para formar agua, según: 2H₂ + O₂ → 2H₂O. Un estudiante hace reaccionar 3 mol de H₂ con 1 mol de O₂.</div>
+  <p class="pq">¿Cuál es el reactivo limitante de esta reacción?</p>
+  <div class="pos" id="qc4">
+    <div class="po" onclick="ans('qc4','A')"><div class="ol">A</div><div class="ot">El H₂, porque se usa en mayor cantidad.</div></div>
+    <div class="po" onclick="ans('qc4','B')"><div class="ol">B</div><div class="ot">El O₂, porque 1 mol de O₂ solo alcanza para reaccionar con 2 mol de H₂, y sobra 1 mol de H₂.</div></div>
+    <div class="po" onclick="ans('qc4','C')"><div class="ol">C</div><div class="ot">Ninguno, porque ambos reactivos se consumen por completo.</div></div>
+    <div class="po" onclick="ans('qc4','D')"><div class="ol">D</div><div class="ot">No se puede determinar sin conocer las masas molares.</div></div>
+  </div>
+  <div class="pfb" id="qc4-fb"></div>
+</div>
+
+</div>
+
+<!-- ENSAYO -->
+<div class="sec" id="p4">
+<div class="card">
+  <p class="ct" style="color:var(--org)">&#9201; Ensayo de Cierre &bull; 26 preguntas 🤖</p>
+  <p style="font-size:.92rem;color:var(--dim)">Simula la prueba completa del electivo: <strong>26 preguntas generadas por IA</strong> siguiendo el formato, dificultad y proporción de habilidades del M&oacute;dulo Electivo de Qu&iacute;mica PAES, mezclando las 3 unidades. 35 minutos, sin retroalimentaci&oacute;n inmediata. Al finalizar ver&aacute;s tu puntaje, el desglose por unidad y las explicaciones de cada pregunta &mdash; sabr&aacute;s exactamente d&oacute;nde volver a estudiar.</p>
+</div>
+<div class="tbox">
+  <div>
+    <div style="font-size:.71rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin-bottom:1px">Tiempo restante</div>
+    <div class="td" id="td">35:00</div>
+  </div>
+  <div style="text-align:right">
+    <div id="ts" style="font-size:.84rem;color:var(--dim);margin-bottom:6px">Haz clic en Iniciar cuando est&eacute;s lista</div>
+    <button id="stb" onclick="startE()" style="padding:8px 20px;background:var(--org);color:#fff;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.93rem;cursor:pointer;box-shadow:0 4px 12px rgba(234,88,12,.28)">&#9654; Iniciar ensayo</button>
+  </div>
+</div>
+<div id="eqs" style="opacity:.35;pointer-events:none">
+<div class="eq"><div class="enum" style="color:#0369a1">🤖 Pregunta 1 &middot; U1 Estructura Atómica</div><div class="ectx">Un estudiante tiene 4 vasos con 15 mL de los líquidos W, X, Y y Z. A cada uno agrega 0,3 g de azúcar: en W y X el azúcar se disuelve (mezcla homogénea); en Y y Z no se disuelve y queda visible (mezcla heterogénea).</div><div class="eqt">¿Cuál de las siguientes opciones corresponde a una predicción correcta al mezclar dos de estas sustancias líquidas?</div><div class="eopts" id="ep0"><div class="eopt" data-qi="0" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Al mezclar X con Z se formará una mezcla homogénea.</div></div><div class="eopt" data-qi="0" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Al mezclar W con Y se formará una mezcla homogénea.</div></div><div class="eopt" data-qi="0" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Al mezclar W con Z se formará una mezcla heterogénea.</div></div><div class="eopt" data-qi="0" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Al mezclar Y con Z se formará una mezcla heterogénea.</div></div></div><div class="efb" id="ef0"></div></div><div class="eq"><div class="enum" style="color:#0369a1">🤖 Pregunta 2 &middot; U1 Estructura Atómica</div><div class="ectx">En la clarificación de jugo se agregan agentes clarificantes: sustancias que generan grumos gelatinosos de mayor densidad que el líquido, que atrapan partículas más pequeñas en suspensión.</div><div class="eqt">¿Qué métodos de separación consecutivos se utilizan en este proceso?</div><div class="eopts" id="ep1"><div class="eopt" data-qi="1" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Tamizado y destilación.</div></div><div class="eopt" data-qi="1" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Destilación y decantación.</div></div><div class="eopt" data-qi="1" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Tamizado y decantación.</div></div><div class="eopt" data-qi="1" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Decantación y filtración.</div></div></div><div class="efb" id="ef1"></div></div><div class="eq"><div class="enum" style="color:#0369a1">🤖 Pregunta 3 &middot; U1 Estructura Atómica</div><div class="ectx">Tabla de compuestos LiF, LiCl, LiBr, LiI con su temperatura de ebullición, temperatura de fusión y una "propiedad Y": a medida que Y aumenta, tanto la Te como la Tf disminuyen.</div><div class="eqt">¿Cuál relación entre las propiedades es correcta?</div><div class="eopts" id="ep2"><div class="eopt" data-qi="2" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">La temperatura de fusión se mantiene constante al aumentar la propiedad Y.</div></div><div class="eopt" data-qi="2" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">La temperatura de ebullición disminuye al aumentar la propiedad Y.</div></div><div class="eopt" data-qi="2" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">La temperatura de fusión disminuye al disminuir la propiedad Y.</div></div><div class="eopt" data-qi="2" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">La temperatura de ebullición aumenta al aumentar la propiedad Y.</div></div></div><div class="efb" id="ef2"></div></div><div class="eq"><div class="enum" style="color:#0369a1">🤖 Pregunta 4 &middot; U1 Estructura Atómica</div><div class="ectx">Tabla con temperaturas de fusión y ebullición (a 1 atm) de 4 sustancias A, B, C, D: A (Tf=−210, Te=−196) · B (Tf=−95, Te=−42) · C (Tf=−10, Te=61) · D (Tf=98, Te=180), todas en °C.</div><div class="eqt">Considerando que temperatura ambiente ≈20-25 °C, ¿cuál de las siguientes afirmaciones es correcta?</div><div class="eopts" id="ep3"><div class="eopt" data-qi="3" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">La sustancia A es gaseosa a temperatura ambiente.</div></div><div class="eopt" data-qi="3" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">La sustancia B es líquida a temperatura ambiente.</div></div><div class="eopt" data-qi="3" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">La sustancia C es sólida a temperatura ambiente.</div></div><div class="eopt" data-qi="3" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">La sustancia D es líquida a temperatura ambiente.</div></div></div><div class="efb" id="ef3"></div></div><div class="eq"><div class="enum" style="color:#0369a1">🤖 Pregunta 5 &middot; U1 Estructura Atómica</div><div class="ectx">Tabla de densidad y volumen para los metales A (densidad 8,9 g/cm³, volumen 5,0 cm³) y B (densidad 2,7 g/cm³, volumen 10,0 cm³).</div><div class="eqt">¿Cuál opción presenta la masa correcta para los metales A y B?</div><div class="eopts" id="ep4"><div class="eopt" data-qi="4" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">A=0,6 g · B=0,3 g</div></div><div class="eopt" data-qi="4" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">A=1,8 g · B=2,7 g</div></div><div class="eopt" data-qi="4" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">A=17,8 g · B=8,9 g</div></div><div class="eopt" data-qi="4" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">A=44,5 g · B=27,0 g</div></div></div><div class="efb" id="ef4"></div></div><div class="eq"><div class="enum" style="color:#0369a1">🤖 Pregunta 6 &middot; U1 Estructura Atómica</div><div class="ectx">Tabla con el número de protones de distintos iones: un anión 1− con 17 protones, un anión 2− con 8 protones, un catión 1+ con 11 protones y un catión 2+ con 12 protones.</div><div class="eqt">¿Cuál de las siguientes comparaciones del número de electrones que poseen los iones es correcta?</div><div class="eopts" id="ep5"><div class="eopt" data-qi="5" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">El ion de 17p (1−) posee 8 electrones más que el ion de 8p (2−).</div></div><div class="eopt" data-qi="5" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">El ion de 8p (2−) posee 2 electrones más que el ion de 11p (1+).</div></div><div class="eopt" data-qi="5" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">El ion de 11p (1+) posee 2 electrones menos que el ion de 12p (2+).</div></div><div class="eopt" data-qi="5" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">El ion de 12p (2+) posee 10 electrones menos que el ion de 17p (1−).</div></div></div><div class="efb" id="ef5"></div></div><div class="eq"><div class="enum" style="color:#0369a1">🤖 Pregunta 7 &middot; U1 Estructura Atómica</div><div class="ectx">El azufre (S) tiene distintas especies estables en la naturaleza, representadas con el mismo número de protones pero distinto número de neutrones en su notación nuclear.</div><div class="eqt">Considerando estas representaciones (isótopos de azufre), ¿en qué se diferencian estas especies?</div><div class="eopts" id="ep6"><div class="eopt" data-qi="6" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">En el número atómico.</div></div><div class="eopt" data-qi="6" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">En el número de protones.</div></div><div class="eopt" data-qi="6" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">En el número de electrones.</div></div><div class="eopt" data-qi="6" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">En el número de neutrones.</div></div></div><div class="efb" id="ef6"></div></div><div class="eq"><div class="enum" style="color:#0369a1">🤖 Pregunta 8 &middot; U1 Estructura Atómica</div><div class="ectx">La Figura X representa un átomo de sodio con número atómico 11 y número másico 23 (11 protones, 12 neutrones). La Figura Y muestra un átomo con 11 protones y 10 neutrones.</div><div class="eqt">¿Cuál opción describe correctamente lo que representa la Figura Y respecto de la Figura X?</div><div class="eopts" id="ep7"><div class="eopt" data-qi="7" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Un átomo de un elemento diferente al sodio.</div></div><div class="eopt" data-qi="7" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Un átomo de sodio con diferente masa atómica.</div></div><div class="eopt" data-qi="7" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Un átomo de sodio con carga positiva.</div></div><div class="eopt" data-qi="7" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Un átomo de sodio con carga negativa.</div></div></div><div class="efb" id="ef7"></div></div><div class="eq"><div class="enum" style="color:#15803d">🤖 Pregunta 9 &middot; U2 Química Orgánica</div><div class="ectx">Datos de longitud de enlace entre átomos de carbono: C-C = 0,154 nm, C=C = 0,130 nm, C≡C = 0,120 nm. Se comparan 4 moléculas derivadas del hexano, todas extendidas: hexano, hex-2-ino, hex-2-eno y hex-3-eno.</div><div class="eqt">¿Cuál de las siguientes opciones presenta la molécula de menor longitud total?</div><div class="eopts" id="ep8"><div class="eopt" data-qi="8" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Hexano</div></div><div class="eopt" data-qi="8" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Hex-2-ino</div></div><div class="eopt" data-qi="8" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Hex-2-eno</div></div><div class="eopt" data-qi="8" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Hex-3-eno</div></div></div><div class="efb" id="ef8"></div></div><div class="eq"><div class="enum" style="color:#15803d">🤖 Pregunta 10 &middot; U2 Química Orgánica</div><div class="ectx">Se analizan distintas estructuras orgánicas contando la proporción entre enlaces sigma (σ) y enlaces pi (π) que poseen.</div><div class="eqt">¿Cuál de las siguientes estructuras presenta una razón de 2 enlaces σ por cada enlace π?</div><div class="eopts" id="ep9"><div class="eopt" data-qi="9" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Una estructura con solo enlaces simples (sin enlaces π).</div></div><div class="eopt" data-qi="9" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Una estructura con un enlace doble y un enlace simple adicional.</div></div><div class="eopt" data-qi="9" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Una estructura con dos enlaces dobles consecutivos.</div></div><div class="eopt" data-qi="9" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Una estructura con un enlace triple aislado y un enlace simple adicional.</div></div></div><div class="efb" id="ef9"></div></div><div class="eq"><div class="enum" style="color:#15803d">🤖 Pregunta 11 &middot; U2 Química Orgánica</div><div class="ectx">Cuatro estudiantes analizan tres compuestos orgánicos P, Q y R (estructuras con grupos -OH, C=O y COOH) y escriben conclusiones sobre sus fórmulas moleculares, cantidad de carbonos, masa molar y átomos de hidrógeno.</div><div class="eqt">¿Cuál estudiante escribe una conclusión correcta sobre el análisis de los compuestos?</div><div class="eopts" id="ep10"><div class="eopt" data-qi="10" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Estudiante 1: la fórmula molecular de P y R es la misma.</div></div><div class="eopt" data-qi="10" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Estudiante 2: el compuesto Q tiene más átomos de carbono que P y R.</div></div><div class="eopt" data-qi="10" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Estudiante 3: la masa molar de P y de Q es la misma.</div></div><div class="eopt" data-qi="10" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Estudiante 4: el número de átomos de H de Q es el triple que el de P.</div></div></div><div class="efb" id="ef10"></div></div><div class="eq"><div class="enum" style="color:#15803d">🤖 Pregunta 12 &middot; U2 Química Orgánica</div><div class="ectx">Un fármaco Y existe en dos formas en las que sus átomos se ordenan de manera diferente en el espacio, lo que cambia su efecto biológico (estereoisómeros).</div><div class="eqt">¿Cuál representación molecular permite distinguir correctamente estas dos formas espaciales del fármaco?</div><div class="eopts" id="ep11"><div class="eopt" data-qi="11" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Fórmula condensada.</div></div><div class="eopt" data-qi="11" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Modelo de esferas y varillas.</div></div><div class="eopt" data-qi="11" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Fórmula empírica.</div></div><div class="eopt" data-qi="11" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Fórmula molecular.</div></div></div><div class="efb" id="ef11"></div></div><div class="eq"><div class="enum" style="color:#15803d">🤖 Pregunta 13 &middot; U2 Química Orgánica</div><div class="ectx">Tablas de temperatura de ebullición para hidrocarburos de distinta ramificación: un grupo con Te 40,2 / 30,5 / 12,0 °C y otro con 70,3 / 60,1 / 52,4 °C, según su grado de ramificación. Se busca la Te de una nueva estructura con ramificación intermedia.</div><div class="eqt">¿Cuál es la temperatura de ebullición aproximada de la nueva estructura encontrada?</div><div class="eopts" id="ep12"><div class="eopt" data-qi="12" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">30,5 °C</div></div><div class="eopt" data-qi="12" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">45,0 °C</div></div><div class="eopt" data-qi="12" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">60,1 °C</div></div><div class="eopt" data-qi="12" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">78,0 °C</div></div></div><div class="efb" id="ef12"></div></div><div class="eq"><div class="enum" style="color:#15803d">🤖 Pregunta 14 &middot; U2 Química Orgánica</div><div class="ectx">Un estudiante extrae el aceite esencial de la menta y analiza el compuesto obtenido (mentol), determinando: fórmula molecular C₁₀H₂₀O, un anillo saturado con sustituyentes metilo e isopropilo, y grupo funcional alcohol.</div><div class="eqt">¿Cuál estructura es coherente con estos datos experimentales?</div><div class="eopts" id="ep13"><div class="eopt" data-qi="13" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Una estructura con fórmula molecular distinta a C₁₀H₂₀O.</div></div><div class="eopt" data-qi="13" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Una estructura sin grupo alcohol.</div></div><div class="eopt" data-qi="13" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Una estructura con solo un anillo aromático sin sustituyentes.</div></div><div class="eopt" data-qi="13" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Una estructura con C₁₀H₂₀O, anillo de ciclohexano con sustituyentes metilo e isopropilo, y grupo -OH.</div></div></div><div class="efb" id="ef13"></div></div><div class="eq"><div class="enum" style="color:#15803d">🤖 Pregunta 15 &middot; U2 Química Orgánica</div><div class="ectx">El tetracloruro de carbono es un compuesto orgánico de fórmula molecular CCl₄, usado antiguamente como disolvente y actualmente restringido por su toxicidad.</div><div class="eqt">¿Cuál es la fórmula empírica del tetracloruro de carbono?</div><div class="eopts" id="ep14"><div class="eopt" data-qi="14" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">C₂Cl₈</div></div><div class="eopt" data-qi="14" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">CCl₄</div></div><div class="eopt" data-qi="14" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">CCl₂</div></div><div class="eopt" data-qi="14" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">C₂Cl₄</div></div></div><div class="efb" id="ef14"></div></div><div class="eq"><div class="enum" style="color:#15803d">🤖 Pregunta 16 &middot; U2 Química Orgánica</div><div class="ectx">Un insecticida organofosforado se representa con su estructura completa, incluyendo un anillo con sustituyentes cloro, un grupo fosforado y cadenas etilo.</div><div class="eqt">¿Cuántos átomos de hidrógeno tiene, en total, una molécula de este insecticida?</div><div class="eopts" id="ep15"><div class="eopt" data-qi="15" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">6</div></div><div class="eopt" data-qi="15" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">10</div></div><div class="eopt" data-qi="15" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">13</div></div><div class="eopt" data-qi="15" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">15</div></div></div><div class="efb" id="ef15"></div></div><div class="eq"><div class="enum" style="color:#ea580c">🤖 Pregunta 17 &middot; U3 Reacciones y Estequiometría</div><div class="ectx">Reacción sin balancear: Al(NO₃)₃ (ac) + 3 NaOH (ac) → q NaNO₃ (ac) + r Al(OH)₃ (s)</div><div class="eqt">¿Cuál opción presenta correctamente los coeficientes q y r?</div><div class="eopts" id="ep16"><div class="eopt" data-qi="16" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">q=1, r=1</div></div><div class="eopt" data-qi="16" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">q=1, r=3</div></div><div class="eopt" data-qi="16" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">q=3, r=1</div></div><div class="eopt" data-qi="16" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">q=3, r=3</div></div></div><div class="efb" id="ef16"></div></div><div class="eq"><div class="enum" style="color:#ea580c">🤖 Pregunta 18 &middot; U3 Reacciones y Estequiometría</div><div class="ectx">Representación de una reacción hipotética con el estado inicial (moléculas A-A y B-B separadas) y el estado final (moléculas A-B-A formadas), mostrando las cantidades relativas de cada especie.</div><div class="eqt">¿Cuál opción corresponde a la ecuación balanceada de esta reacción hipotética?</div><div class="eopts" id="ep17"><div class="eopt" data-qi="17" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">6 A + 3 B → 6 AB₂</div></div><div class="eopt" data-qi="17" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">2 A₂ + B₂ → 2 AB₂</div></div><div class="eopt" data-qi="17" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">A₂ + B₂ → AB₂</div></div><div class="eopt" data-qi="17" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">6 A + 3 B → 3 AB₂</div></div></div><div class="efb" id="ef17"></div></div><div class="eq"><div class="enum" style="color:#ea580c">🤖 Pregunta 19 &middot; U3 Reacciones y Estequiometría</div><div class="ectx">Reacción entre P (masa molar 24 g/mol) y Q (masa molar 28 g/mol) en exceso, formando un único producto R (masa molar 96 g/mol). Tabla de 3 experiencias: 12,0 g de P → 24,0 g de R; 48,0 g de P → 96,0 g de R; 96,0 g de P → 192,0 g de R.</div><div class="eqt">¿Cuál es una conclusión correcta sobre la estequiometría de la reacción?</div><div class="eopts" id="ep18"><div class="eopt" data-qi="18" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Por cada 1 mol de P se producen 2 mol de R.</div></div><div class="eopt" data-qi="18" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Por cada 4 mol de P se requieren 2 mol de Q.</div></div><div class="eopt" data-qi="18" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Por cada 2 mol de P se produce 1 mol de R.</div></div><div class="eopt" data-qi="18" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Por cada 1 mol de P se requieren 3 mol de Q.</div></div></div><div class="efb" id="ef18"></div></div><div class="eq"><div class="enum" style="color:#ea580c">🤖 Pregunta 20 &middot; U3 Reacciones y Estequiometría</div><div class="ectx">Reacción: 2 Al (s) + 6 HCl (ac) → 2 AlCl₃ (ac) + 3 H₂ (g). Se usaron 0,2 mol de HCl y 0,2 mol de Al, obteniéndose 0,1 mol de H₂.</div><div class="eqt">¿Cuál es la cantidad de Al consumido en la reacción?</div><div class="eopts" id="ep19"><div class="eopt" data-qi="19" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">0,07 mol</div></div><div class="eopt" data-qi="19" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">0,10 mol</div></div><div class="eopt" data-qi="19" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">0,20 mol</div></div><div class="eopt" data-qi="19" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">2,00 mol</div></div></div><div class="efb" id="ef19"></div></div><div class="eq"><div class="enum" style="color:#ea580c">🤖 Pregunta 21 &middot; U3 Reacciones y Estequiometría</div><div class="ectx">Tabla con masa de N y masa de O en 4 compuestos nitrogenados hipotéticos: Compuesto 1 (N=7 g, O=4 g), Compuesto 2 (N=28 g, O=32 g), Compuesto 3 (N=21 g, O=24 g), Compuesto 4 (N=28 g, O=8 g). Se busca cuál corresponde a la fórmula empírica de N₂O.</div><div class="eqt">¿Cuál compuesto posee la fórmula empírica asociada a N₂O?</div><div class="eopts" id="ep20"><div class="eopt" data-qi="20" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">El compuesto 1.</div></div><div class="eopt" data-qi="20" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">El compuesto 2.</div></div><div class="eopt" data-qi="20" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">El compuesto 3.</div></div><div class="eopt" data-qi="20" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">El compuesto 4.</div></div></div><div class="efb" id="ef20"></div></div><div class="eq"><div class="enum" style="color:#ea580c">🤖 Pregunta 22 &middot; U3 Reacciones y Estequiometría</div><div class="ectx">Tres soluciones acuosas de una sal Y, preparadas a 20 °C y 1 atm: Solución 1 (100 g de Y en 500 mL de agua), Solución 2 (80 g de Y en 200 mL de agua), Solución 3 (40 g de Y en 100 mL de agua).</div><div class="eqt">¿Cuál opción compara correctamente las concentraciones de las tres soluciones?</div><div class="eopts" id="ep21"><div class="eopt" data-qi="21" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Solución 1 < Solución 2 = Solución 3</div></div><div class="eopt" data-qi="21" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Solución 1 = Solución 2 = Solución 3</div></div><div class="eopt" data-qi="21" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Solución 1 > Solución 2 > Solución 3</div></div><div class="eopt" data-qi="21" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Solución 1 = Solución 2 < Solución 3</div></div></div><div class="efb" id="ef21"></div></div><div class="eq"><div class="enum" style="color:#ea580c">🤖 Pregunta 23 &middot; U3 Reacciones y Estequiometría</div><div class="ectx">Se mezclan 150 mL de Solución 1 (fructosa, C=2 mol/L) con 150 mL de Solución 2 (fructosa, C=2 mol/L), obteniendo 300 mL de Solución 3.</div><div class="eqt">¿Cuál opción describe correctamente la composición de la Solución 3 respecto de las soluciones 1 y 2?</div><div class="eopts" id="ep22"><div class="eopt" data-qi="22" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Presenta el doble de masa de fructosa que las soluciones 1 y 2 (por separado).</div></div><div class="eopt" data-qi="22" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Contiene la mitad de la cantidad, en mol, de fructosa que las soluciones 1 y 2 (por separado).</div></div><div class="eopt" data-qi="22" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Su concentración es el doble que la concentración de las soluciones 1 y 2.</div></div><div class="eopt" data-qi="22" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Tiene menos cantidad, en mol, de fructosa por cada 1 mL de solución que las soluciones 1 y 2.</div></div></div><div class="efb" id="ef22"></div></div><div class="eq"><div class="enum" style="color:#ea580c">🤖 Pregunta 24 &middot; U3 Reacciones y Estequiometría</div><div class="ectx">Se toman 8 mL de HNO₃ al 65 % en masa y se vierten en un matraz aforado de 40 mL con un poco de agua destilada, luego se afora con más agua destilada hasta los 40 mL y se homogeniza.</div><div class="eqt">¿Cuál es una predicción correcta sobre la concentración de la solución diluida respecto de la solución inicial?</div><div class="eopts" id="ep23"><div class="eopt" data-qi="23" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Será el quíntuple que la de la solución original.</div></div><div class="eopt" data-qi="23" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Será el cuádruple que la de la solución original.</div></div><div class="eopt" data-qi="23" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Será un cuarto que la de la solución original.</div></div><div class="eopt" data-qi="23" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Será un quinto que la de la solución original.</div></div></div><div class="efb" id="ef23"></div></div><div class="eq"><div class="enum" style="color:#ea580c">🤖 Pregunta 25 &middot; U3 Reacciones y Estequiometría</div><div class="ectx">Un producto de limpieza contiene KOH (masa molar 56 g/mol) y su concentración máxima permitida es 0,4 mol/L. Se parte de 60 mL de una solución al 5,6 %m/v de KOH.</div><div class="eqt">Considerando volúmenes aditivos, ¿qué volumen de agua se debe agregar para llegar a la concentración máxima permitida?</div><div class="eopts" id="ep24"><div class="eopt" data-qi="24" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">90 mL</div></div><div class="eopt" data-qi="24" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">60 mL</div></div><div class="eopt" data-qi="24" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">45 mL</div></div><div class="eopt" data-qi="24" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">15 mL</div></div></div><div class="efb" id="ef24"></div></div><div class="eq"><div class="enum" style="color:#ea580c">🤖 Pregunta 26 &middot; U3 Reacciones y Estequiometría</div><div class="ectx">Se quiere preparar una solución acuosa de HCl 0,02 mol/L a partir de una solución de HCl 0,8 mol/L, considerando volúmenes aditivos.</div><div class="eqt">¿Cuál mezcla permite obtener la solución deseada?</div><div class="eopts" id="ep25"><div class="eopt" data-qi="25" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">20 mL de la solución inicial con 780 mL de agua destilada.</div></div><div class="eopt" data-qi="25" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">200 mL de la solución inicial con 700 mL de agua destilada.</div></div><div class="eopt" data-qi="25" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">20 mL de la solución inicial con 1000 mL de agua destilada.</div></div><div class="eopt" data-qi="25" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">2 mL de la solución inicial con 798 mL de agua destilada.</div></div></div><div class="efb" id="ef25"></div></div>
+</div>
+<button class="sbtn" id="subb" onclick="submitE()" disabled>Ver resultados</button>
+<div id="eres" style="display:none;margin-top:18px"></div>
+</div>
+
+</div><!-- /wr -->
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente del electivo">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Electivo</h3>
+      <p>Química · 3 Unidades</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    🔒 El asistente está pausado mientras rindes el Ensayo de Cierre cronometrado. Vuelve a abrirlo cuando termines.
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de este electivo. Puedo ayudarte con dudas sobre las 3 unidades: Estructura Atómica, Química Orgánica, y Reacciones y Estequiometría. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+<div class="lnav">
+  <button class="lb" id="lp" onclick="linN(-1)" disabled>&#8592; Anterior</button>
+  <div class="lm" id="lm">Inicio</div>
+  <button class="lb" id="ln" onclick="linN(1)">Siguiente &#8594;</button>
+</div>
+<footer>&#129514; Electivo Qu&iacute;mica &bull; PAES Ciencias &bull; Admisi&oacute;n 2027</footer>
+<script>
+
+var SS=['p0','pd','p1','p2','p3','p4'];
+var SL=['Inicio','Diagnostico','Atomica','Organica','Reacciones','Ensayo'];
+var cur=0;
+function go(id,idx,btn){
+  if(eS&&!eF&&id!=='p4'){
+    var ts=document.getElementById('ts');
+    if(ts)ts.textContent='🔒 Termina el ensayo antes de volver a la materia';
+    return;
+  }
+  SS.forEach(function(s){document.getElementById(s).classList.remove('act');});
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('act');});
+  document.getElementById(id).classList.add('act');
+  btn.classList.add('act');
+  cur=idx;
+  document.getElementById('prf').style.width=Math.round((idx+1)/SS.length*100)+'%';
+  document.getElementById('lp').disabled=(idx===0)||(eS&&!eF);
+  document.getElementById('ln').disabled=(idx===SS.length-1)||(eS&&!eF);
+  document.getElementById('lm').textContent=SL[idx];
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function linN(d){
+  if(eS&&!eF)return;
+  var n=Math.max(0,Math.min(SS.length-1,cur+d));
+  if(n===cur)return;
+  go(SS[n],n,document.querySelectorAll('.nb')[n]);
+}
+function updateNavLock(){
+  var locked=eS&&!eF;
+  document.querySelectorAll('.nb').forEach(function(b,i){
+    if(i===5)return; // botón "Ensayo" siempre queda accesible
+    b.disabled=locked;
+    b.style.opacity=locked?'.35':'';
+    b.style.pointerEvents=locked?'none':'';
+  });
+  document.getElementById('lp').disabled=locked||cur===0;
+  document.getElementById('ln').disabled=locked||cur===SS.length-1;
+}
+
+/* ===== DECK / SLIDES HORIZONTALES ===== */
+var deckState={};
+function deckInit(sid){
+  var track=document.getElementById('deck-track-'+sid);
+  if(!track)return;
+  var total=track.children.length;
+  deckState[sid]={i:0,total:total};
+  track.style.touchAction='pan-y';
+  var dragging=false,startX=0;
+  track.addEventListener('pointerdown',function(e){
+    dragging=true;startX=e.clientX;
+    track.style.transition='none';
+    try{track.setPointerCapture(e.pointerId);}catch(err){}
+  });
+  track.addEventListener('pointermove',function(e){
+    if(!dragging)return;
+    var dx=e.clientX-startX;
+    var pct=-(deckState[sid].i*100)+(dx/track.offsetWidth*100);
+    track.style.transform='translateX('+pct+'%)';
+  });
+  function endDrag(e){
+    if(!dragging)return;
+    dragging=false;
+    track.style.transition='';
+    var dx=e.clientX-startX;
+    if(Math.abs(dx)>40){deckNav(sid,dx<0?1:-1);}
+    else{deckRender(sid);}
+  }
+  track.addEventListener('pointerup',endDrag);
+  track.addEventListener('pointercancel',endDrag);
+  track.addEventListener('pointerleave',function(e){if(dragging)endDrag(e);});
+}
+function deckRender(sid){
+  var st=deckState[sid];
+  var track=document.getElementById('deck-track-'+sid);
+  track.style.transform='translateX(-'+(st.i*100)+'%)';
+  document.getElementById('deck-prev-'+sid).disabled=(st.i===0);
+  document.getElementById('deck-next-'+sid).disabled=(st.i===st.total-1);
+  document.getElementById('deck-count-'+sid).textContent='Concepto '+(st.i+1)+' / '+st.total;
+  var dots=document.getElementById('deck-dots-'+sid).children;
+  for(var k=0;k<dots.length;k++)dots[k].classList.toggle('act',k===st.i);
+}
+function deckNav(sid,d){
+  if(!deckState[sid])deckInit(sid);
+  var st=deckState[sid];
+  st.i=Math.max(0,Math.min(st.total-1,st.i+d));
+  deckRender(sid);
+}
+function deckGoto(sid,i){
+  if(!deckState[sid])deckInit(sid);
+  deckState[sid].i=i;
+  deckRender(sid);
+}
+['p1','p2','p3'].forEach(function(sid){deckInit(sid);deckRender(sid);});
+document.addEventListener('keydown',function(e){
+  var activeSec=SS[cur];
+  if(!deckState[activeSec])return;
+  if(e.key==='ArrowLeft')deckNav(activeSec,-1);
+  if(e.key==='ArrowRight')deckNav(activeSec,1);
+});
+
+
+var QA={
+  'qa1':{c:'D',fb:{
+    A:'No. Agua con arena es heterogénea (se ve la arena), y la ensalada de frutas también es heterogénea.',
+    B:'No. El aire es homogénea, pero agua con sal disuelta también es homogénea — la combinación es correcta en tipo, pero no es lo que pregunta la comparación entre mezclas de igual tipo entre sí, revisa la opción D.',
+    C:'No. Agua con arena es heterogénea, pero el aire es homogénea: no coinciden en tipo.',
+    D:'Correcto. El agua con arena y la ensalada de frutas se ven a simple vista con sus componentes distinguibles: ambas son mezclas heterogéneas.'
+  }},
+  'qa2':{c:'D',fb:{
+    A:'No. Revisa la fórmula: m=ρ×V, no V/ρ.',
+    B:'No. 8,9×5 no da 1,8; revisa la multiplicación.',
+    C:'No. Estás cerca pero el cálculo no es correcto: 8,9×5=44,5, no 13,9.',
+    D:'Correcto. m=ρ×V=8,9 g/cm³×5 cm³=44,5 g.'
+  }},
+  'qa3':{c:'B',fb:{
+    A:'No. El resultado contradice el modelo de Dalton: si el átomo fuera una esfera maciza, todas las partículas alfa deberían rebotar o desviarse.',
+    B:'Correcto. Que la mayoría atravesara sin desviarse muestra que el átomo es mayormente espacio vacío; que algunas rebotaran revela un núcleo pequeño, denso y positivo que las repele.',
+    C:'No. Si los electrones estuvieran distribuidos uniformemente (modelo de Thomson), no se observarían rebotes en ángulos grandes.',
+    D:'No. Este resultado no dice nada sobre niveles de energía definidos; ese es un aporte posterior de Bohr.'
+  }},
+  'qa4':{c:'C',fb:{
+    A:'No. 14 sería si el átomo ganara 2 protones, pero los protones no cambian al formar un ion.',
+    B:'No. 16 es el número de protones (Z), no de electrones del ion.',
+    C:'Correcto. e⁻=Z−carga=16−(−2)=18. El azufre neutro tiene 16 electrones; al ganar 2 electrones para formar S²⁻, queda con 18.',
+    D:'No. 20 sería si ganara 4 electrones, pero la carga del ion es solo 2−.'
+  }},
+  'qb1':{c:'D',fb:{
+    A:'No. sp³ corresponde a 4 enlaces simples, sin enlaces triples.',
+    B:'No. sp² corresponde a un enlace doble (1 pi), no a un triple.',
+    C:'No. Un enlace triple aporta 2 enlaces pi, no 1: revisa el conteo.',
+    D:'Correcto. Un carbono con enlace triple tiene hibridación sp, y ese enlace triple está compuesto por 1 enlace sigma y 2 enlaces pi.'
+  }},
+  'qb2':{c:'B',fb:{
+    A:'No. Al tener la misma fórmula molecular (C₄H₁₀O), ambos compuestos tienen la misma masa molar.',
+    B:'Correcto. Comparten fórmula molecular pero tienen estructuras y grupos funcionales distintos (alcohol vs. éter): son isómeros de función.',
+    C:'No. Son compuestos distintos con propiedades químicas distintas, no representaciones de lo mismo.',
+    D:'No. Al compartir la fórmula molecular, también comparten la misma fórmula empírica.'
+  }},
+  'qb3':{c:'B',fb:{
+    A:'No. La cetona tiene el carbonilo dentro de la cadena, no en el extremo.',
+    B:'Correcto. Un carbonilo en el extremo de la cadena unido a un H es exactamente la definición del grupo aldehído (-CHO).',
+    C:'No. El ácido carboxílico necesita además un grupo -OH junto al carbonilo (-COOH), no solo un H.',
+    D:'No. El éster requiere un oxígeno adicional tipo -COO-, no un H terminal.'
+  }},
+  'qb4':{c:'A',fb:{
+    A:'Correcto. A mayor cadena, aumentan las fuerzas intermoleculares (fuerzas de dispersión de London), por lo que se necesita más energía —mayor temperatura— para pasar a estado gaseoso.',
+    B:'No. Las moléculas más grandes pesan más, no menos, y eso aumenta (no disminuye) la Te.',
+    C:'No. La Te sí cambia con el largo de la cadena: no se mantiene constante.',
+    D:'No. Para cadenas lineales de igual ramificación (sin ramificar), el largo de la cadena por sí solo permite predecir la tendencia de la Te.'
+  }},
+  'qc1':{c:'C',fb:{
+    A:'No. Con coeficientes 1,1,1 no se balancea el oxígeno ni el aluminio.',
+    B:'No. Revisa el aluminio: con 2 Al no alcanza para 2 Al₂O₃ (se necesitan 4 Al).',
+    C:'Correcto. 4 Al + 3 O₂ → 2 Al₂O₃. Verificación: Al: 4=4 ✓, O: 6=6 ✓.',
+    D:'No. Con 2 Al y 3 O₂, el aluminio no alcanza para formar 1 Al₂O₃ completo de forma balanceada con esos coeficientes.'
+  }},
+  'qc2':{c:'B',fb:{
+    A:'No. Revisa la fórmula: n=m/M, no M/m.',
+    B:'Correcto. n=m/M=36 g/18 g/mol=2 mol.',
+    C:'No. 18 sería la masa molar, no la cantidad de moles.',
+    D:'No. 648 resulta de multiplicar en vez de dividir: revisa la fórmula n=m/M.'
+  }},
+  'qc3':{c:'C',fb:{
+    A:'No. Diluir siempre reduce la concentración, nunca la aumenta.',
+    B:'No. Si la concentración no cambiara, no habría dilución real.',
+    C:'Correcto. C₁V₁=C₂V₂ → 2,0×200=C₂×400 → C₂=1,0 mol/L.',
+    D:'No. 0,5 mol/L correspondería a diluir a 800 mL, no a 400 mL.'
+  }},
+  'qc4':{c:'B',fb:{
+    A:'No. Usar más cantidad no determina el reactivo limitante; lo determina la proporción según la ecuación balanceada.',
+    B:'Correcto. Según 2H₂+O₂→2H₂O, 1 mol de O₂ reacciona exactamente con 2 mol de H₂. Con 3 mol de H₂ disponibles, sobra 1 mol de H₂ sin reaccionar: el O₂ se agota primero y es el limitante.',
+    C:'No. Si ambos se consumieran por completo, la proporción tendría que ser exactamente 2:1, pero aquí hay 3:1.',
+    D:'No. Con la ecuación balanceada y las cantidades en moles ya es suficiente; no se necesitan masas molares.'
+  }}
+};
+
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done='1';
+  var a=QA[qid];
+  el.querySelectorAll('.po').forEach(function(o){
+    o.classList.add('locked');
+    var l=o.querySelector('.ol').textContent;
+    if(l===a.c)o.classList.add('right');
+    else if(l===opt)o.classList.add('wrong');
+  });
+  var fb=document.getElementById(qid+'-fb');
+  fb.className='pfb show '+(opt===a.c?'ok':'no');
+  fb.textContent=(opt===a.c?'Correcto! ':'')+a.fb[opt];
+}
+
+
+/* DIAGNÓSTICO */
+var DIAG=[
+  {u:'U1 · Estructura Atómica',color:'#0369a1',q:'¿Cuál de las siguientes es una mezcla homogénea?',opts:{A:'Agua con arena',B:'Agua con sal disuelta',C:'Ensalada de frutas',D:'Agua con aceite'},c:'B'},
+  {u:'U1 · Estructura Atómica',color:'#0369a1',q:'¿Qué modelo atómico propuso que el átomo tiene un núcleo pequeño, denso y positivo?',opts:{A:'Dalton',B:'Thomson',C:'Rutherford',D:'Bohr'},c:'C'},
+  {u:'U2 · Química Orgánica',color:'#15803d',q:'¿Cuántos enlaces forma siempre el átomo de carbono en compuestos orgánicos estables?',opts:{A:'2',B:'3',C:'4',D:'6'},c:'C'},
+  {u:'U2 · Química Orgánica',color:'#15803d',q:'¿Qué grupo funcional corresponde a -COOH?',opts:{A:'Alcohol',B:'Cetona',C:'Ácido carboxílico',D:'Amina'},c:'C'},
+  {u:'U3 · Reacciones y Estequiometría',color:'#ea580c',q:'¿Qué establece la ley de conservación de la masa?',opts:{A:'La masa de reactantes es igual a la de productos',B:'La masa siempre aumenta en una reacción',C:'La masa depende de la temperatura',D:'La masa se pierde como calor'},c:'A'},
+  {u:'U3 · Reacciones y Estequiometría',color:'#ea580c',q:'Al diluir una solución agregando más agua, ¿qué ocurre con su concentración?',opts:{A:'Aumenta',B:'Disminuye',C:'No cambia',D:'Se vuelve negativa'},c:'B'}
+];
+var diagAnswers={};
+function buildDiag(){
+  var cont=document.getElementById('diag-qs');
+  cont.innerHTML='';
+  DIAG.forEach(function(q,i){
+    var d=document.createElement('div');
+    d.className='pbox';
+    var optsH='';
+    ['A','B','C','D'].forEach(function(l){
+      optsH+='<div class="po" id="do-'+i+'-'+l+'" onclick="diagAns('+i+',\''+l+'\')"><div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="ptag" style="color:'+q.color+'">'+q.u+' · Pregunta '+(i+1)+'</div>'+
+      '<p class="pq">'+q.q+'</p>'+
+      '<div class="pos" id="dopts-'+i+'">'+optsH+'</div>';
+    cont.appendChild(d);
+  });
+}
+buildDiag();
+function diagAns(i,opt){
+  if(diagAnswers[i])return;
+  diagAnswers[i]=opt;
+  var q=DIAG[i];
+  var opts=document.getElementById('dopts-'+i);
+  opts.querySelectorAll('.po').forEach(function(o){
+    o.style.pointerEvents='none';
+    var l=o.id.split('-')[2];
+    if(l===q.c){o.style.borderColor='#f97316';o.style.background='rgba(234,88,12,.1)';}
+    else if(l===opt){o.style.borderColor='#dc2626';o.style.background='rgba(220,38,38,.06)';}
+  });
+  if(Object.keys(diagAnswers).length===DIAG.length)showDiagResult();
+}
+function showDiagResult(){
+  var byUnit={};
+  DIAG.forEach(function(q,i){
+    if(!byUnit[q.u])byUnit[q.u]={c:0,t:0,color:q.color};
+    byUnit[q.u].t++;
+    if(diagAnswers[i]===q.c)byUnit[q.u].c++;
+  });
+  var html='<div class="g2" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">';
+  var weakest=null,weakestPct=101;
+  Object.keys(byUnit).forEach(function(u){
+    var r=byUnit[u];var pct=Math.round(r.c/r.t*100);
+    if(pct<weakestPct){weakestPct=pct;weakest=u;}
+    html+='<div style="background:var(--card2);border-radius:12px;padding:13px 16px;border-left:3px solid '+r.color+'"><div style="font-size:.79rem;font-weight:900;color:var(--dim)">'+u+'</div><div style="font-family:\'Fredoka One\',cursive;font-size:1.3rem;color:'+r.color+'">'+r.c+'/'+r.t+'</div></div>';
+  });
+  html+='</div>';
+  html+='<p style="margin-top:14px;color:var(--dim);font-size:.9rem">Sugerencia: parte reforzando <strong style="color:#d97706">'+weakest+'</strong>, donde tuviste el resultado más bajo.</p>';
+  document.getElementById('diag-result-body').innerHTML=html;
+  document.getElementById('diag-result').style.display='block';
+  document.getElementById('diag-result').scrollIntoView({behavior:'smooth'});
+}
+
+/* ANIMACION ONDA (canvas no usado en electivo, placeholder vacio para compatibilidad) */
+function startWave(){}
+
+
+var EQA=[{c:'D',fb:'W y X disuelven el azúcar (comportamiento similar entre sí); Y y Z no lo disuelven (también comportamiento similar entre sí, pero opuesto al de W-X). Es razonable esperar que dos sustancias de igual comportamiento entre sí, como Y y Z (ambas "no disolventes"), formen al mezclarse una mezcla heterogénea.',t:'Estructura'},
+{c:'D',fb:'Los grumos, al ser más densos que el líquido, sedimentan y se separan por decantación; luego, las partículas finas que quedan en suspensión se retienen con filtración. El tamizado y la destilación no aplican: no hay sólidos grandes que tamizar ni líquidos miscibles que destilar.',t:'Estructura'},
+{c:'B',fb:'Según la tabla, a mayor propiedad Y, tanto Te como Tf disminuyen de forma consistente (LiF→LiI). Por lo tanto la relación correcta es que la Te disminuye cuando Y aumenta.',t:'Estructura'},
+{c:'A',fb:'Para A, tanto Tf (−210 °C) como Te (−196 °C) están muy por debajo de 25 °C, por lo que a temperatura ambiente ya superó su punto de ebullición: es gaseosa. B (Tf −95, Te −42) también es gaseosa a 25 °C, no líquida. C (Tf −10, Te 61) es líquida, no sólida. D (Tf 98, Te 180) es sólida, no líquida.',t:'Estructura'},
+{c:'D',fb:'Con ρ=m/V despejamos m=ρ·V. Para A: m=8,9×5,0=44,5 g. Para B: m=2,7×10,0=27,0 g.',t:'Estructura'},
+{c:'A',fb:'Electrones = protones − carga. Ion 17p(1−): e⁻=17+1=18. Ion 8p(2−): e⁻=8+2=10. Ion 11p(1+): e⁻=11−1=10. Ion 12p(2+): e⁻=12−2=10. Comparando A: el ion de 18 electrones (17p) tiene 8 electrones más que el de 10 electrones (8p): 18−10=8. Correcto.',t:'Estructura'},
+{c:'D',fb:'Son isótopos: mismo elemento, por lo tanto mismo número atómico (Z) y mismo número de protones (y de electrones si son átomos neutros). Lo único que cambia es el número de neutrones, lo que hace variar su número másico (A).',t:'Estructura'},
+{c:'B',fb:'Ambas figuras tienen 11 protones, por lo que ambas son sodio (el elemento lo define Z, no el número de neutrones). Al tener distinto número de neutrones (12 vs 10), son isótopos del sodio con distinto número másico, es decir, distinta masa atómica. No hay carga eléctrica involucrada porque el número de electrones no cambió.',t:'Estructura'},
+{c:'B',fb:'Las 4 moléculas tienen el mismo número de enlaces C-C en su cadena. El hexano los tiene todos simples (los más largos). Los otros reemplazan un enlace simple por uno más corto: doble en los "-eno" o triple en el "-ino". Como el enlace triple (0,120 nm) es el más corto de todos, la molécula que lo contiene —hex-2-ino— tiene la menor longitud total.',t:'Organica'},
+{c:'B',fb:'Cada enlace simple aporta 1σ y ningún π; cada enlace doble aporta 1σ+1π; cada enlace triple aporta 1σ+2π. Un enlace doble (1σ+1π) más un enlace simple (1σ) suma 2σ y 1π, es decir, razón 2:1. Las otras opciones no logran esa proporción exacta.',t:'Organica'},
+{c:'B',fb:'Al comparar las tres estructuras (un alcohol P, una cetona Q y un ácido carboxílico R, derivados de cadenas de distinto largo), el compuesto Q es el que presenta mayor número de carbonos en su cadena. Las otras conclusiones no se sostienen al contar átomos y masas molares reales de cada estructura.',t:'Organica'},
+{c:'B',fb:'La fórmula condensada, la empírica y la molecular solo indican qué átomos y en qué cantidad están presentes, pero no cómo se ordenan en el espacio tridimensional. El modelo de esferas y varillas sí muestra la disposición espacial real de los átomos, permitiendo distinguir estereoisómeros.',t:'Organica'},
+{c:'C',fb:'Comparando el patrón de ambas tablas (a mayor ramificación, menor Te dentro de una misma familia de igual número de carbonos), la estructura descrita se ubica en un punto intermedio de la segunda tabla, correspondiendo a aproximadamente 60,1 °C.',t:'Organica'},
+{c:'D',fb:'El mentol real es un ciclohexano sustituido con un grupo metilo, un grupo isopropilo y un grupo hidroxilo (-OH), con fórmula molecular C₁₀H₂₀O, coincidiendo exactamente con los datos experimentales obtenidos.',t:'Organica'},
+{c:'B',fb:'La fórmula empírica es la proporción entera más simple entre los átomos. En CCl₄, la razón C:Cl es 1:4, que ya es la mínima posible — por lo tanto la fórmula empírica coincide con la fórmula molecular: CCl₄.',t:'Organica'},
+{c:'D',fb:'Contando sistemáticamente los hidrógenos en cada fragmento de la estructura (las cadenas etilo del grupo fosforado y los hidrógenos remanentes del anillo sustituido), el total correcto es 15 átomos de hidrógeno por molécula.',t:'Organica'},
+{c:'C',fb:'Hay 3 átomos de Na en los reactantes (de 3 NaOH), así que se necesitan q=3 NaNO₃ para balancear el Na. Hay 1 átomo de Al en Al(NO₃)₃, así que r=1 Al(OH)₃ balancea el aluminio. Verificación: N: 3=3 ✓, O: 9+3=12 y 3×3+3=12 ✓, H: 3=3 ✓.',t:'Reacciones'},
+{c:'B',fb:'Contando las moléculas del esquema: por cada 2 moléculas de A₂ y 1 de B₂ que reaccionan, se forman 2 moléculas de AB₂. Esta proporción 2:1:2 corresponde a la ecuación balanceada 2 A₂ + B₂ → 2 AB₂ (los átomos de A y B se conservan: 4 A y 2 B a cada lado).',t:'Reacciones'},
+{c:'C',fb:'Con 12,0 g de P: n(P)=12,0/24=0,5 mol. Con 24,0 g de R: n(R)=24,0/96=0,25 mol. La razón mol P : mol R es 0,5:0,25 = 2:1, es decir, por cada 2 mol de P se produce 1 mol de R.',t:'Reacciones'},
+{c:'A',fb:'Los 0,1 mol de H₂ obtenidos confirman que el HCl fue el reactivo limitante (0,2 mol HCl → 0,2×3/6=0,1 mol H₂, exacto). Por estequiometría, el Al consumido se relaciona con el HCl usado: 0,2 mol HCl × (2 mol Al / 6 mol HCl) = 0,0667 mol ≈ 0,07 mol de Al. El resto del Al (0,2−0,07 mol) queda en exceso, sin reaccionar.',t:'Reacciones'},
+{c:'A',fb:'Para N₂O: n(N)=2 mol si tomamos 28 g, n(O)=1 mol si tomamos 16 g, razón másica N:O=28:16=7:4. El compuesto 1 tiene exactamente N=7 g y O=4 g, que es la misma razón 7:4. Los otros compuestos no mantienen esa proporción.',t:'Reacciones'},
+{c:'A',fb:'Calculando g de Y por mL de agua: Solución 1 = 100/500 = 0,20 g/mL. Solución 2 = 80/200 = 0,40 g/mL. Solución 3 = 40/100 = 0,40 g/mL. Por lo tanto, Solución 1 < Solución 2 = Solución 3.',t:'Reacciones'},
+{c:'A',fb:'Cada solución original aporta 0,3 mol de fructosa (150 mL × 2 mol/L). La solución 3 contiene la suma: 0,6 mol en 300 mL, manteniendo la misma concentración (2 mol/L), pero con el doble de masa total de fructosa que una sola de las soluciones originales.',t:'Reacciones'},
+{c:'D',fb:'El factor de dilución es V final / V inicial = 40 mL / 8 mL = 5. Al diluir 5 veces, la concentración se reduce a la quinta parte (1/5) de la original, ya que la cantidad de soluto no cambia, solo el volumen total.',t:'Reacciones'},
+{c:'A',fb:'La solución al 5,6 %m/v tiene 5,6 g de KOH cada 100 mL, por lo que en 60 mL hay 3,36 g, es decir, 3,36/56 = 0,06 mol. Para una concentración final de 0,4 mol/L: V final = n/C = 0,06/0,4 = 0,15 L = 150 mL. El agua a agregar es 150 mL − 60 mL = 90 mL.',t:'Reacciones'},
+{c:'A',fb:'Usando C₁V₁=C₂V₂: 0,8 mol/L × 20 mL = 16 mol·mL/L. Con un volumen final de 20+780=800 mL, la concentración final es 16/800 = 0,02 mol/L, exactamente la deseada. Las otras combinaciones no cumplen la igualdad.',t:'Reacciones'}];
+var UA={},eS=false,eF=false,tL=2100,tI=null;
+function selA(el){
+  if(!eS||eF)return;
+  var i=parseInt(el.dataset.qi),o=el.dataset.opt;
+  var row=document.getElementById('ep'+i);
+  if(row.dataset.done)return;
+  UA[i]=o;
+  row.querySelectorAll('.eopt').forEach(function(x){x.classList.remove('sel');});
+  el.classList.add('sel');
+}
+function startE(){
+  eS=true;
+  updateNavLock();
+  document.getElementById('stb').style.display='none';
+  document.getElementById('ts').textContent='En marcha!';
+  document.getElementById('eqs').style.opacity='1';
+  document.getElementById('eqs').style.pointerEvents='auto';
+  document.getElementById('subb').disabled=false;
+  tI=setInterval(function(){
+    tL--;
+    var m=Math.floor(tL/60),s=tL%60;
+    var d=document.getElementById('td');
+    d.textContent=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
+    d.className='td'+(tL<=60?' d':tL<=300?' w':'');
+    if(tL<=0){clearInterval(tI);submitE();}
+  },1000);
+}
+var TOPIC_SEC={'Estructura':'p1','Organica':'p2','Reacciones':'p3'};
+var TOPIC_IDX={'p1':2,'p2':3,'p3':4};
+var TOPIC_BTN_LABEL={'Estructura':'⚛️ U1 Estructura Atómica','Organica':'🧬 U2 Química Orgánica','Reacciones':'⚖️ U3 Reacciones y Estequiometría'};
+var TOPIC_FULL={'Estructura':'U1 · Estructura Atómica','Organica':'U2 · Química Orgánica','Reacciones':'U3 · Reacciones y Estequiometría'};
+
+function submitE(){
+  if(eF)return;
+  eF=true;clearInterval(tI);
+  updateNavLock();
+  document.getElementById('ts').textContent='Tiempo terminado';
+  document.getElementById('subb').disabled=true;
+  var ok=0,topicMap={};
+  EQA.forEach(function(q,i){
+    var row=document.getElementById('ep'+i);
+    row.dataset.done='1';
+    row.querySelectorAll('.eopt').forEach(function(o){
+      o.classList.add('locked');
+      if(o.dataset.opt===q.c)o.classList.add('right');
+      else if(UA[i]&&o.dataset.opt===UA[i])o.classList.add('wrong');
+    });
+    var fb=document.getElementById('ef'+i);
+    var ua=UA[i];
+    var isOk=(ua===q.c);
+    fb.className='efb show '+(isOk?'ok':'no');
+    fb.textContent=(isOk?'Correcto! ':ua?'Incorrecto. La respuesta correcta es '+q.c+'. ':'Sin respuesta. La correcta es '+q.c+'. ')+q.fb;
+    if(isOk)ok++;
+    if(!topicMap[q.t])topicMap[q.t]={c:0,t:0};
+    topicMap[q.t].t++;
+    if(isOk)topicMap[q.t].c++;
+  });
+  var pct=Math.round(ok/EQA.length*100);
+  var sc=pct>=70?'var(--org)':pct>=50?'#d97706':'#dc2626';
+
+  var topicHtml='<p style="font-family:\'Fredoka One\',cursive;font-size:1rem;color:var(--org);margin-bottom:8px">Resultado por unidad:</p><div class="res-topic-grid">';
+  var weak=[];
+  Object.keys(topicMap).forEach(function(t){
+    var r=topicMap[t];
+    var tpct=Math.round(r.c/r.t*100);
+    var cls=tpct<50?'bad':tpct<70?'mid':'';
+    var scoreColor=tpct>=70?'var(--org)':tpct>=50?'#d97706':'#dc2626';
+    topicHtml+='<div class="res-topic-card '+cls+'"><div class="res-topic-name">'+(TOPIC_FULL[t]||t)+'</div><div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+    if(tpct<70)weak.push(t);
+  });
+  topicHtml+='</div>';
+
+  var reviewHtml='';
+  if(weak.length){
+    reviewHtml='<div class="res-review"><p style="font-family:\'Fredoka One\',cursive;font-size:.95rem;color:var(--org);margin-bottom:4px">📚 Te conviene volver a repasar:</p>';
+    weak.forEach(function(t){
+      reviewHtml+='<div class="res-review-item"><span style="font-size:.85rem;color:var(--dim)">'+(TOPIC_FULL[t]||t)+' — bajo el 70%</span><button class="res-review-btn" onclick="go(\''+TOPIC_SEC[t]+'\','+TOPIC_IDX[TOPIC_SEC[t]]+',document.querySelectorAll(\'.nb\')['+TOPIC_IDX[TOPIC_SEC[t]]+'])">'+TOPIC_BTN_LABEL[t]+'</button></div>';
+    });
+    reviewHtml+='</div>';
+  } else {
+    reviewHtml='<div class="res-review"><p style="font-family:\'Fredoka One\',cursive;font-size:.95rem;color:var(--org)">🎉 Ningún tema bajo el 70%. ¡Excelente dominio del electivo!</p></div>';
+  }
+
+  var res=document.getElementById('eres');
+  res.style.display='block';
+  var d1=document.createElement('div');
+  d1.style.cssText='font-family:Fredoka One,cursive;font-size:2rem;color:'+sc+';margin-bottom:6px';
+  d1.textContent=(pct>=70?'🚀':pct>=50?'💪':'📚')+' '+ok+'/'+EQA.length+' correctas — '+pct+'%';
+  var d2=document.createElement('div');
+  d2.style.cssText='background:var(--card2);border:1px solid var(--bord);border-radius:13px;padding:16px';
+  d2.innerHTML=topicHtml+reviewHtml+'<p style="font-size:.85rem;color:var(--dim);margin-top:12px">Revisa el feedback de cada pregunta arriba, junto a la explicación de la respuesta correcta.</p>';
+  res.innerHTML='';res.appendChild(d1);res.appendChild(d2);
+  res.scrollIntoView({behavior:'smooth'});
+}
+
+</script>
+
+<script>
+(function(){
+// -------------------------------------------------------------------
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
+// -------------------------------------------------------------------
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico del módulo Electivo de Química (PAES Ciencias), dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media que ya vieron el Plan Común de Química y ahora profundizan en el electivo. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre las 3 unidades de este electivo, detalladas abajo. Si el estudiante pregunta por el Plan Común de Química puedes referirte a él brevemente solo si él lo menciona primero. NO respondes sobre otras materias PAES (Lenguaje, Matemática, Historia), ni sobre Biología o Física Electivo.",
+"",
+"CONTENIDO DEL ELECTIVO (3 unidades):",
+"1. Estructura Atómica: clasificación de la materia (mezclas homogéneas y heterogéneas, sustancias puras), métodos de separación de mezclas, modelos atómicos, partículas subatómicas (protones, neutrones, electrones), número atómico y número másico, isótopos, iones y su relación carga-electrones, propiedades periódicas (Te, Tf, densidad).",
+"2. Química Orgánica: tetravalencia del carbono, hibridación, tipos de enlace (simple, doble, triple; sigma y pi), representación molecular (fórmula molecular, condensada, empírica, estructural, modelos 3D), grupos funcionales (alcohol, cetona, aldehído, ácido carboxílico), isomería y estereoisómeros, fórmula empírica vs molecular.",
+"3. Reacciones y Estequiometría: leyes ponderales, balance de ecuaciones químicas, estequiometría (relaciones molares masa-mol), reactivo limitante y en exceso, fórmula empírica a partir de datos experimentales, concentración de soluciones (g/mL, %m/v, mol/L), dilución de soluciones (C₁V₁=C₂V₂).",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos del módulo tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre alguna de las 3 unidades, con contexto de química y nivel de exigencia de electivo (más profundo que el plan común). Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta general sobre qué parte del enunciado o contexto se relaciona con esto, 2) acota a un dato o sección específica, 3) señala qué concepto químico aplica y por qué, 4) contrasta la alternativa elegida por el estudiante con la probablemente correcta, preguntando qué diferencia hay. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otra materia, otro electivo, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para resolver dudas del Electivo de Química.'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function anyCierreActive(){
+  return eS && !eF;
+}
+
+function checkTutorBlock(){
+  var blocked = anyCierreActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false;
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Ciencias Química\n" +
+    "Módulo/Unidad: Ciencias · Química · Electivo\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy) return;
+  if(anyCierreActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+})();
+</script>
+</body>
+</html>
