@@ -47,14 +47,19 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .card p,.card li{font-size:.98rem;line-height:1.75;color:var(--text-dim)}
 .card strong{color:var(--text)}
 /* ═══ ASISTENTE IA ═══ */
-.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--sepia));border:none;color:#1a1206;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(212,162,76,.4);z-index:250;display:flex;align-items:center;justify-content:center}
-.tutor-fab .dot{position:absolute;top:6px;right:6px;width:9px;height:9px;border-radius:50%;background:#fbbf24;display:none}
-.tutor-panel{position:fixed;bottom:142px;right:18px;width:min(360px,92vw);height:min(480px,62vh);background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.5);z-index:250;display:none;flex-direction:column;overflow:hidden}
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--sepia));border:none;color:#1a1206;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(212,162,76,.4);z-index:250;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid #1a1206;display:none}
+.tutor-fab.blocked .dot{background:#6b7280;display:block}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:20px 0 0 0;box-shadow:-4px 0 30px rgba(0,0,0,.5);z-index:260;display:none;flex-direction:column;overflow:hidden}
 .tutor-panel.open{display:flex}
-.tutor-head{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 16px;background:var(--card2);border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
-.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:var(--dorado)}
-.tutor-head p{font-size:.76rem;color:var(--text-dim);margin-top:2px}
-.tutor-close{background:none;border:none;color:var(--text-dim);font-size:1.1rem;cursor:pointer}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--dorado),var(--sepia));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:#1a1206}
+.tutor-head p{font-size:.7rem;color:rgba(26,18,6,.75);margin-top:1px}
+.tutor-close{background:rgba(0,0,0,.15);border:none;color:#1a1206;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1;flex-shrink:0}
+.tutor-blocked-msg{padding:24px 18px;text-align:center;color:var(--text-dim);font-size:.88rem;line-height:1.7}
 .tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
 .tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
 .tutor-mode-btn:hover{border-color:var(--dorado);color:var(--dorado)}
@@ -74,7 +79,6 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .tutor-input:focus{outline:none;border-color:var(--dorado)}
 .tutor-send{background:var(--dorado);border:none;color:#1a1206;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
 .tutor-send:disabled{opacity:.4;cursor:default}
-@media(max-width:680px){.tutor-panel{right:8px;bottom:136px;width:94vw;height:56vh}.tutor-fab{right:12px;bottom:74px}}
 .card ul,.card ol{padding-left:22px}
 .card li{margin-bottom:7px}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -518,7 +522,7 @@ footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#5c4a2a}
   </div>
 </div>
 
-<footer>🏛️ Unidad 0 · Habilidades de Pensamiento Histórico · PAES Historia y Ciencias Sociales · Admisión 2027</footer>
+<footer>🏛️ Unidad 0 · Habilidades de Pensamiento Histórico · PAES Historia y Ciencias Sociales · Admisión 2027<br><span style="font-size:.72rem;opacity:.7">Todas las preguntas de práctica (🤖) son generadas por IA y no corresponden a preguntas reales de la PAES ni reproducen material oficial de DEMRE.</span></footer>
 <script>
 // ── SECTIONS & NAV ──
 const SECS = ["portada","importa","h1","h2","h3","resumen","practica"];
