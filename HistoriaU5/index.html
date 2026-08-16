@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 5 – Sistema Económico · PAES Historia y Ciencias Sociales</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dorado:#d4a24c;--dorado-dark:#a97c2f;--dorado-glow:rgba(212,162,76,.15);
+  --sepia:#c17a3d;--azul:#3498db;--morado:#9b59b6;--naranja:#e67e22;
+  --amarillo:#f1c40f;--rojo:#e74c3c;--cyan:#22d3ee;
+  --bg:#140f08;--card:#1e1710;--card2:#2a2013;
+  --text:#f3e8d4;--text-dim:#b8a37e;--radius:18px;
+  --c-on:#3498db;--c-gf:#c0392b;--c-al:#e67e22;--c-fg:#16a085;--c-lt:#9b59b6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 8% 15%,rgba(212,162,76,.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 25% 60%,rgba(255,255,255,.15) 0%,transparent 100%),
+    radial-gradient(1px 1px at 55% 8%,rgba(212,162,76,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 72% 40%,rgba(255,255,255,.13) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 75%,rgba(212,162,76,.22) 0%,transparent 100%),
+    radial-gradient(1px 1px at 40% 85%,rgba(255,255,255,.12) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--dorado),var(--sepia));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(1.6rem,5.5vw,2.9rem);
+  background:linear-gradient(135deg,var(--dorado),var(--sepia),var(--dorado));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.15;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(212,162,76,.12);border:1.5px solid rgba(212,162,76,.35);color:var(--dorado);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.08);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.78rem;padding:7px 13px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:var(--dorado-glow);border-color:var(--dorado);color:var(--dorado)}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.35rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.97rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.h-header{border-radius:var(--radius);padding:26px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:52px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.4rem,4.2vw,2.2rem);line-height:1.15}
+.h-header p{font-size:.97rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--dorado);background:rgba(212,162,76,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--dorado);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65}
+.tip-box p strong{color:var(--text)}
+.kw-grid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.kw{border-radius:8px;padding:5px 11px;font-size:.8rem;font-weight:800}
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px;margin-bottom:16px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.paes-ctx{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-ctx-src{font-size:.74rem;color:var(--text-dim);opacity:.7;font-style:italic;margin-top:6px}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.paes-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--dorado);flex-shrink:0}
+.paes-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.paes-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(212,162,76,.12);color:#f3d896;border-left:3px solid var(--dorado)}
+.paes-fb.no{background:rgba(231,76,60,.08);color:#fca5a5;border-left:3px solid var(--rojo)}
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--sepia));border:none;color:#1a1206;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(212,162,76,.4);z-index:210;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid #fff;display:none}
+.tutor-fab.blocked .dot{background:#6b7280;display:block}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(0,0,0,.4);z-index:220;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--dorado),var(--sepia));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:#1a1206}
+.tutor-head p{font-size:.7rem;color:rgba(26,18,6,.75);margin-top:1px}
+.tutor-close{background:rgba(0,0,0,.2);border:none;color:#1a1206;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1;flex-shrink:0}
+.tutor-blocked-msg{padding:24px 18px;text-align:center;color:var(--text-dim);font-size:.88rem;line-height:1.7}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--dorado);color:var(--dorado)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--dorado);color:#1a1206;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.08);border-bottom-left-radius:4px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.7}
+.tutor-report:hover{opacity:1;color:var(--dorado)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.12);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--dorado)}
+.tutor-send{background:var(--dorado);border:none;color:#1a1206;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){.tutor-input{font-size:16px}}
+.skill-tag{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:6px;margin-bottom:8px}
+.skill-h1{background:rgba(212,162,76,.12);color:var(--dorado);border:1px solid rgba(212,162,76,.3)}
+.skill-h2{background:rgba(56,189,248,.12);color:#38bdf8;border:1px solid rgba(56,189,248,.3)}
+.skill-h3{background:rgba(248,113,113,.12);color:#f87171;border:1px solid rgba(248,113,113,.3)}
+.on{color:var(--c-on)!important}.gf{color:var(--c-gf)!important}.al{color:var(--c-al)!important}
+.fg{color:var(--c-fg)!important}.lt{color:var(--c-lt)!important}.dorado{color:var(--dorado)!important}
+.weight-table{width:100%;border-collapse:collapse;margin:12px 0}
+.weight-table th{background:rgba(212,162,76,.12);color:var(--dorado);font-size:.8rem;padding:8px 12px;text-align:left;font-family:"Fredoka One",cursive;font-weight:400}
+.weight-table td{padding:9px 12px;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);color:var(--text-dim)}
+.tl-wrap{overflow-x:auto;padding-bottom:8px}
+.tl-grid{display:grid;grid-template-columns:130px repeat(3,1fr);gap:2px;min-width:640px}
+.tl-head{font-family:"Fredoka One",cursive;font-size:.85rem;text-align:center;padding:10px 6px;border-radius:10px 10px 0 0}
+.tl-row-label{display:flex;align-items:center;font-size:.76rem;font-weight:900;color:var(--text-dim);padding:8px 6px}
+.tl-cell{background:var(--card2);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:9px 10px;font-size:.76rem;color:var(--text-dim);line-height:1.5;min-height:60px;cursor:pointer;position:relative}
+.tl-cell:hover{border-color:rgba(212,162,76,.4)}
+.tl-cell strong{color:var(--text);display:block;font-size:.78rem;margin-bottom:2px}
+.tl-cell .tl-more{display:none;margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.1);font-size:.73rem;color:var(--text-dim)}
+.tl-cell.open .tl-more{display:block}
+.tl-cell .tl-plus{position:absolute;top:6px;right:8px;font-size:.7rem;color:var(--dorado);opacity:.7}
+.prac-group{margin-bottom:24px}
+.prac-group-hdr{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.prac-group-hdr .gi{font-size:1.5rem}
+.prac-group-hdr .gname{font-family:"Fredoka One",cursive;font-size:1.05rem}
+.prac-group-hdr .gscore{margin-left:auto;font-size:.85rem;font-weight:800}
+.pq{display:none;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:10px}
+.pq.show{display:block;animation:fadeUp .3s ease}
+.pq-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 13px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.pq-q{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pq-opts{display:flex;flex-direction:column;gap:7px}
+.nxt-q{margin-top:12px;padding:8px 22px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:"Fredoka One",cursive;font-size:.95rem;cursor:pointer;display:none}
+.nxt-q:hover{background:var(--dorado-dark)}
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(20,15,8,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.08);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(212,162,76,.35);background:transparent;color:var(--dorado);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--dorado-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+.timer-box{background:var(--card2);border:2px solid rgba(212,162,76,.3);border-radius:14px;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.timer-display{font-family:"Fredoka One",cursive;font-size:2.4rem;color:var(--dorado);letter-spacing:.05em}
+.timer-display.warn{color:#f59e0b}
+.timer-display.danger{color:var(--rojo);animation:pulse-b 1s ease-in-out infinite}
+@keyframes pulse-b{0%,100%{opacity:1}50%{opacity:.5}}
+.ensayo-q{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:12px}
+.ensayo-num{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.ensayo-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 12px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.ensayo-q-text{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.ensayo-opts{display:flex;flex-direction:column;gap:7px}
+.ensayo-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 13px;border-radius:9px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(0,0,0,.18);transition:all .18s}
+.ensayo-opt:hover:not(.locked){border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.ensayo-opt.selected{background:rgba(212,162,76,.12);border-color:var(--dorado)}
+.ensayo-opt.locked{cursor:default;pointer-events:none}
+.ensayo-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.ensayo-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ensayo-opt .ol{color:var(--dorado)}
+.ensayo-opt.selected .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.ensayo-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.ensayo-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ensayo-fb{margin-top:8px;padding:9px 13px;border-radius:9px;font-size:.83rem;line-height:1.55;display:none}
+.ensayo-fb.show{display:block}
+.ensayo-fb.ok{background:rgba(212,162,76,.1);color:#f3d896;border-left:3px solid var(--dorado)}
+.ensayo-fb.no{background:rgba(231,76,60,.06);color:#fca5a5;border-left:3px solid var(--rojo)}
+.submit-btn{width:100%;padding:14px;background:var(--dorado);color:#1a1206;border:none;border-radius:12px;font-family:"Fredoka One",cursive;font-size:1.1rem;cursor:pointer;margin-top:10px;transition:background .2s}
+.submit-btn:hover{background:var(--dorado-dark)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+#ensayo-results{display:none;margin-top:20px}
+.res-banner{font-family:"Fredoka One",cursive;font-size:2.5rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0}
+.res-topic-card{background:var(--card2);border-radius:12px;padding:13px 16px;border-left:3px solid var(--dorado)}
+.res-topic-card.bad{border-left-color:var(--rojo)}
+.res-topic-card.mid{border-left-color:#f59e0b}
+.res-topic-name{font-size:.79rem;font-weight:900;color:var(--text-dim);margin-bottom:4px}
+.res-topic-score{font-family:"Fredoka One",cursive;font-size:1.3rem}
+.cmap{display:flex;flex-direction:column;gap:8px}
+.cmap-node{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .2s}
+.cmap-node:hover{border-color:rgba(212,162,76,.4)}
+.cmap-h{display:flex;align-items:center;gap:10px;padding:12px 16px}
+.cmap-h strong{font-size:.92rem;color:var(--text)}
+.cmap-icon{font-size:1.15rem}
+.cmap-plus{font-size:.9rem;color:var(--dorado);margin-left:auto;flex-shrink:0}
+.cmap-body{display:none;padding:0 16px 16px 44px;font-size:.86rem;color:var(--text-dim);line-height:1.65}
+.cmap-node.open .cmap-body{display:block;animation:fadeUp .25s ease}
+.match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin-top:6px}
+@media(max-width:620px){.match-wrap{grid-template-columns:1fr}}
+.match-col{display:flex;flex-direction:column;gap:8px}
+.match-col-hdr{display:flex;align-items:center;gap:6px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--dorado);padding-bottom:4px;border-bottom:1px dashed rgba(212,162,76,.3)}
+.match-list{display:flex;flex-direction:column;gap:8px}
+.match-item{background:rgba(0,0,0,.2);border:1.5px solid rgba(255,255,255,.09);border-left-width:3px;border-radius:10px;padding:10px 14px;font-size:.85rem;color:var(--text-dim);cursor:pointer;transition:all .18s;line-height:1.5}
+.match-item:hover{border-color:var(--dorado)}
+.match-item.term{border-left-color:var(--dorado);font-weight:800;color:var(--text)}
+.match-item.def{border-left-color:rgba(255,255,255,.18)}
+.match-item.picked{border-color:var(--dorado);background:rgba(212,162,76,.1);color:var(--text)}
+.match-item.ok{border-color:var(--dorado);background:rgba(212,162,76,.16);color:var(--text)}
+.match-item.bad{border-color:var(--rojo);background:rgba(231,76,60,.1)}
+.match-item.done{cursor:default}
+.match-status{margin-top:12px;font-size:.85rem;font-weight:800;color:var(--text-dim)}
+.match-status.win{color:var(--dorado)}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#5c4a2a}
+@media(max-width:680px){
+  .container{padding:10px 10px 80px}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:8px !important;gap:5px;margin:12px 0 4px;scrollbar-width:none;position:relative !important;top:auto !important;background:rgba(20,15,8,.95);border-radius:14px}
+  .nav::-webkit-scrollbar{display:none}
+  .nav-btn{flex-shrink:0;font-size:.74rem;padding:9px 13px;min-height:40px;touch-action:manipulation}
+  .hero{padding:36px 8px 14px}
+  .hero-emoji{font-size:48px}
+  .card{padding:14px 12px}
+  .grid-2{grid-template-columns:1fr}
+  .paes-box{padding:14px 12px}
+  .paes-opt{padding:12px 11px;min-height:52px;touch-action:manipulation}
+  .ol{min-width:30px;height:30px;font-size:.8rem}
+  .lnav-btn{padding:13px 18px !important;font-size:.95rem !important;min-height:48px}
+  .submit-btn{width:100% !important;padding:13px !important}
+}
+</style>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:16%"></div></div>
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">💰</span>
+  <h1>Sistema Económico</h1>
+  <p>PAES Historia y Ciencias Sociales · Unidad 5</p>
+  <div class="badge">📜 Admisión 2027</div>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('me',1,this)">🏪 Mercado y Estado</button>
+  <button class="nav-btn" onclick="showSec('md',2,this)">🌱 Modelos de Desarrollo</button>
+  <button class="nav-btn" onclick="showSec('dl',3,this)">✊ Derechos Laborales</button>
+  <button class="nav-btn" onclick="showSec('gl',4,this)">📖 Glosario</button>
+  <button class="nav-btn" onclick="showSec('ensayo',5,this)">⏱️ Mini Ensayo</button>
+</div>
+
+<!-- ═══ PORTADA ═══ -->
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title" style="justify-content:center;color:var(--dorado);font-size:1.6rem">💰 Unidad 5 · Sistema Económico</p>
+    <p style="font-size:1.05rem;max-width:600px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Esta unidad cubre el eje <strong>Sistema Económico</strong> de la prueba: cómo funciona el mercado y qué rol cumple el Estado dentro de él, qué son los modelos de desarrollo y sus impactos, y cómo se han construido y defendido los derechos laborales en Chile.</p>
+  </div>
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">📊 Los 3 subtemas de esta unidad</p>
+    <table class="weight-table">
+      <tr><th>Subtema</th><th>Qué cubre</th></tr>
+      <tr><td>🏪 <strong style="color:var(--c-on)">Mercado y Estado</strong></td><td>Funcionamiento del mercado, factores que lo alteran, relación Estado-mercado.</td></tr>
+      <tr><td>🌱 <strong style="color:var(--c-fg)">Modelos de Desarrollo</strong></td><td>Impactos sociales y medioambientales de distintos modelos de desarrollo económico.</td></tr>
+      <tr><td>✊ <strong style="color:var(--c-gf)">Derechos Laborales</strong></td><td>Evolución histórica e institucional de los derechos laborales en Chile.</td></tr>
+    </table>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--dorado)">
+      <p class="card-title" style="color:var(--dorado)">📌 Recuerda</p>
+      <ul>
+        <li>Es el eje más <strong>corto</strong> del módulo, pero con <strong>vocabulario técnico nuevo</strong> (oferta, demanda, inflación, deflación, monopolio)</li>
+        <li>Por eso esta unidad incluye un <strong>Glosario</strong> especial de términos económicos</li>
+        <li>Aplica las <strong>3 habilidades</strong> de la Unidad 0 en cada pregunta</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--sepia)">
+      <p class="card-title" style="color:var(--sepia)">⏱️ Al final de esta unidad</p>
+      <ul>
+        <li>Mini ensayo cronometrado con <strong>18 preguntas 🤖</strong> generadas por IA, con el formato y dificultad de la PAES</li>
+        <li>Resultado con <strong>desglose por subtema</strong></li>
+        <li>Práctica guiada integrada en cada sección (5 preguntas 🤖 por subtema)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">💡 Clave PAES</div>
+    <p>Muchas preguntas de esta unidad presentan una <strong>situación cotidiana</strong> (un fabricante, una familia, una empresa) y te piden identificar qué principio económico explica lo que le ocurre. No memorices solo definiciones: practica aplicándolas a casos concretos.</p>
+  </div>
+</div>
+
+<!-- ═══ MERCADO Y ESTADO ═══ -->
+<div class="section" id="me">
+  <div class="h-header" style="background:rgba(52,152,219,.12);border:1.5px solid rgba(52,152,219,.3)">
+    <span class="icon">🏪</span>
+    <h2 class="on">Mercado y Estado</h2>
+    <p>Cómo funciona el mercado, qué factores pueden alterarlo, y qué rol cumple el Estado dentro de una economía como la chilena.</p>
+  </div>
+  <div class="card">
+    <p class="card-title on">📖 ¿Qué es el mercado?</p>
+    <p>El <strong>mercado</strong> es el espacio (físico o virtual) donde compradores (demanda) y vendedores (oferta) intercambian bienes y servicios. En una <strong>economía de libre mercado</strong>, el precio se fija principalmente por la interacción entre oferta y demanda: si algo escasea y muchos lo quieren, su precio sube; si sobra y pocos lo quieren, baja.</p>
+    <p style="margin-top:10px">Cuando oferta y demanda se equilibran sin distorsiones, se habla de un <strong>mercado perfecto</strong>. En la práctica, distintos factores pueden alterar este equilibrio.</p>
+  </div>
+  <div class="card">
+    <p class="card-title on">⚠️ Factores que alteran el mercado</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--rojo)"><div style="font-weight:900;color:var(--rojo);font-size:.85rem;margin-bottom:4px">Inflación</div><p style="font-size:.82rem">Alza sostenida y generalizada de precios en el tiempo. Reduce el poder de compra del dinero.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--azul)"><div style="font-weight:900;color:var(--azul);font-size:.85rem;margin-bottom:4px">Deflación</div><p style="font-size:.82rem">Caída sostenida de precios. Suele ir de la mano de menor actividad económica y despidos, lo que en la práctica reduce el poder adquisitivo de los consumidores.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Monopolio</div><p style="font-size:.82rem">Una sola empresa concentra la oferta de un bien, reduce la competencia y desalienta la entrada de nuevas empresas.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid #2ecc71"><div style="font-weight:900;color:#2ecc71;font-size:.85rem;margin-bottom:4px">Costo de insumos</div><p style="font-size:.82rem">Si sube el precio de un factor productivo (ej. combustible, materia prima), eso impacta directamente el precio final del producto.</p></div>
+    </div>
+    <div class="tip-box" style="margin-top:14px">
+      <div class="tip-label">💡 Analogía</div>
+      <p>Piensa en el mercado como una balanza: la oferta en un platillo, la demanda en el otro. La inflación, la deflación, el monopolio o un insumo más caro son "pesas extra" que desequilibran la balanza, moviendo el precio de su punto natural.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title on">🏛️ El rol del Estado en la economía</p>
+    <p>Aunque en una economía de libre mercado la iniciativa privada tiene el rol protagónico, el Estado también participa activamente:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-on)"><div style="font-weight:900;color:var(--c-on);font-size:.85rem;margin-bottom:4px">Regular</div><p style="font-size:.82rem">Establece las normas que regulan la actividad productiva (seguridad, calidad, medioambiente), sin fijar directamente los precios.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Recaudar</div><p style="font-size:.82rem">A través de impuestos, financia el gasto público. Los impuestos al consumo (como el IVA) aumentan el precio final que paga el consumidor.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--rojo)"><div style="font-weight:900;color:var(--rojo);font-size:.85rem;margin-bottom:4px">Estabilizar</div><p style="font-size:.82rem">El Banco Central determina las tasas de interés para controlar la inflación cuando esta amenaza con desestabilizar la economía.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid #9b59b6"><div style="font-weight:900;color:#9b59b6;font-size:.85rem;margin-bottom:4px">Regular el comercio exterior</div><p style="font-size:.82rem">Los <strong>aranceles</strong> son impuestos a productos importados. Subirlos protege a la producción nacional; bajarlos aumenta la oferta de bienes disponibles, lo que puede ayudar a moderar un alza de precios.</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title on">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-me">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">⚖️</span><strong>Oferta y demanda</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Mecanismo principal de fijación de precios en una economía de libre mercado; su equilibrio define el "mercado perfecto".</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📈</span><strong>Inflación</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Alza sostenida de precios que reduce el poder de compra del dinero; el Banco Central puede subir tasas de interés para contenerla.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📉</span><strong>Deflación</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Caída sostenida de precios asociada a menor actividad económica, que en la práctica reduce el poder adquisitivo de los consumidores.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏢</span><strong>Monopolio</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Una empresa concentra la oferta de un bien, reduciendo la competencia y desalentando nuevos actores en el mercado.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏛️</span><strong>Rol del Estado</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Regula la actividad productiva, recauda impuestos y, a través del Banco Central, fija tasas de interés para estabilizar la economía.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🚢</span><strong>Aranceles</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Impuestos a productos importados: subirlos protege la producción nacional; bajarlos aumenta la oferta y puede moderar el alza de precios.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title on">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap">
+      <div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-me-terms"></div></div>
+      <div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-me-defs"></div></div>
+    </div>
+    <div class="match-status" id="match-me-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">oferta y demanda</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">inflación</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">deflación</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">monopolio</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">Banco Central</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">aranceles</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag on">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <span class="skill-tag skill-h3">🧠 Pensamiento crítico</span>
+    <div class="paes-ctx">Camila compra fruta y verdura todas las semanas en la feria libre de su barrio, donde varios vendedores ofrecen productos similares a precios distintos.</div>
+    <p class="paes-q">Al respecto, ¿qué rol juega el Estado en este tipo de transacciones de mercado?</p>
+    <div class="paes-opts" id="qme1">
+      <div class="paes-opt" onclick="ans('qme1','A')"><div class="ol">A</div><div class="ot">Fija directamente el precio de la fruta y verdura que se vende en la feria.</div></div>
+      <div class="paes-opt" onclick="ans('qme1','B')"><div class="ol">B</div><div class="ot">Decide qué productos deben ofrecer los vendedores de la feria.</div></div>
+      <div class="paes-opt" onclick="ans('qme1','C')"><div class="ol">C</div><div class="ot">Obliga a Camila a comprar una cantidad mínima de productos.</div></div>
+      <div class="paes-opt" onclick="ans('qme1','D')"><div class="ol">D</div><div class="ot">Recauda una parte del dinero de esas transacciones mediante impuestos.</div></div>
+    </div>
+    <div class="paes-fb" id="qme1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-on)">
+    <p class="card-title on">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre Mercado y Estado.</p>
+  </div>
+  <div id="prac-mount-me"></div>
+</div>
+
+<!-- ═══ MODELOS DE DESARROLLO ═══ -->
+<div class="section" id="md">
+  <div class="h-header" style="background:rgba(22,160,133,.12);border:1.5px solid rgba(22,160,133,.3)">
+    <span class="icon">🌱</span>
+    <h2 class="fg">Modelos de Desarrollo y Política Económica</h2>
+    <p>Distintas formas de organizar el crecimiento económico de un país, y los impactos sociales y medioambientales que cada una conlleva.</p>
+  </div>
+  <div class="card">
+    <p class="card-title fg">📖 ¿Qué es un modelo de desarrollo?</p>
+    <p>Un <strong>modelo de desarrollo</strong> es la estrategia que un país adopta para crecer económicamente: qué produce, cómo distribuye la riqueza, y qué rol le da al Estado, al mercado y al medioambiente. No existe un solo modelo correcto: cada uno genera distintos <strong>impactos sociales y medioambientales</strong>, que es justamente lo que evalúa esta parte de la prueba.</p>
+  </div>
+  <div class="card">
+    <p class="card-title fg">🌱 El modelo de desarrollo sostenible</p>
+    <p>Busca un equilibrio entre <strong>crecimiento económico</strong>, <strong>bienestar social</strong> y <strong>cuidado del medioambiente</strong>, de modo que las actividades de hoy no comprometan los recursos que necesitarán las generaciones futuras.</p>
+    <p style="margin-top:10px">Por eso, proyectos que puedan afectar recursos naturales (como la extracción de agua o minerales) deben someterse a una <strong>evaluación de impacto ambiental</strong>: no porque generen costos inmediatos, sino porque implican <strong>riesgos a la disponibilidad futura</strong> de ese recurso.</p>
+  </div>
+  <div class="card">
+    <p class="card-title fg">⚖️ Justicia ambiental: cuando el modelo falla</p>
+    <p>La <strong>justicia ambiental</strong> es el principio según el cual los costos y beneficios ambientales de una actividad productiva deben distribuirse equitativamente entre la población. En Chile existen casos como <strong>Quintero-Puchuncaví</strong> (Región de Valparaíso) o la localización de plantas de tratamiento en comunidades de La Araucanía, donde ciertas comunidades cargan con más contaminación sin haber participado en esa decisión.</p>
+    <div class="tip-box" style="margin-top:14px">
+      <div class="tip-label">💡 Por qué esto contradice el desarrollo sostenible</div>
+      <p>Estos casos evidencian que <strong>dificulta conciliar la protección ambiental con el crecimiento económico</strong>: se prioriza la actividad productiva por sobre la salud de comunidades específicas, exactamente lo que el modelo de desarrollo sostenible busca evitar.</p>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title fg">🔋 Energías renovables en Chile</p>
+      <p>Chile tiene condiciones naturales privilegiadas: alta radiación solar, fuertes vientos, potencial geotérmico y marino. Usar estas <strong>energías renovables</strong> promueve una mayor responsabilidad en el cuidado medioambiental, a diferencia de los combustibles fósiles.</p>
+    </div>
+    <div class="card">
+      <p class="card-title fg">🏭 Modelos extractivistas vs. sostenibles</p>
+      <p>Un modelo <strong>extractivista</strong> (minero, forestal, pesquero) prioriza la explotación de recursos naturales para exportar; un modelo <strong>sostenible</strong> busca diversificar la economía cuidando esos mismos recursos a largo plazo. Ambos generan empleo, pero con impactos ambientales muy distintos.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title fg">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-md">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🌱</span><strong>Desarrollo sostenible</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Busca equilibrar crecimiento económico, bienestar social y cuidado ambiental, sin comprometer los recursos de generaciones futuras.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📋</span><strong>Evaluación de impacto ambiental</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Exigida a proyectos que puedan afectar recursos naturales, porque implican riesgos a su disponibilidad futura.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">⚖️</span><strong>Justicia ambiental</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Principio de distribución equitativa de costos y beneficios ambientales; su ausencia (zonas de sacrificio) contradice el desarrollo sostenible.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🔋</span><strong>Energías renovables</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Aprovechan el potencial natural de Chile (solar, eólico, geotérmico) y promueven responsabilidad medioambiental.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏭</span><strong>Extractivismo</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Modelo centrado en explotar recursos naturales para exportar, con mayores impactos ambientales que un modelo sostenible.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title fg">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap">
+      <div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-md-terms"></div></div>
+      <div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-md-defs"></div></div>
+    </div>
+    <div class="match-status" id="match-md-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">desarrollo sostenible</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">evaluación de impacto ambiental</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">justicia ambiental</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">energías renovables</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">extractivismo</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag fg">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <span class="skill-tag skill-h2">📜 Análisis de fuentes</span>
+    <div class="paes-ctx">Un informe municipal muestra que, en los últimos 15 años, todas las nuevas plantas de tratamiento de residuos de una ciudad ficticia se han instalado en el mismo sector de menores ingresos, sin que sus habitantes fueran consultados en ninguno de los proyectos.</div>
+    <p class="paes-q">¿Por qué la situación descrita constituye una contradicción a los fundamentos del modelo de desarrollo sostenible?</p>
+    <div class="paes-opts" id="qmd1">
+      <div class="paes-opt" onclick="ans('qmd1','A')"><div class="ol">A</div><div class="ot">Porque restringe la priorización de las actividades productivas con innovación ambiental.</div></div>
+      <div class="paes-opt" onclick="ans('qmd1','B')"><div class="ol">B</div><div class="ot">Porque dificulta conciliar la protección ambiental con el crecimiento económico, al concentrar los costos en una sola comunidad.</div></div>
+      <div class="paes-opt" onclick="ans('qmd1','C')"><div class="ol">C</div><div class="ot">Porque limita el financiamiento de las áreas de conservación ambiental con fondos fiscales.</div></div>
+      <div class="paes-opt" onclick="ans('qmd1','D')"><div class="ol">D</div><div class="ot">Porque desincentiva el diseño de políticas públicas orientadas al cuidado medioambiental.</div></div>
+    </div>
+    <div class="paes-fb" id="qmd1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-fg)">
+    <p class="card-title fg">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre Modelos de Desarrollo.</p>
+  </div>
+  <div id="prac-mount-md"></div>
+</div>
+
+<!-- ═══ DERECHOS LABORALES ═══ -->
+<div class="section" id="dl">
+  <div class="h-header" style="background:rgba(192,57,43,.12);border:1.5px solid rgba(192,57,43,.3)">
+    <span class="icon">✊</span>
+    <h2 class="gf">Derechos Laborales</h2>
+    <p>Cómo surgieron y se institucionalizaron los derechos laborales en Chile, y qué tendencias actuales los desafían.</p>
+  </div>
+  <div class="card">
+    <p class="card-title gf">📖 Los orígenes: la "Cuestión Social"</p>
+    <p>A fines del siglo XIX y comienzos del XX, la <strong>expansión de las actividades económicas de carácter industrial y minero</strong> (salitre, carbón) atrajo a miles de trabajadores a condiciones laborales precarias: largas jornadas, salarios bajos y nula protección ante accidentes. A este conjunto de problemas se le llama <strong>"Cuestión Social"</strong>.</p>
+    <p style="margin-top:10px">Frente a esto, los trabajadores comenzaron a organizarse en <strong>sociedades de resistencia</strong> y mutuales, y a usar la <strong>huelga</strong> como forma de presión: negarse a trabajar hasta que el empleador aceptara mejores condiciones (jornada, salario, reconocimiento del trabajo).</p>
+  </div>
+  <div class="card">
+    <p class="card-title gf">⚖️ La institucionalización de los derechos laborales</p>
+    <p>Con el tiempo, el Estado chileno pasó de ignorar estos conflictos a regularlos legalmente:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-gf)"><div style="font-weight:900;color:var(--c-gf);font-size:.85rem;margin-bottom:4px">Código del Trabajo (1931)</div><p style="font-size:.82rem">Primer cuerpo legal que unificó y reguló las relaciones laborales en Chile: contratos, jornada, sindicalización.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Sindicatos</div><p style="font-size:.82rem">Organizaciones de trabajadores que negocian colectivamente con el empleador condiciones de trabajo y remuneraciones.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid #2ecc71"><div style="font-weight:900;color:#2ecc71;font-size:.85rem;margin-bottom:4px">Dirección del Trabajo</div><p style="font-size:.82rem">Organismo estatal que fiscaliza el cumplimiento de la legislación laboral en Chile.</p></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title gf">🌐 Tendencias actuales del mundo del trabajo</p>
+      <p>Fenómenos como el <strong>trabajo por plataformas digitales</strong> (aplicaciones de reparto o transporte) y la <strong>informalidad laboral</strong> desafían la protección tradicional: muchas de estas personas no cuentan con contrato, cotizaciones previsionales ni seguro ante accidentes.</p>
+    </div>
+    <div class="card">
+      <p class="card-title gf">🤝 El aporte de las organizaciones sociales</p>
+      <p>Más allá de los sindicatos, otras organizaciones sociales (centrales sindicales, movimientos de trabajadoras de casa particular, agrupaciones de trabajadores independientes) han impulsado reformas legales, como la reducción de la jornada laboral o el reconocimiento de nuevas formas de empleo.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title gf">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-dl">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏭</span><strong>Cuestión Social</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Conjunto de problemas laborales generados por la expansión industrial y minera de fines del s.XIX e inicios del s.XX en Chile.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">✊</span><strong>Huelga y sociedades de resistencia</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Primeras formas de organización obrera para exigir mejores condiciones laborales frente a los empleadores.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📜</span><strong>Código del Trabajo (1931)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Primera legislación que unificó y reguló formalmente las relaciones laborales en Chile.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🤝</span><strong>Negociación colectiva</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Mecanismo por el cual los sindicatos negocian condiciones laborales con el empleador en representación de los trabajadores.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📱</span><strong>Trabajo por plataformas</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Tendencia actual que desafía la protección laboral tradicional por su alta informalidad y falta de contrato.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title gf">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap">
+      <div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-dl-terms"></div></div>
+      <div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-dl-defs"></div></div>
+    </div>
+    <div class="match-status" id="match-dl-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">Cuestión Social</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">huelga</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">Código del Trabajo</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">negociación colectiva</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">trabajo por plataformas</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag gf">🤖 Pregunta creada · inspirada en modelo PAES</div>
+    <span class="skill-tag skill-h3">🧠 Pensamiento crítico</span>
+    <div class="paes-ctx">Entre fines del siglo XIX y comienzos del XX, trabajadores del carbón y del salitre en el norte y sur de Chile comenzaron a organizarse masivamente en sociedades de resistencia.</div>
+    <p class="paes-q">¿Cuál es un elemento del contexto histórico que permite explicar dicho fenómeno?</p>
+    <div class="paes-opts" id="qdl1">
+      <div class="paes-opt" onclick="ans('qdl1','A')"><div class="ol">A</div><div class="ot">La reducción de la demanda por mano de obra especializada.</div></div>
+      <div class="paes-opt" onclick="ans('qdl1','B')"><div class="ol">B</div><div class="ot">La excesiva intervención estatal en las actividades productivas.</div></div>
+      <div class="paes-opt" onclick="ans('qdl1','C')"><div class="ol">C</div><div class="ot">La escasa concentración de la propiedad de las tierras agrícolas.</div></div>
+      <div class="paes-opt" onclick="ans('qdl1','D')"><div class="ol">D</div><div class="ot">La expansión de las actividades económicas de carácter industrial y minero.</div></div>
+    </div>
+    <div class="paes-fb" id="qdl1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-gf)">
+    <p class="card-title gf">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre Derechos Laborales.</p>
+  </div>
+  <div id="prac-mount-dl"></div>
+</div>
+
+<!-- ═══ GLOSARIO ═══ -->
+<div class="section" id="gl">
+  <div class="h-header" style="background:rgba(155,89,182,.12);border:1.5px solid rgba(155,89,182,.3)">
+    <span class="icon">📖</span>
+    <h2 class="lt">Glosario de términos económicos</h2>
+    <p>Esta unidad introduce vocabulario técnico nuevo. Haz clic en cada término para ver su definición en lenguaje simple.</p>
+  </div>
+  <div class="card">
+    <div class="cmap" id="cmap-gl">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📦</span><strong>Oferta</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Cantidad de un bien o servicio que los vendedores están dispuestos a ofrecer en el mercado a un precio determinado.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🙋</span><strong>Demanda</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Cantidad de un bien o servicio que los compradores están dispuestos a adquirir a un precio determinado.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📈</span><strong>Inflación</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Alza sostenida y generalizada de los precios de bienes y servicios en un período de tiempo.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📉</span><strong>Deflación</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Caída sostenida y generalizada de los precios en un período de tiempo prolongado.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏢</span><strong>Monopolio</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Situación en que una sola empresa controla la oferta total de un bien o servicio en el mercado.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏦</span><strong>Banco Central</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Institución autónoma que regula la política monetaria de un país, fijando tasas de interés para controlar la inflación.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🚢</span><strong>Aranceles</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Impuestos que se aplican a los productos importados, usados para proteger la producción nacional o regular el comercio exterior.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">💵</span><strong>Impuesto</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Aporte obligatorio que las personas y empresas entregan al Estado, usado para financiar el gasto público.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🌱</span><strong>Desarrollo sostenible</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Modelo que busca equilibrar crecimiento económico, bienestar social y cuidado ambiental sin comprometer el futuro.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">⚖️</span><strong>Justicia ambiental</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Principio de distribución equitativa de los costos y beneficios ambientales entre la población.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏭</span><strong>Extractivismo</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Modelo económico centrado en la explotación intensiva de recursos naturales, principalmente para exportar.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏭</span><strong>Cuestión Social</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Problemas laborales y sociales generados por la industrialización de fines del s.XIX e inicios del s.XX en Chile.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">✊</span><strong>Huelga</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Suspensión colectiva y voluntaria del trabajo por parte de los trabajadores, usada como forma de presión.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🤝</span><strong>Negociación colectiva</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Proceso mediante el cual un sindicato negocia condiciones laborales y remuneraciones en representación de los trabajadores.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📱</span><strong>Informalidad laboral</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Trabajo realizado sin contrato formal, cotizaciones previsionales ni protección legal frente a accidentes o despidos.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MINI ENSAYO ═══ -->
+<div class="section" id="ensayo">
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">⏱️ Mini Ensayo cronometrado · 18 preguntas</p>
+    <p>Responde las 18 preguntas dentro del tiempo límite. Son preguntas <strong>🤖 generadas por IA</strong> siguiendo el formato y la dificultad de la PAES — no son preguntas reales de un ensayo oficial. Las respuestas se evalúan al terminar. <strong>Simula las condiciones reales de la prueba.</strong></p>
+  </div>
+  <div class="tip-box" style="margin-bottom:16px">
+    <div class="tip-label">💡 Estrategia</div>
+    <p>Ubica primero si la pregunta es sobre <strong>mercado</strong>, <strong>modelo de desarrollo</strong> o <strong>derechos laborales</strong> — cada eje tiene su propio vocabulario y lógica. No confundas los efectos de la inflación con los de la deflación, ni el rol regulador del Estado con el de fijar precios (algo que el Estado no hace en libre mercado).</p>
+  </div>
+  <div class="timer-box">
+    <div>
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Tiempo restante</div>
+      <div class="timer-display" id="timer-disp">32:00</div>
+    </div>
+    <div style="text-align:right">
+      <div id="timer-status" style="font-size:.85rem;color:var(--text-dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+      <button id="start-btn" onclick="startEnsayo()" style="padding:8px 20px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+    </div>
+  </div>
+  <div id="ensayo-qs" style="display:none"></div>
+  <button class="submit-btn" id="submit-btn" onclick="submitEnsayo()" disabled style="display:none">✅ Terminar y ver resultados</button>
+  <div id="ensayo-results"></div>
+</div>
+
+</div><!-- /container -->
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">← Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente →</button>
+</div>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 5</h3>
+      <p>Sistema Económico · Historia y Cs. Sociales</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    🔒 El asistente está pausado mientras rindes el Mini Ensayo cronometrado. Vuelve a abrirlo cuando termines.
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre Mercado y Estado, Modelos de Desarrollo y Derechos Laborales. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<footer>💰 Unidad 5 · Sistema Económico · PAES Historia y Ciencias Sociales · Admisión 2027<br><span style="font-size:.72rem;opacity:.7">Todas las preguntas de práctica (🤖) son generadas por IA y no corresponden a preguntas reales de la PAES ni reproducen material oficial de DEMRE.</span></footer>
+<script>
+// ═══ NAVEGACIÓN ═══
+var SECS=["portada","me","md","dl","gl","ensayo"];
+var SLABELS=["Inicio","🏪 Mercado y Estado","🌱 Modelos de Desarrollo","✊ Derechos Laborales","📖 Glosario","⏱️ Mini Ensayo"];
+var curSec=0;
+function showSec(id,idx,btn){
+  SECS.forEach(function(s){document.getElementById(s).classList.remove("active");});
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec=idx;
+  updateLinNav();
+  document.getElementById("prog").style.width=Math.round(((idx+1)/SECS.length)*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function linNav(d){
+  var n=Math.max(0,Math.min(SECS.length-1,curSec+d));
+  if(n===curSec)return;
+  showSec(SECS[n],n,document.querySelectorAll(".nav-btn")[n]);
+}
+function updateLinNav(){
+  document.getElementById("lnav-prev").disabled=(curSec===0);
+  document.getElementById("lnav-next").disabled=(curSec===SECS.length-1);
+  document.getElementById("lnav-label").textContent=SLABELS[curSec];
+}
+updateLinNav();
+
+// ═══ MAPA CONCEPTUAL / GLOSARIO CLICABLE ═══
+function toggleCmap(el){
+  var wasOpen=el.classList.contains("open");
+  el.parentElement.querySelectorAll(".cmap-node").forEach(function(n){n.classList.remove("open");n.querySelector(".cmap-plus").textContent="＋";});
+  if(!wasOpen){el.classList.add("open");el.querySelector(".cmap-plus").textContent="－";}
+}
+
+// ═══ EJERCICIO DE RELACIONAR CONCEPTOS ═══
+function shuffleArr(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+var MATCH_STATE={};
+function buildMatch(mid,pairs){
+  var order=shuffleArr(pairs.map(function(p,i){return i;}));
+  var defOrder=shuffleArr(pairs.map(function(p,i){return i;}));
+  MATCH_STATE[mid]={pairs:pairs,picked:null,solved:0};
+  var tCol=document.getElementById(mid+"-terms"), dCol=document.getElementById(mid+"-defs");
+  tCol.innerHTML=""; dCol.innerHTML="";
+  order.forEach(function(i){
+    var d=document.createElement("div");
+    d.className="match-item term"; d.dataset.i=i; d.textContent=pairs[i].term;
+    d.onclick=function(){matchPick(mid,"t",i,d);};
+    tCol.appendChild(d);
+  });
+  defOrder.forEach(function(i){
+    var d=document.createElement("div");
+    d.className="match-item def"; d.dataset.i=i; d.textContent=pairs[i].def;
+    d.onclick=function(){matchPick(mid,"d",i,d);};
+    dCol.appendChild(d);
+  });
+  document.getElementById(mid+"-status").textContent="0 / "+pairs.length+" relacionados";
+}
+function matchPick(mid,side,i,el){
+  var st=MATCH_STATE[mid];
+  if(el.classList.contains("done"))return;
+  if(!st.picked){
+    document.querySelectorAll("#"+mid+"-terms .match-item,#"+mid+"-defs .match-item").forEach(function(x){if(!x.classList.contains("done"))x.classList.remove("picked");});
+    st.picked={side:side,i:i,el:el};
+    el.classList.add("picked");
+    return;
+  }
+  if(st.picked.side===side){
+    st.picked.el.classList.remove("picked");
+    st.picked={side:side,i:i,el:el};
+    el.classList.add("picked");
+    return;
+  }
+  var match=(st.picked.i===i);
+  if(match){
+    st.picked.el.classList.remove("picked"); st.picked.el.classList.add("ok","done");
+    el.classList.add("ok","done");
+    st.solved++;
+    document.getElementById(mid+"-status").textContent=st.solved+" / "+st.pairs.length+" relacionados";
+    if(st.solved===st.pairs.length){
+      var s=document.getElementById(mid+"-status"); s.textContent="🎉 ¡Completado! "+st.pairs.length+" / "+st.pairs.length; s.classList.add("win");
+    }
+  }else{
+    el.classList.add("bad");
+    var badEl=el, pickedEl=st.picked.el;
+    setTimeout(function(){badEl.classList.remove("bad");pickedEl.classList.remove("picked");},550);
+  }
+  st.picked=null;
+}
+
+// ═══ FEEDBACK POR ALTERNATIVA (preguntas dentro del contenido) ═══
+var QA={
+  "qme1":{c:"D",fb:{
+    A:"Incorrecto. En una economía de libre mercado, es la interacción entre los vendedores de la feria (oferta) y sus clientes (demanda) la que fija el precio, no el Estado.",
+    B:"Incorrecto. Cada vendedor decide libremente qué ofrecer; el Estado no determina el surtido de productos de la feria.",
+    C:"Incorrecto. El Estado no controla directamente cuánto o qué debe comprar una consumidora como Camila.",
+    D:"✅ Correcto. El Estado recauda parte del dinero de este tipo de transacciones mediante impuestos (como el IVA), financiando así el gasto público."
+  }},
+  "qmd1":{c:"B",fb:{
+    A:"Incorrecto. El caso no habla de restringir innovación ambiental, sino de la desigual distribución de cargas ambientales.",
+    B:"✅ Correcto. Concentrar sistemáticamente los proyectos contaminantes en una sola comunidad, sin consulta, muestra que se prioriza la actividad productiva sobre la protección ambiental de esa comunidad, dificultando conciliar ambos objetivos.",
+    C:"Incorrecto. El caso no menciona financiamiento fiscal de áreas de conservación.",
+    D:"Incorrecto. El caso no describe un desincentivo a diseñar políticas públicas, sino una desigual carga ambiental que ya existe."
+  }},
+  "qdl1":{c:"D",fb:{
+    A:"Incorrecto. La industrialización aumentó, no redujo, la demanda por mano de obra (aunque poco calificada).",
+    B:"Incorrecto. El periodo se caracterizó por escasa regulación estatal de las relaciones laborales, no por exceso de intervención.",
+    C:"Incorrecto. El caso no se refiere a la propiedad de tierras agrícolas, sino a la actividad industrial y minera.",
+    D:"✅ Correcto. La expansión de las actividades económicas industriales y mineras (carbón, salitre) generó la 'Cuestión Social': trabajadores en condiciones precarias que se organizaron para exigir mejoras."
+  }}
+};
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done="1";
+  var a=QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===a.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById(qid+"-fb");
+  fb.className="paes-fb show "+(opt===a.c?"ok":"no");
+  fb.innerHTML=a.fb[opt];
+}
+
+// ═══ PRÁCTICA GUIADA · 15 preguntas 🤖 (3 subtemas × 5) ═══
+var PG=[
+  { hid:"me", icon:"🏪", name:"Mercado y Estado", color:"var(--c-on)",
+    qs:[
+      { skill:"h3", ctx:"Una fábrica de pan depende de la harina, cuyo precio sube fuertemente por una mala cosecha de trigo.",
+        q:"Según lo visto sobre factores que alteran el mercado, ¿qué es más probable que ocurra con el precio final del pan?",
+        opts:{A:"Se mantendrá igual, porque el Estado fija el precio del pan.",B:"Subirá, porque el mayor costo del insumo (harina) se traslada al precio final.",C:"Bajará, porque la demanda de pan siempre es constante.",D:"Solo cambiará si el Banco Central lo autoriza."},
+        c:"B",fb:{A:"Incorrecto. El Estado no fija precios en una economía de libre mercado.",B:"✅ Correcto. Cuando sube el costo de un insumo (factor productivo), ese mayor costo tiende a trasladarse al precio final del producto.",C:"Incorrecto. Un alza en el costo de producción no reduce el precio.",D:"Incorrecto. El Banco Central regula tasas de interés, no autoriza cambios de precio de productos específicos."}
+      },
+      { skill:"h2", ctx:"Un gráfico del Banco Central muestra que la tasa de interés de referencia subió de 3% a 8% entre 2021 y 2023, coincidiendo con un alza sostenida de precios en ese periodo.",
+        q:"¿Qué relación se puede inferir a partir de esta fuente?",
+        opts:{A:"El Banco Central subió la tasa de interés para enfrentar un proceso inflacionario.",B:"El alza de precios se debió exclusivamente a la tasa de interés.",C:"No existe relación entre ambas variables.",D:"La tasa de interés y los precios siempre se mueven en direcciones opuestas."},
+        c:"A",fb:{A:"✅ Correcto. Subir la tasa de interés es la medida típica del Banco Central para contener la inflación.",B:"Incorrecto. La inflación tiene múltiples causas, no solo la tasa de interés.",C:"Incorrecto. El gráfico sí muestra una relación temporal entre ambas variables.",D:"Incorrecto. No siempre se mueven en direcciones opuestas; en este caso se mueven en la misma dirección porque una busca corregir a la otra."}
+      },
+      { skill:"h1", ctx:"En 2021 la inflación en Chile comenzó a subir con fuerza. En 2022 el Banco Central elevó su tasa de interés a niveles históricamente altos.",
+        q:"¿Qué relación temporal describe mejor esta secuencia?",
+        opts:{A:"Simultaneidad.",B:"Sucesión: un fenómeno (inflación) antecede a la respuesta (alza de tasas).",C:"Multicausalidad exclusivamente.",D:"Distribución geográfica."},
+        c:"B",fb:{A:"Incorrecto. No ocurrieron exactamente al mismo tiempo; hay un fenómeno que antecede al otro.",B:"✅ Correcto. La inflación (2021) antecede y explica la respuesta del Banco Central (2022): una relación de sucesión causal.",C:"Incorrecto. No se están explicando múltiples causas del fenómeno.",D:"Incorrecto. No se compara entre distintas zonas geográficas."}
+      },
+      { skill:"h3", ctx:"En una ciudad, una sola empresa de telefonía controla todo el servicio de internet, sin que existan competidores.",
+        q:"¿Qué consecuencia es más probable para los consumidores de esa ciudad, según lo visto sobre monopolio?",
+        opts:{A:"Mejores precios, gracias a la eficiencia de una sola empresa.",B:"Menor variedad de opciones y menor incentivo de la empresa a bajar precios o mejorar el servicio.",C:"Mayor competencia entre proveedores.",D:"Intervención automática del Banco Central para regular el servicio."},
+        c:"B",fb:{A:"Incorrecto. Un monopolio no garantiza mejores precios; al no haber competencia, no hay presión para bajarlos.",B:"✅ Correcto. Al no haber competencia, un monopolio reduce las opciones disponibles y desincentiva mejoras en precio o calidad.",C:"Incorrecto. Es lo contrario: el monopolio desalienta la entrada de nuevos competidores.",D:"Incorrecto. El Banco Central no regula directamente servicios de telefonía; esa función corresponde a otros organismos reguladores."}
+      },
+      { skill:"h2", ctx:"Un artículo de prensa económica explica que, ante una inflación sostenida, algunos gobiernos optan por reducir aranceles de importación para aumentar la oferta de bienes disponibles y así moderar el alza de precios.",
+        q:"¿Qué tipo de fuente es este artículo y qué permite conocer?",
+        opts:{A:"Fuente de opinión personal sin ningún valor informativo.",B:"Fuente periodística que permite conocer una medida de política económica frente a la inflación.",C:"Fuente literaria sin relación con la economía.",D:"Fuente que solo sirve para estudiar temas de Formación Ciudadana."},
+        c:"B",fb:{A:"Incorrecto. Un artículo de prensa especializado sí tiene valor informativo verificable.",B:"✅ Correcto. Es una fuente periodística que documenta una medida de política económica —reducir aranceles— frente a la inflación.",C:"Incorrecto. El texto trata explícitamente temas económicos, no literarios.",D:"Incorrecto. Es un tema propio de Sistema Económico, no de Formación Ciudadana."}
+      }
+    ]
+  },
+  { hid:"md", icon:"🌱", name:"Modelos de Desarrollo", color:"var(--c-fg)",
+    qs:[
+      { skill:"h3", ctx:"Una comuna rural recibe una planta de tratamiento de residuos que ninguna otra comuna de la región quiso aceptar, y sus habitantes no fueron consultados antes de la decisión.",
+        q:"¿Qué principio visto en esta unidad se ve vulnerado en este caso?",
+        opts:{A:"El desarrollo sostenible en su forma pura.",B:"La justicia ambiental, al no distribuirse equitativamente los costos ambientales.",C:"El extractivismo minero.",D:"El uso de energías renovables."},
+        c:"B",fb:{A:"Incorrecto. El caso no describe un modelo sostenible bien aplicado, sino su incumplimiento.",B:"✅ Correcto. Que una sola comuna cargue con el costo ambiental sin haber participado en la decisión es precisamente lo que vulnera la justicia ambiental.",C:"Incorrecto. Una planta de tratamiento de residuos no es una actividad extractiva minera.",D:"Incorrecto. El caso no menciona energías renovables."}
+      },
+      { skill:"h2", ctx:"Un informe del Ministerio de Medio Ambiente detalla los resultados de la evaluación de impacto ambiental de un proyecto minero, incluyendo estudios sobre disponibilidad futura de agua en la zona.",
+        q:"¿Qué función cumple este tipo de fuente respecto del modelo de desarrollo sostenible?",
+        opts:{A:"Sustituye la necesidad de cualquier otra evaluación futura.",B:"Permite anticipar riesgos ambientales antes de aprobar el proyecto, alineándose con el desarrollo sostenible.",C:"Solo tiene valor legal, no ambiental.",D:"Elimina por completo el impacto ambiental del proyecto."},
+        c:"B",fb:{A:"Incorrecto. No sustituye evaluaciones futuras; suelen requerirse monitoreos posteriores.",B:"✅ Correcto. Una evaluación de impacto ambiental permite anticipar riesgos —como la disponibilidad futura de agua— antes de aprobar un proyecto, en línea con el desarrollo sostenible.",C:"Incorrecto. Tiene valor tanto legal como ambiental.",D:"Incorrecto. Ninguna evaluación elimina por completo el impacto; busca dimensionarlo y mitigarlo."}
+      },
+      { skill:"h1", ctx:"Durante gran parte del siglo XX, Chile basó su economía en la exportación de recursos naturales sin mayor regulación ambiental. Desde las últimas décadas, ha comenzado a exigir evaluaciones de impacto ambiental y a invertir en energías renovables.",
+        q:"¿Qué concepto de pensamiento temporal describe mejor este proceso?",
+        opts:{A:"Simultaneidad total entre ambos periodos.",B:"Cambio en el modelo de desarrollo a lo largo del tiempo.",C:"Multicausalidad exclusivamente económica.",D:"Distribución geográfica entre países."},
+        c:"B",fb:{A:"Incorrecto. Ambos periodos no ocurrieron al mismo tiempo.",B:"✅ Correcto. Se describe un cambio progresivo en el modelo de desarrollo, desde uno con poca regulación ambiental hacia uno más sostenible.",C:"Incorrecto. No se explican causas múltiples de un mismo fenómeno.",D:"Incorrecto. No se compara entre distintos países."}
+      },
+      { skill:"h3", ctx:"Un país decide invertir fuertemente en energía solar y eólica en lugar de construir nuevas centrales a carbón.",
+        q:"¿Qué beneficio directo trae esta decisión, según lo visto en esta unidad?",
+        opts:{A:"Elimina completamente la necesidad de evaluación de impacto ambiental.",B:"Promueve mayor responsabilidad en el cuidado medioambiental frente a los combustibles fósiles.",C:"Garantiza que no existirán conflictos socioambientales en el futuro.",D:"Reduce automáticamente la inflación del país."},
+        c:"B",fb:{A:"Incorrecto. Los proyectos de energía renovable también pueden requerir evaluación de impacto ambiental.",B:"✅ Correcto. Las energías renovables promueven mayor responsabilidad medioambiental en comparación con los combustibles fósiles.",C:"Incorrecto. Pueden seguir existiendo conflictos socioambientales asociados a otros proyectos.",D:"Incorrecto. No existe relación directa entre el tipo de energía usada y la inflación."}
+      },
+      { skill:"h2", ctx:"Una ONG ambiental publica un mapa que muestra la concentración de industrias contaminantes en un número reducido de comunas del país, comparando con el promedio nacional.",
+        q:"¿Qué permite observar principalmente este tipo de fuente?",
+        opts:{A:"La opinión personal de los habitantes de esas comunas.",B:"Una posible situación de injusticia ambiental por concentración territorial de industrias contaminantes.",C:"El crecimiento del PIB nacional.",D:"La cantidad de energía renovable producida en el país."},
+        c:"B",fb:{A:"Incorrecto. Un mapa no registra opiniones personales.",B:"✅ Correcto. Un mapa que muestra concentración desigual de industrias contaminantes es evidencia de posible injusticia ambiental.",C:"Incorrecto. No mide crecimiento económico.",D:"Incorrecto. No se refiere a energía renovable, sino a industrias contaminantes."}
+      }
+    ]
+  },
+  { hid:"dl", icon:"✊", name:"Derechos Laborales", color:"var(--c-gf)",
+    qs:[
+      { skill:"h3", ctx:"A inicios del siglo XX, trabajadores salitreros del norte de Chile se organizan para exigir mejores salarios y jornadas laborales más cortas, amenazando con detener la producción.",
+        q:"¿Qué mecanismo de presión, visto en esta unidad, describe mejor esta situación?",
+        opts:{A:"Una negociación colectiva formal según el actual Código del Trabajo.",B:"Una huelga, como forma temprana de organización obrera durante la Cuestión Social.",C:"Una evaluación de impacto ambiental.",D:"Una intervención del Banco Central."},
+        c:"B",fb:{A:"Incorrecto. El Código del Trabajo (1931) es posterior a este episodio; a inicios de siglo no existía ese marco legal.",B:"✅ Correcto. Detener la producción para exigir mejoras es una huelga, mecanismo típico de la organización obrera durante la Cuestión Social.",C:"Incorrecto. No se relaciona con evaluación ambiental.",D:"Incorrecto. No se relaciona con política monetaria."}
+      },
+      { skill:"h2", ctx:"Un discurso de un dirigente sindical de comienzos del siglo XX denuncia las largas jornadas y bajos salarios en las salitreras, llamando a los trabajadores a organizarse.",
+        q:"¿Qué tipo de fuente es este discurso y qué permite conocer?",
+        opts:{A:"Fuente testimonial que permite conocer la perspectiva obrera sobre la Cuestión Social.",B:"Fuente cuantitativa sobre el PIB nacional.",C:"Fuente iconográfica sin relación con el trabajo.",D:"Fuente que solo sirve para estudiar Formación Ciudadana."},
+        c:"A",fb:{A:"✅ Correcto. Un discurso de un dirigente sindical es una fuente testimonial que entrega la perspectiva obrera de la época sobre la Cuestión Social.",B:"Incorrecto. No entrega datos económicos agregados como el PIB.",C:"Incorrecto. No es una imagen.",D:"Incorrecto. Es un tema propio de Sistema Económico."}
+      },
+      { skill:"h1", ctx:"La huelga se masificó en Chile desde mediados del siglo XIX. En 1931 se promulgó el primer Código del Trabajo que reguló formalmente las relaciones laborales.",
+        q:"¿Qué relación temporal existe entre ambos hechos?",
+        opts:{A:"Simultaneidad.",B:"Sucesión: la organización obrera antecede a su regulación legal formal.",C:"Multicausalidad exclusivamente.",D:"Distribución geográfica."},
+        c:"B",fb:{A:"Incorrecto. No ocurrieron al mismo tiempo; hay décadas de diferencia.",B:"✅ Correcto. La organización y presión obrera (huelgas desde mediados del s.XIX) antecede a su reconocimiento legal formal (Código del Trabajo, 1931).",C:"Incorrecto. No se explican múltiples causas.",D:"Incorrecto. No se compara entre zonas geográficas."}
+      },
+      { skill:"h3", ctx:"Una persona trabaja repartiendo pedidos para una aplicación digital, sin contrato de trabajo, sin cotizaciones previsionales y sin seguro ante accidentes.",
+        q:"¿Qué tendencia actual del mundo del trabajo, vista en esta unidad, describe mejor esta situación?",
+        opts:{A:"La negociación colectiva tradicional.",B:"La informalidad laboral asociada al trabajo por plataformas digitales.",C:"El Código del Trabajo de 1931 aplicado sin modificaciones.",D:"La fiscalización estricta de la Dirección del Trabajo."},
+        c:"B",fb:{A:"Incorrecto. No hay sindicato ni negociación formal descrita en el caso.",B:"✅ Correcto. La falta de contrato, cotizaciones y seguro es característica de la informalidad laboral en el trabajo por plataformas digitales.",C:"Incorrecto. El caso muestra precisamente un vacío en la protección legal tradicional.",D:"Incorrecto. El caso no describe fiscalización, sino ausencia de protección."}
+      },
+      { skill:"h2", ctx:"Un estudio de la Dirección del Trabajo muestra que la tasa de sindicalización en Chile ha variado entre 10% y 20% en las últimas dos décadas.",
+        q:"¿Qué tipo de fuente es este estudio y qué permite conocer?",
+        opts:{A:"Fuente cuantitativa que permite observar la evolución de la sindicalización en el tiempo.",B:"Fuente testimonial de un solo trabajador.",C:"Fuente iconográfica sobre huelgas históricas.",D:"Fuente que solo sirve para estudiar temas de Formación Ciudadana."},
+        c:"A",fb:{A:"✅ Correcto. Un estudio con porcentajes a lo largo de dos décadas es una fuente cuantitativa que muestra la evolución de la sindicalización.",B:"Incorrecto. No es un testimonio individual.",C:"Incorrecto. No describe imágenes.",D:"Incorrecto. Es un tema propio de Sistema Económico (Derechos Laborales)."}
+      }
+    ]
+  }
+];
+
+var practScore={};
+function mountPractice(){
+  PG.forEach(function(g){
+    practScore[g.hid]={c:0,t:g.qs.length};
+    var mount=document.getElementById("prac-mount-"+g.hid);
+    var wrap=document.createElement("div");
+    wrap.className="prac-group";
+    var hdr=document.createElement("div");
+    hdr.className="prac-group-hdr";
+    hdr.innerHTML='<span class="gi">'+g.icon+'</span><span class="gname" style="color:'+g.color+'">'+g.name+'</span><span class="gscore" id="gscore-'+g.hid+'" style="color:'+g.color+'">0 / '+g.qs.length+'</span>';
+    wrap.appendChild(hdr);
+    g.qs.forEach(function(q,i){
+      var d=document.createElement("div");
+      d.className="pq"+(i===0?" show":"");
+      d.id="pq-"+g.hid+"-"+i;
+      var SKLBL={h1:"🕰️ Temporal-espacial",h2:"📜 Fuentes",h3:"🧠 Crítico"};
+      var optsH="";
+      Object.keys(q.opts).forEach(function(l){
+        optsH+='<div class="paes-opt" data-l="'+l+'" onclick="pqAns(\''+g.hid+'\','+i+',\''+l+'\',this)"><div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+      });
+      d.innerHTML='<span class="skill-tag skill-'+q.skill+'">'+SKLBL[q.skill]+'</span>'+
+        '<div class="pq-ctx">'+q.ctx+'</div><div class="pq-q">'+q.q+'</div>'+
+        '<div class="pq-opts">'+optsH+'</div>'+
+        '<div class="paes-fb" id="pqfb-'+g.hid+'-'+i+'"></div>'+
+        '<button class="nxt-q" id="pqnext-'+g.hid+'-'+i+'" onclick="pqNext(\''+g.hid+'\','+i+')">'+(i===g.qs.length-1?"✅ Finalizar":"Siguiente →")+'</button>';
+      wrap.appendChild(d);
+    });
+    mount.appendChild(wrap);
+  });
+}
+mountPractice();
+
+function pqAns(hid,i,opt,el){
+  var g=PG.find(function(x){return x.hid===hid;});
+  var q=g.qs[i];
+  var d=document.getElementById("pq-"+hid+"-"+i);
+  if(d.dataset.done)return;
+  d.dataset.done="1";
+  d.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.dataset.l;
+    if(l===q.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById("pqfb-"+hid+"-"+i);
+  fb.className="paes-fb show "+(opt===q.c?"ok":"no");
+  fb.innerHTML=q.fb[opt];
+  if(opt===q.c){practScore[hid].c++;document.getElementById("gscore-"+hid).textContent=practScore[hid].c+" / "+practScore[hid].t;}
+  document.getElementById("pqnext-"+hid+"-"+i).style.display="inline-block";
+}
+function pqNext(hid,i){
+  document.getElementById("pq-"+hid+"-"+i).classList.remove("show");
+  var g=PG.find(function(x){return x.hid===hid;});
+  if(i+1<g.qs.length){document.getElementById("pq-"+hid+"-"+(i+1)).classList.add("show");}
+}
+
+// ═══ MINI ENSAYO · 18 preguntas (reales 📄 + creadas 🤖) ═══
+var EQ=[
+  {tema:"Mercado y Estado",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Durante varios meses, los precios de los alimentos y del transporte suben de forma sostenida en un país, reduciendo el poder de compra de las familias.",
+   q:"¿Cuál es una medida que puede adoptar el Estado, a través del Banco Central, frente a esta situación?",
+   opts:{A:"Aumentar sostenidamente los aranceles aduaneros a todos los productos.",B:"Prohibir la importación de bienes de primera necesidad.",C:"Fijar directamente los volúmenes de producción de la empresa privada.",D:"Subir la tasa de interés para contener el alza generalizada de precios."},
+   c:"D",fb:"El Banco Central, mediante la fijación de la tasa de interés, es el instrumento típico del Estado para controlar procesos inflacionarios en una economía de mercado."
+  },
+  {tema:"Mercado y Estado",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"En un mercado agrícola local, el precio de las hortalizas normalmente se fija según la interacción libre entre los agricultores que las venden y los compradores que las demandan.",
+   q:"¿Cuál de las siguientes situaciones alteraría este funcionamiento de mercado perfecto?",
+   opts:{A:"La disminución de las inversiones privadas en otros sectores.",B:"El desarrollo de un proceso inflacionario sostenido en toda la economía.",C:"El aumento de la producción de bienes y servicios suntuarios.",D:"La concentración de la demanda en bienes de primera necesidad."},
+   c:"B",fb:"Un proceso inflacionario sostenido distorsiona los precios de forma generalizada en toda la economía, alterando el equilibrio natural entre oferta y demanda del mercado perfecto, incluido el de las hortalizas."
+  },
+  {tema:"Mercado y Estado",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Una fábrica textil decide qué prendas producir y a qué precio venderlas según lo que le indica la demanda de sus clientes. No obstante, debe cumplir ciertas normas de seguridad y medioambiente fijadas externamente.",
+   q:"¿Cuál de las siguientes opciones corresponde a uno de los roles del Estado en este tipo de economía?",
+   opts:{A:"Establecer las normas que regulan la actividad productiva.",B:"Definir cuotas de venta en artículos de primera necesidad.",C:"Fijar las técnicas de explotación de los recursos naturales.",D:"Determinar una banda de precios en productos suntuarios."},
+   c:"A",fb:"El Estado, incluso en libre mercado, mantiene el rol de establecer las normas que regulan la actividad productiva, sin fijar directamente precios, cuotas o técnicas de producción."
+  },
+  {tema:"Mercado y Estado",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Durante un largo período, los precios de distintos bienes y servicios en un país disminuyen de forma sostenida, mientras la actividad económica se desacelera y varias empresas reducen personal.",
+   q:"¿Cuál es un impacto que este fenómeno genera en el sistema económico?",
+   opts:{A:"El aumento sostenido de la contratación de mano de obra.",B:"La expansión automática del gasto estatal en programas sociales.",C:"El descenso del poder adquisitivo de los consumidores.",D:"El aumento de la tasa de interés a los créditos de consumo."},
+   c:"C",fb:"Los procesos deflacionarios prolongados suelen ir acompañados de menor actividad económica y caída de salarios o empleo, lo que en la práctica reduce el poder adquisitivo de los consumidores."
+  },
+  {tema:"Mercado y Estado",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Valentina fabrica velas artesanales y compra la cera a un proveedor que la transporta desde otra región. Al enterarse del alza sostenida en el precio de los combustibles, se preocupa por su negocio.",
+   q:"En el contexto de una economía de libre mercado, ¿cuál de las siguientes situaciones permite justificar la preocupación de Valentina?",
+   opts:{A:"La eficacia con que el proveedor entrega la cera a tiempo.",B:"El impacto que el costo de los factores productivos tendrá en el precio final del producto.",C:"El desabastecimiento total de cera en el mercado nacional.",D:"La posibilidad de que otra empresa concentre toda la oferta de velas."},
+   c:"B",fb:"El alza de los combustibles encarece el transporte de la cera (un factor productivo), lo que impacta directamente en el precio final de las velas."
+  },
+  {tema:"Mercado y Estado",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Cada vez que una persona compra un producto en una tienda, paga un porcentaje adicional que corresponde a un impuesto al consumo que recauda el Estado.",
+   q:"¿Cuál es uno de los efectos que provoca este tipo de impuesto en el funcionamiento del mercado?",
+   opts:{A:"El incremento constante del ingreso de las personas.",B:"La reducción de la disponibilidad de recursos fiscales.",C:"La disminución de la disponibilidad de bienes de consumo.",D:"El aumento del precio final de los productos comercializados."},
+   c:"D",fb:"Los impuestos que gravan el consumo (como el IVA) se trasladan al precio final que paga el consumidor, aumentándolo."
+  },
+  {tema:"Modelos de Desarrollo",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Una empresa minera proyecta instalar pozos de extracción de agua desde napas subterráneas para su proceso productivo y solicita a la autoridad iniciar el trámite de factibilidad ambiental.",
+   q:"Considerando la aplicación en Chile del modelo de desarrollo sostenible, ¿por qué este proyecto debe ser sometido a una evaluación de impacto ambiental?",
+   opts:{A:"Porque provoca un conjunto de variaciones en los costos de producción.",B:"Porque produce algunas distorsiones en la competitividad a escala local.",C:"Porque representa una amenaza a la calidad de los productos obtenidos.",D:"Porque implica posibles riesgos a la disponibilidad futura de este recurso."},
+   c:"D",fb:"La evaluación de impacto ambiental busca anticipar riesgos sobre la disponibilidad futura de recursos naturales como el agua, principio central del desarrollo sostenible."
+  },
+  {tema:"Modelos de Desarrollo",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Un informe técnico señala que Chile cuenta con condiciones naturales privilegiadas para generar energía solar en el norte, energía eólica en distintas zonas del país y potencial geotérmico a lo largo de la cordillera.",
+   q:"Considerando la información proporcionada, ¿cómo beneficia a la sociedad chilena el uso de las energías propuestas en el informe?",
+   opts:{A:"Permite mejorar la utilización de los combustibles fósiles.",B:"Favorece el acceso masivo de la población a los bienes tecnológicos.",C:"Promueve una mayor responsabilidad en el cuidado medioambiental.",D:"Transfiere a las empresas el impacto ecológico de la producción de bienes."},
+   c:"C",fb:"El uso de energías renovables (solar, eólica, geotérmica) promueve una mayor responsabilidad en el cuidado medioambiental frente al uso de combustibles fósiles."
+  },
+  {tema:"Mercado y Estado",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"En una ciudad, una sola empresa llega a controlar la totalidad de la distribución de gas domiciliario, sin que existan otras compañías ofreciendo el mismo servicio.",
+   q:"¿Qué perjuicio genera este tipo de monopolio en el funcionamiento del mercado?",
+   opts:{A:"Contrae el crecimiento del consumo en el largo plazo.",B:"Disminuye la cantidad de bienes disponibles en el mercado.",C:"Desalienta la participación de nuevas empresas competidoras.",D:"Aumenta la inseguridad de contar con el bien o servicio prestado."},
+   c:"C",fb:"Al concentrar toda la oferta de un servicio, un monopolio desalienta que nuevas empresas ingresen a competir en ese mercado."
+  },
+  {tema:"Modelos de Desarrollo",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Una planta industrial contaminante se instala repetidamente en comunas de bajos ingresos, cuyos habitantes no fueron consultados antes de la decisión, mientras otras comunas rechazan ese mismo tipo de proyectos.",
+   q:"¿Qué principio del modelo de desarrollo sostenible se ve vulnerado en este caso?",
+   opts:{A:"La evaluación de impacto ambiental.",B:"La justicia ambiental.",C:"El uso de energías renovables.",D:"La política monetaria del Banco Central."},
+   c:"B",fb:"Que ciertas comunidades carguen sistemáticamente con más contaminación sin haber participado en la decisión vulnera directamente la justicia ambiental."
+  },
+  {tema:"Modelos de Desarrollo",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"Durante buena parte del siglo XX, Chile priorizó la exportación de recursos naturales con escasa regulación ambiental. En las últimas décadas ha comenzado a exigir evaluaciones de impacto ambiental antes de aprobar nuevos proyectos.",
+   q:"¿Qué concepto de pensamiento temporal describe mejor este proceso?",
+   opts:{A:"Simultaneidad.",B:"Cambio en el modelo de desarrollo a lo largo del tiempo.",C:"Multicausalidad exclusivamente política.",D:"Distribución geográfica entre países."},
+   c:"B",fb:"Se describe una transición progresiva desde un modelo con poca regulación ambiental hacia uno más sostenible: un cambio en el tiempo."
+  },
+  {tema:"Modelos de Desarrollo",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Un país decide reemplazar progresivamente sus centrales termoeléctricas a carbón por parques solares y eólicos.",
+   q:"¿Qué beneficio principal trae esta decisión, según el modelo de desarrollo sostenible?",
+   opts:{A:"Elimina automáticamente todos los conflictos socioambientales del país.",B:"Reduce la dependencia de combustibles fósiles y promueve mayor responsabilidad medioambiental.",C:"Garantiza que el precio de la electricidad bajará de inmediato.",D:"Aumenta directamente la tasa de sindicalización del país."},
+   c:"B",fb:"Reemplazar combustibles fósiles por energías renovables reduce esa dependencia y promueve mayor responsabilidad con el medioambiente, aunque no elimina todo conflicto ni afecta directamente precios o sindicalización."
+  },
+  {tema:"Derechos Laborales",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"En Chile, desde mediados del siglo XIX hasta la primera década del siglo XX, la huelga se masificó como forma de lucha y expresión de descontento entre los trabajadores.",
+   q:"¿Cuál es un elemento del contexto histórico que permite explicar dicho fenómeno?",
+   opts:{A:"La reducción de la demanda por mano de obra especializada.",B:"La excesiva intervención estatal en las actividades productivas.",C:"La escasa concentración de la propiedad de las tierras agrícolas.",D:"La expansión de las actividades económicas de carácter industrial y minero."},
+   c:"D",fb:"La expansión industrial y minera de la época generó la Cuestión Social: trabajadores en condiciones precarias que recurrieron masivamente a la huelga."
+  },
+  {tema:"Derechos Laborales",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"A inicios del siglo XX, trabajadores del carbón en Lota se organizan en una sociedad de resistencia para exigir jornadas laborales más cortas y mejores salarios.",
+   q:"¿Qué característica de la Cuestión Social se evidencia en este caso?",
+   opts:{A:"La ausencia total de organización obrera durante ese periodo.",B:"La organización colectiva de los trabajadores como respuesta a condiciones laborales precarias.",C:"La intervención directa del Banco Central en el conflicto.",D:"La aplicación del actual Código del Trabajo."},
+   c:"B",fb:"Las sociedades de resistencia son precisamente una forma de organización colectiva obrera frente a las condiciones precarias de la Cuestión Social."
+  },
+  {tema:"Derechos Laborales",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"Las huelgas obreras se masificaron en Chile desde mediados del siglo XIX. En 1931 se promulgó el primer Código del Trabajo del país.",
+   q:"¿Qué relación temporal existe entre ambos hechos?",
+   opts:{A:"Simultaneidad.",B:"Sucesión: la organización obrera antecede a su regulación legal.",C:"Multicausalidad exclusivamente.",D:"Distribución geográfica."},
+   c:"B",fb:"La organización y presión obrera antecede por varias décadas a su reconocimiento legal formal en el Código del Trabajo de 1931."
+  },
+  {tema:"Derechos Laborales",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Una persona reparte pedidos para una aplicación digital sin contrato de trabajo, sin cotizaciones previsionales ni seguro ante accidentes.",
+   q:"¿Qué tendencia actual del mundo del trabajo describe mejor esta situación?",
+   opts:{A:"La negociación colectiva tradicional mediante sindicatos.",B:"La informalidad laboral asociada al trabajo por plataformas digitales.",C:"La plena aplicación de la fiscalización de la Dirección del Trabajo.",D:"La reducción de la jornada laboral establecida por ley."},
+   c:"B",fb:"La falta de contrato, cotizaciones y seguro ante accidentes es característica de la informalidad laboral en el trabajo por plataformas digitales."
+  },
+  {tema:"Derechos Laborales",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Una agrupación de trabajadoras de casa particular impulsa, junto a otras organizaciones sociales, una reforma legal que finalmente reduce la jornada laboral máxima permitida en Chile.",
+   q:"¿Qué idea, vista en esta unidad, se evidencia mejor en este caso?",
+   opts:{A:"El aporte de las organizaciones sociales a la defensa y promoción de los derechos laborales.",B:"La intervención directa del Banco Central en asuntos laborales.",C:"La aplicación exclusiva del Código del Trabajo de 1931 sin ninguna reforma posterior.",D:"La ausencia total de organización de los trabajadores informales."},
+   c:"A",fb:"El caso describe precisamente cómo organizaciones sociales, más allá de los sindicatos tradicionales, impulsan reformas legales que amplían derechos laborales."
+  },
+  {tema:"Derechos Laborales",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Un informe de la Dirección del Trabajo detalla, año a año, la cantidad de sindicatos activos y de procesos de negociación colectiva en Chile durante la última década.",
+   q:"¿Qué tipo de fuente es este informe y qué permite conocer?",
+   opts:{A:"Fuente cuantitativa que permite observar la evolución de la organización sindical en el tiempo.",B:"Fuente testimonial de un solo trabajador.",C:"Fuente iconográfica sobre huelgas históricas.",D:"Fuente que solo sirve para estudiar temas de Formación Ciudadana."},
+   c:"A",fb:"Un informe con cifras año a año sobre sindicatos y negociaciones colectivas es una fuente cuantitativa útil para observar la evolución de la organización sindical."
+  }
+];
+
+var timeLeft=32*60;
+var timerInterval=null;
+var ensayoStarted=false,ensayoFinished=false;
+var userAnswers={};
+
+// Tabla oficial de transformación de puntaje P → PAES (DEMRE, PAES Invierno 2026, Historia y Cs. Sociales)
+var ST=[100,114,142,167,190,211,232,252,270,286,300,315,332,349,364,378,388,398,408,420,435,451,466,478,488,495,502,511,522,536,551,566,579,588,596,603,611,622,636,651,667,680,691,701,710,722,736,752,769,785,799,814,829,848,868,889,910,933,958,987,1000];
+
+function buildEnsayo(){
+  var cont=document.getElementById("ensayo-qs");
+  cont.innerHTML="";
+  var SKLBL={h1:"🕰️ Temporal-espacial",h2:"📜 Fuentes",h3:"🧠 Crítico"};
+  EQ.forEach(function(q,i){
+    var d=document.createElement("div");
+    d.className="ensayo-q";
+    var ctxH=q.ctx?'<div class="ensayo-ctx">'+q.ctx+'</div>':'';
+    var opts_letters=Object.keys(q.opts);
+    var optsH="";
+    opts_letters.forEach(function(l){
+      optsH+='<div class="ensayo-opt" id="eo-'+i+'-'+l+'" data-qi="'+i+'" data-opt="'+l+'" onclick="selAns(this.dataset.qi,this.dataset.opt)">'+
+        '<div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="ensayo-num" style="color:'+q.color+'">Pregunta '+(i+1)+' / '+EQ.length+' · '+q.tema+' · <span style="opacity:.7;font-weight:700">'+(q.kind==="real"?"📄 ":"")+q.ref+'</span></div>'+
+      '<span class="skill-tag skill-'+q.skill+'">'+SKLBL[q.skill]+'</span>'+
+      ctxH+'<div class="ensayo-q-text">'+q.q+'</div>'+
+      '<div class="ensayo-opts" id="eopts-'+i+'">'+optsH+'</div>'+
+      '<div class="ensayo-fb" id="efb-'+i+'"></div>';
+    cont.appendChild(d);
+  });
+}
+buildEnsayo();
+
+function selAns(i,opt){
+  i=parseInt(i);
+  if(!ensayoStarted||ensayoFinished)return;
+  var opts=document.getElementById("eopts-"+i);
+  if(opts.dataset.done)return;
+  userAnswers[i]=opt;
+  opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.remove("selected");});
+  document.getElementById("eo-"+i+"-"+opt).classList.add("selected");
+}
+
+function startEnsayo(){
+  ensayoStarted=true;
+  document.getElementById("start-btn").style.display="none";
+  document.getElementById("timer-status").textContent="¡En marcha! Responde con calma.";
+  var qs=document.getElementById("ensayo-qs"); qs.style.display="block"; qs.style.opacity="1"; qs.style.pointerEvents="auto";
+  var sb=document.getElementById("submit-btn"); sb.style.display="block"; sb.disabled=false;
+  var tb=document.querySelector(".timer-box");
+  if(tb){tb.style.position="sticky";tb.style.top="8px";tb.style.zIndex="155";tb.style.background="rgba(20,15,8,.97)";tb.style.backdropFilter="blur(8px)";tb.style.borderRadius="14px";}
+  var es=document.getElementById("ensayo"); if(es) es.style.paddingBottom="140px";
+  timerInterval=setInterval(function(){
+    timeLeft--;
+    var m=Math.floor(timeLeft/60),s=timeLeft%60;
+    var disp=document.getElementById("timer-disp");
+    disp.textContent=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+    if(timeLeft<=60)disp.className="timer-display danger";
+    else if(timeLeft<=180)disp.className="timer-display warn";
+    if(timeLeft<=0){clearInterval(timerInterval);submitEnsayo();}
+  },1000);
+}
+
+function submitEnsayo(){
+  if(ensayoFinished)return;
+  ensayoFinished=true;
+  clearInterval(timerInterval);
+  document.getElementById("timer-status").textContent="Ensayo terminado";
+  document.getElementById("submit-btn").disabled=true;
+  var correct=0,topicMap={};
+  EQ.forEach(function(q,i){
+    var opts=document.getElementById("eopts-"+i);
+    opts.dataset.done="1";
+    opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.add("locked");});
+    var ua=userAnswers[i];
+    document.getElementById("eo-"+i+"-"+q.c).classList.add("right");
+    if(ua&&ua!==q.c)document.getElementById("eo-"+i+"-"+ua).classList.add("wrong");
+    var isOk=(ua===q.c);
+    var fb=document.getElementById("efb-"+i);
+    fb.className="ensayo-fb show "+(isOk?"ok":"no");
+    fb.textContent=(ua?(isOk?"✅ Correcto. ":"❌ Incorrecto. La respuesta correcta es "+q.c+". "):"⚠️ Sin respuesta. La correcta es "+q.c+". ")+q.fb;
+    if(isOk)correct++;
+    if(!topicMap[q.tema])topicMap[q.tema]={c:0,t:0,color:q.color};
+    topicMap[q.tema].t++;
+    if(isOk)topicMap[q.tema].c++;
+  });
+  var pct=Math.round(correct/EQ.length*100);
+  var mainColor=pct>=70?"var(--dorado)":pct>=50?"#f59e0b":"var(--rojo)";
+  var topicHtml='<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--dorado);margin-bottom:8px">Resultado por subtema:</p><div class="res-topic-grid">';
+  Object.keys(topicMap).forEach(function(t){
+    var r=topicMap[t];
+    var tpct=Math.round(r.c/r.t*100);
+    var scoreColor=tpct>=70?"var(--dorado)":tpct>=50?"#f59e0b":"var(--rojo)";
+    topicHtml+='<div class="res-topic-card '+(tpct<50?"bad":tpct<70?"mid":"")+'">'+
+      '<div class="res-topic-name">'+t+'</div>'+
+      '<div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+  });
+  topicHtml+='</div>';
+  var estP=Math.round(correct/EQ.length*60);
+  var estScore=ST[Math.max(0,Math.min(60,estP))];
+  var msg=pct>=70?"🎉 ¡Buen resultado! Revisa los subtemas donde fallaste.":pct>=50?"💪 Resultado aceptable. Refuerza los subtemas en rojo antes de continuar.":"📚 Necesitas repasar más. Vuelve a las secciones con resultado bajo.";
+  var res=document.getElementById("ensayo-results");
+  res.style.display="block";
+  res.innerHTML='<div class="res-banner" style="color:'+mainColor+'">'+
+    (pct>=70?"🏆":pct>=50?"💪":"📚")+' '+correct+' / '+EQ.length+' correctas</div>'+
+    '<div style="font-size:1rem;color:var(--text-dim);margin-bottom:16px">'+pct+'% · Si mantuvieras este ritmo en las 60 preguntas puntuables, tu puntaje estimado sería ~'+estScore+' pts PAES</div>'+
+    topicHtml+
+    '<div style="background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;margin-top:16px">'+
+    '<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--dorado);margin-bottom:8px">'+msg+'</p>'+
+    '<p style="font-size:.88rem;color:var(--text-dim)">Los subtemas con menos del 70% están marcados. Puedes volver a cualquier sección desde el menú de navegación.</p></div>';
+  res.scrollIntoView({behavior:"smooth"});
+}
+
+// ═══ DATOS DE LOS EJERCICIOS DE RELACIONAR ═══
+buildMatch("match-me",[
+  {term:"Oferta y demanda",def:"Mecanismo que fija los precios en un mercado libre a través de su interacción."},
+  {term:"Inflación",def:"Alza sostenida y generalizada de precios que reduce el poder de compra del dinero."},
+  {term:"Deflación",def:"Caída sostenida de precios asociada a menor actividad económica."},
+  {term:"Monopolio",def:"Una sola empresa concentra la oferta, reduciendo la competencia."},
+  {term:"Banco Central",def:"Fija las tasas de interés para controlar la inflación."},
+  {term:"Aranceles",def:"Impuestos a productos importados que regulan el comercio exterior."}
+]);
+buildMatch("match-md",[
+  {term:"Desarrollo sostenible",def:"Busca equilibrar crecimiento económico, bienestar social y cuidado ambiental."},
+  {term:"Evaluación de impacto ambiental",def:"Exigida a proyectos que puedan afectar recursos naturales, por sus riesgos futuros."},
+  {term:"Justicia ambiental",def:"Distribución equitativa de los costos y beneficios ambientales entre la población."},
+  {term:"Energías renovables",def:"Aprovechan el potencial natural del país y promueven responsabilidad medioambiental."},
+  {term:"Extractivismo",def:"Modelo centrado en explotar recursos naturales principalmente para exportar."}
+]);
+buildMatch("match-dl",[
+  {term:"Cuestión Social",def:"Problemas laborales generados por la expansión industrial y minera de fines del s.XIX."},
+  {term:"Huelga",def:"Suspensión colectiva del trabajo usada como forma de presión hacia el empleador."},
+  {term:"Código del Trabajo (1931)",def:"Primera legislación que reguló formalmente las relaciones laborales en Chile."},
+  {term:"Negociación colectiva",def:"Proceso por el cual un sindicato negocia condiciones laborales con el empleador."},
+  {term:"Trabajo por plataformas",def:"Tendencia actual con alta informalidad y falta de contrato laboral."}
+]);
+</script>
+
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
+// -------------------------------------------------------------------
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico de la Unidad 5 (Sistema Económico) del módulo PAES Historia y Ciencias Sociales, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media, muchos sin conocimiento previo de economía. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre los 3 subtemas de esta unidad, detallados abajo. NO respondes sobre otras materias PAES (Lenguaje, Matemática, Ciencias), ni sobre otras unidades de Historia que el estudiante aún no ha visto.",
+"",
+"CONTENIDO DE LA UNIDAD (3 subtemas):",
+"1. Mercado y Estado: oferta y demanda, mercado perfecto, factores que alteran el mercado (inflación, deflación, monopolio, costo de insumos), rol del Estado (regular la actividad productiva, recaudar impuestos, estabilizar la economía vía Banco Central y tasas de interés, regular el comercio exterior con aranceles).",
+"2. Modelos de Desarrollo: qué es un modelo de desarrollo, desarrollo sostenible (equilibrio entre crecimiento económico, bienestar social y cuidado ambiental), evaluación de impacto ambiental, justicia ambiental (y su ausencia en 'zonas de sacrificio' como Quintero-Puchuncaví), energías renovables en Chile, extractivismo vs. modelo sostenible.",
+"3. Derechos Laborales: la Cuestión Social (fines del s.XIX e inicios del s.XX), huelga y sociedades de resistencia, Código del Trabajo de 1931, sindicatos y negociación colectiva, Dirección del Trabajo, tendencias actuales (trabajo por plataformas digitales, informalidad laboral), aporte de organizaciones sociales a la ampliación de derechos.",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos del módulo tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre alguno de los 3 subtemas, con un contexto o caso concreto. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta general sobre qué parte del enunciado o contexto se relaciona con esto, 2) acota a un dato o sección específica, 3) señala qué concepto económico o histórico aplica y por qué, 4) contrasta la alternativa elegida por el estudiante con la probablemente correcta, preguntando qué diferencia hay. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otra materia, otra unidad no vista, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para resolver dudas de Sistema Económico de esta unidad.'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function anyCierreActive(){
+  return ensayoStarted && !ensayoFinished;
+}
+
+function checkTutorBlock(){
+  var blocked = anyCierreActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false;
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Historia y Cs. Sociales\n" +
+    "Módulo/Unidad: Historia · Unidad 5 · Sistema Económico\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy) return;
+  if(anyCierreActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+})();
+</script>
+</body>
+</html>
