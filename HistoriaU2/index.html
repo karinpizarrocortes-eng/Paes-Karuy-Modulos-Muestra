@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 2 – Europa, América y Chile en la Primera Mitad del Siglo XX · PAES Historia y Ciencias Sociales</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dorado:#d4a24c;--dorado-dark:#a97c2f;--dorado-glow:rgba(212,162,76,.15);
+  --sepia:#c17a3d;--azul:#3498db;--morado:#9b59b6;--naranja:#e67e22;
+  --amarillo:#f1c40f;--rojo:#e74c3c;--cyan:#22d3ee;
+  --bg:#140f08;--card:#1e1710;--card2:#2a2013;
+  --text:#f3e8d4;--text-dim:#b8a37e;--radius:18px;
+  --c-cr:#95a5a6;--c-to:#c0392b;--c-po:#e67e22;--c-eb:#16a085;--c-lt:#9b59b6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 8% 15%,rgba(212,162,76,.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 25% 60%,rgba(255,255,255,.15) 0%,transparent 100%),
+    radial-gradient(1px 1px at 55% 8%,rgba(212,162,76,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 72% 40%,rgba(255,255,255,.13) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 75%,rgba(212,162,76,.22) 0%,transparent 100%),
+    radial-gradient(1px 1px at 40% 85%,rgba(255,255,255,.12) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--dorado),var(--sepia));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(1.7rem,6vw,3.2rem);
+  background:linear-gradient(135deg,var(--dorado),var(--sepia),var(--dorado));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.15;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(212,162,76,.12);border:1.5px solid rgba(212,162,76,.35);color:var(--dorado);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.08);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.78rem;padding:7px 13px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:var(--dorado-glow);border-color:var(--dorado);color:var(--dorado)}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.35rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.97rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 14px;font-size:.84rem;font-weight:700;color:var(--text-dim);display:inline-flex;align-items:center;gap:6px}
+.h-header{border-radius:var(--radius);padding:26px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:52px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.5rem,4.5vw,2.4rem);line-height:1.15}
+.h-header p{font-size:.97rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--dorado);background:rgba(212,162,76,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--dorado);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65}
+.tip-box p strong{color:var(--text)}
+.kw-grid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.kw{border-radius:8px;padding:5px 11px;font-size:.8rem;font-weight:800}
+/* PREGUNTAS */
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px;margin-bottom:16px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.paes-ctx{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-ctx-src{font-size:.74rem;color:var(--text-dim);opacity:.7;font-style:italic;margin-top:6px}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.paes-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--dorado);flex-shrink:0}
+.paes-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.paes-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(212,162,76,.12);color:#f3d896;border-left:3px solid var(--dorado)}
+.paes-fb.no{background:rgba(231,76,60,.08);color:#fca5a5;border-left:3px solid var(--rojo)}
+/* SKILL TAG */
+.skill-tag{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:6px;margin-bottom:8px}
+.skill-h1{background:rgba(212,162,76,.12);color:var(--dorado);border:1px solid rgba(212,162,76,.3)}
+.skill-h2{background:rgba(56,189,248,.12);color:#38bdf8;border:1px solid rgba(56,189,248,.3)}
+.skill-h3{background:rgba(248,113,113,.12);color:#f87171;border:1px solid rgba(248,113,113,.3)}
+/* COLORES TEMA */
+.cr{color:var(--c-cr)!important}.to{color:var(--c-to)!important}.po{color:var(--c-po)!important}
+.eb{color:var(--c-eb)!important}.lt{color:var(--c-lt)!important}.dorado{color:var(--dorado)!important}
+/* TABLA PESO */
+.weight-table{width:100%;border-collapse:collapse;margin:12px 0}
+.weight-table th{background:rgba(212,162,76,.12);color:var(--dorado);font-size:.8rem;padding:8px 12px;text-align:left;font-family:"Fredoka One",cursive;font-weight:400}
+.weight-table td{padding:9px 12px;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);color:var(--text-dim)}
+/* TABLA COMPARATIVA EXPANDIBLE (reutiliza patrón línea de tiempo) */
+.tl-wrap{overflow-x:auto;padding-bottom:8px}
+.tl-grid{display:grid;grid-template-columns:130px repeat(3,1fr);gap:2px;min-width:640px}
+.tl-head{font-family:"Fredoka One",cursive;font-size:.85rem;text-align:center;padding:10px 6px;border-radius:10px 10px 0 0}
+.tl-row-label{display:flex;align-items:center;font-size:.76rem;font-weight:900;color:var(--text-dim);padding:8px 6px}
+.tl-cell{background:var(--card2);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:9px 10px;font-size:.76rem;color:var(--text-dim);line-height:1.5;min-height:60px;cursor:pointer;position:relative}
+.tl-cell:hover{border-color:rgba(212,162,76,.4)}
+.tl-cell strong{color:var(--text);display:block;font-size:.78rem;margin-bottom:2px}
+.tl-cell .tl-more{display:none;margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.1);font-size:.73rem;color:var(--text-dim)}
+.tl-cell.open .tl-more{display:block}
+.tl-cell .tl-plus{position:absolute;top:6px;right:8px;font-size:.7rem;color:var(--dorado);opacity:.7}
+/* TOGGLE COMPARADOR */
+.toggle-wrap{margin:14px 0}
+.toggle-btns{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.toggle-btn{flex:1;min-width:120px;background:var(--card2);border:1.5px solid rgba(255,255,255,.1);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.82rem;padding:10px 12px;border-radius:10px;cursor:pointer;transition:all .2s}
+.toggle-btn.active{border-color:var(--dorado);color:var(--dorado);background:rgba(212,162,76,.1)}
+.toggle-panel{display:none;background:var(--card2);border-radius:12px;padding:16px 18px;border-left:4px solid var(--dorado);animation:fadeUp .3s ease}
+.toggle-panel.show{display:block}
+.toggle-panel h4{font-family:"Fredoka One",cursive;font-size:1.05rem;margin-bottom:8px;color:var(--dorado)}
+.toggle-panel li{font-size:.88rem}
+/* PRÁCTICA INTEGRADA */
+.prac-group{margin-bottom:24px}
+.prac-group-hdr{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.prac-group-hdr .gi{font-size:1.5rem}
+.prac-group-hdr .gname{font-family:"Fredoka One",cursive;font-size:1.05rem}
+.prac-group-hdr .gscore{margin-left:auto;font-size:.85rem;font-weight:800}
+.pq{display:none;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:10px}
+.pq.show{display:block;animation:fadeUp .3s ease}
+.pq-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 13px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.pq-q{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pq-opts{display:flex;flex-direction:column;gap:7px}
+.nxt-q{margin-top:12px;padding:8px 22px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:"Fredoka One",cursive;font-size:.95rem;cursor:pointer;display:none}
+.nxt-q:hover{background:var(--dorado-dark)}
+/* NAV LINEAL */
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(20,15,8,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.08);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(212,162,76,.35);background:transparent;color:var(--dorado);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--dorado-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+/* MINI ENSAYO */
+.timer-box{background:var(--card2);border:2px solid rgba(212,162,76,.3);border-radius:14px;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.timer-display{font-family:"Fredoka One",cursive;font-size:2.4rem;color:var(--dorado);letter-spacing:.05em}
+.timer-display.warn{color:#f59e0b}
+.timer-display.danger{color:var(--rojo);animation:pulse-b 1s ease-in-out infinite}
+@keyframes pulse-b{0%,100%{opacity:1}50%{opacity:.5}}
+.ensayo-q{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:12px}
+.ensayo-num{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.ensayo-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 12px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.ensayo-q-text{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.ensayo-opts{display:flex;flex-direction:column;gap:7px}
+.ensayo-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 13px;border-radius:9px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(0,0,0,.18);transition:all .18s}
+.ensayo-opt:hover:not(.locked){border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.ensayo-opt.selected{background:rgba(212,162,76,.12);border-color:var(--dorado)}
+.ensayo-opt.locked{cursor:default;pointer-events:none}
+.ensayo-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.ensayo-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ensayo-opt .ol{color:var(--dorado)}
+.ensayo-opt.selected .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.ensayo-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.ensayo-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ensayo-fb{margin-top:8px;padding:9px 13px;border-radius:9px;font-size:.83rem;line-height:1.55;display:none}
+.ensayo-fb.show{display:block}
+.ensayo-fb.ok{background:rgba(212,162,76,.1);color:#f3d896;border-left:3px solid var(--dorado)}
+.ensayo-fb.no{background:rgba(231,76,60,.06);color:#fca5a5;border-left:3px solid var(--rojo)}
+.submit-btn{width:100%;padding:14px;background:var(--dorado);color:#1a1206;border:none;border-radius:12px;font-family:"Fredoka One",cursive;font-size:1.1rem;cursor:pointer;margin-top:10px;transition:background .2s}
+.submit-btn:hover{background:var(--dorado-dark)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+#ensayo-results{display:none;margin-top:20px}
+.res-banner{font-family:"Fredoka One",cursive;font-size:2.5rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0}
+.res-topic-card{background:var(--card2);border-radius:12px;padding:13px 16px;border-left:3px solid var(--dorado)}
+.res-topic-card.bad{border-left-color:var(--rojo)}
+.res-topic-card.mid{border-left-color:#f59e0b}
+.res-topic-name{font-size:.79rem;font-weight:900;color:var(--text-dim);margin-bottom:4px}
+.res-topic-score{font-family:"Fredoka One",cursive;font-size:1.3rem}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#5c4a2a}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--sepia));border:none;color:#1a1206;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(212,162,76,.4);z-index:250;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid #1a1206;display:none}
+.tutor-fab.blocked .dot{background:#6b7280;display:block}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:20px 0 0 0;box-shadow:-4px 0 30px rgba(0,0,0,.5);z-index:260;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--dorado),var(--sepia));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:#1a1206}
+.tutor-head p{font-size:.7rem;color:rgba(26,18,6,.75);margin-top:1px}
+.tutor-close{background:rgba(0,0,0,.15);border:none;color:#1a1206;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1;flex-shrink:0}
+.tutor-blocked-msg{padding:24px 18px;text-align:center;color:var(--text-dim);font-size:.88rem;line-height:1.7}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--dorado);color:var(--dorado)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--dorado);color:#1a1206;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.07);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:rgba(212,162,76,.1);color:var(--text-dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--dorado)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--dorado)}
+.tutor-send{background:var(--dorado);border:none;color:#1a1206;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){
+  .container{padding:10px 10px 80px}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:8px !important;gap:5px;margin:12px 0 4px;scrollbar-width:none;position:relative !important;top:auto !important;background:rgba(20,15,8,.95);border-radius:14px}
+  .nav::-webkit-scrollbar{display:none}
+  .nav-btn{flex-shrink:0;font-size:.74rem;padding:9px 13px;min-height:40px;touch-action:manipulation}
+  .hero{padding:36px 8px 14px}
+  .hero-emoji{font-size:48px}
+  .card{padding:14px 12px}
+  .grid-2{grid-template-columns:1fr}
+  .paes-box{padding:14px 12px}
+  .paes-opt{padding:12px 11px;min-height:52px;touch-action:manipulation}
+  .ol{min-width:30px;height:30px;font-size:.8rem}
+  .lnav-btn{padding:13px 18px !important;font-size:.95rem !important;min-height:48px}
+  .submit-btn{width:100% !important;padding:13px !important}
+  .toggle-btn{min-width:100%}
+}
+</style>
+</head>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:14%"></div></div>
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">⚔️</span>
+  <h1>Europa, América y Chile en la Primera Mitad del Siglo XX</h1>
+  <p>PAES Historia y Ciencias Sociales · Unidad 2</p>
+  <div class="badge">📜 Admisión 2027</div>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('cr',1,this)">📉 Crisis liberal</button>
+  <button class="nav-btn" onclick="showSec('to',2,this)">🦅 Totalitarismos</button>
+  <button class="nav-btn" onclick="showSec('po',3,this)">📢 Populismo</button>
+  <button class="nav-btn" onclick="showSec('eb',4,this)">🏥 Edo. Bienestar</button>
+  <button class="nav-btn" onclick="showSec('lt',5,this)">📊 Comparación</button>
+  <button class="nav-btn" onclick="showSec('ensayo',6,this)">⏱️ Mini Ensayo</button>
+</div>
+
+<!-- ═══ PORTADA ═══ -->
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title" style="justify-content:center;color:var(--dorado);font-size:1.6rem">⚔️ Unidad 2 · Primera Mitad del Siglo XX</p>
+    <p style="font-size:1.05rem;max-width:600px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Esta unidad cubre un único bloque temático del temario, pero es de los más densos conceptualmente: los <strong>3 modelos políticos y económicos</strong> que surgieron tras la crisis del Estado liberal de comienzos del siglo XX.</p>
+  </div>
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">📊 Los 4 subtemas de esta unidad</p>
+    <table class="weight-table">
+      <tr><th>Subtema</th><th>Qué cubre</th></tr>
+      <tr><td>📉 <strong style="color:var(--c-cr)">Crisis del Estado liberal</strong></td><td>El contexto: Primera Guerra Mundial y la Gran Depresión de 1929 debilitan a las democracias liberales.</td></tr>
+      <tr><td>🦅 <strong style="color:var(--c-to)">Totalitarismos europeos</strong></td><td>Fascismo (Italia), Nazismo (Alemania) y Estalinismo (URSS): semejanzas y diferencias.</td></tr>
+      <tr><td>📢 <strong style="color:var(--c-po)">Populismo en América Latina</strong></td><td>Líderes carismáticos que incorporan a los sectores populares a la política, sin romper con el capitalismo.</td></tr>
+      <tr><td>🏥 <strong style="color:var(--c-eb)">Estado de Bienestar</strong></td><td>La respuesta de las democracias occidentales: más intervención estatal y gasto social.</td></tr>
+    </table>
+    <p style="margin-top:12px;font-size:.82rem;color:var(--text-dim)">* Es la unidad más breve en número de temas oficiales del eje Historia, pero también la más densa conceptualmente: fascismo, nazismo, estalinismo y populismo suelen confundirse entre sí. Por eso esta unidad prioriza comparar antes de memorizar.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--dorado)">
+      <p class="card-title" style="color:var(--dorado)">📌 Recuerda</p>
+      <ul>
+        <li>Aplica las <strong>3 habilidades</strong> de la Unidad 0 en cada pregunta</li>
+        <li>Los 4 subtemas son <strong>respuestas distintas a la misma crisis</strong>: la del Estado liberal de comienzos del s. XX</li>
+        <li>No confundas: totalitarismo y populismo <strong>no son lo mismo</strong> — la tabla comparativa de esta unidad te ayudará a distinguirlos</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--sepia)">
+      <p class="card-title" style="color:var(--sepia)">⏱️ Al final de esta unidad</p>
+      <ul>
+        <li>Mini ensayo cronometrado con <strong>18 preguntas</strong> 🤖 generadas por IA (revisadas por docente)</li>
+        <li>Resultado con <strong>desglose por subtema</strong></li>
+        <li>Práctica guiada integrada en cada sección (5 preguntas 🤖 por subtema)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">💡 Clave PAES</div>
+    <p>Todo en esta unidad es una respuesta a la misma pregunta: <strong>¿qué hacer cuando el modelo liberal-democrático entra en crisis?</strong> Totalitarismo, populismo y Estado de Bienestar son 3 respuestas distintas — compáralas, no las memorices por separado.</p>
+  </div>
+</div>
+
+<!-- ═══ CRISIS DEL ESTADO LIBERAL ═══ -->
+<div class="section" id="cr">
+  <div class="h-header" style="background:rgba(149,165,166,.12);border:1.5px solid rgba(149,165,166,.3)">
+    <span class="icon">📉</span>
+    <h2 class="cr">La crisis del Estado liberal</h2>
+    <p>El contexto que explica todo lo demás: por qué el modelo político y económico liberal del siglo XIX entra en crisis a comienzos del XX.</p>
+  </div>
+  <div class="card">
+    <p class="card-title cr">📖 Dos golpes seguidos</p>
+    <p>El Estado liberal —el mismo que estudiaste en la Unidad 1— entra en crisis por <strong>dos golpes consecutivos</strong>: la Primera Guerra Mundial (1914-1918), que dejó a Europa devastada y cuestionó la idea de "progreso" liberal, y la <strong>Gran Depresión de 1929</strong>, la peor crisis económica del capitalismo hasta ese momento.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title cr">💥 La Gran Depresión (1929)</p>
+      <p>Comenzó con el <strong>crac de la Bolsa de Nueva York</strong> en octubre de 1929. Al ser Estados Unidos el principal centro financiero mundial, la crisis se propagó rápidamente a Europa y América Latina.</p>
+      <p style="margin-top:8px">Los países latinoamericanos, dependientes de exportar materias primas (¿te suena? es el mismo modelo que viste en la Unidad 1), fueron especialmente golpeados: sus mercados de exportación colapsaron.</p>
+    </div>
+    <div class="card">
+      <p class="card-title cr">🤔 ¿Por qué "crisis del liberalismo"?</p>
+      <p>Porque el principio liberal clásico decía: <strong>el Estado no debe intervenir en la economía</strong>, el mercado se autorregula. La Gran Depresión demostró que el mercado, dejado solo, podía hundir al mundo entero.</p>
+      <p style="margin-top:8px">Esto abrió la puerta a <strong>3 modelos distintos</strong> de respuesta, que verás en las siguientes secciones: totalitarismo, populismo y Estado de Bienestar.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title cr">🔗 La cadena de causas — de la crisis a las nuevas respuestas</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-cr)"><div style="font-weight:900;color:var(--c-cr);font-size:.85rem;margin-bottom:4px">1️⃣ Crac de 1929</div><p style="font-size:.82rem">Caída bursátil en EE.UU. que se transforma en crisis económica mundial.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-to)"><div style="font-weight:900;color:var(--c-to);font-size:.85rem;margin-bottom:4px">2️⃣ Desempleo y miseria</div><p style="font-size:.82rem">Millones de personas sin trabajo, desconfianza en las democracias liberales.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-po)"><div style="font-weight:900;color:var(--c-po);font-size:.85rem;margin-bottom:4px">3️⃣ Búsqueda de alternativas</div><p style="font-size:.82rem">Distintos países ensayan modelos que rompen con el "Estado mínimo" liberal.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-eb)"><div style="font-weight:900;color:var(--c-eb);font-size:.85rem;margin-bottom:4px">4️⃣ 3 respuestas distintas</div><p style="font-size:.82rem">Totalitarismo, populismo y Estado de Bienestar: más Estado, cada uno a su manera.</p></div>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw cr" style="background:rgba(149,165,166,.12);border:1px solid rgba(149,165,166,.3)">crisis de 1929</span>
+    <span class="kw cr" style="background:rgba(149,165,166,.12);border:1px solid rgba(149,165,166,.3)">Gran Depresión</span>
+    <span class="kw cr" style="background:rgba(149,165,166,.12);border:1px solid rgba(149,165,166,.3)">Estado liberal</span>
+    <span class="kw cr" style="background:rgba(149,165,166,.12);border:1px solid rgba(149,165,166,.3)">no intervención</span>
+    <span class="kw cr" style="background:rgba(149,165,166,.12);border:1px solid rgba(149,165,166,.3)">desempleo</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag cr">🤖 Pregunta generada · revisada por docente</div>
+    <span class="skill-tag skill-h3">🧠 Pensamiento crítico</span>
+    <div class="paes-ctx">Después de la Primera Guerra Mundial, las democracias liberales occidentales enfrentaron una crisis profunda de legitimidad y estabilidad política.</div>
+    <p class="paes-q">¿Cuál de los siguientes procesos contribuyó al deterioro de los sistemas políticos liberales en la primera mitad del siglo XX?</p>
+    <div class="paes-opts" id="qcr1">
+      <div class="paes-opt" onclick="ans('qcr1','A')"><div class="ol">A</div><div class="ot">La consolidación de los imperios coloniales europeos.</div></div>
+      <div class="paes-opt" onclick="ans('qcr1','B')"><div class="ol">B</div><div class="ot">El fortalecimiento inmediato del comercio internacional tras 1918.</div></div>
+      <div class="paes-opt" onclick="ans('qcr1','C')"><div class="ol">C</div><div class="ot">El desarrollo de la Gran Depresión a partir de 1929.</div></div>
+      <div class="paes-opt" onclick="ans('qcr1','D')"><div class="ol">D</div><div class="ot">La ausencia total de conflictos sociales en Europa.</div></div>
+    </div>
+    <div class="paes-fb" id="qcr1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-cr)">
+    <p class="card-title cr">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre la crisis del Estado liberal.</p>
+  </div>
+  <div id="prac-mount-cr"></div>
+</div>
+
+<!-- ═══ TOTALITARISMOS ═══ -->
+<div class="section" id="to">
+  <div class="h-header" style="background:rgba(192,57,43,.12);border:1.5px solid rgba(192,57,43,.3)">
+    <span class="icon">🦅</span>
+    <h2 class="to">Totalitarismos europeos</h2>
+    <p>Regímenes que respondieron a la crisis liberal concentrando todo el poder en el Estado y eliminando la democracia.</p>
+  </div>
+  <div class="card">
+    <p class="card-title to">📖 ¿Qué es un régimen totalitario?</p>
+    <p>Un <strong>totalitarismo</strong> es un sistema político construido de manera vertical, desde el Estado hacia las masas, que busca controlar <strong>todos</strong> los aspectos de la vida social: no solo la política, también la economía, la cultura, la educación y hasta la vida privada.</p>
+    <p style="margin-top:10px">Surgieron en Europa durante el periodo de Entreguerras (1919-1939), aprovechando la crisis de las democracias liberales. Los 3 casos principales: <strong>fascismo</strong> en Italia, <strong>nazismo</strong> en Alemania y <strong>estalinismo</strong> en la Unión Soviética.</p>
+  </div>
+  <div class="card">
+    <p class="card-title to">🦅 Compara los 3 regímenes totalitarios</p>
+    <p style="margin-bottom:10px">Haz clic en cada régimen para ver sus rasgos distintivos.</p>
+    <div class="toggle-wrap">
+      <div class="toggle-btns">
+        <button class="toggle-btn active" id="tbtn-fas" onclick="showToggle('to',['fas','naz','est'],'fas')">🇮🇹 Fascismo</button>
+        <button class="toggle-btn" id="tbtn-naz" onclick="showToggle('to',['fas','naz','est'],'naz')">🇩🇪 Nazismo</button>
+        <button class="toggle-btn" id="tbtn-est" onclick="showToggle('to',['fas','naz','est'],'est')">🇷🇺 Estalinismo</button>
+      </div>
+      <div class="toggle-panel show" id="tpanel-fas">
+        <h4>🇮🇹 Fascismo (Italia, Mussolini, desde 1922)</h4>
+        <ul>
+          <li>Ideología: <strong>nacionalismo extremo</strong> + culto al Estado y al líder (el Duce)</li>
+          <li>Base ideológica: exaltación de la patria, no la raza ni la lucha de clases</li>
+          <li>Buscaba refundar la sociedad extendiendo valores de disciplina militar a toda la vida civil</li>
+          <li>Fuertemente anticomunista: se presentó como bastión contra la revolución social izquierdista</li>
+        </ul>
+      </div>
+      <div class="toggle-panel" id="tpanel-naz">
+        <h4>🇩🇪 Nazismo (Alemania, Hitler, desde 1933)</h4>
+        <ul>
+          <li>Ideología: nacionalismo + <strong>racismo biológico</strong> (teoría de la "raza superior")</li>
+          <li>Expansionismo basado en la "teoría del espacio vital" (Lebensraum)</li>
+          <li>Único régimen totalitario que llevó a cabo el <strong>exterminio masivo</strong> sistemático (el Holocausto)</li>
+          <li>También fuertemente anticomunista y de partido único</li>
+        </ul>
+      </div>
+      <div class="toggle-panel" id="tpanel-est">
+        <h4>🇷🇺 Estalinismo (URSS, Stalin, 1924-1953)</h4>
+        <ul>
+          <li>Ideología: <strong>comunismo</strong>, basado en la lucha de clases y la "dictadura del proletariado"</li>
+          <li>Es el único de los 3 que rechaza la propiedad privada y el capitalismo</li>
+          <li>Colectivización forzada de la agricultura y planificación estatal total de la economía</li>
+          <li>Coincide con fascismo/nazismo en: partido único, culto al líder, control total de la vida social</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title to">🔗 Nazismo y Estalinismo: aliados... y luego enemigos</p>
+    <p>Un dato clave para la PAES: en 1939, Alemania nazi y la URSS estalinista firmaron el <strong>Pacto Ribbentrop-Mólotov</strong>, un acuerdo de no agresión que incluía repartirse Polonia. Pero en 1941, Alemania invadió la URSS, rompiendo el pacto. Es decir: <strong>colaboraron primero, luego se enfrentaron</strong> durante la Segunda Guerra Mundial.</p>
+  </div>
+  <div class="kw-grid">
+    <span class="kw to" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">totalitarismo</span>
+    <span class="kw to" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">fascismo</span>
+    <span class="kw to" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">nazismo</span>
+    <span class="kw to" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">estalinismo</span>
+    <span class="kw to" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">partido único</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag to">🤖 Pregunta generada · revisada por docente</div>
+    <span class="skill-tag skill-h2">📜 Análisis de fuentes</span>
+    <div class="paes-ctx">Los regímenes fascistas europeos de entreguerras solían combinar un fuerte discurso nacionalista con promesas de recuperación económica, buscando desviar el descontento social hacia "enemigos externos" en lugar de atacar las causas internas de la crisis.</div>
+    <p class="paes-q">Considerando este contexto, ¿cuál fue una de las estrategias utilizadas por el fascismo para conseguir apoyo de los grupos obreros?</p>
+    <div class="paes-opts" id="qto1">
+      <div class="paes-opt" onclick="ans('qto1','A')"><div class="ol">A</div><div class="ot">Garantizar la participación democrática plena de las mayorías.</div></div>
+      <div class="paes-opt" onclick="ans('qto1','B')"><div class="ol">B</div><div class="ot">Exaltar la noción de patria con un fuerte espíritu identitario.</div></div>
+      <div class="paes-opt" onclick="ans('qto1','C')"><div class="ol">C</div><div class="ot">Impulsar el desarrollo de la lucha de clases en la sociedad.</div></div>
+      <div class="paes-opt" onclick="ans('qto1','D')"><div class="ol">D</div><div class="ot">Fomentar la sindicalización obrera independiente del Estado.</div></div>
+    </div>
+    <div class="paes-fb" id="qto1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-to)">
+    <p class="card-title to">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre los totalitarismos europeos.</p>
+  </div>
+  <div id="prac-mount-to"></div>
+</div>
+
+<!-- ═══ POPULISMO ═══ -->
+<div class="section" id="po">
+  <div class="h-header" style="background:rgba(230,126,34,.12);border:1.5px solid rgba(230,126,34,.3)">
+    <span class="icon">📢</span>
+    <h2 class="po">Populismo en América Latina</h2>
+    <p>La respuesta latinoamericana a la misma crisis: líderes carismáticos que incorporan a los sectores populares a la política, sin romper con el sistema capitalista.</p>
+  </div>
+  <div class="card">
+    <p class="card-title po">📖 ¿Qué es el populismo latinoamericano?</p>
+    <p>Entre las décadas de 1930 y 1950, varios países de América Latina vivieron gobiernos populistas: <strong>líderes con fuerte carisma personal</strong> que construyeron su poder apelando directamente a los sectores populares y a la clase trabajadora, antes excluidos de la política.</p>
+    <p style="margin-top:10px">El caso más citado en la PAES: <strong>Juan Domingo Perón</strong> en Argentina (1946-1955).</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title po">✅ ¿Qué SÍ es el populismo?</p>
+      <ul>
+        <li>Incorporación de <strong>nuevos actores sociales</strong> (obreros, clase media) al escenario político</li>
+        <li>Fuerte <strong>liderazgo individual carismático</strong>, con adhesión directa de las masas</li>
+        <li>Discurso <strong>nacionalista</strong> y de rechazo a las elites oligárquicas tradicionales</li>
+        <li>Medidas concretas para favorecer a la clase trabajadora (mejoras salariales, derechos laborales)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title po">❌ ¿Qué NO es el populismo?</p>
+      <ul>
+        <li><strong>No</strong> elimina el sistema capitalista (a diferencia del estalinismo)</li>
+        <li><strong>No</strong> impone necesariamente un partido único (a diferencia de los totalitarismos europeos)</li>
+        <li><strong>No</strong> se basa en una ideología racial o de lucha de clases rígida</li>
+        <li>Se apoya en partidos con base ideológica débil, más centrados en el líder que en un programa</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title po">🤝 Totalitarismo vs. populismo: la diferencia clave</p>
+    <p>Ambos surgen de la misma crisis y ambos tienen un <strong>liderazgo fuerte con apoyo de masas</strong> y usan <strong>propaganda</strong>. Pero se diferencian en algo esencial: los totalitarismos <strong>eliminan la democracia y el pluralismo político</strong> (partido único); el populismo, en cambio, generalmente <strong>se mantiene dentro de un sistema con elecciones</strong>, aunque concentre mucho poder en el líder.</p>
+  </div>
+  <div class="kw-grid">
+    <span class="kw po" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">populismo</span>
+    <span class="kw po" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">liderazgo carismático</span>
+    <span class="kw po" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">clase trabajadora</span>
+    <span class="kw po" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">nacionalismo</span>
+    <span class="kw po" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">rechazo a la oligarquía</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag po">🤖 Pregunta generada · revisada por docente</div>
+    <span class="skill-tag skill-h3">🧠 Pensamiento crítico</span>
+    <div class="paes-ctx">Entre las décadas de 1930 y 1950, la historia política de algunos países de América Latina estuvo marcada por el surgimiento y desarrollo de gobiernos populistas.</div>
+    <p class="paes-q">¿Cuál fue un factor que influyó en el surgimiento de estos gobiernos?</p>
+    <div class="paes-opts" id="qpo1">
+      <div class="paes-opt" onclick="ans('qpo1','A')"><div class="ol">A</div><div class="ot">La plena recuperación de las democracias europeas tras la Primera Guerra Mundial.</div></div>
+      <div class="paes-opt" onclick="ans('qpo1','B')"><div class="ol">B</div><div class="ot">El fortalecimiento sostenido de las oligarquías tradicionales en la región.</div></div>
+      <div class="paes-opt" onclick="ans('qpo1','C')"><div class="ol">C</div><div class="ot">La escasa participación política de los sectores urbanos emergentes.</div></div>
+      <div class="paes-opt" onclick="ans('qpo1','D')"><div class="ol">D</div><div class="ot">El impacto de la crisis económica mundial en distintos grupos de la población.</div></div>
+    </div>
+    <div class="paes-fb" id="qpo1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-po)">
+    <p class="card-title po">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre el populismo en América Latina.</p>
+  </div>
+  <div id="prac-mount-po"></div>
+</div>
+
+<!-- ═══ ESTADO DE BIENESTAR ═══ -->
+<div class="section" id="eb">
+  <div class="h-header" style="background:rgba(22,160,133,.12);border:1.5px solid rgba(22,160,133,.3)">
+    <span class="icon">🏥</span>
+    <h2 class="eb">Los inicios del Estado de Bienestar</h2>
+    <p>La tercera respuesta a la crisis: las democracias occidentales deciden que el Estado sí debe intervenir para proteger a la población.</p>
+  </div>
+  <div class="card">
+    <p class="card-title eb">📖 ¿Qué es el Estado de Bienestar?</p>
+    <p>Es un modelo en que el Estado asume un <strong>rol activo</strong> garantizando servicios sociales (salud, educación, seguridad social) y regulando la economía, en lugar de dejar todo al mercado. Se implementó en los países de Occidente <strong>desde la década de 1930</strong>, precisamente como respuesta al impacto social de la crisis de 1929.</p>
+    <p style="margin-top:10px">A diferencia del estalinismo, <strong>no elimina la propiedad privada ni el capitalismo</strong>: lo regula y le pone límites, buscando evitar que se repita una crisis como la de 1929.</p>
+  </div>
+  <div class="card">
+    <p class="card-title eb">🏛️ Características principales</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-eb)"><div style="font-weight:900;color:var(--c-eb);font-size:.85rem;margin-bottom:4px">Gasto público social</div><p style="font-size:.82rem">Expansión del gasto en salud, educación, pensiones y seguros de desempleo.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--azul)"><div style="font-weight:900;color:var(--azul);font-size:.85rem;margin-bottom:4px">Regulación económica</div><p style="font-size:.82rem">El Estado interviene en el mercado financiero y laboral para evitar nuevas crisis.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Pleno empleo como meta</div><p style="font-size:.82rem">El Estado promueve activamente la creación de empleo, incluso mediante obras públicas.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--morado)"><div style="font-weight:900;color:var(--morado);font-size:.85rem;margin-bottom:4px">Mantiene la democracia</div><p style="font-size:.82rem">A diferencia del totalitarismo, no elimina el pluralismo político ni las elecciones libres.</p></div>
+    </div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw eb" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">Estado de Bienestar</span>
+    <span class="kw eb" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">gasto público</span>
+    <span class="kw eb" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">intervención estatal</span>
+    <span class="kw eb" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">seguridad social</span>
+    <span class="kw eb" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">regulación económica</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag eb">🤖 Pregunta generada · revisada por docente</div>
+    <span class="skill-tag skill-h3">🧠 Pensamiento crítico</span>
+    <div class="paes-ctx">El denominado Estado de Bienestar que se implementó en los países de Occidente desde la década de 1930 tuvo como propósito enfrentar el impacto de la crisis de 1929 en las sociedades.</div>
+    <p class="paes-q">¿Cuál fue una de las implicancias económicas que tuvo la implementación de este modelo?</p>
+    <div class="paes-opts" id="qeb1">
+      <div class="paes-opt" onclick="ans('qeb1','A')"><div class="ol">A</div><div class="ot">La reducción sostenida del gasto público en beneficios sociales.</div></div>
+      <div class="paes-opt" onclick="ans('qeb1','B')"><div class="ol">B</div><div class="ot">La eliminación de los impuestos a los patrimonios personales.</div></div>
+      <div class="paes-opt" onclick="ans('qeb1','C')"><div class="ol">C</div><div class="ot">La expansión del gasto público destinado a beneficios sociales.</div></div>
+      <div class="paes-opt" onclick="ans('qeb1','D')"><div class="ol">D</div><div class="ot">La total ausencia de intervención estatal en la economía.</div></div>
+    </div>
+    <div class="paes-fb" id="qeb1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-eb)">
+    <p class="card-title eb">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre los inicios del Estado de Bienestar.</p>
+  </div>
+  <div id="prac-mount-eb"></div>
+</div>
+
+<!-- ═══ TABLA COMPARATIVA ═══ -->
+<div class="section" id="lt">
+  <div class="h-header" style="background:rgba(155,89,182,.1);border:1.5px solid rgba(155,89,182,.3)">
+    <span class="icon">📊</span>
+    <h2 class="lt">Tabla comparativa · los 3 modelos frente a la crisis</h2>
+    <p>El esquema clave de esta unidad: compara totalitarismo, populismo y Estado de Bienestar en una sola mirada.</p>
+  </div>
+  <div class="card">
+    <p class="card-title lt">🗺️ Cómo leerla</p>
+    <p>Cada columna es un modelo. Cada fila es una dimensión de comparación. <strong>Haz clic en cualquier celda</strong> para ver un dato adicional.</p>
+  </div>
+  <div class="card">
+    <div class="tl-wrap">
+      <div class="tl-grid">
+        <div></div>
+        <div class="tl-head" style="background:rgba(192,57,43,.15);color:var(--c-to)">🦅 Totalitarismo</div>
+        <div class="tl-head" style="background:rgba(230,126,34,.15);color:var(--c-po)">📢 Populismo</div>
+        <div class="tl-head" style="background:rgba(22,160,133,.15);color:var(--c-eb)">🏥 Edo. Bienestar</div>
+
+        <div class="tl-row-label">📍 Dónde</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Europa</strong>Italia, Alemania, URSS.<div class="tl-more">Los 3 casos surgen en el periodo de Entreguerras (1919-1939), en países con democracias liberales recientes y débiles.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>América Latina</strong>Argentina, Brasil, México, entre otros.<div class="tl-more">Países con economías primario-exportadoras, muy golpeados por la caída del comercio internacional tras 1929.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Europa Occidental y EE.UU.</strong>Reino Unido, Francia, Estados Unidos (New Deal).<div class="tl-more">Democracias liberales consolidadas que optaron por reformar el sistema en vez de reemplazarlo.</div></div>
+
+        <div class="tl-row-label">👑 Liderazgo</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Culto al líder</strong>Mussolini, Hitler, Stalin.<div class="tl-more">El líder es presentado como infalible; su imagen se usa como símbolo de unidad nacional o ideológica.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Liderazgo carismático</strong>Perón (Argentina), Vargas (Brasil).<div class="tl-more">Apelan directamente a las masas, con menor estructura de partido detrás que en los totalitarismos.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Liderazgo institucional</strong>Roosevelt (EE.UU.) dentro de un sistema de partidos.<div class="tl-more">El liderazgo se ejerce dentro de las reglas democráticas existentes, sin culto personalista.</div></div>
+
+        <div class="tl-row-label">🗳️ Sistema político</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Partido único</strong>Elimina el pluralismo y las elecciones libres.<div class="tl-more">Es la diferencia más preguntada en la PAES frente al populismo: el totalitarismo sí elimina la democracia.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Mantiene elecciones</strong>Dentro de un sistema con partidos, aunque concentrado en el líder.<div class="tl-more">El populismo generalmente no impone un partido único, a diferencia del totalitarismo.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Democracia plena</strong>Se refuerza el sistema democrático, no se reemplaza.<div class="tl-more">El Estado de Bienestar es la única de las 3 respuestas que no concentra el poder político en una sola figura o partido.</div></div>
+
+        <div class="tl-row-label">💰 Economía</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Según el caso</strong>Estalinismo: economía estatal total. Fascismo/nazismo: capitalismo controlado por el Estado.<div class="tl-more">El estalinismo es el único de los 3 modelos de esta unidad que elimina la propiedad privada.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Capitalismo + Estado activo</strong>Medidas a favor de la clase trabajadora, sin romper con el capitalismo.<div class="tl-more">El populismo busca redistribuir dentro del sistema capitalista, no reemplazarlo.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Capitalismo regulado</strong>Mayor gasto público social y regulación del mercado financiero y laboral.<div class="tl-more">El objetivo económico es evitar que se repita una crisis como la de 1929, no eliminar el capitalismo.</div></div>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:.82rem;color:var(--text-dim)">💡 La pregunta PAES más común sobre esta tabla: "¿qué diferencia al totalitarismo del populismo?" — la respuesta casi siempre pasa por la fila de <strong>Sistema político</strong>: el totalitarismo elimina la democracia, el populismo no.</p>
+  </div>
+</div>
+
+<!-- ═══ MINI ENSAYO ═══ -->
+<div class="section" id="ensayo">
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">⏱️ Mini Ensayo cronometrado · 18 preguntas 🤖 generadas por IA</p>
+    <p>Responde las 18 preguntas dentro del tiempo límite. Las respuestas se evalúan al terminar. <strong>Simula las condiciones reales de la prueba.</strong></p>
+  </div>
+  <div class="tip-box" style="margin-bottom:16px">
+    <div class="tip-label">💡 Estrategia</div>
+    <p>Antes de responder, identifica de qué modelo habla la pregunta (totalitarismo, populismo o Estado de Bienestar). Cuidado con las opciones que mezclan características de un modelo con otro — es el error más común en esta unidad.</p>
+  </div>
+  <div class="timer-box">
+    <div>
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Tiempo restante</div>
+      <div class="timer-display" id="timer-disp">32:00</div>
+    </div>
+    <div style="text-align:right">
+      <div id="timer-status" style="font-size:.85rem;color:var(--text-dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+      <button id="start-btn" onclick="startEnsayo()" style="padding:8px 20px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+    </div>
+  </div>
+  <div id="ensayo-qs" style="display:none"></div>
+  <button class="submit-btn" id="submit-btn" onclick="submitEnsayo()" disabled style="display:none">✅ Terminar y ver resultados</button>
+  <div id="ensayo-results"></div>
+</div>
+
+</div><!-- /container -->
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">← Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente →</button>
+</div>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 2</h3>
+      <p>Europa, América y Chile en la Primera Mitad del Siglo XX</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    🔒 El asistente está pausado mientras rindes el Mini Ensayo cronometrado. Vuelve a abrirlo cuando termines.
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre la crisis del Estado liberal, los totalitarismos, el populismo latinoamericano y el Estado de Bienestar. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<footer>⚔️ Unidad 2 · Europa, América y Chile en la Primera Mitad del Siglo XX · PAES Historia y Ciencias Sociales · Admisión 2027<br><span style="font-size:.72rem;opacity:.7">Todas las preguntas de práctica (🤖) son generadas por IA y no corresponden a preguntas reales de la PAES ni reproducen material oficial de DEMRE.</span></footer>
+<script>
+// ═══ NAVEGACIÓN ═══
+var SECS=["portada","cr","to","po","eb","lt","ensayo"];
+var SLABELS=["Inicio","📉 Crisis liberal","🦅 Totalitarismos","📢 Populismo","🏥 Edo. Bienestar","📊 Comparación","⏱️ Mini Ensayo"];
+var curSec=0;
+function showSec(id,idx,btn){
+  SECS.forEach(function(s){document.getElementById(s).classList.remove("active");});
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec=idx;
+  updateLinNav();
+  document.getElementById("prog").style.width=Math.round(((idx+1)/SECS.length)*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function linNav(d){
+  var n=Math.max(0,Math.min(SECS.length-1,curSec+d));
+  if(n===curSec)return;
+  showSec(SECS[n],n,document.querySelectorAll(".nav-btn")[n]);
+}
+function updateLinNav(){
+  document.getElementById("lnav-prev").disabled=(curSec===0);
+  document.getElementById("lnav-next").disabled=(curSec===SECS.length-1);
+  document.getElementById("lnav-label").textContent=SLABELS[curSec];
+}
+updateLinNav();
+
+// ═══ TABLA COMPARATIVA EXPANDIBLE ═══
+function toggleTL(el){
+  el.classList.toggle("open");
+  el.querySelector(".tl-plus").textContent=el.classList.contains("open")?"－":"＋";
+}
+
+// ═══ COMPARADOR TOGGLE (regímenes totalitarios) ═══
+function showToggle(prefix,ids,activeId){
+  ids.forEach(function(id){
+    document.getElementById("tpanel-"+id).classList.toggle("show",id===activeId);
+    document.getElementById("tbtn-"+id).classList.toggle("active",id===activeId);
+  });
+}
+
+// ═══ FEEDBACK POR ALTERNATIVA (preguntas dentro del contenido) ═══
+var QA={
+  "qcr1":{c:"C",fb:{
+    A:"Incorrecto. Los imperios coloniales entraron en crisis, no se consolidaron, en este periodo.",
+    B:"Incorrecto. El comercio internacional se contrajo fuertemente, especialmente tras la crisis de 1929, no se fortaleció.",
+    C:"✅ Correcto. La Gran Depresión de 1929 fue el golpe económico que profundizó la desconfianza en las democracias liberales, abriendo paso a modelos alternativos como el totalitarismo.",
+    D:"Incorrecto. Por el contrario, este periodo estuvo marcado por una fuerte conflictividad social y política."
+  }},
+  "qto1":{c:"B",fb:{
+    A:"Incorrecto. El fascismo no garantizaba participación democrática plena; eliminaba el pluralismo político y el sistema de partidos.",
+    B:"✅ Correcto. El fascismo usaba el nacionalismo y la exaltación de la patria para desviar el descontento obrero hacia \"enemigos externos\", ganando así su apoyo.",
+    C:"Incorrecto. La lucha de clases es un concepto marxista, opuesto ideológicamente al fascismo.",
+    D:"Incorrecto. El fascismo controlaba y subordinaba a los sindicatos al Estado; no fomentaba su independencia."
+  }},
+  "qpo1":{c:"D",fb:{
+    A:"Incorrecto. Las democracias europeas no se recuperaron plenamente tras la Primera Guerra Mundial; muchas cayeron en totalitarismos en el periodo de entreguerras.",
+    B:"Incorrecto. Las elites oligárquicas fueron más bien desplazadas, no fortalecidas, por los gobiernos populistas.",
+    C:"Incorrecto. Fue precisamente la creciente participación política de los sectores urbanos emergentes lo que explica el auge populista.",
+    D:"✅ Correcto. El impacto social de la crisis económica mundial (1929) generó el descontento que los líderes populistas canalizaron políticamente."
+  }},
+  "qeb1":{c:"C",fb:{
+    A:"Incorrecto. El Estado de Bienestar aumentó, no redujo, el gasto público en beneficios sociales.",
+    B:"Incorrecto. El modelo típicamente aumentó, no eliminó, los impuestos a los patrimonios para financiar el gasto social.",
+    C:"✅ Correcto. La implicancia económica central fue la expansión del gasto público en salud, educación, pensiones y otros beneficios sociales.",
+    D:"Incorrecto. El Estado de Bienestar se caracteriza precisamente por una mayor, no nula, intervención estatal en la economía."
+  }}
+};
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done="1";
+  var a=QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===a.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById(qid+"-fb");
+  fb.className="paes-fb show "+(opt===a.c?"ok":"no");
+  fb.innerHTML=a.fb[opt];
+}
+
+// ═══ PRÁCTICA GUIADA · 20 preguntas 🤖 (4 subtemas × 5) ═══
+var PG=[
+  { hid:"cr", icon:"📉", name:"Crisis del Estado liberal", color:"var(--c-cr)",
+    qs:[
+      { skill:"h1", ctx:"La Primera Guerra Mundial finalizó en 1918. La Gran Depresión comenzó en 1929, once años después.",
+        q:"¿Qué concepto de pensamiento temporal describe la relación entre ambos hechos?",
+        opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Distribución geográfica."},
+        c:"B",fb:{A:"Incorrecto. No ocurren al mismo tiempo, hay 11 años de diferencia.",B:"✅ Correcto. Un hecho ocurre y luego el otro: es sucesión.",C:"Incorrecto. No se habla de causas sino de orden temporal.",D:"Incorrecto. No se compara ubicación geográfica."}
+      },
+      { skill:"h2", ctx:"Una tabla muestra que el desempleo en Estados Unidos pasó de 3% en 1929 a 25% en 1933, tras el crac bursátil de octubre de 1929.",
+        q:"¿Qué tipo de fuente es esta tabla y qué permite hacer?",
+        opts:{A:"Es una fuente cualitativa que permite conocer opiniones de la época.",B:"Es una fuente cuantitativa que permite comparar la evolución del desempleo en el tiempo.",C:"Es una fuente primaria testimonial poco confiable.",D:"Es una fuente que solo sirve para estudiar procesos políticos."},
+        c:"B",fb:{A:"Incorrecto. Contiene datos numéricos (porcentajes): es cuantitativa.",B:"✅ Correcto. Los porcentajes permiten comparar directamente la evolución del desempleo en el tiempo.",C:"Incorrecto. No es un testimonio personal, es un registro de datos.",D:"Incorrecto. Es útil también para el análisis económico, no solo político."}
+      },
+      { skill:"h3", ctx:"La crisis de 1929 demostró que un mercado sin ningún tipo de regulación estatal podía generar consecuencias catastróficas para millones de personas.",
+        q:"¿Qué se puede inferir sobre el principio liberal de no intervención estatal a partir de esta información?",
+        opts:{A:"Que quedó completamente confirmado como el mejor modelo posible.",B:"Que fue puesto en cuestión, abriendo paso a modelos con mayor intervención del Estado.",C:"Que no tuvo ninguna relación con la crisis de 1929.",D:"Que solo afectó a los países socialistas."},
+        c:"B",fb:{A:"Incorrecto. El texto describe que se puso en cuestión, no que se confirmó.",B:"✅ Correcto. La crisis demostró las limitaciones del principio de no intervención, abriendo paso a otros modelos.",C:"Incorrecto. La crisis de 1929 es precisamente la que originó esta discusión.",D:"Incorrecto. La crisis afectó a economías capitalistas, no solo socialistas."}
+      },
+      { skill:"h1", ctx:"Entre 1929 y 1933 el comercio internacional se redujo drásticamente. En las décadas siguientes, distintos países fueron implementando nuevas políticas económicas con mayor intervención estatal.",
+        q:"¿Qué relación temporal se describe entre la crisis y las nuevas políticas?",
+        opts:{A:"Simultaneidad exacta.",B:"Sucesión: la crisis antecede a las nuevas políticas.",C:"Las nuevas políticas antecedieron a la crisis.",D:"No existe relación temporal."},
+        c:"B",fb:{A:"Incorrecto. Hay una diferencia temporal entre ambos procesos.",B:"✅ Correcto. Primero ocurre la crisis, luego las nuevas políticas: sucesión.",C:"Incorrecto. Es al revés según el texto.",D:"Incorrecto. El texto sí establece relación temporal."}
+      },
+      { skill:"h3", ctx:"Tras la crisis de 1929, distintos países ensayaron modelos muy diferentes entre sí para enfrentarla: unos concentraron todo el poder en un Estado totalitario, otros incorporaron a las masas mediante liderazgos populistas, y otros ampliaron el gasto social sin abandonar la democracia.",
+        q:"¿Qué característica común tienen estos 3 modelos frente a la crisis liberal?",
+        opts:{A:"Los 3 eliminaron por completo la propiedad privada.",B:"Los 3 implicaron un mayor rol del Estado respecto del modelo liberal clásico.",C:"Los 3 mantuvieron exactamente el mismo sistema político.",D:"Los 3 surgieron exclusivamente en América Latina."},
+        c:"B",fb:{A:"Incorrecto. Solo el estalinismo eliminó la propiedad privada, no los 3.",B:"✅ Correcto. Los 3 modelos implican mayor intervención estatal que el liberalismo clásico, aunque de formas distintas.",C:"Incorrecto. Los 3 modelos representan cambios políticos distintos respecto al liberalismo previo.",D:"Incorrecto. Los totalitarismos surgieron en Europa, no en América Latina."}
+      }
+    ]
+  },
+  { hid:"to", icon:"🦅", name:"Totalitarismos europeos", color:"var(--c-to)",
+    qs:[
+      { skill:"h2", ctx:"Una fotografía de 1936 muestra una manifestación masiva del Partido Nazi, con miles de personas uniformadas marchando en formación.",
+        q:"¿Qué característica de los regímenes totalitarios evidencia principalmente esta fuente?",
+        opts:{A:"El uso de la propaganda y la movilización masiva y organizada de la población.",B:"La existencia de elecciones libres y competitivas.",C:"La diversidad de partidos políticos participantes.",D:"El rechazo absoluto a cualquier manifestación pública."},
+        c:"A",fb:{A:"✅ Correcto. La marcha uniformada y masiva evidencia el uso de propaganda y movilización organizada, rasgo típico del totalitarismo.",B:"Incorrecto. Los regímenes totalitarios eliminaban la competencia electoral libre.",C:"Incorrecto. Imponían partido único, no diversidad partidista.",D:"Incorrecto. La fuente muestra exactamente lo contrario: una manifestación pública masiva."}
+      },
+      { skill:"h3", ctx:"El fascismo italiano se basaba en el nacionalismo y el culto al Estado; el nazismo alemán agregó a esto una ideología racial que llevó al exterminio masivo de personas; el estalinismo se basaba en la lucha de clases y eliminó la propiedad privada.",
+        q:"¿Qué característica permite diferenciar principalmente a estos 3 regímenes entre sí?",
+        opts:{A:"Los 3 compartían exactamente la misma base ideológica.",B:"Cada uno se sustentaba en un tipo de ideología distinta, aunque coincidían en ser regímenes de partido único.",C:"Ninguno de los 3 tuvo un líder con culto a la personalidad.",D:"Los 3 mantuvieron sistemas democráticos plenos."},
+        c:"B",fb:{A:"Incorrecto. El texto describe diferencias ideológicas explícitas entre los 3.",B:"✅ Correcto. Cada uno tenía una base ideológica distinta (nacionalismo, racismo, comunismo) pero compartían ser regímenes de partido único.",C:"Incorrecto. Los 3 tuvieron fuerte culto al líder (Mussolini, Hitler, Stalin).",D:"Incorrecto. Los 3 eliminaron el sistema democrático pluralista."}
+      },
+      { skill:"h1", ctx:"El fascismo llega al poder en Italia en 1922. El nazismo llega al poder en Alemania en 1933, once años después.",
+        q:"¿Qué concepto de pensamiento temporal describe esta relación?",
+        opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Continuidad sin cambio."},
+        c:"B",fb:{A:"Incorrecto. Hay 11 años de diferencia entre ambos hechos.",B:"✅ Correcto. Un régimen llega al poder, y años después el otro: sucesión.",C:"Incorrecto. No se habla de causas sino de orden temporal.",D:"Incorrecto. Ambos representan cambios políticos, no continuidad sin cambio."}
+      },
+      { skill:"h3", ctx:"El estalinismo soviético eliminó la propiedad privada y colectivizó forzadamente la agricultura, mientras que el fascismo italiano y el nazismo alemán mantuvieron la propiedad privada, aunque con fuerte intervención y control estatal sobre la economía.",
+        q:"¿Qué se puede inferir sobre el sistema económico de estos regímenes?",
+        opts:{A:"Los 3 regímenes tenían el mismo sistema económico.",B:"El estalinismo se diferenciaba económicamente de fascismo y nazismo al eliminar la propiedad privada.",C:"Los 3 regímenes mantuvieron una economía de libre mercado sin ningún control estatal.",D:"Ninguno de los 3 regímenes intervino en la economía."},
+        c:"B",fb:{A:"Incorrecto. El texto describe explícitamente una diferencia económica entre ellos.",B:"✅ Correcto. El estalinismo eliminó la propiedad privada; fascismo y nazismo la mantuvieron con control estatal.",C:"Incorrecto. Los 3 regímenes tuvieron fuerte intervención estatal en la economía.",D:"Incorrecto. Los 3 intervinieron activamente en la economía."}
+      },
+      { skill:"h2", ctx:"Dos interpretaciones evalúan el ascenso del nazismo: una enfatiza el rol de la crisis económica de 1929 en el descontento social alemán; otra enfatiza el resentimiento nacionalista tras la derrota en la Primera Guerra Mundial y el Tratado de Versalles.",
+        q:"¿Qué habilidad histórica se aplica al comparar estas dos interpretaciones sobre un mismo proceso?",
+        opts:{A:"Pensamiento temporal y espacial.",B:"Análisis de fuentes de información, al comparar interpretaciones distintas sobre un mismo fenómeno.",C:"Ninguna habilidad histórica en particular.",D:"Solo memorización de fechas."},
+        c:"B",fb:{A:"Incorrecto. No se trata de ubicar el proceso en el tiempo o espacio, sino de comparar interpretaciones.",B:"✅ Correcto. Comparar interpretaciones distintas sobre un mismo proceso histórico es análisis de fuentes de información.",C:"Incorrecto. Comparar interpretaciones es una habilidad histórica explícita del temario.",D:"Incorrecto. No se trata de memorizar fechas, sino de comparar visiones distintas."}
+      }
+    ]
+  },
+  { hid:"po", icon:"📢", name:"Populismo en América Latina", color:"var(--c-po)",
+    qs:[
+      { skill:"h3", ctx:"Los gobiernos populistas latinoamericanos de mediados del siglo XX implementaron medidas laborales favorables a los trabajadores, sin eliminar la propiedad privada ni el sistema capitalista.",
+        q:"¿Qué característica del populismo se evidencia en esta información?",
+        opts:{A:"Buscaba reformar el sistema desde dentro, incorporando a la clase trabajadora sin romper con el capitalismo.",B:"Buscaba instaurar un régimen comunista.",C:"Eliminó completamente la participación electoral.",D:"Se basó en una ideología racial."},
+        c:"A",fb:{A:"✅ Correcto. El populismo incorporaba a la clase trabajadora sin eliminar el capitalismo, reformando el sistema desde dentro.",B:"Incorrecto. El populismo no instauró regímenes comunistas.",C:"Incorrecto. El populismo generalmente mantuvo la participación electoral.",D:"Incorrecto. Esa es una característica del nazismo, no del populismo latinoamericano."}
+      },
+      { skill:"h1", ctx:"La crisis de 1929 afectó duramente a las economías latinoamericanas. En la década siguiente, distintos países de la región vieron surgir gobiernos populistas.",
+        q:"¿Qué relación temporal existe entre ambos procesos?",
+        opts:{A:"Simultaneidad.",B:"Sucesión: la crisis antecede al surgimiento de los populismos.",C:"Los populismos antecedieron a la crisis.",D:"No existe relación temporal."},
+        c:"B",fb:{A:"Incorrecto. Hay una diferencia temporal clara entre ambos procesos.",B:"✅ Correcto. La crisis ocurre primero, y en la década siguiente surgen los populismos: sucesión.",C:"Incorrecto. Es al revés según el texto.",D:"Incorrecto. El texto sí establece una relación temporal."}
+      },
+      { skill:"h2", ctx:"Un discurso de un líder populista latinoamericano de la década de 1940 apela directamente 'al pueblo trabajador' y denuncia a 'la oligarquía' como responsable de la desigualdad social.",
+        q:"¿Qué tipo de fuente es este discurso y qué evidencia aporta?",
+        opts:{A:"Es una fuente primaria que evidencia el discurso nacionalista y antioligárquico característico del populismo.",B:"Es una fuente secundaria que interpreta el populismo desde la actualidad.",C:"Es una fuente cuantitativa con datos económicos exactos.",D:"Es una fuente que no aporta ninguna evidencia histórica relevante."},
+        c:"A",fb:{A:"✅ Correcto. Un discurso de la época, producido por el propio protagonista, es una fuente primaria que evidencia directamente el estilo discursivo populista.",B:"Incorrecto. Fue producido en la época del hecho, no después: es primaria.",C:"Incorrecto. Es un discurso, no contiene datos numéricos.",D:"Incorrecto. Sí aporta evidencia directa sobre el discurso político de la época."}
+      },
+      { skill:"h3", ctx:"A diferencia de los regímenes totalitarios europeos, la mayoría de los gobiernos populistas latinoamericanos no impusieron un sistema de partido único ni eliminaron las elecciones.",
+        q:"¿Qué distingue principalmente al populismo del totalitarismo según esta información?",
+        opts:{A:"El populismo mantuvo el pluralismo político y las elecciones, a diferencia del totalitarismo.",B:"Ambos eliminaron completamente la democracia.",C:"El totalitarismo mantuvo elecciones libres y el populismo no.",D:"No existe ninguna diferencia entre ambos modelos."},
+        c:"A",fb:{A:"✅ Correcto. El texto indica explícitamente que el populismo no impuso partido único ni eliminó las elecciones, a diferencia del totalitarismo.",B:"Incorrecto. El texto indica que el populismo, a diferencia del totalitarismo, no eliminó la democracia.",C:"Incorrecto. Es al revés: el totalitarismo eliminó las elecciones libres.",D:"Incorrecto. El texto describe una diferencia clara entre ambos modelos."}
+      },
+      { skill:"h3", ctx:"El gobierno de Juan Domingo Perón en Argentina (1946-1955) es uno de los casos más estudiados de populismo latinoamericano.",
+        q:"¿Cuál de las siguientes situaciones sería un ejemplo del tipo de apoyo político que buscaban estos gobiernos?",
+        opts:{A:"El respaldo de sindicatos y sectores obreros movilizados en torno al líder.",B:"El respaldo exclusivo de las elites terratenientes tradicionales.",C:"El respaldo de potencias extranjeras a través de una alianza militar.",D:"El respaldo del clero mediante la imposición de una religión de Estado."},
+        c:"A",fb:{A:"✅ Correcto. Los gobiernos populistas buscaban apoyo directo de sindicatos y sectores obreros movilizados en torno al líder.",B:"Incorrecto. Los populismos se caracterizaron por enfrentar, no apoyarse en, a las elites tradicionales.",C:"Incorrecto. No se trataba de alianzas militares extranjeras.",D:"Incorrecto. Los gobiernos populistas no impusieron una religión de Estado."}
+      }
+    ]
+  },
+  { hid:"eb", icon:"🏥", name:"Estado de Bienestar", color:"var(--c-eb)",
+    qs:[
+      { skill:"h3", ctx:"El economista John Maynard Keynes propuso que, en tiempos de crisis, el Estado debía aumentar el gasto público para reactivar la economía y generar empleo, en lugar de esperar que el mercado se autorregulara.",
+        q:"¿Con qué modelo de esta unidad se relaciona directamente esta propuesta?",
+        opts:{A:"Con el estalinismo, porque elimina la propiedad privada.",B:"Con el Estado de Bienestar, porque plantea una mayor intervención estatal en la economía.",C:"Con el fascismo, porque exalta el nacionalismo.",D:"Con el liberalismo clásico, porque confía en la autorregulación del mercado."},
+        c:"B",fb:{A:"Incorrecto. El estalinismo elimina la propiedad privada; Keynes no propone eso.",B:"✅ Correcto. La propuesta de mayor gasto público e intervención estatal en momentos de crisis es la base económica del Estado de Bienestar.",C:"Incorrecto. El fascismo se basa en el nacionalismo, no en teoría económica keynesiana.",D:"Incorrecto. Es lo opuesto: el liberalismo clásico confía en la autorregulación, esta propuesta no."}
+      },
+      { skill:"h2", ctx:"Una tabla muestra que el gasto público social como porcentaje del PIB en varios países de Europa Occidental aumentó sostenidamente entre 1930 y 1950.",
+        q:"¿Qué permite evidenciar esta fuente sobre la implementación del Estado de Bienestar?",
+        opts:{A:"El aumento progresivo del gasto social estatal en el periodo, evidencia cuantitativa directa de la expansión del modelo.",B:"La disminución del rol del Estado en la economía.",C:"La eliminación completa de la actividad económica privada.",D:"La ausencia de cualquier cambio en la política económica de la época."},
+        c:"A",fb:{A:"✅ Correcto. El aumento sostenido del gasto social como porcentaje del PIB es evidencia cuantitativa directa de la expansión del Estado de Bienestar.",B:"Incorrecto. El texto muestra un aumento, no una disminución, del rol estatal.",C:"Incorrecto. El Estado de Bienestar no elimina la actividad privada, la regula.",D:"Incorrecto. El texto muestra un cambio claro y sostenido en la política económica."}
+      },
+      { skill:"h3", ctx:"El New Deal implementado en Estados Unidos durante la década de 1930 incluyó grandes programas de obras públicas para generar empleo, junto con nueva regulación del sistema financiero.",
+        q:"¿Qué objetivo perseguía principalmente este tipo de política?",
+        opts:{A:"Reducir la intervención del Estado en la economía.",B:"Enfrentar el desempleo y prevenir una nueva crisis financiera mediante mayor intervención estatal.",C:"Eliminar el sistema capitalista y reemplazarlo por uno estatal total.",D:"Establecer un régimen de partido único."},
+        c:"B",fb:{A:"Incorrecto. Es lo opuesto: el New Deal aumentó la intervención estatal.",B:"✅ Correcto. Las obras públicas y la regulación financiera buscaban reducir el desempleo y prevenir una nueva crisis, características centrales del Estado de Bienestar.",C:"Incorrecto. El New Deal no eliminó el capitalismo.",D:"Incorrecto. Estados Unidos mantuvo su sistema democrático pluripartidista."}
+      },
+      { skill:"h1", ctx:"El Estado de Bienestar comenzó a implementarse en varios países occidentales desde la década de 1930. Sus rasgos más consolidados se observan recién después de la Segunda Guerra Mundial (1945 en adelante).",
+        q:"¿Qué concepto de pensamiento temporal describe mejor este proceso?",
+        opts:{A:"Simultaneidad exacta desde su origen.",B:"Un proceso gradual que se profundiza con el tiempo, no un cambio instantáneo.",C:"Un proceso que ocurrió únicamente en un solo año.",D:"Un proceso sin relación con la Segunda Guerra Mundial."},
+        c:"B",fb:{A:"Incorrecto. El texto describe un proceso que se profundiza después de 1945, no simultáneo desde el inicio.",B:"✅ Correcto. El texto describe un proceso gradual, que comienza en los años 1930 y se consolida después de 1945: no es un cambio instantáneo.",C:"Incorrecto. El texto describe un proceso que se extiende por varias décadas.",D:"Incorrecto. El texto menciona explícitamente la relación con la Segunda Guerra Mundial."}
+      },
+      { skill:"h3", ctx:"El Estado de Bienestar buscaba, entre otros objetivos, reducir el riesgo de que el descontento social generado por una crisis económica derivara en revoluciones o en el ascenso de regímenes autoritarios.",
+        q:"¿Qué relación se puede establecer entre el Estado de Bienestar y los otros modelos estudiados en esta unidad?",
+        opts:{A:"El Estado de Bienestar buscaba, en parte, prevenir el tipo de descontento que favoreció el ascenso de totalitarismos y populismos.",B:"El Estado de Bienestar y el totalitarismo son exactamente el mismo modelo.",C:"El Estado de Bienestar no tiene relación alguna con la crisis de 1929.",D:"El Estado de Bienestar buscaba eliminar la democracia, igual que el totalitarismo."},
+        c:"A",fb:{A:"✅ Correcto. El Estado de Bienestar buscaba, en parte, evitar el tipo de descontento social que favoreció el ascenso de totalitarismos y populismos en otros países.",B:"Incorrecto. Son modelos claramente distintos: uno mantiene la democracia, el otro la elimina.",C:"Incorrecto. El propio texto establece esa relación con la crisis de 1929.",D:"Incorrecto. El Estado de Bienestar, a diferencia del totalitarismo, mantiene la democracia."}
+      }
+    ]
+  }
+];
+
+function buildPractice(){
+  var SKLBL={h1:"🕰️ Temporal-espacial",h2:"📜 Fuentes",h3:"🧠 Crítico"};
+  PG.forEach(function(g,gi){
+    var cont=document.getElementById("prac-mount-"+g.hid);
+    if(!cont)return;
+    var sec=document.createElement("div");
+    sec.className="prac-group";
+    sec.id="pg"+gi;
+    var hdr=document.createElement("div");
+    hdr.className="prac-group-hdr";
+    hdr.style.borderLeft="4px solid "+g.color;
+    hdr.innerHTML="<div class='gi'>"+g.icon+"</div>"+
+      "<div><div class='gname' style='color:"+g.color+"'>Progreso</div>"+
+      "<div style='font-size:.8rem;color:var(--text-dim)'>5 preguntas</div></div>"+
+      "<div class='gscore' id='gs"+gi+"'></div>";
+    sec.appendChild(hdr);
+    g.qs.forEach(function(q,qi){
+      var qel=document.createElement("div");
+      qel.className="pq"+(qi===0?" show":"");
+      qel.id="pq-"+gi+"-"+qi;
+      var ctxH=q.ctx?'<div class="pq-ctx">'+q.ctx+'</div>':'';
+      var optsH="";
+      ["A","B","C","D"].forEach(function(l){
+        optsH+="<div class='paes-opt' id='po-"+gi+"-"+qi+"-"+l+"' onclick='pAns("+gi+","+qi+",\""+l+"\")'>"+
+          "<div class='ol'>"+l+"</div><div class='ot'>"+q.opts[l]+"</div></div>";
+      });
+      qel.innerHTML="<span class='skill-tag skill-"+q.skill+"'>"+SKLBL[q.skill]+"</span>"+
+        ctxH+"<div class='pq-q'>"+q.q+"</div>"+
+        "<div class='pq-opts' id='po-group-"+gi+"-"+qi+"'>"+optsH+"</div>"+
+        "<div class='paes-fb' id='pfb-"+gi+"-"+qi+"'></div>"+
+        "<button class='nxt-q' id='nq-"+gi+"-"+qi+"' onclick='nextQ("+gi+","+qi+")'>Siguiente →</button>";
+      sec.appendChild(qel);
+    });
+    cont.appendChild(sec);
+  });
+}
+buildPractice();
+
+var pScores={};
+PG.forEach(function(g,gi){pScores[gi]={c:0,t:0};});
+var doneGroups=0;
+var NQ_PRAC=5;
+
+function pAns(gi,qi,opt){
+  var opts=document.getElementById("po-group-"+gi+"-"+qi);
+  if(opts.dataset.done)return;
+  opts.dataset.done="1";
+  var q=PG[gi].qs[qi];
+  var correct=(opt===q.c);
+  pScores[gi].t++;
+  if(correct)pScores[gi].c++;
+  opts.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===q.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById("pfb-"+gi+"-"+qi);
+  fb.className="paes-fb show "+(correct?"ok":"no");
+  fb.textContent=q.fb[opt];
+  var nqBtn=document.getElementById("nq-"+gi+"-"+qi);
+  if(qi<NQ_PRAC-1){
+    nqBtn.textContent="Siguiente pregunta →";
+    nqBtn.style.display="inline-block";
+  }else{
+    nqBtn.style.display="none";
+    finishGroup(gi);
+  }
+}
+
+function nextQ(gi,qi){
+  document.getElementById("nq-"+gi+"-"+qi).style.display="none";
+  var nextEl=document.getElementById("pq-"+gi+"-"+(qi+1));
+  if(nextEl){nextEl.classList.add("show");nextEl.scrollIntoView({behavior:"smooth",block:"start"});}
+}
+
+function finishGroup(gi){
+  doneGroups++;
+  var sc=pScores[gi];
+  var icons=[];for(var i=0;i<NQ_PRAC;i++){icons.push(i<sc.c?"✅":"❌");}
+  document.getElementById("gs"+gi).innerHTML=icons.join(" ")+" <span style='color:"+(sc.c>=3?"var(--dorado)":"var(--rojo)")+"'>"+sc.c+"/"+NQ_PRAC+"</span>";
+}
+
+// ═══ MINI ENSAYO · 18 preguntas 🤖 generadas por IA (revisadas por docente) ═══
+var EQ=[
+  {tema:"Crisis liberal",color:"var(--c-cr)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Tras la caída de la Bolsa de Nueva York en octubre de 1929, la crisis económica se extendió rápidamente a nivel mundial. ¿Qué efecto tuvo la Gran Depresión en las economías de América Latina?",
+   opts:{A:"Redujo el comercio internacional, impulsando políticas proteccionistas en la región.",B:"Fortaleció la implementación de políticas económicas liberales centradas en el sector privado.",C:"Permitió al Estado reducir el gasto público y generar ahorro fiscal.",D:"Eliminó por completo la dependencia de las economías primario-exportadoras."},
+   c:"A",fb:"Frente a la crisis, muchos países optaron por medidas proteccionistas para defender su producción interna, lo que redujo el comercio internacional. No hubo fortalecimiento del liberalismo ni ahorro estatal, y la dependencia exportadora se evidenció con más fuerza, no desapareció."
+  },
+  {tema:"Crisis liberal",color:"var(--c-cr)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Tras la Gran Depresión de 1929, diversos países de Occidente debieron implementar estrategias de recuperación económica. ¿Cuál fue una de las medidas adoptadas por los países afectados por esta crisis?",
+   opts:{A:"El incremento de los mecanismos de control estatal sobre el sector financiero.",B:"La eliminación de los subsidios fiscales a las industrias nacionales.",C:"El incentivo a la importación masiva de productos manufacturados extranjeros.",D:"La restricción de la inversión estatal en programas de empleo público."},
+   c:"A",fb:"La crisis evidenció la necesidad de mayor regulación estatal sobre el sistema financiero para prevenir nuevos colapsos. Las otras opciones describen medidas que habrían profundizado la crisis, no que ayudaran a superarla."
+  },
+  {tema:"Totalitarismos",color:"var(--c-to)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"El Estalinismo soviético y el Nazismo alemán fueron ambos regímenes totalitarios, pero con orígenes ideológicos distintos. ¿Cuál de las siguientes afirmaciones describe correctamente la relación entre ambos regímenes durante el periodo de entreguerras?",
+   opts:{A:"Constituyeron una alianza sólida y duradera que se mantuvo durante toda la Segunda Guerra Mundial.",B:"Compartieron desde el inicio una misma base ideológica centrada en la superioridad racial.",C:"Tuvieron un breve periodo de pacto de no agresión, para luego enfrentarse militarmente entre sí.",D:"Nunca establecieron ningún tipo de acuerdo o relación diplomática entre 1933 y 1945."},
+   c:"C",fb:"En 1939 firmaron el Pacto Ribbentrop-Mólotov (no agresión + reparto de Polonia), pero en 1941 Alemania invadió la URSS, rompiendo la alianza. No compartían ideología racial (el comunismo soviético rechazaba el racismo nazi), ni mantuvieron una alianza sólida y duradera."
+  },
+  {tema:"Totalitarismos",color:"var(--c-to)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Durante el periodo de entreguerras, surgieron regímenes totalitarios en Italia, Alemania y la Unión Soviética. Si bien compartían ciertos rasgos, también presentaban diferencias importantes. ¿Cuál es una diferencia entre los regímenes totalitarios de Alemania y la Unión Soviética?",
+   opts:{A:"El tipo de ideología en que se sustentaba el poder político.",B:"El desarrollo de una política exterior expansionista.",C:"La primacía de la colectividad por sobre la individualidad.",D:"El control estatal sobre el conjunto de aspectos de la vida diaria."},
+   c:"A",fb:"Alemania se sustentaba en el nacionalismo racial (nazismo) y la URSS en el comunismo (lucha de clases): ideologías radicalmente distintas. Ambos regímenes sí compartían expansionismo, primacía de la colectividad y control total de la vida diaria: esas son semejanzas, no diferencias."
+  },
+  {tema:"Totalitarismos",color:"var(--c-to)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"El fascismo en Italia y el nazismo en Alemania surgieron ambos de la crisis de las democracias liberales del primer tercio del siglo XX. Aunque comparten semejanzas, también presentan particularidades. ¿En cuál de los siguientes elementos difieren estos dos regímenes totalitarios?",
+   opts:{A:"En el adoctrinamiento social de las masas.",B:"En el desarrollo de una política expansionista.",C:"En la aplicación del exterminio racial masivo y sistemático.",D:"En el establecimiento de un sistema de partido único."},
+   c:"C",fb:"Solo el nazismo llevó a cabo el exterminio masivo sistemático (el Holocausto), basado en su ideología racial; el fascismo italiano no tuvo una política de exterminio de esa escala. El adoctrinamiento de masas, el expansionismo y el partido único fueron rasgos compartidos por ambos regímenes."
+  },
+  {tema:"Populismo",color:"var(--c-po)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Los regímenes populistas latinoamericanos que surgieron durante la primera mitad del siglo XX se desarrollaron en un contexto de crisis política, social y económica. ¿Cuál fue un rasgo común entre los distintos populismos latinoamericanos?",
+   opts:{A:"El deterioro sistemático del aparato estatal.",B:"La instauración de un sistema de partido único.",C:"La supresión total del modelo capitalista.",D:"El rechazo discursivo a los grupos oligárquicos tradicionales."},
+   c:"D",fb:"Los populismos latinoamericanos se definieron, en gran medida, por un discurso de confrontación con las elites oligárquicas tradicionales. No impusieron partido único (rasgo del totalitarismo europeo), no suprimieron el capitalismo, y buscaron fortalecer, no deteriorar, el aparato estatal."
+  },
+  {tema:"Populismo",color:"var(--c-po)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Durante la primera mitad del siglo XX, diversos gobiernos latinoamericanos recurrieron al populismo como estrategia política. ¿Cuál fue una de las estrategias empleadas por estos gobiernos para consolidar y mantener su poder?",
+   opts:{A:"La persecución sistemática de todos los partidos políticos tradicionales.",B:"La puesta en marcha de medidas concretas para favorecer a la clase trabajadora.",C:"El mantenimiento del voto censitario para asegurar el apoyo de las elites económicas.",D:"El impulso de la descentralización para fortalecer movimientos regionalistas."},
+   c:"B",fb:"Los gobiernos populistas construyeron su apoyo político otorgando beneficios concretos a la clase trabajadora (mejoras salariales, derechos laborales), ganando así su lealtad. No perseguían sistemáticamente a la oposición, ni mantenían el voto censitario, ni promovían el regionalismo."
+  },
+  {tema:"Populismo",color:"var(--c-po)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Un análisis histórico sobre el populismo latinoamericano señala que estos gobiernos solían construir su legitimidad a través de un vínculo directo y personal entre el líder y las masas populares, más que a través de partidos con una ideología estructurada.",
+   q:"¿En qué característica de los populismos latinoamericanos de la primera mitad del siglo XX se sustenta este análisis?",
+   opts:{A:"La ausencia total de representación política con base ideológica.",B:"La subordinación de las masas a un influyente liderazgo individual.",C:"La incorporación de nuevos actores sociales al escenario político.",D:"La defensa de una política de nacionalización de carácter estatista."},
+   c:"B",fb:"El texto habla de un \"vínculo directo y personal entre el líder y las masas\": esto describe la subordinación de las masas a un liderazgo individual fuerte, rasgo central del populismo. No se refiere a la ausencia de ideología, a la incorporación de actores sociales ni a políticas de nacionalización."
+  },
+  {tema:"Estado de Bienestar",color:"var(--c-eb)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"El denominado Estado de Bienestar que se implementó en los países de Occidente desde la década de 1930 tuvo como propósito enfrentar el impacto de la crisis de 1929 en las sociedades. ¿Cuál fue una de las implicancias económicas que tuvo la implementación de este modelo?",
+   opts:{A:"La reducción sostenida de las inversiones privadas en la producción.",B:"La eliminación de los impuestos a los patrimonios personales.",C:"La expansión del gasto público destinado a beneficios sociales.",D:"La fijación de una política de redistribución absolutamente igualitaria de la renta."},
+   c:"C",fb:"La implicancia económica central del Estado de Bienestar fue la expansión del gasto público en salud, educación, pensiones y otros beneficios sociales. No buscaba reducir la inversión privada, ni eliminó impuestos patrimoniales (los aumentó para financiar el gasto social), ni estableció una redistribución estrictamente igualitaria."
+  },
+  {tema:"Crisis liberal",color:"var(--c-cr)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"La crisis de 1929 evidenció que el principio liberal de no intervención estatal en la economía tenía límites importantes frente a una crisis de escala mundial.",
+   q:"¿Qué consecuencia política e ideológica tuvo esta situación en las décadas siguientes?",
+   opts:{A:"El fortalecimiento definitivo del liberalismo económico clásico sin ningún cuestionamiento.",B:"La búsqueda de modelos alternativos con mayor intervención del Estado, como el totalitarismo, el populismo y el Estado de Bienestar.",C:"La desaparición completa de cualquier forma de Estado.",D:"El regreso inmediato al sistema colonial europeo."},
+   c:"B",fb:"La crisis de 1929 puso en cuestión el liberalismo económico clásico, abriendo paso a modelos con mayor intervención estatal: totalitarismo, populismo y Estado de Bienestar, cada uno a su manera. No hubo un fortalecimiento del liberalismo clásico sin cuestionamientos, ni desaparición del Estado, ni un regreso al colonialismo."
+  },
+  {tema:"Crisis liberal",color:"var(--c-cr)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"La Primera Guerra Mundial finalizó en 1918, dejando a Europa devastada económica y políticamente. Once años después, en 1929, se desató la Gran Depresión.",
+   q:"¿Qué relación temporal existe entre ambos procesos según lo descrito?",
+   opts:{A:"Simultaneidad, porque ocurrieron exactamente en el mismo año.",B:"Sucesión: ambos hechos debilitaron a las democracias liberales en momentos distintos, uno después del otro.",C:"No existe ninguna relación entre ambos procesos.",D:"La Gran Depresión ocurrió antes que la Primera Guerra Mundial."},
+   c:"B",fb:"Ambos hechos, aunque de distinta naturaleza (uno bélico, otro económico), ocurrieron en momentos sucesivos, contribuyendo cada uno a debilitar las democracias liberales europeas. No fueron simultáneos ni ocurrieron en el orden inverso."
+  },
+  {tema:"Totalitarismos",color:"var(--c-to)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Un historiador señala que el fascismo buscaba, más que solo gobernar, transformar completamente el imaginario colectivo, los estilos de vida y suprimir la separación entre vida pública y privada.",
+   q:"¿Qué característica de los regímenes totalitarios describe esta interpretación?",
+   opts:{A:"Su ambición de controlar todos los aspectos de la vida social, no solo la política.",B:"Su respeto absoluto por la vida privada de los ciudadanos.",C:"Su desinterés por influir en la cultura y la sociedad.",D:"Su carácter exclusivamente económico, sin proyecto político."},
+   c:"A",fb:"La ambición de controlar todos los aspectos de la vida social —no solo el poder político, sino también la cultura y la vida privada— es precisamente la definición de un régimen totalitario. El texto describe lo opuesto a respetar la vida privada o desinteresarse de la cultura."
+  },
+  {tema:"Totalitarismos",color:"var(--c-to)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Se comparan dos fuentes sobre el nazismo: un discurso de Hitler de 1933 y un libro de historia publicado en 2010 que analiza las causas de su ascenso al poder.",
+   q:"¿Qué tipo de fuente es el discurso de Hitler de 1933?",
+   opts:{A:"Fuente secundaria, porque interpreta el pasado con distancia.",B:"Fuente primaria, porque fue producida en el momento mismo del hecho histórico.",C:"Fuente cuantitativa, porque contiene datos estadísticos.",D:"Fuente oral transmitida de generación en generación."},
+   c:"B",fb:"Un discurso pronunciado en el mismo año del hecho histórico, por su propio protagonista, es una fuente primaria. El libro de 2010 sería la fuente secundaria en esta comparación. El discurso no contiene datos estadísticos ni es una fuente oral transmitida generacionalmente."
+  },
+  {tema:"Populismo",color:"var(--c-po)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Los gobiernos populistas latinoamericanos solían presentarse públicamente como defensores del pueblo trabajador frente a una oligarquía tradicional acusada de ignorar sus demandas.",
+   q:"¿Qué función cumplía este tipo de discurso para los gobiernos populistas?",
+   opts:{A:"Legitimar su liderazgo y ampliar su base de apoyo entre los sectores populares.",B:"Fortalecer exclusivamente a las elites terratenientes tradicionales.",C:"Justificar la eliminación total del sistema capitalista.",D:"Promover una alianza con potencias coloniales europeas."},
+   c:"A",fb:"Presentarse como defensor del pueblo frente a la oligarquía era una estrategia discursiva para legitimar el liderazgo populista y ampliar su base de apoyo entre los sectores populares, no para fortalecer a las elites, eliminar el capitalismo o aliarse con potencias coloniales."
+  },
+  {tema:"Populismo",color:"var(--c-po)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"El gobierno de Getúlio Vargas en Brasil se extendió, con interrupciones, entre 1930 y 1954. El gobierno de Juan Domingo Perón en Argentina se desarrolló entre 1946 y 1955.",
+   q:"¿Qué concepto de pensamiento temporal permite comparar la duración de ambos gobiernos populistas?",
+   opts:{A:"Simultaneidad exacta, porque ambos gobernaron exactamente los mismos años.",B:"Duración: cada gobierno se extendió por un número distinto de años, aunque dentro del mismo periodo histórico general.",C:"Multicausalidad.",D:"Distribución geográfica."},
+   c:"B",fb:"Cada gobierno se extendió por un número de años distinto (Vargas cerca de 24 años con interrupciones, Perón 9 años), aunque ambos se ubican en el periodo general del populismo latinoamericano: eso es comparar su duración, no su simultaneidad exacta."
+  },
+  {tema:"Estado de Bienestar",color:"var(--c-eb)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"El Estado de Bienestar implicó una expansión sostenida del gasto público en salud, educación y seguridad social en varios países occidentales desde la década de 1930.",
+   q:"¿Qué relación tiene esta expansión del gasto social con el principio liberal clásico de Estado mínimo?",
+   opts:{A:"Es plenamente coherente con el Estado mínimo liberal, sin ninguna diferencia.",B:"Representa un alejamiento del principio liberal clásico de no intervención estatal.",C:"No tiene ninguna relación con los principios económicos del liberalismo.",D:"Corresponde exactamente al mismo modelo que el estalinismo soviético."},
+   c:"B",fb:"Expandir el gasto público en áreas sociales implica que el Estado interviene activamente en la economía y la sociedad, alejándose del principio liberal clásico de Estado mínimo y no intervención. No es coherente con ese principio, ni es lo mismo que el estalinismo (que elimina la propiedad privada)."
+  },
+  {tema:"Estado de Bienestar",color:"var(--c-eb)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Una tabla histórica muestra que, en varios países de Europa Occidental, la cobertura de seguros de salud pública pasó de menos del 10% de la población en 1920 a más del 60% hacia 1950.",
+   q:"¿Qué permite evidenciar esta fuente sobre la implementación del Estado de Bienestar?",
+   opts:{A:"El aumento sostenido y significativo de la cobertura social estatal en el periodo.",B:"La disminución de la cobertura de salud pública en el periodo.",C:"La ausencia total de cambios en las políticas sociales.",D:"Que la cobertura de salud pública nunca superó el 10% de la población."},
+   c:"A",fb:"El salto de menos del 10% a más del 60% de cobertura en tres décadas es evidencia cuantitativa directa de la expansión sostenida del Estado de Bienestar, no de su disminución o ausencia de cambios."
+  },
+  {tema:"Estado de Bienestar",color:"var(--c-eb)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"A diferencia del estalinismo, que eliminó la propiedad privada, el Estado de Bienestar mantuvo la economía de mercado, pero con mayor regulación estatal y gasto social.",
+   q:"¿Qué conclusión se puede extraer válidamente de esta comparación?",
+   opts:{A:"Ambos modelos son exactamente iguales en lo económico.",B:"El Estado de Bienestar y el estalinismo representan dos formas distintas de responder a la crisis liberal, con distinto grado de intervención estatal sobre la propiedad privada.",C:"El Estado de Bienestar eliminó la propiedad privada igual que el estalinismo.",D:"El estalinismo mantuvo la economía de mercado igual que el Estado de Bienestar."},
+   c:"B",fb:"Ambos modelos aumentan la intervención estatal frente a la crisis liberal, pero se diferencian en un punto clave: el estalinismo elimina la propiedad privada, mientras el Estado de Bienestar la mantiene, regulándola. No son modelos económicos iguales."
+  }
+];
+
+var userAnswers={},timerInterval=null,timeLeft=1920,ensayoStarted=false,ensayoFinished=false;
+// Tabla oficial de transformación de puntaje P → PAES (DEMRE, PAES Invierno 2026, Historia y Cs. Sociales)
+var ST=[100,114,142,167,190,211,232,252,270,286,300,315,332,349,364,378,388,398,408,420,435,451,466,478,488,495,502,511,522,536,551,566,579,588,596,603,611,622,636,651,667,680,691,701,710,722,736,752,769,785,799,814,829,848,868,889,910,933,958,987,1000];
+
+function buildEnsayo(){
+  var cont=document.getElementById("ensayo-qs");
+  cont.innerHTML="";
+  var SKLBL={h1:"🕰️ Temporal-espacial",h2:"📜 Fuentes",h3:"🧠 Crítico"};
+  EQ.forEach(function(q,i){
+    var d=document.createElement("div");
+    d.className="ensayo-q";
+    var ctxH=q.ctx?'<div class="ensayo-ctx">'+q.ctx+'</div>':'';
+    var optsH="";
+    ["A","B","C","D"].forEach(function(l){
+      optsH+='<div class="ensayo-opt" id="eo-'+i+'-'+l+'" data-qi="'+i+'" data-opt="'+l+'" onclick="selAns(this.dataset.qi,this.dataset.opt)">'+
+        '<div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="ensayo-num" style="color:'+q.color+'">Pregunta '+(i+1)+' / '+EQ.length+' · '+q.tema+' · <span style="opacity:.7;font-weight:700">'+q.ref+'</span></div>'+
+      '<span class="skill-tag skill-'+q.skill+'">'+SKLBL[q.skill]+'</span>'+
+      ctxH+'<div class="ensayo-q-text">'+q.q+'</div>'+
+      '<div class="ensayo-opts" id="eopts-'+i+'">'+optsH+'</div>'+
+      '<div class="ensayo-fb" id="efb-'+i+'"></div>';
+    cont.appendChild(d);
+  });
+}
+buildEnsayo();
+
+function selAns(i,opt){
+  i=parseInt(i);
+  if(!ensayoStarted||ensayoFinished)return;
+  var opts=document.getElementById("eopts-"+i);
+  if(opts.dataset.done)return;
+  userAnswers[i]=opt;
+  opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.remove("selected");});
+  document.getElementById("eo-"+i+"-"+opt).classList.add("selected");
+}
+
+function startEnsayo(){
+  ensayoStarted=true;
+  updateTutorBlock();
+  document.getElementById("start-btn").style.display="none";
+  document.getElementById("timer-status").textContent="¡En marcha! Responde con calma.";
+  var qs=document.getElementById("ensayo-qs"); qs.style.display="block"; qs.style.opacity="1"; qs.style.pointerEvents="auto";
+  var sb=document.getElementById("submit-btn"); sb.style.display="block"; sb.disabled=false;
+  var tb=document.querySelector(".timer-box");
+  if(tb){tb.style.position="sticky";tb.style.top="8px";tb.style.zIndex="155";tb.style.background="rgba(20,15,8,.97)";tb.style.backdropFilter="blur(8px)";tb.style.borderRadius="14px";}
+  var es=document.getElementById("ensayo"); if(es) es.style.paddingBottom="140px";
+  timerInterval=setInterval(function(){
+    timeLeft--;
+    var m=Math.floor(timeLeft/60),s=timeLeft%60;
+    var disp=document.getElementById("timer-disp");
+    disp.textContent=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+    if(timeLeft<=60)disp.className="timer-display danger";
+    else if(timeLeft<=180)disp.className="timer-display warn";
+    if(timeLeft<=0){clearInterval(timerInterval);submitEnsayo();}
+  },1000);
+}
+
+function submitEnsayo(){
+  if(ensayoFinished)return;
+  ensayoFinished=true;
+  clearInterval(timerInterval);
+  document.getElementById("timer-status").textContent="Ensayo terminado";
+  document.getElementById("submit-btn").disabled=true;
+  var correct=0,topicMap={};
+  EQ.forEach(function(q,i){
+    var opts=document.getElementById("eopts-"+i);
+    opts.dataset.done="1";
+    opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.add("locked");});
+    var ua=userAnswers[i];
+    document.getElementById("eo-"+i+"-"+q.c).classList.add("right");
+    if(ua&&ua!==q.c)document.getElementById("eo-"+i+"-"+ua).classList.add("wrong");
+    var isOk=(ua===q.c);
+    var fb=document.getElementById("efb-"+i);
+    fb.className="ensayo-fb show "+(isOk?"ok":"no");
+    fb.textContent=(ua?(isOk?"✅ Correcto. ":"❌ Incorrecto. La respuesta correcta es "+q.c+". "):"⚠️ Sin respuesta. La correcta es "+q.c+". ")+q.fb;
+    if(isOk)correct++;
+    if(!topicMap[q.tema])topicMap[q.tema]={c:0,t:0,color:q.color};
+    topicMap[q.tema].t++;
+    if(isOk)topicMap[q.tema].c++;
+  });
+  var pct=Math.round(correct/EQ.length*100);
+  var mainColor=pct>=70?"var(--dorado)":pct>=50?"#f59e0b":"var(--rojo)";
+  var topicHtml='<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--dorado);margin-bottom:8px">Resultado por subtema:</p><div class="res-topic-grid">';
+  Object.keys(topicMap).forEach(function(t){
+    var r=topicMap[t];
+    var tpct=Math.round(r.c/r.t*100);
+    var scoreColor=tpct>=70?"var(--dorado)":tpct>=50?"#f59e0b":"var(--rojo)";
+    topicHtml+='<div class="res-topic-card '+(tpct<50?"bad":tpct<70?"mid":"")+'">'+
+      '<div class="res-topic-name">'+t+'</div>'+
+      '<div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+  });
+  topicHtml+='</div>';
+  var estP=Math.round(correct/EQ.length*60);
+  var estScore=ST[Math.max(0,Math.min(60,estP))];
+  var msg=pct>=70?"🎉 ¡Buen resultado! Revisa los subtemas donde fallaste.":pct>=50?"💪 Resultado aceptable. Refuerza los subtemas en rojo antes de continuar.":"📚 Necesitas repasar más. Vuelve a las secciones con resultado bajo.";
+  var res=document.getElementById("ensayo-results");
+  res.style.display="block";
+  res.innerHTML='<div class="res-banner" style="color:'+mainColor+'">'+
+    (pct>=70?"🏆":pct>=50?"💪":"📚")+' '+correct+' / '+EQ.length+' correctas</div>'+
+    '<div style="font-size:1rem;color:var(--text-dim);margin-bottom:16px">'+pct+'% · Si mantuvieras este ritmo en las 60 preguntas puntuables, tu puntaje estimado sería ~'+estScore+' pts PAES</div>'+
+    topicHtml+
+    '<div style="background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;margin-top:16px">'+
+    '<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--dorado);margin-bottom:8px">'+msg+'</p>'+
+    '<p style="font-size:.88rem;color:var(--text-dim)">Los subtemas con menos del 70% están marcados. Puedes volver a cualquier sección desde el menú de navegación.</p></div>';
+  res.scrollIntoView({behavior:"smooth"});
+  updateTutorBlock();
+}
+
+// ═══ ASISTENTE IA ═══
+var TUTOR_ENDPOINT = "https://api.anthropic.com/v1/messages";
+var SYSTEM_PROMPT = `Eres el asistente de estudio de la Unidad 2 "Europa, América y Chile en la Primera Mitad del Siglo XX" del módulo PAES Historia y Ciencias Sociales de la plataforma PAES Karuy. Tu rol es ayudar a estudiantes de enseñanza media chilenos a prepararse para la PAES 2027.
+- Solo respondes dudas relacionadas con el contenido de ESTA unidad: la crisis del Estado liberal a comienzos del siglo XX, los totalitarismos (fascismo, nazismo, estalinismo), el populismo en América Latina, y el Estado de Bienestar como respuesta de las democracias occidentales.
+- Nunca entregues directamente la alternativa correcta de una pregunta de "Práctica guiada" o de los recuadros de ejemplo (paes-box) si el estudiante aún no la ha respondido en el módulo. Guíalo con preguntas socráticas para que razone hacia la respuesta.
+- Si ya la respondió, sí puedes explicar por qué la alternativa es correcta o incorrecta.
+- Las preguntas de práctica que generes en modo "Más práctica" son SIEMPRE nuevas y originales; indica explícitamente que son "🤖 generadas por IA, no son preguntas reales de la PAES".
+- No reproduzcas preguntas reales de folletos DEMRE; todo el contenido que generes debe ser original.
+- Trata los totalitarismos, el populismo y el Estado de Bienestar con neutralidad política y rigor histórico; no tomes postura ideológica sobre estos temas.
+- Si el estudiante trae temas relacionados con el golpe de Estado en Chile, la dictadura o los derechos humanos, indícale que esos contenidos corresponden a la Unidad 3B y que allí serán revisados por el docente, sin profundizar tú mismo en esos temas.
+- Si el estudiante expresa angustia, estrés extremo o malestar emocional relacionado con la PAES, valida brevemente cómo se siente, sugiere que hable con un profesor, orientador o adulto de confianza, y luego ofrece retomar el contenido si quiere.
+- Mantén un tono cercano, breve y claro, adecuado para un estudiante de enseñanza media chileno.
+- Si te piden generar contenido de otra unidad o módulo que no conoces en detalle, dilo con honestidad en vez de inventar.`;
+
+var tutorHistory = [];
+var tutorOpen = false;
+
+window.toggleTutor = function() {
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  var dot = document.getElementById("tutorDot");
+  if(dot) dot.style.display = "none";
+};
+
+function updateTutorBlock(){
+  var blocked = ensayoStarted && !ensayoFinished;
+  var fab = document.getElementById("tutorFab");
+  var body = document.getElementById("tutorBody");
+  var msg = document.getElementById("tutorBlockedMsg");
+  if(!fab) return;
+  fab.disabled = blocked;
+  fab.classList.toggle("blocked", blocked);
+  if(body) body.style.display = blocked ? "none" : "flex";
+  if(msg) msg.style.display = blocked ? "block" : "none";
+  if(blocked){
+    tutorOpen = false;
+    document.getElementById("tutorPanel").classList.remove("open");
+  }
+}
+
+function tutorAppendMsg(role, text) {
+  var wrap = document.getElementById("tutorMsgs");
+  var div = document.createElement("div");
+  div.className = "tutor-msg " + role;
+  div.textContent = text;
+  if(role === "bot") {
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "Reportar esta respuesta";
+    rep.onclick = function(){ tutorReport(text); };
+    div.appendChild(document.createElement("br"));
+    div.appendChild(rep);
+  }
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+  return div;
+}
+
+function tutorTyping(show) {
+  var wrap = document.getElementById("tutorMsgs");
+  var existing = document.getElementById("tutorTypingEl");
+  if(show && !existing) {
+    var t = document.createElement("div");
+    t.className = "tutor-typing";
+    t.id = "tutorTypingEl";
+    t.innerHTML = "<span></span><span></span><span></span>";
+    wrap.appendChild(t);
+    wrap.scrollTop = wrap.scrollHeight;
+  } else if(!show && existing) {
+    existing.remove();
+  }
+}
+
+function tutorReport(msgText) {
+  var report = {
+    unidad: "U2 Europa, América y Chile en la Primera Mitad del Siglo XX",
+    fecha: new Date().toISOString(),
+    mensaje_reportado: msgText,
+    historial: tutorHistory
+  };
+  var blob = new Blob([JSON.stringify(report, null, 2)], {type:"application/json"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "reporte_asistente_u2_historia_" + Date.now() + ".json";
+  a.click();
+}
+
+async function tutorCallAPI(userText) {
+  tutorHistory.push({role:"user", content:userText});
+  tutorTyping(true);
+  document.getElementById("tutorSendBtn").disabled = true;
+  try {
+    var res = await fetch(TUTOR_ENDPOINT, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
+        messages: tutorHistory
+      })
+    });
+    var data = await res.json();
+    var text = (data.content || []).map(function(b){ return b.text || ""; }).join("\n") || "No pude generar una respuesta. Intenta de nuevo.";
+    tutorHistory.push({role:"assistant", content:text});
+    tutorTyping(false);
+    tutorAppendMsg("bot", text);
+  } catch(e) {
+    tutorTyping(false);
+    tutorAppendMsg("system", "⚠️ No se pudo conectar con el asistente. Intenta nuevamente en unos segundos.");
+  }
+  document.getElementById("tutorSendBtn").disabled = false;
+}
+
+window.tutorSend = function() {
+  var input = document.getElementById("tutorInput");
+  var val = input.value.trim();
+  if(!val) return;
+  tutorAppendMsg("user", val);
+  input.value = "";
+  tutorCallAPI(val);
+};
+
+window.tutorQuickMode = function(mode) {
+  var prompts = {
+    explicar: "Explícame de otra forma, con una analogía distinta, el concepto de la unidad en el que estoy en este momento.",
+    practica: "Genera una nueva pregunta de práctica 🤖 (original, no real) sobre el tema de esta unidad en el que estoy trabajando, con 4 alternativas, y luego dime cuál es la correcta y por qué cuando yo responda.",
+    corregir: "Quiero que corrijas mi razonamiento. Te voy a escribir mi respuesta a una pregunta de esta unidad y quiero que me ayudes con el método socrático, sin darme la respuesta directamente."
+  };
+  tutorAppendMsg("user", prompts[mode]);
+  tutorCallAPI(prompts[mode]);
+};
+
+updateTutorBlock();
+</script>
+</body>
+</html>
