@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 4 – Formación Ciudadana · PAES Historia y Ciencias Sociales</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dorado:#d4a24c;--dorado-dark:#a97c2f;--dorado-glow:rgba(212,162,76,.15);
+  --sepia:#c17a3d;--azul:#3498db;--morado:#9b59b6;--naranja:#e67e22;
+  --amarillo:#f1c40f;--rojo:#e74c3c;--cyan:#22d3ee;
+  --bg:#140f08;--card:#1e1710;--card2:#2a2013;
+  --text:#f3e8d4;--text-dim:#b8a37e;--radius:18px;
+  --c-on:#3498db;--c-gf:#c0392b;--c-al:#e67e22;--c-fg:#16a085;--c-lt:#9b59b6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 8% 15%,rgba(212,162,76,.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 25% 60%,rgba(255,255,255,.15) 0%,transparent 100%),
+    radial-gradient(1px 1px at 55% 8%,rgba(212,162,76,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 72% 40%,rgba(255,255,255,.13) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 75%,rgba(212,162,76,.22) 0%,transparent 100%),
+    radial-gradient(1px 1px at 40% 85%,rgba(255,255,255,.12) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--dorado),var(--sepia));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(1.6rem,5.5vw,2.9rem);
+  background:linear-gradient(135deg,var(--dorado),var(--sepia),var(--dorado));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.15;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(212,162,76,.12);border:1.5px solid rgba(212,162,76,.35);color:var(--dorado);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.08);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.78rem;padding:7px 13px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:var(--dorado-glow);border-color:var(--dorado);color:var(--dorado)}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.35rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.97rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.h-header{border-radius:var(--radius);padding:26px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:52px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.4rem,4.2vw,2.2rem);line-height:1.15}
+.h-header p{font-size:.97rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--dorado);background:rgba(212,162,76,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--dorado);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65}
+.tip-box p strong{color:var(--text)}
+.kw-grid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.kw{border-radius:8px;padding:5px 11px;font-size:.8rem;font-weight:800}
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px;margin-bottom:16px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.paes-ctx{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-ctx-src{font-size:.74rem;color:var(--text-dim);opacity:.7;font-style:italic;margin-top:6px}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.paes-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--dorado);flex-shrink:0}
+.paes-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.paes-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(212,162,76,.12);color:#f3d896;border-left:3px solid var(--dorado)}
+.paes-fb.no{background:rgba(231,76,60,.08);color:#fca5a5;border-left:3px solid var(--rojo)}
+.skill-tag{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:6px;margin-bottom:8px}
+.skill-h1{background:rgba(212,162,76,.12);color:var(--dorado);border:1px solid rgba(212,162,76,.3)}
+.skill-h2{background:rgba(56,189,248,.12);color:#38bdf8;border:1px solid rgba(56,189,248,.3)}
+.skill-h3{background:rgba(248,113,113,.12);color:#f87171;border:1px solid rgba(248,113,113,.3)}
+.on{color:var(--c-on)!important}.gf{color:var(--c-gf)!important}.al{color:var(--c-al)!important}
+.fg{color:var(--c-fg)!important}.lt{color:var(--c-lt)!important}.dorado{color:var(--dorado)!important}
+.weight-table{width:100%;border-collapse:collapse;margin:12px 0}
+.weight-table th{background:rgba(212,162,76,.12);color:var(--dorado);font-size:.8rem;padding:8px 12px;text-align:left;font-family:"Fredoka One",cursive;font-weight:400}
+.weight-table td{padding:9px 12px;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);color:var(--text-dim)}
+.tl-wrap{overflow-x:auto;padding-bottom:8px}
+.tl-grid{display:grid;grid-template-columns:130px repeat(3,1fr);gap:2px;min-width:640px}
+.tl-head{font-family:"Fredoka One",cursive;font-size:.85rem;text-align:center;padding:10px 6px;border-radius:10px 10px 0 0}
+.tl-row-label{display:flex;align-items:center;font-size:.76rem;font-weight:900;color:var(--text-dim);padding:8px 6px}
+.tl-cell{background:var(--card2);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:9px 10px;font-size:.76rem;color:var(--text-dim);line-height:1.5;min-height:60px;cursor:pointer;position:relative}
+.tl-cell:hover{border-color:rgba(212,162,76,.4)}
+.tl-cell strong{color:var(--text);display:block;font-size:.78rem;margin-bottom:2px}
+.tl-cell .tl-more{display:none;margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.1);font-size:.73rem;color:var(--text-dim)}
+.tl-cell.open .tl-more{display:block}
+.tl-cell .tl-plus{position:absolute;top:6px;right:8px;font-size:.7rem;color:var(--dorado);opacity:.7}
+.prac-group{margin-bottom:24px}
+.prac-group-hdr{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.prac-group-hdr .gi{font-size:1.5rem}
+.prac-group-hdr .gname{font-family:"Fredoka One",cursive;font-size:1.05rem}
+.prac-group-hdr .gscore{margin-left:auto;font-size:.85rem;font-weight:800}
+.pq{display:none;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:10px}
+.pq.show{display:block;animation:fadeUp .3s ease}
+.pq-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 13px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.pq-q{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pq-opts{display:flex;flex-direction:column;gap:7px}
+.nxt-q{margin-top:12px;padding:8px 22px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:"Fredoka One",cursive;font-size:.95rem;cursor:pointer;display:none}
+.nxt-q:hover{background:var(--dorado-dark)}
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(20,15,8,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.08);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(212,162,76,.35);background:transparent;color:var(--dorado);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--dorado-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+.timer-box{background:var(--card2);border:2px solid rgba(212,162,76,.3);border-radius:14px;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.timer-display{font-family:"Fredoka One",cursive;font-size:2.4rem;color:var(--dorado);letter-spacing:.05em}
+.timer-display.warn{color:#f59e0b}
+.timer-display.danger{color:var(--rojo);animation:pulse-b 1s ease-in-out infinite}
+@keyframes pulse-b{0%,100%{opacity:1}50%{opacity:.5}}
+.ensayo-q{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:12px}
+.ensayo-num{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.ensayo-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 12px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.ensayo-q-text{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.ensayo-opts{display:flex;flex-direction:column;gap:7px}
+.ensayo-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 13px;border-radius:9px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(0,0,0,.18);transition:all .18s}
+.ensayo-opt:hover:not(.locked){border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.ensayo-opt.selected{background:rgba(212,162,76,.12);border-color:var(--dorado)}
+.ensayo-opt.locked{cursor:default;pointer-events:none}
+.ensayo-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.ensayo-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ensayo-opt .ol{color:var(--dorado)}
+.ensayo-opt.selected .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.ensayo-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.ensayo-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ensayo-fb{margin-top:8px;padding:9px 13px;border-radius:9px;font-size:.83rem;line-height:1.55;display:none}
+.ensayo-fb.show{display:block}
+.ensayo-fb.ok{background:rgba(212,162,76,.1);color:#f3d896;border-left:3px solid var(--dorado)}
+.ensayo-fb.no{background:rgba(231,76,60,.06);color:#fca5a5;border-left:3px solid var(--rojo)}
+.submit-btn{width:100%;padding:14px;background:var(--dorado);color:#1a1206;border:none;border-radius:12px;font-family:"Fredoka One",cursive;font-size:1.1rem;cursor:pointer;margin-top:10px;transition:background .2s}
+.submit-btn:hover{background:var(--dorado-dark)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+#ensayo-results{display:none;margin-top:20px}
+.res-banner{font-family:"Fredoka One",cursive;font-size:2.5rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0}
+.res-topic-card{background:var(--card2);border-radius:12px;padding:13px 16px;border-left:3px solid var(--dorado)}
+.res-topic-card.bad{border-left-color:var(--rojo)}
+.res-topic-card.mid{border-left-color:#f59e0b}
+.res-topic-name{font-size:.79rem;font-weight:900;color:var(--text-dim);margin-bottom:4px}
+.res-topic-score{font-family:"Fredoka One",cursive;font-size:1.3rem}
+.cmap{display:flex;flex-direction:column;gap:8px}
+.cmap-node{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .2s}
+.cmap-node:hover{border-color:rgba(212,162,76,.4)}
+.cmap-h{display:flex;align-items:center;gap:10px;padding:12px 16px}
+.cmap-h strong{font-size:.92rem;color:var(--text)}
+.cmap-icon{font-size:1.15rem}
+.cmap-plus{font-size:.9rem;color:var(--dorado);margin-left:auto;flex-shrink:0}
+.cmap-body{display:none;padding:0 16px 16px 44px;font-size:.86rem;color:var(--text-dim);line-height:1.65}
+.cmap-node.open .cmap-body{display:block;animation:fadeUp .25s ease}
+.match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin-top:6px}
+@media(max-width:620px){.match-wrap{grid-template-columns:1fr}}
+.match-col{display:flex;flex-direction:column;gap:8px}
+.match-col-hdr{display:flex;align-items:center;gap:6px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--dorado);padding-bottom:4px;border-bottom:1px dashed rgba(212,162,76,.3)}
+.match-list{display:flex;flex-direction:column;gap:8px}
+.match-item{background:rgba(0,0,0,.2);border:1.5px solid rgba(255,255,255,.09);border-left-width:3px;border-radius:10px;padding:10px 14px;font-size:.85rem;color:var(--text-dim);cursor:pointer;transition:all .18s;line-height:1.5}
+.match-item:hover{border-color:var(--dorado)}
+.match-item.term{border-left-color:var(--dorado);font-weight:800;color:var(--text)}
+.match-item.def{border-left-color:rgba(255,255,255,.18)}
+.match-item.picked{border-color:var(--dorado);background:rgba(212,162,76,.1);color:var(--text)}
+.match-item.ok{border-color:var(--dorado);background:rgba(212,162,76,.16);color:var(--text)}
+.match-item.bad{border-color:var(--rojo);background:rgba(231,76,60,.1)}
+.match-item.done{cursor:default}
+.match-status{margin-top:12px;font-size:.85rem;font-weight:800;color:var(--text-dim)}
+.match-status.win{color:var(--dorado)}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#5c4a2a}
+@media(max-width:680px){
+  .container{padding:10px 10px 80px}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:8px !important;gap:5px;margin:12px 0 4px;scrollbar-width:none;position:relative !important;top:auto !important;background:rgba(20,15,8,.95);border-radius:14px}
+  .nav::-webkit-scrollbar{display:none}
+  .nav-btn{flex-shrink:0;font-size:.74rem;padding:9px 13px;min-height:40px;touch-action:manipulation}
+  .hero{padding:36px 8px 14px}
+  .hero-emoji{font-size:48px}
+  .card{padding:14px 12px}
+  .grid-2{grid-template-columns:1fr}
+  .paes-box{padding:14px 12px}
+  .paes-opt{padding:12px 11px;min-height:52px;touch-action:manipulation}
+  .ol{min-width:30px;height:30px;font-size:.8rem}
+  .lnav-btn{padding:13px 18px !important;font-size:.95rem !important;min-height:48px}
+  .submit-btn{width:100% !important;padding:13px !important}
+}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--sepia));border:none;color:#1a1206;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(212,162,76,.4);z-index:210;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid #1a1206;display:none}
+.tutor-fab.blocked .dot{background:#6b7280;display:block}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(0,0,0,.5);z-index:220;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--dorado),var(--sepia));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:#1a1206}
+.tutor-head p{font-size:.7rem;color:rgba(26,18,6,.75);margin-top:1px}
+.tutor-close{background:rgba(0,0,0,.15);border:none;color:#1a1206;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1;flex-shrink:0}
+.tutor-blocked-msg{padding:24px 18px;text-align:center;color:var(--text-dim);font-size:.88rem;line-height:1.7}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--dorado);color:var(--dorado)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--dorado);color:#1a1206;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.08);border-bottom-left-radius:4px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.7}
+.tutor-report:hover{opacity:1;color:var(--dorado)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.12);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--dorado)}
+.tutor-send{background:var(--dorado);border:none;color:#1a1206;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){.tutor-input{font-size:16px}}
+</style>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:14%"></div></div>
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">🏛️</span>
+  <h1>Formación Ciudadana</h1>
+  <p>PAES Historia y Ciencias Sociales · Unidad 4</p>
+  <div class="badge">📜 Admisión 2027</div>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('dc',1,this)">🗳️ Democracia y Ciudadanía</button>
+  <button class="nav-btn" onclick="showSec('ic',2,this)">🏛️ Institucionalidad Chile</button>
+  <button class="nav-btn" onclick="showSec('mt',3,this)">📡 Medios y Tecnología</button>
+  <button class="nav-btn" onclick="showSec('aj',4,this)">⚖️ Acceso a la Justicia</button>
+  <button class="nav-btn" onclick="showSec('esq',5,this)">🗺️ Esquema</button>
+  <button class="nav-btn" onclick="showSec('ensayo',6,this)">⏱️ Mini Ensayo</button>
+</div>
+
+<!-- ═══ PORTADA ═══ -->
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title" style="justify-content:center;color:var(--dorado);font-size:1.6rem">🏛️ Unidad 4 · Formación Ciudadana</p>
+    <p style="font-size:1.05rem;max-width:600px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Esta unidad cubre el eje <strong>Formación Ciudadana</strong> de la prueba: cómo funciona la democracia, cómo se organiza el Estado chileno, qué rol cumplen los medios de comunicación y las nuevas tecnologías, y cómo las personas acceden a la justicia y a la protección de sus derechos.</p>
+  </div>
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">📊 Los 4 subtemas de esta unidad</p>
+    <table class="weight-table">
+      <tr><th>Subtema</th><th>Qué cubre</th></tr>
+      <tr><td>🗳️ <strong style="color:var(--c-on)">Democracia y Ciudadanía</strong></td><td>Fundamentos, atributos y dimensiones de la democracia; derechos y deberes ciudadanos.</td></tr>
+      <tr><td>🏛️ <strong style="color:var(--c-lt)">Institucionalidad democrática en Chile</strong></td><td>Separación de poderes, sistema de contrapesos, funcionamiento del Estado chileno.</td></tr>
+      <tr><td>📡 <strong style="color:var(--c-fg)">Democracia y sociedad de la información</strong></td><td>Rol, oportunidades y riesgos de los medios de comunicación y las nuevas tecnologías.</td></tr>
+      <tr><td>⚖️ <strong style="color:var(--c-gf)">Acceso a la justicia</strong></td><td>Características del sistema judicial chileno y mecanismos de resguardo de derechos.</td></tr>
+    </table>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--dorado)">
+      <p class="card-title" style="color:var(--dorado)">📌 Recuerda</p>
+      <ul>
+        <li>Aplica las <strong>3 habilidades</strong> de la Unidad 0 en cada pregunta</li>
+        <li>Es el eje más <strong>normativo</strong> del módulo: menos fechas, más conceptos, leyes y funcionamiento institucional</li>
+        <li>Muchas preguntas presentan un <strong>fragmento legal o constitucional</strong> para que analices su relación con la democracia</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--sepia)">
+      <p class="card-title" style="color:var(--sepia)">⏱️ Al final de esta unidad</p>
+      <ul>
+        <li>Mini ensayo cronometrado con <strong>18 preguntas 🤖</strong> generadas y revisadas por el docente</li>
+        <li>Resultado con <strong>desglose por subtema</strong></li>
+        <li>Práctica guiada integrada en cada sección (5 preguntas 🤖 por subtema)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">💡 Clave PAES</div>
+    <p>Esta unidad se pregunta casi siempre con <strong>casos o textos cortos</strong> (un artículo constitucional, una noticia, una situación cotidiana) y te pide identificar qué principio o rasgo democrático se evidencia. No memorices definiciones sueltas: practica reconociéndolas dentro de un caso.</p>
+  </div></div>
+
+<!-- ═══ DEMOCRACIA Y CIUDADANÍA ═══ -->
+<div class="section" id="dc">
+  <div class="h-header" style="background:rgba(52,152,219,.12);border:1.5px solid rgba(52,152,219,.3)">
+    <span class="icon">🗳️</span>
+    <h2 class="on">Democracia y Ciudadanía</h2>
+    <p>La democracia no es solo "votar cada 4 años": es un sistema con fundamentos, atributos y dimensiones específicas, y con actores que la hacen funcionar día a día.</p>
+  </div>
+  <div class="card">
+    <p class="card-title on">📖 ¿Qué es la democracia?</p>
+    <p>La democracia es un sistema político basado en la <strong>soberanía popular</strong> (el poder reside en el pueblo) y el <strong>principio de mayoría</strong> (las decisiones se toman por el voto de la mayoría, respetando a las minorías). En Chile, este principio se aplica sobre todo en el <strong>desarrollo de elecciones periódicas</strong> de autoridades.</p>
+    <p style="margin-top:10px">Pero votar no es lo único que sostiene una democracia: también depende de sus <strong>atributos</strong> (participación, pluralismo, transparencia) y de que las instituciones funcionen de forma confiable.</p>
+  </div>
+  <div class="card">
+    <p class="card-title on">🧭 Atributos y dimensiones de la democracia</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-on)"><div style="font-weight:900;color:var(--c-on);font-size:.85rem;margin-bottom:4px">Participación</div><p style="font-size:.82rem">Elecciones, consultas ciudadanas, libertad de asociación y de organización política.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Pluralismo</div><p style="font-size:.82rem">Diversidad de partidos, ideas y medios de comunicación conviviendo en el debate público.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--rojo)"><div style="font-weight:900;color:var(--rojo);font-size:.85rem;margin-bottom:4px">Alternancia</div><p style="font-size:.82rem">Posibilidad real de que el poder cambie de manos, evitando su concentración.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--verde,#2ecc71)"><div style="font-weight:900;color:#2ecc71;font-size:.85rem;margin-bottom:4px">Estado de derecho</div><p style="font-size:.82rem">Todas las personas e instituciones —incluido el propio Estado— están sometidas a la ley.</p></div>
+    </div>
+    <div class="tip-box" style="margin-top:14px">
+      <div class="tip-label">💡 Analogía</div>
+      <p>Piensa en la democracia como un <strong>partido de fútbol con árbitro</strong>: no basta con que haya dos equipos (pluralismo) compitiendo por ganar (alternancia); también se necesita un árbitro que aplique las mismas reglas a todos, incluido al equipo que va ganando (Estado de derecho), y que cualquiera pueda formar un equipo nuevo y jugar (participación).</p>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title on">🎭 Partidos políticos y sociedad civil</p>
+      <p>Los <strong>partidos políticos</strong> canalizan las demandas ciudadanas hacia el sistema político e interactúan con otros organismos de la sociedad civil (sindicatos, ONG, colegios profesionales). No organizan directamente las elecciones (eso corresponde al Servicio Electoral, SERVEL) ni gestionan la educación escolar.</p>
+    </div>
+    <div class="card">
+      <p class="card-title on">⚠️ Amenazas a la democracia</p>
+      <p>Prácticas como el <strong>nepotismo</strong> (privilegiar a familiares en cargos públicos) debilitan la democracia porque superponen intereses particulares por sobre el interés general en la toma de decisiones del Estado.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title on">🧾 Derechos y deberes de la ciudadanía</p>
+    <p>Ser ciudadano no es solo tener derechos: también implica <strong>deberes</strong>. Un ejemplo recurrente en PAES es el pago de impuestos: evadirlos no solo infringe la ley tributaria, sino que <strong>disminuye la capacidad del Estado</strong> para financiar políticas públicas y realizar inversión social.</p>
+  </div>
+  <div class="card">
+    <p class="card-title on">🙋 Mecanismos de participación ciudadana</p>
+    <p>Votar en elecciones no es la única forma de participar. El sistema democrático chileno contempla otros mecanismos, cada uno con un alcance distinto:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-on)"><div style="font-weight:900;color:var(--c-on);font-size:.85rem;margin-bottom:4px">Voto</div><p style="font-size:.82rem">Mecanismo vinculante: su resultado determina directamente quién gobierna o qué opción gana.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Consultas ciudadanas</div><p style="font-size:.82rem">Permiten a la ciudadanía <strong>opinar</strong> en distintas etapas de una política pública, orientando la toma de decisiones del Estado — pero <strong>no son vinculantes</strong>: no obligan a la autoridad a decidir según ese resultado.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid #2ecc71"><div style="font-weight:900;color:#2ecc71;font-size:.85rem;margin-bottom:4px">Asociatividad</div><p style="font-size:.82rem">Libertad de formar partidos, sindicatos u organizaciones sociales para representar intereses colectivos.</p></div>
+    </div>
+    <div class="tip-box" style="margin-top:14px">
+      <div class="tip-label">⚠️ Error frecuente en PAES</div>
+      <p>Las preguntas suelen tentarte con una opción que dice que la ciudadanía "aprueba", "decide" o "define" algo mediante una consulta. Es <strong>incorrecto</strong>: una consulta ciudadana <strong>orienta</strong> la decisión del Estado, no la reemplaza ni la vuelve obligatoria.</p>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">🕰️ Contexto histórico</div>
+    <p>Un ejemplo clásico de "sucesión" temporal en democracia: en <strong>1988</strong> Chile realizó un plebiscito para decidir la continuidad del régimen militar, y en <strong>1989</strong> se realizaron las primeras elecciones presidenciales y parlamentarias del retorno a la democracia. Un hecho ocurre primero, y el otro después.</p>
+  </div>  <div class="card">
+    <p class="card-title on">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-dc">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">👑</span><strong>Soberanía popular</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">El poder político reside en el pueblo, que lo ejerce directamente (plebiscitos, consultas) o a través de representantes elegidos.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🗳️</span><strong>Principio de mayoría</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Las decisiones se toman por el voto de la mayoría, aplicado sobre todo en elecciones periódicas de autoridades, respetando los derechos de las minorías.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">⚖️</span><strong>Estado de derecho</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Todas las personas e instituciones, incluido el Estado, están sometidas a leyes públicas, aplicadas por igual e independientes de quién gobierne.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🎭</span><strong>Partidos y sociedad civil</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Canalizan demandas ciudadanas e interactúan con otros organismos (sindicatos, ONG) para el buen funcionamiento democrático.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🙋</span><strong>Consultas ciudadanas</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Mecanismo que permite a la ciudadanía opinar en distintas etapas de una política pública, orientando —pero no decidiendo de forma vinculante— la acción del Estado.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">⚠️</span><strong>Amenazas (nepotismo, corrupción)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Prácticas que superponen intereses particulares en la toma de decisiones del Estado, debilitando la confianza y la calidad democrática.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title on">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap">
+      <div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-dc-terms"></div></div>
+      <div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-dc-defs"></div></div>
+    </div>
+    <div class="match-status" id="match-dc-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">soberanía popular</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">principio de mayoría</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">pluralismo</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">Estado de derecho</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">nepotismo</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">consultas ciudadanas</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag on">🤖 Pregunta creada · revisada por docente</div>
+    <span class="skill-tag skill-h3">🧠 Pensamiento crítico</span>
+    <div class="paes-ctx">En una comuna, un partido político organiza reuniones con juntas de vecinos y sindicatos locales para recoger sus demandas antes de proponer un proyecto de ley.</div>
+    <p class="paes-q">¿Qué función democrática de los partidos políticos se evidencia en esta situación?</p>
+    <div class="paes-opts" id="qdc1">
+      <div class="paes-opt" onclick="ans('qdc1','A')"><div class="ol">A</div><div class="ot">La organización de los procesos electorales a nivel nacional.</div></div>
+      <div class="paes-opt" onclick="ans('qdc1','B')"><div class="ol">B</div><div class="ot">El financiamiento directo de políticas públicas locales.</div></div>
+      <div class="paes-opt" onclick="ans('qdc1','C')"><div class="ol">C</div><div class="ot">La interacción con otros organismos de la sociedad civil.</div></div>
+      <div class="paes-opt" onclick="ans('qdc1','D')"><div class="ol">D</div><div class="ot">La gestión de la educación ciudadana en el sistema escolar.</div></div>
+    </div>
+    <div class="paes-fb" id="qdc1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-on)">
+    <p class="card-title on">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre Democracia y Ciudadanía.</p>
+  </div>
+  <div id="prac-mount-dc"></div>
+</div>
+
+<!-- ═══ INSTITUCIONALIDAD DEMOCRÁTICA EN CHILE ═══ -->
+<div class="section" id="ic">
+  <div class="h-header" style="background:rgba(155,89,182,.12);border:1.5px solid rgba(155,89,182,.3)">
+    <span class="icon">🏛️</span>
+    <h2 class="lt">Institucionalidad democrática en Chile</h2>
+    <p>Cómo se organiza el poder del Estado chileno para evitar que se concentre en una sola persona o institución, y cómo cada poder controla a los otros.</p>
+  </div>
+  <div class="card">
+    <p class="card-title lt">📖 La separación de poderes</p>
+    <p>El Estado chileno organiza su poder en <strong>tres poderes independientes</strong>: Ejecutivo, Legislativo y Judicial. Cada uno tiene funciones propias y ninguno puede invadir las atribuciones de otro. El <strong>Artículo 7° de la Constitución</strong> establece que los órganos del Estado solo pueden actuar dentro de la competencia que la ley les confiere expresamente, y que todo acto contrario a esto es nulo — es decir, limita las atribuciones de quienes trabajan en el servicio público.</p>
+  </div>
+  <div class="card">
+    <p class="card-title lt">⚖️ El sistema de contrapesos ("frenos y contrapesos")</p>
+    <p>Que existan tres poderes no basta: cada uno debe poder <strong>fiscalizar</strong> a los otros. Por ejemplo, la <strong>Cámara de Diputados</strong> tiene la atribución exclusiva de fiscalizar los actos del Gobierno, pudiendo exigir respuestas fundadas a los ministros de Estado. Este mecanismo evidencia un <strong>sistema de contrapesos de los poderes públicos</strong>, propio de un régimen democrático.</p>
+    <div class="tip-box" style="margin-top:14px">
+      <div class="tip-label">💡 Analogía</div>
+      <p>Es como un auto con tres frenos independientes: si uno solo controlara la velocidad, bastaría con que fallara para perder el control. Con tres sistemas que se vigilan entre sí, es mucho más difícil que uno se descontrole sin que los otros lo detecten y corrijan.</p>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title lt">🔁 Alternancia en el poder</p>
+      <p>La posibilidad de que distintas coaliciones o partidos accedan al gobierno mediante elecciones periódicas —y no siempre el mismo grupo— busca <strong>prevenir la concentración del mando político</strong> en pocas manos a lo largo del tiempo.</p>
+    </div>
+    <div class="card">
+      <p class="card-title lt">🗺️ Descentralización: gobernadores regionales</p>
+      <p>Desde 2021, Chile elige mediante <strong>votación popular</strong> a los gobernadores regionales, que antes eran designados por el Presidente (intendentes). Esto entrega mayor poder de gestión a las comunidades regionales, aunque Chile sigue siendo un Estado unitario, no federal.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title lt">🏛️ Composición del Congreso Nacional</p>
+    <p>El Poder Legislativo chileno es <strong>bicameral</strong>: un proyecto de ley debe ser aprobado por ambas cámaras para convertirse en ley. Cada una tiene reglas distintas de renovación:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-lt)"><div style="font-weight:900;color:var(--c-lt);font-size:.85rem;margin-bottom:4px">Cámara de Diputados</div><p style="font-size:.82rem">Se elige íntegramente cada <strong>4 años</strong> (renovación total). Tiene la atribución exclusiva de fiscalizar los actos del Gobierno.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Senado</div><p style="font-size:.82rem">Sus integrantes duran <strong>8 años</strong> en el cargo, pero el Senado se renueva <strong>por parcialidades</strong> (una mitad cada 4 años), lo que le da mayor continuidad institucional.</p></div>
+    </div>
+    <div class="tip-box" style="margin-top:14px">
+      <div class="tip-label">💡 Por qué importa esta diferencia</div>
+      <p>Que el Senado se renueve por partes evita que <strong>todo</strong> el Congreso cambie de composición al mismo tiempo, dando estabilidad institucional incluso cuando hay elecciones muy polarizadas.</p>
+    </div>
+  </div>  <div class="card">
+    <p class="card-title lt">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-ic">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏛️</span><strong>Separación de poderes</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Ejecutivo, Legislativo y Judicial actúan de forma independiente, cada uno dentro de las atribuciones que la Constitución y las leyes les confieren.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">⚖️</span><strong>Sistema de contrapesos</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Cada poder puede fiscalizar a los otros: por ejemplo, la Cámara de Diputados fiscaliza los actos del Gobierno.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🔁</span><strong>Alternancia en el poder</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Elecciones periódicas que permiten el cambio de autoridades, previniendo la concentración del mando político.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🗺️</span><strong>Gobernadores regionales</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Electos por votación popular desde 2021, entregan mayor poder de gestión a las regiones dentro de un Estado que sigue siendo unitario.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏛️</span><strong>Congreso bicameral</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Cámara de Diputados (renovación total cada 4 años) y Senado (mandatos de 8 años, renovado por parcialidades) deben aprobar juntas cada ley.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📜</span><strong>Artículo 7° de la Constitución</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Ningún órgano del Estado puede atribuirse más autoridad que la que expresamente le confieren la Constitución o las leyes; todo acto contrario es nulo.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title lt">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap">
+      <div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-ic-terms"></div></div>
+      <div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-ic-defs"></div></div>
+    </div>
+    <div class="match-status" id="match-ic-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw lt" style="background:rgba(155,89,182,.12);border:1px solid rgba(155,89,182,.3)">separación de poderes</span>
+    <span class="kw lt" style="background:rgba(155,89,182,.12);border:1px solid rgba(155,89,182,.3)">sistema de contrapesos</span>
+    <span class="kw lt" style="background:rgba(155,89,182,.12);border:1px solid rgba(155,89,182,.3)">alternancia en el poder</span>
+    <span class="kw lt" style="background:rgba(155,89,182,.12);border:1px solid rgba(155,89,182,.3)">gobernadores regionales</span>
+    <span class="kw lt" style="background:rgba(155,89,182,.12);border:1px solid rgba(155,89,182,.3)">Artículo 7°</span>
+    <span class="kw lt" style="background:rgba(155,89,182,.12);border:1px solid rgba(155,89,182,.3)">Congreso bicameral</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag lt">🤖 Pregunta creada · revisada por docente</div>
+    <span class="skill-tag skill-h2">📜 Análisis de fuentes</span>
+    <div class="paes-ctx">La Cámara de Diputados cita a un ministro de Estado a explicar por escrito las razones de una política pública cuestionada. El ministro tiene un plazo legal para responder de forma fundada.</div>
+    <p class="paes-q">¿Cuál es un rasgo del sistema político democrático que se evidencia en esta situación?</p>
+    <div class="paes-opts" id="qic1">
+      <div class="paes-opt" onclick="ans('qic1','A')"><div class="ol">A</div><div class="ot">El establecimiento de normas de transparencia en las instituciones.</div></div>
+      <div class="paes-opt" onclick="ans('qic1','B')"><div class="ol">B</div><div class="ot">El funcionamiento de un sistema electoral basado en la competencia.</div></div>
+      <div class="paes-opt" onclick="ans('qic1','C')"><div class="ol">C</div><div class="ot">La aplicación de garantías jurídicas de respeto de los derechos civiles.</div></div>
+      <div class="paes-opt" onclick="ans('qic1','D')"><div class="ol">D</div><div class="ot">La implementación de un sistema de contrapesos de los poderes públicos.</div></div>
+    </div>
+    <div class="paes-fb" id="qic1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-lt)">
+    <p class="card-title lt">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre Institucionalidad democrática en Chile.</p>
+  </div>
+  <div id="prac-mount-ic"></div>
+</div>
+
+<!-- ═══ DEMOCRACIA Y SOCIEDAD DE LA INFORMACIÓN ═══ -->
+<div class="section" id="mt">
+  <div class="h-header" style="background:rgba(22,160,133,.12);border:1.5px solid rgba(22,160,133,.3)">
+    <span class="icon">📡</span>
+    <h2 class="fg">La democracia en la sociedad de la información</h2>
+    <p>Los medios de comunicación y las nuevas tecnologías son claves para la democracia actual — pero traen oportunidades y riesgos que conviene distinguir.</p>
+  </div>
+  <div class="card">
+    <p class="card-title fg">📖 El rol de los medios en la democracia</p>
+    <p>Los medios de comunicación cumplen un rol doble: <strong>informar</strong> a la ciudadanía sobre el desempeño de sus autoridades, y <strong>fiscalizar</strong> el poder actuando como contrapeso informal. Al mismo tiempo, a través de las noticias y el entretenimiento, los medios también <strong>orientan la opinión pública</strong> en materia política, delimitando qué temas se discuten y cómo.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title fg">✅ Oportunidades</p>
+      <ul>
+        <li>Mejoran la capacidad ciudadana para <strong>evaluar a las autoridades</strong>.</li>
+        <li>Permiten el <strong>acceso a información veraz</strong>, fortaleciendo el diálogo pluralista.</li>
+        <li>La <strong>verificación de datos</strong> (fact-checking) valida la información que sustenta el debate ciudadano.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="card-title fg">⚠️ Riesgos</p>
+      <ul>
+        <li>La <strong>concentración de la propiedad</strong> de los medios disminuye la pluralidad del debate político.</li>
+        <li>La proliferación de <strong>noticias falsas (fake news)</strong> en redes sociales puede manipular la opinión pública.</li>
+        <li>Los <strong>algoritmos de redes sociales</strong> pueden encerrar a las personas en "burbujas" de contenido afín a sus propias ideas.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title fg">🌐 El declive de los medios tradicionales</p>
+    <p>A inicios del siglo XXI, la caída de las ventas de prensa escrita coincidió con el auge de canales alternativos no gestionados por grandes aparatos industriales: internet y las redes sociales permitieron una <strong>disminución de la capacidad de difusión</strong> de los medios tradicionales frente a estos nuevos canales, cambiando cómo la ciudadanía se informa y se moviliza.</p>
+  </div>  <div class="card">
+    <p class="card-title fg">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-mt">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🔎</span><strong>Rol fiscalizador de los medios</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Los medios informan sobre el desempeño de las autoridades, actuando como un contrapeso informal al poder político.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">✅</span><strong>Verificación de datos</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">El fact-checking valida la información que sustenta el debate ciudadano y ayuda a contrarrestar la desinformación.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📉</span><strong>Concentración de medios</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Cuando pocos grupos controlan la mayoría de los medios, disminuye la pluralidad del debate político ciudadano.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📱</span><strong>Redes sociales y desinformación</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Canales alternativos que reducen el poder de los medios tradicionales, pero facilitan la propagación de noticias falsas.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title fg">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap">
+      <div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-mt-terms"></div></div>
+      <div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-mt-defs"></div></div>
+    </div>
+    <div class="match-status" id="match-mt-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">rol fiscalizador</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">pluralismo informativo</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">concentración de medios</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">noticias falsas</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">verificación de datos</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag fg">🤖 Pregunta creada · revisada por docente</div>
+    <span class="skill-tag skill-h2">📜 Análisis de fuentes</span>
+    <div class="paes-ctx">Un canal de televisión dedica gran parte de su franja de entretenimiento y noticias a instalar un mismo tema como "lo más urgente del país", influyendo en qué discute la ciudadanía esa semana.</div>
+    <p class="paes-q">De acuerdo con la situación descrita, ¿qué rol cumplen los medios de comunicación en la vida democrática?</p>
+    <div class="paes-opts" id="qmt1">
+      <div class="paes-opt" onclick="ans('qmt1','A')"><div class="ol">A</div><div class="ot">Canalizan los problemas que afectan a la ciudadanía.</div></div>
+      <div class="paes-opt" onclick="ans('qmt1','B')"><div class="ol">B</div><div class="ot">Orientan la opinión de la ciudadanía en materia política.</div></div>
+      <div class="paes-opt" onclick="ans('qmt1','C')"><div class="ol">C</div><div class="ot">Resguardan la objetividad en el ejercicio del periodismo.</div></div>
+      <div class="paes-opt" onclick="ans('qmt1','D')"><div class="ol">D</div><div class="ot">Expresan el pluralismo de visiones existente en la sociedad.</div></div>
+    </div>
+    <div class="paes-fb" id="qmt1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-fg)">
+    <p class="card-title fg">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre Democracia y sociedad de la información.</p>
+  </div>
+  <div id="prac-mount-mt"></div>
+</div>
+
+<!-- ═══ ACCESO A LA JUSTICIA ═══ -->
+<div class="section" id="aj">
+  <div class="h-header" style="background:rgba(192,57,43,.12);border:1.5px solid rgba(192,57,43,.3)">
+    <span class="icon">⚖️</span>
+    <h2 class="gf">Acceso a la justicia y resguardo de derechos</h2>
+    <p>Cómo el sistema judicial chileno y otras instituciones protegen los derechos de las personas, y qué obstáculos existen para acceder efectivamente a la justicia.</p>
+  </div>
+  <div class="card">
+    <p class="card-title gf">📖 El Estado de derecho aplicado a la justicia</p>
+    <p>El <strong>Estado de derecho</strong> significa que todas las personas, instituciones y entidades —públicas y privadas, incluido el propio Estado— están sometidas a leyes públicas, aplicadas por igual e independientes de quién las ejerza. En la práctica, esto opera cuando la actuación de las autoridades públicas está <strong>limitada por las normas jurídicas</strong>, y no depende de la voluntad arbitraria de quien esté en el poder.</p>
+  </div>
+  <div class="card">
+    <p class="card-title gf">🛡️ Instituciones que resguardan los derechos</p>
+    <p>Además de los tribunales, Chile cuenta con instituciones especializadas en proteger derechos:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-gf)"><div style="font-weight:900;color:var(--c-gf);font-size:.85rem;margin-bottom:4px">INDH</div><p style="font-size:.82rem">Instituto Nacional de Derechos Humanos (Ley 20.405, 2009): promueve y protege los DD.HH., pudiendo denunciar arbitrariedades cometidas por los gobiernos. No es un tribunal.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Ley de Transparencia</div><p style="font-size:.82rem">Ley N° 20.285 (2008), vigente desde <strong>2009</strong>: permite a cualquier persona solicitar información pública a organismos del Estado, ejerciendo control ciudadano sobre la administración.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid #2ecc71"><div style="font-weight:900;color:#2ecc71;font-size:.85rem;margin-bottom:4px">Defensoría Penal Pública</div><p style="font-size:.82rem">Garantiza <strong>defensa legal gratuita</strong> a toda persona acusada de un delito que no pueda costear un abogado particular, asegurando el derecho a defensa.</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title gf">🧑‍⚖️ La estructura del Poder Judicial: cómo llega un caso a la Corte Suprema</p>
+    <p>El sistema judicial chileno funciona en <strong>instancias sucesivas</strong>, no en un solo nivel:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-gf)"><div style="font-weight:900;color:var(--c-gf);font-size:.85rem;margin-bottom:4px">1️⃣ Tribunal de primera instancia</div><p style="font-size:.82rem">Conoce el caso por primera vez (juzgado civil, de garantía, de familia, laboral, etc.) y dicta la sentencia inicial.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">2️⃣ Corte de Apelaciones</div><p style="font-size:.82rem">Si una parte no está conforme, puede <strong>apelar</strong>: la Corte revisa el fallo del tribunal inferior y puede confirmarlo o modificarlo.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid #2ecc71"><div style="font-weight:900;color:#2ecc71;font-size:.85rem;margin-bottom:4px">3️⃣ Corte Suprema</div><p style="font-size:.82rem">Última instancia: revisa principalmente cuestiones de derecho, no de hechos. Sus fallos no pueden ser revisados por otro tribunal chileno.</p></div>
+    </div>
+    <div class="tip-box" style="margin-top:14px">
+      <div class="tip-label">💡 Clave PAES</div>
+      <p>Si una pregunta describe a alguien que <strong>no está de acuerdo con un primer fallo</strong> y quiere que se revise, la respuesta casi siempre es la <strong>Corte de Apelaciones</strong> —no directamente la Corte Suprema, que es la última instancia.</p>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title gf">👥 Grupos vulnerables y políticas sociales</p>
+      <p>La implementación de <strong>políticas sociales</strong> es clave para un sistema democrático porque mejora el ejercicio de los derechos de los grupos vulnerables, contribuyendo a que la igualdad ante la ley no sea solo formal, sino efectiva en la práctica.</p>
+    </div>
+    <div class="card">
+      <p class="card-title gf">🧑‍⚖️ Debido proceso</p>
+      <p>Toda persona acusada tiene derecho a un <strong>juicio justo</strong>: ser informada de los cargos, presentar pruebas y defensa, y ser juzgada por un tribunal imparcial. Es uno de los pilares del sistema judicial chileno y de cualquier Estado de derecho.</p>
+    </div>
+  </div>  <div class="card">
+    <p class="card-title gf">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-aj">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">⚖️</span><strong>Estado de derecho</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Todas las personas e instituciones, incluido el Estado, están sometidas a normas jurídicas aplicadas por igual e independientes.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🛡️</span><strong>INDH</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Institución creada en 2009 para promover y proteger los Derechos Humanos, con capacidad de denunciar arbitrariedades del gobierno.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">1️⃣</span><strong>Tribunal de primera instancia</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Conoce el caso por primera vez y dicta la sentencia inicial (juzgado civil, de garantía, de familia, laboral, etc.).</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">2️⃣</span><strong>Corte de Apelaciones</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Revisa el fallo cuando una parte apela, pudiendo confirmarlo o modificarlo. Es el paso siguiente al tribunal de primera instancia.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">3️⃣</span><strong>Corte Suprema</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Última instancia del Poder Judicial: revisa principalmente cuestiones de derecho, no de hechos.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🧑‍💼</span><strong>Defensoría Penal Pública</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Garantiza defensa legal gratuita a quienes no pueden costear un abogado particular, protegiendo el derecho a defensa y el debido proceso.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📄</span><strong>Ley de Transparencia</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Da acceso ciudadano a la información pública de los organismos del Estado, permitiendo control sobre la administración.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">👥</span><strong>Políticas sociales</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Mejoran el ejercicio efectivo de los derechos de los grupos vulnerables, más allá de la igualdad formal ante la ley.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🧑‍⚖️</span><strong>Debido proceso</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Derecho a un juicio justo, con defensa y ante un tribunal imparcial: pilar del sistema judicial chileno.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title gf">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap">
+      <div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-aj-terms"></div></div>
+      <div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-aj-defs"></div></div>
+    </div>
+    <div class="match-status" id="match-aj-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">Estado de derecho</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">INDH</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">Ley de Transparencia</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">debido proceso</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">grupos vulnerables</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">Corte de Apelaciones</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">Corte Suprema</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">Defensoría Penal Pública</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag gf">🤖 Pregunta creada · revisada por docente</div>
+    <span class="skill-tag skill-h2">📜 Análisis de fuentes</span>
+    <div class="paes-ctx">El Instituto Nacional de Derechos Humanos publica un informe donde señala que un gobierno regional restringió el acceso a un campamento sin seguir el procedimiento legal correspondiente.</div>
+    <p class="paes-q">Considerando la situación descrita, ¿de qué manera favorece a la democracia la institución señalada?</p>
+    <div class="paes-opts" id="qaj1">
+      <div class="paes-opt" onclick="ans('qaj1','A')"><div class="ol">A</div><div class="ot">Funcionando autónomamente como un tribunal de justicia.</div></div>
+      <div class="paes-opt" onclick="ans('qaj1','B')"><div class="ol">B</div><div class="ot">Sancionando las normas legales relativas a la ciudadanía.</div></div>
+      <div class="paes-opt" onclick="ans('qaj1','C')"><div class="ol">C</div><div class="ot">Denunciando arbitrariedades cometidas por los gobiernos.</div></div>
+      <div class="paes-opt" onclick="ans('qaj1','D')"><div class="ol">D</div><div class="ot">Estableciendo criterios para la formulación de políticas públicas.</div></div>
+    </div>
+    <div class="paes-fb" id="qaj1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-gf)">
+    <p class="card-title gf">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre Acceso a la justicia.</p>
+  </div>
+  <div id="prac-mount-aj"></div>
+</div>
+
+<!-- ═══ ESQUEMA: PODERES DEL ESTADO Y RUTA DE ACCESO A LA JUSTICIA ═══ -->
+<div class="section" id="esq">
+  <div class="h-header" style="background:rgba(230,126,34,.1);border:1.5px solid rgba(230,126,34,.3)">
+    <span class="icon">🗺️</span>
+    <h2 class="al">Esquema · Poderes del Estado y ruta de acceso a la justicia</h2>
+    <p>El organigrama clave de esta unidad: compara los 3 poderes del Estado chileno y muestra el recorrido de un caso judicial hasta la Corte Suprema.</p>
+  </div>
+  <div class="card">
+    <p class="card-title al">🗺️ Cómo leerlo</p>
+    <p>Cada columna de la tabla es un poder del Estado. Cada fila es una dimensión de comparación. <strong>Haz clic en cualquier celda</strong> para ver un dato adicional.</p>
+  </div>
+  <div class="card">
+    <div class="tl-wrap">
+      <div class="tl-grid">
+        <div></div>
+        <div class="tl-head" style="background:rgba(52,152,219,.15);color:var(--c-on)">👔 Poder Ejecutivo</div>
+        <div class="tl-head" style="background:rgba(155,89,182,.15);color:var(--c-lt)">🏛️ Poder Legislativo</div>
+        <div class="tl-head" style="background:rgba(192,57,43,.15);color:var(--c-gf)">⚖️ Poder Judicial</div>
+
+        <div class="tl-row-label">🎯 Función principal</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Gobernar y administrar</strong>el Estado.<div class="tl-more">Define políticas públicas, dirige las relaciones internacionales y administra la seguridad del país.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Elaborar y fiscalizar</strong>las leyes.<div class="tl-more">Discute y aprueba leyes, y fiscaliza los actos del Gobierno (atribución exclusiva de la Cámara de Diputados).</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Resolver conflictos</strong>aplicando la ley.<div class="tl-more">Juzga causas civiles, penales y de otra índole, garantizando el debido proceso.</div></div>
+
+        <div class="tl-row-label">👥 Quién lo ejerce</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Presidente/a de la República</strong>y sus ministros.<div class="tl-more">El Presidente es Jefe de Estado y de Gobierno a la vez, a diferencia de sistemas parlamentarios donde estos roles se separan.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Congreso Nacional</strong>: Cámara de Diputados y Senado.<div class="tl-more">Sistema bicameral: un proyecto de ley debe ser aprobado por ambas cámaras para convertirse en ley.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Tribunales y Corte Suprema</strong>.<div class="tl-more">Los jueces son inamovibles mientras dure su buen comportamiento, para garantizar su independencia.</div></div>
+
+        <div class="tl-row-label">⏳ Duración del mandato</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>4 años</strong>, sin reelección inmediata.<div class="tl-more">El Presidente puede volver a postular en un periodo posterior, pero no de forma consecutiva.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>4 años (diputados) / 8 años (senadores)</strong>.<div class="tl-more">El Senado se renueva por parcialidades, lo que da mayor continuidad institucional a esa cámara.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Sin plazo fijo</strong>: rige la inamovilidad.<div class="tl-more">Los jueces se mantienen en el cargo hasta el límite de edad legal, salvo destitución por mal comportamiento.</div></div>
+
+        <div class="tl-row-label">📍 Ejemplo de acto</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Promulgar</strong>una ley aprobada por el Congreso.<div class="tl-more">El Presidente puede vetar (observar) un proyecto de ley antes de promulgarlo, devolviéndolo al Congreso.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Interpelar</strong>a un ministro de Estado.<div class="tl-more">La Cámara de Diputados puede citar a un ministro a rendir cuentas sobre su gestión.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Dictar sentencia</strong>en un juicio.<div class="tl-more">La Corte Suprema es la última instancia: sus fallos no pueden ser revisados por otro tribunal chileno.</div></div>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:.82rem;color:var(--text-dim)">💡 Pregunta PAES frecuente: identificar en un texto o situación qué poder del Estado actúa, o si se evidencia separación de poderes / sistema de contrapesos entre ellos.</p>
+  </div>
+  <div class="card">
+    <p class="card-title al">🧭 Ruta de acceso a la justicia · haz clic para expandir cada etapa</p>
+    <div class="cmap" id="cmap-esq">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">1️⃣</span><strong>Tribunal de primera instancia</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Un juzgado (civil, de garantía, de familia, laboral, etc.) conoce el caso por primera vez y dicta una sentencia inicial.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">2️⃣</span><strong>Corte de Apelaciones</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Si una de las partes no está conforme, puede apelar. La Corte revisa el fallo del tribunal inferior y puede confirmarlo o modificarlo.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">3️⃣</span><strong>Corte Suprema</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Última instancia del Poder Judicial. Revisa principalmente cuestiones de derecho (no de hechos) mediante recursos como la casación.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🛡️</span><strong>Mecanismos de apoyo</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">La Defensoría Penal Pública y la asistencia jurídica gratuita buscan garantizar que el acceso a la justicia no dependa de la capacidad económica de las personas.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MINI ENSAYO ═══ -->
+<div class="section" id="ensayo">
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">⏱️ Mini Ensayo cronometrado · 18 preguntas</p>
+    <p>Responde las 18 preguntas dentro del tiempo límite. Las respuestas se evalúan al terminar. <strong>Simula las condiciones reales de la prueba.</strong></p>
+  </div>
+  <div class="tip-box" style="margin-bottom:16px">
+    <div class="tip-label">💡 Estrategia</div>
+    <p>Lee primero qué principio o rasgo democrático te pide identificar la pregunta. Cuidado con las opciones que describen algo real pero que <strong>no responde exactamente</strong> a lo que el texto o caso evidencia — es el error más común en esta unidad.</p>
+  </div>
+  <div class="timer-box">
+    <div>
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Tiempo restante</div>
+      <div class="timer-display" id="timer-disp">32:00</div>
+    </div>
+    <div style="text-align:right">
+      <div id="timer-status" style="font-size:.85rem;color:var(--text-dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+      <button id="start-btn" onclick="startEnsayo()" style="padding:8px 20px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+    </div>
+  </div>
+  <div id="ensayo-qs" style="display:none"></div>
+  <button class="submit-btn" id="submit-btn" onclick="submitEnsayo()" disabled style="display:none">✅ Terminar y ver resultados</button>
+  <div id="ensayo-results"></div>
+</div>
+
+</div><!-- /container -->
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">← Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente →</button>
+</div>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 4</h3>
+      <p>Formación Ciudadana · Historia</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    🔒 El asistente está pausado mientras rindes el Mini Ensayo cronometrado. Vuelve a abrirlo cuando termines.
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre Democracia y Ciudadanía, Institucionalidad democrática en Chile, Medios y Tecnología, y Acceso a la Justicia. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<footer>🏛️ Unidad 4 · Formación Ciudadana · PAES Historia y Ciencias Sociales · Admisión 2027<br>
+<span style="font-size:.72rem;opacity:.75">🤖 Las preguntas marcadas con este ícono son generadas por IA y revisadas por un docente de Historia. No reproducen preguntas oficiales del proceso de admisión DEMRE.</span></footer>
+<script>
+// ═══ NAVEGACIÓN ═══
+var SECS=["portada","dc","ic","mt","aj","esq","ensayo"];
+var SLABELS=["Inicio","🗳️ Democracia y Ciudadanía","🏛️ Institucionalidad Chile","📡 Medios y Tecnología","⚖️ Acceso a la Justicia","🗺️ Esquema","⏱️ Mini Ensayo"];
+var curSec=0;
+function showSec(id,idx,btn){
+  SECS.forEach(function(s){document.getElementById(s).classList.remove("active");});
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec=idx;
+  updateLinNav();
+  document.getElementById("prog").style.width=Math.round(((idx+1)/SECS.length)*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function linNav(d){
+  var n=Math.max(0,Math.min(SECS.length-1,curSec+d));
+  if(n===curSec)return;
+  showSec(SECS[n],n,document.querySelectorAll(".nav-btn")[n]);
+}
+function updateLinNav(){
+  document.getElementById("lnav-prev").disabled=(curSec===0);
+  document.getElementById("lnav-next").disabled=(curSec===SECS.length-1);
+  document.getElementById("lnav-label").textContent=SLABELS[curSec];
+}
+updateLinNav();
+
+// ═══ TABLA COMPARATIVA EXPANDIBLE ═══
+function toggleTL(el){
+  el.classList.toggle("open");
+  el.querySelector(".tl-plus").textContent=el.classList.contains("open")?"－":"＋";
+}
+
+// ═══ MAPA CONCEPTUAL CLICABLE ═══
+function toggleCmap(el){
+  var wasOpen=el.classList.contains("open");
+  el.parentElement.querySelectorAll(".cmap-node").forEach(function(n){n.classList.remove("open");n.querySelector(".cmap-plus").textContent="＋";});
+  if(!wasOpen){el.classList.add("open");el.querySelector(".cmap-plus").textContent="－";}
+}
+
+// ═══ EJERCICIO DE RELACIONAR CONCEPTOS ═══
+function shuffleArr(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+var MATCH_STATE={};
+function buildMatch(mid,pairs){
+  var order=shuffleArr(pairs.map(function(p,i){return i;}));
+  var defOrder=shuffleArr(pairs.map(function(p,i){return i;}));
+  MATCH_STATE[mid]={pairs:pairs,picked:null,solved:0};
+  var tCol=document.getElementById(mid+"-terms"), dCol=document.getElementById(mid+"-defs");
+  tCol.innerHTML=""; dCol.innerHTML="";
+  order.forEach(function(i){
+    var d=document.createElement("div");
+    d.className="match-item term"; d.dataset.i=i; d.textContent=pairs[i].term;
+    d.onclick=function(){matchPick(mid,"t",i,d);};
+    tCol.appendChild(d);
+  });
+  defOrder.forEach(function(i){
+    var d=document.createElement("div");
+    d.className="match-item def"; d.dataset.i=i; d.textContent=pairs[i].def;
+    d.onclick=function(){matchPick(mid,"d",i,d);};
+    dCol.appendChild(d);
+  });
+  document.getElementById(mid+"-status").textContent="0 / "+pairs.length+" relacionados";
+}
+function matchPick(mid,side,i,el){
+  var st=MATCH_STATE[mid];
+  if(el.classList.contains("done"))return;
+  if(!st.picked){
+    document.querySelectorAll("#"+mid+"-terms .match-item,#"+mid+"-defs .match-item").forEach(function(x){if(!x.classList.contains("done"))x.classList.remove("picked");});
+    st.picked={side:side,i:i,el:el};
+    el.classList.add("picked");
+    return;
+  }
+  if(st.picked.side===side){
+    st.picked.el.classList.remove("picked");
+    st.picked={side:side,i:i,el:el};
+    el.classList.add("picked");
+    return;
+  }
+  var match=(st.picked.i===i);
+  if(match){
+    st.picked.el.classList.remove("picked"); st.picked.el.classList.add("ok","done");
+    el.classList.add("ok","done");
+    st.solved++;
+    document.getElementById(mid+"-status").textContent=st.solved+" / "+st.pairs.length+" relacionados";
+    if(st.solved===st.pairs.length){
+      var s=document.getElementById(mid+"-status"); s.textContent="🎉 ¡Completado! "+st.pairs.length+" / "+st.pairs.length; s.classList.add("win");
+    }
+  }else{
+    el.classList.add("bad");
+    var badEl=el, pickedEl=st.picked.el;
+    setTimeout(function(){badEl.classList.remove("bad");pickedEl.classList.remove("picked");},550);
+  }
+  st.picked=null;
+}
+
+// ═══ FEEDBACK POR ALTERNATIVA (preguntas dentro del contenido) ═══
+var QA={
+  "qdc1":{c:"C",fb:{
+    A:"Incorrecto. Organizar procesos electorales es función del Servicio Electoral (SERVEL), no de los partidos políticos.",
+    B:"Incorrecto. Los partidos no financian directamente la implementación de políticas públicas; eso corresponde al Estado.",
+    C:"✅ Correcto. Los partidos políticos interactúan con otros organismos de la sociedad civil (sindicatos, ONG, colegios profesionales), canalizando demandas hacia el sistema político.",
+    D:"Incorrecto. La educación ciudadana escolar corresponde al Ministerio de Educación, no a los partidos políticos."
+  }},
+  "qic1":{c:"D",fb:{
+    A:"Incorrecto. El texto no menciona normas de transparencia, sino una atribución fiscalizadora.",
+    B:"Incorrecto. El texto no describe el sistema electoral, sino la fiscalización entre poderes.",
+    C:"Incorrecto. El texto no trata garantías de derechos civiles, sino relaciones entre el Legislativo y el Ejecutivo.",
+    D:"✅ Correcto. Que la Cámara de Diputados pueda exigir respuestas fundadas al Ejecutivo evidencia un sistema de contrapesos entre los poderes del Estado."
+  }},
+  "qmt1":{c:"B",fb:{
+    A:"Incorrecto. El texto no habla de canalizar problemas ciudadanos, sino de influencia cultural e ideológica.",
+    B:"✅ Correcto. El texto describe cómo los medios delimitan marcos interpretativos y legitiman ciertos intereses, es decir, orientan la opinión ciudadana en materia política.",
+    C:"Incorrecto. El texto no afirma que los medios resguarden la objetividad; describe lo contrario, su influencia ideológica.",
+    D:"Incorrecto. El texto no se refiere al pluralismo de visiones, sino a la capacidad de los medios de imponer marcos interpretativos."
+  }},
+  "qaj1":{c:"C",fb:{
+    A:"Incorrecto. El INDH no es un tribunal de justicia; no dicta sentencias ni resuelve juicios.",
+    B:"Incorrecto. El INDH no sanciona normas legales; esa es función del Poder Legislativo.",
+    C:"✅ Correcto. El INDH promueve y protege los DD.HH., pudiendo denunciar arbitrariedades cometidas por los gobiernos, lo que fortalece los contrapesos democráticos.",
+    D:"Incorrecto. El INDH no formula políticas públicas; su rol es de promoción, protección y denuncia."
+  }}
+};
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done="1";
+  var a=QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===a.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById(qid+"-fb");
+  fb.className="paes-fb show "+(opt===a.c?"ok":"no");
+  fb.innerHTML=a.fb[opt];
+}
+
+// ═══ PRÁCTICA GUIADA · 20 preguntas 🤖 (4 subtemas × 5) ═══
+var PG=[
+  { hid:"dc", icon:"🗳️", name:"Democracia y Ciudadanía", color:"var(--c-on)",
+    qs:[
+      { skill:"h3", ctx:"Un país establece por ley que solo puede existir un partido político y que las elecciones no admiten candidaturas independientes.",
+        q:"¿Qué atributo de la democracia se ve directamente vulnerado en este caso?",
+        opts:{A:"La alternancia en el poder.",B:"El pluralismo político.",C:"El Estado de derecho.",D:"La soberanía popular."},
+        c:"B",fb:{A:"Incorrecto. El texto no habla de continuidad en el poder, sino de la existencia de un solo partido.",B:"✅ Correcto. Impedir otros partidos y candidaturas independientes elimina la diversidad política, es decir, el pluralismo.",C:"Incorrecto. No se describe una violación a la aplicación de la ley, sino una restricción a la competencia política.",D:"Incorrecto. El texto no elimina el voto popular, sino la diversidad de opciones."}
+      },
+      { skill:"h2", ctx:"Una encuesta nacional mide, año a año, el nivel de confianza de la ciudadanía en el Congreso, el Gobierno y el Poder Judicial.",
+        q:"¿Qué tipo de fuente es esta encuesta y qué permite observar?",
+        opts:{A:"Fuente cualitativa que documenta un solo testimonio.",B:"Fuente cuantitativa que permite observar la evolución de la confianza institucional en el tiempo.",C:"Fuente primaria testimonial poco confiable.",D:"Fuente que solo sirve para estudiar procesos económicos."},
+        c:"B",fb:{A:"Incorrecto. Una encuesta con datos numéricos es cuantitativa, no un testimonio individual.",B:"✅ Correcto. Una encuesta aplicada año a año es una fuente cuantitativa que permite observar tendencias en el tiempo.",C:"Incorrecto. No es un testimonio personal, sino datos estadísticos agregados.",D:"Incorrecto. Es útil también para estudiar fenómenos políticos y sociales."}
+      },
+      { skill:"h1", ctx:"En 1988 Chile realizó un plebiscito para decidir la continuidad del régimen militar. En 1990 asumió un gobierno civil electo.",
+        q:"¿Qué relación temporal existe entre ambos hechos?",
+        opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Distribución geográfica."},
+        c:"B",fb:{A:"Incorrecto. No ocurrieron en el mismo año.",B:"✅ Correcto. Un hecho ocurre (1988) y luego el otro (1990): sucesión.",C:"Incorrecto. No se habla de múltiples causas.",D:"Incorrecto. No se compara ubicación."}
+      },
+      { skill:"h3", ctx:"En un municipio, la autoridad decide contratar únicamente a familiares directos para los cargos de mayor responsabilidad, sin concurso público.",
+        q:"¿Por qué esta práctica constituye una amenaza para la democracia?",
+        opts:{A:"Porque aumenta la cantidad de empleos disponibles.",B:"Porque superpone intereses particulares en la toma de decisiones públicas.",C:"Porque mejora la eficiencia de la administración municipal.",D:"Porque fortalece la confianza ciudadana en las instituciones."},
+        c:"B",fb:{A:"Incorrecto. El texto no se refiere a la cantidad de empleos.",B:"✅ Correcto. El nepotismo antepone intereses particulares (familiares) al interés general en la administración pública.",C:"Incorrecto. Es lo opuesto: suele reducir la idoneidad de quienes ocupan los cargos.",D:"Incorrecto. Este tipo de prácticas tienden a debilitar, no fortalecer, la confianza ciudadana."}
+      },
+      { skill:"h2", ctx:"Un artículo académico compara las tasas de participación electoral en 15 países durante las últimas 3 décadas, usando datos oficiales de organismos electorales.",
+        q:"¿Qué habilidad se pone en juego principalmente al interpretar este artículo?",
+        opts:{A:"Pensamiento crítico sobre juicios de valor personales.",B:"Análisis de fuentes de información cuantitativa y comparada.",C:"Memorización de fechas exactas.",D:"Descripción de paisajes geográficos."},
+        c:"B",fb:{A:"Incorrecto. No se trata de evaluar juicios de valor, sino de interpretar datos.",B:"✅ Correcto. Comparar tasas de participación con datos oficiales de múltiples países requiere análisis de fuentes cuantitativas y comparadas.",C:"Incorrecto. El artículo no pide memorizar fechas puntuales.",D:"Incorrecto. No se describe geografía física."}
+      }
+    ]
+  },
+  { hid:"ic", icon:"🏛️", name:"Institucionalidad Chile", color:"var(--c-lt)",
+    qs:[
+      { skill:"h3", ctx:"El Presidente de la República decide, por sí solo, modificar el resultado de un juicio ya fallado por la Corte Suprema.",
+        q:"¿Qué principio de la institucionalidad democrática chilena se estaría vulnerando en este escenario?",
+        opts:{A:"La alternancia en el poder.",B:"La separación de poderes.",C:"El pluralismo informativo.",D:"La descentralización regional."},
+        c:"B",fb:{A:"Incorrecto. No se trata de la continuidad del cargo presidencial.",B:"✅ Correcto. El Ejecutivo invadiría atribuciones exclusivas del Poder Judicial, vulnerando la separación de poderes.",C:"Incorrecto. No se relaciona con medios de comunicación.",D:"Incorrecto. No se refiere a gobiernos regionales."}
+      },
+      { skill:"h2", ctx:"Un texto constitucional establece que el Senado se renueva por parcialidades cada 4 años, mientras que todos los diputados se eligen simultáneamente cada 4 años.",
+        q:"¿Qué tipo de fuente es este texto y qué permite conocer?",
+        opts:{A:"Fuente normativa que permite conocer el funcionamiento institucional del Congreso.",B:"Fuente testimonial sobre la opinión de un senador.",C:"Fuente cuantitativa sobre resultados electorales.",D:"Fuente iconográfica sobre el edificio del Congreso."},
+        c:"A",fb:{A:"✅ Correcto. Un texto constitucional es una fuente normativa que describe el funcionamiento institucional del Congreso.",B:"Incorrecto. No es un testimonio personal.",C:"Incorrecto. No entrega datos de resultados electorales.",D:"Incorrecto. No es una imagen ni un edificio."}
+      },
+      { skill:"h1", ctx:"Chile designó intendentes regionales hasta 2020. Desde 2021, elige gobernadores regionales mediante votación popular.",
+        q:"¿Qué concepto de pensamiento temporal describe mejor este cambio?",
+        opts:{A:"Simultaneidad.",B:"Multicausalidad.",C:"Cambio y continuidad.",D:"Distribución geográfica."},
+        c:"C",fb:{A:"Incorrecto. No ocurrieron al mismo tiempo.",B:"Incorrecto. No se explican múltiples causas del cambio.",C:"✅ Correcto. Se mantiene el cargo regional (continuidad) pero cambia su forma de elección (cambio): un caso clásico de cambio y continuidad.",D:"Incorrecto. No se compara entre regiones geográficas distintas."}
+      },
+      { skill:"h3", ctx:"La Cámara de Diputados cita a un ministro de Estado a rendir cuentas sobre una política pública cuestionada.",
+        q:"¿Qué función del sistema institucional chileno ejemplifica esta situación?",
+        opts:{A:"La función legislativa de crear nuevas leyes.",B:"La función fiscalizadora del Congreso sobre el Ejecutivo.",C:"La función judicial de resolver conflictos.",D:"La función electoral de organizar comicios."},
+        c:"B",fb:{A:"Incorrecto. Citar a un ministro no es crear una ley.",B:"✅ Correcto. Interpelar a un ministro es un ejercicio de la atribución fiscalizadora exclusiva de la Cámara de Diputados.",C:"Incorrecto. No es un tribunal resolviendo un juicio.",D:"Incorrecto. No se relaciona con la organización de elecciones."}
+      },
+      { skill:"h2", ctx:"Un mapa muestra la distribución de las 16 regiones de Chile y sus respectivos gobernadores regionales electos en 2021.",
+        q:"¿Qué permite observar principalmente este tipo de fuente?",
+        opts:{A:"La opinión personal de cada gobernador.",B:"La distribución geográfica y política-administrativa del país.",C:"El contenido de los discursos presidenciales.",D:"La evolución del PIB regional."},
+        c:"B",fb:{A:"Incorrecto. Un mapa no registra opiniones personales.",B:"✅ Correcto. Un mapa administrativo permite observar la distribución geográfica y político-administrativa del país.",C:"Incorrecto. No contiene discursos.",D:"Incorrecto. No es una fuente económica salvo que lo indique explícitamente."}
+      }
+    ]
+  },
+  { hid:"mt", icon:"📡", name:"Medios y Tecnología", color:"var(--c-fg)",
+    qs:[
+      { skill:"h3", ctx:"Una plataforma de redes sociales muestra a cada usuario solo noticias que coinciden con sus opiniones políticas previas.",
+        q:"¿Qué riesgo para la democracia se evidencia en esta situación?",
+        opts:{A:"El fortalecimiento del pluralismo informativo.",B:"La reducción de la exposición a ideas distintas ('burbuja informativa').",C:"El aumento de la participación electoral.",D:"La mejora en la verificación de datos."},
+        c:"B",fb:{A:"Incorrecto. Es lo opuesto: reduce, no fortalece, el pluralismo.",B:"✅ Correcto. Mostrar solo contenido afín reduce la exposición a otras ideas, generando una 'burbuja informativa'.",C:"Incorrecto. El texto no menciona participación electoral.",D:"Incorrecto. No se refiere a fact-checking, sino a personalización algorítmica."}
+      },
+      { skill:"h2", ctx:"Un estudio compara, entre 2010 y 2024, el porcentaje de personas que se informan principalmente por prensa escrita versus redes sociales.",
+        q:"¿Qué tipo de fuente es este estudio y qué permite observar?",
+        opts:{A:"Fuente cuantitativa que permite observar un cambio de tendencia en el tiempo.",B:"Fuente testimonial de un solo periodista.",C:"Fuente iconográfica sobre portadas de diarios.",D:"Fuente que solo sirve para estudiar economía."},
+        c:"A",fb:{A:"✅ Correcto. Comparar porcentajes en un rango de años es una fuente cuantitativa que muestra una tendencia temporal.",B:"Incorrecto. No es un testimonio individual.",C:"Incorrecto. No se describen imágenes de portadas.",D:"Incorrecto. Es útil para fenómenos comunicacionales y sociales."}
+      },
+      { skill:"h1", ctx:"La prensa escrita fue el medio dominante durante gran parte del siglo XX. Desde inicios del siglo XXI, las redes sociales han ganado terreno como fuente de información.",
+        q:"¿Qué concepto de pensamiento temporal describe mejor este proceso?",
+        opts:{A:"Simultaneidad total entre ambos medios.",B:"Cambio en el tiempo en las formas de informarse.",C:"Multicausalidad económica exclusivamente.",D:"Distribución geográfica de los medios."},
+        c:"B",fb:{A:"Incorrecto. No fueron dominantes al mismo tiempo de la misma forma.",B:"✅ Correcto. Se describe un cambio progresivo en cómo la ciudadanía se informa a lo largo del tiempo.",C:"Incorrecto. No se explican causas económicas específicas.",D:"Incorrecto. No se compara por zonas geográficas."}
+      },
+      { skill:"h3", ctx:"Un medio de comunicación publica una noticia sin verificar la fuente original, la que luego resulta ser falsa.",
+        q:"¿Qué consecuencia tiene esto para el sistema democrático?",
+        opts:{A:"Fortalece la confianza ciudadana en los medios.",B:"Debilita la calidad del debate público al circular información no verificada.",C:"Mejora la pluralidad de opiniones políticas.",D:"Aumenta la transparencia del sistema judicial."},
+        c:"B",fb:{A:"Incorrecto. Es lo opuesto: tiende a erosionar la confianza.",B:"✅ Correcto. La difusión de información falsa sin verificar debilita la calidad del debate público democrático.",C:"Incorrecto. No se relaciona con pluralidad de opiniones, sino con veracidad.",D:"Incorrecto. No se refiere al sistema judicial."}
+      },
+      { skill:"h2", ctx:"Una organización de fact-checking publica un informe detallando qué afirmaciones de una entrevista televisiva son verdaderas, falsas o imprecisas.",
+        q:"¿Qué función cumple este tipo de fuente en el debate democrático?",
+        opts:{A:"Reemplaza la necesidad de medios de comunicación tradicionales.",B:"Valida o refuta la información que circula, sustentando un debate más informado.",C:"Sustituye las funciones del Poder Judicial.",D:"Elimina por completo la desinformación en redes sociales."},
+        c:"B",fb:{A:"Incorrecto. No reemplaza a los medios, los complementa.",B:"✅ Correcto. El fact-checking valida o refuta afirmaciones públicas, sustentando un debate ciudadano mejor informado.",C:"Incorrecto. No tiene función judicial.",D:"Incorrecto. Reduce pero no elimina por completo la desinformación."}
+      }
+    ]
+  },
+  { hid:"aj", icon:"⚖️", name:"Acceso a la Justicia", color:"var(--c-gf)",
+    qs:[
+      { skill:"h3", ctx:"Una persona de escasos recursos es acusada de un delito y no puede costear un abogado particular.",
+        q:"¿Qué institución chilena existe específicamente para garantizar su derecho a defensa?",
+        opts:{A:"El Instituto Nacional de Derechos Humanos.",B:"La Defensoría Penal Pública.",C:"El Servicio Electoral.",D:"La Contraloría General de la República."},
+        c:"B",fb:{A:"Incorrecto. El INDH promueve y protege DD.HH. en general, pero no otorga defensa penal directa.",B:"✅ Correcto. La Defensoría Penal Pública entrega representación legal gratuita a quienes no pueden costear un abogado.",C:"Incorrecto. El SERVEL administra procesos electorales.",D:"Incorrecto. La Contraloría fiscaliza el uso de fondos públicos, no otorga defensa penal."}
+      },
+      { skill:"h2", ctx:"Un informe anual de la Corte Suprema detalla la cantidad de causas ingresadas y resueltas por tipo de tribunal durante el año.",
+        q:"¿Qué tipo de fuente es este informe y qué permite conocer?",
+        opts:{A:"Fuente cuantitativa que permite conocer la carga y desempeño del sistema judicial.",B:"Fuente testimonial de un solo juez.",C:"Fuente iconográfica sobre edificios de tribunales.",D:"Fuente que solo sirve para estudiar temas económicos."},
+        c:"A",fb:{A:"✅ Correcto. Un informe con cifras de causas es una fuente cuantitativa útil para evaluar la carga y el desempeño judicial.",B:"Incorrecto. No es un testimonio personal.",C:"Incorrecto. No describe imágenes de edificios.",D:"Incorrecto. Es una fuente propia del ámbito judicial."}
+      },
+      { skill:"h1", ctx:"El Instituto Nacional de Derechos Humanos fue creado en 2009. La Ley de Transparencia entró en vigencia en 2009 también, el mismo año.",
+        q:"¿Qué relación temporal existe entre la creación de ambas instituciones?",
+        opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Distribución geográfica."},
+        c:"A",fb:{A:"✅ Correcto. Ambas ocurrieron el mismo año: simultaneidad.",B:"Incorrecto. No hay un antes y un después entre ambas.",C:"Incorrecto. No se explican causas múltiples.",D:"Incorrecto. No se compara ubicación geográfica."}
+      },
+      { skill:"h3", ctx:"Un tribunal de primera instancia falla en contra de una persona. Esta decide apelar el fallo.",
+        q:"¿A qué institución debe recurrir para que se revise su caso?",
+        opts:{A:"Directamente a la Corte Suprema.",B:"A la Corte de Apelaciones correspondiente.",C:"Al Instituto Nacional de Derechos Humanos.",D:"Al Congreso Nacional."},
+        c:"B",fb:{A:"Incorrecto. La Corte Suprema es la última instancia, no la primera vía de apelación.",B:"✅ Correcto. La Corte de Apelaciones es la instancia que revisa los fallos de los tribunales inferiores mediante el recurso de apelación.",C:"Incorrecto. El INDH no revisa fallos judiciales.",D:"Incorrecto. El Congreso no interviene en la revisión de sentencias judiciales."}
+      },
+      { skill:"h2", ctx:"Una persona solicita a un ministerio, mediante la Ley de Transparencia, los datos de un contrato público.",
+        q:"¿Qué principio democrático se ejerce en esta situación?",
+        opts:{A:"La alternancia en el poder.",B:"El control ciudadano sobre la administración pública.",C:"La separación de poderes del Estado.",D:"El pluralismo de los medios de comunicación."},
+        c:"B",fb:{A:"Incorrecto. No se relaciona con el cambio de autoridades.",B:"✅ Correcto. Solicitar información pública mediante la Ley de Transparencia es una forma de control ciudadano sobre la administración.",C:"Incorrecto. No involucra a los tres poderes del Estado.",D:"Incorrecto. No se relaciona con medios de comunicación."}
+      }
+    ]
+  }
+];
+
+var practScore={};
+function mountPractice(){
+  PG.forEach(function(g){
+    practScore[g.hid]={c:0,t:g.qs.length};
+    var mount=document.getElementById("prac-mount-"+g.hid);
+    var wrap=document.createElement("div");
+    wrap.className="prac-group";
+    var hdr=document.createElement("div");
+    hdr.className="prac-group-hdr";
+    hdr.innerHTML='<span class="gi">'+g.icon+'</span><span class="gname" style="color:'+g.color+'">'+g.name+'</span><span class="gscore" id="gscore-'+g.hid+'" style="color:'+g.color+'">0 / '+g.qs.length+'</span>';
+    wrap.appendChild(hdr);
+    g.qs.forEach(function(q,i){
+      var d=document.createElement("div");
+      d.className="pq"+(i===0?" show":"");
+      d.id="pq-"+g.hid+"-"+i;
+      var SKLBL={h1:"🕰️ Temporal-espacial",h2:"📜 Fuentes",h3:"🧠 Crítico"};
+      var optsH="";
+      Object.keys(q.opts).forEach(function(l){
+        optsH+='<div class="paes-opt" data-l="'+l+'" onclick="pqAns(\''+g.hid+'\','+i+',\''+l+'\',this)"><div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+      });
+      d.innerHTML='<span class="skill-tag skill-'+q.skill+'">'+SKLBL[q.skill]+'</span>'+
+        '<div class="pq-ctx">'+q.ctx+'</div><div class="pq-q">'+q.q+'</div>'+
+        '<div class="pq-opts">'+optsH+'</div>'+
+        '<div class="paes-fb" id="pqfb-'+g.hid+'-'+i+'"></div>'+
+        '<button class="nxt-q" id="pqnext-'+g.hid+'-'+i+'" onclick="pqNext(\''+g.hid+'\','+i+')">'+(i===g.qs.length-1?"✅ Finalizar":"Siguiente →")+'</button>';
+      wrap.appendChild(d);
+    });
+    mount.appendChild(wrap);
+  });
+}
+mountPractice();
+
+function pqAns(hid,i,opt,el){
+  var g=PG.find(function(x){return x.hid===hid;});
+  var q=g.qs[i];
+  var d=document.getElementById("pq-"+hid+"-"+i);
+  if(d.dataset.done)return;
+  d.dataset.done="1";
+  d.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.dataset.l;
+    if(l===q.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById("pqfb-"+hid+"-"+i);
+  fb.className="paes-fb show "+(opt===q.c?"ok":"no");
+  fb.innerHTML=q.fb[opt];
+  if(opt===q.c){practScore[hid].c++;document.getElementById("gscore-"+hid).textContent=practScore[hid].c+" / "+practScore[hid].t;}
+  document.getElementById("pqnext-"+hid+"-"+i).style.display="inline-block";
+}
+function pqNext(hid,i){
+  document.getElementById("pq-"+hid+"-"+i).classList.remove("show");
+  var g=PG.find(function(x){return x.hid===hid;});
+  if(i+1<g.qs.length){document.getElementById("pq-"+hid+"-"+(i+1)).classList.add("show");}
+}
+
+// ═══ MINI ENSAYO · 18 preguntas 🤖 generadas y revisadas por el docente ═══
+var EQ=[
+  {tema:"Democracia y Ciudadanía",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Un alcalde nombra a tres familiares directos en cargos de confianza de la municipalidad, sin que hayan participado en un concurso público.",
+   q:"¿Por qué una situación como esta constituye una amenaza para el funcionamiento de la democracia?",
+   opts:{A:"Porque desarticula la estructura jerárquica de la administración pública.",B:"Porque reduce los alcances que tiene la gestión de las instituciones públicas.",C:"Porque superpone intereses particulares en la toma de decisiones del Estado.",D:"Porque disminuye la cantidad de puestos de trabajo en el aparato burocrático."},
+   c:"C",fb:"El nepotismo antepone intereses familiares o particulares al interés general en la toma de decisiones del Estado, lo que erosiona la confianza y la calidad democrática."
+  },
+  {tema:"Democracia y Ciudadanía",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"A pesar de los esfuerzos realizados para contar con garantías de igualdad y justicia, siguen existiendo problemas para que las sociedades alcancen una democracia plena. ¿Cuál de las siguientes situaciones es un obstáculo para la consolidación de una democracia?",
+   opts:{A:"La ocurrencia de desacuerdos políticos.",B:"La diversidad de fuentes de información.",C:"La existencia de un sistema unipartidista.",D:"La diferencia de opinión entre generaciones."},
+   c:"C",fb:"Un sistema unipartidista elimina el pluralismo político, uno de los atributos fundamentales de la democracia; los desacuerdos, la diversidad informativa y las diferencias generacionales son, en cambio, parte normal de una sociedad democrática."
+  },
+  {tema:"Democracia y Ciudadanía",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"El sistema democrático chileno contempla la realización de consultas ciudadanas, un mecanismo que permite a la ciudadanía opinar en distintas etapas del desarrollo de una política pública. Considerando la normativa vigente en Chile, ¿de qué forma este mecanismo contribuye a fortalecer la democracia?",
+   opts:{A:"Permitiendo a la ciudadanía orientar la toma de decisiones que realiza el Estado.",B:"Permitiendo que la ciudadanía fiscalice el desempeño de los funcionarios estatales.",C:"Permitiendo que la ciudadanía defina las diversas atribuciones de las autoridades.",D:"Permitiendo que la ciudadanía apruebe leyes que aseguren la satisfacción de sus demandas."},
+   c:"A",fb:"Las consultas ciudadanas permiten orientar, no decidir de forma vinculante, la toma de decisiones del Estado en distintas etapas de una política pública."
+  },
+  {tema:"Democracia y Ciudadanía",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"En 1988 Chile realizó un plebiscito para decidir la continuidad del régimen militar. En 1989 se realizaron elecciones presidenciales y parlamentarias.",
+   q:"¿Qué relación temporal existe entre ambos hechos?",
+   opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Distribución geográfica."},
+   c:"B",fb:"Ocurre un hecho (plebiscito de 1988) y luego el otro (elecciones de 1989): una relación de sucesión."
+  },
+  {tema:"Democracia y Ciudadanía",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"En un país, la ley permite que cualquier ciudadano pueda formar un nuevo partido político y presentarse a elecciones, incluso si critica abiertamente al gobierno de turno.",
+   q:"¿Qué atributo de la democracia se evidencia principalmente en este caso?",
+   opts:{A:"El pluralismo político.",B:"El sistema de contrapesos.",C:"La descentralización territorial.",D:"El acceso a la justicia."},
+   c:"A",fb:"Permitir la formación de nuevos partidos y la libre competencia política, incluso crítica al gobierno, es una expresión directa del pluralismo."
+  },
+  {tema:"Institucionalidad Chile",color:"var(--c-lt)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"La alternancia en el poder es uno de los rasgos que evidencia el carácter democrático de un sistema político. ¿Qué se busca resguardar mediante el uso de este principio democrático?",
+   opts:{A:"Imposibilitar el abuso de las autoridades.",B:"Evitar la disidencia política en la sociedad.",C:"Impedir el desarrollo de actos de corrupción.",D:"Prevenir la concentración del mando político."},
+   c:"D",fb:"La alternancia busca, ante todo, prevenir que el poder se concentre de forma indefinida en las mismas manos, permitiendo el recambio de autoridades mediante elecciones periódicas."
+  },
+  {tema:"Institucionalidad Chile",color:"var(--c-lt)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"La democracia es una forma de gobierno en la que se enfatiza el respeto del principio de mayoría. Considerando la realidad chilena, ¿en cuál de las siguientes situaciones se aplica este principio?",
+   opts:{A:"En la aplicación de justicia en tribunales.",B:"En la conformación de los partidos políticos.",C:"En el desarrollo de las elecciones periódicas.",D:"En la designación de los gabinetes ministeriales."},
+   c:"C",fb:"El principio de mayoría se aplica sobre todo en las elecciones periódicas, donde gana la opción con más votos; los tribunales, los partidos y los gabinetes ministeriales no funcionan bajo esa lógica."
+  },
+  {tema:"Institucionalidad Chile",color:"var(--c-lt)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"En un régimen democrático, resulta fundamental la separación de los poderes del Estado para garantizar un adecuado equilibrio del poder político. ¿En cuál de las siguientes situaciones se evidencia esta separación de los poderes del Estado?",
+   opts:{A:"El Presidente de la República anuló la aplicación de un fallo ratificado por la Corte Suprema.",B:"El Congreso Nacional aprobó una ley que impide la reforma tributaria planteada en el programa de gobierno.",C:"El Presidente de la República impidió a la Fiscalía Nacional realizar una investigación sobre corrupción política.",D:"Los jueces de la Corte Suprema aprobaron la derogación de una ley que modifica el mecanismo de nombramiento de los funcionarios judiciales."},
+   c:"B",fb:"Que el Congreso pueda rechazar o modificar una iniciativa del Ejecutivo evidencia la independencia del Poder Legislativo frente al Ejecutivo; las otras opciones describen invasiones indebidas de un poder sobre otro."
+  },
+  {tema:"Institucionalidad Chile",color:"var(--c-lt)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"Chile designó intendentes regionales hasta el año 2020. Desde el año 2021, elige gobernadores regionales mediante votación popular.",
+   q:"¿Qué concepto de pensamiento temporal describe mejor este proceso?",
+   opts:{A:"Simultaneidad.",B:"Multicausalidad exclusiva.",C:"Cambio y continuidad.",D:"Distribución geográfica entre países."},
+   c:"C",fb:"El cargo regional se mantiene (continuidad) pero su forma de designación cambia radicalmente (cambio): un caso típico de cambio y continuidad."
+  },
+  {tema:"Institucionalidad Chile",color:"var(--c-lt)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Un ministro de Estado es citado por la Cámara de Diputados para responder por escrito sobre el manejo de una crisis sanitaria.",
+   q:"¿Qué principio institucional se evidencia en esta situación?",
+   opts:{A:"La independencia judicial.",B:"El sistema de contrapesos entre poderes del Estado.",C:"La descentralización administrativa.",D:"El pluralismo mediático."},
+   c:"B",fb:"Que un poder del Estado (Legislativo) pueda exigir cuentas a otro (Ejecutivo) es precisamente el sistema de contrapesos que evita la concentración de poder."
+  },
+  {tema:"Medios y Tecnología",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Un canal de noticias transmite en vivo una sesión del Congreso en la que se cuestiona la gestión de un ministro, y luego elabora un reportaje explicando en detalle las cifras de la política pública discutida.",
+   q:"Considerando los fundamentos de la democracia actual, ¿cuál es una oportunidad que ofrecen los medios de comunicación para el desarrollo de la democracia?",
+   opts:{A:"Garantizar la objetividad de los contenidos que difunden.",B:"Permitir que la ciudadanía dirija los actos de las autoridades.",C:"Mejorar la capacidad ciudadana para evaluar a las autoridades.",D:"Facilitar la injerencia ciudadana en el diseño de las políticas públicas."},
+   c:"C",fb:"Transmitir y explicar el desempeño de las autoridades mejora la capacidad de la ciudadanía para evaluarlas; no implica que la ciudadanía dirija directamente sus actos."
+  },
+  {tema:"Medios y Tecnología",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Los medios de comunicación masiva juegan un rol fundamental en el sistema democrático actual, ya que instalan en la opinión pública temas relevantes para la ciudadanía. En Chile existe una concentración significativa de la propiedad de los medios de comunicación. ¿Cómo afecta esta concentración al funcionamiento de la democracia?",
+   opts:{A:"Aumenta los mecanismos de propaganda electoral.",B:"Disminuye la pluralidad en el debate político ciudadano.",C:"Incrementa el acuerdo entre grupos políticos antagónicos.",D:"Reduce las formas de participación política de la ciudadanía."},
+   c:"B",fb:"Cuando pocos grupos controlan la mayoría de los medios, se reduce la diversidad de miradas disponibles para la ciudadanía, disminuyendo la pluralidad del debate político."
+  },
+  {tema:"Medios y Tecnología",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"En las sociedades democráticas actuales es importante verificar la precisión y veracidad de datos, hechos o información que se difunden a través de los medios de comunicación, para evitar el impacto negativo de las noticias falsas. Respecto de la verificación de datos, ¿de qué forma contribuye esta práctica al buen funcionamiento del sistema democrático?",
+   opts:{A:"Impide la censura previa de la información en la prensa.",B:"Valida la información que sustenta el debate ciudadano.",C:"Evita el surgimiento de canales alternativos de información.",D:"Garantiza el derecho ciudadano de acceder a la información."},
+   c:"B",fb:"La verificación de datos (fact-checking) no elimina la censura ni impide canales alternativos; su función central es validar la información que sostiene un debate público más informado."
+  },
+  {tema:"Medios y Tecnología",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Una plataforma de redes sociales prioriza mostrar a cada usuario contenido que coincide con sus opiniones previas, ocultando publicaciones con visiones distintas.",
+   q:"¿Qué riesgo para el debate democrático se evidencia en esta situación?",
+   opts:{A:"El fortalecimiento del pluralismo informativo.",B:"La reducción de la exposición ciudadana a ideas distintas.",C:"El aumento de la verificación de datos.",D:"La mejora en la transparencia del Estado."},
+   c:"B",fb:"Mostrar únicamente contenido afín reduce la exposición a otras perspectivas, generando 'burbujas informativas' que empobrecen el debate democrático."
+  },
+  {tema:"Acceso a la Justicia",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Actualmente, la democracia se entiende como un sistema político que tiene como fundamento la existencia de garantías jurídicas para el respeto de la dignidad de todas las personas. ¿Por qué es importante para un sistema democrático la implementación de políticas sociales?",
+   opts:{A:"Porque facilita la protección jurídica de la propiedad privada.",B:"Porque asegura una mejor distribución del ingreso en la población.",C:"Porque permite establecer sanciones a los actos de discriminación.",D:"Porque mejora el ejercicio de los derechos de los grupos vulnerables."},
+   c:"D",fb:"Las políticas sociales son importantes porque mejoran el ejercicio efectivo de los derechos de los grupos vulnerables, más allá de la sola igualdad formal ante la ley."
+  },
+  {tema:"Acceso a la Justicia",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Una organización ambiental solicita al Ministerio de Vivienda los antecedentes técnicos de un proyecto habitacional, invocando la Ley de Transparencia, y recibe la información en el plazo legal.",
+   q:"¿En qué situación se evidencia la participación ciudadana en el control de la administración pública?",
+   opts:{A:"Una solicitud para formar un nuevo partido político fue aceptada por el Servicio Electoral.",B:"Una candidatura independiente ha recibido la mayoría de los votos emitidos en las elecciones.",C:"Una organización recibió los datos que solicitó a un ministerio mediante la Ley de Transparencia.",D:"Una agrupación realizó una manifestación frente al palacio de La Moneda."},
+   c:"C",fb:"Solicitar y recibir información pública mediante la Ley de Transparencia es un ejemplo directo de control ciudadano sobre la administración pública; las otras opciones son formas de participación política, no de control administrativo."
+  },
+  {tema:"Acceso a la Justicia",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Una persona sin recursos económicos es acusada de un delito y no puede costear un abogado particular para su defensa.",
+   q:"¿Qué institución chilena garantiza específicamente su derecho a la defensa en este caso?",
+   opts:{A:"El Instituto Nacional de Derechos Humanos.",B:"La Defensoría Penal Pública.",C:"El Servicio Electoral.",D:"La Contraloría General de la República."},
+   c:"B",fb:"La Defensoría Penal Pública existe precisamente para garantizar defensa legal gratuita a quienes no pueden costear un abogado particular."
+  },
+  {tema:"Acceso a la Justicia",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"El Instituto Nacional de Derechos Humanos fue creado en el año 2009. La Ley de Transparencia entró en vigencia el mismo año, en 2009.",
+   q:"¿Qué relación temporal existe entre la creación de ambas instituciones?",
+   opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Distribución geográfica."},
+   c:"A",fb:"Ambas ocurrieron el mismo año, 2009: una relación de simultaneidad, no de sucesión ni de causalidad entre ellas."
+  }
+];
+
+var timeLeft=32*60;
+var timerInterval=null;
+var ensayoStarted=false,ensayoFinished=false;
+var userAnswers={};
+
+// Tabla oficial de transformación de puntaje P → PAES (DEMRE, PAES Invierno 2026, Historia y Cs. Sociales)
+var ST=[100,114,142,167,190,211,232,252,270,286,300,315,332,349,364,378,388,398,408,420,435,451,466,478,488,495,502,511,522,536,551,566,579,588,596,603,611,622,636,651,667,680,691,701,710,722,736,752,769,785,799,814,829,848,868,889,910,933,958,987,1000];
+
+function buildEnsayo(){
+  var cont=document.getElementById("ensayo-qs");
+  cont.innerHTML="";
+  var SKLBL={h1:"🕰️ Temporal-espacial",h2:"📜 Fuentes",h3:"🧠 Crítico"};
+  EQ.forEach(function(q,i){
+    var d=document.createElement("div");
+    d.className="ensayo-q";
+    var ctxH=q.ctx?'<div class="ensayo-ctx">'+q.ctx+'</div>':'';
+    var opts_letters=Object.keys(q.opts);
+    var optsH="";
+    opts_letters.forEach(function(l){
+      optsH+='<div class="ensayo-opt" id="eo-'+i+'-'+l+'" data-qi="'+i+'" data-opt="'+l+'" onclick="selAns(this.dataset.qi,this.dataset.opt)">'+
+        '<div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="ensayo-num" style="color:'+q.color+'">Pregunta '+(i+1)+' / '+EQ.length+' · '+q.tema+' · <span style="opacity:.7;font-weight:700">'+(q.kind==="real"?"📄 ":"")+q.ref+'</span></div>'+
+      '<span class="skill-tag skill-'+q.skill+'">'+SKLBL[q.skill]+'</span>'+
+      ctxH+'<div class="ensayo-q-text">'+q.q+'</div>'+
+      '<div class="ensayo-opts" id="eopts-'+i+'">'+optsH+'</div>'+
+      '<div class="ensayo-fb" id="efb-'+i+'"></div>';
+    cont.appendChild(d);
+  });
+}
+buildEnsayo();
+
+function selAns(i,opt){
+  i=parseInt(i);
+  if(!ensayoStarted||ensayoFinished)return;
+  var opts=document.getElementById("eopts-"+i);
+  if(opts.dataset.done)return;
+  userAnswers[i]=opt;
+  opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.remove("selected");});
+  document.getElementById("eo-"+i+"-"+opt).classList.add("selected");
+}
+
+function startEnsayo(){
+  ensayoStarted=true;
+  document.getElementById("start-btn").style.display="none";
+  document.getElementById("timer-status").textContent="¡En marcha! Responde con calma.";
+  var qs=document.getElementById("ensayo-qs"); qs.style.display="block"; qs.style.opacity="1"; qs.style.pointerEvents="auto";
+  var sb=document.getElementById("submit-btn"); sb.style.display="block"; sb.disabled=false;
+  var tb=document.querySelector(".timer-box");
+  if(tb){tb.style.position="sticky";tb.style.top="8px";tb.style.zIndex="155";tb.style.background="rgba(20,15,8,.97)";tb.style.backdropFilter="blur(8px)";tb.style.borderRadius="14px";}
+  var es=document.getElementById("ensayo"); if(es) es.style.paddingBottom="140px";
+  timerInterval=setInterval(function(){
+    timeLeft--;
+    var m=Math.floor(timeLeft/60),s=timeLeft%60;
+    var disp=document.getElementById("timer-disp");
+    disp.textContent=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+    if(timeLeft<=60)disp.className="timer-display danger";
+    else if(timeLeft<=180)disp.className="timer-display warn";
+    if(timeLeft<=0){clearInterval(timerInterval);submitEnsayo();}
+  },1000);
+}
+
+function submitEnsayo(){
+  if(ensayoFinished)return;
+  ensayoFinished=true;
+  clearInterval(timerInterval);
+  document.getElementById("timer-status").textContent="Ensayo terminado";
+  document.getElementById("submit-btn").disabled=true;
+  var correct=0,topicMap={};
+  EQ.forEach(function(q,i){
+    var opts=document.getElementById("eopts-"+i);
+    opts.dataset.done="1";
+    opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.add("locked");});
+    var ua=userAnswers[i];
+    document.getElementById("eo-"+i+"-"+q.c).classList.add("right");
+    if(ua&&ua!==q.c)document.getElementById("eo-"+i+"-"+ua).classList.add("wrong");
+    var isOk=(ua===q.c);
+    var fb=document.getElementById("efb-"+i);
+    fb.className="ensayo-fb show "+(isOk?"ok":"no");
+    fb.textContent=(ua?(isOk?"✅ Correcto. ":"❌ Incorrecto. La respuesta correcta es "+q.c+". "):"⚠️ Sin respuesta. La correcta es "+q.c+". ")+q.fb;
+    if(isOk)correct++;
+    if(!topicMap[q.tema])topicMap[q.tema]={c:0,t:0,color:q.color};
+    topicMap[q.tema].t++;
+    if(isOk)topicMap[q.tema].c++;
+  });
+  var pct=Math.round(correct/EQ.length*100);
+  var mainColor=pct>=70?"var(--dorado)":pct>=50?"#f59e0b":"var(--rojo)";
+  var topicHtml='<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--dorado);margin-bottom:8px">Resultado por subtema:</p><div class="res-topic-grid">';
+  Object.keys(topicMap).forEach(function(t){
+    var r=topicMap[t];
+    var tpct=Math.round(r.c/r.t*100);
+    var scoreColor=tpct>=70?"var(--dorado)":tpct>=50?"#f59e0b":"var(--rojo)";
+    topicHtml+='<div class="res-topic-card '+(tpct<50?"bad":tpct<70?"mid":"")+'">'+
+      '<div class="res-topic-name">'+t+'</div>'+
+      '<div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+  });
+  topicHtml+='</div>';
+  var estP=Math.round(correct/EQ.length*60);
+  var estScore=ST[Math.max(0,Math.min(60,estP))];
+  var msg=pct>=70?"🎉 ¡Buen resultado! Revisa los subtemas donde fallaste.":pct>=50?"💪 Resultado aceptable. Refuerza los subtemas en rojo antes de continuar.":"📚 Necesitas repasar más. Vuelve a las secciones con resultado bajo.";
+  var res=document.getElementById("ensayo-results");
+  res.style.display="block";
+  res.innerHTML='<div class="res-banner" style="color:'+mainColor+'">'+
+    (pct>=70?"🏆":pct>=50?"💪":"📚")+' '+correct+' / '+EQ.length+' correctas</div>'+
+    '<div style="font-size:1rem;color:var(--text-dim);margin-bottom:16px">'+pct+'% · Si mantuvieras este ritmo en las 60 preguntas puntuables, tu puntaje estimado sería ~'+estScore+' pts PAES</div>'+
+    topicHtml+
+    '<div style="background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;margin-top:16px">'+
+    '<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--dorado);margin-bottom:8px">'+msg+'</p>'+
+    '<p style="font-size:.88rem;color:var(--text-dim)">Los subtemas con menos del 70% están marcados. Puedes volver a cualquier sección desde el menú de navegación.</p></div>';
+  res.scrollIntoView({behavior:"smooth"});
+}
+
+// ═══ DATOS DE LOS EJERCICIOS DE RELACIONAR ═══
+buildMatch("match-dc",[
+  {term:"Soberanía popular",def:"El poder político reside en el pueblo, ejercido directamente o a través de representantes elegidos."},
+  {term:"Principio de mayoría",def:"Las decisiones se toman por el voto de la mayoría, respetando a las minorías, aplicado sobre todo en elecciones."},
+  {term:"Pluralismo",def:"Convivencia de diversidad de partidos, ideas y medios de comunicación en el debate público."},
+  {term:"Estado de derecho",def:"Todas las personas e instituciones, incluido el Estado, están sometidas a la ley."},
+  {term:"Nepotismo",def:"Práctica que privilegia a familiares en cargos públicos, superponiendo intereses particulares al interés general."},
+  {term:"Consultas ciudadanas",def:"Mecanismo no vinculante que permite a la ciudadanía opinar y orientar una política pública."}
+]);
+buildMatch("match-ic",[
+  {term:"Separación de poderes",def:"Ejecutivo, Legislativo y Judicial actúan de forma independiente, cada uno dentro de sus atribuciones legales."},
+  {term:"Sistema de contrapesos",def:"Mecanismo por el cual cada poder del Estado puede fiscalizar a los otros."},
+  {term:"Alternancia en el poder",def:"Posibilidad de que distintas coaliciones accedan al gobierno mediante elecciones periódicas."},
+  {term:"Gobernadores regionales",def:"Autoridades regionales electas por votación popular desde 2021, antes designadas por el Presidente."},
+  {term:"Congreso bicameral",def:"Cámara de Diputados (renovación total, 4 años) y Senado (8 años, renovación por parcialidades) deben aprobar juntas cada ley."},
+  {term:"Artículo 7° de la Constitución",def:"Establece que ningún órgano del Estado puede atribuirse más autoridad que la que la ley le confiere."}
+]);
+buildMatch("match-mt",[
+  {term:"Rol fiscalizador de los medios",def:"Informar sobre el desempeño de las autoridades, actuando como contrapeso informal del poder."},
+  {term:"Verificación de datos",def:"Práctica de fact-checking que valida la información que sustenta el debate ciudadano."},
+  {term:"Concentración de medios",def:"Cuando pocos grupos controlan la mayoría de los medios, disminuyendo la pluralidad del debate."},
+  {term:"Burbuja informativa",def:"Efecto de los algoritmos de redes sociales que muestran solo contenido afín a las ideas previas del usuario."},
+  {term:"Noticias falsas",def:"Información no verificada que circula y puede debilitar la calidad del debate democrático."}
+]);
+buildMatch("match-aj",[
+  {term:"Estado de derecho",def:"Todas las personas e instituciones, incluido el Estado, están sometidas a normas jurídicas aplicadas por igual."},
+  {term:"INDH",def:"Institución creada en 2009 para promover y proteger los DD.HH., pudiendo denunciar arbitrariedades del gobierno."},
+  {term:"Ley de Transparencia",def:"Permite a cualquier persona solicitar información pública a organismos del Estado."},
+  {term:"Debido proceso",def:"Derecho a un juicio justo, con defensa y ante un tribunal imparcial."},
+  {term:"Defensoría Penal Pública",def:"Institución que garantiza defensa legal gratuita a quienes no pueden costear un abogado particular."},
+  {term:"Corte de Apelaciones",def:"Revisa el fallo de un tribunal de primera instancia cuando una de las partes apela."},
+  {term:"Corte Suprema",def:"Última instancia del Poder Judicial; revisa principalmente cuestiones de derecho, no de hechos."}
+]);
+
+// ═══ ASISTENTE IA ═══
+(function(){
+
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico de la Unidad 4 (Formación Ciudadana) del módulo PAES Historia y Ciencias Sociales, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media, muchos sin conocimiento previo del tema. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre los 4 subtemas de esta unidad, detallados abajo. NO respondes sobre otras materias PAES (Lenguaje, Matemática, Ciencias), ni sobre otras unidades de Historia que el estudiante aún no ha visto.",
+"",
+"CONTENIDO DE LA UNIDAD (4 subtemas):",
+"1. Democracia y Ciudadanía: soberanía popular, principio de mayoría, atributos de la democracia (participación, pluralismo, alternancia, Estado de derecho), partidos políticos y sociedad civil, nepotismo, mecanismos de participación (voto, consultas ciudadanas no vinculantes, asociatividad), derechos y deberes ciudadanos.",
+"2. Institucionalidad democrática en Chile: separación de poderes (Ejecutivo, Legislativo, Judicial), Artículo 7° de la Constitución, sistema de contrapesos, alternancia en el poder, gobernadores regionales electos desde 2021, Congreso bicameral (Cámara de Diputados 4 años / Senado 8 años por parcialidades).",
+"3. Democracia y sociedad de la información: rol fiscalizador e informativo de los medios, verificación de datos (fact-checking), concentración de medios, noticias falsas, burbujas informativas, declive de medios tradicionales frente a canales digitales.",
+"4. Acceso a la justicia: Estado de derecho, INDH (2009), Ley de Transparencia (2009), Defensoría Penal Pública, estructura del Poder Judicial (tribunal de primera instancia → Corte de Apelaciones → Corte Suprema), debido proceso, políticas sociales y grupos vulnerables.",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos del módulo tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre alguno de los 4 subtemas, con contexto o caso breve. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES/DEMRE. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta general sobre qué parte del caso o texto se relaciona con esto, 2) acota a un dato o elemento específico, 3) señala qué principio o concepto de formación ciudadana aplica y por qué, 4) contrasta la alternativa elegida por el estudiante con la probablemente correcta, preguntando qué diferencia hay. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otra materia, otra unidad no vista, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para resolver dudas de Formación Ciudadana de esta unidad.'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function anyCierreActive(){
+  return ensayoStarted && !ensayoFinished;
+}
+
+function checkTutorBlock(){
+  var blocked = anyCierreActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false;
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Historia · Formación Ciudadana\n" +
+    "Módulo/Unidad: Historia y Ciencias Sociales · Unidad 4 · Formación Ciudadana\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy) return;
+  if(anyCierreActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+})();
+</script>
+</body>
+</html>
