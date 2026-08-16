@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ensayo N°1 · Historia y Ciencias Sociales · PAES Karuy</title>
+<style>
+  :root{
+    --dorado:#a97c2f;
+    --dorado-soft:#fdf3e2;
+    --dorado-dark:#7a5820;
+    --ink:#1a1a1a;
+    --gray:#6b7280;
+    --gray-light:#e5e7eb;
+    --bg:#ffffff;
+    --green:#16a34a;
+    --amber:#d97706;
+    --red:#dc2626;
+    --azul:#1d4ed8;
+    --violet:#7c3aed;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Georgia','Times New Roman',serif;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+  h1,h2,h3{font-family:'Georgia','Times New Roman',serif;}
+  button{font-family:inherit;cursor:pointer;}
+  ::selection{background:var(--dorado-soft);}
+
+  /* ---------- PORTADA ---------- */
+  #portada{
+    max-width:640px;
+    margin:0 auto;
+    padding:48px 24px 80px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-weight:700;font-size:14px;letter-spacing:.04em;color:var(--dorado-dark);
+    text-transform:uppercase;margin-bottom:32px;
+  }
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--dorado);}
+  #portada h1{font-size:32px;line-height:1.15;margin:0 0 6px;}
+  #portada .subt{color:var(--gray);font-size:16px;margin-bottom:28px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}
+  .meta-row{
+    display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;
+  }
+  .meta-chip{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-size:13px;font-weight:600;color:var(--dorado-dark);
+    background:var(--dorado-soft);border:1px solid #f0dbb0;
+    padding:8px 14px;border-radius:999px;
+  }
+  .instrucciones{
+    background:#fafafa;border:1px solid var(--gray-light);border-radius:12px;
+    padding:24px 26px;margin-bottom:32px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .instrucciones h3{font-size:15px;margin:0 0 14px;color:var(--ink);}
+  .instrucciones ol{margin:0;padding-left:20px;color:#374151;font-size:14.5px;line-height:1.65;}
+  .instrucciones li{margin-bottom:8px;}
+  #btnComenzar{
+    width:100%;background:var(--dorado);color:#fff;border:none;border-radius:10px;
+    padding:16px 20px;font-size:16px;font-weight:700;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    transition:background .15s ease;
+  }
+  #btnComenzar:hover{background:var(--dorado-dark);}
+  .nota-ia{
+    text-align:center;margin-top:14px;font-size:12.5px;color:var(--gray);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+
+  /* ---------- EXAMEN (fondo blanco / letras negras, estilo oficial) ---------- */
+  #examen{display:none;background:#fff;min-height:100vh;}
+  .topbar{
+    position:sticky;top:0;z-index:20;
+    background:#fff;border-bottom:2px solid var(--ink);
+    padding:10px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .topbar .titulo-mini{font-weight:700;font-size:14px;}
+  .topbar .progreso{font-size:13px;color:var(--gray);}
+  #timer{
+    font-weight:800;font-size:18px;font-variant-numeric:tabular-nums;
+    padding:6px 14px;border:2px solid var(--ink);border-radius:8px;
+  }
+  #timer.alerta{color:var(--red);border-color:var(--red);}
+  .btnFinalizar{
+    background:var(--ink);color:#fff;border:none;border-radius:8px;
+    padding:9px 16px;font-size:13px;font-weight:700;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+
+  .tabsTextos{
+    display:flex;gap:0;border-bottom:1px solid var(--gray-light);
+    overflow-x:auto;background:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .tabTexto{
+    flex:0 0 auto;padding:12px 18px;font-size:13px;font-weight:600;color:var(--gray);
+    border-bottom:3px solid transparent;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;
+  }
+  .tabTexto.activo{color:var(--ink);border-bottom-color:var(--dorado);}
+
+  .examLayout{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    max-width:1200px;margin:0 auto;
+    min-height:calc(100vh - 110px);
+  }
+  @media (max-width:860px){
+    .examLayout{grid-template-columns:1fr;}
+  }
+  .panelTexto{
+    padding:28px 32px;border-right:1px solid var(--gray-light);
+    max-height:calc(100vh - 110px);overflow-y:auto;
+  }
+  @media (max-width:860px){
+    .panelTexto{border-right:none;border-bottom:8px solid #f3f4f6;max-height:none;}
+  }
+  .panelTexto h2{font-size:20px;margin:0 0 4px;}
+  .panelTexto .tipoTexto{font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:.05em;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;margin-bottom:16px;display:block;}
+  .panelTexto p{font-size:16px;line-height:1.75;margin:0 0 16px;color:#111;}
+  .panelTexto .formulaBox{
+    background:var(--dorado-soft);border:1px solid #f0dbb0;border-radius:10px;
+    padding:14px 16px;margin-bottom:14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-size:14.5px;color:var(--dorado-dark);line-height:1.6;
+  }
+
+  .panelPregunta{padding:28px 32px;}
+  .navPregunta{
+    display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .navPregunta button{
+    background:#fff;border:1.5px solid var(--ink);border-radius:8px;
+    padding:7px 14px;font-size:13px;font-weight:600;
+  }
+  .navPregunta button:disabled{opacity:.3;cursor:not-allowed;}
+  .numPregunta{font-weight:700;font-size:13px;color:var(--gray);}
+  .enunciado{font-size:17px;line-height:1.6;margin:0 0 20px;font-weight:600;}
+  .opciones{display:flex;flex-direction:column;gap:10px;}
+  .opcion{
+    display:flex;align-items:flex-start;gap:12px;
+    border:1.5px solid var(--gray-light);border-radius:10px;
+    padding:13px 16px;font-size:15px;line-height:1.5;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:#fff;
+  }
+  .opcion:hover{border-color:var(--ink);}
+  .opcion.marcada{border-color:var(--dorado);background:var(--dorado-soft);}
+  .opcion .letra{
+    flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;
+  }
+  .opcion.marcada .letra{background:var(--dorado);border-color:var(--dorado);color:#fff;}
+
+  .palette{
+    margin-top:26px;padding-top:20px;border-top:1px solid var(--gray-light);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .palette .lbl{font-size:12px;color:var(--gray);margin-bottom:10px;text-transform:uppercase;letter-spacing:.04em;}
+  .paletteGrid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;}
+  .paletteBtn{
+    aspect-ratio:1;border:1.5px solid var(--gray-light);border-radius:6px;background:#fff;
+    font-size:11.5px;font-weight:700;color:var(--gray);
+  }
+  .paletteBtn.respondida{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .paletteBtn.activa{border-color:var(--dorado);box-shadow:0 0 0 2px var(--dorado-soft);}
+
+  /* ---------- RESULTADOS ---------- */
+  #resultados{display:none;max-width:760px;margin:0 auto;padding:48px 24px 100px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(180deg,#fff 0%,#fffaf2 100%);}
+  .scoreCard{
+    background:linear-gradient(135deg,#fdf3e2 0%,#f3dfae 55%,#e8c47f 100%);
+    border:1px solid #f0dbb0;border-radius:20px;
+    padding:36px 32px;text-align:center;margin-bottom:28px;
+    box-shadow:0 10px 30px -12px rgba(169,124,47,.35);
+  }
+  .scoreCard .big{font-size:56px;font-weight:800;color:var(--dorado-dark);line-height:1;letter-spacing:-.02em;}
+  .scoreCard .sub{color:var(--dorado-dark);font-size:14px;margin-top:8px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+  .habBlock{margin-bottom:28px;}
+  .habBlock h3{font-size:15px;margin:0 0 14px;color:var(--ink);}
+  .habRow{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .habRow .dotHab{width:11px;height:11px;border-radius:50%;flex:0 0 auto;}
+  .habRow .nom{width:190px;flex:0 0 auto;font-size:13.5px;font-weight:700;}
+  .habRow .barBg{flex:1;height:14px;background:#f3f4f6;border-radius:99px;overflow:hidden;}
+  .habRow .barFill{height:100%;border-radius:99px;transition:width .6s ease;}
+  .habRow .pct{width:44px;flex:0 0 auto;text-align:right;font-size:13.5px;font-weight:800;color:var(--ink);}
+
+  .diagnostico{
+    background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;
+    padding:22px 24px;margin-bottom:28px;font-size:14.5px;line-height:1.65;color:#374151;
+  }
+  .diagnostico strong{color:var(--dorado-dark);}
+
+  .ctaBox{
+    background:linear-gradient(135deg,#7a5820 0%,#a97c2f 45%,#d4a24c 100%);
+    border-radius:18px;padding:30px 28px;text-align:center;margin-bottom:24px;
+    box-shadow:0 14px 34px -14px rgba(122,88,32,.55);
+  }
+  .ctaBox p{color:#fdf3e2;font-size:14.5px;margin:0 0 18px;font-weight:600;}
+  .ctaBox a{
+    display:inline-block;background:#fff;color:var(--dorado-dark);text-decoration:none;
+    padding:15px 32px;border-radius:12px;font-weight:800;font-size:15.5px;
+    box-shadow:0 4px 14px rgba(0,0,0,.15);transition:transform .15s ease;
+  }
+  .ctaBox a:hover{transform:translateY(-2px);}
+
+  #btnRevisar{
+    width:100%;background:#fff;border:1.5px solid var(--ink);color:var(--ink);
+    border-radius:10px;padding:13px;font-weight:700;font-size:14.5px;margin-bottom:6px;
+  }
+
+  /* ---------- MODAL CONFIRMACION ---------- */
+  #modalOverlay{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50;
+    align-items:center;justify-content:center;padding:20px;
+  }
+  #modalOverlay.activo{display:flex;}
+  .modalBox{
+    background:#fff;border-radius:14px;padding:26px 26px 20px;max-width:380px;width:100%;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .modalBox p{font-size:14.5px;line-height:1.55;color:#374151;margin:0 0 20px;}
+  .modalBtns{display:flex;gap:10px;}
+  .modalBtns button{
+    flex:1;border-radius:8px;padding:11px;font-size:14px;font-weight:700;border:none;
+  }
+  #modalCancelar{background:#f3f4f6;color:var(--ink);}
+  #modalConfirmar{background:var(--dorado);color:#fff;}
+
+  #revision{display:none;margin-top:28px;}
+  .revQ{border:1px solid var(--gray-light);border-radius:10px;padding:18px 20px;margin-bottom:14px;}
+  .revQ .revEnun{font-weight:700;font-size:14.5px;margin-bottom:10px;font-family:Georgia,serif;}
+  .revOpt{font-size:13.5px;padding:8px 10px;border-radius:6px;margin-bottom:6px;line-height:1.5;}
+  .revOpt.correcta{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;}
+  .revOpt.marcadaIncorrecta{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;}
+  .revOpt.neutra{background:#fafafa;border:1px solid #f0f0f0;color:#4b5563;}
+  .revHab{display:inline-block;font-size:11px;font-weight:800;padding:4px 10px;border-radius:99px;margin-bottom:10px;}
+
+  .footerNota{text-align:center;font-size:12px;color:var(--gray);margin-top:20px;}
+</style>
+</head>
+<body>
+
+<!-- ================= PORTADA ================= -->
+<div id="portada">
+  <div class="brand"><span class="dot"></span>PAES KARUY</div>
+  <h1>Ensayo N°1 · Historia y Ciencias Sociales</h1>
+  <p class="subt">Versión reducida — mitad de la prueba oficial, pensada para rendirse en una sesión de estudio nocturna.</p>
+
+  <div class="meta-row">
+    <span class="meta-chip">30 preguntas</span>
+    <span class="meta-chip">3 ejes temáticos</span>
+    <span class="meta-chip">1 hora</span>
+    <span class="meta-chip">Sin descuento por error</span>
+  </div>
+
+  <div class="instrucciones">
+    <h3>Instrucciones</h3>
+    <ol>
+      <li>Esta prueba contiene 30 preguntas de selección múltiple con 4 opciones (A, B, C y D), de las cuales solo una es correcta.</li>
+      <li>Dispones de 1 hora para responder. El cronómetro corre automáticamente y no se puede pausar.</li>
+      <li>No se descuenta puntaje por respuestas erradas, así que te conviene responder todas las preguntas.</li>
+      <li>Puedes moverte libremente entre los 3 ejes temáticos y sus preguntas usando el panel numerado. Cada eje muestra un breve resumen de apoyo, igual que en la prueba real.</li>
+      <li>Al finalizar (o cuando se acabe el tiempo), verás tu puntaje, un desglose por habilidad histórica y una recomendación de estudio personalizada.</li>
+      <li>El tutor IA está desactivado durante esta rendición, igual que en la prueba real.</li>
+    </ol>
+  </div>
+
+  <button id="btnComenzar">Comenzar ensayo</button>
+  <p class="nota-ia">Todas las preguntas son generadas por IA 🤖 · No reproduce contenido oficial DEMRE</p>
+</div>
+
+<!-- ================= EXAMEN ================= -->
+<div id="examen">
+  <div class="topbar">
+    <div class="titulo-mini">Ensayo N°1 · Historia</div>
+    <div class="progreso" id="progresoTxt">Pregunta 1 de 30</div>
+    <div id="timer">1:00:00</div>
+    <button class="btnFinalizar" id="btnFinalizar">Finalizar prueba</button>
+  </div>
+  <div class="tabsTextos" id="tabsTextos"></div>
+  <div class="examLayout">
+    <div class="panelTexto" id="panelTexto"></div>
+    <div class="panelPregunta">
+      <div class="navPregunta">
+        <button id="btnPrev">← Anterior</button>
+        <span class="numPregunta" id="numPreguntaLbl"></span>
+        <button id="btnNext">Siguiente →</button>
+      </div>
+      <p class="enunciado" id="enunciadoTxt"></p>
+      <div class="opciones" id="opcionesCont"></div>
+      <div class="palette">
+        <div class="lbl">Ir a pregunta</div>
+        <div class="paletteGrid" id="paletteGrid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL CONFIRMACION ================= -->
+<div id="modalOverlay">
+  <div class="modalBox">
+    <p id="modalTexto">¿Seguro que quieres finalizar la prueba?</p>
+    <div class="modalBtns">
+      <button id="modalCancelar">Seguir respondiendo</button>
+      <button id="modalConfirmar">Finalizar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RESULTADOS ================= -->
+<div id="resultados">
+  <div class="brand"><span class="dot"></span>PAES KARUY</div>
+  <div class="scoreCard">
+    <div class="big" id="scoreBig">0/30</div>
+    <div class="sub" id="scorePct">0% de logro</div>
+  </div>
+
+  <div class="habBlock">
+    <h3>Desglose por habilidad histórica</h3>
+    <div id="habRows"></div>
+  </div>
+
+  <div class="diagnostico" id="diagnosticoTxt"></div>
+
+  <div class="ctaBox">
+    <p id="ctaTexto">Según tu resultado, te recomendamos un plan de estudio.</p>
+    <a href="#" target="_blank" rel="noopener">Ver planes PAES Karuy</a>
+  </div>
+
+  <button id="btnRevisar">Revisar respuestas y explicaciones</button>
+  <div id="revision"></div>
+
+  <p class="footerNota">PAES Karuy · Preguntas generadas por IA 🤖 · Ensayo N°1 Historia y Ciencias Sociales 2027 · No reproduce contenido oficial DEMRE</p>
+</div>
+
+<script>
+// ============ DATOS: EJES TEMÁTICOS (resumen de apoyo, no son "textos de lectura") ============
+const TEXTS = [
+  {
+    id:1, tipo:'Eje temático', titulo:'Historia: Mundo, América y Chile',
+    contenido:`Este eje incluye el surgimiento del Estado-nación y las ideas liberales del siglo XIX, la formación de la República en Chile, los totalitarismos y populismos de la primera mitad del siglo XX, el nuevo orden mundial y la Guerra Fría tras 1945, y la Dictadura Militar (1973-1990) junto al retorno a la democracia.\nHabilidades evaluadas: pensamiento temporal y espacial, análisis de fuentes y pensamiento crítico.`
+  },
+  {
+    id:2, tipo:'Eje temático', titulo:'Formación ciudadana',
+    contenido:`Este eje incluye los fundamentos de la democracia, la institucionalidad democrática chilena (separación de poderes), las oportunidades y riesgos de los medios de comunicación y las nuevas tecnologías, y el acceso a la justicia a través del sistema judicial chileno.`
+  },
+  {
+    id:3, tipo:'Eje temático', titulo:'Sistema económico',
+    contenido:`Este eje incluye el funcionamiento del mercado (oferta y demanda), la relación entre el Estado y el mercado, los impactos sociales y medioambientales de distintos modelos de desarrollo, y la evolución de los derechos laborales en Chile.`
+  }
+];
+
+// ============ DATOS: PREGUNTAS ============
+// habilidad: 'Pensamiento temporal y espacial' | 'Análisis de fuentes' | 'Pensamiento crítico'
+const QUESTIONS = [
+{id:1,textId:1,habilidad:'Pensamiento temporal y espacial',enunciado:'¿Cuál de los siguientes procesos caracterizó la formación de los Estados-nación en Europa y América durante el siglo XIX?',opciones:['La difusión de ideas liberales y republicanas que impulsaron reformas políticas','La consolidación de monarquías absolutas sin ningún tipo de oposición','El abandono generalizado del comercio internacional entre naciones','La desaparición completa de los conflictos entre potencias europeas'],correcta:0,expl:['Las ideas liberales y republicanas fueron el motor de las transformaciones políticas que dieron origen a los Estados-nación decimonónicos.','El siglo XIX se caracterizó, al contrario, por el cuestionamiento y debilitamiento de las monarquías absolutas.','El comercio internacional se expandió durante el siglo XIX, especialmente tras la Revolución Industrial.','Las tensiones y guerras entre potencias europeas continuaron e incluso se intensificaron durante el período.']},
+{id:2,textId:1,habilidad:'Pensamiento crítico',enunciado:'¿Cuál fue uno de los principales impactos del surgimiento del Estado-nación en América Latina durante el siglo XIX?',opciones:['La definición de fronteras y la construcción de una identidad nacional compartida','La desaparición inmediata de los conflictos limítrofes entre países vecinos','La unificación política total de la región bajo un solo gobierno central','El fin inmediato de las desigualdades sociales heredadas del período colonial'],correcta:0,expl:['La formación de los nuevos Estados implicó delimitar territorios y elaborar símbolos e ideas que dieran sustento a una identidad nacional.','Numerosos conflictos limítrofes surgieron o se prolongaron precisamente por la delimitación de las nuevas fronteras.','América Latina se organizó en múltiples repúblicas independientes, no en una unión política centralizada.','Las desigualdades sociales heredadas de la Colonia persistieron durante gran parte del siglo XIX.']},
+{id:3,textId:1,habilidad:'Análisis de fuentes',enunciado:'Considera el siguiente texto, elaborado para este ensayo: "Hacia mediados del siglo XIX, numerosos jóvenes de las elites latinoamericanas viajaban a Francia e Inglaterra para completar su formación, retornando con nuevas ideas políticas". Según el texto, ¿qué factor favoreció la difusión de las ideas liberales en América Latina?',opciones:['La formación de miembros de las elites en el extranjero','La prohibición estatal de viajar hacia países europeos','El aislamiento cultural de América Latina respecto de Europa','La ausencia total de contacto con las ideas europeas'],correcta:0,expl:['El texto señala explícitamente que los viajes de formación al extranjero permitieron el contacto directo con las ideas liberales.','El texto no menciona ninguna prohibición; por el contrario, describe viajes frecuentes.','El texto describe justamente lo opuesto: un intercambio cultural activo con Europa.','El texto evidencia un contacto directo y constante con las ideas europeas, no su ausencia.']},
+{id:4,textId:1,habilidad:'Pensamiento temporal y espacial',enunciado:'Durante la primera mitad del siglo XIX en Chile, ¿qué caracterizó el proceso de organización de la República?',opciones:['La elaboración de sucesivas constituciones y el predominio de una elite gobernante centralizada','La implementación inmediata del sufragio universal para toda la población','La ausencia total de conflictos políticos entre distintos sectores del país','La abolición completa de la propiedad privada sobre la tierra'],correcta:0,expl:['El período estuvo marcado por ensayos constitucionales sucesivos hasta consolidarse un orden político centralizado bajo la elite dirigente.','El sufragio en esta etapa era censitario y restringido, lejos de ser universal.','Existieron enfrentamientos políticos relevantes, como los conflictos entre pipiolos y pelucones.','La propiedad privada de la tierra se mantuvo e incluso se consolidó como base del orden social de la época.']},
+{id:5,textId:1,habilidad:'Pensamiento crítico',enunciado:'¿Cómo se insertó la economía chilena en los mercados internacionales durante el siglo XIX?',opciones:['Mediante la exportación de materias primas como plata, cobre y trigo hacia mercados europeos y americanos','Mediante una industrialización manufacturera orientada exclusivamente al mercado interno','Mediante el cierre de los puertos chilenos al comercio con el exterior','Mediante la prohibición estatal de exportar minerales hacia otros países'],correcta:0,expl:['Chile se integró a los mercados internacionales principalmente como exportador de materias primas, aprovechando la demanda europea y americana.','La economía chilena del siglo XIX no desarrolló una industrialización manufacturera relevante; su inserción fue de tipo primario-exportador.','Los puertos chilenos se mantuvieron abiertos y activos, siendo clave para la exportación de minerales y trigo.','Las exportaciones mineras, lejos de prohibirse, fueron un pilar central de la economía del período.']},
+{id:6,textId:1,habilidad:'Análisis de fuentes',enunciado:'Considera el siguiente texto, elaborado para este ensayo: "Hacia 1870, Chile registró un aumento sostenido en sus exportaciones de trigo hacia California y Australia, favorecido por la demanda derivada de la fiebre del oro en esos territorios". ¿Qué evidencia este texto sobre la economía chilena del siglo XIX?',opciones:['Su vinculación con la demanda internacional generada por fenómenos externos','Su total independencia respecto de la demanda de otros países','Un descenso sostenido de las exportaciones agrícolas del país','El predominio absoluto del cobre por sobre cualquier otro producto'],correcta:0,expl:['El texto muestra que la demanda externa —en este caso, ligada a la fiebre del oro— explicó directamente el aumento de las exportaciones chilenas.','El texto describe justamente una dependencia respecto de la demanda externa, no una independencia de ella.','El texto señala un aumento, no un descenso, de las exportaciones de trigo.','El texto se refiere específicamente al trigo, sin mencionar al cobre como producto dominante en ese pasaje.']},
+{id:7,textId:1,habilidad:'Pensamiento crítico',enunciado:'Los totalitarismos europeos y el populismo latinoamericano de la primera mitad del siglo XX, ¿qué elemento tuvieron en común?',opciones:['Surgieron como respuesta a la crisis del modelo liberal decimonónico','Se desarrollaron exclusivamente en países que habían sido colonias españolas','Implicaron la restauración exacta de las monarquías del siglo XIX','Se caracterizaron por rechazar cualquier forma de intervención del Estado'],correcta:0,expl:['Ambos fenómenos surgieron en un contexto de crisis del Estado liberal decimonónico, proponiendo modelos políticos y económicos alternativos.','Los totalitarismos europeos se desarrollaron en Europa, no en excolonias españolas.','Ninguno de los dos fenómenos buscó restaurar las monarquías del siglo XIX.','Ambos fenómenos se caracterizaron, por el contrario, por una fuerte intervención estatal.']},
+{id:8,textId:1,habilidad:'Pensamiento temporal y espacial',enunciado:'¿Cuál de las siguientes situaciones ejemplifica el inicio del Estado de bienestar durante la primera mitad del siglo XX?',opciones:['La ampliación de la intervención estatal en materias sociales y económicas','La eliminación total de los ministerios y organismos públicos','El retiro completo del Estado de la regulación económica','La prohibición estatal de cualquier política de protección social'],correcta:0,expl:['El Estado de bienestar se caracterizó precisamente por una mayor intervención estatal en ámbitos sociales y económicos, como salud, educación y previsión.','El fortalecimiento del aparato estatal, no su eliminación, fue rasgo distintivo de este proceso.','El Estado de bienestar implicó mayor regulación económica, no un retiro del Estado.','Las políticas de protección social se expandieron, en lugar de prohibirse, durante este período.']},
+{id:9,textId:1,habilidad:'Análisis de fuentes',enunciado:'Considera el siguiente texto, elaborado para este ensayo: "Tras la crisis económica mundial de 1929, varios países latinoamericanos vieron debilitado su modelo agroexportador, lo que impulsó a distintos gobiernos a asumir un rol económico más activo". Según el texto, ¿qué relación se establece entre la crisis de 1929 y el auge del populismo en América Latina?',opciones:['La crisis debilitó el modelo agroexportador liberal, favoreciendo políticas estatales de mayor intervención','La crisis fortaleció el modelo agroexportador liberal existente hasta entonces','La crisis no tuvo ninguna relación con los cambios políticos y económicos posteriores','La crisis provocó el abandono total de cualquier forma de intervención estatal'],correcta:0,expl:['El texto indica directamente que la crisis debilitó el modelo agroexportador y llevó a los gobiernos a intervenir más activamente en la economía.','El texto señala un debilitamiento del modelo agroexportador, no su fortalecimiento.','El texto establece explícitamente una relación causal entre la crisis y los cambios políticos posteriores.','El texto describe un rol estatal más activo, no un abandono de la intervención.']},
+{id:10,textId:1,habilidad:'Pensamiento crítico',enunciado:'¿Qué distingue principalmente a un régimen totalitario de un régimen autoritario tradicional?',opciones:['El control totalizante que ejerce el Estado sobre la vida política, social y cultural de la población','La ausencia completa de cualquier forma de gobierno o autoridad central','La existencia de elecciones libres, competitivas y sin restricciones','El respeto irrestricto a la separación de los poderes del Estado'],correcta:0,expl:['El rasgo distintivo del totalitarismo es su pretensión de controlar todas las esferas de la vida social, más allá de lo estrictamente político.','Todo régimen totalitario supone, precisamente, una autoridad central muy fuerte, no su ausencia.','Los regímenes totalitarios suprimen o restringen severamente la competencia electoral libre.','Los regímenes totalitarios tienden a concentrar el poder, debilitando la separación de poderes.']},
+{id:11,textId:1,habilidad:'Pensamiento temporal y espacial',enunciado:'Tras el fin de la Segunda Guerra Mundial, ¿qué organismo internacional se creó con el fin de regular las relaciones internacionales y promover la paz?',opciones:['La Organización de las Naciones Unidas (ONU)','La Organización de Estados Americanos (OEA)','La Organización del Tratado del Atlántico Norte (OTAN)','La Internacional Comunista (Comintern)'],correcta:0,expl:['La ONU se creó en 1945, tras la Segunda Guerra Mundial, con el objetivo específico de regular las relaciones internacionales y evitar nuevos conflictos.','La OEA es un organismo regional americano creado en 1948, con un alcance distinto al de un marco regulador global.','La OTAN es una alianza militar creada en 1949, no un organismo de regulación general de las relaciones internacionales.','El Comintern fue una organización comunista disuelta en 1943, previa al fin de la guerra y de carácter ideológico, no regulador.']},
+{id:12,textId:1,habilidad:'Pensamiento crítico',enunciado:'La Guerra Fría se caracterizó principalmente por:',opciones:['La confrontación ideológica entre dos bloques, sin enfrentamiento militar directo entre las potencias','La ausencia total de conflictos armados en cualquier parte del mundo','Una alianza política y militar permanente entre Estados Unidos y la URSS','La desaparición completa de las ideologías políticas a nivel mundial'],correcta:0,expl:['La Guerra Fría se definió por la confrontación ideológica y estratégica entre bloques, evitando un enfrentamiento militar directo entre las potencias.','Durante la Guerra Fría existieron numerosos conflictos armados regionales, aunque las potencias no se enfrentaron directamente.','Estados Unidos y la URSS fueron rivales, no aliados, durante este período.','Las ideologías, especialmente el capitalismo y el comunismo, fueron precisamente el eje central del conflicto.']},
+{id:13,textId:1,habilidad:'Análisis de fuentes',enunciado:'Considera el siguiente texto, elaborado para este ensayo: "En la segunda mitad del siglo XX, distintos países de América Latina experimentaron procesos de reforma política, movimientos revolucionarios y, en varios casos, la instalación de dictaduras militares". Según el texto, ¿qué procesos marcaron la movilización política en América Latina en ese período?',opciones:['La coexistencia de reformas políticas, procesos revolucionarios y dictaduras militares','Un único proceso homogéneo de democratización sin interrupciones','La ausencia total de cambios políticos en todos los países de la región','Un proceso exclusivo de restauración de las monarquías coloniales'],correcta:0,expl:['El texto describe expresamente la coexistencia de reformas, revoluciones y dictaduras militares como rasgo del período.','El texto muestra una diversidad de procesos, no un camino único y homogéneo hacia la democracia.','El texto describe explícitamente cambios políticos relevantes en la región.','El texto no hace ninguna referencia a la restauración de monarquías, las que no existieron en la región tras la independencia.']},
+{id:14,textId:1,habilidad:'Pensamiento temporal y espacial',enunciado:'¿En qué año se produjo el Golpe de Estado que puso fin al gobierno de la Unidad Popular en Chile?',opciones:['1973','1970','1980','1990'],correcta:0,expl:['El Golpe de Estado que derrocó al gobierno de la Unidad Popular ocurrió el 11 de septiembre de 1973.','En 1970 asumió el gobierno de la Unidad Popular, no se produjo el Golpe de Estado.','En 1980 se promulgó una nueva Constitución, pero el quiebre democrático fue en 1973.','En 1990 se produjo el retorno a un gobierno civil democráticamente electo, no el Golpe de Estado.']},
+{id:15,textId:1,habilidad:'Pensamiento crítico',enunciado:'¿Cuál es una de las principales características del modelo económico implementado en Chile durante la Dictadura Militar (1973-1990)?',opciones:['La aplicación de políticas de corte neoliberal, con apertura comercial y reducción del rol económico del Estado','La estatización completa de todos los sectores productivos del país','El cierre total de la economía chilena al comercio internacional','La mantención sin cambios del modelo económico previo a 1973'],correcta:0,expl:['El período estuvo marcado por la implementación de un modelo neoliberal, con apertura comercial, privatizaciones y un Estado con menor participación económica directa.','El modelo implementado fue, al contrario, de privatización y reducción de la propiedad estatal en la economía.','La apertura comercial hacia el exterior fue, precisamente, uno de los rasgos centrales del período.','El modelo económico implementado representó un cambio significativo respecto del período previo a 1973.']},
+{id:16,textId:1,habilidad:'Pensamiento temporal y espacial',enunciado:'¿En qué década se desarrolló el proceso de recuperación de la democracia en Chile tras la Dictadura Militar?',opciones:['La década de 1980','La década de 1960','La década de 1950','La década de 2000'],correcta:0,expl:['El proceso de recuperación democrática, incluyendo el plebiscito de 1988, se desarrolló principalmente durante la década de 1980.','La década de 1960 corresponde a un período previo al Golpe de Estado de 1973.','La década de 1950 es anterior tanto al gobierno de la Unidad Popular como a la Dictadura Militar.','La década de 2000 corresponde a un período muy posterior al retorno a la democracia, ocurrido en 1990.']},
+{id:17,textId:1,habilidad:'Análisis de fuentes',enunciado:'Considera el siguiente texto, elaborado para este ensayo: "En octubre de 1988 se realizó en Chile un plebiscito en el que la ciudadanía decidió si el gobierno militar continuaba en el poder; el resultado dio paso a elecciones presidenciales y parlamentarias al año siguiente". Según el texto, ¿qué papel cumplió el plebiscito de 1988 en el proceso de transición chilena?',opciones:['Definió el término del régimen militar y dio paso a elecciones democráticas','Prolongó indefinidamente el régimen militar en el poder','No tuvo ninguna relación con las elecciones posteriores realizadas en el país','Estableció el retorno inmediato de la monarquía en Chile'],correcta:0,expl:['El texto indica claramente que el resultado del plebiscito abrió el camino hacia elecciones presidenciales y parlamentarias.','El texto describe un resultado que llevó a elecciones, no a la prolongación del régimen militar.','El texto establece explícitamente una relación directa entre el plebiscito y las elecciones del año siguiente.','El texto no menciona en ningún momento una restauración monárquica, la cual no corresponde al proceso histórico chileno.']},
+{id:18,textId:1,habilidad:'Pensamiento crítico',enunciado:'Las distintas interpretaciones historiográficas sobre el quiebre de la democracia en 1973 en Chile coinciden principalmente en:',opciones:['Reconocer la existencia de múltiples factores políticos, económicos y sociales que contribuyeron a la crisis','Atribuir el quiebre institucional a una única causa aislada y sin relación con el contexto','Negar por completo la existencia de un conflicto político previo al Golpe de Estado','Sostener que no hubo ninguna ruptura del orden institucional en ese período'],correcta:0,expl:['Las distintas interpretaciones historiográficas, aunque difieren en énfasis, coinciden en reconocer la multicausalidad del proceso que llevó a la crisis de 1973.','El enfoque historiográfico actual tiende a rechazar explicaciones basadas en una única causa aislada.','Existe consenso historiográfico respecto de la existencia de una fuerte polarización política previa al Golpe de Estado.','El quiebre institucional de 1973 es reconocido de forma generalizada por la historiografía como un hecho ocurrido.']},
+
+{id:19,textId:2,habilidad:'Pensamiento temporal y espacial',enunciado:'¿Cuál es uno de los fundamentos centrales de un régimen democrático?',opciones:['La soberanía popular y la participación ciudadana en la toma de decisiones','La concentración del poder político en una sola persona sin control alguno','La ausencia total de elecciones periódicas para elegir autoridades','La eliminación completa de los partidos políticos y las organizaciones sociales'],correcta:0,expl:['La soberanía popular, es decir, que el poder emane del pueblo, y la participación ciudadana son fundamentos esenciales de la democracia.','La concentración del poder sin control es propia de regímenes autoritarios, no democráticos.','Las elecciones periódicas son, por el contrario, un mecanismo central de todo régimen democrático.','Los partidos políticos y las organizaciones sociales son actores relevantes para la participación democrática, no elementos a eliminar.']},
+{id:20,textId:2,habilidad:'Pensamiento crítico',enunciado:'Respecto de la institucionalidad democrática en Chile, ¿qué caracteriza a la separación de los poderes del Estado?',opciones:['La distribución de funciones entre distintos órganos para evitar la concentración del poder','La concentración de todas las funciones del Estado en un solo poder','La eliminación del Poder Judicial como órgano independiente','La dependencia absoluta del Poder Legislativo respecto del Poder Ejecutivo'],correcta:0,expl:['La separación de poderes busca distribuir las funciones del Estado entre distintos órganos (Ejecutivo, Legislativo y Judicial) para evitar abusos derivados de la concentración del poder.','La separación de poderes implica precisamente lo contrario: distribuir, no concentrar, las funciones del Estado.','El Poder Judicial se concibe como un órgano independiente dentro de este esquema institucional.','El Poder Legislativo mantiene autonomía respecto del Ejecutivo dentro de un sistema con separación de poderes.']},
+{id:21,textId:2,habilidad:'Análisis de fuentes',enunciado:'Considera el siguiente texto, elaborado para este ensayo: "El uso masivo de redes sociales ha facilitado el acceso ciudadano a la información, pero también ha permitido la rápida propagación de noticias falsas que pueden distorsionar el debate público". Según el texto, ¿qué riesgo asociado a las nuevas tecnologías se menciona para la vida democrática?',opciones:['La propagación de desinformación que puede afectar el debate público','La imposibilidad total de acceder a información a través de internet','La eliminación completa de cualquier forma de comunicación masiva','El fortalecimiento absoluto y sin matices de la participación ciudadana'],correcta:0,expl:['El texto identifica explícitamente la propagación de noticias falsas como un riesgo que distorsiona el debate público.','El texto señala, al contrario, que las redes sociales facilitan el acceso a la información.','El texto no plantea la eliminación de la comunicación masiva, sino sus efectos positivos y negativos.','El texto presenta tanto un beneficio como un riesgo, por lo que no describe un fortalecimiento sin matices.']},
+{id:22,textId:2,habilidad:'Pensamiento crítico',enunciado:'¿Cuál es una oportunidad que ofrecen las nuevas tecnologías de la información para la vida democrática?',opciones:['Facilitar el acceso ciudadano a la información y ampliar espacios de participación','Reducir completamente la posibilidad de que la ciudadanía se informe','Eliminar por completo la necesidad de instituciones representativas','Restringir el acceso a la información únicamente a las autoridades de gobierno'],correcta:0,expl:['Las nuevas tecnologías permiten un acceso más amplio y rápido a la información, además de nuevos canales de participación ciudadana.','Las nuevas tecnologías, por el contrario, han ampliado las posibilidades de acceso a la información.','Las instituciones representativas mantienen su relevancia, incluso en un contexto de mayor participación digital.','Las tecnologías de la información tienden a ampliar, no restringir, el acceso a la información para la ciudadanía en general.']},
+{id:23,textId:2,habilidad:'Pensamiento temporal y espacial',enunciado:'El sistema judicial chileno se organiza principalmente en torno a:',opciones:['Tribunales de distintas instancias, encabezados por la Corte Suprema','Un único tribunal que resuelve todas las causas del país sin instancias adicionales','La ausencia de cualquier órgano superior de control judicial','La dependencia directa de los tribunales respecto del Poder Ejecutivo'],correcta:0,expl:['El sistema judicial chileno se organiza jerárquicamente en distintas instancias, con la Corte Suprema como máximo tribunal.','Existen múltiples tribunales especializados y de distintas instancias, no un único órgano que resuelva todas las causas.','La Corte Suprema cumple, precisamente, un rol de máximo órgano de control dentro del sistema judicial.','La independencia del Poder Judicial respecto del Ejecutivo es un principio fundamental de la institucionalidad chilena.']},
+{id:24,textId:2,habilidad:'Pensamiento crítico',enunciado:'El acceso a la justicia como derecho ciudadano implica principalmente:',opciones:['La posibilidad efectiva de toda persona de recurrir a tribunales para resguardar sus derechos','La exclusión de ciertos grupos sociales del sistema judicial del país','La eliminación de cualquier mecanismo de defensa jurídica gratuita','La dependencia del acceso a la justicia exclusivamente de la capacidad económica de las personas'],correcta:0,expl:['El acceso a la justicia supone que toda persona pueda recurrir efectivamente a los tribunales para hacer valer sus derechos.','El acceso a la justicia busca, por el contrario, incluir a todos los grupos sociales sin exclusión.','Existen mecanismos como la defensoría penal pública que buscan garantizar el acceso a la justicia sin depender únicamente de recursos económicos.','El principio de acceso a la justicia busca precisamente que no dependa exclusivamente de la capacidad económica de cada persona.']},
+
+{id:25,textId:3,habilidad:'Pensamiento temporal y espacial',enunciado:'En una economía de mercado, el precio de un bien se determina principalmente por:',opciones:['La interacción entre la oferta y la demanda de ese bien','Una decisión tomada exclusivamente por el gobierno central','Un acuerdo fijo entre todos los consumidores del mercado','La cantidad de publicidad asociada a ese producto específico'],correcta:0,expl:['En una economía de mercado, el precio se determina fundamentalmente por la interacción entre la oferta disponible y la demanda de los consumidores.','En una economía de mercado, a diferencia de una economía planificada, los precios no dependen de una decisión centralizada del Estado.','El precio no surge de un acuerdo entre consumidores, sino de la interacción libre entre oferta y demanda.','La publicidad puede influir en la demanda, pero no es el factor que determina el precio de mercado en sí mismo.']},
+{id:26,textId:3,habilidad:'Pensamiento crítico',enunciado:'¿Cuál de los siguientes es un factor que puede alterar el funcionamiento normal del mercado?',opciones:['La existencia de monopolios que restringen la competencia','La existencia de múltiples empresas compitiendo libremente','La libre entrada y salida de nuevos productores al mercado','La disponibilidad de información equivalente para todos los agentes'],correcta:0,expl:['Los monopolios restringen la competencia y pueden distorsionar precios y condiciones de mercado, alterando su funcionamiento normal.','La competencia entre múltiples empresas es, por el contrario, una condición asociada al buen funcionamiento del mercado.','La libre entrada y salida de productores favorece la competencia, en lugar de alterar negativamente el mercado.','La información simétrica entre agentes es una condición que favorece, y no distorsiona, el funcionamiento eficiente del mercado.']},
+{id:27,textId:3,habilidad:'Análisis de fuentes',enunciado:'Considera el siguiente texto, elaborado para este ensayo: "En diversas economías, el Estado interviene estableciendo normas de protección al consumidor y regulando sectores estratégicos, con el fin de corregir situaciones en que el mercado no logra asignar recursos de manera eficiente". Según el texto, ¿qué rol cumple el Estado en su relación con el mercado?',opciones:['Regular ciertas actividades económicas para corregir fallas del mercado','Sustituir completamente al mercado en la asignación de todos los recursos','Prohibir la existencia de cualquier actividad económica privada','Mantenerse absolutamente al margen de toda actividad económica del país'],correcta:0,expl:['El texto describe explícitamente que el Estado interviene para corregir situaciones en que el mercado no asigna recursos de manera eficiente.','El texto habla de regulación en ciertos ámbitos, no de una sustitución total del mercado por parte del Estado.','El texto no menciona la prohibición de la actividad privada, sino su regulación en aspectos específicos.','El texto describe una intervención activa del Estado, no una ausencia total de participación en la economía.']},
+{id:28,textId:3,habilidad:'Pensamiento crítico',enunciado:'Los distintos modelos de desarrollo económico pueden generar impactos medioambientales relacionados principalmente con:',opciones:['La sobreexplotación de recursos naturales asociada a determinados patrones productivos','La ausencia total de cualquier tipo de impacto sobre el medioambiente','La disminución automática de la contaminación en cualquier modelo de desarrollo','La imposibilidad de que la actividad económica afecte el entorno natural'],correcta:0,expl:['Ciertos patrones productivos, especialmente los basados en la explotación intensiva de recursos naturales, pueden generar sobreexplotación e impactos medioambientales.','Los distintos modelos de desarrollo sí pueden generar impactos medioambientales, positivos o negativos según su orientación.','No todos los modelos de desarrollo disminuyen automáticamente la contaminación; depende de las políticas y patrones productivos adoptados.','La actividad económica puede afectar efectivamente el entorno natural, dependiendo del modelo de desarrollo implementado.']},
+{id:29,textId:3,habilidad:'Pensamiento temporal y espacial',enunciado:'La evolución de los derechos laborales en Chile ha estado marcada históricamente por:',opciones:['La creación progresiva de mecanismos institucionales para proteger a los trabajadores','La eliminación total de cualquier tipo de legislación laboral desde el siglo XIX','La ausencia completa de organizaciones sindicales a lo largo de la historia del país','Un retroceso constante y sin excepciones en las condiciones laborales'],correcta:0,expl:['A lo largo del tiempo se fueron creando instituciones y normativas orientadas a resguardar los derechos de los trabajadores.','La legislación laboral se fue construyendo progresivamente, en lugar de eliminarse desde el siglo XIX.','Las organizaciones sindicales han tenido un desarrollo histórico relevante en Chile, con distintos períodos de mayor o menor fortaleza.','La evolución de los derechos laborales ha tenido avances y retrocesos según el período, no un retroceso constante sin excepciones.']},
+{id:30,textId:3,habilidad:'Pensamiento crítico',enunciado:'¿Qué papel han cumplido los movimientos y organizaciones sociales en relación con los derechos laborales en Chile?',opciones:['Han impulsado demandas y reformas orientadas a ampliar la protección laboral','Han buscado sistemáticamente eliminar cualquier forma de protección a los trabajadores','No han tenido ninguna influencia en la legislación laboral del país','Han actuado exclusivamente en contra de la existencia de sindicatos'],correcta:0,expl:['Los movimientos y organizaciones sociales han sido históricamente actores relevantes en la demanda por mayores derechos y protecciones laborales.','Estos movimientos han buscado ampliar, y no eliminar, la protección de los derechos de los trabajadores.','Diversas reformas laborales han surgido en contextos de movilización y presión de organizaciones sociales y sindicales.','Las organizaciones sociales vinculadas al mundo laboral han incluido, precisamente, a los propios sindicatos como actores centrales.']}
+];
+
+const TOTAL_Q = QUESTIONS.length;
+const TIME_LIMIT = 60*60; // 1h en segundos
+let timeLeft = TIME_LIMIT;
+let timerInterval = null;
+let currentQIndex = 0;
+let answers = {}; // {questionId: optionIndex}
+let finished = false;
+
+// Colores por habilidad (paleta dorado/sepia acorde a los módulos de Historia)
+const HAB_COLORS = {
+  'Pensamiento temporal y espacial': {main:'#a97c2f', soft:'#fdf3e2', dark:'#7a5820'},
+  'Análisis de fuentes':             {main:'#1d4ed8', soft:'#eff6ff', dark:'#1e3a8a'},
+  'Pensamiento crítico':             {main:'#7c3aed', soft:'#f5f3ff', dark:'#5b21b6'}
+};
+
+// ============ NAVEGACIÓN PORTADA -> EXAMEN ============
+document.getElementById('btnComenzar').addEventListener('click', ()=>{
+  document.getElementById('portada').style.display='none';
+  document.getElementById('examen').style.display='block';
+  initTabs();
+  initPalette();
+  renderQuestion(0);
+  startTimer();
+});
+
+function initTabs(){
+  const cont = document.getElementById('tabsTextos');
+  cont.innerHTML = TEXTS.map(t=>`<button class="tabTexto" data-tid="${t.id}">${t.titulo}</button>`).join('');
+  cont.querySelectorAll('.tabTexto').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const tid = parseInt(btn.dataset.tid);
+      const firstQ = QUESTIONS.findIndex(q=>q.textId===tid);
+      if(firstQ>=0) renderQuestion(firstQ);
+    });
+  });
+}
+
+function initPalette(){
+  const grid = document.getElementById('paletteGrid');
+  grid.innerHTML = QUESTIONS.map((q,i)=>`<button class="paletteBtn" data-idx="${i}">${i+1}</button>`).join('');
+  grid.querySelectorAll('.paletteBtn').forEach(btn=>{
+    btn.addEventListener('click', ()=> renderQuestion(parseInt(btn.dataset.idx)));
+  });
+}
+
+function renderQuestion(idx){
+  currentQIndex = idx;
+  const q = QUESTIONS[idx];
+  const text = TEXTS.find(t=>t.id===q.textId);
+
+  // tabs activo
+  document.querySelectorAll('.tabTexto').forEach(b=>{
+    b.classList.toggle('activo', parseInt(b.dataset.tid)===text.id);
+  });
+
+  // panel eje temático
+  const panelTexto = document.getElementById('panelTexto');
+  panelTexto.innerHTML = `<span class="tipoTexto">${text.tipo}</span><h2>${text.titulo}</h2>` +
+    `<div class="formulaBox">${text.contenido.split('\n').join('<br><br>')}</div>`;
+
+  // progreso
+  document.getElementById('progresoTxt').textContent = `Pregunta ${idx+1} de ${TOTAL_Q}`;
+  document.getElementById('numPreguntaLbl').textContent = `Pregunta ${idx+1}`;
+
+  // enunciado
+  document.getElementById('enunciadoTxt').textContent = q.enunciado;
+
+  // opciones
+  const letras = ['A','B','C','D'];
+  const cont = document.getElementById('opcionesCont');
+  cont.innerHTML = q.opciones.map((op,i)=>{
+    const marcada = answers[q.id]===i ? 'marcada' : '';
+    return `<button class="opcion ${marcada}" data-oi="${i}"><span class="letra">${letras[i]}</span><span>${op}</span></button>`;
+  }).join('');
+  cont.querySelectorAll('.opcion').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      answers[q.id] = parseInt(btn.dataset.oi);
+      renderQuestion(currentQIndex);
+      updatePalette();
+    });
+  });
+
+  // nav prev/next
+  document.getElementById('btnPrev').disabled = idx===0;
+  document.getElementById('btnNext').disabled = idx===TOTAL_Q-1;
+
+  updatePalette();
+}
+
+function updatePalette(){
+  document.querySelectorAll('.paletteBtn').forEach((btn,i)=>{
+    btn.classList.toggle('respondida', answers[QUESTIONS[i].id]!==undefined);
+    btn.classList.toggle('activa', i===currentQIndex);
+  });
+}
+
+document.getElementById('btnPrev').addEventListener('click', ()=>{
+  if(currentQIndex>0) renderQuestion(currentQIndex-1);
+});
+document.getElementById('btnNext').addEventListener('click', ()=>{
+  if(currentQIndex<TOTAL_Q-1) renderQuestion(currentQIndex+1);
+});
+
+// ============ TIMER ============
+function startTimer(){
+  updateTimerDisplay();
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    updateTimerDisplay();
+    if(timeLeft<=0){
+      clearInterval(timerInterval);
+      finalizarPrueba(true);
+    }
+  },1000);
+}
+
+function updateTimerDisplay(){
+  const h = Math.floor(timeLeft/3600);
+  const m = Math.floor((timeLeft%3600)/60);
+  const s = timeLeft%60;
+  const el = document.getElementById('timer');
+  el.textContent = `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  el.classList.toggle('alerta', timeLeft<=300);
+}
+
+// ============ FINALIZAR ============
+document.getElementById('btnFinalizar').addEventListener('click', ()=>{
+  const sinResponder = TOTAL_Q - Object.keys(answers).length;
+  let msg = '¿Seguro que quieres finalizar la prueba?';
+  if(sinResponder>0) msg = `Tienes ${sinResponder} pregunta(s) sin responder. ¿Seguro que quieres finalizar?`;
+  document.getElementById('modalTexto').textContent = msg;
+  document.getElementById('modalOverlay').classList.add('activo');
+});
+
+document.getElementById('modalCancelar').addEventListener('click', ()=>{
+  document.getElementById('modalOverlay').classList.remove('activo');
+});
+
+document.getElementById('modalConfirmar').addEventListener('click', ()=>{
+  document.getElementById('modalOverlay').classList.remove('activo');
+  finalizarPrueba(false);
+});
+
+function finalizarPrueba(porTiempo){
+  if(finished) return;
+  finished = true;
+  clearInterval(timerInterval);
+  document.getElementById('examen').style.display='none';
+  document.getElementById('resultados').style.display='block';
+  calcularResultados();
+}
+
+// ============ RESULTADOS ============
+function calcularResultados(){
+  let correctas = 0;
+  const habStats = {'Pensamiento temporal y espacial':{total:0,correctas:0}, 'Análisis de fuentes':{total:0,correctas:0}, 'Pensamiento crítico':{total:0,correctas:0}};
+
+  QUESTIONS.forEach(q=>{
+    habStats[q.habilidad].total++;
+    if(answers[q.id]===q.correcta){
+      correctas++;
+      habStats[q.habilidad].correctas++;
+    }
+  });
+
+  const pctGlobal = Math.round((correctas/TOTAL_Q)*100);
+  document.getElementById('scoreBig').textContent = `${correctas}/${TOTAL_Q}`;
+  document.getElementById('scorePct').textContent = `${pctGlobal}% de logro`;
+
+  // barras por habilidad
+  const habRows = document.getElementById('habRows');
+  habRows.innerHTML = Object.keys(habStats).map(h=>{
+    const s = habStats[h];
+    const pct = s.total>0 ? Math.round((s.correctas/s.total)*100) : 0;
+    const c = HAB_COLORS[h];
+    return `<div class="habRow">
+      <span class="dotHab" style="background:${c.main}"></span>
+      <span class="nom">${h}</span>
+      <span class="barBg"><span class="barFill" style="width:${pct}%;background:${c.main}"></span></span>
+      <span class="pct">${pct}%</span>
+    </div>`;
+  }).join('');
+
+  // diagnóstico + CTA
+  let habilidadesOrdenadas = Object.keys(habStats).map(h=>({
+    nombre:h,
+    pct: habStats[h].total>0 ? (habStats[h].correctas/habStats[h].total)*100 : 0
+  })).sort((a,b)=>a.pct-b.pct);
+  const masDebil = habilidadesOrdenadas[0];
+
+  let nivel, packSugerido;
+  if(pctGlobal < 50){
+    nivel = 'inicial';
+    packSugerido = 'Escalera Inicial, con foco en fundamentos de Historia y Ciencias Sociales';
+  } else if(pctGlobal < 75){
+    nivel = 'intermedio';
+    packSugerido = 'Escalera Intermedia, para consolidar y subir tu puntaje de forma sostenida';
+  } else {
+    nivel = 'avanzado';
+    packSugerido = 'un pack orientado a tu carrera, para afinar detalles y asegurar tu puntaje';
+  }
+
+  document.getElementById('diagnosticoTxt').innerHTML =
+    `Obtuviste <strong>${correctas} de ${TOTAL_Q}</strong> preguntas correctas (${pctGlobal}% de logro). ` +
+    `Tu habilidad con mayor margen de mejora es <strong>${masDebil.nombre}</strong> (${Math.round(masDebil.pct)}% de logro en esa habilidad). ` +
+    `Según tu resultado, te recomendamos ${packSugerido}, priorizando ejercicios de ${masDebil.nombre.toLowerCase()}.`;
+
+  document.getElementById('ctaTexto').textContent =
+    `Con tu nivel actual, ${packSugerido}.`;
+
+  // revisión detallada
+  renderRevision();
+}
+
+function renderRevision(){
+  const cont = document.getElementById('revision');
+  const letras = ['A','B','C','D'];
+  cont.innerHTML = TEXTS.map(text=>{
+    const qs = QUESTIONS.filter(q=>q.textId===text.id);
+    const qsHtml = qs.map((q,i)=>{
+      const globalIdx = QUESTIONS.indexOf(q)+1;
+      const marcada = answers[q.id];
+      const optsHtml = q.opciones.map((op,oi)=>{
+        let cls='neutra';
+        if(oi===q.correcta) cls='correcta';
+        else if(oi===marcada) cls='marcadaIncorrecta';
+        return `<div class="revOpt ${cls}">${letras[oi]}. ${op}${oi===q.correcta?' ✓':''}${(oi===marcada && oi!==q.correcta)?' (tu respuesta)':''}<br><small>${q.expl[oi]}</small></div>`;
+      }).join('');
+      return `<div class="revQ">
+        <span class="revHab" style="color:${HAB_COLORS[q.habilidad].dark};background:${HAB_COLORS[q.habilidad].soft}">${q.habilidad}</span>
+        <div class="revEnun">${globalIdx}. ${q.enunciado}</div>
+        ${optsHtml}
+      </div>`;
+    }).join('');
+    return `<h3 style="margin-top:24px;">${text.titulo}</h3>${qsHtml}`;
+  }).join('');
+}
+
+document.getElementById('btnRevisar').addEventListener('click', ()=>{
+  const rev = document.getElementById('revision');
+  const btn = document.getElementById('btnRevisar');
+  const visible = rev.style.display==='block';
+  rev.style.display = visible ? 'none' : 'block';
+  btn.textContent = visible ? 'Revisar respuestas y explicaciones' : 'Ocultar revisión';
+});
+</script>
+</body>
+</html>
