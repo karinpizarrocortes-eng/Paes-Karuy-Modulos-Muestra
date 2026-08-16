@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 3A – Orden Mundial de Posguerra y Guerra Fría · PAES Historia y Ciencias Sociales</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dorado:#d4a24c;--dorado-dark:#a97c2f;--dorado-glow:rgba(212,162,76,.15);
+  --sepia:#c17a3d;--azul:#3498db;--morado:#9b59b6;--naranja:#e67e22;
+  --amarillo:#f1c40f;--rojo:#e74c3c;--cyan:#22d3ee;
+  --bg:#140f08;--card:#1e1710;--card2:#2a2013;
+  --text:#f3e8d4;--text-dim:#b8a37e;--radius:18px;
+  --c-on:#3498db;--c-gf:#c0392b;--c-al:#e67e22;--c-fg:#16a085;--c-lt:#9b59b6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(1px 1px at 8% 15%,rgba(212,162,76,.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 25% 60%,rgba(255,255,255,.15) 0%,transparent 100%),
+    radial-gradient(1px 1px at 55% 8%,rgba(212,162,76,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 72% 40%,rgba(255,255,255,.13) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 75%,rgba(212,162,76,.22) 0%,transparent 100%),
+    radial-gradient(1px 1px at 40% 85%,rgba(255,255,255,.12) 0%,transparent 100%);}
+.container{max-width:980px;margin:0 auto;padding:20px;position:relative;z-index:1}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,.06);z-index:200}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--dorado),var(--sepia));transition:width .4s}
+.hero{text-align:center;padding:60px 20px 24px}
+.hero-emoji{font-size:68px;display:block;animation:float 3s ease-in-out infinite;margin-bottom:14px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:"Fredoka One",cursive;font-size:clamp(1.6rem,5.5vw,2.9rem);
+  background:linear-gradient(135deg,var(--dorado),var(--sepia),var(--dorado));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.15;margin-bottom:10px}
+.hero p{color:var(--text-dim);font-size:.95rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(212,162,76,.12);border:1.5px solid rgba(212,162,76,.35);color:var(--dorado);padding:6px 16px;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:12px}
+.nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:22px 0 6px;position:sticky;top:4px;z-index:90}
+.nav-btn{background:var(--card);border:1.5px solid rgba(255,255,255,.08);color:var(--text-dim);font-family:"Nunito",sans-serif;font-weight:800;font-size:.78rem;padding:7px 13px;border-radius:50px;cursor:pointer;transition:all .22s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:var(--dorado-glow);border-color:var(--dorado);color:var(--dorado)}
+.nav-btn.locked{opacity:.35;cursor:not-allowed;pointer-events:none}
+.section{display:none;animation:fadeUp .35s ease;padding-bottom:40px}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:26px;margin-bottom:18px}
+.card-title{font-family:"Fredoka One",cursive;font-size:1.35rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.card p,.card li{font-size:.97rem;line-height:1.75;color:var(--text-dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:22px}
+.card li{margin-bottom:7px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:620px){.grid-2{grid-template-columns:1fr}}
+.h-header{border-radius:var(--radius);padding:26px;margin-bottom:18px;border:1.5px solid transparent}
+.h-header .icon{font-size:52px;display:block;margin-bottom:10px}
+.h-header h2{font-family:"Fredoka One",cursive;font-size:clamp(1.4rem,4.2vw,2.2rem);line-height:1.15}
+.h-header p{font-size:.97rem;line-height:1.7;margin-top:8px;opacity:.85;max-width:600px}
+.tip-box{border-left:4px solid var(--dorado);background:rgba(212,162,76,.07);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin-bottom:14px}
+.tip-box .tip-label{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--dorado);margin-bottom:4px}
+.tip-box p{font-size:.9rem;color:var(--text-dim);line-height:1.65}
+.tip-box p strong{color:var(--text)}
+.kw-grid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.kw{border-radius:8px;padding:5px 11px;font-size:.8rem;font-weight:800}
+.paes-box{background:var(--card2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;margin-top:8px;margin-bottom:16px}
+.paes-tag{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.paes-ctx{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;font-size:.87rem;color:var(--text-dim);line-height:1.65;margin-bottom:12px}
+.paes-ctx-src{font-size:.74rem;color:var(--text-dim);opacity:.7;font-style:italic;margin-top:6px}
+.paes-q{font-size:.93rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:14px}
+.paes-opts{display:flex;flex-direction:column;gap:8px}
+.paes-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1.5px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);transition:all .18s}
+.paes-opt:hover{border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.paes-opt.locked{cursor:default;pointer-events:none}
+.paes-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.paes-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ol{min-width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--dorado);flex-shrink:0}
+.paes-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.paes-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ot{font-size:.88rem;color:var(--text-dim);line-height:1.55}
+.paes-fb{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.55;display:none}
+.paes-fb.show{display:block}
+.paes-fb.ok{background:rgba(212,162,76,.12);color:#f3d896;border-left:3px solid var(--dorado)}
+.paes-fb.no{background:rgba(231,76,60,.08);color:#fca5a5;border-left:3px solid var(--rojo)}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--sepia));border:none;color:#1a1206;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(212,162,76,.4);z-index:210;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab.blocked .dot{background:#6b7280;display:block}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid #1a1206;display:none}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(0,0,0,.5);z-index:220;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--dorado),var(--sepia));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:"Fredoka One",cursive;font-size:1rem;color:#1a1206}
+.tutor-head p{font-size:.7rem;color:rgba(26,18,6,.75);margin-top:1px}
+.tutor-close{background:rgba(26,18,6,.18);border:none;color:#1a1206;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1;flex-shrink:0}
+.tutor-blocked-msg{padding:24px 18px;text-align:center;color:var(--text-dim);font-size:.88rem;line-height:1.7}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--dorado);color:var(--dorado)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--dorado);color:#1a1206;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid rgba(255,255,255,.08);border-bottom-left-radius:4px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--text-dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.7}
+.tutor-report:hover{opacity:1;color:var(--dorado)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid rgba(255,255,255,.12);border-radius:12px;color:var(--text);padding:9px 12px;font-family:"Nunito",sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--dorado)}
+.tutor-send{background:var(--dorado);border:none;color:#1a1206;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){.tutor-input{font-size:16px}}
+.skill-tag{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:6px;margin-bottom:8px}
+.skill-h1{background:rgba(212,162,76,.12);color:var(--dorado);border:1px solid rgba(212,162,76,.3)}
+.skill-h2{background:rgba(56,189,248,.12);color:#38bdf8;border:1px solid rgba(56,189,248,.3)}
+.skill-h3{background:rgba(248,113,113,.12);color:#f87171;border:1px solid rgba(248,113,113,.3)}
+.on{color:var(--c-on)!important}.gf{color:var(--c-gf)!important}.al{color:var(--c-al)!important}
+.fg{color:var(--c-fg)!important}.lt{color:var(--c-lt)!important}.dorado{color:var(--dorado)!important}
+.weight-table{width:100%;border-collapse:collapse;margin:12px 0}
+.weight-table th{background:rgba(212,162,76,.12);color:var(--dorado);font-size:.8rem;padding:8px 12px;text-align:left;font-family:"Fredoka One",cursive;font-weight:400}
+.weight-table td{padding:9px 12px;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);color:var(--text-dim)}
+.tl-wrap{overflow-x:auto;padding-bottom:8px}
+.tl-grid{display:grid;grid-template-columns:130px repeat(3,1fr);gap:2px;min-width:640px}
+.tl-head{font-family:"Fredoka One",cursive;font-size:.85rem;text-align:center;padding:10px 6px;border-radius:10px 10px 0 0}
+.tl-row-label{display:flex;align-items:center;font-size:.76rem;font-weight:900;color:var(--text-dim);padding:8px 6px}
+.tl-cell{background:var(--card2);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:9px 10px;font-size:.76rem;color:var(--text-dim);line-height:1.5;min-height:60px;cursor:pointer;position:relative}
+.tl-cell:hover{border-color:rgba(212,162,76,.4)}
+.tl-cell strong{color:var(--text);display:block;font-size:.78rem;margin-bottom:2px}
+.tl-cell .tl-more{display:none;margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.1);font-size:.73rem;color:var(--text-dim)}
+.tl-cell.open .tl-more{display:block}
+.tl-cell .tl-plus{position:absolute;top:6px;right:8px;font-size:.7rem;color:var(--dorado);opacity:.7}
+.prac-group{margin-bottom:24px}
+.prac-group-hdr{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.prac-group-hdr .gi{font-size:1.5rem}
+.prac-group-hdr .gname{font-family:"Fredoka One",cursive;font-size:1.05rem}
+.prac-group-hdr .gscore{margin-left:auto;font-size:.85rem;font-weight:800}
+.pq{display:none;background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:10px}
+.pq.show{display:block;animation:fadeUp .3s ease}
+.pq-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 13px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.pq-q{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pq-opts{display:flex;flex-direction:column;gap:7px}
+.nxt-q{margin-top:12px;padding:8px 22px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:"Fredoka One",cursive;font-size:.95rem;cursor:pointer;display:none}
+.nxt-q:hover{background:var(--dorado-dark)}
+.linear-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(20,15,8,.92);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.08);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:180;gap:12px}
+.lnav-btn{font-family:"Fredoka One",cursive;font-size:.95rem;padding:8px 20px;border-radius:50px;border:1.5px solid rgba(212,162,76,.35);background:transparent;color:var(--dorado);cursor:pointer;transition:all .2s;white-space:nowrap}
+.lnav-btn:hover{background:var(--dorado-glow)}
+.lnav-btn:disabled{opacity:.25;cursor:default}
+.lnav-center{font-size:.78rem;font-weight:800;color:var(--text-dim);text-align:center;flex:1}
+.timer-box{background:var(--card2);border:2px solid rgba(212,162,76,.3);border-radius:14px;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
+.timer-display{font-family:"Fredoka One",cursive;font-size:2.4rem;color:var(--dorado);letter-spacing:.05em}
+.timer-display.warn{color:#f59e0b}
+.timer-display.danger{color:var(--rojo);animation:pulse-b 1s ease-in-out infinite}
+@keyframes pulse-b{0%,100%{opacity:1}50%{opacity:.5}}
+.ensayo-q{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;margin-bottom:12px}
+.ensayo-num{font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.ensayo-ctx{background:rgba(0,0,0,.18);border-radius:8px;padding:10px 12px;font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px}
+.ensayo-q-text{font-size:.9rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.ensayo-opts{display:flex;flex-direction:column;gap:7px}
+.ensayo-opt{display:flex;align-items:flex-start;gap:10px;padding:9px 13px;border-radius:9px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(0,0,0,.18);transition:all .18s}
+.ensayo-opt:hover:not(.locked){border-color:var(--dorado);background:rgba(212,162,76,.08)}
+.ensayo-opt.selected{background:rgba(212,162,76,.12);border-color:var(--dorado)}
+.ensayo-opt.locked{cursor:default;pointer-events:none}
+.ensayo-opt.right{background:rgba(212,162,76,.14);border-color:var(--dorado)}
+.ensayo-opt.wrong{background:rgba(231,76,60,.08);border-color:var(--rojo)}
+.ensayo-opt .ol{color:var(--dorado)}
+.ensayo-opt.selected .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.ensayo-opt.right .ol{background:var(--dorado);color:#1a1206;border-color:var(--dorado)}
+.ensayo-opt.wrong .ol{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.ensayo-fb{margin-top:8px;padding:9px 13px;border-radius:9px;font-size:.83rem;line-height:1.55;display:none}
+.ensayo-fb.show{display:block}
+.ensayo-fb.ok{background:rgba(212,162,76,.1);color:#f3d896;border-left:3px solid var(--dorado)}
+.ensayo-fb.no{background:rgba(231,76,60,.06);color:#fca5a5;border-left:3px solid var(--rojo)}
+.submit-btn{width:100%;padding:14px;background:var(--dorado);color:#1a1206;border:none;border-radius:12px;font-family:"Fredoka One",cursive;font-size:1.1rem;cursor:pointer;margin-top:10px;transition:background .2s}
+.submit-btn:hover{background:var(--dorado-dark)}
+.submit-btn:disabled{opacity:.4;cursor:default}
+#ensayo-results{display:none;margin-top:20px}
+.res-banner{font-family:"Fredoka One",cursive;font-size:2.5rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0}
+.res-topic-card{background:var(--card2);border-radius:12px;padding:13px 16px;border-left:3px solid var(--dorado)}
+.res-topic-card.bad{border-left-color:var(--rojo)}
+.res-topic-card.mid{border-left-color:#f59e0b}
+.res-topic-name{font-size:.79rem;font-weight:900;color:var(--text-dim);margin-bottom:4px}
+.res-topic-score{font-family:"Fredoka One",cursive;font-size:1.3rem}
+.cmap{display:flex;flex-direction:column;gap:8px}
+.cmap-node{background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .2s}
+.cmap-node:hover{border-color:rgba(212,162,76,.4)}
+.cmap-h{display:flex;align-items:center;gap:10px;padding:12px 16px}
+.cmap-h strong{font-size:.92rem;color:var(--text)}
+.cmap-icon{font-size:1.15rem}
+.cmap-plus{font-size:.9rem;color:var(--dorado);margin-left:auto;flex-shrink:0}
+.cmap-body{display:none;padding:0 16px 16px 44px;font-size:.86rem;color:var(--text-dim);line-height:1.65}
+.cmap-node.open .cmap-body{display:block;animation:fadeUp .25s ease}
+.match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin-top:6px}
+@media(max-width:620px){.match-wrap{grid-template-columns:1fr}}
+.match-col{display:flex;flex-direction:column;gap:8px}
+.match-col-hdr{display:flex;align-items:center;gap:6px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--dorado);padding-bottom:4px;border-bottom:1px dashed rgba(212,162,76,.3)}
+.match-list{display:flex;flex-direction:column;gap:8px}
+.match-item{background:rgba(0,0,0,.2);border:1.5px solid rgba(255,255,255,.09);border-left-width:3px;border-radius:10px;padding:10px 14px;font-size:.85rem;color:var(--text-dim);cursor:pointer;transition:all .18s;line-height:1.5}
+.match-item:hover{border-color:var(--dorado)}
+.match-item.term{border-left-color:var(--dorado);font-weight:800;color:var(--text)}
+.match-item.def{border-left-color:rgba(255,255,255,.18)}
+.match-item.picked{border-color:var(--dorado);background:rgba(212,162,76,.1);color:var(--text)}
+.match-item.ok{border-color:var(--dorado);background:rgba(212,162,76,.16);color:var(--text)}
+.match-item.bad{border-color:var(--rojo);background:rgba(231,76,60,.1)}
+.match-item.done{cursor:default}
+.match-status{margin-top:12px;font-size:.85rem;font-weight:800;color:var(--text-dim)}
+.match-status.win{color:var(--dorado)}
+footer{text-align:center;padding:20px 20px 30px;font-size:.82rem;color:#5c4a2a}
+@media(max-width:680px){
+  .container{padding:10px 10px 80px}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:8px !important;gap:5px;margin:12px 0 4px;scrollbar-width:none;position:relative !important;top:auto !important;background:rgba(20,15,8,.95);border-radius:14px}
+  .nav::-webkit-scrollbar{display:none}
+  .nav-btn{flex-shrink:0;font-size:.74rem;padding:9px 13px;min-height:40px;touch-action:manipulation}
+  .hero{padding:36px 8px 14px}
+  .hero-emoji{font-size:48px}
+  .card{padding:14px 12px}
+  .grid-2{grid-template-columns:1fr}
+  .paes-box{padding:14px 12px}
+  .paes-opt{padding:12px 11px;min-height:52px;touch-action:manipulation}
+  .ol{min-width:30px;height:30px;font-size:.8rem}
+  .lnav-btn{padding:13px 18px !important;font-size:.95rem !important;min-height:48px}
+  .submit-btn{width:100% !important;padding:13px !important}
+}
+</style>
+</head>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="prog" style="width:14%"></div></div>
+<div class="container">
+<div class="hero">
+  <span class="hero-emoji">🌐</span>
+  <h1>Orden Mundial de Posguerra y Guerra Fría</h1>
+  <p>PAES Historia y Ciencias Sociales · Unidad 3A</p>
+  <div class="badge">📜 Admisión 2027</div>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="showSec('portada',0,this)">🏠 Inicio</button>
+  <button class="nav-btn" onclick="showSec('on',1,this)">🌐 Orden Mundial</button>
+  <button class="nav-btn" onclick="showSec('gf',2,this)">❄️ Guerra Fría</button>
+  <button class="nav-btn" onclick="showSec('al',3,this)">✊ AL en Guerra Fría</button>
+  <button class="nav-btn" onclick="showSec('fg',4,this)">🌍 Fin Guerra Fría</button>
+  <button class="nav-btn" onclick="showSec('lt',5,this)">🗺️ Bloques</button>
+  <button class="nav-btn" onclick="showSec('ensayo',6,this)">⏱️ Mini Ensayo</button>
+</div>
+
+<!-- ═══ PORTADA ═══ -->
+<div class="section active" id="portada">
+  <div class="card" style="text-align:center;padding:36px 28px">
+    <p class="card-title" style="justify-content:center;color:var(--dorado);font-size:1.6rem">🌐 Unidad 3A · Orden Mundial de Posguerra y Guerra Fría</p>
+    <p style="font-size:1.05rem;max-width:600px;margin:0 auto 22px;color:var(--text-dim);line-height:1.8">Esta unidad cubre el <strong>contexto mundial</strong> de la segunda mitad del siglo XX: cómo se reorganizó el planeta tras la Segunda Guerra Mundial, y cómo esa reorganización dividió al mundo en bloques durante más de 40 años.</p>
+  </div>
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">📊 Los 4 subtemas de esta unidad</p>
+    <table class="weight-table">
+      <tr><th>Subtema</th><th>Qué cubre</th></tr>
+      <tr><td>🌐 <strong style="color:var(--c-on)">Nuevo Orden Mundial</strong></td><td>ONU, Declaración Universal de los DD.HH., procesos de descolonización en Asia y África.</td></tr>
+      <tr><td>❄️ <strong style="color:var(--c-gf)">Guerra Fría</strong></td><td>Confrontación ideológica entre EE.UU. y la URSS; división del mundo en bloques.</td></tr>
+      <tr><td>✊ <strong style="color:var(--c-al)">América Latina en la Guerra Fría</strong></td><td>Revoluciones, reformas y dictaduras militares en la región, en el contexto de la confrontación global.</td></tr>
+      <tr><td>🌍 <strong style="color:var(--c-fg)">Fin de la Guerra Fría</strong></td><td>Derrumbe del bloque soviético, auge del neoliberalismo y aceleración de la globalización.</td></tr>
+    </table>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid var(--dorado)">
+      <p class="card-title" style="color:var(--dorado)">📌 Recuerda</p>
+      <ul>
+        <li>Aplica las <strong>3 habilidades</strong> de la Unidad 0 en cada pregunta</li>
+        <li>Esta unidad es el <strong>contexto internacional</strong> de lo que vas a ver en la Unidad 3B (Chile: Dictadura y transición)</li>
+        <li>La Guerra Fría no es solo "EE.UU. contra la URSS": tuvo manifestaciones políticas, económicas y culturales en todo el planeta, incluida América Latina</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid var(--sepia)">
+      <p class="card-title" style="color:var(--sepia)">⏱️ Al final de esta unidad</p>
+      <ul>
+        <li>Mini ensayo cronometrado con <strong>18 preguntas 🤖</strong> generadas y revisadas por el docente de Historia</li>
+        <li>Resultado con <strong>desglose por subtema</strong></li>
+        <li>Práctica guiada integrada en cada sección (5 preguntas 🤖 por subtema)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">💡 Clave PAES</div>
+    <p>Piensa en esta unidad como <strong>el tablero</strong> sobre el que se juega todo lo demás: la Guerra Fría explica por qué hubo dictaduras militares en América Latina, por qué Estados Unidos intervino en varios países de la región, y por qué el modelo económico neoliberal se expandió globalmente tras 1989.</p>
+  </div></div>
+
+<!-- ═══ NUEVO ORDEN MUNDIAL ═══ -->
+<div class="section" id="on">
+  <div class="h-header" style="background:rgba(52,152,219,.12);border:1.5px solid rgba(52,152,219,.3)">
+    <span class="icon">🌐</span>
+    <h2 class="on">El Nuevo Orden Mundial de posguerra</h2>
+    <p>Tras la Segunda Guerra Mundial (1939-1945), el mundo se reorganiza en torno a 2 grandes procesos: un nuevo marco de cooperación internacional, y el fin de los imperios coloniales.</p>
+  </div>
+  <div class="card">
+    <p class="card-title on">📖 La ONU y los Derechos Humanos</p>
+    <p>En 1945 se crea la <strong>Organización de las Naciones Unidas (ONU)</strong>, un organismo internacional pensado para mediar conflictos entre Estados y fomentar la cooperación, evitando que se repitiera una guerra de escala mundial.</p>
+    <p style="margin-top:10px">En 1948, tras conocerse la magnitud de los campos de exterminio nazi, la ONU aprueba la <strong>Declaración Universal de los Derechos Humanos</strong>: el primer marco internacional que reconoce derechos básicos a todo ser humano, sin importar su nacionalidad. No es un tratado con sanciones automáticas, sino un <strong>marco moral y político</strong> que desde entonces todos los Estados usan como referencia para juzgar el actuar de otros gobiernos.</p>
+  </div>
+  <div class="card">
+    <p class="card-title on">🏛️ Cómo se organiza el poder dentro de la ONU</p>
+    <p>La ONU no funciona con "un país, un voto" en todas sus decisiones. Tiene dos órganos clave que conviene distinguir:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-on)"><div style="font-weight:900;color:var(--c-on);font-size:.85rem;margin-bottom:4px">Asamblea General</div><p style="font-size:.82rem">Participan todos los países miembros, con un voto cada uno. Sus resoluciones son mayormente declarativas.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Consejo de Seguridad</div><p style="font-size:.82rem">Toma decisiones vinculantes. 5 miembros permanentes (EE.UU., Rusia, China, Reino Unido, Francia) tienen <strong>derecho a veto</strong>.</p></div>
+    </div>
+    <div class="tip-box" style="margin-top:14px">
+      <div class="tip-label">💡 Analogía</div>
+      <p>Piénsalo como una junta de copropietarios de un edificio: la Asamblea General es la reunión donde todos opinan, pero el Consejo de Seguridad es el comité con los 5 vecinos más antiguos, y basta que <strong>uno solo</strong> de ellos vote en contra para bloquear cualquier decisión importante, sin importar cuántos otros estén a favor.</p>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title on">🗺️ Descolonización</p>
+      <p>Los imperios coloniales europeos, debilitados por la guerra, no pudieron sostener el control sobre sus territorios en Asia y África. Entre 1945 y 1975, decenas de nuevos países lograron su independencia.</p>
+      <p style="margin-top:8px">La ONU respaldó este proceso al declarar la <strong>autodeterminación de los pueblos</strong> como uno de sus principios fundamentales.</p>
+    </div>
+    <div class="card">
+      <p class="card-title on">⚠️ Un proceso con problemas</p>
+      <p>La independencia no significó automáticamente estabilidad: muchas fronteras coloniales habían sido trazadas sin considerar las divisiones étnicas y culturales locales, lo que generó <strong>conflictos étnicos internos</strong> en varios de los nuevos países.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title on">🌍 Tres formas de llegar a la independencia</p>
+    <p>No todos los procesos de descolonización fueron iguales. Algunos ejemplos ayudan a distinguir sus formas:</p>
+    <ul style="margin-top:8px">
+      <li><strong>Negociada:</strong> India (1947) logró su independencia del Reino Unido tras años de resistencia civil no violenta liderada por Gandhi, aunque terminó con la dolorosa partición entre India y Pakistán.</li>
+      <li><strong>Por guerra de independencia:</strong> Argelia (1954-1962) obtuvo su independencia de Francia tras una guerra prolongada y violenta, con miles de víctimas civiles de ambos bandos.</li>
+      <li><strong>Progresiva/administrativa:</strong> gran parte del África subsahariana (como Ghana, 1957) accedió a la independencia mediante procesos más graduales de traspaso de poder durante los años 60.</li>
+    </ul>
+  </div>  <div class="card">
+    <p class="card-title on">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-on">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏛️</span><strong>ONU (1945)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Creada al terminar la Segunda Guerra Mundial para evitar un nuevo conflicto de escala mundial. Se organiza en Asamblea General (todos los países) y Consejo de Seguridad (5 potencias con veto).</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">📜</span><strong>Declaración Universal DD.HH. (1948)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Respuesta directa a los campos de exterminio nazi. Reconoce derechos básicos —vida, libertad, igualdad ante la ley— a todo ser humano, sin distinción de nacionalidad, raza o religión.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🗺️</span><strong>Descolonización (1945-1975)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Fin de los imperios coloniales europeos en Asia y África, respaldado por el principio de autodeterminación de los pueblos. Tomó formas distintas: negociada (India), bélica (Argelia) o progresiva (África subsahariana).</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">⚠️</span><strong>Fronteras heredadas</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Las fronteras trazadas por las potencias coloniales, sin respetar divisiones étnicas locales, generaron conflictos internos que persisten hasta hoy en varios países recién independizados.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title on">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap"><div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-on-terms"></div></div><div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-on-defs"></div></div></div>
+    <div class="match-status" id="match-on-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">ONU</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">Declaración Universal DD.HH.</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">descolonización</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">autodeterminación de los pueblos</span>
+    <span class="kw on" style="background:rgba(52,152,219,.12);border:1px solid rgba(52,152,219,.3)">Consejo de Seguridad</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag on">🤖 Pregunta creada · inspirada en modelo PAES · revisada por docente</div>
+    <span class="skill-tag skill-h3">🧠 Pensamiento crítico</span>
+    <div class="paes-ctx">El Consejo de Seguridad de la ONU concentra la capacidad de tomar decisiones vinculantes, a diferencia de la Asamblea General, cuyas resoluciones son mayormente declarativas.</div>
+    <p class="paes-q">¿Qué elemento de la composición del Consejo de Seguridad explica que muchas resoluciones no lograran aprobarse durante la Guerra Fría?</p>
+    <div class="paes-opts" id="qon1">
+      <div class="paes-opt" onclick="ans('qon1','A')"><div class="ol">A</div><div class="ot">El derecho a veto de sus 5 miembros permanentes.</div></div>
+      <div class="paes-opt" onclick="ans('qon1','B')"><div class="ol">B</div><div class="ot">La obligatoriedad de consultar a la Asamblea General antes de cada votación.</div></div>
+      <div class="paes-opt" onclick="ans('qon1','C')"><div class="ol">C</div><div class="ot">La ausencia de representantes de las potencias vencedoras de la guerra.</div></div>
+      <div class="paes-opt" onclick="ans('qon1','D')"><div class="ol">D</div><div class="ot">La exigencia de unanimidad entre todos los países miembros de la ONU.</div></div>
+    </div>
+    <div class="paes-fb" id="qon1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-on)">
+    <p class="card-title on">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre el Nuevo Orden Mundial de posguerra.</p>
+  </div>
+  <div id="prac-mount-on"></div>
+</div>
+
+<!-- ═══ GUERRA FRÍA ═══ -->
+<div class="section" id="gf">
+  <div class="h-header" style="background:rgba(192,57,43,.12);border:1.5px solid rgba(192,57,43,.3)">
+    <span class="icon">❄️</span>
+    <h2 class="gf">La Guerra Fría</h2>
+    <p>La confrontación ideológica entre dos superpotencias que dividió al mundo en bloques durante más de 40 años, sin llegar nunca a un enfrentamiento militar directo entre ambas.</p>
+  </div>
+  <div class="card">
+    <p class="card-title gf">📖 Dos superpotencias, dos modelos</p>
+    <p>Terminada la Segunda Guerra Mundial, <strong>Estados Unidos</strong> (capitalismo, democracia liberal) y la <strong>Unión Soviética</strong> (comunismo, partido único) emergieron como las dos grandes potencias mundiales. En 1947, el presidente Truman estableció una política de <strong>"contención"</strong> frente al avance del comunismo: así comienza la Guerra Fría.</p>
+    <p style="margin-top:10px">Se le llama "fría" porque ambas potencias nunca se enfrentaron militarmente de forma directa, pero sí a través de <strong>conflictos indirectos</strong>, la carrera armamentista y espacial, y el apoyo a bandos opuestos en guerras y conflictos internos de otros países.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title gf">🗺️ Zonas de influencia</p>
+      <p>Cada potencia estableció "zonas de influencia" geopolítica: gobiernos y regiones alineados con su modelo. Esto se evidenció ya en la <strong>Conferencia de Potsdam (1945)</strong>, donde surgieron tensiones sobre qué tipo de gobiernos se instalarían en los territorios liberados.</p>
+    </div>
+    <div class="card">
+      <p class="card-title gf">🌏 El Tercer Mundo / No Alineados</p>
+      <p>No todos los países se sumaron a un bloque. En la <strong>Conferencia de Bandung (1955)</strong>, países de Asia y África recién independizados declararon no ser ni capitalistas ni comunistas, buscando su propio camino de desarrollo.</p>
+    </div>
+  </div>  <div class="card">
+    <p class="card-title gf">🚀 La carrera armamentista y espacial</p>
+    <p>La confrontación también se expresó como una competencia por demostrar superioridad tecnológica y militar, sin llegar a la guerra directa:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-gf)"><div style="font-weight:900;color:var(--c-gf);font-size:.85rem;margin-bottom:4px">Armas nucleares</div><p style="font-size:.82rem">Ambas potencias acumularon arsenales capaces de destruirse mutuamente, generando la doctrina de "destrucción mutua asegurada".</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--azul)"><div style="font-weight:900;color:var(--azul);font-size:.85rem;margin-bottom:4px">Carrera espacial</div><p style="font-size:.82rem">La URSS lanzó el primer satélite (Sputnik, 1957); EE.UU. respondió llegando a la Luna (1969).</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title gf">⚔️ Conflictos indirectos ("guerras por delegación")</p>
+    <p>La Guerra Fría no tuvo enfrentamiento militar directo entre EE.UU. y la URSS, pero sí varios conflictos donde cada potencia apoyó a un bando distinto:</p>
+    <ul style="margin-top:8px">
+      <li><strong>Guerra de Corea (1950-1953):</strong> Corea del Norte (apoyada por la URSS y China) contra Corea del Sur (apoyada por EE.UU. y la ONU). Terminó en empate, con la península dividida hasta hoy.</li>
+      <li><strong>Guerra de Vietnam (1955-1975):</strong> Vietnam del Norte comunista contra Vietnam del Sur apoyado por EE.UU. Terminó con la victoria comunista y la reunificación del país.</li>
+      <li><strong>Crisis de los Misiles de Cuba (1962):</strong> el momento de mayor tensión nuclear de todo el período, cuando la URSS instaló misiles en Cuba a solo 150 km de EE.UU.</li>
+    </ul>
+  </div>  <div class="card">
+    <p class="card-title gf">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-gf">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🦅</span><strong>Bloque capitalista (EE.UU.)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Democracia liberal, libre mercado. Política de "contención" (Truman, 1947) para frenar el avance del comunismo.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">☭</span><strong>Bloque comunista (URSS)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Partido único, economía planificada. Buscaba expandir su modelo, especialmente hacia Europa del Este tras ocuparla militarmente en 1945.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🚀</span><strong>Carrera armamentista/espacial</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Competencia tecnológico-militar sin enfrentamiento directo: armas nucleares, satélites (Sputnik, 1957) y llegada a la Luna (1969).</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">⚔️</span><strong>Conflictos indirectos</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Corea (1950-53), Vietnam (1955-75) y la Crisis de los Misiles de Cuba (1962) son los casos más recurrentes en PAES.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🌏</span><strong>No Alineados</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Desde la Conferencia de Bandung (1955), países recién independizados que rechazaron alinearse con cualquiera de los dos bloques.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title gf">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap"><div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-gf-terms"></div></div><div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-gf-defs"></div></div></div>
+    <div class="match-status" id="match-gf-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">Guerra Fría</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">contención</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">zonas de influencia</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">No Alineados</span>
+    <span class="kw gf" style="background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3)">crisis de los misiles</span>
+  </div>
+  <div class="paes-box">
+    <div class="paes-tag gf">🤖 Pregunta creada · inspirada en modelo PAES · revisada por docente</div>
+    <span class="skill-tag skill-h2">📜 Análisis de fuentes</span>
+    <div class="paes-ctx">«En los territorios ocupados militarmente al final de la guerra, cada potencia favoreció la instalación de gobiernos afines a su propio modelo político, sin considerar mayormente la voluntad de la población local».
+      <div class="paes-ctx-src">Relato elaborado a partir de crónicas generales sobre la reorganización de Europa de posguerra.</div>
+    </div>
+    <p class="paes-q">¿Qué dinámica del orden internacional posterior a la Segunda Guerra Mundial se evidencia en el texto?</p>
+    <div class="paes-opts" id="qgf1">
+      <div class="paes-opt" onclick="ans('qgf1','A')"><div class="ol">A</div><div class="ot">La conformación de zonas de influencia geopolítica.</div></div>
+      <div class="paes-opt" onclick="ans('qgf1','B')"><div class="ol">B</div><div class="ot">La proliferación de movimientos de descolonización.</div></div>
+      <div class="paes-opt" onclick="ans('qgf1','C')"><div class="ol">C</div><div class="ot">La erradicación de los regímenes políticos totalitarios.</div></div>
+      <div class="paes-opt" onclick="ans('qgf1','D')"><div class="ol">D</div><div class="ot">La creación de organismos de cooperación internacional.</div></div>
+    </div>
+    <div class="paes-fb" id="qgf1-fb"></div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-gf)">
+    <p class="card-title gf">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre la Guerra Fría.</p>
+  </div>
+  <div id="prac-mount-gf"></div>
+</div>
+
+<!-- ═══ AMÉRICA LATINA EN LA GUERRA FRÍA ═══ -->
+<div class="section" id="al">
+  <div class="h-header" style="background:rgba(230,126,34,.12);border:1.5px solid rgba(230,126,34,.3)">
+    <span class="icon">✊</span>
+    <h2 class="al">América Latina en la Guerra Fría</h2>
+    <p>La región no fue ajena a la confrontación global: revoluciones, reformas y dictaduras militares se desarrollaron en el contexto de la disputa entre capitalismo y comunismo.</p>
+  </div>
+  <div class="card">
+    <p class="card-title al">📖 Un continente en disputa</p>
+    <p>Para Estados Unidos, América Latina era una "zona de influencia" estratégica. Cualquier gobierno de izquierda en la región se interpretaba, en el contexto de la Guerra Fría, como una posible expansión del comunismo en "su" continente. Esto generó tres tipos de procesos que se combinaron durante la segunda mitad del siglo XX:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-al)"><div style="font-weight:900;color:var(--c-al);font-size:.85rem;margin-bottom:4px">Revoluciones</div><p style="font-size:.82rem">La Revolución Cubana (1959) instauró el único régimen comunista consolidado del continente.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--amarillo)"><div style="font-weight:900;color:var(--amarillo);font-size:.85rem;margin-bottom:4px">Reformas</div><p style="font-size:.82rem">Gobiernos que intentaron cambios estructurales (reforma agraria, nacionalizaciones) por la vía electoral.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--rojo)"><div style="font-weight:900;color:var(--rojo);font-size:.85rem;margin-bottom:4px">Dictaduras militares</div><p style="font-size:.82rem">En varios países del Cono Sur (Chile, Argentina, Brasil, Uruguay) las Fuerzas Armadas tomaron el poder, deteniendo esos procesos de cambio.</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title al">🇺🇸 La Doctrina de Seguridad Nacional e intervenciones de EE.UU.</p>
+    <p>Bajo la lógica de la "contención" del comunismo, Estados Unidos apoyó, financió o intervino directamente contra gobiernos latinoamericanos percibidos como una amenaza, e impulsó una <strong>Doctrina de Seguridad Nacional</strong> que llevó a varias Fuerzas Armadas de la región a considerar a sus propios opositores internos como "el enemigo interno".</p>
+    <ul style="margin-top:8px">
+      <li><strong>Guatemala (1954):</strong> un golpe de Estado, respaldado por la CIA, derrocó al gobierno de Jacobo Árbenz tras su reforma agraria, que afectaba intereses de una empresa estadounidense.</li>
+      <li><strong>Bahía de Cochinos (1961):</strong> intento fallido de invasión a Cuba organizado por EE.UU. para derrocar al gobierno de Fidel Castro.</li>
+      <li><strong>República Dominicana (1965):</strong> intervención militar directa de EE.UU. para evitar el retorno de un gobierno considerado favorable a la izquierda.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <p class="card-title al">🌎 El Plan Cóndor</p>
+    <p>Durante las décadas de 1970 y 1980, varias dictaduras militares sudamericanas (Chile, Argentina, Uruguay, Paraguay, Bolivia, Brasil) coordinaron sus servicios de inteligencia para perseguir a opositores políticos incluso fuera de sus propias fronteras. Este es uno de los antecedentes que enmarca la violación de Derechos Humanos como un fenómeno <strong>regional</strong>, no exclusivo de un solo país — profundizarás el caso chileno específico en la Unidad 3B.</p>
+  </div>  <div class="card">
+    <p class="card-title al">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-al">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">✊</span><strong>Revolución Cubana (1959)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Único régimen comunista consolidado y duradero del continente. Se alineó con la URSS, lo que intensificó la percepción de amenaza en EE.UU.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🌾</span><strong>Gobiernos de reforma</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Intentaron cambios estructurales (reforma agraria, nacionalizaciones) dentro del sistema democrático, sin romper con el capitalismo ni instaurar un régimen comunista.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🇺🇸</span><strong>Doctrina de Seguridad Nacional</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Marco ideológico que llevó a las FF.AA. de varios países a tratar a la oposición interna como enemigo, con respaldo o intervención directa de EE.UU.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">⚔️</span><strong>Dictaduras militares</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Tomas de poder por las Fuerzas Armadas en el Cono Sur (Chile, Argentina, Brasil, Uruguay), que detuvieron los procesos de reforma o revolución en curso.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🌎</span><strong>Plan Cóndor</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Coordinación de inteligencia entre dictaduras sudamericanas (1970s-80s) para perseguir opositores más allá de sus fronteras: la violación de DD.HH. como fenómeno regional.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title al">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap"><div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-al-terms"></div></div><div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-al-defs"></div></div></div>
+    <div class="match-status" id="match-al-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw al" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">Revolución Cubana</span>
+    <span class="kw al" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">reforma agraria</span>
+    <span class="kw al" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">dictaduras militares</span>
+    <span class="kw al" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">Plan Cóndor</span>
+    <span class="kw al" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">Doctrina de Seguridad Nacional</span>
+  </div>
+  <div class="tip-box">
+    <div class="tip-label">⚠️ Nota</div>
+    <p>Este subtema toca procesos políticos con alta carga valórica. El contenido aquí presentado describe procesos regionales de forma general, sin profundizar en interpretaciones historiográficas específicas de ningún país — eso corresponde al caso chileno en la Unidad 3B, donde se presentan multiperspectiva.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-al)">
+    <p class="card-title al">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre América Latina en la Guerra Fría.</p>
+  </div>
+  <div id="prac-mount-al"></div>
+</div>
+
+<!-- ═══ FIN DE LA GUERRA FRÍA ═══ -->
+<div class="section" id="fg">
+  <div class="h-header" style="background:rgba(22,160,133,.12);border:1.5px solid rgba(22,160,133,.3)">
+    <span class="icon">🌍</span>
+    <h2 class="fg">El fin de la Guerra Fría</h2>
+    <p>El colapso del bloque soviético entre 1989 y 1991 cerró más de 40 años de confrontación bipolar, y abrió paso al auge del neoliberalismo y la globalización.</p>
+  </div>
+  <div class="card">
+    <p class="card-title fg">📖 La caída del bloque soviético</p>
+    <p>Hacia fines de la década de 1980, la URSS enfrentaba estancamiento económico y creciente presión interna por reformas. Entre 1989 y 1991, cayeron uno tras otro los gobiernos comunistas de Europa del Este (simbolizado por la <strong>caída del Muro de Berlín en 1989</strong>), y en 1991 la propia Unión Soviética se disolvió.</p>
+  </div>
+  <div class="card">
+    <p class="card-title fg">🗝️ Gorbachov y las reformas que aceleraron el colapso</p>
+    <p>Desde 1985, el líder soviético <strong>Mijaíl Gorbachov</strong> impulsó dos reformas que, sin buscarlo, precipitaron el fin del sistema:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px">
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--c-fg)"><div style="font-weight:900;color:var(--c-fg);font-size:.85rem;margin-bottom:4px">Perestroika</div><p style="font-size:.82rem">"Reestructuración" económica: introdujo elementos de mercado en una economía hasta entonces totalmente planificada.</p></div>
+      <div style="background:var(--card2);border-radius:10px;padding:12px;border-left:3px solid var(--azul)"><div style="font-weight:900;color:var(--azul);font-size:.85rem;margin-bottom:4px">Glasnost</div><p style="font-size:.82rem">"Transparencia": mayor apertura informativa y libertad de expresión, que permitió críticas públicas al propio sistema soviético.</p></div>
+    </div>
+    <p style="margin-top:10px;font-size:.9rem">Estas reformas debilitaron el control del Partido Comunista y aceleraron las demandas de independencia y cambio en toda Europa del Este.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title fg">📈 Auge del neoliberalismo</p>
+      <p>Con el fin del "modelo alternativo" comunista, el <strong>neoliberalismo</strong> —menos Estado, más mercado, apertura comercial— se expandió como modelo económico dominante a nivel global durante la década de 1990, incluso en países que antes tenían economías más cerradas o estatizadas.</p>
+    </div>
+    <div class="card">
+      <p class="card-title fg">🌐 Aceleración de la globalización</p>
+      <p>Sin la división en bloques, el comercio, los capitales y la información comenzaron a circular con mucha mayor libertad entre países: es lo que se conoce como <strong>globalización</strong>, un proceso de creciente interconexión económica y cultural a escala mundial.</p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title fg">🏦 El "Consenso de Washington"</p>
+    <p>A inicios de los años 90, organismos internacionales (FMI, Banco Mundial) y el gobierno de EE.UU. promovieron un conjunto de recomendaciones de política económica —privatizaciones, apertura comercial, disciplina fiscal, desregulación— para los países en desarrollo, incluyendo a los ex países comunistas de Europa del Este y a América Latina. Se conoce como <strong>Consenso de Washington</strong> y es clave para entender por qué el neoliberalismo se volvió el modelo económico dominante casi sin competencia tras 1991.</p>
+  </div>  <div class="card">
+    <p class="card-title fg">🧩 Mapa conceptual · haz clic en cada nodo</p>
+    <div class="cmap" id="cmap-fg">
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🗝️</span><strong>Reformas de Gorbachov (1985)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Perestroika (apertura económica) y Glasnost (apertura informativa) debilitaron el control del Partido Comunista sobre la URSS.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🧱</span><strong>Caída del Muro de Berlín (1989)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Símbolo del colapso de los gobiernos comunistas de Europa del Este, que cayeron uno tras otro ese mismo año.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">☭</span><strong>Disolución de la URSS (1991)</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Fin formal de la Unión Soviética y del bloque comunista como potencia mundial, cerrando más de 40 años de Guerra Fría.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🏦</span><strong>Consenso de Washington</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Recomendaciones económicas (privatizaciones, apertura comercial, desregulación) promovidas por FMI/Banco Mundial en los 90, que impulsaron el neoliberalismo global.</div></div>
+      <div class="cmap-node" onclick="toggleCmap(this)"><div class="cmap-h"><span class="cmap-icon">🌐</span><strong>Globalización</strong><span class="cmap-plus">＋</span></div><div class="cmap-body">Sin bloques enfrentados, el comercio, los capitales y la información circulan con mucha mayor libertad e interconexión a escala mundial.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="card-title fg">🔗 Relaciona los conceptos</p>
+    <p style="margin-bottom:12px">Haz clic en un concepto y luego en su definición correspondiente.</p>
+    <div class="match-wrap"><div class="match-col"><div class="match-col-hdr">🔹 Conceptos</div><div class="match-list" id="match-fg-terms"></div></div><div class="match-col"><div class="match-col-hdr">📝 Definiciones</div><div class="match-list" id="match-fg-defs"></div></div></div>
+    <div class="match-status" id="match-fg-status"></div>
+  </div>
+  <div class="kw-grid">
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">caída del Muro de Berlín</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">fin de la URSS</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">neoliberalismo</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">globalización</span>
+    <span class="kw fg" style="background:rgba(22,160,133,.12);border:1px solid rgba(22,160,133,.3)">Consenso de Washington</span>
+  </div>
+  <div class="card" style="border-left:4px solid var(--c-fg)">
+    <p class="card-title fg">🎯 Practica lo que aprendiste</p>
+    <p>5 preguntas 🤖 generadas y revisadas por el docente de Historia, sobre el fin de la Guerra Fría.</p>
+  </div>
+  <div id="prac-mount-fg"></div>
+</div>
+
+<!-- ═══ TABLA COMPARATIVA DE BLOQUES ═══ -->
+<div class="section" id="lt">
+  <div class="h-header" style="background:rgba(155,89,182,.1);border:1.5px solid rgba(155,89,182,.3)">
+    <span class="icon">🗺️</span>
+    <h2 class="lt">Tabla comparativa · los bloques de la Guerra Fría</h2>
+    <p>El esquema clave de esta unidad: compara el bloque capitalista, el bloque comunista y los países No Alineados.</p>
+  </div>
+  <div class="card">
+    <p class="card-title lt">🗺️ Cómo leerla</p>
+    <p>Cada columna es un bloque. Cada fila es una dimensión de comparación. <strong>Haz clic en cualquier celda</strong> para ver un dato adicional.</p>
+  </div>
+  <div class="card">
+    <div class="tl-wrap">
+      <div class="tl-grid">
+        <div></div>
+        <div class="tl-head" style="background:rgba(52,152,219,.15);color:var(--c-on)">🦅 Bloque capitalista</div>
+        <div class="tl-head" style="background:rgba(192,57,43,.15);color:var(--c-gf)">☭ Bloque comunista</div>
+        <div class="tl-head" style="background:rgba(230,126,34,.15);color:var(--c-al)">🌏 No Alineados</div>
+
+        <div class="tl-row-label">👑 Liderazgo</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Estados Unidos</strong>y Europa Occidental.<div class="tl-more">Incluye la alianza militar OTAN (1949), que agrupó a EE.UU. y sus aliados europeos occidentales.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Unión Soviética</strong>y Europa del Este.<div class="tl-more">Incluye el Pacto de Varsovia (1955), alianza militar que agrupó a la URSS y sus aliados de Europa del Este.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Países recién independizados</strong>de Asia y África, más algunos de América Latina.<div class="tl-more">Formalizado en la Conferencia de Bandung (1955), con Indonesia, India y Yugoslavia como protagonistas.</div></div>
+
+        <div class="tl-row-label">💰 Sistema económico</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Capitalismo</strong>propiedad privada y libre mercado.<div class="tl-more">Con distintos grados de intervención estatal según el país (recuerda el Estado de Bienestar de la Unidad 2).</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Economía planificada</strong>propiedad estatal, sin mercado libre.<div class="tl-more">El Estado decidía qué y cuánto producir, sin empresas privadas compitiendo entre sí.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Variable</strong>buscaban su propio modelo de desarrollo.<div class="tl-more">No seguían ni el modelo capitalista ni el comunista de forma estricta; algunos combinaban elementos de ambos.</div></div>
+
+        <div class="tl-row-label">🗳️ Sistema político</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Democracia liberal</strong>elecciones competitivas, pluralismo.<div class="tl-more">Aunque en la práctica, EE.UU. apoyó dictaduras anticomunistas en varios países de su zona de influencia, incluida América Latina.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Partido único</strong>el Partido Comunista concentraba el poder político.<div class="tl-more">No existía pluralismo político ni elecciones competitivas entre distintos partidos.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Diverso</strong>desde democracias hasta regímenes autoritarios.<div class="tl-more">Lo que compartían no era el sistema político, sino la negativa a alinearse con uno de los dos bloques.</div></div>
+
+        <div class="tl-row-label">📍 Ejemplo</div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>Estados Unidos, Europa Occidental, Japón</strong><div class="tl-more">También varios países de América Latina alineados con EE.UU., incluidas las dictaduras militares del Cono Sur.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>URSS, Europa del Este, Cuba (desde 1959)</strong><div class="tl-more">Cuba es el único caso latinoamericano de régimen comunista consolidado y duradero.</div></div>
+        <div class="tl-cell" onclick="toggleTL(this)"><span class="tl-plus">＋</span><strong>India, Indonesia, Yugoslavia, Egipto</strong><div class="tl-more">Varios de estos países surgieron de procesos de descolonización recientes al momento de formar el movimiento.</div></div>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:.82rem;color:var(--text-dim)">💡 Pregunta PAES frecuente: identificar en un texto o cita a qué bloque pertenece un país o gobierno, según sus rasgos políticos y económicos descritos — no según su ubicación geográfica.</p>
+  </div>
+</div>
+
+<!-- ═══ MINI ENSAYO ═══ -->
+<div class="section" id="ensayo">
+  <div class="card">
+    <p class="card-title" style="color:var(--dorado)">⏱️ Mini Ensayo cronometrado · 18 preguntas</p>
+    <p>Responde las 18 preguntas dentro del tiempo límite. Las respuestas se evalúan al terminar. <strong>Simula las condiciones reales de la prueba.</strong></p>
+  </div>
+  <div class="tip-box" style="margin-bottom:16px">
+    <div class="tip-label">💡 Estrategia</div>
+    <p>Identifica primero de qué bloque o proceso habla la pregunta. Cuidado con las opciones que mezclan características de un bloque con otro — es el error más común en esta unidad.</p>
+  </div>
+  <div class="timer-box">
+    <div>
+      <div style="font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Tiempo restante</div>
+      <div class="timer-display" id="timer-disp">32:00</div>
+    </div>
+    <div style="text-align:right">
+      <div id="timer-status" style="font-size:.85rem;color:var(--text-dim);margin-bottom:8px">Haz clic en "Iniciar" para comenzar</div>
+      <button id="start-btn" onclick="startEnsayo()" style="padding:8px 20px;background:var(--dorado);color:#1a1206;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer">▶ Iniciar ensayo</button>
+    </div>
+  </div>
+  <div id="ensayo-qs" style="display:none"></div>
+  <button class="submit-btn" id="submit-btn" onclick="submitEnsayo()" disabled style="display:none">✅ Terminar y ver resultados</button>
+  <div id="ensayo-results"></div>
+</div>
+
+</div><!-- /container -->
+<div class="linear-nav">
+  <button class="lnav-btn" id="lnav-prev" onclick="linNav(-1)">← Anterior</button>
+  <div class="lnav-center" id="lnav-label">Inicio</div>
+  <button class="lnav-btn" id="lnav-next" onclick="linNav(1)">Siguiente →</button>
+</div>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 3A</h3>
+      <p>Orden Mundial y Guerra Fría · Historia</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    🔒 El asistente está pausado mientras rindes el Mini Ensayo cronometrado. Vuelve a abrirlo cuando termines.
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre el Nuevo Orden Mundial, la Guerra Fría, América Latina en la Guerra Fría y el Fin de la Guerra Fría/Globalización. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  🌐 Unidad 3A · Orden Mundial de Posguerra y Guerra Fría · PAES Historia y Ciencias Sociales · Admisión 2027
+  <div style="font-size:.72rem;opacity:.65;margin-top:6px;max-width:640px;margin-left:auto;margin-right:auto">Las preguntas marcadas con 🤖 son generadas por inteligencia artificial y revisadas por un docente de Historia. No reproducen preguntas oficiales de exámenes DEMRE/PAES.</div>
+</footer>
+<script>
+// ═══ NAVEGACIÓN ═══
+var SECS=["portada","on","gf","al","fg","lt","ensayo"];
+var SLABELS=["Inicio","🌐 Orden Mundial","❄️ Guerra Fría","✊ AL en Guerra Fría","🌍 Fin Guerra Fría","🗺️ Bloques","⏱️ Mini Ensayo"];
+var curSec=0;
+var navLocked=false;
+function showSec(id,idx,btn){
+  if(navLocked&&id!=="ensayo")return;
+  SECS.forEach(function(s){document.getElementById(s).classList.remove("active");});
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.remove("active");});
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+  curSec=idx;
+  updateLinNav();
+  document.getElementById("prog").style.width=Math.round(((idx+1)/SECS.length)*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function linNav(d){
+  if(navLocked)return;
+  var n=Math.max(0,Math.min(SECS.length-1,curSec+d));
+  if(n===curSec)return;
+  showSec(SECS[n],n,document.querySelectorAll(".nav-btn")[n]);
+}
+function updateLinNav(){
+  document.getElementById("lnav-prev").disabled=(curSec===0)||navLocked;
+  document.getElementById("lnav-next").disabled=(curSec===SECS.length-1)||navLocked;
+  document.getElementById("lnav-label").textContent=navLocked?"🔒 Ensayo en curso":SLABELS[curSec];
+}
+function lockNav(){
+  navLocked=true;
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.add("locked");});
+  updateLinNav();
+}
+function unlockNav(){
+  navLocked=false;
+  document.querySelectorAll(".nav-btn").forEach(function(b){b.classList.remove("locked");});
+  updateLinNav();
+}
+updateLinNav();
+
+// ═══ TABLA COMPARATIVA EXPANDIBLE ═══
+function toggleTL(el){
+  el.classList.toggle("open");
+  el.querySelector(".tl-plus").textContent=el.classList.contains("open")?"－":"＋";
+}
+
+// ═══ MAPA CONCEPTUAL CLICABLE ═══
+function toggleCmap(el){
+  var wasOpen=el.classList.contains("open");
+  el.parentElement.querySelectorAll(".cmap-node").forEach(function(n){n.classList.remove("open");n.querySelector(".cmap-plus").textContent="＋";});
+  if(!wasOpen){el.classList.add("open");el.querySelector(".cmap-plus").textContent="－";}
+}
+
+// ═══ EJERCICIO DE RELACIONAR CONCEPTOS ═══
+function shuffleArr(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+var MATCH_STATE={};
+function buildMatch(mid,pairs){
+  var order=shuffleArr(pairs.map(function(p,i){return i;}));
+  var defOrder=shuffleArr(pairs.map(function(p,i){return i;}));
+  MATCH_STATE[mid]={pairs:pairs,picked:null,solved:0};
+  var tCol=document.getElementById(mid+"-terms"), dCol=document.getElementById(mid+"-defs");
+  tCol.innerHTML=""; dCol.innerHTML="";
+  order.forEach(function(i){
+    var d=document.createElement("div");
+    d.className="match-item term"; d.dataset.i=i; d.textContent=pairs[i].term;
+    d.onclick=function(){matchPick(mid,"t",i,d);};
+    tCol.appendChild(d);
+  });
+  defOrder.forEach(function(i){
+    var d=document.createElement("div");
+    d.className="match-item def"; d.dataset.i=i; d.textContent=pairs[i].def;
+    d.onclick=function(){matchPick(mid,"d",i,d);};
+    dCol.appendChild(d);
+  });
+  document.getElementById(mid+"-status").textContent="0 / "+pairs.length+" relacionados";
+}
+function matchPick(mid,side,i,el){
+  var st=MATCH_STATE[mid];
+  if(el.classList.contains("done"))return;
+  if(!st.picked){
+    document.querySelectorAll("#"+mid+"-terms .match-item,#"+mid+"-defs .match-item").forEach(function(x){if(!x.classList.contains("done"))x.classList.remove("picked");});
+    st.picked={side:side,i:i,el:el};
+    el.classList.add("picked");
+    return;
+  }
+  if(st.picked.side===side){
+    st.picked.el.classList.remove("picked");
+    st.picked={side:side,i:i,el:el};
+    el.classList.add("picked");
+    return;
+  }
+  var match=(st.picked.i===i);
+  if(match){
+    st.picked.el.classList.remove("picked"); st.picked.el.classList.add("ok","done");
+    el.classList.add("ok","done");
+    st.solved++;
+    document.getElementById(mid+"-status").textContent=st.solved+" / "+st.pairs.length+" relacionados";
+    if(st.solved===st.pairs.length){
+      var s=document.getElementById(mid+"-status"); s.textContent="🎉 ¡Completado! "+st.pairs.length+" / "+st.pairs.length; s.classList.add("win");
+    }
+  }else{
+    el.classList.add("bad");
+    var badEl=el, pickedEl=st.picked.el;
+    setTimeout(function(){badEl.classList.remove("bad");pickedEl.classList.remove("picked");},550);
+  }
+  st.picked=null;
+}
+
+// ═══ FEEDBACK POR ALTERNATIVA (preguntas dentro del contenido) ═══
+var QA={
+  "qon1":{c:"A",fb:{
+    A:"✅ Correcto. Los 5 miembros permanentes del Consejo de Seguridad (EE.UU., Rusia, China, Reino Unido, Francia) tienen derecho a veto: basta que uno solo lo ejerza para bloquear una resolución vinculante, algo muy frecuente durante la Guerra Fría.",
+    B:"Incorrecto. La Asamblea General no tiene que aprobar previamente las decisiones del Consejo de Seguridad; son órganos con funciones distintas.",
+    C:"Incorrecto. Las potencias vencedoras (incluidas EE.UU. y la URSS) son justamente los miembros permanentes del Consejo de Seguridad.",
+    D:"Incorrecto. Las resoluciones del Consejo de Seguridad no requieren unanimidad de todos los países miembros de la ONU, solo la aprobación de sus 15 miembros, sin veto de los permanentes."
+  }},
+  "qgf1":{c:"A",fb:{
+    A:"✅ Correcto. El texto describe cómo cada potencia acusaba a la otra de imponer gobiernos afines en distintos territorios: eso es la conformación de zonas de influencia geopolítica.",
+    B:"Incorrecto. El texto no menciona procesos de independencia colonial.",
+    C:"Incorrecto. El texto no habla de erradicar totalitarismos, sino de la disputa por influencia entre potencias.",
+    D:"Incorrecto. El texto describe tensión y desconfianza, no cooperación internacional."
+  }}
+};
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done="1";
+  var a=QA[qid];
+  el.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===a.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById(qid+"-fb");
+  fb.className="paes-fb show "+(opt===a.c?"ok":"no");
+  fb.innerHTML=a.fb[opt];
+}
+
+// ═══ PRÁCTICA GUIADA · 20 preguntas 🤖 (4 subtemas × 5) ═══
+var PG=[
+  { hid:"on", icon:"🌐", name:"Nuevo Orden Mundial", color:"var(--c-on)",
+    qs:[
+      { skill:"h1", ctx:"La Segunda Guerra Mundial finalizó en 1945. La Declaración Universal de los Derechos Humanos fue aprobada por la ONU en 1948, tres años después.",
+        q:"¿Qué relación temporal existe entre ambos hechos?",
+        opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Distribución geográfica."},
+        c:"B",fb:{A:"Incorrecto. No fueron el mismo año.",B:"✅ Correcto. Ocurre un hecho y luego el otro (1945→1948): sucesión.",C:"Incorrecto. No se habla de causas.",D:"Incorrecto. No se compara ubicación."}
+      },
+      { skill:"h2", ctx:"Un mapa histórico muestra cómo, entre 1945 y 1975, decenas de países de África y Asia lograron su independencia de las potencias coloniales europeas.",
+        q:"¿Qué tipo de fuente es este mapa y qué permite observar?",
+        opts:{A:"Fuente cualitativa que permite conocer opiniones.",B:"Fuente que permite observar la distribución geográfica y temporal del proceso de descolonización.",C:"Fuente primaria testimonial poco confiable.",D:"Fuente que solo sirve para estudiar procesos económicos."},
+        c:"B",fb:{A:"Incorrecto. Es una fuente visual/geográfica, no de opiniones.",B:"✅ Correcto. Un mapa histórico permite observar la distribución geográfica y la evolución temporal de un fenómeno.",C:"Incorrecto. No es un testimonio personal.",D:"Incorrecto. Es útil también para procesos políticos y sociales."}
+      },
+      { skill:"h3", ctx:"La ONU declaró la autodeterminación de los pueblos como uno de sus principios fundamentales tras la Segunda Guerra Mundial.",
+        q:"¿Qué relación tiene este principio con el proceso de descolonización?",
+        opts:{A:"Ninguna relación.",B:"Le dio un marco de legitimidad internacional a las demandas de independencia de los territorios coloniales.",C:"Se opuso activamente a la independencia de las colonias.",D:"Solo se aplicó a países europeos."},
+        c:"B",fb:{A:"Incorrecto. El texto describe una relación directa.",B:"✅ Correcto. La autodeterminación dio legitimidad internacional a las demandas de independencia colonial.",C:"Incorrecto. Es lo opuesto: la ONU respaldó el proceso.",D:"Incorrecto. Se aplicó globalmente, no solo a Europa."}
+      },
+      { skill:"h1", ctx:"La ONU se crea en 1945. La Conferencia de Bandung, donde surge el movimiento de países No Alineados, ocurre en 1955, diez años después.",
+        q:"¿Qué concepto de pensamiento temporal describe esta relación?",
+        opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Continuidad sin cambio."},
+        c:"B",fb:{A:"Incorrecto. Hay 10 años de diferencia.",B:"✅ Correcto. Un hecho ocurre y luego el otro: sucesión.",C:"Incorrecto. No se habla de causas.",D:"Incorrecto. Ambos representan cambios, no continuidad."}
+      },
+      { skill:"h3", ctx:"Muchas fronteras trazadas por las potencias coloniales no consideraron las divisiones étnicas y culturales de los territorios que administraban.",
+        q:"¿Qué consecuencia tuvo esto para los países recién independizados?",
+        opts:{A:"Una integración étnica y cultural inmediata y sin conflictos.",B:"El desarrollo de diversos conflictos étnicos al interior de sus nuevos territorios.",C:"La desaparición completa de la diversidad cultural.",D:"Ninguna consecuencia relevante."},
+        c:"B",fb:{A:"Incorrecto. Es lo opuesto a lo que ocurrió.",B:"✅ Correcto. Las fronteras coloniales mal trazadas generaron conflictos étnicos internos.",C:"Incorrecto. La diversidad cultural no desapareció.",D:"Incorrecto. Tuvo consecuencias significativas."}
+      }
+    ]
+  },
+  { hid:"gf", icon:"❄️", name:"Guerra Fría", color:"var(--c-gf)",
+    qs:[
+      { skill:"h2", ctx:"Un discurso del presidente Truman de 1947 declara la necesidad de 'contener' el avance del comunismo en el mundo.",
+        q:"¿Qué tipo de fuente es este discurso?",
+        opts:{A:"Fuente secundaria, porque interpreta el pasado con distancia.",B:"Fuente primaria, porque fue producida en el momento mismo del hecho histórico.",C:"Fuente cuantitativa.",D:"Fuente oral transmitida por generaciones."},
+        c:"B",fb:{A:"Incorrecto. Fue producido en el momento del hecho, no con distancia.",B:"✅ Correcto. Un discurso de 1947 sobre hechos de 1947 es fuente primaria.",C:"Incorrecto. No contiene datos numéricos.",D:"Incorrecto. Es un discurso registrado, no oral transmitido generacionalmente."}
+      },
+      { skill:"h3", ctx:"Durante la Guerra Fría, Estados Unidos y la URSS nunca se enfrentaron militarmente de forma directa, pero sí apoyaron a bandos opuestos en conflictos de otros países.",
+        q:"¿Qué característica de la Guerra Fría se describe en este fragmento?",
+        opts:{A:"Fue un conflicto militar directo y declarado entre ambas potencias.",B:"Fue un conflicto indirecto, mediante el apoyo a terceros países o bandos.",C:"No tuvo ningún tipo de manifestación militar.",D:"Se limitó exclusivamente al territorio europeo."},
+        c:"B",fb:{A:"Incorrecto. El texto indica que nunca hubo enfrentamiento militar directo.",B:"✅ Correcto. El apoyo a terceros países en conflictos es la forma característica del enfrentamiento indirecto de la Guerra Fría.",C:"Incorrecto. Sí tuvo manifestaciones militares indirectas.",D:"Incorrecto. Se manifestó también en América Latina, Asia y África."}
+      },
+      { skill:"h1", ctx:"La política de contención de Truman se declara en 1947. El Pacto de Varsovia, alianza militar liderada por la URSS, se firma en 1955, ocho años después.",
+        q:"¿Qué relación temporal existe entre ambos hechos?",
+        opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Distribución geográfica."},
+        c:"B",fb:{A:"Incorrecto. Hay 8 años de diferencia.",B:"✅ Correcto. Un hecho ocurre y luego el otro: sucesión.",C:"Incorrecto. No se habla de causas.",D:"Incorrecto. No se compara ubicación geográfica."}
+      },
+      { skill:"h3", ctx:"En la Conferencia de Bandung (1955), países recién independizados declararon no alinearse ni con el bloque capitalista ni con el comunista.",
+        q:"¿Qué motivación política se puede inferir de esta decisión?",
+        opts:{A:"El deseo de mantener independencia respecto de ambas superpotencias y buscar su propio modelo de desarrollo.",B:"El deseo de unirse militarmente al bloque comunista.",C:"El deseo de unirse militarmente al bloque capitalista.",D:"La ausencia total de posición política."},
+        c:"A",fb:{A:"✅ Correcto. La decisión de no alinearse refleja búsqueda de independencia respecto de ambas superpotencias.",B:"Incorrecto. Es lo opuesto a lo que declararon.",C:"Incorrecto. También es lo opuesto.",D:"Incorrecto. Sí tomaron una posición política explícita: la no alineación."}
+      },
+      { skill:"h2", ctx:"Se comparan dos discursos de la época: uno de un líder occidental defendiendo el capitalismo, y otro de un líder soviético defendiendo el comunismo, ambos de la década de 1950.",
+        q:"¿Qué habilidad histórica se aplica al analizar ambos discursos en conjunto?",
+        opts:{A:"Pensamiento temporal y espacial.",B:"Análisis de fuentes de información, al comparar interpretaciones ideológicas distintas sobre un mismo periodo.",C:"Ninguna habilidad histórica en particular.",D:"Solo memorización de fechas."},
+        c:"B",fb:{A:"Incorrecto. No se trata de ubicar en tiempo/espacio sino de comparar discursos.",B:"✅ Correcto. Comparar discursos con distintas posturas ideológicas sobre un mismo periodo es análisis de fuentes.",C:"Incorrecto. Comparar interpretaciones es una habilidad histórica explícita.",D:"Incorrecto. No se trata de memorizar fechas."}
+      }
+    ]
+  },
+  { hid:"al", icon:"✊", name:"América Latina en la Guerra Fría", color:"var(--c-al)",
+    qs:[
+      { skill:"h1", ctx:"La Revolución Cubana triunfa en 1959. El Golpe de Estado en Chile ocurre en 1973, catorce años después.",
+        q:"¿Qué concepto de pensamiento temporal describe esta relación?",
+        opts:{A:"Simultaneidad.",B:"Sucesión.",C:"Multicausalidad.",D:"Distribución geográfica."},
+        c:"B",fb:{A:"Incorrecto. Hay 14 años de diferencia.",B:"✅ Correcto. Un hecho ocurre y luego el otro: sucesión.",C:"Incorrecto. No se habla de causas.",D:"Incorrecto. No se compara ubicación."}
+      },
+      { skill:"h3", ctx:"Para Estados Unidos, en el contexto de la Guerra Fría, cualquier gobierno de izquierda en América Latina se interpretaba como una posible expansión del comunismo en su zona de influencia.",
+        q:"¿Qué consecuencia política tuvo esta interpretación para la región?",
+        opts:{A:"Estados Unidos apoyó activamente a todos los gobiernos de izquierda de la región.",B:"Estados Unidos intervino, en distintos grados, para frenar procesos políticos que consideraba una amenaza comunista.",C:"Estados Unidos se mantuvo completamente neutral frente a la política interna latinoamericana.",D:"La Guerra Fría no tuvo ninguna manifestación en América Latina."},
+        c:"B",fb:{A:"Incorrecto. El texto no indica apoyo a todos los gobiernos de izquierda.",B:"✅ Correcto. La interpretación de \"amenaza comunista\" llevó a distintos grados de intervención estadounidense en la región.",C:"Incorrecto. Es lo opuesto a la neutralidad.",D:"Incorrecto. La Guerra Fría sí tuvo manifestaciones directas en la región."}
+      },
+      { skill:"h2", ctx:"Varias dictaduras militares sudamericanas de las décadas de 1970 y 1980 coordinaron sus servicios de inteligencia para perseguir opositores políticos incluso fuera de sus propias fronteras.",
+        q:"¿Qué tipo de fenómeno histórico evidencia esta coordinación entre países?",
+        opts:{A:"Un fenómeno exclusivamente nacional, sin ninguna dimensión regional.",B:"Un fenómeno regional de represión política coordinada entre distintos regímenes militares.",C:"Una alianza exclusivamente económica sin fines políticos.",D:"Un acuerdo de cooperación exclusivamente cultural."},
+        c:"B",fb:{A:"Incorrecto. El texto describe explícitamente coordinación entre países.",B:"✅ Correcto. La coordinación de inteligencia entre varios regímenes militares es un fenómeno regional.",C:"Incorrecto. No se trata de un acuerdo económico.",D:"Incorrecto. No se trata de cooperación cultural."}
+      },
+      { skill:"h3", ctx:"La Revolución Cubana de 1959 instauró un régimen que rompió con el sistema capitalista y se alineó con la Unión Soviética.",
+        q:"¿Por qué este caso es significativo dentro del contexto de la Guerra Fría en América Latina?",
+        opts:{A:"Porque fue el único caso de un régimen comunista consolidado y duradero en el continente.",B:"Porque fue un caso idéntico a todas las demás revoluciones latinoamericanas del periodo.",C:"Porque no tuvo ninguna relevancia geopolítica para Estados Unidos.",D:"Porque instauró un modelo económico idéntico al capitalismo estadounidense."},
+        c:"A",fb:{A:"✅ Correcto. Cuba es el único caso de régimen comunista consolidado y duradero en el continente.",B:"Incorrecto. No todas las revoluciones latinoamericanas rompieron con el capitalismo ni se alinearon con la URSS.",C:"Incorrecto. Tuvo alta relevancia geopolítica, precisamente por eso.",D:"Incorrecto. Es lo opuesto: rompió con el capitalismo."}
+      },
+      { skill:"h1", ctx:"Los procesos de reforma agraria y nacionalización por la vía electoral en varios países latinoamericanos se desarrollaron principalmente entre las décadas de 1950 y 1970, antes de que se consolidaran las dictaduras militares del Cono Sur en la década de 1970 y comienzos de 1980.",
+        q:"¿Qué relación temporal se describe entre ambos procesos?",
+        opts:{A:"Simultaneidad exacta.",B:"Sucesión: los procesos reformistas antecedieron, en general, a las dictaduras militares.",C:"Las dictaduras militares antecedieron a los procesos reformistas.",D:"No existe relación temporal."},
+        c:"B",fb:{A:"Incorrecto. No ocurrieron exactamente al mismo tiempo.",B:"✅ Correcto. En general, los procesos reformistas antecedieron a la consolidación de las dictaduras militares del Cono Sur.",C:"Incorrecto. Es al revés según el texto.",D:"Incorrecto. El texto sí establece una relación temporal."}
+      }
+    ]
+  },
+  { hid:"fg", icon:"🌍", name:"Fin de la Guerra Fría", color:"var(--c-fg)",
+    qs:[
+      { skill:"h1", ctx:"El Muro de Berlín cae en 1989. La Unión Soviética se disuelve formalmente en 1991, dos años después.",
+        q:"¿Qué concepto de pensamiento temporal describe la relación entre ambos hechos?",
+        opts:{A:"Simultaneidad exacta.",B:"Sucesión: son etapas distintas, pero cercanas en el tiempo, del mismo proceso de colapso del bloque soviético.",C:"Multicausalidad.",D:"Distribución geográfica."},
+        c:"B",fb:{A:"Incorrecto. No ocurrieron el mismo año.",B:"✅ Correcto. Son etapas distintas y cercanas del mismo proceso de colapso: sucesión.",C:"Incorrecto. No se habla de causas.",D:"Incorrecto. No se compara ubicación."}
+      },
+      { skill:"h3", ctx:"Con el fin del bloque soviético, el modelo neoliberal se expandió como modelo económico dominante a nivel global durante la década de 1990.",
+        q:"¿Qué se puede inferir sobre la relación entre ambos procesos?",
+        opts:{A:"El fin del bloque soviético no tuvo ninguna relación con la expansión del neoliberalismo.",B:"El fin del \"modelo alternativo\" comunista facilitó la expansión global del modelo neoliberal como referencia dominante.",C:"El neoliberalismo se expandió antes y causó el fin de la URSS.",D:"Ambos procesos son exactamente lo mismo."},
+        c:"B",fb:{A:"Incorrecto. El texto sugiere una relación directa.",B:"✅ Correcto. El fin del \"modelo alternativo\" comunista facilitó que el neoliberalismo se consolidara como referencia dominante.",C:"Incorrecto. Es al revés según la cronología descrita.",D:"Incorrecto. Son procesos distintos, aunque relacionados."}
+      },
+      { skill:"h2", ctx:"Una tabla muestra el aumento sostenido del comercio internacional y los flujos de capital entre países desde la década de 1990 en adelante.",
+        q:"¿Qué proceso histórico evidencia esta fuente?",
+        opts:{A:"El proceso de globalización, caracterizado por una creciente interconexión económica mundial.",B:"El proceso de descolonización de mediados del siglo XX.",C:"El inicio de la Guerra Fría.",D:"La consolidación de los bloques económicos cerrados."},
+        c:"A",fb:{A:"✅ Correcto. El aumento del comercio y los flujos de capital es evidencia directa de la globalización.",B:"Incorrecto. La descolonización es un proceso de mediados de siglo, no de los años 90.",C:"Incorrecto. La Guerra Fría comienza en los años 40, no en los 90.",D:"Incorrecto. El texto muestra lo opuesto: mayor apertura, no bloques cerrados."}
+      },
+      { skill:"h3", ctx:"La globalización implicó una mayor circulación de bienes, capitales, personas e información entre países, tras el fin de la división en bloques de la Guerra Fría.",
+        q:"¿Qué relación tiene este proceso con el fin de la Guerra Fría?",
+        opts:{A:"Ninguna relación.",B:"El fin de la división bipolar del mundo facilitó una mayor interconexión económica y cultural entre países.",C:"La globalización comenzó antes que la Guerra Fría.",D:"La globalización solo ocurrió al interior del bloque comunista."},
+        c:"B",fb:{A:"Incorrecto. El texto describe una relación directa.",B:"✅ Correcto. El fin de la división bipolar facilitó una mayor interconexión económica y cultural: eso es la globalización.",C:"Incorrecto. La globalización se acelera después del fin de la Guerra Fría, no antes.",D:"Incorrecto. Ocurrió a escala mundial, no solo en el bloque comunista."}
+      },
+      { skill:"h1", ctx:"El auge del neoliberalismo como modelo económico dominante se consolida principalmente durante la década de 1990, después de la caída del bloque soviético en 1989-1991.",
+        q:"¿Qué relación temporal existe entre ambos procesos?",
+        opts:{A:"Simultaneidad.",B:"Sucesión: la caída del bloque soviético antecede a la consolidación global del neoliberalismo en los años 90.",C:"El neoliberalismo antecedió a la caída del bloque soviético en varias décadas.",D:"No existe relación temporal."},
+        c:"B",fb:{A:"Incorrecto. No ocurrieron simultáneamente.",B:"✅ Correcto. La caída del bloque soviético (1989-1991) antecede a la consolidación global del neoliberalismo en los años 90.",C:"Incorrecto. Es al revés según la cronología.",D:"Incorrecto. El texto sí establece relación temporal."}
+      }
+    ]
+  }
+];
+
+function buildPractice(){
+  var SKLBL={h1:"🕰️ Temporal-espacial",h2:"📜 Fuentes",h3:"🧠 Crítico"};
+  PG.forEach(function(g,gi){
+    var cont=document.getElementById("prac-mount-"+g.hid);
+    if(!cont)return;
+    var sec=document.createElement("div");
+    sec.className="prac-group";
+    sec.id="pg"+gi;
+    var hdr=document.createElement("div");
+    hdr.className="prac-group-hdr";
+    hdr.style.borderLeft="4px solid "+g.color;
+    hdr.innerHTML="<div class='gi'>"+g.icon+"</div>"+
+      "<div><div class='gname' style='color:"+g.color+"'>Progreso</div>"+
+      "<div style='font-size:.8rem;color:var(--text-dim)'>5 preguntas</div></div>"+
+      "<div class='gscore' id='gs"+gi+"'></div>";
+    sec.appendChild(hdr);
+    g.qs.forEach(function(q,qi){
+      var qel=document.createElement("div");
+      qel.className="pq"+(qi===0?" show":"");
+      qel.id="pq-"+gi+"-"+qi;
+      var ctxH=q.ctx?'<div class="pq-ctx">'+q.ctx+'</div>':'';
+      var optsH="";
+      ["A","B","C","D"].forEach(function(l){
+        optsH+="<div class='paes-opt' id='po-"+gi+"-"+qi+"-"+l+"' onclick='pAns("+gi+","+qi+",\""+l+"\")'>"+
+          "<div class='ol'>"+l+"</div><div class='ot'>"+q.opts[l]+"</div></div>";
+      });
+      qel.innerHTML="<span class='skill-tag skill-"+q.skill+"'>"+SKLBL[q.skill]+"</span>"+
+        ctxH+"<div class='pq-q'>"+q.q+"</div>"+
+        "<div class='pq-opts' id='po-group-"+gi+"-"+qi+"'>"+optsH+"</div>"+
+        "<div class='paes-fb' id='pfb-"+gi+"-"+qi+"'></div>"+
+        "<button class='nxt-q' id='nq-"+gi+"-"+qi+"' onclick='nextQ("+gi+","+qi+")'>Siguiente →</button>";
+      sec.appendChild(qel);
+    });
+    cont.appendChild(sec);
+  });
+}
+buildPractice();
+
+var pScores={};
+PG.forEach(function(g,gi){pScores[gi]={c:0,t:0};});
+var doneGroups=0;
+var NQ_PRAC=5;
+
+function pAns(gi,qi,opt){
+  var opts=document.getElementById("po-group-"+gi+"-"+qi);
+  if(opts.dataset.done)return;
+  opts.dataset.done="1";
+  var q=PG[gi].qs[qi];
+  var correct=(opt===q.c);
+  pScores[gi].t++;
+  if(correct)pScores[gi].c++;
+  opts.querySelectorAll(".paes-opt").forEach(function(o){
+    o.classList.add("locked");
+    var l=o.querySelector(".ol").textContent;
+    if(l===q.c)o.classList.add("right");
+    else if(l===opt)o.classList.add("wrong");
+  });
+  var fb=document.getElementById("pfb-"+gi+"-"+qi);
+  fb.className="paes-fb show "+(correct?"ok":"no");
+  fb.textContent=q.fb[opt];
+  var nqBtn=document.getElementById("nq-"+gi+"-"+qi);
+  if(qi<NQ_PRAC-1){
+    nqBtn.textContent="Siguiente pregunta →";
+    nqBtn.style.display="inline-block";
+  }else{
+    nqBtn.style.display="none";
+    finishGroup(gi);
+  }
+}
+
+function nextQ(gi,qi){
+  document.getElementById("nq-"+gi+"-"+qi).style.display="none";
+  var nextEl=document.getElementById("pq-"+gi+"-"+(qi+1));
+  if(nextEl){nextEl.classList.add("show");nextEl.scrollIntoView({behavior:"smooth",block:"start"});}
+}
+
+function finishGroup(gi){
+  doneGroups++;
+  var sc=pScores[gi];
+  var icons=[];for(var i=0;i<NQ_PRAC;i++){icons.push(i<sc.c?"✅":"❌");}
+  document.getElementById("gs"+gi).innerHTML=icons.join(" ")+" <span style='color:"+(sc.c>=3?"var(--dorado)":"var(--rojo)")+"'>"+sc.c+"/"+NQ_PRAC+"</span>";
+}
+
+// ═══ MINI ENSAYO · 18 preguntas (6 reales verificadas + 12 creadas 🤖) ═══
+var EQ=[
+  {tema:"Orden Mundial",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"El principio de autodeterminación de los pueblos, impulsado por la ONU tras la Segunda Guerra Mundial, sirvió como fundamento internacional para los procesos de independencia colonial. ¿Qué establece este principio?",
+   opts:{A:"Que cada nación tiene derecho a decidir libremente su propia forma de gobierno y organización política.",B:"Que los territorios coloniales debían mantenerse bajo tutela europea indefinidamente.",C:"Que solo los países industrializados podían ejercer soberanía plena.",D:"Que la ONU debía gobernar directamente los territorios ya descolonizados."},
+   c:"A",fb:"El principio de autodeterminación reconoce el derecho de cada pueblo a decidir su propio destino político, sin injerencia externa. Fue la base legítima invocada por los movimientos independentistas de Asia y África."
+  },
+  {tema:"Orden Mundial",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Al independizarse, muchos países de Asia y África heredaron límites territoriales trazados originalmente por las potencias coloniales europeas, sin considerar las divisiones culturales previas. ¿Qué consecuencia se derivó frecuentemente de esta situación?",
+   opts:{A:"El surgimiento de conflictos étnicos internos, pues las fronteras no respetaban las divisiones culturales locales.",B:"La desaparición completa de las identidades culturales locales.",C:"La formación inmediata de gobiernos democráticos estables en todos los casos.",D:"El total desinterés de la ONU por reconocer a los nuevos Estados."},
+   c:"A",fb:"Las fronteras coloniales, trazadas sin considerar divisiones étnicas y culturales, generaron conflictos internos en numerosos países recién independizados. No hubo pérdida total de tradiciones locales, ni desinterés de la ONU en reconocer a los nuevos Estados."
+  },
+  {tema:"Orden Mundial",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Tras la Segunda Guerra Mundial se adoptó la Declaración Universal de los Derechos Humanos (1948). ¿Qué principio quedó establecido a partir de este documento?",
+   opts:{A:"Que cada Estado puede decidir libremente qué derechos humanos reconocer en su territorio.",B:"Que todo ser humano posee derechos básicos, independientemente de su nacionalidad.",C:"Que los derechos humanos son exclusivos de los ciudadanos de países desarrollados.",D:"Que los derechos humanos solo aplican en tiempos de paz, no de conflicto armado."},
+   c:"B",fb:"La Declaración de 1948 estableció que todo ser humano posee derechos básicos por el solo hecho de serlo, sin distinción de nacionalidad, régimen político o nivel de desarrollo del país."
+  },
+  {tema:"Orden Mundial",color:"var(--c-on)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"Tras la Segunda Guerra Mundial, la mayoría de los imperios coloniales europeos no pudieron sostener el control sobre sus territorios en Asia y África. ¿Cuál es uno de los factores político-económicos que explica este fenómeno?",
+   opts:{A:"El nuevo orden internacional surgido tras la guerra y el desgaste económico y militar que esta ocasionó a las potencias europeas.",B:"El aumento sostenido del comercio colonial durante la posguerra.",C:"La firma de un tratado internacional que prohibió el colonialismo antes de 1939.",D:"La intervención militar directa de la ONU en cada territorio colonial."},
+   c:"A",fb:"El desgaste económico y militar que dejó la guerra en las potencias europeas, sumado al nuevo orden internacional surgido tras 1945, explica por qué estas ya no pudieron sostener sus imperios coloniales."
+  },
+  {tema:"Guerra Fría",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"«Los delegados reunidos declararon que sus naciones, recién independizadas, no se sumarían ni al bloque liderado por Washington ni al liderado por Moscú, y que buscarían un camino de desarrollo propio, alejado de ambas esferas de influencia». Relato elaborado a partir de crónicas generales sobre la Conferencia de Bandung (1955).",
+   q:"¿Qué postura frente al orden bipolar de la Guerra Fría se refleja en el texto?",
+   opts:{A:"La adhesión incondicional al bloque capitalista liderado por Estados Unidos.",B:"La búsqueda de una vía de desarrollo independiente de ambos bloques de poder.",C:"La formación de una alianza militar conjunta con la Unión Soviética.",D:"El llamado a una intervención de la ONU para disolver ambos bloques."},
+   c:"B",fb:"El texto describe explícitamente que estos países buscaban no pertenecer a ninguno de los dos bloques de la Guerra Fría, siguiendo su propio camino de desarrollo: es la postura de los países No Alineados."
+  },
+  {tema:"Guerra Fría",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   q:"En 1947 el presidente de Estados Unidos, Harry Truman, estableció la política de \"contención\" frente al avance del comunismo soviético. ¿Qué implicó esta política para Estados Unidos?",
+   opts:{A:"Brindar apoyo económico y militar a gobiernos y movimientos que resistieran la expansión comunista.",B:"Establecer relaciones diplomáticas plenas y de cooperación con la Unión Soviética.",C:"Renunciar a cualquier tipo de intervención en conflictos fuera de su territorio.",D:"Promover la reunificación inmediata de Alemania bajo un gobierno único."},
+   c:"A",fb:"La política de contención implicó apoyar económica y militarmente a gobiernos y movimientos que resistieran el avance comunista, dando origen a la lógica de \"zonas de influencia\" que marcó toda la Guerra Fría."
+  },
+  {tema:"Guerra Fría",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Durante la Guerra Fría, ambas superpotencias desarrollaron una intensa carrera armamentista, incluyendo armas nucleares capaces de destruir al mundo varias veces.",
+   q:"¿Qué concepto describe la situación de equilibrio derivada de esta carrera armamentista?",
+   opts:{A:"La \"destrucción mutua asegurada\", que disuadió a ambas potencias de atacarse directamente.",B:"La eliminación completa de armas nucleares en ambos bloques.",C:"La ausencia total de tensión militar entre ambas potencias.",D:"El desarme unilateral de la Unión Soviética."},
+   c:"A",fb:"El equilibrio de poder nuclear, donde un ataque directo garantizaba la destrucción de ambas potencias, es conocido como \"destrucción mutua asegurada\" y ayuda a explicar por qué la confrontación se mantuvo indirecta y no escaló a una guerra nuclear directa."
+  },
+  {tema:"Guerra Fría",color:"var(--c-gf)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Una caricatura política de la década de 1960 representa a Estados Unidos y la Unión Soviética como dos boxeadores enfrentados, con el resto del mundo observando desde las gradas.",
+   q:"¿Qué característica de la Guerra Fría se representa en esta fuente?",
+   opts:{A:"La confrontación bipolar entre dos superpotencias como eje central del conflicto.",B:"La existencia de múltiples potencias en igualdad de condiciones.",C:"La ausencia de tensión entre ambos países.",D:"El fin de la confrontación ideológica."},
+   c:"A",fb:"La caricatura representa visualmente la estructura bipolar de la Guerra Fría: dos superpotencias enfrentadas, con el resto de los países observando o viéndose afectados por la confrontación."
+  },
+  {tema:"AL en Guerra Fría",color:"var(--c-al)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"En 1954, en Guatemala, un golpe de Estado respaldado por Estados Unidos derrocó al gobierno de Jacobo Árbenz, que había impulsado una reforma agraria que afectaba intereses de una empresa estadounidense.",
+   q:"¿Qué patrón de intervención en la región durante la Guerra Fría ejemplifica este caso?",
+   opts:{A:"La intervención de Estados Unidos para frenar procesos de reforma considerados una amenaza a sus intereses en el contexto de la Guerra Fría.",B:"El respaldo de Estados Unidos a todos los gobiernos reformistas de la región.",C:"La ausencia total de intervención extranjera en la política latinoamericana.",D:"Un caso aislado sin relación con el contexto de la Guerra Fría."},
+   c:"A",fb:"El golpe en Guatemala (1954) es uno de los casos más citados de intervención estadounidense en la región para frenar procesos reformistas percibidos como riesgosos en el contexto de la Guerra Fría, un patrón que se repetiría en otros países."
+  },
+  {tema:"AL en Guerra Fría",color:"var(--c-al)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"La Revolución Cubana triunfa en enero de 1959. La Crisis de los Misiles, uno de los momentos de mayor tensión de toda la Guerra Fría, ocurre en octubre de 1962, casi cuatro años después.",
+   q:"¿Qué relación temporal existe entre ambos hechos?",
+   opts:{A:"Simultaneidad.",B:"Sucesión: son hechos relacionados, ocurridos en momentos distintos.",C:"Multicausalidad.",D:"Distribución geográfica."},
+   c:"B",fb:"La Revolución Cubana ocurre primero (1959); la Crisis de los Misiles, relacionada con la presencia de misiles soviéticos en Cuba, ocurre casi cuatro años después (1962): eso es sucesión."
+  },
+  {tema:"AL en Guerra Fría",color:"var(--c-al)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Algunos gobiernos latinoamericanos de mediados del siglo XX intentaron reformas estructurales (reforma agraria, nacionalización de recursos) por la vía electoral, sin romper con el sistema democrático ni con el capitalismo.",
+   q:"¿En qué se diferencian estos procesos reformistas de la Revolución Cubana?",
+   opts:{A:"Buscaban cambios estructurales dentro del sistema democrático y capitalista existente, sin instaurar un régimen comunista.",B:"Eran exactamente el mismo tipo de proceso que la Revolución Cubana.",C:"No implicaban ningún tipo de cambio social o económico.",D:"Se desarrollaron exclusivamente mediante la vía armada."},
+   c:"A",fb:"Los procesos reformistas buscaban cambios dentro del sistema existente, sin romper con la democracia ni el capitalismo, a diferencia de la Revolución Cubana, que instauró un régimen comunista rompiendo con ambos."
+  },
+  {tema:"AL en Guerra Fría",color:"var(--c-al)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Un documento de inteligencia de la época describe la coordinación entre los servicios de seguridad de varias dictaduras sudamericanas para intercambiar información sobre opositores políticos en el exilio.",
+   q:"¿A qué fenómeno regional corresponde lo descrito en esta fuente?",
+   opts:{A:"Al Plan Cóndor, la coordinación represiva entre dictaduras militares sudamericanas.",B:"A un acuerdo de libre comercio regional.",C:"A una alianza deportiva entre países sudamericanos.",D:"A un tratado de límites territoriales."},
+   c:"A",fb:"La coordinación de servicios de inteligencia entre dictaduras militares sudamericanas para perseguir opositores políticos, incluso fuera de sus fronteras, es lo que se conoce como Plan Cóndor."
+  },
+  {tema:"AL en Guerra Fría",color:"var(--c-al)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Las dictaduras militares que se instalaron en varios países del Cono Sur durante las décadas de 1960-1980 compartían, en general, un discurso anticomunista y de defensa del orden frente a lo que percibían como amenazas de la izquierda.",
+   q:"¿Con qué proceso más amplio se conecta este discurso común?",
+   opts:{A:"Con el contexto global de la Guerra Fría y la política de contención del comunismo.",B:"Con un proceso exclusivamente económico sin relación política.",C:"Con el proceso de descolonización de África y Asia.",D:"Con la Primera Guerra Mundial."},
+   c:"A",fb:"El discurso anticomunista compartido por estas dictaduras se enmarca directamente en el contexto de la Guerra Fría, donde el anticomunismo era la justificación política central de estos regímenes."
+  },
+  {tema:"Fin Guerra Fría",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Tras el fin del bloque soviético, muchos países que antes tenían economías más cerradas o estatizadas adoptaron reformas de apertura comercial y reducción del rol económico del Estado.",
+   q:"¿Qué modelo económico describe esta situación?",
+   opts:{A:"El neoliberalismo, que se expandió como modelo dominante tras el fin de la Guerra Fría.",B:"El estalinismo, que se mantuvo como modelo dominante.",C:"El Estado de Bienestar, que se expandió globalmente en este periodo.",D:"El modelo colonial, que resurgió tras 1991."},
+   c:"A",fb:"La apertura comercial y la reducción del rol económico del Estado son rasgos centrales del neoliberalismo, modelo que se expandió globalmente tras el fin de la Guerra Fría."
+  },
+  {tema:"Fin Guerra Fría",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h1",kind:"ai",
+   ctx:"La globalización se acelera especialmente desde la década de 1990 en adelante, después del fin de la Guerra Fría (1989-1991).",
+   q:"¿Qué concepto de pensamiento temporal describe esta relación?",
+   opts:{A:"Simultaneidad exacta.",B:"Sucesión: la aceleración de la globalización es posterior al fin de la Guerra Fría.",C:"La globalización antecedió a la Guerra Fría.",D:"No existe relación temporal."},
+   c:"B",fb:"El fin de la Guerra Fría ocurre entre 1989 y 1991; la aceleración de la globalización se observa especialmente después de esa fecha: es una relación de sucesión."
+  },
+  {tema:"Fin Guerra Fría",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h2",kind:"ai",
+   ctx:"Un gráfico muestra el aumento sostenido del número de empresas multinacionales operando en múltiples países entre 1990 y 2010.",
+   q:"¿Qué proceso histórico evidencia este gráfico?",
+   opts:{A:"El proceso de globalización económica.",B:"El proceso de descolonización.",C:"El inicio de la Guerra Fría.",D:"La consolidación del bloque comunista."},
+   c:"A",fb:"El aumento de empresas multinacionales operando en múltiples países es evidencia cuantitativa directa del proceso de globalización económica."
+  },
+  {tema:"Fin Guerra Fría",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"Algunos historiadores señalan que el fin de la Guerra Fría eliminó la existencia de un \"modelo alternativo\" al capitalismo a escala global, lo que facilitó la expansión casi sin competencia del neoliberalismo durante la década de 1990.",
+   q:"¿Qué tipo de razonamiento histórico se aplica en esta interpretación?",
+   opts:{A:"Una relación de causa-efecto entre el fin del bloque soviético y la expansión del neoliberalismo.",B:"Una simple coincidencia sin relación causal.",C:"Una relación exclusivamente geográfica.",D:"Una relación que no considera el contexto histórico."},
+   c:"A",fb:"La interpretación establece una relación causal: el fin del \"modelo alternativo\" comunista facilitó, como consecuencia, la expansión casi sin competencia ideológica del neoliberalismo."
+  },
+  {tema:"Fin Guerra Fría",color:"var(--c-fg)",ref:"🤖 Pregunta creada · inspirada en modelo PAES",skill:"h3",kind:"ai",
+   ctx:"La globalización ha implicado tanto beneficios (mayor acceso a bienes y información) como críticas (aumento de la desigualdad entre países, pérdida de identidades culturales locales).",
+   q:"¿Qué característica del análisis histórico de la globalización se evidencia en esta afirmación?",
+   opts:{A:"Que es un proceso históricamente complejo, con interpretaciones y efectos diversos, no uniformemente positivo o negativo.",B:"Que la globalización solo tuvo efectos positivos.",C:"Que la globalización solo tuvo efectos negativos.",D:"Que no existen distintas interpretaciones sobre este proceso."},
+   c:"A",fb:"Reconocer que un proceso histórico tiene efectos e interpretaciones diversas, sin reducirlo a una sola valoración, es un rasgo del pensamiento crítico e histórico riguroso."
+  }
+];
+
+var userAnswers={},timerInterval=null,timeLeft=1920,ensayoStarted=false,ensayoFinished=false;
+// Tabla oficial de transformación de puntaje P → PAES (DEMRE, PAES Invierno 2026, Historia y Cs. Sociales)
+var ST=[100,114,142,167,190,211,232,252,270,286,300,315,332,349,364,378,388,398,408,420,435,451,466,478,488,495,502,511,522,536,551,566,579,588,596,603,611,622,636,651,667,680,691,701,710,722,736,752,769,785,799,814,829,848,868,889,910,933,958,987,1000];
+
+function buildEnsayo(){
+  var cont=document.getElementById("ensayo-qs");
+  cont.innerHTML="";
+  var SKLBL={h1:"🕰️ Temporal-espacial",h2:"📜 Fuentes",h3:"🧠 Crítico"};
+  EQ.forEach(function(q,i){
+    var d=document.createElement("div");
+    d.className="ensayo-q";
+    var ctxH=q.ctx?'<div class="ensayo-ctx">'+q.ctx+'</div>':'';
+    var opts_letters=Object.keys(q.opts);
+    var optsH="";
+    opts_letters.forEach(function(l){
+      optsH+='<div class="ensayo-opt" id="eo-'+i+'-'+l+'" data-qi="'+i+'" data-opt="'+l+'" onclick="selAns(this.dataset.qi,this.dataset.opt)">'+
+        '<div class="ol">'+l+'</div><div class="ot">'+q.opts[l]+'</div></div>';
+    });
+    d.innerHTML='<div class="ensayo-num" style="color:'+q.color+'">Pregunta '+(i+1)+' / '+EQ.length+' · '+q.tema+' · <span style="opacity:.7;font-weight:700">'+(q.kind==="real"?"📄 ":"")+q.ref+'</span></div>'+
+      '<span class="skill-tag skill-'+q.skill+'">'+SKLBL[q.skill]+'</span>'+
+      ctxH+'<div class="ensayo-q-text">'+q.q+'</div>'+
+      '<div class="ensayo-opts" id="eopts-'+i+'">'+optsH+'</div>'+
+      '<div class="ensayo-fb" id="efb-'+i+'"></div>';
+    cont.appendChild(d);
+  });
+}
+buildEnsayo();
+
+// ═══ DATOS DE LOS EJERCICIOS DE RELACIONAR ═══
+buildMatch("match-on",[
+  {term:"ONU",def:"Organismo internacional creado en 1945 para prevenir conflictos y fomentar la cooperación entre Estados."},
+  {term:"Declaración Universal DD.HH.",def:"Texto de 1948 que reconoce derechos básicos a todo ser humano, sin distinción de nacionalidad."},
+  {term:"Descolonización",def:"Proceso de independencia de territorios de Asia y África, principalmente entre 1945 y 1975."},
+  {term:"Autodeterminación de los pueblos",def:"Principio de la ONU que dio legitimidad internacional a las demandas de independencia colonial."},
+  {term:"Consejo de Seguridad",def:"Órgano de la ONU con 5 miembros permanentes que tienen derecho a veto sobre decisiones vinculantes."}
+]);
+buildMatch("match-gf",[
+  {term:"Contención",def:"Política de EE.UU. (Truman, 1947) para frenar la expansión del comunismo en el mundo."},
+  {term:"Zonas de influencia",def:"Gobiernos y regiones alineados política y económicamente con una de las dos superpotencias."},
+  {term:"No Alineados",def:"Países que, desde la Conferencia de Bandung (1955), no se sumaron a ninguno de los dos bloques."},
+  {term:"Crisis de los Misiles de Cuba",def:"Momento de mayor tensión nuclear de la Guerra Fría, tras instalarse misiles soviéticos en Cuba en 1962."},
+  {term:"Guerra de Corea",def:"Conflicto indirecto (1950-1953) entre Corea del Norte, apoyada por la URSS, y Corea del Sur, apoyada por EE.UU."}
+]);
+buildMatch("match-al",[
+  {term:"Revolución Cubana",def:"Proceso de 1959 que instauró el único régimen comunista consolidado y duradero del continente."},
+  {term:"Gobierno de reforma",def:"Intento de cambios estructurales dentro del sistema democrático, sin romper con el capitalismo."},
+  {term:"Doctrina de Seguridad Nacional",def:"Marco ideológico que llevó a las FF.AA. a tratar a la oposición interna como enemigo."},
+  {term:"Plan Cóndor",def:"Coordinación de inteligencia entre dictaduras sudamericanas para perseguir opositores más allá de sus fronteras."},
+  {term:"Golpe en Guatemala (1954)",def:"Derrocamiento de un gobierno reformista, respaldado por la CIA, tras una reforma agraria."}
+]);
+buildMatch("match-fg",[
+  {term:"Perestroika",def:"Reforma de Gorbachov que introdujo elementos de mercado en la economía soviética planificada."},
+  {term:"Glasnost",def:"Reforma de Gorbachov que abrió mayor libertad informativa y de expresión en la URSS."},
+  {term:"Caída del Muro de Berlín",def:"Hito de 1989 que simboliza el colapso de los gobiernos comunistas de Europa del Este."},
+  {term:"Consenso de Washington",def:"Conjunto de políticas económicas (privatización, apertura comercial) promovidas por FMI/Banco Mundial en los 90."},
+  {term:"Globalización",def:"Proceso de creciente interconexión económica y cultural a escala mundial tras el fin de los bloques."}
+]);
+
+function selAns(i,opt){
+  i=parseInt(i);
+  if(!ensayoStarted||ensayoFinished)return;
+  var opts=document.getElementById("eopts-"+i);
+  if(opts.dataset.done)return;
+  userAnswers[i]=opt;
+  opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.remove("selected");});
+  document.getElementById("eo-"+i+"-"+opt).classList.add("selected");
+}
+
+function startEnsayo(){
+  ensayoStarted=true;
+  lockNav();
+  document.getElementById("start-btn").style.display="none";
+  document.getElementById("timer-status").textContent="¡En marcha! Responde con calma.";
+  var qs=document.getElementById("ensayo-qs"); qs.style.display="block"; qs.style.opacity="1"; qs.style.pointerEvents="auto";
+  var sb=document.getElementById("submit-btn"); sb.style.display="block"; sb.disabled=false;
+  var tb=document.querySelector(".timer-box");
+  if(tb){tb.style.position="sticky";tb.style.top="8px";tb.style.zIndex="155";tb.style.background="rgba(20,15,8,.97)";tb.style.backdropFilter="blur(8px)";tb.style.borderRadius="14px";}
+  var es=document.getElementById("ensayo"); if(es) es.style.paddingBottom="140px";
+  timerInterval=setInterval(function(){
+    timeLeft--;
+    var m=Math.floor(timeLeft/60),s=timeLeft%60;
+    var disp=document.getElementById("timer-disp");
+    disp.textContent=(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+    if(timeLeft<=60)disp.className="timer-display danger";
+    else if(timeLeft<=180)disp.className="timer-display warn";
+    if(timeLeft<=0){clearInterval(timerInterval);submitEnsayo();}
+  },1000);
+}
+
+function submitEnsayo(){
+  if(ensayoFinished)return;
+  ensayoFinished=true;
+  unlockNav();
+  clearInterval(timerInterval);
+  document.getElementById("timer-status").textContent="Ensayo terminado";
+  document.getElementById("submit-btn").disabled=true;
+  var correct=0,topicMap={};
+  EQ.forEach(function(q,i){
+    var opts=document.getElementById("eopts-"+i);
+    opts.dataset.done="1";
+    opts.querySelectorAll(".ensayo-opt").forEach(function(o){o.classList.add("locked");});
+    var ua=userAnswers[i];
+    document.getElementById("eo-"+i+"-"+q.c).classList.add("right");
+    if(ua&&ua!==q.c)document.getElementById("eo-"+i+"-"+ua).classList.add("wrong");
+    var isOk=(ua===q.c);
+    var fb=document.getElementById("efb-"+i);
+    fb.className="ensayo-fb show "+(isOk?"ok":"no");
+    fb.textContent=(ua?(isOk?"✅ Correcto. ":"❌ Incorrecto. La respuesta correcta es "+q.c+". "):"⚠️ Sin respuesta. La correcta es "+q.c+". ")+q.fb;
+    if(isOk)correct++;
+    if(!topicMap[q.tema])topicMap[q.tema]={c:0,t:0,color:q.color};
+    topicMap[q.tema].t++;
+    if(isOk)topicMap[q.tema].c++;
+  });
+  var pct=Math.round(correct/EQ.length*100);
+  var mainColor=pct>=70?"var(--dorado)":pct>=50?"#f59e0b":"var(--rojo)";
+  var topicHtml='<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--dorado);margin-bottom:8px">Resultado por subtema:</p><div class="res-topic-grid">';
+  Object.keys(topicMap).forEach(function(t){
+    var r=topicMap[t];
+    var tpct=Math.round(r.c/r.t*100);
+    var scoreColor=tpct>=70?"var(--dorado)":tpct>=50?"#f59e0b":"var(--rojo)";
+    topicHtml+='<div class="res-topic-card '+(tpct<50?"bad":tpct<70?"mid":"")+'">'+
+      '<div class="res-topic-name">'+t+'</div>'+
+      '<div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+  });
+  topicHtml+='</div>';
+  var estP=Math.round(correct/EQ.length*60);
+  var estScore=ST[Math.max(0,Math.min(60,estP))];
+  var msg=pct>=70?"🎉 ¡Buen resultado! Revisa los subtemas donde fallaste.":pct>=50?"💪 Resultado aceptable. Refuerza los subtemas en rojo antes de continuar.":"📚 Necesitas repasar más. Vuelve a las secciones con resultado bajo.";
+  var res=document.getElementById("ensayo-results");
+  res.style.display="block";
+  res.innerHTML='<div class="res-banner" style="color:'+mainColor+'">'+
+    (pct>=70?"🏆":pct>=50?"💪":"📚")+' '+correct+' / '+EQ.length+' correctas</div>'+
+    '<div style="font-size:1rem;color:var(--text-dim);margin-bottom:16px">'+pct+'% · Si mantuvieras este ritmo en las 60 preguntas puntuables, tu puntaje estimado sería ~'+estScore+' pts PAES</div>'+
+    topicHtml+
+    '<div style="background:var(--card2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;margin-top:16px">'+
+    '<p style="font-family:Fredoka One,cursive;font-size:1rem;color:var(--dorado);margin-bottom:8px">'+msg+'</p>'+
+    '<p style="font-size:.88rem;color:var(--text-dim)">Los subtemas con menos del 70% están marcados. Puedes volver a cualquier sección desde el menú de navegación.</p></div>';
+  res.scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
+// -------------------------------------------------------------------
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico de la Unidad 3A (Orden Mundial de Posguerra y Guerra Fría) del módulo PAES Historia y Ciencias Sociales, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media, muchos sin conocimiento previo del tema. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre los 4 subtemas de esta unidad, detallados abajo. NO respondes sobre otras materias PAES (Lenguaje, Matemática, Ciencias), ni sobre Biología, Física o Química, ni sobre otras unidades de Historia que el estudiante aún no ha visto (incluida la Unidad 3B sobre Chile y la dictadura, que se ve después).",
+"",
+"CONTENIDO DE LA UNIDAD (4 subtemas):",
+"1. Nuevo Orden Mundial: creación de la ONU (1945), diferencia entre Asamblea General (declarativa) y Consejo de Seguridad (vinculante, 5 miembros permanentes con derecho a veto), Declaración Universal de los Derechos Humanos (1948), procesos de descolonización en Asia y África, principio de autodeterminación de los pueblos, conflictos étnicos derivados de fronteras coloniales.",
+"2. Guerra Fría: confrontación ideológica entre EE.UU. (capitalismo) y la URSS (comunismo) tras 1945, política de contención de Truman (1947), zonas de influencia, Conferencia de Bandung (1955) y países No Alineados, carrera armamentista y espacial (Sputnik 1957, llegada a la Luna 1969), doctrina de destrucción mutua asegurada, conflictos indirectos (Guerra de Corea 1950-53, Guerra de Vietnam 1955-75, Crisis de los Misiles de Cuba 1962).",
+"3. América Latina en la Guerra Fría: la región como \"zona de influencia\" de EE.UU., Revolución Cubana (1959) como único régimen comunista consolidado, gobiernos de reforma dentro del sistema democrático/capitalista, dictaduras militares del Cono Sur, Doctrina de Seguridad Nacional, Plan Cóndor, intervenciones respaldadas por EE.UU. (ej. golpe en Guatemala 1954).",
+"4. Fin de la Guerra Fría: reformas de Gorbachov (Perestroika y Glasnost), Caída del Muro de Berlín (1989), colapso de los gobiernos comunistas de Europa del Este, Consenso de Washington, auge del neoliberalismo, aceleración de la globalización económica y cultural, e interpretaciones diversas (positivas y críticas) de este proceso.",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos del módulo tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre alguno de los 4 subtemas, con contexto histórico breve si corresponde. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES/DEMRE. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta general sobre qué parte del enunciado o contexto se relaciona con esto, 2) acota a un dato o sección específica, 3) señala qué concepto histórico aplica y por qué, 4) contrasta la alternativa elegida por el estudiante con la probablemente correcta, preguntando qué diferencia hay. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otra materia, otra unidad no vista, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para resolver dudas de esta unidad (Orden Mundial y Guerra Fría).'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function anyCierreActive(){
+  return ensayoStarted && !ensayoFinished;
+}
+
+function checkTutorBlock(){
+  var blocked = anyCierreActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false;
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Historia Unidad 3A\n" +
+    "Módulo/Unidad: Historia · Unidad 3A · Orden Mundial de Posguerra y Guerra Fría\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy) return;
+  if(anyCierreActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+})();
+</script>
+</body>
+</html>
