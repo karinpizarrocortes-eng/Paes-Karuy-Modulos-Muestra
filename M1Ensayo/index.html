@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ensayo N°1 · Matemática M1 · PAES Karuy</title>
+<style>
+  :root{
+    --indigo:#4f46e5;
+    --indigo-soft:#eef2ff;
+    --indigo-dark:#3730a3;
+    --ink:#1a1a1a;
+    --gray:#6b7280;
+    --gray-light:#e5e7eb;
+    --bg:#ffffff;
+    --green:#16a34a;
+    --amber:#d97706;
+    --red:#dc2626;
+    --teal:#0d9488;
+    --violet:#7c3aed;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Georgia','Times New Roman',serif;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+  h1,h2,h3{font-family:'Georgia','Times New Roman',serif;}
+  button{font-family:inherit;cursor:pointer;}
+  ::selection{background:var(--indigo-soft);}
+
+  /* ---------- PORTADA ---------- */
+  #portada{
+    max-width:640px;
+    margin:0 auto;
+    padding:48px 24px 80px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-weight:700;font-size:14px;letter-spacing:.04em;color:var(--indigo);
+    text-transform:uppercase;margin-bottom:32px;
+  }
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--indigo);}
+  #portada h1{font-size:32px;line-height:1.15;margin:0 0 6px;}
+  #portada .subt{color:var(--gray);font-size:16px;margin-bottom:28px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}
+  .meta-row{
+    display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;
+  }
+  .meta-chip{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-size:13px;font-weight:600;color:var(--indigo-dark);
+    background:var(--indigo-soft);border:1px solid #c7d2fe;
+    padding:8px 14px;border-radius:999px;
+  }
+  .instrucciones{
+    background:#fafafa;border:1px solid var(--gray-light);border-radius:12px;
+    padding:24px 26px;margin-bottom:32px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .instrucciones h3{font-size:15px;margin:0 0 14px;color:var(--ink);}
+  .instrucciones ol{margin:0;padding-left:20px;color:#374151;font-size:14.5px;line-height:1.65;}
+  .instrucciones li{margin-bottom:8px;}
+  #btnComenzar{
+    width:100%;background:var(--indigo);color:#fff;border:none;border-radius:10px;
+    padding:16px 20px;font-size:16px;font-weight:700;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    transition:background .15s ease;
+  }
+  #btnComenzar:hover{background:var(--indigo-dark);}
+  .nota-ia{
+    text-align:center;margin-top:14px;font-size:12.5px;color:var(--gray);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+
+  /* ---------- EXAMEN (fondo blanco / letras negras, estilo oficial) ---------- */
+  #examen{display:none;background:#fff;min-height:100vh;}
+  .topbar{
+    position:sticky;top:0;z-index:20;
+    background:#fff;border-bottom:2px solid var(--ink);
+    padding:10px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .topbar .titulo-mini{font-weight:700;font-size:14px;}
+  .topbar .progreso{font-size:13px;color:var(--gray);}
+  #timer{
+    font-weight:800;font-size:18px;font-variant-numeric:tabular-nums;
+    padding:6px 14px;border:2px solid var(--ink);border-radius:8px;
+  }
+  #timer.alerta{color:var(--red);border-color:var(--red);}
+  .btnFinalizar{
+    background:var(--ink);color:#fff;border:none;border-radius:8px;
+    padding:9px 16px;font-size:13px;font-weight:700;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+
+  .tabsTextos{
+    display:flex;gap:0;border-bottom:1px solid var(--gray-light);
+    overflow-x:auto;background:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .tabTexto{
+    flex:0 0 auto;padding:12px 18px;font-size:13px;font-weight:600;color:var(--gray);
+    border-bottom:3px solid transparent;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;
+  }
+  .tabTexto.activo{color:var(--ink);border-bottom-color:var(--indigo);}
+
+  .examLayout{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    max-width:1200px;margin:0 auto;
+    min-height:calc(100vh - 110px);
+  }
+  @media (max-width:860px){
+    .examLayout{grid-template-columns:1fr;}
+  }
+  .panelTexto{
+    padding:28px 32px;border-right:1px solid var(--gray-light);
+    max-height:calc(100vh - 110px);overflow-y:auto;
+  }
+  @media (max-width:860px){
+    .panelTexto{border-right:none;border-bottom:8px solid #f3f4f6;max-height:none;}
+  }
+  .panelTexto h2{font-size:20px;margin:0 0 4px;}
+  .panelTexto .tipoTexto{font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:.05em;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;margin-bottom:16px;display:block;}
+  .panelTexto p{font-size:16px;line-height:1.75;margin:0 0 16px;color:#111;}
+  .panelTexto .formulaBox{
+    background:var(--indigo-soft);border:1px solid #c7d2fe;border-radius:10px;
+    padding:14px 16px;margin-bottom:14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-size:14.5px;color:var(--indigo-dark);line-height:1.6;
+  }
+
+  .panelPregunta{padding:28px 32px;}
+  .navPregunta{
+    display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .navPregunta button{
+    background:#fff;border:1.5px solid var(--ink);border-radius:8px;
+    padding:7px 14px;font-size:13px;font-weight:600;
+  }
+  .navPregunta button:disabled{opacity:.3;cursor:not-allowed;}
+  .numPregunta{font-weight:700;font-size:13px;color:var(--gray);}
+  .enunciado{font-size:17px;line-height:1.6;margin:0 0 20px;font-weight:600;}
+  .opciones{display:flex;flex-direction:column;gap:10px;}
+  .opcion{
+    display:flex;align-items:flex-start;gap:12px;
+    border:1.5px solid var(--gray-light);border-radius:10px;
+    padding:13px 16px;font-size:15px;line-height:1.5;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:#fff;
+  }
+  .opcion:hover{border-color:var(--ink);}
+  .opcion.marcada{border-color:var(--indigo);background:var(--indigo-soft);}
+  .opcion .letra{
+    flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;
+  }
+  .opcion.marcada .letra{background:var(--indigo);border-color:var(--indigo);color:#fff;}
+
+  .palette{
+    margin-top:26px;padding-top:20px;border-top:1px solid var(--gray-light);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .palette .lbl{font-size:12px;color:var(--gray);margin-bottom:10px;text-transform:uppercase;letter-spacing:.04em;}
+  .paletteGrid{display:grid;grid-template-columns:repeat(11,1fr);gap:6px;}
+  .paletteBtn{
+    aspect-ratio:1;border:1.5px solid var(--gray-light);border-radius:6px;background:#fff;
+    font-size:11.5px;font-weight:700;color:var(--gray);
+  }
+  .paletteBtn.respondida{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .paletteBtn.activa{border-color:var(--indigo);box-shadow:0 0 0 2px var(--indigo-soft);}
+
+  /* ---------- RESULTADOS ---------- */
+  #resultados{display:none;max-width:760px;margin:0 auto;padding:48px 24px 100px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(180deg,#fff 0%,#f8f8ff 100%);}
+  .scoreCard{
+    background:linear-gradient(135deg,#e0e7ff 0%,#c7d2fe 55%,#a5b4fc 100%);
+    border:1px solid #c7d2fe;border-radius:20px;
+    padding:36px 32px;text-align:center;margin-bottom:28px;
+    box-shadow:0 10px 30px -12px rgba(79,70,229,.35);
+  }
+  .scoreCard .big{font-size:56px;font-weight:800;color:var(--indigo-dark);line-height:1;letter-spacing:-.02em;}
+  .scoreCard .sub{color:var(--indigo-dark);font-size:14px;margin-top:8px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+  .habBlock{margin-bottom:28px;}
+  .habBlock h3{font-size:15px;margin:0 0 14px;color:var(--ink);}
+  .habRow{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .habRow .dotHab{width:11px;height:11px;border-radius:50%;flex:0 0 auto;}
+  .habRow .nom{width:140px;flex:0 0 auto;font-size:13.5px;font-weight:700;}
+  .habRow .barBg{flex:1;height:14px;background:#f3f4f6;border-radius:99px;overflow:hidden;}
+  .habRow .barFill{height:100%;border-radius:99px;transition:width .6s ease;}
+  .habRow .pct{width:44px;flex:0 0 auto;text-align:right;font-size:13.5px;font-weight:800;color:var(--ink);}
+
+  .diagnostico{
+    background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;
+    padding:22px 24px;margin-bottom:28px;font-size:14.5px;line-height:1.65;color:#374151;
+  }
+  .diagnostico strong{color:var(--indigo-dark);}
+
+  .ctaBox{
+    background:linear-gradient(135deg,#4338ca 0%,#4f46e5 45%,#818cf8 100%);
+    border-radius:18px;padding:30px 28px;text-align:center;margin-bottom:24px;
+    box-shadow:0 14px 34px -14px rgba(67,56,202,.55);
+  }
+  .ctaBox p{color:#eef2ff;font-size:14.5px;margin:0 0 18px;font-weight:600;}
+  .ctaBox a{
+    display:inline-block;background:#fff;color:var(--indigo-dark);text-decoration:none;
+    padding:15px 32px;border-radius:12px;font-weight:800;font-size:15.5px;
+    box-shadow:0 4px 14px rgba(0,0,0,.15);transition:transform .15s ease;
+  }
+  .ctaBox a:hover{transform:translateY(-2px);}
+
+  #btnRevisar{
+    width:100%;background:#fff;border:1.5px solid var(--ink);color:var(--ink);
+    border-radius:10px;padding:13px;font-weight:700;font-size:14.5px;margin-bottom:6px;
+  }
+
+  /* ---------- MODAL CONFIRMACION ---------- */
+  #modalOverlay{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50;
+    align-items:center;justify-content:center;padding:20px;
+  }
+  #modalOverlay.activo{display:flex;}
+  .modalBox{
+    background:#fff;border-radius:14px;padding:26px 26px 20px;max-width:380px;width:100%;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .modalBox p{font-size:14.5px;line-height:1.55;color:#374151;margin:0 0 20px;}
+  .modalBtns{display:flex;gap:10px;}
+  .modalBtns button{
+    flex:1;border-radius:8px;padding:11px;font-size:14px;font-weight:700;border:none;
+  }
+  #modalCancelar{background:#f3f4f6;color:var(--ink);}
+  #modalConfirmar{background:var(--indigo);color:#fff;}
+
+  #revision{display:none;margin-top:28px;}
+  .revQ{border:1px solid var(--gray-light);border-radius:10px;padding:18px 20px;margin-bottom:14px;}
+  .revQ .revEnun{font-weight:700;font-size:14.5px;margin-bottom:10px;font-family:Georgia,serif;}
+  .revOpt{font-size:13.5px;padding:8px 10px;border-radius:6px;margin-bottom:6px;line-height:1.5;}
+  .revOpt.correcta{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;}
+  .revOpt.marcadaIncorrecta{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;}
+  .revOpt.neutra{background:#fafafa;border:1px solid #f0f0f0;color:#4b5563;}
+  .revHab{display:inline-block;font-size:11px;font-weight:800;padding:4px 10px;border-radius:99px;margin-bottom:10px;}
+
+  .footerNota{text-align:center;font-size:12px;color:var(--gray);margin-top:20px;}
+</style>
+</head>
+<body>
+
+<!-- ================= PORTADA ================= -->
+<div id="portada">
+  <div class="brand"><span class="dot"></span>PAES KARUY</div>
+  <h1>Ensayo N°1 · Matemática M1</h1>
+  <p class="subt">Versión reducida — mitad de la prueba oficial, pensada para rendirse en una sesión de estudio nocturna.</p>
+
+  <div class="meta-row">
+    <span class="meta-chip">33 preguntas</span>
+    <span class="meta-chip">4 ejes temáticos</span>
+    <span class="meta-chip">1 hora 15 minutos</span>
+    <span class="meta-chip">Sin descuento por error</span>
+  </div>
+
+  <div class="instrucciones">
+    <h3>Instrucciones</h3>
+    <ol>
+      <li>Esta prueba contiene 33 preguntas de selección múltiple con 4 opciones (A, B, C y D), de las cuales solo una es correcta.</li>
+      <li>Dispones de 1 hora y 15 minutos para responder. El cronómetro corre automáticamente y no se puede pausar.</li>
+      <li>No se descuenta puntaje por respuestas erradas, así que te conviene responder todas las preguntas.</li>
+      <li>Puedes moverte libremente entre los 4 ejes y sus preguntas usando el panel numerado. Cada eje muestra un breve formulario de apoyo, igual que en la prueba real.</li>
+      <li>Al finalizar (o cuando se acabe el tiempo), verás tu puntaje, un desglose por competencia matemática y una recomendación de estudio personalizada.</li>
+      <li>El tutor IA está desactivado durante esta rendición, igual que en la prueba real.</li>
+    </ol>
+  </div>
+
+  <button id="btnComenzar">Comenzar ensayo</button>
+  <p class="nota-ia">Todas las preguntas son generadas por IA 🤖 · No reproduce contenido oficial DEMRE</p>
+</div>
+
+<!-- ================= EXAMEN ================= -->
+<div id="examen">
+  <div class="topbar">
+    <div class="titulo-mini">Ensayo N°1 · Matemática M1</div>
+    <div class="progreso" id="progresoTxt">Pregunta 1 de 33</div>
+    <div id="timer">1:15:00</div>
+    <button class="btnFinalizar" id="btnFinalizar">Finalizar prueba</button>
+  </div>
+  <div class="tabsTextos" id="tabsTextos"></div>
+  <div class="examLayout">
+    <div class="panelTexto" id="panelTexto"></div>
+    <div class="panelPregunta">
+      <div class="navPregunta">
+        <button id="btnPrev">← Anterior</button>
+        <span class="numPregunta" id="numPreguntaLbl"></span>
+        <button id="btnNext">Siguiente →</button>
+      </div>
+      <p class="enunciado" id="enunciadoTxt"></p>
+      <div class="opciones" id="opcionesCont"></div>
+      <div class="palette">
+        <div class="lbl">Ir a pregunta</div>
+        <div class="paletteGrid" id="paletteGrid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RESULTADOS ================= -->
+<div id="resultados">
+  <div class="scoreCard">
+    <div class="big" id="scoreBig">0/33</div>
+    <div class="sub" id="scorePct">0% de logro</div>
+  </div>
+
+  <div class="habBlock">
+    <h3>Desglose por competencia matemática</h3>
+    <div id="habRows"></div>
+  </div>
+
+  <div class="diagnostico" id="diagnosticoTxt"></div>
+
+  <div class="ctaBox">
+    <p id="ctaTexto">Según tu resultado, te recomendamos un plan de estudio.</p>
+    <a href="#" target="_blank">Ver planes PAES Karuy</a>
+  </div>
+
+  <button id="btnRevisar">Revisar respuestas y explicaciones</button>
+  <div id="revision"></div>
+
+  <p class="footerNota">PAES Karuy · Ensayo generado con preguntas de práctica creadas por IA · No reproduce contenido oficial DEMRE</p>
+</div>
+
+<!-- ================= MODAL ================= -->
+<div id="modalOverlay">
+  <div class="modalBox">
+    <p id="modalTexto">¿Seguro que quieres finalizar la prueba?</p>
+    <div class="modalBtns">
+      <button id="modalCancelar">Cancelar</button>
+      <button id="modalConfirmar">Finalizar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============ DATOS: EJES (con formulario de apoyo, no son "textos de lectura") ============
+const TEXTS = [
+  {
+    id:1, tipo:'Eje temático', titulo:'Números',
+    contenido:`Este eje incluye operatoria con números enteros, racionales y potencias, porcentajes, proporcionalidad y notación científica.\nRecuerda la jerarquía de operaciones: primero paréntesis, luego potencias y raíces, luego multiplicación/división, y finalmente suma/resta.\nUn descuento o interés de p% sobre un valor V se calcula como V × (p/100).`
+  },
+  {
+    id:2, tipo:'Eje temático', titulo:'Álgebra y Funciones',
+    contenido:`Este eje incluye ecuaciones e inecuaciones de primer grado, sistemas de ecuaciones lineales, factorización y funciones lineales, cuadráticas y exponenciales.\nForma general de una función lineal: f(x) = mx + n, donde m es la pendiente y n el coeficiente de posición.\nForma general de una función cuadrática: f(x) = ax² + bx + c; el vértice tiene abscisa x = -b/(2a).`
+  },
+  {
+    id:3, tipo:'Eje temático', titulo:'Geometría',
+    contenido:`Este eje incluye perímetros, áreas y volúmenes de figuras y cuerpos geométricos, teorema de Pitágoras, transformaciones isométricas y semejanza.\nÁrea del triángulo: A = (base × altura)/2. Volumen del cilindro: V = π·r²·h. Teorema de Pitágoras: c² = a² + b².\nEn una semejanza de razón k, las áreas escalan según k².`
+  },
+  {
+    id:4, tipo:'Eje temático', titulo:'Probabilidad y Estadística',
+    contenido:`Este eje incluye medidas de tendencia central (media, mediana), probabilidad clásica y combinatoria simple, y lectura de tablas y gráficos.\nProbabilidad clásica: P(A) = (casos favorables)/(casos posibles).\nCombinaciones de n elementos tomados de a k: C(n,k) = n! / (k!·(n-k)!).`
+  }
+];
+
+// ============ DATOS: PREGUNTAS ============
+// habilidad: 'Resolver problemas' | 'Modelar' | 'Representar'
+const QUESTIONS = [
+{id:1,textId:1,habilidad:'Resolver problemas',enunciado:'¿Cuál es el resultado de -8 + 5 × (-2)?',opciones:['-18','-6','18','6'],correcta:0,expl:['Primero se multiplica: 5×(-2)=-10, luego -8+(-10)=-18.','Este resultado corresponde a sumar antes de multiplicar, lo que viola la jerarquía de operaciones.','Este valor tendría sentido solo si ambos términos fueran positivos.','Este valor no corresponde a ningún orden válido de las operaciones.']},
+{id:2,textId:1,habilidad:'Resolver problemas',enunciado:'Un producto cuesta $24.000 y tiene un descuento del 15%. ¿Cuál es el precio final?',opciones:['$20.400','$3.600','$27.600','$18.000'],correcta:0,expl:['El descuento es 24.000×0,15=3.600; precio final = 24.000-3.600=20.400.','Ese valor corresponde solo al monto del descuento, no al precio final.','Ese valor corresponde a sumar el descuento en vez de restarlo.','Ese valor no corresponde al cálculo correcto del 15% de descuento.']},
+{id:3,textId:1,habilidad:'Resolver problemas',enunciado:'¿Cuál es el valor de (2³) × (2²)?',opciones:['32','64','16','8'],correcta:0,expl:['Al multiplicar potencias de igual base se suman los exponentes: 2^(3+2)=2^5=32.','Ese valor corresponde a 2^6, no a la suma correcta de exponentes.','Ese valor corresponde solo a 2^4.','Ese valor corresponde solo a 2³, sin considerar el segundo factor.']},
+{id:4,textId:1,habilidad:'Modelar',enunciado:'Si 5 obreros construyen un muro en 12 días trabajando al mismo ritmo, ¿cuántos días demorarán 10 obreros en construir el mismo muro?',opciones:['6','24','10','3'],correcta:0,expl:['Es una proporción inversa: 5×12=10×d, por lo que d=6.','Ese valor correspondería a una proporción directa, que no aplica en este caso.','Ese valor no resulta de igualar el producto obreros×días.','Ese valor es menor al correcto y no cumple la igualdad 5×12=10×d.']},
+{id:5,textId:1,habilidad:'Resolver problemas',enunciado:'¿Cuál es la notación científica de 0,00045?',opciones:['4,5×10⁻⁴','4,5×10⁴','45×10⁻⁵','0,45×10⁻³'],correcta:0,expl:['Al mover el punto decimal 4 lugares a la derecha se obtiene 4,5×10⁻⁴.','El exponente positivo correspondería a un número mayor que 1, no a 0,00045.','Esta expresión no está en notación científica, ya que el primer factor debe estar entre 1 y 10.','Esta expresión tampoco cumple con el formato de notación científica.']},
+{id:6,textId:1,habilidad:'Resolver problemas',enunciado:'¿Cuál es la razón simplificada entre 15 y 20?',opciones:['3:4','4:3','15:20','5:4'],correcta:0,expl:['Dividiendo ambos términos por 5 se obtiene 3:4.','Esta razón está invertida respecto al orden pedido (15 y 20).','Esta razón no está simplificada.','Esta razón no corresponde a la simplificación de 15:20.']},
+{id:7,textId:1,habilidad:'Resolver problemas',enunciado:'¿Cuál es la forma simplificada de √72?',opciones:['6√2','2√6','3√8','12√2'],correcta:0,expl:['72=36×2, y √36=6, por lo que √72=6√2.','Esta simplificación no corresponde a la descomposición correcta de 72.','El factor 8 no es un cuadrado perfecto, por lo que esta forma no está simplificada.','Este valor es mucho mayor que √72≈8,49, por lo que no corresponde.']},
+{id:8,textId:1,habilidad:'Modelar',enunciado:'Se invierte un capital de $100.000 a un interés simple del 2% mensual durante 3 meses. ¿Cuál es el interés generado?',opciones:['$6.000','$2.000','$106.000','$60.000'],correcta:0,expl:['Interés simple = 100.000×0,02×3=6.000.','Ese valor corresponde solo al interés de un mes, no de los tres meses.','Ese valor corresponde al capital final, no solo al interés.','Ese valor sería el resultado de usar 20% en vez de 2% mensual.']},
+
+{id:9,textId:2,habilidad:'Resolver problemas',enunciado:'¿Cuál es el valor de x en la ecuación 3x - 7 = 11?',opciones:['6','-6','4','18'],correcta:0,expl:['3x=11+7=18, por lo que x=18/3=6.','Este valor tendría sentido si el signo del término independiente estuviera invertido.','Este valor no satisface la ecuación al reemplazarlo.','Este valor corresponde a 3x, no al valor final de x.']},
+{id:10,textId:2,habilidad:'Resolver problemas',enunciado:'En el sistema x+y=10 y x-y=2, ¿cuál es el valor de x?',opciones:['6','4','8','2'],correcta:0,expl:['Sumando ambas ecuaciones: 2x=12, por lo que x=6.','Ese valor corresponde a y, no a x.','Ese valor no satisface simultáneamente ambas ecuaciones.','Ese valor corresponde a la diferencia entre las ecuaciones, no a x.']},
+{id:11,textId:2,habilidad:'Representar',enunciado:'¿Cuál es la pendiente de la recta que pasa por los puntos (2,3) y (4,7)?',opciones:['2','4','1/2','-2'],correcta:0,expl:['m=(7-3)/(4-2)=4/2=2.','Ese valor corresponde solo a la diferencia de las ordenadas, sin dividir por la diferencia de abscisas.','Ese valor es el recíproco de la pendiente correcta.','Ese valor tendría sentido si la recta fuera decreciente, lo que no ocurre aquí.']},
+{id:12,textId:2,habilidad:'Resolver problemas',enunciado:'¿Cuál es la factorización de x² - 9?',opciones:['(x-3)(x+3)','(x-9)(x+1)','(x-3)²','(x+3)²'],correcta:0,expl:['Corresponde a una diferencia de cuadrados: x²-9=(x-3)(x+3).','Al desarrollar esta expresión no se obtiene x²-9.','Esta expresión corresponde a un cuadrado de binomio, no a una diferencia de cuadrados.','Esta expresión tampoco corresponde a x²-9 al desarrollarla.']},
+{id:13,textId:2,habilidad:'Representar',enunciado:'¿Cuál es el vértice de la parábola y = x² - 4x + 3?',opciones:['(2,-1)','(4,3)','(-2,1)','(2,1)'],correcta:0,expl:['La abscisa del vértice es x=-(-4)/(2·1)=2; evaluando, y=4-8+3=-1.','Ese punto no corresponde al cálculo del vértice de la parábola.','El signo de la abscisa está invertido respecto al valor correcto.','La ordenada calculada no corresponde a evaluar x=2 en la función.']},
+{id:14,textId:2,habilidad:'Resolver problemas',enunciado:'¿Cuál es la solución de la inecuación 2x - 5 < 7?',opciones:['x<6','x>6','x<1','x>1'],correcta:0,expl:['2x<12, por lo que x<6.','El sentido de la desigualdad no cambia porque no se multiplica ni divide por un número negativo.','Este valor no corresponde a despejar correctamente la inecuación.','Este valor tampoco corresponde a la solución correcta.']},
+{id:15,textId:2,habilidad:'Representar',enunciado:'Si f(x) = 2x² - 3, ¿cuál es el valor de f(-2)?',opciones:['5','-11','1','11'],correcta:0,expl:['f(-2)=2×(-2)²-3=2×4-3=5.','Este resultado surge de restar 3 antes de elevar al cuadrado, lo cual es incorrecto.','Este resultado no corresponde a evaluar correctamente la función.','Este valor correspondería a 2×(-2)²+3, con signo distinto al de la función.']},
+{id:16,textId:2,habilidad:'Modelar',enunciado:'Dos boletos de cine y una bebida cuestan $14.000; un boleto y dos bebidas cuestan $13.000. ¿Cuál es el precio de un boleto?',opciones:['$5.000','$4.000','$6.000','$4.500'],correcta:0,expl:['Del sistema 2x+y=14.000 y x+2y=13.000 se obtiene x=5.000 e y=4.000.','Ese valor corresponde al precio de la bebida, no del boleto.','Ese valor no satisface simultáneamente ambas ecuaciones del sistema.','Ese valor tampoco resuelve correctamente el sistema planteado.']},
+{id:17,textId:2,habilidad:'Modelar',enunciado:'En una progresión aritmética con primer término 5 y diferencia 3, ¿cuál es el décimo término?',opciones:['32','35','29','30'],correcta:0,expl:['a₁₀=5+3×(10-1)=5+27=32.','Ese valor correspondería a considerar 10 diferencias en vez de 9.','Ese valor no corresponde a la fórmula del término general.','Ese valor tampoco resulta de aplicar correctamente la fórmula.']},
+{id:18,textId:2,habilidad:'Modelar',enunciado:'Una población crece según P(t) = 200 × 2^t (t en años). ¿Cuál es la población a los 3 años?',opciones:['1.600','800','600','3.200'],correcta:0,expl:['P(3)=200×2³=200×8=1.600.','Ese valor corresponde a t=2, no a t=3.','Ese valor no resulta de la fórmula exponencial dada.','Ese valor duplica el resultado correcto, como si t=4.']},
+{id:19,textId:2,habilidad:'Resolver problemas',enunciado:'¿Cuál es la suma de las raíces de la ecuación x² - 5x + 6 = 0?',opciones:['5','6','-5','1'],correcta:0,expl:['Las raíces son 2 y 3 (o, por la fórmula, la suma de raíces es -b/a=5).','Ese valor corresponde al producto de las raíces, no a su suma.','Ese valor tiene el signo invertido respecto a la suma correcta.','Ese valor no corresponde ni a la suma ni al producto de las raíces.']},
+{id:20,textId:2,habilidad:'Modelar',enunciado:'El costo total de producir x unidades es C(x) = 2.000 + 150x. ¿Cuál es el costo de producir 8 unidades?',opciones:['$3.200','$3.000','$1.200','$3.500'],correcta:0,expl:['C(8)=2.000+150×8=2.000+1.200=3.200.','Ese valor no incluye el costo variable de las 8 unidades.','Ese valor corresponde solo al costo variable, sin el costo fijo.','Ese valor no resulta de evaluar correctamente la función de costo.']},
+
+{id:21,textId:3,habilidad:'Resolver problemas',enunciado:'¿Cuál es el área de un triángulo de base 10 cm y altura 6 cm?',opciones:['30 cm²','60 cm²','16 cm²','20 cm²'],correcta:0,expl:['A=(10×6)/2=30 cm².','Ese valor corresponde al área de un rectángulo con esas medidas, no de un triángulo.','Ese valor corresponde a la suma de base y altura, no al área.','Ese valor no resulta de aplicar la fórmula del área del triángulo.']},
+{id:22,textId:3,habilidad:'Resolver problemas',enunciado:'Un triángulo rectángulo tiene catetos de 6 cm y 8 cm. ¿Cuál es la medida de la hipotenusa?',opciones:['10 cm','14 cm','48 cm','7 cm'],correcta:0,expl:['c²=6²+8²=36+64=100, por lo que c=10 cm.','Ese valor corresponde a la suma de los catetos, no a la hipotenusa.','Ese valor corresponde al producto de los catetos, no a su hipotenusa.','Ese valor no satisface el teorema de Pitágoras para estos catetos.']},
+{id:23,textId:3,habilidad:'Resolver problemas',enunciado:'¿Cuál es el volumen de un cilindro de radio 3 cm y altura 10 cm (aproximando π≈3,14)?',opciones:['≈282,6 cm³','≈90 cm³','≈188,4 cm³','≈360 cm³'],correcta:0,expl:['V=π×r²×h=3,14×9×10≈282,6 cm³.','Ese valor omite el factor π en el cálculo.','Ese valor no corresponde al resultado de multiplicar π×9×10.','Ese valor tampoco corresponde a la fórmula del volumen del cilindro.']},
+{id:24,textId:3,habilidad:'Resolver problemas',enunciado:'¿Cuál es la suma de los ángulos interiores de un hexágono?',opciones:['720°','540°','900°','360°'],correcta:0,expl:['La fórmula es (n-2)×180°=(6-2)×180°=720°.','Ese valor corresponde a la suma de ángulos interiores de un pentágono.','Ese valor corresponde a un heptágono, no a un hexágono.','Ese valor corresponde a la suma de ángulos exteriores de cualquier polígono convexo.']},
+{id:25,textId:3,habilidad:'Representar',enunciado:'Al reflejar el punto (3,4) respecto al eje Y, ¿cuáles son sus nuevas coordenadas?',opciones:['(-3,4)','(3,-4)','(-3,-4)','(4,3)'],correcta:0,expl:['La reflexión respecto al eje Y invierte el signo de la abscisa: (-3,4).','Ese resultado corresponde a una reflexión respecto al eje X, no al eje Y.','Ese resultado corresponde a una reflexión respecto al origen, no al eje Y.','Ese resultado corresponde a intercambiar las coordenadas, no a una reflexión respecto al eje Y.']},
+{id:26,textId:3,habilidad:'Resolver problemas',enunciado:'Dos triángulos son semejantes con razón de semejanza 2. Si el área del triángulo menor es 5 cm², ¿cuál es el área del triángulo mayor?',opciones:['20 cm²','10 cm²','25 cm²','7 cm²'],correcta:0,expl:['Las áreas escalan según el cuadrado de la razón: 5×2²=5×4=20 cm².','Ese valor considera solo la razón lineal, sin elevarla al cuadrado.','Ese valor no corresponde a escalar el área según la razón de semejanza dada.','Ese valor corresponde a sumar razón y área, lo cual no es un procedimiento válido.']},
+{id:27,textId:3,habilidad:'Resolver problemas',enunciado:'¿Cuál es el perímetro de un rectángulo de lados 12 cm y 5 cm?',opciones:['34 cm','17 cm','60 cm','32 cm'],correcta:0,expl:['P=2×(12+5)=2×17=34 cm.','Ese valor corresponde a la suma de un lado de cada medida, sin duplicarla.','Ese valor corresponde al área del rectángulo, no a su perímetro.','Ese valor no corresponde al cálculo correcto del perímetro.']},
+
+{id:28,textId:4,habilidad:'Representar',enunciado:'¿Cuál es la media aritmética de los datos 4, 6, 8, 10 y 12?',opciones:['8','6','10','9'],correcta:0,expl:['La suma es 40 y hay 5 datos, por lo que la media es 40/5=8.','Ese valor corresponde solo al segundo dato, no a la media.','Ese valor corresponde solo al tercer dato, no a la media.','Ese valor no resulta de dividir la suma total por la cantidad de datos.']},
+{id:29,textId:4,habilidad:'Resolver problemas',enunciado:'Al lanzar un dado de 6 caras, ¿cuál es la probabilidad de obtener un número mayor que 4?',opciones:['1/3','1/2','1/6','2/3'],correcta:0,expl:['Los casos favorables son 5 y 6, es decir, 2 de 6 casos: 2/6=1/3.','Ese valor correspondería a 3 casos favorables, lo cual no es correcto.','Ese valor considera solo un caso favorable, en vez de dos.','Ese valor considera 4 casos favorables, más de los que realmente cumplen la condición.']},
+{id:30,textId:4,habilidad:'Representar',enunciado:'¿Cuál es la mediana del conjunto de datos 3, 7, 9, 15, 20?',opciones:['9','7','15','11'],correcta:0,expl:['Con 5 datos ordenados, la mediana es el valor central: 9.','Ese valor corresponde al segundo dato, no al valor central.','Ese valor corresponde al cuarto dato, no al valor central.','Ese valor no corresponde a ninguno de los datos entregados.']},
+{id:31,textId:4,habilidad:'Resolver problemas',enunciado:'¿De cuántas formas distintas se pueden elegir 2 personas de un grupo de 5, sin importar el orden?',opciones:['10','20','5','15'],correcta:0,expl:['C(5,2)=5!/(2!·3!)=10.','Ese valor correspondería a considerar el orden de selección (variaciones), no combinaciones.','Ese valor corresponde solo al total de personas, no a las combinaciones posibles.','Ese valor no resulta de aplicar correctamente la fórmula de combinatoria.']},
+{id:32,textId:4,habilidad:'Resolver problemas',enunciado:'Se lanzan dos monedas justas. ¿Cuál es la probabilidad de obtener cara en ambas?',opciones:['1/4','1/2','1/3','3/4'],correcta:0,expl:['P(cara)×P(cara)=1/2×1/2=1/4.','Ese valor corresponde a la probabilidad de obtener cara en una sola moneda.','Ese valor no corresponde al producto de probabilidades independientes.','Ese valor corresponde a la probabilidad de obtener al menos una cara, no ambas.']},
+{id:33,textId:4,habilidad:'Representar',enunciado:'En una encuesta a 40 personas, el 25% prefiere fútbol. ¿Cuántas personas eligieron fútbol?',opciones:['10','25','15','20'],correcta:0,expl:['25% de 40 = 0,25×40=10.','Ese valor corresponde al porcentaje mismo, no a la cantidad de personas.','Ese valor no resulta de calcular correctamente el 25% de 40.','Ese valor corresponde al 50% de 40, no al 25%.']}
+];
+
+const TOTAL_Q = QUESTIONS.length;
+const TIME_LIMIT = 75*60; // 1h15min en segundos
+let timeLeft = TIME_LIMIT;
+let timerInterval = null;
+let currentQIndex = 0;
+let answers = {}; // {questionId: optionIndex}
+let finished = false;
+
+// Colores por competencia (mismos que en los módulos: Resolver problemas índigo, Modelar teal, Representar ámbar)
+const HAB_COLORS = {
+  'Resolver problemas': {main:'#4f46e5', soft:'#eef2ff', dark:'#3730a3'},
+  'Modelar':             {main:'#0d9488', soft:'#ccfbf1', dark:'#0f766e'},
+  'Representar':         {main:'#d97706', soft:'#fef3c7', dark:'#92400e'}
+};
+
+// ============ NAVEGACIÓN PORTADA -> EXAMEN ============
+document.getElementById('btnComenzar').addEventListener('click', ()=>{
+  document.getElementById('portada').style.display='none';
+  document.getElementById('examen').style.display='block';
+  initTabs();
+  initPalette();
+  renderQuestion(0);
+  startTimer();
+});
+
+function initTabs(){
+  const cont = document.getElementById('tabsTextos');
+  cont.innerHTML = TEXTS.map(t=>`<button class="tabTexto" data-tid="${t.id}">${t.titulo}</button>`).join('');
+  cont.querySelectorAll('.tabTexto').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const tid = parseInt(btn.dataset.tid);
+      const firstQ = QUESTIONS.findIndex(q=>q.textId===tid);
+      if(firstQ>=0) renderQuestion(firstQ);
+    });
+  });
+}
+
+function initPalette(){
+  const grid = document.getElementById('paletteGrid');
+  grid.innerHTML = QUESTIONS.map((q,i)=>`<button class="paletteBtn" data-idx="${i}">${i+1}</button>`).join('');
+  grid.querySelectorAll('.paletteBtn').forEach(btn=>{
+    btn.addEventListener('click', ()=> renderQuestion(parseInt(btn.dataset.idx)));
+  });
+}
+
+function renderQuestion(idx){
+  currentQIndex = idx;
+  const q = QUESTIONS[idx];
+  const text = TEXTS.find(t=>t.id===q.textId);
+
+  // tabs activo
+  document.querySelectorAll('.tabTexto').forEach(b=>{
+    b.classList.toggle('activo', parseInt(b.dataset.tid)===text.id);
+  });
+
+  // panel eje / formulario de apoyo
+  const panelTexto = document.getElementById('panelTexto');
+  panelTexto.innerHTML = `<span class="tipoTexto">${text.tipo}</span><h2>${text.titulo}</h2>` +
+    `<div class="formulaBox">${text.contenido.split('\n').join('<br><br>')}</div>`;
+
+  // progreso
+  document.getElementById('progresoTxt').textContent = `Pregunta ${idx+1} de ${TOTAL_Q}`;
+  document.getElementById('numPreguntaLbl').textContent = `Pregunta ${idx+1}`;
+
+  // enunciado
+  document.getElementById('enunciadoTxt').textContent = q.enunciado;
+
+  // opciones
+  const letras = ['A','B','C','D'];
+  const cont = document.getElementById('opcionesCont');
+  cont.innerHTML = q.opciones.map((op,i)=>{
+    const marcada = answers[q.id]===i ? 'marcada' : '';
+    return `<button class="opcion ${marcada}" data-oi="${i}"><span class="letra">${letras[i]}</span><span>${op}</span></button>`;
+  }).join('');
+  cont.querySelectorAll('.opcion').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      answers[q.id] = parseInt(btn.dataset.oi);
+      renderQuestion(currentQIndex);
+      updatePalette();
+    });
+  });
+
+  // nav prev/next
+  document.getElementById('btnPrev').disabled = idx===0;
+  document.getElementById('btnNext').disabled = idx===TOTAL_Q-1;
+
+  updatePalette();
+}
+
+function updatePalette(){
+  document.querySelectorAll('.paletteBtn').forEach((btn,i)=>{
+    btn.classList.toggle('respondida', answers[QUESTIONS[i].id]!==undefined);
+    btn.classList.toggle('activa', i===currentQIndex);
+  });
+}
+
+document.getElementById('btnPrev').addEventListener('click', ()=>{
+  if(currentQIndex>0) renderQuestion(currentQIndex-1);
+});
+document.getElementById('btnNext').addEventListener('click', ()=>{
+  if(currentQIndex<TOTAL_Q-1) renderQuestion(currentQIndex+1);
+});
+
+// ============ TIMER ============
+function startTimer(){
+  updateTimerDisplay();
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    updateTimerDisplay();
+    if(timeLeft<=0){
+      clearInterval(timerInterval);
+      finalizarPrueba(true);
+    }
+  },1000);
+}
+
+function updateTimerDisplay(){
+  const h = Math.floor(timeLeft/3600);
+  const m = Math.floor((timeLeft%3600)/60);
+  const s = timeLeft%60;
+  const el = document.getElementById('timer');
+  el.textContent = `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  el.classList.toggle('alerta', timeLeft<=300);
+}
+
+// ============ FINALIZAR ============
+document.getElementById('btnFinalizar').addEventListener('click', ()=>{
+  const sinResponder = TOTAL_Q - Object.keys(answers).length;
+  let msg = '¿Seguro que quieres finalizar la prueba?';
+  if(sinResponder>0) msg = `Tienes ${sinResponder} pregunta(s) sin responder. ¿Seguro que quieres finalizar?`;
+  document.getElementById('modalTexto').textContent = msg;
+  document.getElementById('modalOverlay').classList.add('activo');
+});
+
+document.getElementById('modalCancelar').addEventListener('click', ()=>{
+  document.getElementById('modalOverlay').classList.remove('activo');
+});
+
+document.getElementById('modalConfirmar').addEventListener('click', ()=>{
+  document.getElementById('modalOverlay').classList.remove('activo');
+  finalizarPrueba(false);
+});
+
+function finalizarPrueba(porTiempo){
+  if(finished) return;
+  finished = true;
+  clearInterval(timerInterval);
+  document.getElementById('examen').style.display='none';
+  document.getElementById('resultados').style.display='block';
+  calcularResultados();
+}
+
+// ============ RESULTADOS ============
+function calcularResultados(){
+  let correctas = 0;
+  const habStats = {'Resolver problemas':{total:0,correctas:0}, 'Modelar':{total:0,correctas:0}, 'Representar':{total:0,correctas:0}};
+
+  QUESTIONS.forEach(q=>{
+    habStats[q.habilidad].total++;
+    if(answers[q.id]===q.correcta){
+      correctas++;
+      habStats[q.habilidad].correctas++;
+    }
+  });
+
+  const pctGlobal = Math.round((correctas/TOTAL_Q)*100);
+  document.getElementById('scoreBig').textContent = `${correctas}/${TOTAL_Q}`;
+  document.getElementById('scorePct').textContent = `${pctGlobal}% de logro`;
+
+  // barras por competencia
+  const habRows = document.getElementById('habRows');
+  habRows.innerHTML = Object.keys(habStats).map(h=>{
+    const s = habStats[h];
+    const pct = s.total>0 ? Math.round((s.correctas/s.total)*100) : 0;
+    const c = HAB_COLORS[h];
+    return `<div class="habRow">
+      <span class="dotHab" style="background:${c.main}"></span>
+      <span class="nom">${h}</span>
+      <span class="barBg"><span class="barFill" style="width:${pct}%;background:${c.main}"></span></span>
+      <span class="pct">${pct}%</span>
+    </div>`;
+  }).join('');
+
+  // diagnóstico + CTA
+  let habilidadesOrdenadas = Object.keys(habStats).map(h=>({
+    nombre:h,
+    pct: habStats[h].total>0 ? (habStats[h].correctas/habStats[h].total)*100 : 0
+  })).sort((a,b)=>a.pct-b.pct);
+  const masDebil = habilidadesOrdenadas[0];
+
+  let nivel, packSugerido;
+  if(pctGlobal < 50){
+    nivel = 'inicial';
+    packSugerido = 'Escalera Inicial, con foco en fundamentos de Matemática M1';
+  } else if(pctGlobal < 75){
+    nivel = 'intermedio';
+    packSugerido = 'Escalera Intermedia, para consolidar y subir tu puntaje de forma sostenida';
+  } else {
+    nivel = 'avanzado';
+    packSugerido = 'un pack orientado a tu carrera, para afinar detalles y asegurar tu puntaje';
+  }
+
+  document.getElementById('diagnosticoTxt').innerHTML =
+    `Obtuviste <strong>${correctas} de ${TOTAL_Q}</strong> preguntas correctas (${pctGlobal}% de logro). ` +
+    `Tu competencia con mayor margen de mejora es <strong>${masDebil.nombre}</strong> (${Math.round(masDebil.pct)}% de logro en esa competencia). ` +
+    `Según tu resultado, te recomendamos ${packSugerido}, priorizando ejercicios de ${masDebil.nombre.toLowerCase()}.`;
+
+  document.getElementById('ctaTexto').textContent =
+    `Con tu nivel actual, ${packSugerido}.`;
+
+  // revisión detallada
+  renderRevision();
+}
+
+function renderRevision(){
+  const cont = document.getElementById('revision');
+  const letras = ['A','B','C','D'];
+  cont.innerHTML = TEXTS.map(text=>{
+    const qs = QUESTIONS.filter(q=>q.textId===text.id);
+    const qsHtml = qs.map((q,i)=>{
+      const globalIdx = QUESTIONS.indexOf(q)+1;
+      const marcada = answers[q.id];
+      const optsHtml = q.opciones.map((op,oi)=>{
+        let cls='neutra';
+        if(oi===q.correcta) cls='correcta';
+        else if(oi===marcada) cls='marcadaIncorrecta';
+        return `<div class="revOpt ${cls}">${letras[oi]}. ${op}${oi===q.correcta?' ✓':''}${(oi===marcada && oi!==q.correcta)?' (tu respuesta)':''}<br><small>${q.expl[oi]}</small></div>`;
+      }).join('');
+      return `<div class="revQ">
+        <span class="revHab" style="color:${HAB_COLORS[q.habilidad].dark};background:${HAB_COLORS[q.habilidad].soft}">${q.habilidad}</span>
+        <div class="revEnun">${globalIdx}. ${q.enunciado}</div>
+        ${optsHtml}
+      </div>`;
+    }).join('');
+    return `<h3 style="margin-top:24px;">${text.titulo}</h3>${qsHtml}`;
+  }).join('');
+}
+
+document.getElementById('btnRevisar').addEventListener('click', ()=>{
+  const rev = document.getElementById('revision');
+  const btn = document.getElementById('btnRevisar');
+  const visible = rev.style.display==='block';
+  rev.style.display = visible ? 'none' : 'block';
+  btn.textContent = visible ? 'Revisar respuestas y explicaciones' : 'Ocultar revisión';
+});
+</script>
+</body>
+</html>
