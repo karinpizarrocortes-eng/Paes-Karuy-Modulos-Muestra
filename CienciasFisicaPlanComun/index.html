@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Unidad 2 &ndash; F&iacute;sica B&aacute;sica &bull; PAES Ciencias</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#edf5fb;--card:#fff;--card2:#f2f8fd;--bord:#cce4f5;--bord2:#a8d0ea;
+  --text:#12344d;--dim:#4a789a;--dim2:#88aec6;
+  --sky:#0284c7;--sky2:#0ea5e9;--sky3:#38bdf8;--skyl:rgba(14,165,233,.1);
+  --rad:18px;--sh:0 2px 14px rgba(12,80,140,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(380px 320px at 8% 12%,rgba(56,189,248,.08),transparent),
+             radial-gradient(300px 280px at 92% 85%,rgba(14,165,233,.06),transparent)}
+.wr{max-width:960px;margin:0 auto;padding:18px 16px 40px;position:relative;z-index:1}
+/* PROGRESS */
+.pr{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(14,120,180,.1);z-index:200}
+.prf{height:100%;background:linear-gradient(90deg,var(--sky),var(--sky2),var(--sky3));transition:width .4s}
+/* HERO */
+.hero{text-align:center;padding:50px 16px 18px}
+.hi{font-size:70px;display:block;animation:fl 3s ease-in-out infinite;margin-bottom:10px}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(2rem,7vw,3.5rem);
+  background:linear-gradient(130deg,var(--sky),#818cf8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:7px}
+.hero-s{color:var(--dim);font-size:.88rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--skyl);
+  border:1.5px solid rgba(14,165,233,.3);color:var(--sky);padding:5px 15px;border-radius:999px;
+  font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-top:9px}
+/* NAV */
+.nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:16px 0 2px;
+  position:sticky;top:4px;z-index:90;background:rgba(237,245,251,.88);
+  backdrop-filter:blur(10px);padding:9px;border-radius:var(--rad);border:1px solid var(--bord)}
+.nb{background:transparent;border:1.5px solid var(--bord);color:var(--dim);
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.77rem;padding:6px 12px;
+  border-radius:50px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nb:hover,.nb.act{background:var(--sky);border-color:var(--sky);color:#fff}
+/* SECTIONS */
+.sec{display:none;animation:up .3s ease}
+.sec.act{display:block}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--bord);border-radius:var(--rad);
+  padding:22px;margin-bottom:14px;box-shadow:var(--sh)}
+.ct{font-family:'Fredoka One',cursive;font-size:1.28rem;margin-bottom:11px;
+  display:flex;align-items:center;gap:8px;color:var(--text)}
+.card p,.card li{font-size:.94rem;line-height:1.75;color:var(--dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:18px}
+.card li{margin-bottom:5px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.g2{grid-template-columns:1fr}}
+.hsec{background:var(--card);border:1.5px solid var(--bord);border-radius:var(--rad);
+  padding:26px;margin-bottom:14px;box-shadow:var(--sh)}
+.hsec .hi2{font-size:54px;display:block;margin-bottom:9px}
+.hsec h2{font-family:'Fredoka One',cursive;font-size:clamp(1.55rem,5vw,2.3rem);line-height:1.1;margin-bottom:5px}
+.hsec p{font-size:.94rem;line-height:1.7;color:var(--dim);max-width:560px}
+.tip{border-left:4px solid var(--sky);background:var(--skyl);border-radius:0 12px 12px 0;padding:12px 15px;margin-bottom:11px}
+.tip-l{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:3px}
+.tip p{font-size:.87rem;color:var(--dim);line-height:1.6}
+.kws{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.kw{border-radius:8px;padding:4px 11px;font-size:.79rem;font-weight:800;
+  border:1px solid var(--bord);background:var(--card2);color:var(--dim)}
+.fbox{background:var(--card2);border:1px solid var(--bord2);border-radius:11px;
+  padding:13px;text-align:center;margin-bottom:9px}
+.fsym{font-family:'Fredoka One',cursive;font-size:1.35rem;display:block}
+.fdef{font-size:.79rem;color:var(--dim);margin-top:3px}
+/* WAVE */
+#wcanvas{width:100%;border-radius:11px;background:#061c2e;display:block;border:1px solid var(--bord)}
+.sls{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0}
+.slg{display:flex;flex-direction:column;gap:3px;min-width:190px;flex:1}
+.slg label{font-size:.78rem;font-weight:800;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.sv{font-family:'Fredoka One',cursive;font-size:.98rem;color:var(--sky)}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;
+  background:rgba(14,165,233,.18);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
+  border-radius:50%;background:var(--sky);cursor:pointer;border:2px solid #fff;
+  box-shadow:0 2px 6px rgba(14,165,233,.4)}
+.wpg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:9px;margin-top:11px}
+.wp{background:var(--card2);border:1px solid var(--bord);border-radius:10px;padding:11px;text-align:center}
+.wp .ws{font-family:'Fredoka One',cursive;font-size:1.45rem;display:block}
+.wp .wn{font-size:.76rem;color:var(--dim);font-weight:700;margin-top:2px}
+/* SPECTRUM */
+.sbar{display:flex;border-radius:11px;overflow:hidden;height:52px;cursor:pointer;margin:12px 0;border:1px solid var(--bord)}
+.sb{flex:1;display:flex;align-items:center;justify-content:center;font-size:.59rem;
+  font-weight:900;color:rgba(255,255,255,.85);text-align:center;line-height:1.3;
+  padding:2px;transition:transform .18s,filter .18s;letter-spacing:.03em}
+.sb:hover{transform:scaleY(1.1);filter:brightness(1.12)}
+.sb.act{transform:scaleY(1.18);outline:2.5px solid rgba(0,0,0,.2)}
+.sinfo{background:var(--card2);border:1px solid var(--bord2);border-radius:12px;
+  padding:15px;min-height:90px;transition:all .2s}
+.sinfo h4{font-family:'Fredoka One',cursive;font-size:1.02rem;margin-bottom:5px}
+.sinfo p{font-size:.85rem;color:var(--dim);line-height:1.65}
+/* TABS */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+.tbtn{padding:7px 15px;border-radius:50px;border:1.5px solid var(--bord2);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:.81rem;cursor:pointer;transition:all .18s}
+.tbtn.act,.tbtn:hover{background:var(--sky);border-color:var(--sky);color:#fff}
+.tp{display:none}
+.tp.act{display:block;animation:up .22s ease}
+.svgw{background:var(--card2);border:1px solid var(--bord);border-radius:11px;padding:16px;
+  display:flex;justify-content:center;align-items:center;min-height:172px;margin-bottom:10px}
+/* MOTION */
+.trk{background:#061c2e;border-radius:11px;padding:0 10px;margin-bottom:10px;
+  position:relative;height:68px;overflow:hidden;border:1px solid var(--bord)}
+.trk-lbl{position:absolute;top:7px;left:10px;font-size:.66rem;font-weight:900;
+  color:rgba(255,255,255,.45);letter-spacing:.07em;text-transform:uppercase}
+.ball{width:24px;height:24px;border-radius:50%;position:absolute;top:50%;
+  transform:translateY(-50%);left:4px}
+.bmru{background:var(--sky3);animation:mru 4s linear infinite;box-shadow:0 0 8px rgba(56,189,248,.6)}
+.bmrua{background:#fb923c;animation:mrua 4s ease-in infinite;box-shadow:0 0 8px rgba(251,146,60,.5)}
+@keyframes mru{0%{left:4px}100%{left:calc(100% - 28px)}}
+@keyframes mrua{0%{left:4px}100%{left:calc(100% - 28px)}}
+/* OHM */
+.ohmc{background:var(--card2);border:1.5px solid rgba(217,119,6,.22);border-radius:var(--rad);padding:18px}
+.orow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:500px){.orow{grid-template-columns:1fr}}
+.of label{font-size:.74rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);display:block;margin-bottom:4px}
+.of input{width:100%;background:var(--card);border:1.5px solid var(--bord2);border-radius:9px;
+  color:var(--text);font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
+  padding:8px 11px;outline:none;transition:border .18s}
+.of input:focus{border-color:var(--sky)}
+.of input.calc{color:#d97706;border-color:rgba(217,119,6,.4);background:rgba(255,243,210,.4)}
+.of .un{font-size:.73rem;color:var(--dim);margin-top:2px}
+.ores{font-family:'Fredoka One',cursive;font-size:1.25rem;text-align:center;color:#d97706;
+  padding:13px;background:rgba(255,243,210,.6);border-radius:10px;border:1px solid rgba(217,119,6,.18)}
+.obr{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ob{padding:7px 15px;border-radius:50px;border:1.5px solid rgba(217,119,6,.25);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;font-size:.81rem;cursor:pointer;transition:all .18s}
+.ob.act,.ob:hover{background:#d97706;border-color:#d97706;color:#fff}
+/* PLATES */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:540px){.pgrid{grid-template-columns:1fr}}
+.pc{background:var(--card);border:1.5px solid var(--bord);border-radius:12px;padding:15px;
+  transition:all .2s;box-shadow:var(--sh)}
+.pc:hover{border-color:#dc2626;transform:translateY(-2px)}
+.pc h4{font-family:'Fredoka One',cursive;font-size:.98rem;color:#dc2626;margin-bottom:5px}
+.pc p{font-size:.83rem;color:var(--dim);line-height:1.6}
+.panim{width:100%;height:52px;margin:9px 0;position:relative;border-radius:8px;
+  background:#0f1f2e;overflow:hidden;border:1px solid rgba(220,38,38,.2)}
+.pb{position:absolute;height:100%;width:46%;
+  display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:900;
+  letter-spacing:.04em;border-radius:4px}
+.pl{left:2%;background:linear-gradient(135deg,rgba(220,38,38,.35),rgba(220,38,38,.15));
+  border:1.5px solid rgba(220,38,38,.6);color:#fca5a5}
+.pr{right:2%;background:linear-gradient(135deg,rgba(234,88,12,.35),rgba(234,88,12,.15));
+  border:1.5px solid rgba(234,88,12,.6);color:#fdba74}
+.pa-arrow{position:absolute;top:50%;transform:translateY(-50%);
+  font-size:1rem;font-weight:900;line-height:1;pointer-events:none}
+.da .pl{animation:da-l 2.5s ease-in-out infinite}
+.da .pr{animation:da-r 2.5s ease-in-out infinite}
+.ca .pl{animation:ca-l 2.5s ease-in-out infinite}
+.ca .pr{animation:ca-r 2.5s ease-in-out infinite}
+.ta .pl{animation:ta-l 2.5s ease-in-out infinite}
+.ta .pr{animation:ta-r 2.5s ease-in-out infinite}
+@keyframes da-l{0%,100%{left:2%}50%{left:-8%}}
+@keyframes da-r{0%,100%{right:2%}50%{right:-8%}}
+@keyframes ca-l{0%,100%{left:2%}50%{left:12%}}
+@keyframes ca-r{0%,100%{right:2%}50%{right:12%}}
+@keyframes ta-l{0%,100%{top:0;left:2%}50%{top:12px;left:2%}}
+@keyframes ta-r{0%,100%{top:0;right:2%}50%{top:-12px;right:2%}}
+/* PAES Q */
+.pbox{background:var(--card2);border:1px solid var(--bord2);border-radius:var(--rad);padding:20px;margin-top:7px}
+.ptag{font-size:.67rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.pctx{background:rgba(14,120,180,.05);border-radius:9px;padding:11px 13px;font-size:.86rem;color:var(--dim);line-height:1.65;margin-bottom:11px}
+.pctx table{width:100%;border-collapse:collapse;margin-top:7px}
+.pctx th,.pctx td{padding:5px 8px;font-size:.8rem;border-bottom:1px solid var(--bord);text-align:left}
+.pq{font-size:.92rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pos{display:flex;flex-direction:column;gap:7px}
+.po{display:flex;align-items:flex-start;gap:8px;padding:9px 12px;border-radius:9px;
+  cursor:pointer;border:1.5px solid var(--bord);background:var(--card);transition:all .16s;box-shadow:var(--sh)}
+.po:hover{border-color:var(--sky);background:var(--skyl)}
+.po.locked{cursor:default;pointer-events:none}
+.po.right{background:rgba(14,165,233,.1);border-color:var(--sky)}
+.po.wrong{background:rgba(220,38,38,.06);border-color:#dc2626}
+.ol{min-width:24px;height:24px;border-radius:50%;border:1.5px solid var(--bord2);
+  display:flex;align-items:center;justify-content:center;font-size:.73rem;font-weight:900;
+  color:var(--sky);flex-shrink:0}
+.po.right .ol{background:var(--sky);color:#fff;border-color:var(--sky)}
+.po.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.ot{font-size:.86rem;color:var(--dim);line-height:1.5}
+.pfb{margin-top:9px;padding:9px 13px;border-radius:9px;font-size:.84rem;line-height:1.55;display:none}
+.pfb.show{display:block}
+.pfb.ok{background:rgba(14,165,233,.08);color:var(--sky);border-left:3px solid var(--sky)}
+.pfb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+/* ENSAYO */
+.tbox{background:var(--card);border:2px solid rgba(14,165,233,.28);border-radius:13px;
+  padding:13px 18px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;flex-wrap:wrap;gap:8px;box-shadow:0 4px 18px rgba(12,80,140,.18);
+  position:sticky;top:8px;z-index:150;backdrop-filter:blur(6px);background:rgba(255,255,255,.96)}
+.td{font-family:'Fredoka One',cursive;font-size:2.3rem;color:var(--sky);letter-spacing:.04em}
+.td.w{color:#d97706}.td.d{color:#dc2626;animation:bk .8s ease-in-out infinite}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.35}}
+.eq{background:var(--card);border:1px solid var(--bord);border-radius:11px;padding:16px;margin-bottom:10px;box-shadow:var(--sh)}
+.enum{font-size:.69rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.ectx{background:rgba(14,120,180,.05);border-radius:8px;padding:9px 12px;font-size:.85rem;color:var(--dim);line-height:1.6;margin-bottom:9px}
+.eqt{font-size:.89rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:10px}
+.eopts{display:flex;flex-direction:column;gap:6px}
+.eopt{display:flex;align-items:flex-start;gap:8px;padding:8px 11px;border-radius:8px;cursor:pointer;
+  border:1.5px solid var(--bord);background:var(--card);transition:all .16s}
+.eopt:hover:not(.locked){border-color:var(--sky);background:var(--skyl)}
+.eopt.sel{background:var(--skyl);border-color:var(--sky)}
+.eopt.locked{cursor:default;pointer-events:none}
+.eopt.right{background:rgba(14,165,233,.1);border-color:var(--sky)}
+.eopt.wrong{background:rgba(220,38,38,.05);border-color:#dc2626}
+.eopt .ol{color:var(--sky)}
+.eopt.sel .ol{background:var(--sky);color:#fff;border-color:var(--sky)}
+.eopt.right .ol{background:var(--sky);color:#fff;border-color:var(--sky)}
+.eopt.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.efb{margin-top:6px;padding:8px 12px;border-radius:8px;font-size:.82rem;line-height:1.55;display:none}
+.efb.show{display:block}
+.efb.ok{background:rgba(14,165,233,.08);color:var(--sky);border-left:3px solid var(--sky)}
+.efb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+.sbtn{width:100%;padding:13px;background:var(--sky);color:#fff;border:none;border-radius:11px;
+  font-family:'Fredoka One',cursive;font-size:1.05rem;cursor:pointer;margin-top:9px;
+  transition:background .18s;box-shadow:0 4px 12px rgba(14,165,233,.28)}
+.sbtn:hover{background:var(--sky2)}.sbtn:disabled{opacity:.32;cursor:default}
+/* BOTTOM NAV */
+.lnav{position:fixed;bottom:0;left:0;right:0;background:rgba(237,245,251,.92);
+  backdrop-filter:blur(10px);border-top:1px solid var(--bord);padding:9px 18px;
+  display:flex;align-items:center;justify-content:space-between;z-index:180;gap:9px}
+.lb{font-family:'Fredoka One',cursive;font-size:.92rem;padding:7px 18px;border-radius:50px;
+  border:1.5px solid rgba(14,165,233,.38);background:transparent;color:var(--sky);
+  cursor:pointer;transition:all .18s;white-space:nowrap}
+.lb:hover{background:var(--sky);color:#fff;border-color:var(--sky)}
+.lb:disabled{opacity:.22;cursor:default}
+.lm{font-size:.77rem;font-weight:800;color:var(--dim);text-align:center;flex:1}
+footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:74px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--sky3));border:none;box-shadow:0 4px 18px rgba(14,165,233,.45);cursor:pointer;z-index:210;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid var(--bg)}
+.tutor-fab.blocked .dot{background:#6b7280}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid var(--bord);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(12,80,140,.25);z-index:220;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--sky2),var(--sky));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:'Fredoka One',cursive;font-size:1rem;color:#fff}
+.tutor-head p{font-size:.7rem;color:rgba(255,255,255,.8);margin-top:1px}
+.tutor-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1}
+.tutor-blocked-msg{padding:16px;font-size:.85rem;color:var(--dim);text-align:center;line-height:1.6}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid var(--bord);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid var(--bord2);color:var(--dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:999px;cursor:pointer;transition:all .18s}
+.tutor-mode-btn:hover{border-color:var(--sky);color:var(--sky)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--sky);color:#fff;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid var(--bord);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:var(--skyl);color:var(--dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--sky)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--bord);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid var(--bord2);border-radius:12px;color:var(--text);padding:9px 12px;font-family:'Nunito',sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--sky)}
+.tutor-send{background:var(--sky);border:none;color:#fff;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){.tutor-input{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="pr"><div class="prf" id="prf" style="width:11.1%"></div></div>
+<div class="wr">
+
+<div class="hero">
+  <span class="hi">&#9889;</span>
+  <h1>F&iacute;sica B&aacute;sica</h1>
+  <div class="hero-s">PAES Ciencias &bull; Plan Com&uacute;n &bull; Unidad 2</div>
+  <div class="badge">&#127756; ~18 preguntas en la PAES</div>
+</div>
+
+<div class="nav">
+  <button class="nb act" onclick="go('p0',0,this)">&#127968; Inicio</button>
+  <button class="nb" onclick="go('p1',1,this)">&#127744; Ondas</button>
+  <button class="nb" onclick="go('p2',2,this)">&#127752; Espectro</button>
+  <button class="nb" onclick="go('p3',3,this)">&#128269; &Oacute;ptica</button>
+  <button class="nb" onclick="go('p4',4,this)">&#127950; Mec&aacute;nica</button>
+  <button class="nb" onclick="go('p5',5,this)">&#127760; Cosmolog&iacute;a</button>
+  <button class="nb" onclick="go('p6',6,this)">&#127755; Tect&oacute;nica</button>
+  <button class="nb" onclick="go('p7',7,this)">&#9889; Electricidad</button>
+  <button class="nb" onclick="go('p8',8,this)">&#9201; Ensayo</button>
+</div>
+
+
+<!-- PORTADA -->
+<div class="sec act" id="p0">
+<div class="card" style="text-align:center;padding:28px 20px">
+  <p class="ct" style="justify-content:center;color:var(--sky);font-size:1.5rem">&#9889; Unidad 2 &bull; F&iacute;sica B&aacute;sica</p>
+  <p style="font-size:.97rem;max-width:520px;margin:0 auto 18px;color:var(--dim);line-height:1.8">
+    Cubre la F&iacute;sica del <strong>M&oacute;dulo Com&uacute;n</strong>, alineada con las preguntas <strong>P19&ndash;P36</strong> de la PAES Ciencias. Todas las preguntas de pr&aacute;ctica son &#129302; generadas por IA seg&uacute;n el temario oficial.
+  </p>
+  <div class="kws" style="justify-content:center;margin:0 0 16px">
+    <span class="kw" style="color:#7c3aed;border-color:rgba(124,58,237,.3)">&#127744; Ondas EM</span>
+    <span class="kw" style="color:#db2777;border-color:rgba(219,39,119,.3)">&#127752; Espectro EM</span>
+    <span class="kw" style="color:#059669;border-color:rgba(5,150,105,.3)">&#128269; &Oacute;ptica</span>
+    <span class="kw" style="color:#ea580c;border-color:rgba(234,88,12,.3)">&#127950; Mec&aacute;nica</span>
+    <span class="kw" style="color:#4f46e5;border-color:rgba(79,70,229,.3)">&#127760; Cosmolog&iacute;a</span>
+    <span class="kw" style="color:#dc2626;border-color:rgba(220,38,38,.3)">&#127755; Tect&oacute;nica</span>
+    <span class="kw" style="color:#d97706;border-color:rgba(217,119,6,.3)">&#9889; Electricidad</span>
+  </div>
+</div>
+<div class="g2">
+  <div class="card" style="border-left:4px solid var(--sky)">
+    <p class="ct" style="color:var(--sky)">&#128204; Contexto PAES</p>
+    <ul><li>Alta presencia de <strong>gr&aacute;ficos y tablas</strong> para interpretar</li>
+    <li>Muchas preguntas trabajan <strong>habilidad H3</strong> (procesar evidencia)</li>
+    <li>2 de las 18 preguntas son piloto (no cuentan puntaje)</li>
+    <li>F&oacute;rmulas clave: v&nbsp;=&nbsp;f&lambda;, F&nbsp;=&nbsp;ma, V&nbsp;=&nbsp;IR</li></ul>
+  </div>
+  <div class="card" style="border-left:4px solid #7c3aed">
+    <p class="ct" style="color:#7c3aed">&#128161; Esta unidad tiene</p>
+    <ul><li>Onda EM animada con sliders interactivos</li>
+    <li>Espectro EM clickeable (7 bandas con info)</li>
+    <li>Espejos con diagramas SVG por tipo</li>
+    <li>Animaci&oacute;n comparativa MRU vs MRUA</li>
+    <li>L&iacute;nea de tiempo del universo y evidencias del Big Bang</li>
+    <li>Calculadora interactiva Ley de Ohm</li>
+    <li>Mini ensayo cronometrado (11 preguntas)</li></ul>
+  </div>
+</div>
+</div>
+
+<!-- ONDAS -->
+<div class="sec" id="p1">
+<div class="hsec" style="border-color:rgba(124,58,237,.3)">
+  <span class="hi2">&#127744;</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#7c3aed;margin-bottom:3px">Tema 1 de 7</div>
+  <h2 style="color:#7c3aed">Ondas Electromagn&eacute;ticas</h2>
+  <p>Propiedades de las ondas: longitud de onda, frecuencia, per&iacute;odo y amplitud.</p>
+</div>
+<div class="card">
+  <p class="ct" style="color:#7c3aed">&#127925; Onda animada &mdash; ajusta los controles</p>
+  <canvas id="wcanvas" width="720" height="152"></canvas>
+  <div class="sls">
+    <div class="slg">
+      <label>Frecuencia (f) &mdash; <span class="sv" id="fv">2</span> Hz</label>
+      <input type="range" id="fsl" min="1" max="6" step="0.5" value="2" oninput="document.getElementById('fv').textContent=this.value">
+    </div>
+    <div class="slg">
+      <label>Amplitud (A) &mdash; <span class="sv" id="av">40</span> px</label>
+      <input type="range" id="asl" min="15" max="65" step="5" value="40" oninput="document.getElementById('av').textContent=this.value">
+    </div>
+  </div>
+  <div class="wpg">
+    <div class="wp"><span class="ws" style="color:#7c3aed">&lambda;</span><div class="wn">Longitud de onda</div></div>
+    <div class="wp"><span class="ws" style="color:var(--sky)">f</span><div class="wn">Frecuencia (Hz)</div></div>
+    <div class="wp"><span class="ws" style="color:#059669">T</span><div class="wn">Per&iacute;odo (s)</div></div>
+    <div class="wp"><span class="ws" style="color:#ea580c">A</span><div class="wn">Amplitud</div></div>
+    <div class="wp"><span class="ws" style="color:#d97706">v</span><div class="wn">Velocidad</div></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card" style="border-left:4px solid #7c3aed">
+    <p class="ct" style="color:#7c3aed">Relaci&oacute;n f &harr; &lambda;</p>
+    <div class="fbox"><span class="fsym" style="color:#7c3aed">v = f &middot; &lambda;</span><div class="fdef">velocidad = frecuencia &times; longitud de onda</div></div>
+    <div class="fbox"><span class="fsym" style="color:var(--sky)">T = 1 / f</span><div class="fdef">per&iacute;odo = inverso de la frecuencia</div></div>
+    <ul style="margin-top:7px"><li>Mayor f &rarr; <strong>menor &lambda;</strong></li>
+    <li>La frecuencia <strong>NO cambia</strong> al cambiar de medio</li>
+    <li>En el vac&iacute;o: c = 3&times;10&sup8; m/s para todas las ondas EM</li></ul>
+  </div>
+  <div class="card">
+    <p class="ct" style="color:#7c3aed">&#128204; Clave PAES</p>
+    <ul><li>Ondas en <strong>mismo medio</strong> = misma velocidad</li>
+    <li>Si &lambda; menor &rarr; f mayor &rarr; T menor</li>
+    <li>La frecuencia determina el <strong>color</strong> de la luz visible</li>
+    <li>La amplitud se relaciona con la <strong>energ&iacute;a / intensidad</strong></li></ul>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #7c3aed;margin-bottom:14px">
+  <p class="ct" style="color:#7c3aed">&#128218; Cada propiedad explicada desde cero</p>
+  <p style="font-size:.86rem;color:var(--dim);margin-bottom:13px">Aqu&iacute; te explicamos <em>qu&eacute; significa</em> cada propiedad, c&oacute;mo se ve en la gr&aacute;fica y por qu&eacute; importa.</p>
+  <div style="display:flex;flex-direction:column;gap:11px">
+    <div style="background:var(--card2);border-radius:11px;padding:13px;border-left:4px solid #7c3aed">
+      <div style="font-family:Fredoka One,cursive;font-size:1.1rem;color:#7c3aed;margin-bottom:5px">&lambda; &nbsp;Longitud de onda</div>
+      <p style="font-size:.86rem;color:var(--dim);line-height:1.65"><strong>Qu&eacute; es:</strong> La distancia entre dos crestas (puntos m&aacute;s altos) consecutivas. O entre dos valles consecutivos. Es como medir "cu&aacute;n largo es un ciclo completo" en el espacio.<br>
+      <strong>C&oacute;mo se ve:</strong> Si los "corcovos" de la onda est&aacute;n muy juntos, &lambda; es peque&ntilde;a. Si est&aacute;n muy separados, &lambda; es grande. Prueba mover el slider de frecuencia en la animaci&oacute;n de arriba: a mayor frecuencia, los ciclos quedan m&aacute;s juntos (&lambda; peque&ntilde;a).<br>
+      <strong>Unidad:</strong> metros (m). Para la luz se usan nan&oacute;metros (1 nm = 0,000000001 m).</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:13px;border-left:4px solid var(--sky)">
+      <div style="font-family:Fredoka One,cursive;font-size:1.1rem;color:var(--sky);margin-bottom:5px">f &nbsp;Frecuencia</div>
+      <p style="font-size:.86rem;color:var(--dim);line-height:1.65"><strong>Qu&eacute; es:</strong> Cu&aacute;ntos ciclos completos pasan por un punto fijo en un segundo. Si en un segundo pasan 5 crestas, la frecuencia es 5 Hz.<br>
+      <strong>C&oacute;mo se ve:</strong> Ondas muy "apretadas" = alta frecuencia. Ondas espaciadas = baja frecuencia.<br>
+      <strong>Unidad:</strong> Hertz (Hz). 1 Hz = 1 ciclo por segundo. La luz visible tiene frecuencias del orden de 10&sup1;&sup4; Hz (cientos de billones por segundo).</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:13px;border-left:4px solid #059669">
+      <div style="font-family:Fredoka One,cursive;font-size:1.1rem;color:#059669;margin-bottom:5px">T &nbsp;Per&iacute;odo</div>
+      <p style="font-size:.86rem;color:var(--dim);line-height:1.65"><strong>Qu&eacute; es:</strong> El tiempo que tarda en completarse <em>un solo ciclo</em>. Es el inverso de la frecuencia: T = 1/f.<br>
+      <strong>Ejemplo:</strong> Si f = 2 Hz (2 ciclos por segundo), entonces cada ciclo dura T = 1/2 = 0,5 segundos.<br>
+      <strong>Regla:</strong> Mayor frecuencia &rarr; menor per&iacute;odo (los ciclos duran menos tiempo). Menor frecuencia &rarr; mayor per&iacute;odo.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:13px;border-left:4px solid #ea580c">
+      <div style="font-family:Fredoka One,cursive;font-size:1.1rem;color:#ea580c;margin-bottom:5px">A &nbsp;Amplitud</div>
+      <p style="font-size:.86rem;color:var(--dim);line-height:1.65"><strong>Qu&eacute; es:</strong> La altura m&aacute;xima de la onda medida desde el eje central hasta la cresta (no de cresta a valle).<br>
+      <strong>Qu&eacute; representa:</strong> La energ&iacute;a o intensidad. Mayor amplitud = onda m&aacute;s energ&eacute;tica. En el sonido: m&aacute;s amplitud = m&aacute;s volumen. En la luz: m&aacute;s amplitud = m&aacute;s brillo.<br>
+      <strong>Ojo:</strong> La amplitud NO cambia la frecuencia ni la velocidad de la onda.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:13px;border-left:4px solid #d97706">
+      <div style="font-family:Fredoka One,cursive;font-size:1.1rem;color:#d97706;margin-bottom:5px">v &nbsp;Velocidad</div>
+      <p style="font-size:.86rem;color:var(--dim);line-height:1.65"><strong>Qu&eacute; es:</strong> Qu&eacute; tan r&aacute;pido viaja la onda por un medio.<br>
+      <strong>F&oacute;rmula:</strong> v = f &middot; &lambda; Si la velocidad es constante (mismo medio), entonces mayor f implica menor &lambda;.<br>
+      <strong>Dato clave PAES:</strong> Todas las ondas EM en el <strong>mismo medio</strong> viajan a la <strong>misma velocidad</strong>. En el vac&iacute;o: c = 3&times;10&sup8; m/s. La frecuencia NO cambia al pasar de un medio a otro, pero la velocidad y longitud de onda s&iacute;.</p>
+    </div>
+  </div>
+</div>
+<div class="tip" style="border-color:#7c3aed;background:rgba(124,58,237,.06)">
+  <div class="tip-l" style="color:#7c3aed">&#128073; Tip PAES clave</div>
+  <p>Cuando la PAES compara ondas en el <strong>mismo medio</strong>: la velocidad es igual para todas. Si una onda tiene menor &lambda;, tiene necesariamente mayor f (y menor T). Esa l&oacute;gica resuelve la mayor&iacute;a de las preguntas de ondas.</p>
+</div>
+<div class="kws"><span class="kw">longitud de onda (&lambda;)</span><span class="kw">frecuencia (f)</span>
+<span class="kw">per&iacute;odo (T)</span><span class="kw">amplitud (A)</span>
+<span class="kw">v = f&lambda;</span><span class="kw">T = 1/f</span></div>
+<div class="pbox">
+  <div class="ptag" style="color:#7c3aed">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un profesor grafica tres ondas de radio, P, Q y R, viajando por el <strong>mismo medio</strong> (el aire), a la misma escala. Se observa que &lambda;_P &lt; &lambda;_Q &lt; &lambda;_R.</div>
+  <p class="pq">&iquest;Cu&aacute;l conclusi&oacute;n es correcta?</p>
+  <div class="pos" id="qond">
+    <div class="po" onclick="ans('qond','A')"><div class="ol">A</div><div class="ot">El per&iacute;odo de las ondas P, Q y R es el mismo.</div></div>
+    <div class="po" onclick="ans('qond','B')"><div class="ol">B</div><div class="ot">La longitud de onda de P, Q y R es la misma.</div></div>
+    <div class="po" onclick="ans('qond','C')"><div class="ol">C</div><div class="ot">La velocidad de la onda Q es mayor que la de la onda R.</div></div>
+    <div class="po" onclick="ans('qond','D')"><div class="ol">D</div><div class="ot">La frecuencia de la onda P es mayor que la de la onda R.</div></div>
+  </div>
+  <div class="pfb" id="qond-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#7c3aed">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Al hacer pasar un haz de luz l&aacute;ser por dos rendijas muy cercanas, en una pantalla lejana aparece un patr&oacute;n alternado de franjas claras y oscuras.</div>
+  <p class="pq">&iquest;Por qu&eacute; este patr&oacute;n se considera evidencia de que la luz se comporta como una onda?</p>
+  <div class="pos" id="qond2">
+    <div class="po" onclick="ans('qond2','A')"><div class="ol">A</div><div class="ot">Porque la luz, luego de atravesar ambas rendijas, se refleja en la pantalla.</div></div>
+    <div class="po" onclick="ans('qond2','B')"><div class="ol">B</div><div class="ot">Porque el experimento permite medir de forma directa la intensidad de la luz.</div></div>
+    <div class="po" onclick="ans('qond2','C')"><div class="ol">C</div><div class="ot">Porque se producen interferencias constructivas y destructivas, algo exclusivo del comportamiento ondulatorio.</div></div>
+    <div class="po" onclick="ans('qond2','D')"><div class="ol">D</div><div class="ot">Porque permite medir la velocidad de la luz al atravesar ambas rendijas.</div></div>
+  </div>
+  <div class="pfb" id="qond2-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#7c3aed">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un prisma separa la luz blanca en los colores del espectro visible.</div>
+  <p class="pq">&iquest;Cu&aacute;l de los siguientes colores tiene la mayor frecuencia?</p>
+  <div class="pos" id="qond3">
+    <div class="po" onclick="ans('qond3','A')"><div class="ol">A</div><div class="ot">Anaranjado</div></div>
+    <div class="po" onclick="ans('qond3','B')"><div class="ol">B</div><div class="ot">Amarillo</div></div>
+    <div class="po" onclick="ans('qond3','C')"><div class="ol">C</div><div class="ot">Violeta</div></div>
+    <div class="po" onclick="ans('qond3','D')"><div class="ol">D</div><div class="ot">Verde</div></div>
+    <div class="po" onclick="ans('qond3','E')"><div class="ol">E</div><div class="ot">Rojo</div></div>
+  </div>
+  <div class="pfb" id="qond3-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#7c3aed">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Al pasar del aire al vidrio, la velocidad de una onda luminosa disminuye.</div>
+  <p class="pq">&iquest;Qu&eacute; ocurre con su frecuencia y su longitud de onda?</p>
+  <div class="pos" id="qond4">
+    <div class="po" onclick="ans('qond4','A')"><div class="ol">A</div><div class="ot">Ambas disminuyen.</div></div>
+    <div class="po" onclick="ans('qond4','B')"><div class="ol">B</div><div class="ot">La frecuencia se mantiene y la longitud de onda disminuye.</div></div>
+    <div class="po" onclick="ans('qond4','C')"><div class="ol">C</div><div class="ot">La frecuencia aumenta y la longitud de onda se mantiene.</div></div>
+    <div class="po" onclick="ans('qond4','D')"><div class="ol">D</div><div class="ot">Ambas aumentan.</div></div>
+  </div>
+  <div class="pfb" id="qond4-fb"></div>
+</div>
+
+</div>
+
+<!-- ESPECTRO -->
+<div class="sec" id="p2">
+<div class="hsec" style="border-color:rgba(219,39,119,.3)">
+  <span class="hi2">&#127752;</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#db2777;margin-bottom:3px">Tema 2 de 7</div>
+  <h2 style="color:#db2777">Espectro Electromagn&eacute;tico</h2>
+  <p>Clasificaci&oacute;n de ondas EM seg&uacute;n &lambda; y f, con aplicaciones tecnol&oacute;gicas.</p>
+</div>
+<div class="card">
+  <p class="ct" style="color:#db2777">&#128161; Haz clic en cada banda del espectro</p>
+  <div class="sbar">
+    <div class="sb" onclick="showS(0)" style="background:#6d28d9">Radio</div>
+    <div class="sb" onclick="showS(1)" style="background:#2563eb">Micro&shy;ondas</div>
+    <div class="sb" onclick="showS(2)" style="background:#0891b2">IR</div>
+    <div class="sb" onclick="showS(3)" style="background:linear-gradient(to right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#8b5cf6)">Visible</div>
+    <div class="sb" onclick="showS(4)" style="background:#7c3aed">UV</div>
+    <div class="sb" onclick="showS(5)" style="background:#1e40af">Rayos X</div>
+    <div class="sb" onclick="showS(6)" style="background:#0c0a1a;color:rgba(255,255,255,.6)">&gamma;</div>
+  </div>
+  <p style="font-size:.73rem;color:var(--dim2);text-align:center;margin:2px 0 10px">&larr; Mayor &lambda;, menor f &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mayor f, menor &lambda; &rarr;</p>
+  <div class="sinfo" id="si">
+    <h4 style="color:#db2777">&#9757; Selecciona una banda del espectro arriba</h4>
+    <p>Haz clic en cualquier banda para ver longitud de onda, frecuencia y aplicaciones tecnol&oacute;gicas.</p>
+  </div>
+</div>
+<div class="g2">
+  <div class="card" style="border-left:4px solid #db2777">
+    <p class="ct" style="color:#db2777">Orden del espectro</p>
+    <p style="font-size:.86rem;margin-bottom:7px">De <strong>mayor &lambda;</strong> a <strong>menor &lambda;</strong>:</p>
+    <ol style="font-size:.86rem;padding-left:17px;line-height:2.1">
+      <li style="color:#6d28d9">Ondas de radio</li><li style="color:#2563eb">Microondas</li>
+      <li style="color:#0891b2">Infrarrojo (IR)</li><li style="color:#16a34a">Luz visible</li>
+      <li style="color:#7c3aed">Ultravioleta (UV)</li><li style="color:#1e40af">Rayos X</li>
+      <li style="color:#374151">Rayos gamma (&gamma;)</li>
+    </ol>
+  </div>
+  <div class="card">
+    <p class="ct" style="color:#db2777">&#128204; Clave PAES</p>
+    <ul><li>Todas viajan a <strong>la misma velocidad</strong> en el vac&iacute;o</li>
+    <li>Mayor f = mayor energ&iacute;a</li>
+    <li>El color visible depende de la <strong>frecuencia</strong></li>
+    <li>La frecuencia NO cambia al cambiar de medio</li></ul>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #db2777;margin-bottom:14px">
+  <p class="ct" style="color:#db2777">&#128218; Por qu&eacute; importa &mdash; usos en la vida cotidiana</p>
+  <p style="font-size:.86rem;color:var(--dim);margin-bottom:12px">El ojo humano solo ve la luz visible (~380-700 nm). Todo lo dem&aacute;s existe pero es invisible. Sin embargo, usamos el resto del espectro todo el tiempo.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;font-size:.84rem">
+    <div style="background:var(--card2);border-radius:10px;padding:11px">
+      <div style="font-weight:900;color:#6d28d9;margin-bottom:4px">&#128235; Radio / Microondas</div>
+      <p>Atraviesan paredes. WiFi, celulares, radio AM/FM, GPS, microondas del cocina. Mayor &lambda;, menor energ&iacute;a.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:11px">
+      <div style="font-weight:900;color:#0891b2;margin-bottom:4px">&#127777; Infrarrojo (IR)</div>
+      <p>Emitido por cuerpos calientes. Control remoto del TV, c&aacute;maras t&eacute;rmicas, sensores de movimiento.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:11px">
+      <div style="font-weight:900;color:#7c3aed;margin-bottom:4px">&#9728; Ultravioleta (UV)</div>
+      <p>El sol emite UV. Puede da&ntilde;ar la piel. La pantalla solar lo bloquea. L&aacute;mparas UV esterilizan superficies.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:11px">
+      <div style="font-weight:900;color:#1e40af;margin-bottom:4px">&#9889; Rayos X y Gamma</div>
+      <p>Gran poder de penetraci&oacute;n. Rayos X: radiograf&iacute;as m&eacute;dicas. Rayos gamma: radioterapia para el c&aacute;ncer.</p>
+    </div>
+  </div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#db2777">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un laboratorio desarrolla un material que <strong>bloquea un espectro muy amplio de ondas EM</strong> con eficiencia cercana al 100%.</div>
+  <p class="pq">&iquest;Qu&eacute; producto tecnol&oacute;gico podr&iacute;a dise&ntilde;arse a partir de este material?</p>
+  <div class="pos" id="qesp">
+    <div class="po" onclick="ans('qesp','A')"><div class="ol">A</div><div class="ot">Un recubrimiento para trajes de astronautas.</div></div>
+    <div class="po" onclick="ans('qesp','B')"><div class="ol">B</div><div class="ot">Un recubrimiento para antenas parab&oacute;licas.</div></div>
+    <div class="po" onclick="ans('qesp','C')"><div class="ol">C</div><div class="ot">Un aislante para materiales de construcci&oacute;n.</div></div>
+    <div class="po" onclick="ans('qesp','D')"><div class="ol">D</div><div class="ot">Un amplificador de se&ntilde;al para dispositivos inal&aacute;mbricos.</div></div>
+  </div>
+  <div class="pfb" id="qesp-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#db2777">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Se comparan dos ondas electromagn&eacute;ticas: la onda P tiene mayor frecuencia que la onda Q.</div>
+  <p class="pq">&iquest;Cu&aacute;l afirmaci&oacute;n es correcta?</p>
+  <div class="pos" id="qesp2">
+    <div class="po" onclick="ans('qesp2','A')"><div class="ol">A</div><div class="ot">P tiene mayor energ&iacute;a que Q.</div></div>
+    <div class="po" onclick="ans('qesp2','B')"><div class="ol">B</div><div class="ot">P tiene mayor longitud de onda que Q.</div></div>
+    <div class="po" onclick="ans('qesp2','C')"><div class="ol">C</div><div class="ot">Q viaja m&aacute;s r&aacute;pido que P en el vac&iacute;o.</div></div>
+    <div class="po" onclick="ans('qesp2','D')"><div class="ol">D</div><div class="ot">P y Q tienen la misma longitud de onda.</div></div>
+  </div>
+  <div class="pfb" id="qesp2-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#db2777">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un m&eacute;dico necesita obtener una imagen del interior del cuerpo de un paciente sin realizar cirug&iacute;a.</div>
+  <p class="pq">&iquest;Qu&eacute; tipo de onda electromagn&eacute;tica es m&aacute;s adecuada para esto?</p>
+  <div class="pos" id="qesp3">
+    <div class="po" onclick="ans('qesp3','A')"><div class="ol">A</div><div class="ot">Ondas de radio</div></div>
+    <div class="po" onclick="ans('qesp3','B')"><div class="ol">B</div><div class="ot">Infrarrojo</div></div>
+    <div class="po" onclick="ans('qesp3','C')"><div class="ol">C</div><div class="ot">Rayos X</div></div>
+    <div class="po" onclick="ans('qesp3','D')"><div class="ol">D</div><div class="ot">Microondas</div></div>
+  </div>
+  <div class="pfb" id="qesp3-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#db2777">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un control remoto deja de funcionar cuando se coloca un objeto opaco entre &eacute;l y el televisor, incluso a corta distancia.</div>
+  <p class="pq">&iquest;Qu&eacute; tipo de onda electromagn&eacute;tica utiliza probablemente el control remoto?</p>
+  <div class="pos" id="qesp4">
+    <div class="po" onclick="ans('qesp4','A')"><div class="ol">A</div><div class="ot">Rayos gamma</div></div>
+    <div class="po" onclick="ans('qesp4','B')"><div class="ol">B</div><div class="ot">Infrarrojo</div></div>
+    <div class="po" onclick="ans('qesp4','C')"><div class="ol">C</div><div class="ot">Rayos X</div></div>
+    <div class="po" onclick="ans('qesp4','D')"><div class="ol">D</div><div class="ot">Ultravioleta</div></div>
+  </div>
+  <div class="pfb" id="qesp4-fb"></div>
+</div>
+
+</div>
+
+<!-- ÓPTICA -->
+<div class="sec" id="p3">
+<div class="hsec" style="border-color:rgba(5,150,105,.3)">
+  <span class="hi2">&#128269;</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#059669;margin-bottom:3px">Tema 3 de 7</div>
+  <h2 style="color:#059669">&Oacute;ptica</h2>
+  <p>Reflexi&oacute;n, refracci&oacute;n, y formaci&oacute;n de im&aacute;genes en espejos y lentes.</p>
+</div>
+<div class="card">
+  <p class="ct" style="color:#059669">Fen&oacute;menos &oacute;pticos</p>
+  <div class="g2">
+    <div style="background:var(--card2);border-radius:11px;padding:13px;border-left:4px solid #059669">
+      <div style="font-weight:900;color:#059669;margin-bottom:5px">&#10024; Reflexi&oacute;n</div>
+      <p>La luz rebota. &Aacute;ngulo incidencia = &aacute;ngulo reflexi&oacute;n. La <strong>frecuencia NO cambia</strong>.</p>
+      <svg viewBox="0 0 200 112" style="width:100%;margin-top:9px;border-radius:8px;background:#061c2e">
+        <line x1="100" y1="4" x2="100" y2="108" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="18" y1="16" x2="100" y2="84" stroke="#34d399" stroke-width="2.5" marker-end="url(#a1)"/>
+        <line x1="100" y1="84" x2="182" y2="16" stroke="#34d399" stroke-width="2.5" marker-end="url(#a1)"/>
+        <line x1="0" y1="84" x2="200" y2="84" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+        <text x="26" y="48" fill="#34d399" font-size="12" font-family="Nunito">i</text>
+        <text x="162" y="48" fill="#34d399" font-size="12" font-family="Nunito">r</text>
+        <text x="76" y="108" fill="rgba(255,255,255,.38)" font-size="9" font-family="Nunito">i = r</text>
+        <defs><marker id="a1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#34d399"/></marker></defs>
+      </svg>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:13px;border-left:4px solid var(--sky)">
+      <div style="font-weight:900;color:var(--sky);margin-bottom:5px">&#127754; Refracci&oacute;n</div>
+      <p>La luz cambia de direcci&oacute;n al pasar de medio. Velocidad cambia, <strong>frecuencia NO</strong>.</p>
+      <svg viewBox="0 0 200 112" style="width:100%;margin-top:9px;border-radius:8px;background:#061c2e">
+        <rect x="0" y="56" width="200" height="56" fill="rgba(56,189,248,.06)"/>
+        <line x1="0" y1="56" x2="200" y2="56" stroke="rgba(255,255,255,.18)" stroke-width="1.5"/>
+        <line x1="100" y1="0" x2="100" y2="112" stroke="rgba(255,255,255,.07)" stroke-dasharray="4"/>
+        <line x1="22" y1="4" x2="100" y2="56" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#a2)"/>
+        <line x1="100" y1="56" x2="168" y2="110" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="5" marker-end="url(#a2)"/>
+        <text x="24" y="60" fill="rgba(255,255,255,.28)" font-size="8" font-family="Nunito">Medio 1</text>
+        <text x="24" y="76" fill="rgba(255,255,255,.28)" font-size="8" font-family="Nunito">Medio 2</text>
+        <defs><marker id="a2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#38bdf8"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <p class="ct" style="color:#059669">&#129522; Tipos de espejos &mdash; haz clic para explorar</p>
+  <div class="tabs">
+    <button class="tbtn act" onclick="tab('m','plano',this)">Plano</button>
+    <button class="tbtn" onclick="tab('m','conc',this)">C&oacute;ncavo</button>
+    <button class="tbtn" onclick="tab('m','conv',this)">Convexo</button>
+  </div>
+  <div id="m-plano" class="tp act">
+    <div class="svgw"><svg viewBox="0 0 320 140" style="width:100%;max-width:320px">
+      <rect x="152" y="10" width="7" height="120" rx="3" fill="rgba(5,150,105,.42)" stroke="#059669" stroke-width="1.5"/>
+      <circle cx="48" cy="70" r="9" fill="#ea580c" opacity=".9"/>
+      <circle cx="268" cy="70" r="9" fill="rgba(234,88,12,.2)" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4"/>
+      <line x1="57" y1="70" x2="151" y2="70" stroke="#059669" stroke-width="1.5" marker-end="url(#a3)"/>
+      <line x1="159" y1="70" x2="267" y2="70" stroke="rgba(5,150,105,.28)" stroke-width="1.5" stroke-dasharray="5"/>
+      <text x="34" y="96" fill="#ea580c" font-size="9" font-family="Nunito">Objeto</text>
+      <text x="252" y="96" fill="rgba(234,88,12,.5)" font-size="9" font-family="Nunito">Imagen</text>
+      <text x="161" y="74" fill="#059669" font-size="9" font-family="Nunito">PLANO</text>
+      <defs><marker id="a3" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="#059669"/></marker></defs>
+    </svg></div>
+    <ul><li>Imagen <strong>virtual</strong>, misma distancia detr&aacute;s del espejo</li>
+    <li>Mismo tama&ntilde;o, <strong>orientaci&oacute;n derecha</strong></li>
+    <li>Ejemplo: espejo del ba&ntilde;o</li></ul>
+  </div>
+  <div id="m-conc" class="tp">
+    <div class="svgw"><svg viewBox="0 0 320 140" style="width:100%;max-width:320px">
+      <path d="M172,10 Q144,70 172,130" stroke="#059669" stroke-width="3" fill="none"/>
+      <line x1="44" y1="70" x2="290" y2="70" stroke="rgba(0,0,0,.06)" stroke-dasharray="3"/>
+      <circle cx="220" cy="70" r="4" fill="#059669" opacity=".7"/>
+      <text x="208" y="63" fill="#059669" font-size="9" font-family="Nunito">F</text>
+      <circle cx="48" cy="70" r="9" fill="#ea580c" opacity=".9"/>
+      <text x="34" y="96" fill="#ea580c" font-size="9" font-family="Nunito">Objeto</text>
+      <text x="124" y="22" fill="#059669" font-size="9" font-family="Nunito">C&Oacute;NCAVO</text>
+    </svg></div>
+    <ul><li>Objeto <strong>fuera del foco</strong>: imagen real e invertida</li>
+    <li>Objeto <strong>dentro del foco</strong>: imagen virtual, mayor y derecha</li>
+    <li>Ejemplo: espejo de maquillaje, antena par&aacute;bola</li></ul>
+  </div>
+  <div id="m-conv" class="tp">
+    <div class="svgw"><svg viewBox="0 0 320 140" style="width:100%;max-width:320px">
+      <path d="M150,10 Q178,70 150,130" stroke="#059669" stroke-width="3" fill="none"/>
+      <circle cx="48" cy="70" r="9" fill="#ea580c" opacity=".9"/>
+      <circle cx="248" cy="70" r="6" fill="rgba(234,88,12,.2)" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4"/>
+      <text x="34" y="96" fill="#ea580c" font-size="9" font-family="Nunito">Objeto</text>
+      <text x="234" y="96" fill="rgba(234,88,12,.5)" font-size="9" font-family="Nunito">Imagen</text>
+      <text x="152" y="22" fill="#059669" font-size="9" font-family="Nunito">CONVEXO</text>
+    </svg></div>
+    <ul><li>Siempre imagen <strong>virtual, peque&ntilde;a y derecha</strong></li>
+    <li>Amplio campo visual</li>
+    <li>Ejemplo: retrovisor de auto, espejos de seguridad</li></ul>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #059669;margin-bottom:14px">
+  <p class="ct" style="color:#059669">&#128218; Conceptos para no perderse</p>
+  <div style="display:flex;flex-direction:column;gap:10px;font-size:.86rem">
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">¿Por qu&eacute; la frecuencia NO cambia en reflexi&oacute;n ni refracci&oacute;n?</strong>
+      <p style="margin-top:4px;color:var(--dim)">La frecuencia la determina la <em>fuente</em> que emite la luz (p.ej. el sol o una l&aacute;mpara). Al rebotar o pasar a otro medio, la fuente no cambia. Lo que cambia es la velocidad (en refracci&oacute;n) y por tanto la longitud de onda (v = f&lambda;), pero f queda igual.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">¿Por qu&eacute; la refracci&oacute;n dobla la direcci&oacute;n?</strong>
+      <p style="margin-top:4px;color:var(--dim)">Imagina un auto entrando en barro: si una rueda frena antes que la otra, el auto gira. Con la luz pasa lo mismo: al cambiar de medio, una parte de la onda frena primero y eso la hace doblar. Por eso una pajita en un vaso de agua parece "partida".</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">Tabla r&aacute;pida de espejos para la PAES</strong>
+      <div style="overflow-x:auto;margin-top:7px">
+      <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+        <tr style="background:rgba(5,150,105,.1)"><th style="padding:7px 10px;text-align:left;color:#059669">Tipo</th><th style="padding:7px 10px;text-align:left;color:#059669">Tama&ntilde;o</th><th style="padding:7px 10px;text-align:left;color:#059669">Orientaci&oacute;n</th><th style="padding:7px 10px;text-align:left;color:#059669">Virtual/Real</th></tr>
+        <tr style="border-bottom:1px solid var(--bord)"><td style="padding:6px 10px;font-weight:800">Plano</td><td style="padding:6px 10px;color:var(--dim)">Igual</td><td style="padding:6px 10px;color:var(--dim)">Derecha</td><td style="padding:6px 10px;color:var(--dim)">Siempre virtual</td></tr>
+        <tr style="border-bottom:1px solid var(--bord)"><td style="padding:6px 10px;font-weight:800">C&oacute;ncavo (dentro del foco)</td><td style="padding:6px 10px;color:var(--dim)">Mayor</td><td style="padding:6px 10px;color:var(--dim)">Derecha</td><td style="padding:6px 10px;color:var(--dim)">Virtual</td></tr>
+        <tr style="border-bottom:1px solid var(--bord)"><td style="padding:6px 10px;font-weight:800">C&oacute;ncavo (fuera del foco)</td><td style="padding:6px 10px;color:var(--dim)">Variable</td><td style="padding:6px 10px;color:var(--dim)">Invertida</td><td style="padding:6px 10px;color:var(--dim)">Real</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:800">Convexo</td><td style="padding:6px 10px;color:var(--dim)">Menor</td><td style="padding:6px 10px;color:var(--dim)">Derecha</td><td style="padding:6px 10px;color:var(--dim)">Siempre virtual</td></tr>
+      </table>
+      </div>
+      <p style="font-size:.8rem;color:var(--dim);margin-top:7px">&#128161; Truco: imagen <strong>invertida</strong> &rarr; solo puede ser espejo <strong>c&oacute;ncavo</strong>. Imagen <strong>peque&ntilde;a y derecha</strong> &rarr; es <strong>convexo</strong>.</p>
+    </div>
+  </div>
+</div>
+<div class="kws"><span class="kw">reflexi&oacute;n</span><span class="kw">refracci&oacute;n</span>
+<span class="kw">espejo plano</span><span class="kw">c&oacute;ncavo</span>
+<span class="kw">convexo</span><span class="kw">imagen virtual / real</span></div>
+<div class="pbox">
+  <div class="ptag" style="color:#059669">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">En un laboratorio escolar, cuatro grupos observan la imagen de un mismo objeto en distintos espejos y registran sus resultados:<table>
+    <tr><th>Espejo</th><th>Altura imagen</th><th>Orientaci&oacute;n</th></tr>
+    <tr><td>1</td><td>Igual</td><td>Derecha</td></tr>
+    <tr><td>2</td><td>M&aacute;s grande</td><td>Derecha</td></tr>
+    <tr><td>3</td><td>Igual</td><td>Invertida</td></tr>
+    <tr><td>4</td><td>M&aacute;s peque&ntilde;a</td><td>Derecha</td></tr></table></div>
+  <p class="pq">&iquest;Cu&aacute;l inferencia es correcta?</p>
+  <div class="pos" id="qopt">
+    <div class="po" onclick="ans('qopt','A')"><div class="ol">A</div><div class="ot">Los espejos 1 y 4 son espejos curvos con id&eacute;ntica distancia focal.</div></div>
+    <div class="po" onclick="ans('qopt','B')"><div class="ol">B</div><div class="ot">Los espejos 1 y 3 son espejos planos con las mismas dimensiones.</div></div>
+    <div class="po" onclick="ans('qopt','C')"><div class="ol">C</div><div class="ot">Los espejos 2 y 3 corresponden a un mismo tipo de espejo curvo con diferente distancia focal.</div></div>
+    <div class="po" onclick="ans('qopt','D')"><div class="ol">D</div><div class="ot">Los espejos 1 y 2 corresponden a un mismo tipo de espejo curvo con la misma distancia focal.</div></div>
+  </div>
+  <div class="pfb" id="qopt-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#059669">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">En un pasillo se enfrentan un espejo plano y uno convexo, con sus ejes &oacute;pticos alineados. Un objeto se ubica sobre ese eje, a igual distancia de ambos espejos.</div>
+  <p class="pq">&iquest;Qu&eacute; se puede afirmar correctamente sobre las im&aacute;genes formadas?</p>
+  <div class="pos" id="qopt2">
+    <div class="po" onclick="ans('qopt2','A')"><div class="ol">A</div><div class="ot">Se formar&aacute;n solo im&aacute;genes reales.</div></div>
+    <div class="po" onclick="ans('qopt2','B')"><div class="ol">B</div><div class="ot">Se formar&aacute;n solo im&aacute;genes virtuales.</div></div>
+    <div class="po" onclick="ans('qopt2','C')"><div class="ol">C</div><div class="ot">Se formar&aacute; una imagen real y una imagen virtual.</div></div>
+    <div class="po" onclick="ans('qopt2','D')"><div class="ol">D</div><div class="ot">Se formar&aacute; una imagen virtual y m&uacute;ltiples im&aacute;genes reales.</div></div>
+    <div class="po" onclick="ans('qopt2','E')"><div class="ol">E</div><div class="ot">Se formar&aacute; una imagen real y m&uacute;ltiples im&aacute;genes virtuales.</div></div>
+  </div>
+  <div class="pfb" id="qopt2-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#059669">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un &oacute;ptico analiza el comportamiento de dos lentes delgadas de vidrio en el aire.</div>
+  <p class="pq">&iquest;Cu&aacute;l de las siguientes afirmaciones es correcta?</p>
+  <div class="pos" id="qopt3">
+    <div class="po" onclick="ans('qopt3','A')"><div class="ol">A</div><div class="ot">Una lente convergente puede formar im&aacute;genes derechas o invertidas.</div></div>
+    <div class="po" onclick="ans('qopt3','B')"><div class="ol">B</div><div class="ot">Una lente divergente puede formar im&aacute;genes reales o virtuales.</div></div>
+    <div class="po" onclick="ans('qopt3','C')"><div class="ol">C</div><div class="ot">Una lente divergente puede formar solo im&aacute;genes invertidas.</div></div>
+    <div class="po" onclick="ans('qopt3','D')"><div class="ol">D</div><div class="ot">Una lente convergente puede formar solo im&aacute;genes reales.</div></div>
+    <div class="po" onclick="ans('qopt3','E')"><div class="ol">E</div><div class="ot">Una lente divergente forma siempre im&aacute;genes reales.</div></div>
+  </div>
+  <div class="pfb" id="qopt3-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#059669">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Al lavar el patio de su casa, un estudiante nota que las baldosas mojadas se ven notoriamente m&aacute;s oscuras que las secas.</div>
+  <p class="pq">&iquest;Qu&eacute; pregunta de investigaci&oacute;n surge directamente de esta observaci&oacute;n?</p>
+  <div class="pos" id="qopt4">
+    <div class="po" onclick="ans('qopt4','A')"><div class="ol">A</div><div class="ot">&iquest;Cu&aacute;les longitudes de onda se reflejan en las baldosas?</div></div>
+    <div class="po" onclick="ans('qopt4','B')"><div class="ol">B</div><div class="ot">&iquest;Cu&aacute;les longitudes de onda son absorbidas por el agua?</div></div>
+    <div class="po" onclick="ans('qopt4','C')"><div class="ol">C</div><div class="ot">&iquest;Cu&aacute;les longitudes de onda se refractan en las baldosas?</div></div>
+    <div class="po" onclick="ans('qopt4','D')"><div class="ol">D</div><div class="ot">&iquest;Cu&aacute;les longitudes de onda inciden en el agua?</div></div>
+  </div>
+  <div class="pfb" id="qopt4-fb"></div>
+</div>
+
+</div>
+
+<!-- MECÁNICA -->
+<div class="sec" id="p4">
+<div class="hsec" style="border-color:rgba(234,88,12,.3)">
+  <span class="hi2">&#127950;&#65039;</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#ea580c;margin-bottom:3px">Tema 4 de 7</div>
+  <h2 style="color:#ea580c">Mec&aacute;nica</h2>
+  <p>Movimiento rectil&iacute;neo, Leyes de Newton y fuerza de roce.</p>
+</div>
+<div class="card">
+  <p class="ct" style="color:#ea580c">&#127950;&#65039; MRU vs MRUA &mdash; animaci&oacute;n comparativa</p>
+  <div style="font-size:.69rem;font-weight:900;color:var(--sky);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px">MRU &mdash; velocidad constante &mdash; fuerza neta = 0</div>
+  <div class="trk"><div class="trk-lbl">MRU</div><div class="ball bmru"></div></div>
+  <p style="font-size:.82rem;color:var(--dim);margin-bottom:12px">La bola se mueve a velocidad constante. No hay aceleraci&oacute;n. Las posiciones son igualmente espaciadas en el tiempo.</p>
+  <div style="font-size:.69rem;font-weight:900;color:#ea580c;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;margin-top:10px">MRUA &mdash; aceleraci&oacute;n constante &mdash; fuerza neta &ne; 0</div>
+  <div class="trk"><div class="trk-lbl">MRUA</div><div class="ball bmrua"></div></div>
+  <p style="font-size:.82rem;color:var(--dim)">La bola empieza lenta y acelera. Velocidad aumenta linealmente con el tiempo.</p>
+</div>
+<div class="g2">
+  <div class="card" style="border-left:4px solid #ea580c">
+    <p class="ct" style="color:#ea580c">Leyes de Newton</p>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:.86rem">
+      <div style="background:var(--card2);border-radius:10px;padding:10px">
+        <div style="font-weight:900;color:#ea580c;margin-bottom:2px">1&ordf; Ley &mdash; Inercia</div>
+        <p>Un cuerpo mantiene su estado (reposo o MRU) salvo que act&uacute;e una fuerza neta.</p>
+      </div>
+      <div style="background:var(--card2);border-radius:10px;padding:10px">
+        <div style="font-weight:900;color:#ea580c;margin-bottom:2px">2&ordf; Ley &mdash; F = m &middot; a</div>
+        <p>La aceleraci&oacute;n es proporcional a la fuerza e inversamente proporcional a la masa.</p>
+      </div>
+      <div style="background:var(--card2);border-radius:10px;padding:10px">
+        <div style="font-weight:900;color:#ea580c;margin-bottom:2px">3&ordf; Ley &mdash; Acci&oacute;n &ndash; Reacci&oacute;n</div>
+        <p>A toda acci&oacute;n corresponde una reacci&oacute;n de <strong>igual magnitud y direcci&oacute;n opuesta</strong>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="ct" style="color:#ea580c">Fuerza de roce</p>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:.86rem">
+      <div style="background:var(--card2);border-radius:10px;padding:10px;border-left:3px solid var(--sky)">
+        <div style="font-weight:900;color:var(--sky);margin-bottom:2px">Roce est&aacute;tico</div>
+        <p>Opone el <strong>inicio del movimiento</strong>. Aumenta con la fuerza aplicada hasta un m&aacute;ximo. Cuerpo en reposo.</p>
+      </div>
+      <div style="background:var(--card2);border-radius:10px;padding:10px;border-left:3px solid #ea580c">
+        <div style="font-weight:900;color:#ea580c;margin-bottom:2px">Roce cin&eacute;tico</div>
+        <p>Opone el <strong>movimiento en curso</strong>. Valor constante. Menor que roce est&aacute;tico m&aacute;ximo.</p>
+      </div>
+      <div class="tip" style="margin-bottom:0">
+        <div class="tip-l">&#128161; PAES</div>
+        <p>El roce es <strong>independiente del &aacute;rea de contacto</strong> entre las superficies.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #ea580c;margin-bottom:14px">
+  <p class="ct" style="color:#ea580c">&#128218; Conceptos clave &mdash; Mec&aacute;nica</p>
+  <div style="display:flex;flex-direction:column;gap:10px;font-size:.86rem">
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">Fuerza (F)</strong>
+      <p style="margin-top:4px;color:var(--dim)">Es un empuje o jal&oacute;n que puede cambiar el movimiento o la forma de un objeto. Se mide en Newtons (N). Puede acelerar, frenar o desviar un cuerpo.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">Aceleraci&oacute;n (a)</strong>
+      <p style="margin-top:4px;color:var(--dim)">Cambio de velocidad en el tiempo. Un cuerpo con velocidad constante tiene aceleraci&oacute;n = 0 (fuerza neta = 0). Solo hay aceleraci&oacute;n si hay una fuerza neta distinta de cero.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">Fuerza de roce est&aacute;tico vs cin&eacute;tico</strong>
+      <p style="margin-top:4px;color:var(--dim)">El <strong>roce est&aacute;tico</strong> impide que el objeto empiece a moverse y aumenta con la fuerza aplicada hasta un m&aacute;ximo. El <strong>roce cin&eacute;tico</strong> frena al objeto que ya se mueve y tiene valor constante.<br>
+      <strong>Dato clave PAES:</strong> el roce NO depende del &aacute;rea de contacto &mdash; esto es contra-intuitivo pero correcto y es pregunta frecuente.</p>
+    </div>
+    <div style="background:rgba(234,88,12,.06);border-radius:11px;padding:12px;border:1px solid rgba(234,88,12,.18)">
+      <strong style="color:#ea580c">&#128073; 3&ordf; Ley de Newton en la vida real</strong>
+      <p style="margin-top:4px;color:var(--dim)">Cuando caminas, tu pie empuja el suelo hacia atr&aacute;s (acci&oacute;n) y el suelo te empuja hacia adelante (reacci&oacute;n). Un cohete expulsa gases hacia abajo (acci&oacute;n) y asciende (reacci&oacute;n). La canica que rebota en el globo es otro ejemplo: la canica empuja el globo, el globo empuja la canica en sentido contrario.</p>
+    </div>
+  </div>
+</div>
+<div class="kws"><span class="kw">MRU</span><span class="kw">MRUA</span><span class="kw">F = m&middot;a</span>
+<span class="kw">acci&oacute;n-reacci&oacute;n</span><span class="kw">roce est&aacute;tico</span><span class="kw">roce cin&eacute;tico</span></div>
+<div class="pbox">
+  <div class="ptag" style="color:#ea580c">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Una estudiante estira un trozo de l&aacute;tex sobre un aro, formando una superficie tensa como un tambor. Suelta una canica desde cierta altura: la superficie se hunde levemente y la canica rebota hacia arriba.</div>
+  <p class="pq">&iquest;Cu&aacute;l hecho explica correctamente lo observado?</p>
+  <div class="pos" id="qmec">
+    <div class="po" onclick="ans('qmec','A')"><div class="ol">A</div><div class="ot">La fuerza de la canica sobre el globo es proporcional a la altura desde donde se suelta.</div></div>
+    <div class="po" onclick="ans('qmec','B')"><div class="ol">B</div><div class="ot">La fuerza de la canica sobre el globo depende de cu&aacute;n tenso est&eacute; el globo.</div></div>
+    <div class="po" onclick="ans('qmec','C')"><div class="ol">C</div><div class="ot">La canica ejerce una fuerza sobre el globo en sentido contrario a la que el globo ejerce sobre la canica.</div></div>
+    <div class="po" onclick="ans('qmec','D')"><div class="ol">D</div><div class="ot">La altura de rebote se relaciona directamente con la tensi&oacute;n del globo.</div></div>
+  </div>
+  <div class="pfb" id="qmec-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#ea580c">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un resorte de longitud natural 40 cm tiene un extremo fijo a una pared vertical y el otro libre, en direcci&oacute;n horizontal. Para mantener el extremo libre en x&nbsp;=&nbsp;70&nbsp;cm hay que ejercer una fuerza de 30 N.</div>
+  <p class="pq">&iquest;Qu&eacute; fuerza hay que ejercer para mantener el extremo libre en x&nbsp;=&nbsp;50&nbsp;cm?</p>
+  <div class="pos" id="qmec2">
+    <div class="po" onclick="ans('qmec2','A')"><div class="ol">A</div><div class="ot">10 N</div></div>
+    <div class="po" onclick="ans('qmec2','B')"><div class="ol">B</div><div class="ot">15 N</div></div>
+    <div class="po" onclick="ans('qmec2','C')"><div class="ol">C</div><div class="ot">20 N</div></div>
+    <div class="po" onclick="ans('qmec2','D')"><div class="ol">D</div><div class="ot">30 N</div></div>
+    <div class="po" onclick="ans('qmec2','E')"><div class="ol">E</div><div class="ot">40 N</div></div>
+  </div>
+  <div class="pfb" id="qmec2-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#ea580c">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Sobre tres cuerpos de masas 3m, 4m y 6m act&uacute;an fuerzas netas de magnitudes F1, F2 y F3, de modo que adquieren aceleraciones de magnitudes 2a, 3a y a respectivamente.</div>
+  <p class="pq">&iquest;Cu&aacute;l relaci&oacute;n entre las magnitudes de las fuerzas netas es correcta?</p>
+  <div class="pos" id="qmec3">
+    <div class="po" onclick="ans('qmec3','A')"><div class="ol">A</div><div class="ot">F1 &gt; F2 &gt; F3</div></div>
+    <div class="po" onclick="ans('qmec3','B')"><div class="ol">B</div><div class="ot">F1 &lt; F2 &lt; F3</div></div>
+    <div class="po" onclick="ans('qmec3','C')"><div class="ol">C</div><div class="ot">F1 = F2 &gt; F3</div></div>
+    <div class="po" onclick="ans('qmec3','D')"><div class="ol">D</div><div class="ot">F1 = F3 &gt; F2</div></div>
+    <div class="po" onclick="ans('qmec3','E')"><div class="ol">E</div><div class="ot">F1 = F3 &lt; F2</div></div>
+  </div>
+  <div class="pfb" id="qmec3-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#ea580c">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un carrito de supermercado se desplaza de este a oeste sobre un piso horizontal con velocidad constante.</div>
+  <p class="pq">&iquest;Qu&eacute; siempre es correcto afirmar sobre el objeto?</p>
+  <div class="pos" id="qmec4">
+    <div class="po" onclick="ans('qmec4','A')"><div class="ol">A</div><div class="ot">La fuerza neta es nula.</div></div>
+    <div class="po" onclick="ans('qmec4','B')"><div class="ol">B</div><div class="ot">Act&uacute;a solo una fuerza.</div></div>
+    <div class="po" onclick="ans('qmec4','C')"><div class="ol">C</div><div class="ot">La fuerza de roce es nula.</div></div>
+    <div class="po" onclick="ans('qmec4','D')"><div class="ol">D</div><div class="ot">Act&uacute;a un n&uacute;mero par de fuerzas.</div></div>
+    <div class="po" onclick="ans('qmec4','E')"><div class="ol">E</div><div class="ot">La fuerza neta est&aacute; orientada hacia el sur.</div></div>
+  </div>
+  <div class="pfb" id="qmec4-fb"></div>
+</div>
+
+</div>
+
+<!-- COSMOLOGIA -->
+<div class="sec" id="p5">
+<div class="hsec" style="border-color:rgba(79,70,229,.3)">
+  <span class="hi2">&#127760;</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#4f46e5;margin-bottom:3px">Tema 5 de 7</div>
+  <h2 style="color:#4f46e5">Modelos Cosmol&oacute;gicos y Origen del Universo</h2>
+  <p>El modelo del Big Bang: evidencias, expansi&oacute;n del universo y su edad estimada.</p>
+</div>
+<div class="card">
+  <p class="ct" style="color:#4f46e5">&#128225; L&iacute;nea de tiempo del universo</p>
+  <div class="svgw" style="min-height:130px">
+  <svg viewBox="0 0 640 130" style="width:100%;max-width:640px">
+    <defs><linearGradient id="cosg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f97316"/><stop offset="30%" stop-color="#a855f7"/>
+      <stop offset="65%" stop-color="#4f46e5"/><stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient></defs>
+    <line x1="30" y1="70" x2="610" y2="70" stroke="url(#cosg)" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="30" cy="70" r="9" fill="#f97316"/>
+    <circle cx="220" cy="70" r="7" fill="#a855f7"/>
+    <circle cx="420" cy="70" r="7" fill="#4f46e5"/>
+    <circle cx="610" cy="70" r="9" fill="#0ea5e9"/>
+    <text x="30" y="32" fill="#f97316" font-size="11" font-weight="900" font-family="Nunito" text-anchor="middle">Big Bang</text>
+    <text x="30" y="98" fill="rgba(255,255,255,.55)" font-size="9" font-family="Nunito" text-anchor="middle">t = 0</text>
+    <text x="220" y="32" fill="#a855f7" font-size="10" font-weight="900" font-family="Nunito" text-anchor="middle">Radiaci&oacute;n de fondo</text>
+    <text x="220" y="98" fill="rgba(255,255,255,.55)" font-size="9" font-family="Nunito" text-anchor="middle">380 mil a&ntilde;os</text>
+    <text x="420" y="32" fill="#4f46e5" font-size="10" font-weight="900" font-family="Nunito" text-anchor="middle">Primeras galaxias</text>
+    <text x="420" y="98" fill="rgba(255,255,255,.55)" font-size="9" font-family="Nunito" text-anchor="middle">~400 millones de a&ntilde;os</text>
+    <text x="610" y="32" fill="#0ea5e9" font-size="10" font-weight="900" font-family="Nunito" text-anchor="middle">Hoy</text>
+    <text x="610" y="98" fill="rgba(255,255,255,.55)" font-size="9" font-family="Nunito" text-anchor="middle">13.800 millones de a&ntilde;os</text>
+  </svg>
+  </div>
+  <p style="font-size:.82rem;color:var(--dim);text-align:center;margin-top:4px">Universo en expansi&oacute;n continua desde el Big Bang hasta hoy</p>
+</div>
+<div class="g2">
+  <div class="card" style="border-left:4px solid #4f46e5">
+    <p class="ct" style="color:#4f46e5">El modelo del Big Bang</p>
+    <ul><li>El universo comenz&oacute; hace <strong>~13.800 millones de a&ntilde;os</strong> desde un estado extremadamente caliente y denso</li>
+    <li>Desde entonces se <strong>expande continuamente</strong>: las galaxias se alejan unas de otras</li>
+    <li>No hay un &laquo;centro&raquo; de la expansi&oacute;n: ocurre igual en todos los puntos del espacio</li></ul>
+  </div>
+  <div class="card">
+    <p class="ct" style="color:#4f46e5">&#128204; Clave PAES</p>
+    <ul><li>Corrimiento al rojo = evidencia de <strong>expansi&oacute;n</strong></li>
+    <li>Radiaci&oacute;n C&oacute;smica de Fondo = &laquo;eco&raquo; del universo primitivo</li>
+    <li>La velocidad de alejamiento de una galaxia es proporcional a su distancia (Ley de Hubble)</li></ul>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #4f46e5;margin-bottom:14px">
+  <p class="ct" style="color:#4f46e5">&#128218; Las dos grandes evidencias del Big Bang</p>
+  <div style="display:flex;flex-direction:column;gap:10px;font-size:.86rem">
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">1. Corrimiento al rojo (redshift)</strong>
+      <p style="margin-top:4px;color:var(--dim)">Cuando una galaxia se aleja de nosotros, la luz que emite se estira: su longitud de onda aumenta (se desplaza hacia el rojo del espectro visible). Mientras m&aacute;s lejos est&aacute; una galaxia, mayor es su corrimiento al rojo, lo que indica que se aleja m&aacute;s r&aacute;pido. Es exactamente lo que predice un universo en expansi&oacute;n.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">2. Radiaci&oacute;n C&oacute;smica de Fondo</strong>
+      <p style="margin-top:4px;color:var(--dim)">Es una radiaci&oacute;n de microondas remanente que llena todo el espacio de forma casi uniforme, detectada por primera vez en 1965. Es el &laquo;eco t&eacute;rmico&raquo; del universo cuando ten&iacute;a solo 380.000 a&ntilde;os: prueba directa de que el universo tuvo un origen caliente y denso.</p>
+    </div>
+    <div style="background:rgba(79,70,229,.06);border-radius:11px;padding:12px;border:1px solid rgba(79,70,229,.18)">
+      <strong style="color:#4f46e5">&#128073; Error com&uacute;n</strong>
+      <p style="margin-top:4px;color:var(--dim)">El Big Bang NO fue una explosi&oacute;n en un punto del espacio ya existente. Fue el propio espacio el que empez&oacute; a expandirse desde ese instante. Por eso el universo no tiene un &laquo;centro&raquo; de expansi&oacute;n: todo punto se aleja de todo punto, como pasas dentro de un pan que crece en el horno.</p>
+    </div>
+  </div>
+</div>
+<div class="kws"><span class="kw">Big Bang</span><span class="kw">expansi&oacute;n del universo</span>
+<span class="kw">corrimiento al rojo</span><span class="kw">radiaci&oacute;n c&oacute;smica de fondo</span>
+<span class="kw">13.800 millones de a&ntilde;os</span></div>
+<div class="pbox">
+  <div class="ptag" style="color:#4f46e5">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Los astr&oacute;nomos observan que la luz de galaxias lejanas se desplaza hacia el rojo (longitudes de onda m&aacute;s largas) a medida que aumenta su distancia a la Tierra.</div>
+  <p class="pq">&iquest;Qu&eacute; fen&oacute;meno evidencia principalmente esta observaci&oacute;n?</p>
+  <div class="pos" id="qcos1">
+    <div class="po" onclick="ans('qcos1','A')"><div class="ol">A</div><div class="ot">Que el universo se est&aacute; expandiendo.</div></div>
+    <div class="po" onclick="ans('qcos1','B')"><div class="ol">B</div><div class="ot">Que el universo se est&aacute; contrayendo.</div></div>
+    <div class="po" onclick="ans('qcos1','C')"><div class="ol">C</div><div class="ot">Que las galaxias se acercan entre s&iacute;.</div></div>
+    <div class="po" onclick="ans('qcos1','D')"><div class="ol">D</div><div class="ot">Que la velocidad de la luz cambia con la distancia.</div></div>
+  </div>
+  <div class="pfb" id="qcos1-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#4f46e5">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">La Radiaci&oacute;n C&oacute;smica de Fondo, descubierta en 1965, es una radiaci&oacute;n de microondas que llena todo el universo de manera casi uniforme.</div>
+  <p class="pq">&iquest;Qu&eacute; evidencia aporta al modelo del Big Bang?</p>
+  <div class="pos" id="qcos2">
+    <div class="po" onclick="ans('qcos2','A')"><div class="ol">A</div><div class="ot">Que el universo tuvo un estado inicial caliente y denso que se ha enfriado al expandirse.</div></div>
+    <div class="po" onclick="ans('qcos2','B')"><div class="ol">B</div><div class="ot">Que el universo es est&aacute;tico y no cambia con el tiempo.</div></div>
+    <div class="po" onclick="ans('qcos2','C')"><div class="ol">C</div><div class="ot">Que existen agujeros negros en el centro de todas las galaxias.</div></div>
+    <div class="po" onclick="ans('qcos2','D')"><div class="ol">D</div><div class="ot">Que la Tierra ocupa el centro del universo.</div></div>
+  </div>
+  <div class="pfb" id="qcos2-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#4f46e5">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Seg&uacute;n las estimaciones actuales, la edad del universo es de aproximadamente 13.800 millones de a&ntilde;os.</div>
+  <p class="pq">&iquest;Qu&eacute; m&eacute;todo permite estimar esta edad?</p>
+  <div class="pos" id="qcos3">
+    <div class="po" onclick="ans('qcos3','A')"><div class="ol">A</div><div class="ot">Medir la tasa de expansi&oacute;n del universo y proyectarla hacia atr&aacute;s en el tiempo.</div></div>
+    <div class="po" onclick="ans('qcos3','B')"><div class="ol">B</div><div class="ot">Contar el n&uacute;mero de estrellas visibles a simple vista.</div></div>
+    <div class="po" onclick="ans('qcos3','C')"><div class="ol">C</div><div class="ot">Medir la temperatura superficial del Sol.</div></div>
+    <div class="po" onclick="ans('qcos3','D')"><div class="ol">D</div><div class="ot">Analizar la composici&oacute;n qu&iacute;mica de la Luna.</div></div>
+  </div>
+  <div class="pfb" id="qcos3-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#4f46e5">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un estudiante afirma: &laquo;como las galaxias se alejan de la V&iacute;a L&aacute;ctea en todas direcciones, la V&iacute;a L&aacute;ctea debe estar en el centro del universo&raquo;.</div>
+  <p class="pq">&iquest;Por qu&eacute; esta afirmaci&oacute;n es incorrecta seg&uacute;n el modelo del Big Bang?</p>
+  <div class="pos" id="qcos4">
+    <div class="po" onclick="ans('qcos4','A')"><div class="ol">A</div><div class="ot">Porque el universo no tiene un centro: la expansi&oacute;n ocurre de igual forma en todos los puntos, como pasas en un pan que crece.</div></div>
+    <div class="po" onclick="ans('qcos4','B')"><div class="ol">B</div><div class="ot">Porque en realidad las galaxias no se alejan de la V&iacute;a L&aacute;ctea.</div></div>
+    <div class="po" onclick="ans('qcos4','C')"><div class="ol">C</div><div class="ot">Porque solo las galaxias cercanas se alejan de nosotros.</div></div>
+    <div class="po" onclick="ans('qcos4','D')"><div class="ol">D</div><div class="ot">Porque la V&iacute;a L&aacute;ctea s&iacute; es el centro del universo.</div></div>
+  </div>
+  <div class="pfb" id="qcos4-fb"></div>
+</div>
+</div>
+
+<!-- TECTÓNICA -->
+<div class="sec" id="p6">
+<div class="hsec" style="border-color:rgba(220,38,38,.3)">
+  <span class="hi2">&#127755;</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#dc2626;margin-bottom:3px">Tema 6 de 7</div>
+  <h2 style="color:#dc2626">Tect&oacute;nica de Placas</h2>
+  <p>Deriva continental, tipos de bordes y sus consecuencias geol&oacute;gicas.</p>
+</div>
+<div class="card">
+  <p class="ct" style="color:#dc2626">&#127759; Tipos de bordes &mdash; animaciones en tiempo real</p>
+  <div class="pgrid">
+    <div class="pc">
+      <h4>&#8596; Borde divergente &mdash; <span style="font-weight:700;font-size:.8rem;color:var(--dim)">se alejan</span></h4>
+      <div class="panim da">
+        <div class="pb pl">&#128258; Placa A</div>
+        <div class="pb pr">Placa B &#128258;</div>
+        <div class="pa-arrow" style="left:50%;transform:translate(-50%,-50%);color:rgba(255,255,255,.25);font-size:.7rem">|</div>
+      </div>
+      <p>Las placas se <strong>alejan</strong> entre s&iacute;. Por el centro sube magma y se forma <strong>nuevo suelo oce&aacute;nico</strong> (dorsal). &#128073; Isla en cada costa &rarr; las islas se alejan. Sismicidad moderada.</p>
+    </div>
+    <div class="pc">
+      <h4>&#8594;&#8592; Borde convergente &mdash; <span style="font-weight:700;font-size:.8rem;color:var(--dim)">chocan</span></h4>
+      <div class="panim ca">
+        <div class="pb pl">Placa A &#128259;</div>
+        <div class="pb pr">&#128259; Placa B</div>
+      </div>
+      <p>Las placas se <strong>juntan</strong>. La m&aacute;s densa (oce&aacute;nica) se hunde bajo la otra: <strong>subducci&oacute;n</strong>. Forma cordilleras, fosas oce&aacute;nicas y volcanes. Alta sismicidad. &#127758; Chile est&aacute; aqu&iacute;.</p>
+    </div>
+    <div class="pc">
+      <h4>&#8597; Borde transformante &mdash; <span style="font-weight:700;font-size:.8rem;color:var(--dim)">se rozan</span></h4>
+      <div class="panim ta">
+        <div class="pb pl">Placa A &#11015;</div>
+        <div class="pb pr">&#11014; Placa B</div>
+      </div>
+      <p>Las placas se <strong>deslizan lateralmente</strong> en sentidos contrarios. No se crea ni destruye corteza. Alta sismicidad. Ej: Falla de San Andr&eacute;s (California).</p>
+    </div>
+    <div class="pc">
+      <h4>&#128506; Deriva continental</h4>
+      <div style="height:36px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:9px 0">&#127758;</div>
+      <p>Wegener (1912): continentes unidos en <strong>Pangea</strong>. Evidencia: f&oacute;siles id&eacute;nticos a ambos lados del Atl&aacute;ntico.</p>
+    </div>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #dc2626;margin-bottom:14px">
+  <p class="ct" style="color:#dc2626">&#128218; Conceptos clave &mdash; Tect&oacute;nica</p>
+  <div style="display:flex;flex-direction:column;gap:10px;font-size:.86rem">
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">¿Qu&eacute; son las placas tect&oacute;nicas?</strong>
+      <p style="margin-top:4px;color:var(--dim)">La corteza terrestre est&aacute; dividida en grandes "placas" r&iacute;gidas que flotan sobre el manto (roca semil&iacute;quida). Se mueven muy lentamente (pocos cent&iacute;metros por a&ntilde;o). En sus bordes ocurren terremotos, volcanes y se forman monta&ntilde;as.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">¿Por qu&eacute; Chile tiene tantos terremotos y volcanes?</strong>
+      <p style="margin-top:4px;color:var(--dim)">Chile est&aacute; en un <strong>borde convergente</strong>: la placa de Nazca (oce&aacute;nica) choca con la placa Sudamericana (continental) y se hunde bajo ella (subducci&oacute;n). La fricci&oacute;n genera terremotos y el calor del hundimiento alimenta los volcanes de los Andes.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">Dorsal vs Fosa oce&aacute;nica</strong>
+      <p style="margin-top:4px;color:var(--dim)"><strong>Dorsal:</strong> cadena monta&ntilde;osa submarina donde las placas se separan. El magma sube y crea nuevo suelo oce&aacute;nico (borde divergente). Ej: dorsal del Atl&aacute;ntico Medio.<br>
+      <strong>Fosa:</strong> depresi&oacute;n profunda donde una placa se hunde bajo otra (borde convergente). Ej: Fosa de Per&uacute;-Chile, frente a nuestra costa.</p>
+    </div>
+    <div style="background:rgba(220,38,38,.06);border-radius:11px;padding:12px;border:1px solid rgba(220,38,38,.18)">
+      <strong style="color:#dc2626">&#128073; Evidencias de la deriva continental (Wegener, 1912)</strong>
+      <p style="margin-top:4px;color:var(--dim)">F&oacute;siles del mismo animal en &Aacute;frica y Sudam&eacute;rica (que jam&aacute;s cruzar&iacute;an el Atl&aacute;ntico). Las costas de &Aacute;frica y Am&eacute;rica "encajan" como puzzle. Tipos de roca id&eacute;nticos a ambos lados del oc&eacute;ano.</p>
+    </div>
+  </div>
+</div>
+<div class="kws"><span class="kw">deriva continental</span><span class="kw">borde divergente</span>
+<span class="kw">borde convergente</span><span class="kw">subducci&oacute;n</span>
+<span class="kw">dorsal oce&aacute;nica</span><span class="kw">Pangea</span></div>
+<div class="pbox">
+  <div class="ptag" style="color:#dc2626">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un mapa muestra un oc&eacute;ano <strong>sin fosas oce&aacute;nicas</strong>, pero con una <strong>dorsal oce&aacute;nica</strong> en su centro. Hay una isla en cada costa opuesta del oc&eacute;ano.</div>
+  <p class="pq">&iquest;Cu&aacute;l predicci&oacute;n es consistente con la Tect&oacute;nica de Placas?</p>
+  <div class="pos" id="qtec">
+    <div class="po" onclick="ans('qtec','A')"><div class="ol">A</div><div class="ot">Ambas islas deber&iacute;an estar alej&aacute;ndose entre s&iacute;.</div></div>
+    <div class="po" onclick="ans('qtec','B')"><div class="ol">B</div><div class="ot">Nuevas islas deber&iacute;an surgir en el oc&eacute;ano.</div></div>
+    <div class="po" onclick="ans('qtec','C')"><div class="ol">C</div><div class="ot">Deber&iacute;a existir gran sismicidad en ambas islas.</div></div>
+    <div class="po" onclick="ans('qtec','D')"><div class="ol">D</div><div class="ot">Ambas islas deber&iacute;an mantenerse en la misma posici&oacute;n.</div></div>
+  </div>
+  <div class="pfb" id="qtec-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#dc2626">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un equipo de geolog&iacute;a instala sensores en un volc&aacute;n activo, registra la actividad s&iacute;smica durante meses y, al analizar los datos, &laquo;concluye que la actividad se mantiene dentro de rangos normales&raquo;.</div>
+  <p class="pq">&iquest;A qu&eacute; componente de la investigaci&oacute;n cient&iacute;fica se asocia la frase entre comillas?</p>
+  <div class="pos" id="qtec2">
+    <div class="po" onclick="ans('qtec2','A')"><div class="ol">A</div><div class="ot">Al planteamiento del problema.</div></div>
+    <div class="po" onclick="ans('qtec2','B')"><div class="ol">B</div><div class="ot">A la formulaci&oacute;n de la hip&oacute;tesis.</div></div>
+    <div class="po" onclick="ans('qtec2','C')"><div class="ol">C</div><div class="ot">A la presentaci&oacute;n de una conclusi&oacute;n.</div></div>
+    <div class="po" onclick="ans('qtec2','D')"><div class="ol">D</div><div class="ot">A la recolecci&oacute;n de los datos experimentales.</div></div>
+  </div>
+  <div class="pfb" id="qtec2-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#dc2626">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Wegener bas&oacute; su teor&iacute;a de la deriva continental principalmente en dos tipos de evidencia observadas entre continentes hoy separados.</div>
+  <p class="pq">&iquest;Cu&aacute;les son esas evidencias?</p>
+  <div class="pos" id="qtec3">
+    <div class="po" onclick="ans('qtec3','A')"><div class="ol">A</div><div class="ot">Mediciones satelitales GPS de la velocidad de las placas.</div></div>
+    <div class="po" onclick="ans('qtec3','B')"><div class="ol">B</div><div class="ot">El encaje de las costas y f&oacute;siles id&eacute;nticos a ambos lados del oc&eacute;ano.</div></div>
+    <div class="po" onclick="ans('qtec3','C')"><div class="ol">C</div><div class="ot">La temperatura del n&uacute;cleo terrestre.</div></div>
+    <div class="po" onclick="ans('qtec3','D')"><div class="ol">D</div><div class="ot">La frecuencia de erupciones volc&aacute;nicas activas.</div></div>
+  </div>
+  <div class="pfb" id="qtec3-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#dc2626">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">En la Falla de San Andr&eacute;s (California), dos placas se deslizan lateralmente una respecto a la otra, sin crear ni destruir corteza terrestre.</div>
+  <p class="pq">&iquest;Qu&eacute; tipo de borde corresponde a esta descripci&oacute;n?</p>
+  <div class="pos" id="qtec4">
+    <div class="po" onclick="ans('qtec4','A')"><div class="ol">A</div><div class="ot">Divergente</div></div>
+    <div class="po" onclick="ans('qtec4','B')"><div class="ol">B</div><div class="ot">Convergente</div></div>
+    <div class="po" onclick="ans('qtec4','C')"><div class="ol">C</div><div class="ot">Transformante</div></div>
+    <div class="po" onclick="ans('qtec4','D')"><div class="ol">D</div><div class="ot">Subducci&oacute;n</div></div>
+  </div>
+  <div class="pfb" id="qtec4-fb"></div>
+</div>
+
+</div>
+
+<!-- ELECTRICIDAD -->
+<div class="sec" id="p7">
+<div class="hsec" style="border-color:rgba(217,119,6,.3)">
+  <span class="hi2">&#9889;</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#d97706;margin-bottom:3px">Tema 7 de 7</div>
+  <h2 style="color:#d97706">Electricidad</h2>
+  <p>Ley de Ohm, circuitos serie y paralelo, potencia y consumo el&eacute;ctrico.</p>
+</div>
+<div class="card">
+  <p class="ct" style="color:#d97706">&#129518; Ley de Ohm &mdash; la ecuaci&oacute;n central de la electricidad</p>
+  <p style="font-size:.9rem;color:var(--dim);line-height:1.7;margin-bottom:14px">La <strong>Ley de Ohm</strong> relaciona las tres variables fundamentales de cualquier circuito el&eacute;ctrico. Si conoces dos de ellas, puedes calcular la tercera:</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;font-size:.85rem">
+    <div style="background:var(--card2);border:2px solid rgba(14,165,233,.3);border-radius:12px;padding:13px;text-align:center">
+      <div style="font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--sky);margin-bottom:4px">V</div>
+      <div style="font-weight:900;color:var(--text);margin-bottom:3px">Voltaje</div>
+      <div style="color:var(--dim);font-size:.79rem">La "fuerza" que empuja los electrones. Como la presi&oacute;n del agua. En <strong>Volts (V)</strong>.</div>
+    </div>
+    <div style="background:var(--card2);border:2px solid rgba(234,88,12,.3);border-radius:12px;padding:13px;text-align:center">
+      <div style="font-family:'Fredoka One',cursive;font-size:1.6rem;color:#ea580c;margin-bottom:4px">I</div>
+      <div style="font-weight:900;color:var(--text);margin-bottom:3px">Corriente</div>
+      <div style="color:var(--dim);font-size:.79rem">Cu&aacute;ntos electrones fluyen por segundo. Como el caudal del agua. En <strong>Amp&egrave;res (A)</strong>.</div>
+    </div>
+    <div style="background:var(--card2);border:2px solid rgba(217,119,6,.3);border-radius:12px;padding:13px;text-align:center">
+      <div style="font-family:'Fredoka One',cursive;font-size:1.6rem;color:#d97706;margin-bottom:4px">R</div>
+      <div style="font-weight:900;color:var(--text);margin-bottom:3px">Resistencia</div>
+      <div style="color:var(--dim);font-size:.79rem">La oposici&oacute;n al flujo de corriente. Como un tubo estrecho. En <strong>Ohms (&Omega;)</strong>.</div>
+    </div>
+  </div>
+  <div style="background:rgba(217,119,6,.08);border:2px solid rgba(217,119,6,.25);border-radius:14px;padding:16px;text-align:center;margin-bottom:16px">
+    <div style="font-family:'Fredoka One',cursive;font-size:2rem;color:#d97706;letter-spacing:.04em">V = I &times; R</div>
+    <div style="font-size:.84rem;color:var(--dim);margin-top:6px">Voltaje = Corriente &times; Resistencia &nbsp;&nbsp;&bull;&nbsp;&nbsp; I = V / R &nbsp;&nbsp;&bull;&nbsp;&nbsp; R = V / I</div>
+  </div>
+  <p style="font-size:.87rem;color:var(--dim);margin-bottom:10px">Practica con la calculadora: selecciona qu&eacute; quieres calcular, ingresa los otros dos valores y obt&eacute;n el resultado instant&aacute;neo.</p>
+  <div class="obr">
+    <button class="ob act" onclick="ohm('V',this)">Calcular V</button>
+    <button class="ob" onclick="ohm('I',this)">Calcular I</button>
+    <button class="ob" onclick="ohm('R',this)">Calcular R</button>
+  </div>
+  <div class="ohmc">
+    <div class="orow">
+      <div class="of"><label>V &mdash; Voltaje</label><input type="number" id="oV" placeholder="?" min="0" oninput="calcO()"><div class="un">Volts (V)</div></div>
+      <div class="of"><label>I &mdash; Corriente</label><input type="number" id="oI" placeholder="?" min="0" oninput="calcO()"><div class="un">Amp&egrave;res (A)</div></div>
+      <div class="of"><label>R &mdash; Resistencia</label><input type="number" id="oR" placeholder="?" min="0" oninput="calcO()"><div class="un">Ohms (&Omega;)</div></div>
+    </div>
+    <div class="ores" id="ores">V = I &times; R &nbsp;&nbsp;&nbsp; I = V / R &nbsp;&nbsp;&nbsp; R = V / I</div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card" style="border-left:4px solid #d97706">
+    <p class="ct" style="color:#d97706">Serie vs Paralelo</p>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:.86rem">
+      <div style="background:var(--card2);border-radius:10px;padding:10px;border-left:3px solid var(--sky)">
+        <div style="font-weight:900;color:var(--sky);margin-bottom:2px">Circuito en SERIE</div>
+        <ul style="margin-top:4px;padding-left:15px"><li>Corriente (I) <strong>igual</strong> en todos</li><li>Voltaje (V) se <strong>reparte</strong></li></ul>
+      </div>
+      <div style="background:var(--card2);border-radius:10px;padding:10px;border-left:3px solid #d97706">
+        <div style="font-weight:900;color:#d97706;margin-bottom:2px">Circuito en PARALELO</div>
+        <ul style="margin-top:4px;padding-left:15px"><li>Voltaje (V) <strong>igual</strong> en cada rama</li><li>Corriente (I) se <strong>reparte</strong></li></ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="ct" style="color:#d97706">Potencia y consumo</p>
+    <div class="fbox" style="margin-bottom:8px"><span class="fsym" style="color:#d97706">P = V &times; I</span><div class="fdef">Potencia (Watts)</div></div>
+    <div class="fbox"><span class="fsym" style="color:#d97706">E = P &times; t</span><div class="fdef">Energ&iacute;a consumida</div></div>
+    <div class="tip" style="margin-top:9px;margin-bottom:0">
+      <div class="tip-l">&#128161; PAES</div>
+      <p><strong>Medidor el&eacute;ctrico</strong>: mide energ&iacute;a (kWh). <strong>Amper&iacute;metro</strong>: corriente. <strong>Volt&iacute;metro</strong>: voltaje.</p>
+    </div>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #d97706;margin-bottom:14px">
+  <p class="ct" style="color:#d97706">&#128218; Qu&eacute; es cada cosa &mdash; en palabras simples</p>
+  <div style="display:flex;flex-direction:column;gap:10px;font-size:.86rem">
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">Voltaje / Diferencia de potencial (V)</strong>
+      <p style="margin-top:4px;color:var(--dim)">La "fuerza impulsora" que hace circular los electrones. Como la presi&oacute;n del agua en una ca&ntilde;er&iacute;a: mayor presi&oacute;n &rarr; m&aacute;s flujo. Una bater&iacute;a de celular es ~3,7 V. La electricidad del hogar en Chile es 220 V.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">Corriente el&eacute;ctrica / Intensidad (I)</strong>
+      <p style="margin-top:4px;color:var(--dim)">La cantidad de carga (electrones) que fluye por segundo. Como el caudal del agua: cu&aacute;ntos litros pasan por segundo. Un calefactor el&eacute;ctrico consume ~10 A. Un celular cargando ~1 A.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">Resistencia (R)</strong>
+      <p style="margin-top:4px;color:var(--dim)">La "oposici&oacute;n" al flujo de corriente. Como un tubo estrecho que dificulta el paso del agua. Los metales tienen baja resistencia (buenos conductores). El pl&aacute;stico tiene muy alta resistencia (aislante).</p>
+    </div>
+    <div style="background:rgba(217,119,6,.06);border-radius:11px;padding:12px;border:1px solid rgba(217,119,6,.18)">
+      <strong style="color:#d97706">&#128073; Ley de Ohm en palabras simples: V = I &times; R</strong>
+      <p style="margin-top:4px;color:var(--dim)">Si aumentas el voltaje con la misma resistencia &rarr; aumenta la corriente. Si aumentas la resistencia con el mismo voltaje &rarr; disminuye la corriente. Es como abrir m&aacute;s o menos la llave del agua.</p>
+    </div>
+    <div style="background:var(--card2);border-radius:11px;padding:12px">
+      <strong style="color:var(--text)">Instrumentos de medici&oacute;n</strong>
+      <p style="margin-top:4px;color:var(--dim)"><strong>Amper&iacute;metro:</strong> mide corriente (I). Se conecta en serie.<br>
+      <strong>Volt&iacute;metro:</strong> mide voltaje (V). Se conecta en paralelo.<br>
+      <strong>Medidor el&eacute;ctrico:</strong> el aparato en la entrada de tu casa. Mide la energ&iacute;a consumida (kWh) para calcular la cuenta de la luz. Es lo que te pregunta la PAES en la P36.</p>
+    </div>
+  </div>
+</div>
+<div class="kws"><span class="kw">V = I&middot;R</span><span class="kw">serie</span><span class="kw">paralelo</span>
+<span class="kw">medidor el&eacute;ctrico</span><span class="kw">potencia (W)</span><span class="kw">amper&iacute;metro</span></div>
+<div class="pbox">
+  <div class="ptag" style="color:#d97706">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Un electricista arma un circuito con <strong>tres resistencias en paralelo</strong>, todas conectadas a los mismos terminales de una bater&iacute;a.</div>
+  <p class="pq">&iquest;Cu&aacute;l opci&oacute;n es coherente con Ley de Ohm al comparar voltaje y corriente de <strong>cada resistencia</strong> con los de la bater&iacute;a?</p>
+  <div class="pos" id="qele">
+    <div class="po" onclick="ans('qele','A')"><div class="ol">A</div><div class="ot">Voltaje menor y corriente igual.</div></div>
+    <div class="po" onclick="ans('qele','B')"><div class="ol">B</div><div class="ot">Voltaje igual y corriente menor.</div></div>
+    <div class="po" onclick="ans('qele','C')"><div class="ol">C</div><div class="ot">Voltaje menor y corriente mayor.</div></div>
+    <div class="po" onclick="ans('qele','D')"><div class="ol">D</div><div class="ot">Voltaje igual y corriente mayor.</div></div>
+  </div>
+  <div class="pfb" id="qele-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#d97706">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Una guirnalda navide&ntilde;a antigua est&aacute; formada por dos ampolletas conectadas en serie.</div>
+  <p class="pq">&iquest;Qu&eacute; opci&oacute;n se&ntilde;ala correctamente la informaci&oacute;n que debiese contener el manual para evitar problemas de funcionamiento?</p>
+  <div class="pos" id="qele2">
+    <div class="po" onclick="ans('qele2','A')"><div class="ol">A</div><div class="ot">La corriente el&eacute;ctrica medida en ambas ampolletas tiene la misma intensidad.</div></div>
+    <div class="po" onclick="ans('qele2','B')"><div class="ol">B</div><div class="ot">El encendido de la l&aacute;mpara depender&aacute; de que ambas ampolletas est&eacute;n en buen estado.</div></div>
+    <div class="po" onclick="ans('qele2','C')"><div class="ol">C</div><div class="ot">El voltaje en los extremos de cada ampolleta es distinto al voltaje suministrado por el enchufe.</div></div>
+    <div class="po" onclick="ans('qele2','D')"><div class="ol">D</div><div class="ot">La resistencia interna de la l&aacute;mpara equivale a la suma de las resistencias de las ampolletas.</div></div>
+  </div>
+  <div class="pfb" id="qele2-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#d97706">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">Una familia quiere comprar una lavadora que gaste la menor cantidad de dinero posible en electricidad y compara la etiqueta energ&eacute;tica de varios modelos.</div>
+  <p class="pq">&iquest;Qu&eacute; informaci&oacute;n de la etiqueta debe considerar para tomar su decisi&oacute;n?</p>
+  <div class="pos" id="qele3">
+    <div class="po" onclick="ans('qele3','A')"><div class="ol">A</div><div class="ot">El consumo mensual del refrigerador.</div></div>
+    <div class="po" onclick="ans('qele3','B')"><div class="ol">B</div><div class="ot">El voltaje que se debe suministrar al refrigerador.</div></div>
+    <div class="po" onclick="ans('qele3','C')"><div class="ol">C</div><div class="ot">La temperatura del compartimiento congelado.</div></div>
+    <div class="po" onclick="ans('qele3','D')"><div class="ol">D</div><div class="ot">El volumen &uacute;til total de ambos compartimientos.</div></div>
+  </div>
+  <div class="pfb" id="qele3-fb"></div>
+</div>
+<div class="pbox">
+  <div class="ptag" style="color:#d97706">&#129302; Pregunta elaborada &bull; basada en el temario PAES</div>
+  <div class="pctx">El medidor el&eacute;ctrico de una casa registra el consumo en kWh durante un mes.</div>
+  <p class="pq">&iquest;Qu&eacute; magnitud f&iacute;sica est&aacute; midiendo exactamente el medidor?</p>
+  <div class="pos" id="qele4">
+    <div class="po" onclick="ans('qele4','A')"><div class="ol">A</div><div class="ot">Potencia instant&aacute;nea</div></div>
+    <div class="po" onclick="ans('qele4','B')"><div class="ol">B</div><div class="ot">Energ&iacute;a consumida</div></div>
+    <div class="po" onclick="ans('qele4','C')"><div class="ol">C</div><div class="ot">Voltaje</div></div>
+    <div class="po" onclick="ans('qele4','D')"><div class="ol">D</div><div class="ot">Corriente</div></div>
+  </div>
+  <div class="pfb" id="qele4-fb"></div>
+</div>
+
+</div>
+
+<!-- ENSAYO -->
+<div class="sec" id="p8">
+<div class="card">
+  <p class="ct" style="color:var(--sky)">&#9201; Mini Ensayo &bull; 11 preguntas</p>
+  <p style="font-size:.92rem;color:var(--dim)">Simula la prueba: 16:30 minutos, sin retroalimentaci&oacute;n inmediata. Al finalizar ver&aacute;s tu puntaje y las explicaciones de cada pregunta.</p>
+</div>
+<div class="tbox">
+  <div>
+    <div style="font-size:.71rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin-bottom:1px">Tiempo restante</div>
+    <div class="td" id="td">16:30</div>
+  </div>
+  <div style="text-align:right">
+    <div id="ts" style="font-size:.84rem;color:var(--dim);margin-bottom:6px">Haz clic en Iniciar cuando est&eacute;s lista</div>
+    <button id="stb" onclick="startE()" style="padding:8px 20px;background:var(--sky);color:#fff;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.93rem;cursor:pointer;box-shadow:0 4px 12px rgba(14,165,233,.28)">&#9654; Iniciar ensayo</button>
+  </div>
+</div>
+<div id="eqs" style="opacity:.35;pointer-events:none">
+<div class="eq"><div class="enum" style="color:#7c3aed">Pregunta 1 &middot; Ondas &middot; &#129302; IA</div><div class="ectx">Tres olas en la superficie de una piscina, P, Q y R, se propagan por la misma agua en calma, graficadas a la misma escala. &lambda;_P &lt; &lambda;_Q &lt; &lambda;_R.</div><div class="eqt">&iquest;Cu&aacute;l conclusi&oacute;n es correcta?</div><div class="eopts" id="ep0"><div class="eopt" data-qi="0" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">El per&iacute;odo de las ondas P, Q y R es el mismo.</div></div><div class="eopt" data-qi="0" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">La longitud de onda de las ondas P, Q y R es la misma.</div></div><div class="eopt" data-qi="0" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">La velocidad de la onda Q es mayor que la de la onda R.</div></div><div class="eopt" data-qi="0" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">La frecuencia de la onda P es mayor que la de la onda R.</div></div></div><div class="efb" id="ef0"></div></div><div class="eq"><div class="enum" style="color:#db2777">Pregunta 2 &middot; Espectro EM &middot; &#129302; IA</div><div class="ectx">Un tejido experimental bloquea casi por completo un rango muy amplio de ondas electromagn&eacute;ticas.</div><div class="eqt">&iquest;Qu&eacute; producto tecnol&oacute;gico podr&iacute;a dise&ntilde;arse con este material?</div><div class="eopts" id="ep1"><div class="eopt" data-qi="1" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Recubrimiento para trajes de astronautas.</div></div><div class="eopt" data-qi="1" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Recubrimiento para antenas parab&oacute;licas.</div></div><div class="eopt" data-qi="1" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Aislante t&eacute;rmico para materiales de construcci&oacute;n.</div></div><div class="eopt" data-qi="1" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Amplificador de se&ntilde;al inal&aacute;mbrico.</div></div></div><div class="efb" id="ef1"></div></div><div class="eq"><div class="enum" style="color:#059669">Pregunta 3 &middot; &Oacute;ptica &middot; &#129302; IA</div><div class="ectx">Un rayo de luz pasa del aire al agua de una pecera: parte se refleja en la superficie y parte se refracta hacia el interior.</div><div class="eqt">&iquest;Qu&eacute; ocurre con la frecuencia del rayo reflejado y del refractado, comparada con la del rayo incidente?</div><div class="eopts" id="ep2"><div class="eopt" data-qi="2" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Ambas frecuencias cambian.</div></div><div class="eopt" data-qi="2" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Solo cambia la frecuencia del rayo refractado.</div></div><div class="eopt" data-qi="2" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Solo cambia la frecuencia del rayo reflejado.</div></div><div class="eopt" data-qi="2" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Ninguna de las dos frecuencias cambia.</div></div></div><div class="efb" id="ef2"></div></div><div class="eq"><div class="enum" style="color:#ea580c">Pregunta 4 &middot; Mec&aacute;nica &middot; &#129302; IA</div><div class="ectx">Una pelota de tenis cae sobre una malla el&aacute;stica tensada en un marco. La malla se hunde levemente y la pelota rebota hacia arriba.</div><div class="eqt">&iquest;Qu&eacute; ley f&iacute;sica explica principalmente que la pelota rebote?</div><div class="eopts" id="ep3"><div class="eopt" data-qi="3" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">La fuerza es proporcional a la altura desde donde se suelta la pelota.</div></div><div class="eopt" data-qi="3" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">La fuerza depende de cu&aacute;n tensa est&eacute; la malla.</div></div><div class="eopt" data-qi="3" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">La pelota ejerce fuerza sobre la malla en sentido contrario a la que la malla ejerce sobre la pelota.</div></div><div class="eopt" data-qi="3" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">La altura de rebote se relaciona directamente con la tensi&oacute;n de la malla.</div></div></div><div class="efb" id="ef3"></div></div><div class="eq"><div class="enum" style="color:#ea580c">Pregunta 5 &middot; Mec&aacute;nica &middot; &#129302; IA</div><div class="ectx">Un bloque en reposo recibe una fuerza horizontal que aumenta lentamente. Mientras la fuerza aplicada es menor que el roce m&aacute;ximo, el bloque no se mueve; al superarlo, el bloque comienza a deslizar y el roce se mantiene constante.</div><div class="eqt">&iquest;Cu&aacute;l afirmaci&oacute;n es correcta?</div><div class="eopts" id="ep4"><div class="eopt" data-qi="4" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Antes de moverse, el bloque est&aacute; en reposo porque la fuerza aplicada iguala al roce est&aacute;tico.</div></div><div class="eopt" data-qi="4" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Antes de moverse, el bloque est&aacute; en reposo porque el roce es constante.</div></div><div class="eopt" data-qi="4" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Una vez en movimiento, el bloque se mueve bajo roce est&aacute;tico porque el roce es constante.</div></div><div class="eopt" data-qi="4" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Antes de moverse, el bloque se mueve bajo roce cin&eacute;tico porque ambas fuerzas aumentan.</div></div></div><div class="efb" id="ef4"></div></div><div class="eq"><div class="enum" style="color:#dc2626">Pregunta 6 &middot; Tect&oacute;nica &middot; &#129302; IA</div><div class="ectx">Un mapa muestra un oc&eacute;ano sin fosas oce&aacute;nicas, con una dorsal oce&aacute;nica activa en su centro y una isla en cada costa opuesta.</div><div class="eqt">&iquest;Cu&aacute;l predicci&oacute;n es consistente con la Tect&oacute;nica de Placas?</div><div class="eopts" id="ep5"><div class="eopt" data-qi="5" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Ambas islas se alejan entre s&iacute;.</div></div><div class="eopt" data-qi="5" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Ambas islas se acercan entre s&iacute;.</div></div><div class="eopt" data-qi="5" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Deber&iacute;a existir gran sismicidad en ambas islas por subducci&oacute;n.</div></div><div class="eopt" data-qi="5" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Ambas islas se mantienen en la misma posici&oacute;n.</div></div></div><div class="efb" id="ef5"></div></div><div class="eq"><div class="enum" style="color:#dc2626">Pregunta 7 &middot; Tect&oacute;nica &middot; &#129302; IA</div><div class="ectx">Frente a la costa de Chile, la placa de Nazca (oce&aacute;nica, m&aacute;s densa) converge con la placa Sudamericana (continental) y se hunde bajo ella, formando la Fosa de Per&uacute;-Chile y alimentando el volcanismo de la cordillera de los Andes.</div><div class="eqt">&iquest;Qu&eacute; tipo de borde de placas describe mejor este proceso?</div><div class="eopts" id="ep6"><div class="eopt" data-qi="6" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Divergente, porque se forma nuevo suelo oce&aacute;nico.</div></div><div class="eopt" data-qi="6" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Convergente, con subducci&oacute;n de la placa oce&aacute;nica bajo la continental.</div></div><div class="eopt" data-qi="6" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Transformante, porque las placas se deslizan lateralmente.</div></div><div class="eopt" data-qi="6" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Pasivo, porque no hay actividad geol&oacute;gica asociada.</div></div></div><div class="efb" id="ef6"></div></div><div class="eq"><div class="enum" style="color:#d97706">Pregunta 8 &middot; Electricidad &middot; &#129302; IA</div><div class="ectx">Tres resistencias id&eacute;nticas se conectan en paralelo a los mismos terminales de una bater&iacute;a.</div><div class="eqt">&iquest;Cu&aacute;l opci&oacute;n es coherente con la Ley de Ohm al comparar el voltaje y la corriente de cada resistencia con los de la bater&iacute;a?</div><div class="eopts" id="ep7"><div class="eopt" data-qi="7" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Voltaje menor, corriente igual.</div></div><div class="eopt" data-qi="7" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Voltaje igual, corriente menor.</div></div><div class="eopt" data-qi="7" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Voltaje menor, corriente mayor.</div></div><div class="eopt" data-qi="7" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Voltaje igual, corriente mayor.</div></div></div><div class="efb" id="ef7"></div></div><div class="eq"><div class="enum" style="color:#d97706">Pregunta 9 &middot; Electricidad &middot; &#129302; IA</div><div class="ectx">Un estudiante arma un circuito con pila, amper&iacute;metro, ampolleta e interruptor en serie, y registra la corriente cada 5 minutos durante media hora, sin cambiar el voltaje de la pila.</div><div class="eqt">&iquest;Qu&eacute; pregunta de investigaci&oacute;n gui&oacute; mejor este procedimiento?</div><div class="eopts" id="ep8"><div class="eopt" data-qi="8" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">&iquest;Qu&eacute; relaci&oacute;n hay entre diferencia de potencial e intensidad?</div></div><div class="eopt" data-qi="8" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">&iquest;Qu&eacute; relaci&oacute;n hay entre diferencia de potencial y tiempo?</div></div><div class="eopt" data-qi="8" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">&iquest;C&oacute;mo se relaciona el interruptor con la intensidad?</div></div><div class="eopt" data-qi="8" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">&iquest;C&oacute;mo se relaciona la intensidad de corriente con el tiempo?</div></div></div><div class="efb" id="ef8"></div></div><div class="eq"><div class="enum" style="color:#d97706">Pregunta 10 &middot; Electricidad &middot; &#129302; IA</div><div class="ectx">Una persona instala el sistema el&eacute;ctrico de una caba&ntilde;a: cables, enchufes, interruptores y el medidor el&eacute;ctrico a la entrada.</div><div class="eqt">&iquest;Qu&eacute; elemento permite conocer el consumo el&eacute;ctrico del mes?</div><div class="eopts" id="ep9"><div class="eopt" data-qi="9" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Los enchufes.</div></div><div class="eopt" data-qi="9" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Los interruptores.</div></div><div class="eopt" data-qi="9" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">El medidor el&eacute;ctrico.</div></div><div class="eopt" data-qi="9" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Los cables de cobre.</div></div></div><div class="efb" id="ef9"></div></div><div class="eq"><div class="enum" style="color:#4f46e5">Pregunta 11 &middot; Cosmolog&iacute;a &middot; &#129302; IA</div><div class="ectx">Los astr&oacute;nomos observan que la luz de galaxias lejanas se desplaza hacia el rojo a medida que aumenta su distancia a la Tierra.</div><div class="eqt">&iquest;Qu&eacute; fen&oacute;meno evidencia principalmente esta observaci&oacute;n?</div><div class="eopts" id="ep10"><div class="eopt" data-qi="10" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Que el universo se est&aacute; expandiendo.</div></div><div class="eopt" data-qi="10" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Que el universo se est&aacute; contrayendo.</div></div><div class="eopt" data-qi="10" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Que las galaxias se acercan entre s&iacute;.</div></div><div class="eopt" data-qi="10" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Que la velocidad de la luz cambia con la distancia.</div></div></div><div class="efb" id="ef10"></div></div>
+</div>
+<button class="sbtn" id="subb" onclick="submitE()" disabled>Ver resultados</button>
+<div id="eres" style="display:none;margin-top:18px"></div>
+</div>
+
+</div><!-- /wr -->
+<div class="lnav">
+  <button class="lb" id="lp" onclick="linN(-1)" disabled>&#8592; Anterior</button>
+  <div class="lm" id="lm">Inicio</div>
+  <button class="lb" id="ln" onclick="linN(1)">Siguiente &#8594;</button>
+</div>
+<footer>&#9889; Unidad 2 &bull; F&iacute;sica B&aacute;sica &bull; PAES Ciencias Plan Com&uacute;n &bull; Admisi&oacute;n 2027</footer>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 2</h3>
+      <p>Física Básica · Plan Común</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    ⏱️ No puedo ayudarte mientras estás rindiendo el Mini Ensayo cronometrado. Termina primero y luego revisamos lo que necesites.
+  </div>
+
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre Ondas Electromagnéticas, Espectro EM, Óptica, Mecánica, Modelos Cosmológicos, Tectónica de Placas y Electricidad. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── NAV ── */
+var SS=['p0','p1','p2','p3','p4','p5','p6','p7','p8'];
+var SL=['Inicio','Ondas EM','Espectro EM','Optica','Mecanica','Cosmologia','Tectonica','Electricidad','Ensayo'];
+var cur=0;
+function go(id,idx,btn){
+  SS.forEach(function(s){document.getElementById(s).classList.remove('act');});
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('act');});
+  document.getElementById(id).classList.add('act');
+  btn.classList.add('act');
+  cur=idx;
+  document.getElementById('prf').style.width=Math.round((idx+1)/SS.length*100)+'%';
+  document.getElementById('lp').disabled=(idx===0);
+  document.getElementById('ln').disabled=(idx===SS.length-1);
+  document.getElementById('lm').textContent=SL[idx];
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='p1')startWave();
+}
+function linN(d){
+  var n=Math.max(0,Math.min(SS.length-1,cur+d));
+  if(n===cur)return;
+  go(SS[n],n,document.querySelectorAll('.nb')[n]);
+}
+
+/* ── WAVE ── */
+var wt=0,wraf=null;
+function startWave(){if(wraf)return;drawW();}
+function drawW(){
+  var cv=document.getElementById('wcanvas');
+  if(!cv){wraf=null;return;}
+  var ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+  var f=parseFloat(document.getElementById('fsl').value);
+  var a=parseFloat(document.getElementById('asl').value);
+  ctx.clearRect(0,0,W,H);
+  ctx.strokeStyle='rgba(56,189,248,.05)';ctx.lineWidth=1;
+  for(var x=0;x<W;x+=50){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(var y=0;y<H;y+=38){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+  ctx.strokeStyle='rgba(255,255,255,.14)';ctx.lineWidth=1.5;ctx.setLineDash([5,4]);
+  ctx.beginPath();ctx.moveTo(0,H/2);ctx.lineTo(W,H/2);ctx.stroke();ctx.setLineDash([]);
+  ctx.beginPath();ctx.strokeStyle='#7c3aed';ctx.lineWidth=2.5;ctx.shadowColor='#7c3aed';ctx.shadowBlur=9;
+  for(var x=0;x<=W;x+=2){
+    var y=H/2+a*Math.sin(x/W*2*Math.PI*f-wt*0.044);
+    x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  }
+  ctx.stroke();ctx.shadowBlur=0;
+  ctx.fillStyle='rgba(124,58,237,.75)';ctx.font='bold 10px Nunito';ctx.fillText('lambda: longitud de onda',10,16);
+  ctx.fillStyle='rgba(56,189,248,.65)';ctx.fillText('f='+f+'Hz  T='+(1/f).toFixed(2)+'s  A='+a+'px',10,H-9);
+  ctx.strokeStyle='rgba(234,88,12,.65)';ctx.lineWidth=1.5;ctx.setLineDash([3,3]);
+  ctx.beginPath();ctx.moveTo(W-26,H/2);ctx.lineTo(W-26,H/2-a);ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='rgba(234,88,12,.7)';ctx.font='bold 9px Nunito';ctx.fillText('A',W-20,H/2-a/2);
+  wt++;wraf=requestAnimationFrame(drawW);
+}
+
+/* ── SPECTRUM ── */
+var SD=[{name:'Ondas de radio',col:'#6d28d9',lam:'10 cm - 10 km',freq:'3 kHz - 3 GHz',uses:'Radio AM/FM, television, WiFi, Bluetooth, comunicaciones'},{name:'Microondas',col:'#2563eb',lam:'1 mm - 10 cm',freq:'3 GHz - 300 GHz',uses:'Microondas domesticos, radar, GPS, comunicaciones satelitales'},{name:'Infrarrojo (IR)',col:'#0891b2',lam:'700 nm - 1 mm',freq:'4e11 - 4e14 Hz',uses:'Controles remotos, camaras termicas, sensores de movimiento, fibra optica'},{name:'Luz visible',col:'#16a34a',lam:'380 nm - 700 nm',freq:'4.3e14 - 7.5e14 Hz',uses:'Vision humana, optica, iluminacion, fotosintesis, fotografia'},{name:'Ultravioleta UV',col:'#7c3aed',lam:'10 nm - 380 nm',freq:'7.5e14 - 3e16 Hz',uses:'Esterilizacion UV, deteccion de billetes falsos, proteccion solar'},{name:'Rayos X',col:'#1e40af',lam:'0.01 - 10 nm',freq:'3e16 - 3e19 Hz',uses:'Diagnostico medico, control de equipaje, cristalografia'},{name:'Rayos gamma',col:'#374151',lam:'< 0.01 nm',freq:'> 3e19 Hz',uses:'Radioterapia (cancer), esterilizacion medica, deteccion de fallas en metales'}];
+function showS(i){
+  document.querySelectorAll('.sb').forEach(function(b,idx){b.classList.toggle('act',idx===i);});
+  var d=SD[i],el=document.getElementById('si');
+  var h=el.querySelector('h4');
+  if(!h){el.innerHTML='';h=document.createElement('h4');var p=document.createElement('p');el.appendChild(h);el.appendChild(p);}
+  h.style.color=d.col;h.textContent=d.name;
+  var p=el.querySelector('p');
+  p.innerHTML='<strong>Longitud de onda:</strong> '+d.lam+'<br><strong>Frecuencia:</strong> '+d.freq+'<br><strong>Usos:</strong> '+d.uses;
+}
+
+/* ── TABS ── */
+function tab(g,id,btn){
+  document.querySelectorAll('[id^="'+g+'-"]').forEach(function(e){e.classList.remove('act');});
+  document.getElementById(g+'-'+id).classList.add('act');
+  btn.closest('.card').querySelectorAll('.tbtn').forEach(function(b){b.classList.remove('act');});
+  btn.classList.add('act');
+}
+
+/* ── OHM ── */
+var oM='V';
+function ohm(m,btn){
+  oM=m;
+  document.querySelectorAll('.ob').forEach(function(b){b.classList.remove('act');});
+  btn.classList.add('act');
+  var vE=document.getElementById('oV'),iE=document.getElementById('oI'),rE=document.getElementById('oR');
+  [vE,iE,rE].forEach(function(e){e.classList.remove('calc');e.removeAttribute('readonly');e.value='';e.placeholder='?';});
+  var t=m==='V'?vE:m==='I'?iE:rE;
+  t.classList.add('calc');t.setAttribute('readonly','');t.placeholder='calculado';
+  document.getElementById('ores').textContent='Ingresa los valores para calcular';
+}
+function calcO(){
+  var V=parseFloat(document.getElementById('oV').value);
+  var I=parseFloat(document.getElementById('oI').value);
+  var R=parseFloat(document.getElementById('oR').value);
+  var re=document.getElementById('ores');
+  if(oM==='V'&&!isNaN(I)&&!isNaN(R)){var v=I*R;document.getElementById('oV').value=v.toFixed(3);re.textContent='V = '+I+' A x '+R+' ohm = '+v.toFixed(3)+' V';}
+  else if(oM==='I'&&!isNaN(V)&&!isNaN(R)&&R>0){var iv=V/R;document.getElementById('oI').value=iv.toFixed(4);re.textContent='I = '+V+' V / '+R+' ohm = '+iv.toFixed(4)+' A';}
+  else if(oM==='R'&&!isNaN(V)&&!isNaN(I)&&I>0){var rv=V/I;document.getElementById('oR').value=rv.toFixed(3);re.textContent='R = '+V+' V / '+I+' A = '+rv.toFixed(3)+' ohm';}
+  else{re.textContent='V = I x R   I = V / R   R = V / I';}
+}
+ohm('V',document.querySelector('.ob'));
+
+/* ── ANSWERS ── */
+var QA={'qond':{c:'D',fb:{'A':'No. El periodo T=1/f. Si las ondas tienen diferente lambda en el mismo medio, entonces tienen diferente f y por tanto diferente T.','B':'No. El enunciado indica explicitamente que P, Q y R tienen diferentes longitudes de onda.','C':'No. En el mismo medio todas las ondas viajan a la misma velocidad, independiente de su frecuencia.','D':'Correcto. v=f*lambda es constante en el mismo medio. Si lambda_P es menor que lambda_R, entonces f_P es mayor que f_R.'}},'qesp':{c:'A',fb:{'A':'Correcto. Los astronautas estan expuestos a radiacion cosmica (rayos gamma, X, UV). Un material que bloquea casi todo el espectro EM es ideal para protegerlos.','B':'No. Las antenas parabolicas necesitan recibir ondas de radio, no bloquearlas. Un recubrimiento bloqueador las inutilizaria.','C':'No. Los aislantes de construccion estan disenados para retener calor, no para bloquear ondas EM.','D':'No. Un amplificador de senal necesita transmitir ondas EM, lo opuesto a bloquearlas.'}},'qopt':{c:'C',fb:{'A':'No. Espejo 1 (igual, derecha) puede ser plano. Espejo 4 (pequena, derecha) es convexo. Son tipos diferentes.','B':'No. El espejo plano NUNCA produce imagen invertida. Espejo 3 da imagen invertida, por tanto no puede ser plano.','C':'Correcto. Espejos 2 y 3 pueden ser concavos con diferente distancia focal: dentro del foco da imagen virtual mayor y derecha (espejo 2); fuera del foco da imagen real invertida (espejo 3).','D':'No. Espejo 1 da imagen igual y espejo 2 da imagen mayor. No pueden ser el mismo tipo con la misma focal.'}},'qmec':{c:'C',fb:{'A':'No. La altura determina la velocidad de impacto, pero no explica por que la canica rebota.','B':'No. La tension del globo afecta cuanto se hunde, pero no explica el mecanismo del rebote.','C':'Correcto. Es la 3a Ley de Newton: la canica ejerce fuerza sobre el globo hacia abajo; el globo ejerce fuerza igual hacia arriba sobre la canica, lo que la hace rebotar.','D':'No. Esto no explica el mecanismo del rebote.'}},'qtec':{c:'A',fb:{'A':'Correcto. La dorsal oceanica es un borde divergente: las placas se alejan entre si. Por eso las islas en costas opuestas se alejan.','B':'No. El surgimiento de nuevas islas no es la prediccion principal de la tectonica para este escenario.','C':'No. La alta sismicidad es tipica de bordes convergentes y transformantes, no divergentes.','D':'No. La tectonica predice movimiento continuo. En borde divergente las costas no se mantienen estaticas.'}},'qele':{c:'B',fb:{'A':'No. En paralelo, cada resistencia esta directamente conectada a la bateria, por lo que recibe el MISMO voltaje, no menor.','B':'Correcto. En paralelo: voltaje en cada rama = voltaje de la bateria (igual). La corriente total se reparte entre las ramas, por lo que cada una lleva MENOS corriente que la bateria total.','C':'No. El voltaje en paralelo no es menor. Y la corriente en cada rama es menor, no mayor.','D':'No. La corriente de la bateria es la suma de las ramas. Cada rama lleva menos corriente, no mas.'}},'qond4':{c:'B',fb:{'A':'No. La frecuencia la determina la fuente emisora y NO cambia al cambiar de medio.','B':'Correcto. La frecuencia depende de la fuente y no cambia. Como v disminuye y v = f*lambda, lambda tambien debe disminuir.','C':'No. La frecuencia no cambia al cambiar de medio, pero la longitud de onda si cambia (disminuye).','D':'No. Si la velocidad disminuye, la longitud de onda tambien disminuye, no aumenta.'}},'qesp2':{c:'A',fb:{'A':'Correcto. A mayor frecuencia, mayor energia transporta la onda EM.','B':'No. Mayor frecuencia implica MENOR longitud de onda (v=f*lambda constante), no mayor.','C':'No. En el vacio todas las ondas EM viajan a la misma velocidad c, sin importar su frecuencia.','D':'No. Si tienen distinta frecuencia, necesariamente tienen distinta longitud de onda.'}},'qesp3':{c:'C',fb:{'A':'No. Las ondas de radio no penetran tejidos con suficiente resolucion para imagenes medicas.','B':'No. El infrarrojo es absorbido por la piel y no atraviesa el cuerpo.','C':'Correcto. Los rayos X tienen alta energia y penetran tejidos blandos, permitiendo radiografias sin cirugia.','D':'No. Las microondas no se usan para obtener imagenes internas del cuerpo.'}},'qesp4':{c:'B',fb:{'A':'No. Los rayos gamma son peligrosos y no se usan en electronica domestica.','B':'Correcto. Los controles remotos usan infrarrojo, que necesita linea de vista directa y es bloqueado por objetos opacos.','C':'No. Los rayos X requieren blindaje especial y no se usan en controles remotos.','D':'No. La ultravioleta no es la tecnologia usada en controles remotos domesticos.'}},'qtec3':{c:'B',fb:{'A':'No. En 1912 no existia tecnologia satelital; Wegener no pudo usar GPS.','B':'Correcto. Wegener observo que las costas encajaban como puzzle y que habia fosiles identicos en continentes hoy separados por el oceano.','C':'No. La temperatura del nucleo no fue parte de la evidencia original de Wegener.','D':'No. La frecuencia de erupciones no fue el argumento central de su teoria.'}},'qtec4':{c:'C',fb:{'A':'No. El borde divergente separa las placas, no las desliza lateralmente.','B':'No. El borde convergente las junta y una subduce bajo la otra.','C':'Correcto. El borde transformante es exactamente el deslizamiento lateral sin crear ni destruir corteza, como en San Andres.','D':'No. La subduccion es un proceso propio del borde convergente, no del transformante.'}},'qele4':{c:'B',fb:{'A':'No. La potencia instantanea se mide en Watts, no en kWh acumulados en el tiempo.','B':'Correcto. kWh es una unidad de energia (potencia por tiempo). El medidor mide la energia consumida.','C':'No. El voltaje se mide con un voltimetro, no con el medidor de consumo.','D':'No. La corriente se mide con un amperimetro, no con el medidor de consumo domiciliario.'}},'qcos1':{c:'A',fb:{'A':'Correcto. El corrimiento al rojo indica que las galaxias se alejan: es la evidencia principal de un universo en expansion.','B':'No. Si se contrajera, la luz se desplazaria hacia el azul (longitudes de onda mas cortas), no hacia el rojo.','C':'No. La observacion muestra justamente lo contrario: las galaxias se alejan.','D':'No. La velocidad de la luz es constante; lo que cambia es la longitud de onda percibida por el alejamiento de la fuente.'}},'qcos2':{c:'A',fb:{'A':'Correcto. La radiacion de fondo es el remanente termico de un universo que fue muy caliente y denso, y que se ha enfriado al expandirse.','B':'No. Un universo estatico no explicaria por que existe esta radiacion remanente ni el corrimiento al rojo observado.','C':'No. La radiacion de fondo no tiene relacion directa con agujeros negros galacticos.','D':'No. La radiacion de fondo es practicamente uniforme en todas direcciones, lo que indica que no hay un centro privilegiado, ni la Tierra lo es.'}},'qcos3':{c:'A',fb:{'A':'Correcto. Midiendo la tasa actual de expansion del universo (constante de Hubble) se puede calcular hacia atras cuanto tiempo ha pasado desde el Big Bang.','B':'No. El numero de estrellas visibles no permite calcular la edad del universo.','C':'No. La temperatura del Sol es informacion sobre nuestra estrella, no sobre la edad del universo.','D':'No. La composicion de la Luna no aporta informacion sobre la edad del universo.'}},'qcos4':{c:'A',fb:{'A':'Correcto. La expansion ocurre en todo el espacio por igual: no existe un punto central, cualquier observador en cualquier galaxia veria lo mismo.','B':'No. Las observaciones (corrimiento al rojo) si muestran que las galaxias se alejan.','C':'No. Todas las galaxias lejanas muestran alejamiento, no solo las cercanas.','D':'No. Precisamente el modelo del Big Bang descarta que exista un centro del universo.'}},'qond2':{c:'C',fb:{'A':'No. La reflexion no es lo que evidencia el comportamiento ondulatorio en este experimento.','B':'No. El experimento de Young no midio directamente la intensidad de la onda.','C':'Correcto. La interferencia (patrones de zonas claras y oscuras por superposicion de ondas) es una propiedad exclusiva de las ondas, por eso la difraccion con interferencia es evidencia de la naturaleza ondulatoria de la luz.','D':'No. El experimento no midio la velocidad de la luz.'}},'qond3':{c:'C',fb:{'A':'No. El anaranjado tiene menor frecuencia que el violeta.','B':'No. El amarillo tiene menor frecuencia que el violeta.','C':'Correcto. Dentro del espectro visible, el violeta es el color con mayor frecuencia (y menor longitud de onda).','D':'No. El verde tiene menor frecuencia que el violeta.','E':'No. El rojo tiene la MENOR frecuencia del espectro visible, no la mayor.'}},'qopt2':{c:'B',fb:{'A':'No. El espejo convexo NUNCA forma imagenes reales, solo virtuales.','B':'Correcto. El espejo plano forma imagen virtual y el convexo tambien forma SIEMPRE imagen virtual (nunca real). Por eso se forman solo imagenes virtuales.','C':'No. Ninguno de los dos espejos en este caso forma imagen real.','D':'No. Un espejo convexo no forma multiples imagenes reales; de hecho nunca forma imagenes reales.','E':'No. Ni el plano ni el convexo forman imagenes reales en este caso.'}},'qopt3':{c:'A',fb:{'A':'Correcto. Una lente convergente puede formar imagen invertida (objeto fuera del foco) o derecha (objeto dentro del foco), segun la posicion del objeto.','B':'No. La lente divergente SIEMPRE forma imagenes virtuales, nunca reales.','C':'No. La lente divergente siempre forma imagenes derechas, no invertidas.','D':'No. La lente convergente puede formar tanto imagenes reales como virtuales, dependiendo de la posicion del objeto.','E':'No. La lente divergente forma siempre imagenes virtuales, no reales.'}},'qopt4':{c:'B',fb:{'A':'No. La pregunta no busca las longitudes reflejadas en la baldosa seca, sino por que se ve mas oscura la zona mojada.','B':'Correcto. La zona mojada se ve mas oscura porque el agua absorbe parte de la luz que antes se reflejaba en la baldosa seca. La pregunta de investigacion apunta directamente a esa absorcion.','C':'No. La refraccion en las baldosas no es lo que se observa aqui; el fenomeno relevante es la absorcion por el agua.','D':'No. La pregunta de incidencia no explica por que la zona se ve mas oscura.'}},'qmec2':{c:'A',fb:{'A':'Correcto. La deformacion respecto del largo natural (40 cm) es 30 cm cuando x=70 (F=30 N), y es 10 cm cuando x=50. Como F es proporcional a la deformacion (Ley de Hooke): F = 30 N x (10/30) = 10 N.','B':'No. Revisa la proporcion: 30 N corresponde a una deformacion de 30 cm, y ahora la deformacion es de solo 10 cm.','C':'No. Este valor no corresponde a la proporcion correcta de deformacion.','D':'No. Ese es el valor original a x=70 cm, no a x=50 cm.','E':'No. Este valor no corresponde a la proporcion correcta.'}},'qmec3':{c:'E',fb:{'A':'No. Calcula F=m*a para cada cuerpo: F1=3m(2a)=6ma, F2=4m(3a)=12ma, F3=6m(a)=6ma. F1 no es mayor que los otros.','B':'No. F1=6ma y F3=6ma son iguales entre si, no menores uno que otro.','C':'No. F1=6ma no es mayor que F3=6ma; ambos son iguales.','D':'No. F1 y F3 son iguales (6ma), no uno mayor que el otro.','E':'Correcto. F1=3m(2a)=6ma, F2=4m(3a)=12ma, F3=6m(a)=6ma. Entonces F1=F3=6ma, y ambas son menores que F2=12ma. Por tanto F1=F3<F2.'}},'qmec4':{c:'A',fb:{'A':'Correcto. Velocidad constante significa aceleracion cero, y por la 2a Ley de Newton, fuerza neta cero (equilibrio de fuerzas), sin importar cuantas fuerzas individuales actuen.','B':'No. Puede actuar mas de una fuerza (por ejemplo peso, normal y roce) siempre que la resultante sea cero.','C':'No. Puede existir fuerza de roce, siempre que sea compensada por otra fuerza para que la neta sea cero.','D':'No. No hay ninguna regla que exija un numero par de fuerzas; lo que importa es que la suma vectorial sea cero.','E':'No. Si la velocidad es constante, la fuerza neta debe ser CERO, no estar orientada hacia ningun lado.'}},'qele2':{c:'B',fb:{'A':'No es la idea central del manual: aunque es cierto que la corriente es igual en ambas ampolletas, esto no explica por si solo el problema de funcionamiento.','B':'Correcto. En serie, si una ampolleta falla, el circuito se abre y ambas se apagan: por eso el buen estado de AMBAS es indispensable para el funcionamiento.','C':'No es la informacion mas relevante para evitar problemas de funcionamiento, aunque el voltaje si se reparte entre ambas.','D':'No es la idea central del manual, aunque la resistencia total en serie efectivamente es la suma de las resistencias.'}},'qele3':{c:'A',fb:{'A':'Correcto. El consumo mensual (energia, relacionado al medidor electrico) es lo que determina directamente el gasto economico de usar el refrigerador.','B':'No. El voltaje de alimentacion es un dato tecnico de instalacion, no indica el gasto economico de uso.','C':'No. La temperatura del compartimiento no determina el consumo energetico ni el gasto economico directamente.','D':'No. El volumen util se relaciona con la capacidad de almacenamiento, no con el gasto economico de operacion.'}},'qtec2':{c:'C',fb:{'A':'No. El planteamiento del problema es la pregunta inicial de investigacion, no un resultado final.','B':'No. La formulacion de hipotesis se hace ANTES de recolectar datos, no despues de analizarlos.','C':'Correcto. Reportar que la sismicidad esta dentro de parametros normales, a partir de los resultados obtenidos, es la presentacion de una conclusion.','D':'No. La recoleccion de datos ya ocurrio antes; la frase citada es la interpretacion final de esos datos, no su recoleccion.'}}};
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done='1';
+  var a=QA[qid];
+  el.querySelectorAll('.po').forEach(function(o){
+    o.classList.add('locked');
+    var l=o.querySelector('.ol').textContent;
+    if(l===a.c)o.classList.add('right');
+    else if(l===opt)o.classList.add('wrong');
+  });
+  var fb=document.getElementById(qid+'-fb');
+  fb.className='pfb show '+(opt===a.c?'ok':'no');
+  fb.textContent=(opt===a.c?'Correcto! ':'')+a.fb[opt];
+}
+
+/* ── ENSAYO ── */
+var EQA=[{c:'D',fb:'v=f*lambda es constante en el mismo medio. Si lambda_P es menor que lambda_R, entonces f_P es mayor que f_R.'},{c:'A',fb:'Los astronautas estan expuestos a radiacion cosmica. Las antenas y amplificadores necesitan transmitir ondas, no bloquearlas.'},{c:'D',fb:'La frecuencia la determina la fuente y NO cambia ni en la reflexion ni en la refraccion, solo cambian la velocidad y la longitud de onda del rayo refractado.'},{c:'C',fb:'3a Ley de Newton: la pelota empuja la malla hacia abajo; la malla empuja la pelota hacia arriba con igual magnitud y sentido contrario.'},{c:'A',fb:'Mientras no se mueve: el roce estatico aumenta igual que la fuerza aplicada, hasta que esta alcanza el roce maximo (fuerza neta = 0, reposo).'},{c:'A',fb:'Dorsal oceanica activa = borde divergente: las placas se alejan y las islas en costas opuestas se alejan entre si.'},{c:'B',fb:'La placa de Nazca (oceanica) se hunde bajo la Sudamericana (continental): es subduccion, propia de un borde convergente.'},{c:'B',fb:'En paralelo: el voltaje es igual en cada rama (igual al de la bateria). La corriente total se reparte entre las ramas, por lo que cada una lleva menos que la corriente total.'},{c:'D',fb:'La variable independiente es el tiempo y la dependiente es la corriente; el procedimiento busca como varia la intensidad de corriente en el tiempo.'},{c:'C',fb:'El medidor electrico mide la energia consumida (kWh). Los enchufes conectan, los interruptores abren o cierran el circuito y los cables solo conducen.'},{c:'A',fb:'El corrimiento al rojo indica que las galaxias se alejan de nosotros: es la evidencia principal de un universo en expansion.'}];
+var UA={},eS=false,eF=false,tL=990,tI=null;
+function selA(el){
+  if(!eS||eF)return;
+  var i=parseInt(el.dataset.qi),o=el.dataset.opt;
+  var row=document.getElementById('ep'+i);
+  if(row.dataset.done)return;
+  UA[i]=o;
+  row.querySelectorAll('.eopt').forEach(function(x){x.classList.remove('sel');});
+  el.classList.add('sel');
+}
+function startE(){
+  eS=true;
+  document.getElementById('stb').style.display='none';
+  document.getElementById('ts').textContent='En marcha!';
+  document.getElementById('eqs').style.opacity='1';
+  document.getElementById('eqs').style.pointerEvents='auto';
+  document.getElementById('subb').disabled=false;
+  tI=setInterval(function(){
+    tL--;
+    var m=Math.floor(tL/60),s=tL%60;
+    var d=document.getElementById('td');
+    d.textContent=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
+    d.className='td'+(tL<=60?' d':tL<=180?' w':'');
+    if(tL<=0){clearInterval(tI);submitE();}
+  },1000);
+}
+function submitE(){
+  if(eF)return;
+  eF=true;clearInterval(tI);
+  document.getElementById('ts').textContent='Tiempo terminado';
+  document.getElementById('subb').disabled=true;
+  var ok=0;
+  EQA.forEach(function(q,i){
+    var row=document.getElementById('ep'+i);
+    row.dataset.done='1';
+    row.querySelectorAll('.eopt').forEach(function(o){
+      o.classList.add('locked');
+      if(o.dataset.opt===q.c)o.classList.add('right');
+      else if(UA[i]&&o.dataset.opt===UA[i])o.classList.add('wrong');
+    });
+    var fb=document.getElementById('ef'+i);
+    var ua=UA[i];
+    fb.className='efb show '+(ua===q.c?'ok':'no');
+    fb.textContent=(ua===q.c?'Correcto! ':ua?'Incorrecto. ':'Sin respuesta. ')+q.fb;
+    if(ua===q.c)ok++;
+  });
+  var pct=Math.round(ok/EQA.length*100);
+  var sc=pct>=70?'var(--sky)':pct>=50?'#d97706':'#dc2626';
+  var res=document.getElementById('eres');
+  res.style.display='block';
+  var d1=document.createElement('div');
+  d1.style.cssText='font-family:Fredoka One,cursive;font-size:2rem;color:'+sc+';margin-bottom:6px';
+  d1.textContent=(pct>=70?'🚀':pct>=50?'💪':'📚')+' '+ok+'/'+EQA.length+' correctas — '+pct+'%';
+  var d2=document.createElement('div');
+  d2.style.cssText='background:var(--card2);border:1px solid var(--bord);border-radius:13px;padding:16px';
+  var d3=document.createElement('div');
+  d3.style.cssText='font-family:Fredoka One,cursive;font-size:1rem;color:var(--sky);margin-bottom:5px';
+  d3.textContent=pct>=70?'Buen resultado! Estas dominando la fisica.':pct>=50?'Vas bien. Revisa las secciones donde fallaste.':'Repasa los contenidos y vuelve a intentarlo.';
+  var d4=document.createElement('p');d4.style.cssText='font-size:.87rem;color:var(--dim)';
+  d4.textContent='Revisa el feedback de cada pregunta arriba. Puedes volver a cualquier seccion del menu para repasar.';
+  d2.appendChild(d3);d2.appendChild(d4);
+  res.innerHTML='';res.appendChild(d1);res.appendChild(d2);
+  res.scrollIntoView({behavior:'smooth'});
+}
+
+</script>
+
+<!-- ═══ ASISTENTE IA — LÓGICA ═══ -->
+<script>
+(function(){
+
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico de la Unidad 2 (Física Básica: Ondas Electromagnéticas, Espectro Electromagnético, Óptica, Mecánica, Modelos Cosmológicos, Tectónica de Placas, Electricidad) del módulo de Ciencias Plan Común, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media, muchos sin conocimiento previo del tema. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre los 7 temas de esta unidad y sus ejemplos: (1) Ondas EM — longitud de onda, frecuencia, período, amplitud, v=fλ; (2) Espectro EM — clasificación por λ/f y usos tecnológicos; (3) Óptica — reflexión, refracción, espejos planos/cóncavos/convexos, lentes; (4) Mecánica — MRU, MRUA, Leyes de Newton, roce estático/cinético; (5) Modelos Cosmológicos — Big Bang, corrimiento al rojo, radiación cósmica de fondo, expansión del universo; (6) Tectónica de Placas — deriva continental, bordes divergente/convergente/transformante, subducción; (7) Electricidad — Ley de Ohm, circuitos serie/paralelo, potencia y consumo. NO respondes sobre otras materias PAES (Lenguaje, Matemática, Historia, Biología, Química) ni sobre otras unidades de Física que el estudiante aún no ha visto.",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos de la unidad tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre alguno de los 7 temas de la unidad, según pida o según lo que haya estado repasando. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica de la unidad y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta general sobre qué concepto físico está en juego, 2) acota a la fórmula o principio específico aplicable, 3) pide que aplique ese principio paso a paso al caso concreto, 4) contrasta la alternativa elegida con la probablemente correcta, preguntando qué diferencia hay. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otra materia, otra unidad no vista, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para resolver dudas de Física Básica de esta unidad (Ondas, Espectro, Óptica, Mecánica, Cosmología, Tectónica y Electricidad).'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático, cálculos numéricos completos). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function ensayoActive(){
+  return (typeof eS !== "undefined" && eS) && !(typeof eF !== "undefined" && eF);
+}
+
+function checkTutorBlock(){
+  var blocked = ensayoActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false;
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Física Básica\n" +
+    "Módulo/Unidad: Ciencias Plan Común · Unidad 2 · Física Básica\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica de la unidad, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy || ensayoActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+checkTutorBlock();
+})();
+</script>
+</body>
+</html>
