@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Plan Com&uacute;n Matem&aacute;tica &bull; Unidad 3: Geometr&iacute;a &bull; PAES M1 &bull; Admisi&oacute;n 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5ff;--card:#fff;--card2:#f1edfe;--bord:#ddd6fe;--bord2:#c4b5fd;
+  --text:#211a4d;--dim:#57508f;--dim2:#9b91c9;
+  --ind:#4f46e5;--ind2:#6366f1;--ind3:#818cf8;--indl:rgba(79,70,229,.1);
+  --rad:18px;--sh:0 2px 14px rgba(60,50,150,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(380px 320px at 8% 12%,rgba(249,115,22,.08),transparent),
+             radial-gradient(300px 280px at 92% 85%,rgba(79,70,229,.06),transparent)}
+.wr{max-width:960px;margin:0 auto;padding:18px 16px 40px;position:relative;z-index:1}
+/* PROGRESS */
+.pr{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(60,50,150,.1);z-index:200}
+.prf{height:100%;background:linear-gradient(90deg,var(--ind),var(--ind2),var(--ind3));transition:width .4s}
+/* HERO */
+.hero{text-align:center;padding:50px 16px 18px}
+.hi{font-size:70px;display:block;animation:fl 3s ease-in-out infinite;margin-bottom:10px}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(2rem,7vw,3.5rem);
+  background:linear-gradient(130deg,var(--ind),#818cf8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:7px}
+.hero-s{color:var(--dim);font-size:.88rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--indl);
+  border:1.5px solid rgba(79,70,229,.3);color:var(--ind);padding:5px 15px;border-radius:999px;
+  font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-top:9px}
+/* NAV */
+.nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:16px 0 2px;
+  position:sticky;top:4px;z-index:90;background:rgba(247,245,255,.88);
+  backdrop-filter:blur(10px);padding:9px;border-radius:var(--rad);border:1px solid var(--bord)}
+.nb{background:transparent;border:1.5px solid var(--bord);color:var(--dim);
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.77rem;padding:6px 12px;
+  border-radius:50px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nb:hover,.nb.act{background:var(--ind);border-color:var(--ind);color:#fff}
+/* SECTIONS */
+.sec{display:none;animation:up .3s ease}
+.sec.act{display:block}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--bord);border-radius:var(--rad);
+  padding:22px;margin-bottom:14px;box-shadow:var(--sh)}
+.ct{font-family:'Fredoka One',cursive;font-size:1.28rem;margin-bottom:11px;
+  display:flex;align-items:center;gap:8px;color:var(--text)}
+.card p,.card li{font-size:.94rem;line-height:1.75;color:var(--dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:18px}
+.card li{margin-bottom:5px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.g2{grid-template-columns:1fr}}
+.hsec{background:var(--card);border:1.5px solid var(--bord);border-radius:var(--rad);
+  padding:26px;margin-bottom:14px;box-shadow:var(--sh)}
+.hsec .hi2{font-size:54px;display:block;margin-bottom:9px}
+.hsec h2{font-family:'Fredoka One',cursive;font-size:clamp(1.55rem,5vw,2.3rem);line-height:1.1;margin-bottom:5px}
+.hsec p{font-size:.94rem;line-height:1.7;color:var(--dim);max-width:560px}
+.tip{border-left:4px solid var(--ind);background:var(--indl);border-radius:0 12px 12px 0;padding:12px 15px;margin-bottom:11px}
+.tip-l{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--ind);margin-bottom:3px}
+.tip p{font-size:.87rem;color:var(--dim);line-height:1.6}
+.kws{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.kw{border-radius:8px;padding:4px 11px;font-size:.79rem;font-weight:800;
+  border:1px solid var(--bord);background:var(--card2);color:var(--dim)}
+.fbox{background:var(--card2);border:1px solid var(--bord2);border-radius:11px;
+  padding:13px;text-align:center;margin-bottom:9px}
+.fsym{font-family:'Fredoka One',cursive;font-size:1.35rem;display:block}
+.fdef{font-size:.79rem;color:var(--dim);margin-top:3px}
+/* WAVE */
+#wcanvas{width:100%;border-radius:11px;background:#061c2e;display:block;border:1px solid var(--bord)}
+.sls{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0}
+.slg{display:flex;flex-direction:column;gap:3px;min-width:190px;flex:1}
+.slg label{font-size:.78rem;font-weight:800;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.sv{font-family:'Fredoka One',cursive;font-size:.98rem;color:var(--ind)}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;
+  background:rgba(79,70,229,.18);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
+  border-radius:50%;background:var(--ind);cursor:pointer;border:2px solid #fff;
+  box-shadow:0 2px 6px rgba(79,70,229,.4)}
+.wpg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:9px;margin-top:11px}
+.wp{background:var(--card2);border:1px solid var(--bord);border-radius:10px;padding:11px;text-align:center}
+.wp .ws{font-family:'Fredoka One',cursive;font-size:1.45rem;display:block}
+.wp .wn{font-size:.76rem;color:var(--dim);font-weight:700;margin-top:2px}
+/* SPECTRUM */
+.sbar{display:flex;border-radius:11px;overflow:hidden;height:52px;cursor:pointer;margin:12px 0;border:1px solid var(--bord)}
+.sb{flex:1;display:flex;align-items:center;justify-content:center;font-size:.59rem;
+  font-weight:900;color:rgba(255,255,255,.85);text-align:center;line-height:1.3;
+  padding:2px;transition:transform .18s,filter .18s;letter-spacing:.03em}
+.sb:hover{transform:scaleY(1.1);filter:brightness(1.12)}
+.sb.act{transform:scaleY(1.18);outline:2.5px solid rgba(0,0,0,.2)}
+.sinfo{background:var(--card2);border:1px solid var(--bord2);border-radius:12px;
+  padding:15px;min-height:90px;transition:all .2s}
+.sinfo h4{font-family:'Fredoka One',cursive;font-size:1.02rem;margin-bottom:5px}
+.sinfo p{font-size:.85rem;color:var(--dim);line-height:1.65}
+/* TABS */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+.tbtn{padding:7px 15px;border-radius:50px;border:1.5px solid var(--bord2);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:.81rem;cursor:pointer;transition:all .18s}
+.tbtn.act,.tbtn:hover{background:var(--ind);border-color:var(--ind);color:#fff}
+.tp{display:none}
+.tp.act{display:block;animation:up .22s ease}
+.svgw{background:var(--card2);border:1px solid var(--bord);border-radius:11px;padding:16px;
+  display:flex;justify-content:center;align-items:center;min-height:172px;margin-bottom:10px}
+/* MOTION */
+.trk{background:#061c2e;border-radius:11px;padding:0 10px;margin-bottom:10px;
+  position:relative;height:68px;overflow:hidden;border:1px solid var(--bord)}
+.trk-lbl{position:absolute;top:7px;left:10px;font-size:.66rem;font-weight:900;
+  color:rgba(255,255,255,.45);letter-spacing:.07em;text-transform:uppercase}
+.ball{width:24px;height:24px;border-radius:50%;position:absolute;top:50%;
+  transform:translateY(-50%);left:4px}
+.bmru{background:var(--ind3);animation:mru 4s linear infinite;box-shadow:0 0 8px rgba(249,115,22,.6)}
+.bmrua{background:#818cf8;animation:mrua 4s ease-in infinite;box-shadow:0 0 8px rgba(251,146,60,.5)}
+@keyframes mru{0%{left:4px}100%{left:calc(100% - 28px)}}
+@keyframes mrua{0%{left:4px}100%{left:calc(100% - 28px)}}
+/* OHM */
+.ohmc{background:var(--card2);border:1.5px solid rgba(217,119,6,.22);border-radius:var(--rad);padding:18px}
+.orow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:500px){.orow{grid-template-columns:1fr}}
+.of label{font-size:.74rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);display:block;margin-bottom:4px}
+.of input{width:100%;background:var(--card);border:1.5px solid var(--bord2);border-radius:9px;
+  color:var(--text);font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
+  padding:8px 11px;outline:none;transition:border .18s}
+.of input:focus{border-color:var(--ind)}
+.of input.calc{color:#d97706;border-color:rgba(217,119,6,.4);background:rgba(255,243,210,.4)}
+.of .un{font-size:.73rem;color:var(--dim);margin-top:2px}
+.ores{font-family:'Fredoka One',cursive;font-size:1.25rem;text-align:center;color:#d97706;
+  padding:13px;background:rgba(255,243,210,.6);border-radius:10px;border:1px solid rgba(217,119,6,.18)}
+.obr{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ob{padding:7px 15px;border-radius:50px;border:1.5px solid rgba(217,119,6,.25);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;font-size:.81rem;cursor:pointer;transition:all .18s}
+.ob.act,.ob:hover{background:#d97706;border-color:#d97706;color:#fff}
+/* PLATES */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:540px){.pgrid{grid-template-columns:1fr}}
+.pc{background:var(--card);border:1.5px solid var(--bord);border-radius:12px;padding:15px;
+  transition:all .2s;box-shadow:var(--sh)}
+.pc:hover{border-color:#dc2626;transform:translateY(-2px)}
+.pc h4{font-family:'Fredoka One',cursive;font-size:.98rem;color:#dc2626;margin-bottom:5px}
+.pc p{font-size:.83rem;color:var(--dim);line-height:1.6}
+.panim{width:100%;height:52px;margin:9px 0;position:relative;border-radius:8px;
+  background:#0f1f2e;overflow:hidden;border:1px solid rgba(220,38,38,.2)}
+.pb{position:absolute;height:100%;width:46%;
+  display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:900;
+  letter-spacing:.04em;border-radius:4px}
+.pl{left:2%;background:linear-gradient(135deg,rgba(220,38,38,.35),rgba(220,38,38,.15));
+  border:1.5px solid rgba(220,38,38,.6);color:#fca5a5}
+.pr{right:2%;background:linear-gradient(135deg,rgba(79,70,229,.35),rgba(79,70,229,.15));
+  border:1.5px solid rgba(79,70,229,.6);color:#fdba74}
+.pa-arrow{position:absolute;top:50%;transform:translateY(-50%);
+  font-size:1rem;font-weight:900;line-height:1;pointer-events:none}
+.da .pl{animation:da-l 2.5s ease-in-out infinite}
+.da .pr{animation:da-r 2.5s ease-in-out infinite}
+.ca .pl{animation:ca-l 2.5s ease-in-out infinite}
+.ca .pr{animation:ca-r 2.5s ease-in-out infinite}
+.ta .pl{animation:ta-l 2.5s ease-in-out infinite}
+.ta .pr{animation:ta-r 2.5s ease-in-out infinite}
+@keyframes da-l{0%,100%{left:2%}50%{left:-8%}}
+@keyframes da-r{0%,100%{right:2%}50%{right:-8%}}
+@keyframes ca-l{0%,100%{left:2%}50%{left:12%}}
+@keyframes ca-r{0%,100%{right:2%}50%{right:12%}}
+@keyframes ta-l{0%,100%{top:0;left:2%}50%{top:12px;left:2%}}
+@keyframes ta-r{0%,100%{top:0;right:2%}50%{top:-12px;right:2%}}
+/* PAES Q */
+.pbox{background:var(--card2);border:1px solid var(--bord2);border-radius:var(--rad);padding:20px;margin-top:7px}
+.ptag{font-size:.67rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.pctx{background:rgba(60,50,150,.05);border-radius:9px;padding:11px 13px;font-size:.86rem;color:var(--dim);line-height:1.65;margin-bottom:11px}
+.pctx table{width:100%;border-collapse:collapse;margin-top:7px}
+.pctx th,.pctx td{padding:5px 8px;font-size:.8rem;border-bottom:1px solid var(--bord);text-align:left}
+.pq{font-size:.92rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pos{display:flex;flex-direction:column;gap:7px}
+.po{display:flex;align-items:flex-start;gap:8px;padding:9px 12px;border-radius:9px;
+  cursor:pointer;border:1.5px solid var(--bord);background:var(--card);transition:all .16s;box-shadow:var(--sh)}
+.po:hover{border-color:var(--ind);background:var(--indl)}
+.po.locked{cursor:default;pointer-events:none}
+.po.right{background:rgba(79,70,229,.1);border-color:var(--ind)}
+.po.wrong{background:rgba(220,38,38,.06);border-color:#dc2626}
+.ol{min-width:24px;height:24px;border-radius:50%;border:1.5px solid var(--bord2);
+  display:flex;align-items:center;justify-content:center;font-size:.73rem;font-weight:900;
+  color:var(--ind);flex-shrink:0}
+.po.right .ol{background:var(--ind);color:#fff;border-color:var(--ind)}
+.po.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.ot{font-size:.86rem;color:var(--dim);line-height:1.5}
+.pfb{margin-top:9px;padding:9px 13px;border-radius:9px;font-size:.84rem;line-height:1.55;display:none}
+.pfb.show{display:block}
+.pfb.ok{background:rgba(79,70,229,.08);color:var(--ind);border-left:3px solid var(--ind)}
+.pfb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+/* ENSAYO */
+.tbox{background:var(--card);border:2px solid rgba(79,70,229,.28);border-radius:13px;
+  padding:13px 18px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;flex-wrap:wrap;gap:8px;box-shadow:0 4px 18px rgba(60,50,150,.18);
+  position:sticky;top:8px;z-index:150;backdrop-filter:blur(6px);background:rgba(255,255,255,.96)}
+.td{font-family:'Fredoka One',cursive;font-size:2.3rem;color:var(--ind);letter-spacing:.04em}
+.td.w{color:#d97706}.td.d{color:#dc2626;animation:bk .8s ease-in-out infinite}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.35}}
+.eq{background:var(--card);border:1px solid var(--bord);border-radius:11px;padding:16px;margin-bottom:10px;box-shadow:var(--sh)}
+.enum{font-size:.69rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.ectx{background:rgba(60,50,150,.05);border-radius:8px;padding:9px 12px;font-size:.85rem;color:var(--dim);line-height:1.6;margin-bottom:9px}
+.eqt{font-size:.89rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:10px}
+.eopts{display:flex;flex-direction:column;gap:6px}
+.eopt{display:flex;align-items:flex-start;gap:8px;padding:8px 11px;border-radius:8px;cursor:pointer;
+  border:1.5px solid var(--bord);background:var(--card);transition:all .16s}
+.eopt:hover:not(.locked){border-color:var(--ind);background:var(--indl)}
+.eopt.sel{background:var(--indl);border-color:var(--ind)}
+.eopt.locked{cursor:default;pointer-events:none}
+.eopt.right{background:rgba(79,70,229,.1);border-color:var(--ind)}
+.eopt.wrong{background:rgba(220,38,38,.05);border-color:#dc2626}
+.eopt .ol{color:var(--ind)}
+.eopt.sel .ol{background:var(--ind);color:#fff;border-color:var(--ind)}
+.eopt.right .ol{background:var(--ind);color:#fff;border-color:var(--ind)}
+.eopt.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.efb{margin-top:6px;padding:8px 12px;border-radius:8px;font-size:.82rem;line-height:1.55;display:none}
+.efb.show{display:block}
+.efb.ok{background:rgba(79,70,229,.08);color:var(--ind);border-left:3px solid var(--ind)}
+.efb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+.sbtn{width:100%;padding:13px;background:var(--ind);color:#fff;border:none;border-radius:11px;
+  font-family:'Fredoka One',cursive;font-size:1.05rem;cursor:pointer;margin-top:9px;
+  transition:background .18s;box-shadow:0 4px 12px rgba(79,70,229,.28)}
+.sbtn:hover{background:var(--ind2)}.sbtn:disabled{opacity:.32;cursor:default}
+/* BOTTOM NAV */
+.lnav{position:fixed;bottom:0;left:0;right:0;background:rgba(247,245,255,.92);
+  backdrop-filter:blur(10px);border-top:1px solid var(--bord);padding:9px 18px;
+  display:flex;align-items:center;justify-content:space-between;z-index:180;gap:9px}
+.lb{font-family:'Fredoka One',cursive;font-size:.92rem;padding:7px 18px;border-radius:50px;
+  border:1.5px solid rgba(79,70,229,.38);background:transparent;color:var(--ind);
+  cursor:pointer;transition:all .18s;white-space:nowrap}
+.lb:hover{background:var(--ind);color:#fff;border-color:var(--ind)}
+.lb:disabled{opacity:.22;cursor:default}
+.lm{font-size:.77rem;font-weight:800;color:var(--dim);text-align:center;flex:1}
+.ab{position:fixed;bottom:62px;right:14px;width:42px;height:42px;border-radius:50%;
+  background:var(--card);border:1.5px solid rgba(79,70,229,.32);color:var(--ind);
+  font-size:1.05rem;cursor:pointer;z-index:190;display:flex;align-items:center;justify-content:center;
+  transition:all .18s;box-shadow:var(--sh)}
+.ab:hover{background:var(--ind);color:#fff;border-color:var(--ind)}
+.ab.on{background:var(--ind);color:#fff;border-color:var(--ind);animation:pa 1.2s ease-in-out infinite}
+@keyframes pa{0%,100%{box-shadow:0 0 0 0 rgba(79,70,229,.4)}50%{box-shadow:0 0 0 8px rgba(79,70,229,0)}}
+footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
+/* DECK / SLIDES */
+.deck{margin-bottom:16px}
+.deck-viewport{overflow:hidden;border-radius:var(--rad)}
+.deck-track{display:flex;transition:transform .38s cubic-bezier(.4,0,.2,1)}
+.deck-slide{flex:0 0 100%;min-width:100%;box-sizing:border-box}
+.deck-slide .card{margin-bottom:0;height:100%}
+.deck-diag{background:var(--card2);border:1px solid var(--bord);border-radius:12px;
+  padding:10px;margin-bottom:14px;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.deck-diag svg{width:100%;height:auto;max-height:190px}
+.deck-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px}
+.deck-arrow{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--bord2);
+  background:var(--card);color:var(--ind);font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0;box-shadow:var(--sh)}
+.deck-arrow:hover{background:var(--ind);color:#fff;border-color:var(--ind)}
+.deck-arrow:disabled{opacity:.25;cursor:default;background:var(--card);color:var(--ind)}
+.deck-dots{display:flex;gap:7px;align-items:center}
+.deck-dot{width:8px;height:8px;border-radius:50%;background:var(--bord2);border:none;cursor:pointer;padding:0;transition:all .2s}
+.deck-dot.act{width:22px;border-radius:5px;background:var(--ind)}
+.deck-count{font-size:.74rem;font-weight:800;color:var(--dim);text-align:center;margin-top:5px}
+.deck-hint{font-size:.72rem;color:var(--dim2);text-align:center;margin-bottom:8px;display:flex;
+  align-items:center;justify-content:center;gap:5px}
+@media(max-width:640px){.deck-diag svg{max-height:150px}}
+/* RESULTADOS POR TEMA */
+.res-banner{font-family:'Fredoka One',cursive;font-size:2.5rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0}
+.res-topic-card{background:var(--card2);border-radius:12px;padding:13px 16px;border:1px solid var(--bord);border-left:3px solid var(--ind)}
+.res-topic-card.bad{border-left-color:#dc2626}
+.res-topic-card.mid{border-left-color:#d97706}
+.res-topic-name{font-size:.79rem;font-weight:900;color:var(--dim);margin-bottom:4px}
+.res-topic-score{font-family:'Fredoka One',cursive;font-size:1.3rem}
+.res-review{background:var(--card2);border:1px solid var(--bord2);border-radius:14px;padding:16px;margin-top:14px}
+.res-review-item{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:9px 0;border-bottom:1px solid var(--bord)}
+.res-review-item:last-child{border-bottom:none}
+.res-review-btn{font-family:'Nunito',sans-serif;font-weight:800;font-size:.78rem;padding:6px 14px;
+  border-radius:50px;border:1.5px solid var(--ind);background:transparent;color:var(--ind);cursor:pointer;white-space:nowrap;transition:all .18s}
+.res-review-btn:hover{background:var(--ind);color:#fff}
+.weight-table{width:100%;border-collapse:collapse}
+.weight-table th,.weight-table td{border:1px solid var(--bord);padding:8px 10px;font-size:.84rem;text-align:left;color:var(--dim);vertical-align:top}
+.weight-table th{background:var(--card2);color:var(--text);font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+.weight-table tr:nth-child(even) td{background:var(--card2)}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:78px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--ind),var(--ind2));border:none;color:#fff;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 18px rgba(79,70,229,.35);z-index:210;display:flex;align-items:center;justify-content:center}
+.tutor-fab:disabled{opacity:.35;cursor:default;pointer-events:none}
+.tutor-fab .dot{position:absolute;top:6px;right:6px;width:9px;height:9px;border-radius:50%;background:#f97316;display:none}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid var(--bord);border-radius:0 20px 0 0;box-shadow:0 12px 40px rgba(60,50,150,.22);z-index:220;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+.tutor-head{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 16px;background:var(--card2);border-bottom:1px solid var(--bord);flex-shrink:0}
+.tutor-head h3{font-family:'Fredoka One',cursive;font-size:1rem;color:var(--ind)}
+.tutor-head p{font-size:.76rem;color:var(--dim);margin-top:2px}
+.tutor-close{background:none;border:none;color:var(--dim);font-size:1.1rem;cursor:pointer}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid var(--bord);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid var(--bord);color:var(--dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:20px;cursor:pointer}
+.tutor-mode-btn:hover{border-color:var(--ind);color:var(--ind)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--ind);color:#fff;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid var(--bord);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:var(--indl);color:var(--dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--dim2);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.8}
+.tutor-report:hover{opacity:1;color:var(--ind)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--dim2);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--bord);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid var(--bord);border-radius:12px;color:var(--text);padding:9px 12px;font-family:'Nunito',sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--ind)}
+.tutor-send{background:var(--ind);border:none;color:#fff;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+@media(max-width:680px){.tutor-input{font-size:16px}}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}.tutor-fab{right:14px;bottom:74px}}
+</style>
+<body>
+<div class="pr"><div class="prf" id="prf" style="width:16.6%"></div></div>
+<div class="wr">
+
+<div class="hero">
+  <span class="hi">&#128208;</span>
+  <h1>Plan Com&uacute;n &bull; Matem&aacute;tica</h1>
+  <div class="hero-s">Unidad 3 &bull; Geometr&iacute;a &bull; PAES M1 &bull; Admisi&oacute;n 2027</div>
+  <div class="badge">&#127919; Eje Geometr&iacute;a &bull; ~14 preguntas en la PAES</div>
+</div>
+
+<div class="nav">
+  <button class="nb act" onclick="go('p0',0,this)">&#127968; Inicio</button>
+  <button class="nb" onclick="go('p1',1,this)">&#128208; Figuras</button>
+  <button class="nb" onclick="go('p2',2,this)">&#128230; Cuerpos</button>
+  <button class="nb" onclick="go('p3',3,this)">&#128260; Transformaciones</button>
+  <button class="nb" onclick="go('p4',4,this)">&#128207; Semejanza</button>
+  <button class="nb" onclick="go('p5',5,this)">&#9201; Mini Ensayo</button>
+</div>
+
+<div class="sec act" id="p0">
+<div class="card" style="text-align:center;padding:28px 20px">
+  <p class="ct" style="justify-content:center;color:var(--ind);font-size:1.5rem">📐 Plan Común · Matemática</p>
+  <p style="font-size:.97rem;max-width:620px;margin:0 auto 18px;color:var(--dim);line-height:1.8">Esta unidad cubre el eje <strong>Geometría</strong> del temario oficial de Competencia Matemática 1 (M1): figuras geométricas (Pitágoras, perímetros y áreas), cuerpos geométricos (áreas y volúmenes), transformaciones isométricas en el plano cartesiano, y semejanza de figuras. Mucho apoyo visual: esta unidad tiene más diagramas que ninguna otra.</p>
+  <div class="badge">🎯 Eje Geometría · 4 unidades temáticas · Admisión 2027</div>
+</div>
+<div class="card">
+  <p class="ct" style="color:var(--ind)">📊 ¿Qué contiene el eje Geometría?</p>
+  <table style="width:100%;border-collapse:collapse;margin-top:8px">
+    <tr><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--ind)">Unidad temática</th><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--ind)">Qué incluye</th></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">📐 Figuras geométricas</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Pitágoras, perímetro y área de triángulos, paralelogramos, trapecios y círculos</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">📦 Cuerpos geométricos</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Área de superficie y volumen de paralelepípedos, cubos y cilindros</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">🔄 Transformaciones isométricas</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Puntos y vectores en el plano cartesiano, traslación, reflexión, rotación</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem">📏 Semejanza y proporcionalidad</td><td style="padding:7px 10px;font-size:.87rem">Figuras semejantes, escalas en mapas y planos</td></tr>
+  </table>
+</div>
+<div class="g2">
+  <div class="card" style="border-left:4px solid var(--ind)">
+    <p class="ct" style="color:var(--ind)">📌 Contexto PAES</p>
+    <ul><li>Geometría suele mezclar fórmulas con lectura de figuras y planos cartesianos</li>
+    <li>Los cuerpos geométricos (volumen/área) aparecen mucho en contextos de la vida diaria (estanques, contenedores, edificios)</li>
+    <li>No se descuenta puntaje por respuestas erradas: siempre conviene marcar una alternativa</li></ul>
+  </div>
+  <div class="card" style="border-left:4px solid #6d28d9">
+    <p class="ct" style="color:#6d28d9">💡 Esta unidad tiene</p>
+    <ul><li>4 carruseles de diagramas, con figuras y cuerpos dibujados paso a paso</li>
+    <li>Práctica guiada con retroalimentación por alternativa en cada tema</li>
+    <li>Mini ensayo de cierre cronometrado con los 4 temas mezclados</li></ul>
+  </div>
+</div>
+</div>
+
+<!-- FIGURAS GEOMETRICAS -->
+<div class="sec" id="p1">
+<div class="hsec" style="border-color:rgba(79,70,229,.3)">
+  <span class="hi2">📐</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--ind);margin-bottom:3px">Tema 1 de 4 · Eje Geometría</div>
+  <h2 style="color:var(--ind)">Figuras Geométricas</h2>
+  <p>Teorema de Pitágoras, y perímetro y área de triángulos, paralelogramos, trapecios y círculos — las fórmulas más usadas de toda la Geometría PAES.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p1">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
+<polygon points="80,130 320,130 320,40" fill="#e0e7ff" stroke="var(--ind)" stroke-width="2"/>
+<rect x="300" y="110" width="20" height="20" fill="none" stroke="var(--ind)" stroke-width="1.5"/>
+<text x="190" y="150" font-size="13" font-weight="900" fill="#211a4d" text-anchor="middle">b (cateto)</text>
+<text x="345" y="90" font-size="13" font-weight="900" fill="#211a4d">a (cateto)</text>
+<text x="180" y="70" font-size="13" font-weight="900" fill="var(--ind)">c (hipotenusa)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">📐 Teorema de Pitágoras</p>
+  <p>En todo <strong>triángulo rectángulo</strong> (con un ángulo de 90°), el cuadrado de la hipotenusa (el lado más largo, opuesto al ángulo recto) es igual a la suma de los cuadrados de los catetos (los otros dos lados).</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">a² + b² = c²</span><div class="fdef">a y b son los catetos, c es la hipotenusa</div></div>
+  <p style="margin-top:10px">Ejemplo: si los catetos miden 3 y 4, la hipotenusa es √(3²+4²)=√(9+16)=√25=<strong>5</strong>. El famoso triángulo "3-4-5" es el más usado en ejemplos y preguntas.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Despejar un cateto en vez de la hipotenusa</div>
+    <p>Si conoces la hipotenusa y un cateto, despeja el otro: b=√(c²−a²). Es un error común restar mal el orden — siempre se resta el cuadrado del cateto conocido al cuadrado de la hipotenusa.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<polygon points="60,120 300,120 200,30" fill="#e0e7ff" stroke="var(--ind)" stroke-width="2"/>
+<line x1="200" y1="30" x2="200" y2="120" stroke="var(--ind)" stroke-width="1.3" stroke-dasharray="4,3"/>
+<text x="180" y="120" font-size="12" font-weight="900" fill="#211a4d" text-anchor="middle">base</text>
+<text x="215" y="80" font-size="12" font-weight="900" fill="var(--ind)">altura</text>
+<text x="400" y="75" font-size="15" font-weight="900" fill="var(--ind)">Área = (base×altura)/2</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">🔺 Área y perímetro de triángulos</p>
+  <p>El <strong>área</strong> de cualquier triángulo se calcula con base y altura (la altura es siempre perpendicular a la base, aunque el triángulo esté inclinado). El <strong>perímetro</strong> es simplemente la suma de sus 3 lados.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">Área = (base × altura) / 2</span></div>
+  <p style="margin-top:10px">Ejemplo: un triángulo con base 8 cm y altura 5 cm tiene área = (8×5)/2 = <strong>20 cm²</strong>. Si además conoces los 3 lados, el perímetro es su suma directa.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 La altura no siempre es un lado</div>
+    <p>En triángulos que no son rectángulos, la altura puede caer "afuera" de la base (fuera de la figura) o requerir trazar una línea auxiliar perpendicular. No confundas la altura con uno de los lados inclinados.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<rect x="80" y="30" width="220" height="90" fill="#e0e7ff" stroke="var(--ind)" stroke-width="2"/>
+<text x="190" y="135" font-size="12" font-weight="900" fill="#211a4d" text-anchor="middle">base</text>
+<text x="60" y="80" font-size="12" font-weight="900" fill="#211a4d" text-anchor="middle">altura</text>
+<text x="400" y="75" font-size="15" font-weight="900" fill="var(--ind)">Área = base × altura</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">▭ Área y perímetro de paralelogramos</p>
+  <p>Un <strong>paralelogramo</strong> (rectángulo, cuadrado, rombo, romboide) tiene lados paralelos de a pares. Su área siempre es <strong>base por altura</strong>, y su perímetro es la suma de los 4 lados (o 2×(lado1+lado2) si los lados opuestos son iguales).</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">Área = base × altura</span></div>
+  <p style="margin-top:10px">Ejemplo: un rectángulo de 8 cm de base y 5 cm de altura tiene área = 8×5=<strong>40 cm²</strong>, y perímetro = 2×(8+5)=<strong>26 cm</strong>.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 En el romboide, la altura no es un lado</div>
+    <p>En un romboide "inclinado", la altura es la distancia perpendicular entre las dos bases paralelas, no la medida del lado inclinado. Confundirlas es un error muy frecuente.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<polygon points="150,30 350,30 300,110 100,110" fill="#e0e7ff" stroke="var(--ind)" stroke-width="2"/>
+<text x="250" y="22" font-size="12" font-weight="900" fill="#211a4d" text-anchor="middle">base menor (b)</text>
+<text x="200" y="128" font-size="12" font-weight="900" fill="#211a4d" text-anchor="middle">base mayor (B)</text>
+<text x="380" y="75" font-size="15" font-weight="900" fill="var(--ind)">Área = (B+b)×h / 2</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">🔷 Área y perímetro de trapecios</p>
+  <p>Un <strong>trapecio</strong> tiene solo un par de lados paralelos (base mayor B y base menor b). Su área es el promedio de ambas bases, multiplicado por la altura.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">Área = (B + b) × h / 2</span></div>
+  <p style="margin-top:10px">Ejemplo: un trapecio con base mayor 10 cm, base menor 6 cm y altura 4 cm tiene área = (10+6)×4/2 = 64/2 = <strong>32 cm²</strong>.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Identificar cuál base es "mayor"</div>
+    <p>No importa cuál base está arriba o abajo en el dibujo: B es siempre la base más larga y b la más corta, sin importar su posición en la figura.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<circle cx="200" cy="70" r="55" fill="#e0e7ff" stroke="var(--ind)" stroke-width="2"/>
+<line x1="200" y1="70" x2="255" y2="70" stroke="var(--ind)" stroke-width="2"/>
+<text x="225" y="62" font-size="12" font-weight="900" fill="var(--ind)">r</text>
+<text x="380" y="55" font-size="15" font-weight="900" fill="var(--ind)">Área = π·r²</text>
+<text x="380" y="85" font-size="15" font-weight="900" fill="var(--ind)">Perímetro = 2·π·r</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">⭕ Área y perímetro (circunferencia) del círculo</p>
+  <p>Para un círculo, el "perímetro" se llama <strong>circunferencia</strong>. Ambas fórmulas dependen únicamente del radio r (la distancia del centro al borde).</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">Área = π·r² &nbsp;&nbsp; Circunferencia = 2·π·r</span><div class="fdef">π ≈ 3,14 (en la PAES a veces se aproxima a 3)</div></div>
+  <p style="margin-top:10px">Ejemplo: un círculo de radio 4 cm tiene área = π×4²=16π ≈ <strong>50,24 cm²</strong>, y circunferencia = 2×π×4=8π ≈ <strong>25,12 cm</strong>.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Radio vs. diámetro</div>
+    <p>El diámetro es el doble del radio (d=2r). Si el problema da el diámetro, divide por 2 antes de aplicar las fórmulas — un error muy común es usar el diámetro directamente como si fuera el radio.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p1" onclick="deckNav('p1',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p1"><button class="deck-dot act" onclick="deckGoto('p1',0)"></button><button class="deck-dot" onclick="deckGoto('p1',1)"></button><button class="deck-dot" onclick="deckGoto('p1',2)"></button><button class="deck-dot" onclick="deckGoto('p1',3)"></button><button class="deck-dot" onclick="deckGoto('p1',4)"></button></div><button class="deck-arrow" id="deck-next-p1" onclick="deckNav('p1',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p1">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:var(--ind)">a²+b²=c²</span>
+  <span class="kw" style="color:var(--ind)">área triángulo</span>
+  <span class="kw" style="color:var(--ind)">área paralelogramo</span>
+  <span class="kw" style="color:var(--ind)">área trapecio</span>
+  <span class="kw" style="color:var(--ind)">área círculo</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <p class="pq">Un triángulo rectángulo tiene catetos de 6 cm y 8 cm. ¿Cuánto mide su hipotenusa?</p>
+  <div class="pos" id="qf1">
+    <div class="po" onclick="ans('qf1','A')"><div class="ol">A</div><div class="ot">10 cm</div></div>
+    <div class="po" onclick="ans('qf1','B')"><div class="ol">B</div><div class="ot">14 cm</div></div>
+    <div class="po" onclick="ans('qf1','C')"><div class="ol">C</div><div class="ot">48 cm</div></div>
+    <div class="po" onclick="ans('qf1','D')"><div class="ol">D</div><div class="ot">100 cm</div></div>
+  </div>
+  <div class="pfb" id="qf1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es el área de un triángulo de base 10 cm y altura 6 cm?</p>
+  <div class="pos" id="qf2">
+    <div class="po" onclick="ans('qf2','A')"><div class="ol">A</div><div class="ot">16 cm²</div></div>
+    <div class="po" onclick="ans('qf2','B')"><div class="ol">B</div><div class="ot">30 cm²</div></div>
+    <div class="po" onclick="ans('qf2','C')"><div class="ol">C</div><div class="ot">60 cm²</div></div>
+    <div class="po" onclick="ans('qf2','D')"><div class="ol">D</div><div class="ot">120 cm²</div></div>
+  </div>
+  <div class="pfb" id="qf2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <p class="pq">Un trapecio tiene base mayor 12 cm, base menor 8 cm y altura 5 cm. ¿Cuál es su área?</p>
+  <div class="pos" id="qf3">
+    <div class="po" onclick="ans('qf3','A')"><div class="ol">A</div><div class="ot">20 cm²</div></div>
+    <div class="po" onclick="ans('qf3','B')"><div class="ol">B</div><div class="ot">40 cm²</div></div>
+    <div class="po" onclick="ans('qf3','C')"><div class="ol">C</div><div class="ot">50 cm²</div></div>
+    <div class="po" onclick="ans('qf3','D')"><div class="ol">D</div><div class="ot">100 cm²</div></div>
+  </div>
+  <div class="pfb" id="qf3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es el área aproximada de un círculo de radio 5 cm? (usa π≈3,14)</p>
+  <div class="pos" id="qf4">
+    <div class="po" onclick="ans('qf4','A')"><div class="ol">A</div><div class="ot">15,7 cm²</div></div>
+    <div class="po" onclick="ans('qf4','B')"><div class="ol">B</div><div class="ot">31,4 cm²</div></div>
+    <div class="po" onclick="ans('qf4','C')"><div class="ol">C</div><div class="ot">78,5 cm²</div></div>
+    <div class="po" onclick="ans('qf4','D')"><div class="ol">D</div><div class="ot">157 cm²</div></div>
+  </div>
+  <div class="pfb" id="qf4-fb"></div>
+</div>
+
+</div>
+
+<!-- CUERPOS GEOMETRICOS -->
+<div class="sec" id="p2">
+<div class="hsec" style="border-color:rgba(8,145,178,.3)">
+  <span class="hi2">📦</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#0891b2;margin-bottom:3px">Tema 2 de 4 · Eje Geometría</div>
+  <h2 style="color:#0891b2">Cuerpos Geométricos</h2>
+  <p>Área de superficie y volumen de paralelepípedos, cubos y cilindros — cómo pasar de las figuras planas del tema anterior a los cuerpos en 3 dimensiones.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p2">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
+<polygon points="80,110 220,110 260,70 260,20 120,20 80,60" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+<polygon points="80,110 220,110 260,70 120,70" fill="#cffafe" stroke="#0891b2" stroke-width="1.5"/>
+<line x1="220" y1="20" x2="220" y2="110" stroke="#0891b2" stroke-width="1.3" stroke-dasharray="3,2"/>
+<text x="150" y="128" font-size="11" font-weight="900" fill="#0891b2" text-anchor="middle">largo</text>
+<text x="60" y="90" font-size="11" font-weight="900" fill="#0891b2">ancho</text>
+<text x="270" y="50" font-size="11" font-weight="900" fill="#0891b2">alto</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">📦 Paralelepípedo recto</p>
+  <p>Un <strong>paralelepípedo recto</strong> (como una caja rectangular) tiene 3 dimensiones: largo, ancho y alto. Su volumen y área de superficie se calculan combinando estas 3 medidas.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">V = largo × ancho × alto</span><div class="fdef">Área de superficie = 2×(largo×ancho + largo×alto + ancho×alto)</div></div>
+  <p style="margin-top:10px">Ejemplo: una caja de 5×3×4 cm tiene volumen = 5×3×4=<strong>60 cm³</strong>. Su área de superficie suma las 6 caras (3 pares de caras iguales): 2×(15+20+12)=<strong>94 cm²</strong>.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El volumen se mide en unidades cúbicas</div>
+    <p>Si las medidas están en cm, el volumen se expresa en cm³ (centímetros cúbicos), y el área de superficie en cm² — no confundir las unidades.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
+<polygon points="100,110 210,110 250,70 250,30 140,30 100,70" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+<polygon points="100,110 210,110 250,70 140,70" fill="#cffafe" stroke="#0891b2" stroke-width="1.5"/>
+<text x="155" y="128" font-size="11" font-weight="900" fill="#0891b2" text-anchor="middle">a (arista)</text>
+<text x="380" y="55" font-size="15" font-weight="900" fill="#0891b2">V = a³</text>
+<text x="380" y="85" font-size="15" font-weight="900" fill="#0891b2">Área = 6a²</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">🎲 Cubo</p>
+  <p>Un <strong>cubo</strong> es un caso especial de paralelepípedo donde las 3 dimensiones son iguales (todas las aristas miden lo mismo, a). Sus 6 caras son cuadrados idénticos.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">V = a³ &nbsp;&nbsp; Área de superficie = 6a²</span></div>
+  <p style="margin-top:10px">Ejemplo: un cubo de arista 4 cm tiene volumen = 4³=<strong>64 cm³</strong>, y área de superficie = 6×4²=6×16=<strong>96 cm²</strong> (6 caras cuadradas de 16 cm² cada una).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Relación con potencias</div>
+    <p>a³ significa a×a×a (conecta directamente con lo visto en potencias, Unidad 1). Si conoces el volumen y quieres la arista, debes calcular la raíz cúbica: a=³√V.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="200" cy="30" rx="60" ry="18" fill="#cffafe" stroke="#0891b2" stroke-width="2"/>
+<line x1="140" y1="30" x2="140" y2="120" stroke="#0891b2" stroke-width="2"/>
+<line x1="260" y1="30" x2="260" y2="120" stroke="#0891b2" stroke-width="2"/>
+<path d="M140,120 A60,18 0 0,0 260,120" fill="none" stroke="#0891b2" stroke-width="2"/>
+<line x1="200" y1="30" x2="260" y2="30" stroke="#0891b2" stroke-width="1.3"/>
+<text x="230" y="24" font-size="11" font-weight="900" fill="#0891b2">r</text>
+<text x="270" y="80" font-size="11" font-weight="900" fill="#0891b2">h</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">🥫 Cilindro</p>
+  <p>Un <strong>cilindro</strong> tiene 2 caras circulares iguales (radio r) unidas por una superficie curva de altura h. Combina la fórmula del área del círculo con la altura.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">V = π·r²·h</span><div class="fdef">Área de superficie = 2·π·r² + 2·π·r·h (2 tapas circulares + superficie lateral)</div></div>
+  <p style="margin-top:10px">Ejemplo: un cilindro de radio 3 cm y altura 10 cm tiene volumen = π×3²×10=90π ≈ <strong>282,6 cm³</strong>.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Piensa el cilindro como "círculo × altura"</div>
+    <p>El volumen de un cilindro es literalmente el área del círculo de la base, multiplicada por la altura — la misma lógica que largo×ancho×alto en el paralelepípedo, pero con área circular en vez de rectangular.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<rect x="40" y="45" width="60" height="60" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+<text x="70" y="80" font-size="10" font-weight="900" fill="#0891b2" text-anchor="middle">a³</text>
+<path d="M120,75 L170,75" stroke="#4c3d99" stroke-width="2"/>
+<text x="145" y="65" font-size="10" fill="#4c3d99" text-anchor="middle">×2 aristas</text>
+<rect x="180" y="15" width="120" height="120" fill="#cffafe" stroke="#0369a1" stroke-width="1.5"/>
+<text x="240" y="80" font-size="13" font-weight="900" fill="#0369a1" text-anchor="middle">(2a)³ = 8a³</text>
+<text x="400" y="75" font-size="15" font-weight="900" fill="#dc2626" text-anchor="middle">Volumen ×8</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">📈 Efecto de escalar las medidas</p>
+  <p>Si duplicas <strong>todas</strong> las aristas de un cuerpo geométrico, el volumen NO se duplica: se multiplica por <strong>8 (2³)</strong>. El área de superficie se multiplica por <strong>4 (2²)</strong>.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">Aristas ×k &nbsp;⟹&nbsp; Área ×k² &nbsp;⟹&nbsp; Volumen ×k³</span></div>
+  <p style="margin-top:10px">Este patrón aplica a cualquier factor de escala k, no solo al doble: si triplicas las aristas (k=3), el área se multiplica por 9 y el volumen por 27.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Pregunta clásica de la PAES</div>
+    <p>"Si se duplican las medidas de las aristas, ¿cuál es el nuevo volumen?" es un tipo de pregunta muy repetido. La respuesta NUNCA es simplemente "el doble" — siempre involucra elevar el factor de escala al cubo.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="200" cy="30" rx="55" ry="16" fill="#cffafe" stroke="#0891b2" stroke-width="2"/>
+<line x1="145" y1="30" x2="145" y2="100" stroke="#0891b2" stroke-width="2"/>
+<line x1="255" y1="30" x2="255" y2="100" stroke="#0891b2" stroke-width="2"/>
+<path d="M145,100 A55,16 0 0,0 255,100" fill="none" stroke="#0891b2" stroke-width="2"/>
+<text x="380" y="40" font-size="12" fill="#0891b2">r=2m, h=4m</text>
+<text x="380" y="65" font-size="14" font-weight="900" fill="#059669">V=π×4×4=16π≈48m³</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">🏭 Problema resuelto en contexto</p>
+  <p>Un estanque cilíndrico tiene radio 2 m y altura 4 m. Usando π≈3, ¿cuál es su volumen aproximado, y cuánta agua contiene si está lleno al 50% de su capacidad?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">V=π·r²·h=3×2²×4=48 m³ &nbsp;&nbsp; 50%=24 m³</span></div>
+  <p style="margin-top:10px">Primero se calcula el volumen total del cilindro con la fórmula estándar, y luego se aplica el porcentaje pedido — conectando este tema con lo aprendido en la unidad de Porcentaje.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Cuerpos combinados</div>
+    <p>Algunos problemas presentan cuerpos "pegados" o "recortados" (dos prismas unidos, un cilindro con un cono encima). En esos casos, calcula cada volumen o área por separado y luego súmalos o réstalos según corresponda.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p2" onclick="deckNav('p2',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p2"><button class="deck-dot act" onclick="deckGoto('p2',0)"></button><button class="deck-dot" onclick="deckGoto('p2',1)"></button><button class="deck-dot" onclick="deckGoto('p2',2)"></button><button class="deck-dot" onclick="deckGoto('p2',3)"></button><button class="deck-dot" onclick="deckGoto('p2',4)"></button></div><button class="deck-arrow" id="deck-next-p2" onclick="deckNav('p2',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p2">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#0891b2">V=largo×ancho×alto</span>
+  <span class="kw" style="color:#0891b2">V=a³ (cubo)</span>
+  <span class="kw" style="color:#0891b2">V=πr²h (cilindro)</span>
+  <span class="kw" style="color:#0891b2">escala: volumen ×k³</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es el volumen de un paralelepípedo de 4 cm × 5 cm × 6 cm?</p>
+  <div class="pos" id="qc1">
+    <div class="po" onclick="ans('qc1','A')"><div class="ol">A</div><div class="ot">15 cm³</div></div>
+    <div class="po" onclick="ans('qc1','B')"><div class="ol">B</div><div class="ot">30 cm³</div></div>
+    <div class="po" onclick="ans('qc1','C')"><div class="ol">C</div><div class="ot">120 cm³</div></div>
+    <div class="po" onclick="ans('qc1','D')"><div class="ol">D</div><div class="ot">240 cm³</div></div>
+  </div>
+  <div class="pfb" id="qc1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es el área de superficie de un cubo de arista 5 cm?</p>
+  <div class="pos" id="qc2">
+    <div class="po" onclick="ans('qc2','A')"><div class="ol">A</div><div class="ot">25 cm²</div></div>
+    <div class="po" onclick="ans('qc2','B')"><div class="ol">B</div><div class="ot">30 cm²</div></div>
+    <div class="po" onclick="ans('qc2','C')"><div class="ol">C</div><div class="ot">125 cm²</div></div>
+    <div class="po" onclick="ans('qc2','D')"><div class="ol">D</div><div class="ot">150 cm²</div></div>
+  </div>
+  <div class="pfb" id="qc2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">Un cilindro tiene radio 2 cm y altura 5 cm. Usando π≈3, ¿cuál es su volumen aproximado?</p>
+  <div class="pos" id="qc3">
+    <div class="po" onclick="ans('qc3','A')"><div class="ol">A</div><div class="ot">20 cm³</div></div>
+    <div class="po" onclick="ans('qc3','B')"><div class="ol">B</div><div class="ot">30 cm³</div></div>
+    <div class="po" onclick="ans('qc3','C')"><div class="ol">C</div><div class="ot">60 cm³</div></div>
+    <div class="po" onclick="ans('qc3','D')"><div class="ol">D</div><div class="ot">90 cm³</div></div>
+  </div>
+  <div class="pfb" id="qc3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">Si se triplican todas las aristas de un cubo, ¿por cuánto se multiplica su volumen?</p>
+  <div class="pos" id="qc4">
+    <div class="po" onclick="ans('qc4','A')"><div class="ol">A</div><div class="ot">×3</div></div>
+    <div class="po" onclick="ans('qc4','B')"><div class="ol">B</div><div class="ot">×6</div></div>
+    <div class="po" onclick="ans('qc4','C')"><div class="ol">C</div><div class="ot">×9</div></div>
+    <div class="po" onclick="ans('qc4','D')"><div class="ol">D</div><div class="ot">×27</div></div>
+  </div>
+  <div class="pfb" id="qc4-fb"></div>
+</div>
+
+</div>
+
+<!-- TRANSFORMACIONES ISOMETRICAS -->
+<div class="sec" id="p3">
+<div class="hsec" style="border-color:rgba(180,83,9,.3)">
+  <span class="hi2">🔄</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#b45309;margin-bottom:3px">Tema 3 de 4 · Eje Geometría</div>
+  <h2 style="color:#b45309">Transformaciones Isométricas</h2>
+  <p>Puntos y vectores en el plano cartesiano, y cómo trasladar, reflejar y rotar figuras — movimientos que no cambian el tamaño ni la forma de la figura, solo su posición u orientación.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p3">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
+<line x1="280" y1="140" x2="280" y2="15" stroke="#4c3d99" stroke-width="1.3"/>
+<line x1="60" y1="80" x2="500" y2="80" stroke="#4c3d99" stroke-width="1.3"/>
+<text x="490" y="75" font-size="10" fill="#4c3d99">X</text>
+<text x="285" y="25" font-size="10" fill="#4c3d99">Y</text>
+<circle cx="380" cy="40" r="5" fill="#b45309"/>
+<text x="390" y="35" font-size="12" font-weight="900" fill="#b45309">(4,4)</text>
+<circle cx="180" cy="120" r="5" fill="#0891b2"/>
+<text x="130" y="135" font-size="12" font-weight="900" fill="#0891b2">(−3,−2)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">📍 Puntos en el plano cartesiano</p>
+  <p>El <strong>plano cartesiano</strong> tiene dos ejes: X (horizontal) e Y (vertical), que se cruzan en el origen (0,0). Cualquier punto se ubica con un par ordenado <strong>(x,y)</strong>: x indica cuánto moverse horizontalmente, y indica cuánto verticalmente.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">(x, y)</span><div class="fdef">x positivo = derecha · x negativo = izquierda · y positivo = arriba · y negativo = abajo</div></div>
+  <p style="margin-top:10px">El plano se divide en 4 <strong>cuadrantes</strong>: I (x&gt;0,y&gt;0), II (x&lt;0,y&gt;0), III (x&lt;0,y&lt;0), IV (x&gt;0,y&lt;0), numerados en sentido antihorario desde arriba a la derecha.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El orden importa</div>
+    <p>(3,5) y (5,3) son puntos completamente distintos. Siempre se lee primero la coordenada x (horizontal), luego la y (vertical).</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
+<line x1="280" y1="140" x2="280" y2="15" stroke="#4c3d99" stroke-width="1.3"/>
+<line x1="60" y1="90" x2="500" y2="90" stroke="#4c3d99" stroke-width="1.3"/>
+<circle cx="200" cy="110" r="5" fill="#b45309"/>
+<text x="170" y="130" font-size="11" font-weight="900" fill="#b45309">A(−2,−1)</text>
+<path d="M200,110 L340,50" stroke="#059669" stroke-width="2" marker-end="url(#arrV3)"/>
+<defs><marker id="arrV3" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#059669"/></marker></defs>
+<circle cx="340" cy="50" r="5" fill="#059669"/>
+<text x="350" y="45" font-size="11" font-weight="900" fill="#059669">A'(4,2)</text>
+<text x="270" y="70" font-size="10" fill="#059669">vector (6,3)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">➡️ Vectores de traslación</p>
+  <p>Un <strong>vector de traslación (a,b)</strong> indica cuánto "deslizar" un punto: a unidades horizontalmente y b unidades verticalmente, sin rotar ni cambiar el tamaño de la figura.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">(x, y) + (a, b) = (x+a, y+b)</span></div>
+  <p style="margin-top:10px">Ejemplo: el punto A(−2,−1) trasladado según el vector (6,3) da A'=(−2+6, −1+3)=<strong>(4,2)</strong>. Simplemente se suman las coordenadas correspondientes.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El signo del vector importa</div>
+    <p>Un vector con componente negativa mueve el punto en sentido contrario: (−3,0) mueve 3 unidades hacia la izquierda, no la derecha.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
+<line x1="280" y1="140" x2="280" y2="15" stroke="#4c3d99" stroke-width="1.5"/>
+<line x1="60" y1="80" x2="500" y2="80" stroke="#4c3d99" stroke-width="1.5"/>
+<circle cx="380" cy="50" r="5" fill="#b45309"/>
+<text x="390" y="45" font-size="11" font-weight="900" fill="#b45309">P(4,3)</text>
+<circle cx="380" cy="110" r="5" fill="#059669"/>
+<text x="390" y="125" font-size="11" font-weight="900" fill="#059669">refl. eje X: (4,−3)</text>
+<circle cx="180" cy="50" r="5" fill="#0891b2"/>
+<text x="100" y="45" font-size="11" font-weight="900" fill="#0891b2">refl. eje Y: (−4,3)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">🪞 Reflexión respecto a los ejes</p>
+  <p>Una <strong>reflexión</strong> crea una imagen "espejo" del punto, a la misma distancia del eje pero al otro lado. Reflejar respecto a un eje cambia el signo de UNA sola coordenada.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">Reflexión en eje X: (x,y)→(x,−y) &nbsp;&nbsp; Reflexión en eje Y: (x,y)→(−x,y)</span></div>
+  <p style="margin-top:10px">Ejemplo: P(4,3) reflejado respecto al eje X da (4,−3) (cambia el signo de y); reflejado respecto al eje Y da (−4,3) (cambia el signo de x).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Truco para recordar cuál coordenada cambia</div>
+    <p>Reflexión en el eje X (horizontal) cambia la altura → cambia y. Reflexión en el eje Y (vertical) cambia qué tan a los lados está → cambia x.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
+<line x1="280" y1="140" x2="280" y2="15" stroke="#4c3d99" stroke-width="1.3"/>
+<line x1="60" y1="80" x2="500" y2="80" stroke="#4c3d99" stroke-width="1.3"/>
+<circle cx="400" cy="50" r="5" fill="#b45309"/>
+<text x="410" y="45" font-size="11" font-weight="900" fill="#b45309">(4,3)</text>
+<path d="M400,50 A170,170 0 0,0 220,240" fill="none" stroke="#059669" stroke-width="1.3" stroke-dasharray="3,2"/>
+<circle cx="220" cy="110" r="5" fill="#059669"/>
+<text x="150" y="105" font-size="11" font-weight="900" fill="#059669">90° antihorario: (−3,4)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">🔁 Rotación con centro en el origen</p>
+  <p>Una <strong>rotación</strong> gira el punto alrededor de un centro (usualmente el origen), un cierto ángulo. Existen reglas directas para los giros de 90°, 180° y 270°.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">90° antihorario: (x,y)→(−y,x) &nbsp; 180°: (x,y)→(−x,−y)</span></div>
+  <p style="margin-top:10px">Ejemplo: el punto (4,3) rotado 90° en sentido antihorario con centro en el origen se transforma en (−3,4): se intercambian las coordenadas y se cambia el signo de la nueva x.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Sentido horario vs. antihorario</div>
+    <p>El sentido antihorario (el que giran los relojes al revés) es el que se usa por defecto salvo que se indique "sentido horario". Una rotación de 90° horario equivale a una de 270° antihorario.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="12" fill="#211a4d">Punto (3,5): reflexión eje Y → traslación (2,−7)</text>
+<text x="140" y="60" font-size="12" fill="#b45309">Paso 1: (3,5) → (−3,5) [correcto]</text>
+<text x="140" y="85" font-size="12" fill="#b45309">Paso 2: (−3,5)+(2,−7) = (−1,−2) [revisar]</text>
+<text x="140" y="110" font-size="13" font-weight="900" fill="#dc2626">¿Dónde está el error?</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">🔍 Problema resuelto: encontrar el error</p>
+  <p>Un tipo de pregunta muy frecuente en la PAES presenta una secuencia de <strong>varias transformaciones consecutivas ya desarrolladas</strong>, con un error en alguno de los pasos, y pide identificar en cuál paso ocurrió.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">Verifica cada paso por separado, comparándolo con la regla correspondiente</span></div>
+  <p style="margin-top:10px">Estrategia: aplica tú mismo cada transformación descrita (reflexión, traslación o rotación) al resultado del paso anterior, y compara tu resultado con el que entrega el enunciado en ese paso.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Revisa un paso a la vez</div>
+    <p>No intentes verificar todo el proceso de una vez. Revisa el Paso 1 primero; si es correcto, sigue al Paso 2; el primer paso donde tu resultado no coincide con el del enunciado es donde está el error.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p3" onclick="deckNav('p3',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p3"><button class="deck-dot act" onclick="deckGoto('p3',0)"></button><button class="deck-dot" onclick="deckGoto('p3',1)"></button><button class="deck-dot" onclick="deckGoto('p3',2)"></button><button class="deck-dot" onclick="deckGoto('p3',3)"></button><button class="deck-dot" onclick="deckGoto('p3',4)"></button></div><button class="deck-arrow" id="deck-next-p3" onclick="deckNav('p3',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p3">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#b45309">(x,y)</span>
+  <span class="kw" style="color:#b45309">traslación (a,b)</span>
+  <span class="kw" style="color:#b45309">reflexión</span>
+  <span class="kw" style="color:#b45309">rotación 90°/180°</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">Al punto A(2,−5) se le aplica el vector de traslación (3,4). ¿Cuál es su imagen?</p>
+  <div class="pos" id="qt1">
+    <div class="po" onclick="ans('qt1','A')"><div class="ol">A</div><div class="ot">(5,−1)</div></div>
+    <div class="po" onclick="ans('qt1','B')"><div class="ol">B</div><div class="ot">(−1,9)</div></div>
+    <div class="po" onclick="ans('qt1','C')"><div class="ol">C</div><div class="ot">(6,−20)</div></div>
+    <div class="po" onclick="ans('qt1','D')"><div class="ol">D</div><div class="ot">(5,9)</div></div>
+  </div>
+  <div class="pfb" id="qt1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es la imagen del punto (5,−2) al reflejarlo respecto al eje X?</p>
+  <div class="pos" id="qt2">
+    <div class="po" onclick="ans('qt2','A')"><div class="ol">A</div><div class="ot">(5,2)</div></div>
+    <div class="po" onclick="ans('qt2','B')"><div class="ol">B</div><div class="ot">(−5,−2)</div></div>
+    <div class="po" onclick="ans('qt2','C')"><div class="ol">C</div><div class="ot">(−5,2)</div></div>
+    <div class="po" onclick="ans('qt2','D')"><div class="ol">D</div><div class="ot">(2,5)</div></div>
+  </div>
+  <div class="pfb" id="qt2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es la imagen del punto (3,7) al reflejarlo respecto al eje Y?</p>
+  <div class="pos" id="qt3">
+    <div class="po" onclick="ans('qt3','A')"><div class="ol">A</div><div class="ot">(3,−7)</div></div>
+    <div class="po" onclick="ans('qt3','B')"><div class="ol">B</div><div class="ot">(−3,7)</div></div>
+    <div class="po" onclick="ans('qt3','C')"><div class="ol">C</div><div class="ot">(−3,−7)</div></div>
+    <div class="po" onclick="ans('qt3','D')"><div class="ol">D</div><div class="ot">(7,3)</div></div>
+  </div>
+  <div class="pfb" id="qt3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">Al rotar el punto (2,6) en 180° con centro en el origen, ¿cuál es su imagen?</p>
+  <div class="pos" id="qt4">
+    <div class="po" onclick="ans('qt4','A')"><div class="ol">A</div><div class="ot">(2,−6)</div></div>
+    <div class="po" onclick="ans('qt4','B')"><div class="ol">B</div><div class="ot">(−2,6)</div></div>
+    <div class="po" onclick="ans('qt4','C')"><div class="ol">C</div><div class="ot">(−2,−6)</div></div>
+    <div class="po" onclick="ans('qt4','D')"><div class="ol">D</div><div class="ot">(6,2)</div></div>
+  </div>
+  <div class="pfb" id="qt4-fb"></div>
+</div>
+
+</div>
+
+<!-- SEMEJANZA -->
+<div class="sec" id="p4">
+<div class="hsec" style="border-color:rgba(190,24,93,.3)">
+  <span class="hi2">📏</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#be185d;margin-bottom:3px">Tema 4 de 4 · Eje Geometría</div>
+  <h2 style="color:#be185d">Semejanza y Proporcionalidad de Figuras</h2>
+  <p>Cómo aplicar la semejanza de figuras a escalas de mapas, planos y modelos a escala — el cierre de la unidad, conectando Geometría con la Proporcionalidad de la Unidad 2.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p4">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<polygon points="50,110 150,110 100,40" fill="#fce7f3" stroke="#be185d" stroke-width="2"/>
+<polygon points="250,120 420,120 335,20" fill="#fce7f3" stroke="#be185d" stroke-width="2"/>
+<text x="100" y="130" font-size="10" fill="#be185d" text-anchor="middle">chico</text>
+<text x="335" y="140" font-size="10" fill="#be185d" text-anchor="middle">grande (mismo ángulo)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🔺🔻 Concepto de figuras semejantes</p>
+  <p>Dos figuras son <strong>semejantes</strong> cuando tienen exactamente <strong>la misma forma</strong> (los mismos ángulos correspondientes) pero pueden tener distinto tamaño. Es como una foto ampliada o reducida sin deformarse.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">Ángulos correspondientes iguales · Lados correspondientes proporcionales</span></div>
+  <p style="margin-top:10px">La condición clave es que todos los lados correspondientes mantengan la <strong>misma razón</strong> entre sí — esta razón se llama razón de semejanza (k).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 No confundir con "figuras congruentes"</div>
+    <p>Figuras congruentes son idénticas en forma Y tamaño (razón de semejanza k=1). Figuras semejantes solo comparten la forma; el tamaño puede ser distinto.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<rect x="40" y="40" width="60" height="40" fill="#fce7f3" stroke="#be185d" stroke-width="1.5"/>
+<text x="70" y="65" font-size="10" font-weight="900" fill="#be185d" text-anchor="middle">3×2</text>
+<path d="M115,60 L165,60" stroke="#4c3d99" stroke-width="2"/>
+<text x="140" y="50" font-size="10" fill="#4c3d99" text-anchor="middle">k=3</text>
+<rect x="175" y="10" width="180" height="120" fill="#fce7f3" stroke="#be185d" stroke-width="1.5"/>
+<text x="265" y="70" font-size="13" font-weight="900" fill="#be185d" text-anchor="middle">9×6</text>
+<text x="420" y="40" font-size="12" fill="#4c3d99">Perímetro ×3</text>
+<text x="420" y="65" font-size="12" fill="#4c3d99">Área ×9 (k²)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">📊 Razón de semejanza: efecto en perímetro y área</p>
+  <p>Si la razón de semejanza entre dos figuras es <strong>k</strong> (los lados de la figura grande son k veces los de la chica), el <strong>perímetro</strong> también se multiplica por k, pero el <strong>área</strong> se multiplica por k².</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">Lados ×k &nbsp;⟹&nbsp; Perímetro ×k &nbsp;⟹&nbsp; Área ×k²</span></div>
+  <p style="margin-top:10px">Ejemplo: si un rectángulo de 3×2 se amplía con razón k=3 a 9×6, su perímetro pasa de 10 a 30 (×3), pero su área pasa de 6 a 54 (×9, es decir ×3²).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Conexión con cuerpos geométricos</div>
+    <p>Es el mismo patrón visto en el tema de Cuerpos Geométricos, pero un nivel de dimensión menos: en 2D el área escala con k², en 3D el volumen escala con k³.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<rect x="60" y="35" width="140" height="90" fill="none" stroke="#be185d" stroke-width="1.5"/>
+<text x="130" y="80" font-size="12" font-weight="900" fill="#be185d" text-anchor="middle">plano</text>
+<text x="280" y="80" font-size="16" font-weight="900" fill="#4c3d99" text-anchor="middle">1 : 100</text>
+<text x="130" y="140" font-size="10" fill="#4c3d99" text-anchor="middle">1 cm en el plano</text>
+<text x="420" y="140" font-size="10" fill="#4c3d99" text-anchor="middle">= 100 cm en la realidad</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🗺️ Escalas en mapas y planos</p>
+  <p>Una <strong>escala 1:n</strong> indica que cada unidad medida en el plano/mapa corresponde a n unidades en la realidad. Es una razón de semejanza aplicada a la vida diaria.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">medida real = medida en el plano × n</span><div class="fdef">para escala 1:n</div></div>
+  <p style="margin-top:10px">Ejemplo: en un plano a escala 1:100, una medida de 5 cm en el plano corresponde a 5×100=<strong>500 cm = 5 metros</strong> en la realidad.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Cuidado con las unidades</div>
+    <p>Verifica siempre en qué unidad está expresada la medida del plano (mm, cm) antes de multiplicar por n, y convierte el resultado final a la unidad que pide la pregunta (cm, m, km).</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="60" y1="110" x2="480" y2="110" stroke="#4c3d99" stroke-width="1.3"/>
+<line x1="120" y1="110" x2="120" y2="30" stroke="#be185d" stroke-width="2.3"/>
+<line x1="60" y1="110" x2="120" y2="30" stroke="#4c3d99" stroke-width="1.3" stroke-dasharray="3,2"/>
+<text x="90" y="125" font-size="10" fill="#4c3d99" text-anchor="middle">sombra árbol: 3m</text>
+<text x="130" y="70" font-size="10" fill="#be185d">árbol: 4m</text>
+<line x1="380" y1="110" x2="380" y2="20" stroke="#0891b2" stroke-width="2.3"/>
+<line x1="200" y1="110" x2="380" y2="20" stroke="#4c3d99" stroke-width="1.3" stroke-dasharray="3,2"/>
+<text x="290" y="125" font-size="10" fill="#4c3d99" text-anchor="middle">sombra edificio: 12m</text>
+<text x="395" y="60" font-size="12" font-weight="900" fill="#0891b2">edificio: x=16m</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🌳 Problema resuelto: altura por sombras</p>
+  <p>Un árbol de 4 m de altura proyecta una sombra de 3 m, a la misma hora que un edificio proyecta una sombra de 12 m. Como ambos triángulos (objeto-sombra) son semejantes (mismo ángulo del sol), se puede plantear una proporción.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">4/3 = x/12  →  x = (4×12)/3 = 16 m</span></div>
+  <p style="margin-top:10px">Este es uno de los problemas de semejanza más clásicos de la PAES: se arma la proporción entre "altura real / sombra real" para ambos objetos, y se despeja la incógnita con multiplicación cruzada.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Mismo método que proporción directa</div>
+    <p>Este problema es exactamente una proporción directa (Unidad 2): mientras más alto el objeto, más larga su sombra, en la misma razón — puedes resolverlo con regla de tres si lo prefieres.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="35" font-size="12" fill="#211a4d">Plano de guitarra, escala 1:8. Mástil en el plano: 95mm</text>
+<text x="140" y="70" font-size="15" font-weight="900" fill="#be185d">largo real = 95 × 8 = 760 mm</text>
+<text x="140" y="100" font-size="15" font-weight="900" fill="#059669">760 mm = 76 cm</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🎸 Problema resuelto: escala de un plano</p>
+  <p>En un taller se construirá una guitarra usando un plano en escala 1:8. En el plano, el largo del mástil mide 95 mm. ¿Cuál será el largo real del mástil?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">largo real = 95mm × 8 = 760mm = 76 cm</span></div>
+  <p style="margin-top:10px">Como la escala es 1:8, cada mm en el plano corresponde a 8 mm reales. Se multiplica la medida del plano por 8, y luego se convierte el resultado a la unidad pedida (de mm a cm, dividiendo por 10).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Doble cuidado: escala Y unidades</div>
+    <p>Este tipo de problema combina dos posibles fuentes de error: aplicar mal la escala (multiplicar en vez de dividir, o al revés) y no convertir correctamente las unidades al final. Verifica ambos pasos por separado.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p4" onclick="deckNav('p4',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p4"><button class="deck-dot act" onclick="deckGoto('p4',0)"></button><button class="deck-dot" onclick="deckGoto('p4',1)"></button><button class="deck-dot" onclick="deckGoto('p4',2)"></button><button class="deck-dot" onclick="deckGoto('p4',3)"></button><button class="deck-dot" onclick="deckGoto('p4',4)"></button></div><button class="deck-arrow" id="deck-next-p4" onclick="deckNav('p4',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p4">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#be185d">figuras semejantes</span>
+  <span class="kw" style="color:#be185d">razón k</span>
+  <span class="kw" style="color:#be185d">área ×k²</span>
+  <span class="kw" style="color:#be185d">escala 1:n</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">Dos figuras semejantes tienen razón de semejanza k=4. Si el perímetro de la figura chica es 6 cm, ¿cuál es el perímetro de la figura grande?</p>
+  <div class="pos" id="qs1">
+    <div class="po" onclick="ans('qs1','A')"><div class="ol">A</div><div class="ot">10 cm</div></div>
+    <div class="po" onclick="ans('qs1','B')"><div class="ol">B</div><div class="ot">24 cm</div></div>
+    <div class="po" onclick="ans('qs1','C')"><div class="ol">C</div><div class="ot">48 cm</div></div>
+    <div class="po" onclick="ans('qs1','D')"><div class="ol">D</div><div class="ot">96 cm</div></div>
+  </div>
+  <div class="pfb" id="qs1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">Dos figuras semejantes tienen razón k=2. Si el área de la figura chica es 5 cm², ¿cuál es el área de la figura grande?</p>
+  <div class="pos" id="qs2">
+    <div class="po" onclick="ans('qs2','A')"><div class="ol">A</div><div class="ot">10 cm²</div></div>
+    <div class="po" onclick="ans('qs2','B')"><div class="ol">B</div><div class="ot">20 cm²</div></div>
+    <div class="po" onclick="ans('qs2','C')"><div class="ol">C</div><div class="ot">25 cm²</div></div>
+    <div class="po" onclick="ans('qs2','D')"><div class="ol">D</div><div class="ot">40 cm²</div></div>
+  </div>
+  <div class="pfb" id="qs2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">En un mapa a escala 1:50.000, dos ciudades están a 6 cm de distancia. ¿Cuál es la distancia real?</p>
+  <div class="pos" id="qs3">
+    <div class="po" onclick="ans('qs3','A')"><div class="ol">A</div><div class="ot">300 m</div></div>
+    <div class="po" onclick="ans('qs3','B')"><div class="ol">B</div><div class="ot">3 km</div></div>
+    <div class="po" onclick="ans('qs3','C')"><div class="ol">C</div><div class="ot">30 km</div></div>
+    <div class="po" onclick="ans('qs3','D')"><div class="ol">D</div><div class="ot">300 km</div></div>
+  </div>
+  <div class="pfb" id="qs3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <div class="pctx">Un poste de 2 m proyecta una sombra de 1,5 m, a la misma hora que una torre proyecta una sombra de 9 m.</div>
+  <p class="pq">¿Cuál es la altura de la torre?</p>
+  <div class="pos" id="qs4">
+    <div class="po" onclick="ans('qs4','A')"><div class="ol">A</div><div class="ot">6 m</div></div>
+    <div class="po" onclick="ans('qs4','B')"><div class="ol">B</div><div class="ot">10,5 m</div></div>
+    <div class="po" onclick="ans('qs4','C')"><div class="ol">C</div><div class="ot">12 m</div></div>
+    <div class="po" onclick="ans('qs4','D')"><div class="ol">D</div><div class="ot">13,5 m</div></div>
+  </div>
+  <div class="pfb" id="qs4-fb"></div>
+</div>
+
+</div>
+
+<!-- ENSAYO -->
+<div class="sec" id="p5">
+<div class="card">
+  <p class="ct" style="color:var(--ind)">&#9201; Mini Ensayo de Cierre &bull; 16 preguntas</p>
+  <p style="font-size:.92rem;color:var(--dim)">Simula un tramo del eje Geometría: <strong>16 preguntas</strong> mezclando los 4 temas, todas generadas con IA (marcadas 🤖) y revisadas por el docente de Matemática. 20 minutos, sin retroalimentación inmediata. Al finalizar verás tu puntaje, el desglose por tema y las explicaciones de cada pregunta.</p>
+</div>
+<div class="tbox">
+  <div>
+    <div style="font-size:.71rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin-bottom:1px">Tiempo restante</div>
+    <div class="td" id="td">20:00</div>
+  </div>
+  <div style="text-align:right">
+    <div id="ts" style="font-size:.84rem;color:var(--dim);margin-bottom:6px">Haz clic en Iniciar cuando estés lista</div>
+    <button id="stb" onclick="startE()" style="padding:8px 20px;background:var(--ind);color:#fff;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.93rem;cursor:pointer;box-shadow:0 4px 12px rgba(79,70,229,.28)">&#9654; Iniciar ensayo</button>
+  </div>
+</div>
+<div id="eqs" style="opacity:.35;pointer-events:none">
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 1 · T1 Figuras Geométricas · 🤖</div><div class="eqt">Un triángulo rectángulo tiene catetos de 5 cm y 12 cm. ¿Cuánto mide su hipotenusa?</div><div class="eopts" id="ep0"><div class="eopt" data-qi="0" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">13 cm</div></div><div class="eopt" data-qi="0" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">17 cm</div></div><div class="eopt" data-qi="0" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">60 cm</div></div><div class="eopt" data-qi="0" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">169 cm</div></div></div><div class="efb" id="ef0"></div></div>
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 2 · T1 Figuras Geométricas · 🤖</div><div class="eqt">Usando π≈3, ¿cuál es el área aproximada de un círculo de radio 6 cm?</div><div class="eopts" id="ep1"><div class="eopt" data-qi="1" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">18 cm²</div></div><div class="eopt" data-qi="1" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">36 cm²</div></div><div class="eopt" data-qi="1" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">108 cm²</div></div><div class="eopt" data-qi="1" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">216 cm²</div></div></div><div class="efb" id="ef1"></div></div>
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 3 · T1 Figuras Geométricas · 🤖</div><div class="ectx">De un triángulo rectángulo de área 44 cm², se sabe que uno de sus catetos mide 3 cm más que el otro cateto.</div><div class="eqt">¿Cuánto mide el cateto mayor?</div><div class="eopts" id="ep2"><div class="eopt" data-qi="2" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">7 cm</div></div><div class="eopt" data-qi="2" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">8 cm</div></div><div class="eopt" data-qi="2" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">11 cm</div></div><div class="eopt" data-qi="2" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">14 cm</div></div></div><div class="efb" id="ef2"></div></div>
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 4 · T1 Figuras Geométricas · 🤖</div><div class="ectx">Cuatro triángulos rectángulos A, B, C, D tienen catetos: A(6,8), B(5,12), C(9,12), D(8,15), en centímetros.</div><div class="eqt">¿Cuál de las siguientes afirmaciones es verdadera?</div><div class="eopts" id="ep3"><div class="eopt" data-qi="3" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">El triángulo D es el que tiene la hipotenusa de mayor medida entre todos.</div></div><div class="eopt" data-qi="3" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">El triángulo A y el triángulo B tienen igual perímetro.</div></div><div class="eopt" data-qi="3" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">El triángulo C es el de menor perímetro entre todos.</div></div><div class="eopt" data-qi="3" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">El triángulo A y el triángulo C tienen igual medida de hipotenusa.</div></div></div><div class="efb" id="ef3"></div></div>
+
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 5 · T2 Cuerpos Geométricos · 🤖</div><div class="eqt">¿Cuál es el volumen de un cubo de arista 6 cm?</div><div class="eopts" id="ep4"><div class="eopt" data-qi="4" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">36 cm³</div></div><div class="eopt" data-qi="4" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">72 cm³</div></div><div class="eopt" data-qi="4" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">216 cm³</div></div><div class="eopt" data-qi="4" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">432 cm³</div></div></div><div class="efb" id="ef4"></div></div>
+
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 6 · T2 Cuerpos Geométricos · 🤖</div><div class="eqt">¿Cuál es el área de superficie de un paralelepípedo de 3 cm × 4 cm × 5 cm?</div><div class="eopts" id="ep5"><div class="eopt" data-qi="5" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">47 cm²</div></div><div class="eopt" data-qi="5" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">60 cm²</div></div><div class="eopt" data-qi="5" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">94 cm²</div></div><div class="eopt" data-qi="5" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">120 cm²</div></div></div><div class="efb" id="ef5"></div></div>
+
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 7 · T2 Cuerpos Geométricos · 🤖</div><div class="ectx">Se tiene un paralelepípedo recto de base cuadrada de lado 6 cm y altura 3 cm. Se aumentan al doble las medidas de todas sus aristas.</div><div class="eqt">¿Cuál es el volumen del nuevo prisma?</div><div class="eopts" id="ep6"><div class="eopt" data-qi="6" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">216 cm³</div></div><div class="eopt" data-qi="6" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">432 cm³</div></div><div class="eopt" data-qi="6" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">864 cm³</div></div><div class="eopt" data-qi="6" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">8.640 cm³</div></div></div><div class="efb" id="ef6"></div></div>
+
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 8 · T2 Cuerpos Geométricos · 🤖</div><div class="ectx">En una industria hay un estanque cilíndrico de radio 3 m y altura 5 m. El consumo diario es del 40% de la capacidad total del estanque (usa π≈3).</div><div class="eqt">¿Cuántos metros cúbicos de agua se consumen diariamente?</div><div class="eopts" id="ep7"><div class="eopt" data-qi="7" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">13,5</div></div><div class="eopt" data-qi="7" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">27</div></div><div class="eopt" data-qi="7" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">54</div></div><div class="eopt" data-qi="7" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">81</div></div></div><div class="efb" id="ef7"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 9 · T3 Transformaciones Isométricas · 🤖</div><div class="eqt">Al punto (−4,3) se le aplica el vector de traslación (5,−2). ¿Cuál es su imagen?</div><div class="eopts" id="ep8"><div class="eopt" data-qi="8" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">(1,1)</div></div><div class="eopt" data-qi="8" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">(−9,5)</div></div><div class="eopt" data-qi="8" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">(1,5)</div></div><div class="eopt" data-qi="8" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">(9,1)</div></div></div><div class="efb" id="ef8"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 10 · T3 Transformaciones Isométricas · 🤖</div><div class="eqt">¿Cuál es la imagen del punto (6,−4) al reflejarlo respecto al eje X?</div><div class="eopts" id="ep9"><div class="eopt" data-qi="9" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">(6,4)</div></div><div class="eopt" data-qi="9" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">(−6,−4)</div></div><div class="eopt" data-qi="9" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">(−6,4)</div></div><div class="eopt" data-qi="9" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">(4,6)</div></div></div><div class="efb" id="ef9"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 11 · T3 Transformaciones Isométricas · 🤖</div><div class="eqt">Al rotar el punto (5,2) en 90° en sentido antihorario con centro en el origen, ¿cuál es su imagen?</div><div class="eopts" id="ep10"><div class="eopt" data-qi="10" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">(−2,5)</div></div><div class="eopt" data-qi="10" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">(2,−5)</div></div><div class="eopt" data-qi="10" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">(−5,2)</div></div><div class="eopt" data-qi="10" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">(5,−2)</div></div></div><div class="efb" id="ef10"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 12 · T3 Transformaciones Isométricas · 🤖</div><div class="ectx">Considera un punto A ubicado en el primer o segundo cuadrante, tal que al reflejarlo respecto al eje X se obtiene el punto B. Sea y la distancia del punto A al eje X.</div><div class="eqt">¿Cuál de las siguientes expresiones permite determinar la distancia entre los puntos A y B?</div><div class="eopts" id="ep11"><div class="eopt" data-qi="11" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">y</div></div><div class="eopt" data-qi="11" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">2y</div></div><div class="eopt" data-qi="11" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">2y+2</div></div><div class="eopt" data-qi="11" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">3y</div></div></div><div class="efb" id="ef11"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 13 · T4 Semejanza y Proporcionalidad · 🤖</div><div class="eqt">Dos figuras semejantes tienen razón de semejanza k=5. Si el perímetro de la figura chica es 4 cm, ¿cuál es el perímetro de la figura grande?</div><div class="eopts" id="ep12"><div class="eopt" data-qi="12" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">9 cm</div></div><div class="eopt" data-qi="12" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">20 cm</div></div><div class="eopt" data-qi="12" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">25 cm</div></div><div class="eopt" data-qi="12" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">100 cm</div></div></div><div class="efb" id="ef12"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 14 · T4 Semejanza y Proporcionalidad · 🤖</div><div class="eqt">Dos figuras semejantes tienen razón k=3. Si el área de la figura chica es 3 cm², ¿cuál es el área de la figura grande?</div><div class="eopts" id="ep13"><div class="eopt" data-qi="13" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">9 cm²</div></div><div class="eopt" data-qi="13" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">18 cm²</div></div><div class="eopt" data-qi="13" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">27 cm²</div></div><div class="eopt" data-qi="13" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">81 cm²</div></div></div><div class="efb" id="ef13"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 15 · T4 Semejanza y Proporcionalidad · 🤖</div><div class="ectx">Un poste de 3 m proyecta una sombra de 2 m, a la misma hora que un edificio proyecta una sombra de 10 m.</div><div class="eqt">¿Cuál es la altura del edificio?</div><div class="eopts" id="ep14"><div class="eopt" data-qi="14" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">6,67 m</div></div><div class="eopt" data-qi="14" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">12 m</div></div><div class="eopt" data-qi="14" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">15 m</div></div><div class="eopt" data-qi="14" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">20 m</div></div></div><div class="efb" id="ef14"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 16 · T4 Semejanza y Proporcionalidad · 🤖</div><div class="ectx">En un taller de arquitectura se construirá la maqueta de un edificio utilizando un plano que está en escala 1:50. En el plano, la altura del edificio es de 18 cm.</div><div class="eqt">¿Cuál debe ser la altura real del edificio?</div><div class="eopts" id="ep15"><div class="eopt" data-qi="15" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">9 m</div></div><div class="eopt" data-qi="15" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">18 m</div></div><div class="eopt" data-qi="15" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">90 m</div></div><div class="eopt" data-qi="15" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">900 m</div></div></div><div class="efb" id="ef15"></div></div>
+
+</div>
+<button class="sbtn" id="subb" onclick="submitE()" disabled>Ver resultados</button>
+<div id="eres" style="display:none;margin-top:18px"></div>
+</div>
+
+</div><!-- /wr -->
+<div class="lnav">
+  <button class="lb" id="lp" onclick="linN(-1)" disabled>&#8592; Anterior</button>
+  <div class="lm" id="lm">Inicio</div>
+  <button class="lb" id="ln" onclick="linN(1)">Siguiente &#8594;</button>
+</div>
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · Unidad 3</h3>
+      <p>Geometría · M1</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas sobre Geometría: figuras geométricas, cuerpos geométricos, transformaciones isométricas, y semejanza y proporcionalidad. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<footer>&#128202; Plan Com&uacute;n Matem&aacute;tica &bull; Unidad 3: Geometr&iacute;a &bull; Admisi&oacute;n 2027</footer>
+<script>
+
+var SS=['p0','p1','p2','p3','p4','p5'];
+var SL=['Inicio','Figuras Geometricas','Cuerpos Geometricos','Transformaciones Isometricas','Semejanza','Mini Ensayo'];
+var cur=0;
+function go(id,idx,btn){
+  SS.forEach(function(s){document.getElementById(s).classList.remove('act');});
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('act');});
+  document.getElementById(id).classList.add('act');
+  btn.classList.add('act');
+  cur=idx;
+  document.getElementById('prf').style.width=Math.round((idx+1)/SS.length*100)+'%';
+  document.getElementById('lp').disabled=(idx===0);
+  document.getElementById('ln').disabled=(idx===SS.length-1);
+  document.getElementById('lm').textContent=SL[idx];
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function linN(d){
+  var n=Math.max(0,Math.min(SS.length-1,cur+d));
+  if(n===cur)return;
+  go(SS[n],n,document.querySelectorAll('.nb')[n]);
+}
+
+var deckState={};
+function deckInit(sid){
+  var track=document.getElementById('deck-track-'+sid);
+  if(!track)return;
+  var total=track.children.length;
+  deckState[sid]={i:0,total:total};
+  track.style.touchAction='pan-y';
+  var dragging=false,startX=0;
+  track.addEventListener('pointerdown',function(e){
+    dragging=true;startX=e.clientX;
+    track.style.transition='none';
+    try{track.setPointerCapture(e.pointerId);}catch(err){}
+  });
+  track.addEventListener('pointermove',function(e){
+    if(!dragging)return;
+    var dx=e.clientX-startX;
+    var pct=-(deckState[sid].i*100)+(dx/track.offsetWidth*100);
+    track.style.transform='translateX('+pct+'%)';
+  });
+  function endDrag(e){
+    if(!dragging)return;
+    dragging=false;
+    track.style.transition='';
+    var dx=e.clientX-startX;
+    if(Math.abs(dx)>40){deckNav(sid,dx<0?1:-1);}
+    else{deckRender(sid);}
+  }
+  track.addEventListener('pointerup',endDrag);
+  track.addEventListener('pointercancel',endDrag);
+  track.addEventListener('pointerleave',function(e){if(dragging)endDrag(e);});
+}
+function deckRender(sid){
+  var st=deckState[sid];
+  var track=document.getElementById('deck-track-'+sid);
+  track.style.transform='translateX(-'+(st.i*100)+'%)';
+  document.getElementById('deck-prev-'+sid).disabled=(st.i===0);
+  document.getElementById('deck-next-'+sid).disabled=(st.i===st.total-1);
+  document.getElementById('deck-count-'+sid).textContent='Concepto '+(st.i+1)+' / '+st.total;
+  var dots=document.getElementById('deck-dots-'+sid).children;
+  for(var k=0;k<dots.length;k++)dots[k].classList.toggle('act',k===st.i);
+}
+function deckNav(sid,d){
+  if(!deckState[sid])deckInit(sid);
+  var st=deckState[sid];
+  st.i=Math.max(0,Math.min(st.total-1,st.i+d));
+  deckRender(sid);
+}
+function deckGoto(sid,i){
+  if(!deckState[sid])deckInit(sid);
+  deckState[sid].i=i;
+  deckRender(sid);
+}
+['p1','p2','p3','p4'].forEach(function(sid){deckInit(sid);deckRender(sid);});
+document.addEventListener('keydown',function(e){
+  var activeSec=SS[cur];
+  if(!deckState[activeSec])return;
+  if(e.key==='ArrowLeft')deckNav(activeSec,-1);
+  if(e.key==='ArrowRight')deckNav(activeSec,1);
+});
+
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done='1';
+  var a=QA[qid];
+  el.querySelectorAll('.po').forEach(function(o){
+    o.classList.add('locked');
+    var l=o.querySelector('.ol').textContent;
+    if(l===a.c)o.classList.add('right');
+    else if(l===opt)o.classList.add('wrong');
+  });
+  var fb=document.getElementById(qid+'-fb');
+  fb.className='pfb show '+(opt===a.c?'ok':'no');
+  fb.textContent=(opt===a.c?'Correcto! ':'')+a.fb[opt];
+}
+
+var QA={
+  'qf1':{c:'A',fb:{
+    A:'Correcto. c=√(6²+8²)=√(36+64)=√100=10.',
+    B:'No. Revisa la suma de los cuadrados: 36+64=100, y √100=10, no 14.',
+    C:'No. 48 sería el área del triángulo, no la hipotenusa.',
+    D:'No. 100 es el resultado antes de sacar la raíz cuadrada; falta ese último paso.'
+  }},
+  'qf2':{c:'B',fb:{
+    A:'No. Revisa la fórmula: es (base×altura)/2, no /2 aplicado incorrectamente.',
+    B:'Correcto. Área=(10×6)/2=60/2=30.',
+    C:'No. 60 es base×altura, sin dividir por 2.',
+    D:'No. Revisa: 10×6=60, y luego se divide por 2, dando 30, no 120.'
+  }},
+  'qf3':{c:'C',fb:{
+    A:'No. Revisa la fórmula completa: (B+b)×h/2, aplicando los 3 valores dados.',
+    B:'No. Revisa la multiplicación: (12+8)×5=100, y 100/2=50, no 40.',
+    C:'Correcto. Área=(12+8)×5/2=20×5/2=100/2=50.',
+    D:'No. 100 es (B+b)×h sin dividir por 2 al final.'
+  }},
+  'qf4':{c:'C',fb:{
+    A:'No. Revisa la fórmula: es π×r², no π×r.',
+    B:'No. 31,4 correspondería a la circunferencia (2πr), no al área.',
+    C:'Correcto. Área=π×5²=3,14×25=78,5 cm².',
+    D:'No. Revisa el cálculo: 3,14×25=78,5, no 157.'
+  }},
+  'qc1':{c:'C',fb:{
+    A:'No. 15 es solo 4×5, falta multiplicar por 6.',
+    B:'No. 30 es solo 5×6, falta multiplicar por 4.',
+    C:'Correcto. V=4×5×6=120 cm³.',
+    D:'No. Revisa la multiplicación: 4×5×6=120, no 240.'
+  }},
+  'qc2':{c:'D',fb:{
+    A:'No. 25 es el área de solo una cara (5²), faltan las otras 5 caras.',
+    B:'No. Revisa la fórmula: es 6a², no 6a.',
+    C:'No. 125 es a³ (el volumen), no el área de superficie.',
+    D:'Correcto. Área de superficie=6×5²=6×25=150 cm².'
+  }},
+  'qc3':{c:'C',fb:{
+    A:'No. Revisa la fórmula: V=π×r²×h, no solo r×h.',
+    B:'No. Revisa el cálculo: 3×2²×5=3×4×5=60, no 30.',
+    C:'Correcto. V=π×r²×h=3×2²×5=3×4×5=60 cm³.',
+    D:'No. Revisa: 2²=4, no 2²=6.'
+  }},
+  'qc4':{c:'D',fb:{
+    A:'No. El volumen no escala igual que las aristas; debes elevar el factor al cubo.',
+    B:'No. 6 no corresponde a ningún cálculo relevante aquí.',
+    C:'No. 9 sería el factor para el área de superficie (k²), no el volumen.',
+    D:'Correcto. Al triplicar las aristas (k=3), el volumen se multiplica por k³=27.'
+  }}
+};
+
+QA['qt1']={c:'A',fb:{
+  A:'Correcto. (2+3, −5+4)=(5,−1).',
+  B:'No. Revisa el signo de la coordenada y: −5+4=−1, no 9.',
+  C:'No. Revisa la coordenada x: 2+3=5, no 6.',
+  D:'No. Revisa ambas coordenadas: la suma correcta da (5,−1).'
+}};
+QA['qt2']={c:'A',fb:{
+  A:'Correcto. La reflexión en el eje X cambia el signo de y: (5,−2)→(5,2).',
+  B:'No. Cambiaste también el signo de x, pero la reflexión en el eje X solo afecta a y.',
+  C:'No. Este resultado correspondería a una reflexión en el eje Y, no en el eje X.',
+  D:'No. Esto intercambia las coordenadas, lo cual no corresponde a ninguna reflexión respecto a los ejes.'
+}};
+QA['qt3']={c:'B',fb:{
+  A:'No. Esto correspondería a una reflexión en el eje X, no en el eje Y.',
+  B:'Correcto. La reflexión en el eje Y cambia el signo de x: (3,7)→(−3,7).',
+  C:'No. Cambiaste ambos signos; la reflexión en el eje Y solo afecta a x.',
+  D:'No. Esto intercambia las coordenadas, lo cual no corresponde a esta reflexión.'
+}};
+QA['qt4']={c:'C',fb:{
+  A:'No. Esto correspondería a una reflexión en el eje X, no a una rotación de 180°.',
+  B:'No. Esto correspondería a una reflexión en el eje Y, no a una rotación de 180°.',
+  C:'Correcto. Una rotación de 180° cambia el signo de ambas coordenadas: (2,6)→(−2,−6).',
+  D:'No. Esto intercambia las coordenadas, lo cual no corresponde a una rotación de 180°.'
+}};
+QA['qs1']={c:'B',fb:{
+  A:'No. El perímetro escala con k (no con raíz de k ni otra relación): 6×4=24.',
+  B:'Correcto. El perímetro escala directamente con k: 6×4=24 cm.',
+  C:'No. 48 sería el resultado si se usara un factor de 8, no de 4.',
+  D:'No. El perímetro NO escala con k² (esa es la regla del área); 6×4²=96 sería incorrecto aplicar aquí.'
+}};
+QA['qs2']={c:'B',fb:{
+  A:'No. 10 sería el resultado si el área escalara igual que el perímetro (×k), pero el área escala con k².',
+  B:'Correcto. El área escala con k²: 5×2²=5×4=20 cm².',
+  C:'No. 25 no corresponde a ningún cálculo relevante aquí.',
+  D:'No. Revisa el cálculo: 5×4=20, no 40.'
+}};
+QA['qs3']={c:'B',fb:{
+  A:'No. Revisa la conversión: 6cm×50.000=300.000cm, y eso equivale a 3.000m=3km, no 300m.',
+  B:'Correcto. 6cm×50.000=300.000cm. Convirtiendo: 300.000cm=3.000m=3km.',
+  C:'No. Revisa la conversión de cm a km: 300.000cm equivale a 3km, no 30km.',
+  D:'No. Revisa el cálculo completo: la distancia real es 300.000cm=3km, no 300km.'
+}};
+QA['qs4']={c:'C',fb:{
+  A:'No. Revisa el planteamiento de la proporción: altura/sombra debe ser igual para ambos objetos.',
+  B:'No. Revisa la multiplicación cruzada: 2×9=18, y 18÷1,5=12, no 10,5.',
+  C:'Correcto. 2/1,5=x/9 → x=(2×9)/1,5=18/1,5=12 m.',
+  D:'No. Revisa la división final: 18÷1,5=12, no 13,5.'
+}};
+
+function selA(el){
+  if(!eS||eF)return;
+  var i=parseInt(el.dataset.qi),o=el.dataset.opt;
+  var row=document.getElementById('ep'+i);
+  if(row.dataset.done)return;
+  UA[i]=o;
+  row.querySelectorAll('.eopt').forEach(function(x){x.classList.remove('sel');});
+  el.classList.add('sel');
+}
+function updateNavLock(locked){
+  document.querySelectorAll('.nb').forEach(function(b){b.disabled=locked;});
+  document.getElementById('lp').disabled=locked||(cur===0);
+  document.getElementById('ln').disabled=locked||(cur===SS.length-1);
+  var fab=document.getElementById('tutorFab');
+  if(fab)fab.disabled=locked;
+  if(locked&&window.tutorForceClose)window.tutorForceClose();
+}
+function startE(){
+  eS=true;
+  document.getElementById('stb').style.display='none';
+  document.getElementById('ts').textContent='En marcha!';
+  document.getElementById('eqs').style.opacity='1';
+  document.getElementById('eqs').style.pointerEvents='auto';
+  document.getElementById('subb').disabled=false;
+  updateNavLock(true);
+  tI=setInterval(function(){
+    tL--;
+    var m=Math.floor(tL/60),s=tL%60;
+    var d=document.getElementById('td');
+    d.textContent=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
+    d.className='td'+(tL<=60?' d':tL<=300?' w':'');
+    if(tL<=0){clearInterval(tI);submitE();}
+  },1000);
+}
+var UA={},eS=false,eF=false,tL=1200,tI=null;
+
+var EQA=[
+{c:'A',fb:'c=√(5²+12²)=√(25+144)=√169=13.',t:'Figuras'},
+{c:'C',fb:'Área=π×r²=3×6²=3×36=108.',t:'Figuras'},
+{c:'C',fb:'Si el cateto menor es x y el mayor x+3, el área es x(x+3)/2=44 → x²+3x−88=0. Resolviendo, x=8. El cateto mayor es 8+3=11.',t:'Figuras'},
+{c:'A',fb:'Calculando hipotenusas: A=√(6²+8²)=10; B=√(5²+12²)=13; C=√(9²+12²)=15; D=√(8²+15²)=17. El triángulo D tiene la hipotenusa de mayor medida entre todos.',t:'Figuras'},
+{c:'C',fb:'V=6³=216.',t:'Cuerpos'},
+{c:'C',fb:'Área=2×(3×4+3×5+4×5)=2×(12+15+20)=2×47=94.',t:'Cuerpos'},
+{c:'C',fb:'Volumen original=6×6×3=108cm³. Al duplicar todas las aristas, el volumen se multiplica por 2³=8: 108×8=864cm³.',t:'Cuerpos'},
+{c:'C',fb:'Volumen del estanque=π×r²×h=3×3²×5=135m³. El 40% de esa capacidad es 54m³.',t:'Cuerpos'},
+{c:'A',fb:'(−4+5, 3−2)=(1,1).',t:'Transformaciones'},
+{c:'A',fb:'La reflexión en el eje X cambia el signo de y: (6,−4)→(6,4).',t:'Transformaciones'},
+{c:'A',fb:'Rotación 90° antihorario: (x,y)→(−y,x). Con (5,2): (−2,5).',t:'Transformaciones'},
+{c:'B',fb:'El punto A está a distancia y del eje X; su reflejo B está a la misma distancia y, pero al otro lado. La distancia total entre A y B es 2y.',t:'Transformaciones'},
+{c:'B',fb:'El perímetro escala directamente con k: 4×5=20cm.',t:'Semejanza'},
+{c:'C',fb:'El área escala con k²: 3×3²=3×9=27cm².',t:'Semejanza'},
+{c:'C',fb:'3/2=x/10 → x=(3×10)/2=15m.',t:'Semejanza'},
+{c:'A',fb:'Con escala 1:50, la altura real es 18cm×50=900cm=9m.',t:'Semejanza'}
+];
+
+var TOPIC_SEC={'Figuras':'p1','Cuerpos':'p2','Transformaciones':'p3','Semejanza':'p4'};
+var TOPIC_IDX={'p1':1,'p2':2,'p3':3,'p4':4};
+var TOPIC_BTN_LABEL={'Figuras':'📐 T1 Figuras Geométricas','Cuerpos':'📦 T2 Cuerpos Geométricos','Transformaciones':'🔄 T3 Transformaciones Isométricas','Semejanza':'📏 T4 Semejanza'};
+var TOPIC_FULL={'Figuras':'T1 · Figuras Geométricas','Cuerpos':'T2 · Cuerpos Geométricos','Transformaciones':'T3 · Transformaciones Isométricas','Semejanza':'T4 · Semejanza'};
+
+function submitE(){
+  if(eF)return;
+  eF=true;clearInterval(tI);
+  document.getElementById('ts').textContent='Tiempo terminado';
+  document.getElementById('subb').disabled=true;
+  updateNavLock(false);
+  var ok=0,topicMap={};
+  EQA.forEach(function(q,i){
+    var row=document.getElementById('ep'+i);
+    row.dataset.done='1';
+    row.querySelectorAll('.eopt').forEach(function(o){
+      o.classList.add('locked');
+      if(o.dataset.opt===q.c)o.classList.add('right');
+      else if(UA[i]&&o.dataset.opt===UA[i])o.classList.add('wrong');
+    });
+    var fb=document.getElementById('ef'+i);
+    var ua=UA[i];
+    var isOk=(ua===q.c);
+    fb.className='efb show '+(isOk?'ok':'no');
+    fb.textContent=(isOk?'Correcto! ':ua?'Incorrecto. La respuesta correcta es '+q.c+'. ':'Sin respuesta. La correcta es '+q.c+'. ')+q.fb;
+    if(isOk)ok++;
+    if(!topicMap[q.t])topicMap[q.t]={c:0,t:0};
+    topicMap[q.t].t++;
+    if(isOk)topicMap[q.t].c++;
+  });
+  var pct=Math.round(ok/EQA.length*100);
+  var sc=pct>=70?'var(--ind)':pct>=50?'#d97706':'#dc2626';
+
+  var topicHtml='<p style="font-family:\'Fredoka One\',cursive;font-size:1rem;color:var(--ind);margin-bottom:8px">Resultado por tema:</p><div class="res-topic-grid">';
+  var weak=[];
+  Object.keys(topicMap).forEach(function(t){
+    var r=topicMap[t];
+    var tpct=Math.round(r.c/r.t*100);
+    var cls=tpct<50?'bad':tpct<70?'mid':'';
+    var scoreColor=tpct>=70?'var(--ind)':tpct>=50?'#d97706':'#dc2626';
+    topicHtml+='<div class="res-topic-card '+cls+'"><div class="res-topic-name">'+(TOPIC_FULL[t]||t)+'</div><div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+    if(tpct<70)weak.push(t);
+  });
+  topicHtml+='</div>';
+
+  var reviewHtml='';
+  if(weak.length){
+    reviewHtml='<div class="res-review"><p style="font-family:\'Fredoka One\',cursive;font-size:.95rem;color:var(--ind);margin-bottom:4px">📚 Te conviene volver a repasar:</p>';
+    weak.forEach(function(t){
+      reviewHtml+='<div class="res-review-item"><span style="font-size:.85rem;color:var(--dim)">'+(TOPIC_FULL[t]||t)+' — bajo el 70%</span><button class="res-review-btn" onclick="go(\''+TOPIC_SEC[t]+'\','+TOPIC_IDX[TOPIC_SEC[t]]+',document.querySelectorAll(\'.nb\')['+TOPIC_IDX[TOPIC_SEC[t]]+'])">'+TOPIC_BTN_LABEL[t]+'</button></div>';
+    });
+    reviewHtml+='</div>';
+  } else {
+    reviewHtml='<div class="res-review"><p style="font-family:\'Fredoka One\',cursive;font-size:.95rem;color:var(--ind)">🎉 Ningún tema bajo el 70%. ¡Excelente dominio de la unidad!</p></div>';
+  }
+
+  var res=document.getElementById('eres');
+  res.style.display='block';
+  var d1=document.createElement('div');
+  d1.style.cssText='font-family:Fredoka One,cursive;font-size:2rem;color:'+sc+';margin-bottom:6px';
+  d1.textContent=(pct>=70?'🚀':pct>=50?'💪':'📚')+' '+ok+'/'+EQA.length+' correctas — '+pct+'%';
+  var d2=document.createElement('div');
+  d2.style.cssText='background:var(--card2);border:1px solid var(--bord);border-radius:13px;padding:16px';
+  d2.innerHTML=topicHtml+reviewHtml+'<p style="font-size:.85rem;color:var(--dim);margin-top:12px">Revisa el feedback de cada pregunta arriba, junto a la explicación de la respuesta correcta.</p>';
+  res.innerHTML='';res.appendChild(d1);res.appendChild(d2);
+  res.scrollIntoView({behavior:'smooth'});
+}
+
+</script>
+
+<script>
+(function(){
+
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = `Eres el asistente de estudio de la Unidad 3 (Geometría) del módulo PAES Matemática M1 (Plan Común) de la plataforma PAES Karuy.
+
+ALCANCE ESTRICTO: SOLO puedes responder dudas sobre el contenido de esta unidad:
+1. Figuras geométricas (áreas, perímetros, teorema de Pitágoras)
+2. Cuerpos geométricos (volumen y área de superficie de prismas, cilindros, cubos)
+3. Transformaciones isométricas (traslaciones, reflexiones, rotaciones)
+4. Semejanza y proporcionalidad (razón de semejanza, escalas)
+
+NO respondas nada fuera de este temario: ni otras unidades de M1 o M2, ni otras asignaturas, ni temas personales. Si te preguntan algo fuera de este alcance, dilo con amabilidad y redirige al estudiante a la unidad o módulo correspondiente, sin intentar responder la duda igualmente.
+
+REGLAS:
+- Nunca entregues directamente la alternativa correcta de una pregunta de práctica o del Mini Ensayo si el estudiante aún no la ha respondido en el módulo. Guíalo con preguntas socráticas y pistas de procedimiento para que llegue él mismo al resultado.
+- Si ya la respondió, sí puedes explicar el procedimiento paso a paso de por qué la alternativa es correcta o incorrecta.
+- Las preguntas de práctica que generes en modo "Más práctica" son SIEMPRE nuevas y originales; indica explícitamente que son "🤖 generadas por IA, no son preguntas reales de la PAES".
+- No reproduzcas preguntas reales de folletos DEMRE; todo el contenido que generes debe ser original.
+- Muestra los cálculos paso a paso cuando expliques un procedimiento matemático, usando notación simple (sin LaTeX).
+- Si el estudiante expresa angustia, estrés extremo o malestar emocional relacionado con la PAES, valida brevemente cómo se siente, sugiere que hable con un profesor, orientador o adulto de confianza, y luego ofrece retomar el contenido si quiere.
+- Mantén un tono cercano, breve y claro, adecuado para un estudiante de enseñanza media chileno.
+- Si te piden generar contenido de otra unidad o módulo que no conoces en detalle, dilo con honestidad en vez de inventar.`;
+
+var tutorHistory = [];
+var tutorOpen = false;
+
+window.toggleTutor = function() {
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  document.getElementById("tutorDot").style.display = "none";
+};
+
+window.tutorForceClose = function() {
+  if(tutorOpen) {
+    tutorOpen = false;
+    document.getElementById("tutorPanel").classList.remove("open");
+  }
+};
+
+function tutorAppendMsg(role, text) {
+  var wrap = document.getElementById("tutorMsgs");
+  var div = document.createElement("div");
+  div.className = "tutor-msg " + role;
+  div.textContent = text;
+  if(role === "bot") {
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "Reportar esta respuesta";
+    rep.onclick = function(){ tutorReport(text); };
+    div.appendChild(document.createElement("br"));
+    div.appendChild(rep);
+  }
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+  return div;
+}
+
+function tutorTyping(show) {
+  var wrap = document.getElementById("tutorMsgs");
+  var existing = document.getElementById("tutorTypingEl");
+  if(show && !existing) {
+    var t = document.createElement("div");
+    t.className = "tutor-typing";
+    t.id = "tutorTypingEl";
+    t.innerHTML = "<span></span><span></span><span></span>";
+    wrap.appendChild(t);
+    wrap.scrollTop = wrap.scrollHeight;
+  } else if(!show && existing) {
+    existing.remove();
+  }
+}
+
+function tutorReport(msgText) {
+  var report = {
+    unidad: "M1 U3 Geometría",
+    fecha: new Date().toISOString(),
+    mensaje_reportado: msgText,
+    historial: tutorHistory
+  };
+  var blob = new Blob([JSON.stringify(report, null, 2)], {type:"application/json"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "reporte_asistente_m1_u3_" + Date.now() + ".json";
+  a.click();
+}
+
+async function tutorCallAPI(userText) {
+  tutorHistory.push({role:"user", content:userText});
+  tutorTyping(true);
+  document.getElementById("tutorSendBtn").disabled = true;
+  try {
+    var res = await fetch(TUTOR_ENDPOINT, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
+        messages: tutorHistory
+      })
+    });
+    var data = await res.json();
+    var text = (data.content || []).map(function(b){ return b.text || ""; }).join("\n") || "No pude generar una respuesta. Intenta de nuevo.";
+    tutorHistory.push({role:"assistant", content:text});
+    tutorTyping(false);
+    tutorAppendMsg("bot", text);
+  } catch(e) {
+    tutorTyping(false);
+    tutorAppendMsg("system", "⚠️ No se pudo conectar con el asistente. Intenta nuevamente en unos segundos.");
+  }
+  document.getElementById("tutorSendBtn").disabled = false;
+}
+
+window.tutorSend = function() {
+  var input = document.getElementById("tutorInput");
+  var val = input.value.trim();
+  if(!val) return;
+  tutorAppendMsg("user", val);
+  input.value = "";
+  tutorCallAPI(val);
+};
+
+window.tutorQuickMode = function(mode) {
+  var prompts = {
+    explicar: "Explícame de otra forma, con una analogía distinta, el concepto en el que estoy trabajando ahora mismo en esta unidad.",
+    practica: "Genera una nueva pregunta de práctica 🤖 (original, no real) del mismo tema en el que estoy trabajando, con 4 alternativas, y luego dime cuál es la correcta y por qué cuando yo responda.",
+    corregir: "Quiero que corrijas mi razonamiento. Te voy a escribir mi respuesta o mi procedimiento a una pregunta de esta unidad y quiero que me ayudes con el método socrático, sin darme la respuesta directamente."
+  };
+  tutorAppendMsg("user", prompts[mode]);
+  tutorCallAPI(prompts[mode]);
+};
+
+})();
+</script>
+
+</body>
+</html>
