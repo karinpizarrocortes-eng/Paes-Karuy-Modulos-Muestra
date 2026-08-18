@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Plan Com&uacute;n Matem&aacute;tica &bull; Unidad 2: &Aacute;lgebra y Funciones &bull; PAES M1 &bull; Admisi&oacute;n 2027</title>
+<title>Electivo Matem&aacute;tica &bull; M2 &bull; Unidad 2: &Aacute;lgebra y Funciones &bull; PAES M2 &bull; Admisi&oacute;n 2027</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -340,1067 +340,639 @@ footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
 }
 </style>
 <body>
-<div class="pr"><div class="prf" id="prf" style="width:12.5%"></div></div>
+<div class="pr"><div class="prf" id="prf" style="width:16.6%"></div></div>
 <div class="wr">
 
 <div class="hero">
-  <span class="hi">&#129504;</span>
-  <h1>Plan Com&uacute;n &bull; Matem&aacute;tica</h1>
-  <div class="hero-s">Unidad 2 &bull; &Aacute;lgebra y Funciones &bull; PAES M1 &bull; Admisi&oacute;n 2027</div>
-  <div class="badge">&#127919; Eje con m&aacute;s peso del temario &bull; ~25-28 preguntas en la PAES</div>
+  <span class="hi">&#128200;</span>
+  <h1>Electivo &bull; Matem&aacute;tica M2</h1>
+  <div class="hero-s">Unidad 2 &bull; &Aacute;lgebra y Funciones &bull; PAES M2 &bull; Admisi&oacute;n 2027</div>
+  <div class="badge">&#127919; El eje con m&aacute;s gr&aacute;ficos nuevos de M2</div>
 </div>
 
 <div class="nav">
   <button class="nb act" onclick="go('p0',0,this)">&#127968; Inicio</button>
-  <button class="nb" onclick="go('p1',1,this)">&#128290; Expresiones</button>
-  <button class="nb" onclick="go('p2',2,this)">&#8644; Proporcionalidad</button>
-  <button class="nb" onclick="go('p3',3,this)">&#9878; Ecuaciones</button>
-  <button class="nb" onclick="go('p4',4,this)">&#128279; Sistemas 2x2</button>
-  <button class="nb" onclick="go('p5',5,this)">&#128200; Func. Lineal</button>
-  <button class="nb" onclick="go('p6',6,this)">&#128201; Func. Cuadr&aacute;tica</button>
-  <button class="nb" onclick="go('p7',7,this)">&#9201; Mini Ensayo</button>
+  <button class="nb" onclick="go('p1',1,this)">&#128279; Sistemas 2x2</button>
+  <button class="nb" onclick="go('p2',2,this)">&#128200; Potencia/Exp/Log</button>
+  <button class="nb" onclick="go('p3',3,this)">&#128260; Trigonom&eacute;tricas</button>
+  <button class="nb" onclick="go('p4',4,this)">&#9201; Mini Ensayo</button>
 </div>
 
 <div class="sec act" id="p0">
 <div class="card" style="text-align:center;padding:28px 20px">
-  <p class="ct" style="justify-content:center;color:var(--ind);font-size:1.5rem">🧮 Plan Común · Matemática</p>
-  <p style="font-size:.97rem;max-width:620px;margin:0 auto 18px;color:var(--dim);line-height:1.8">Esta unidad cubre el eje <strong>Álgebra y Funciones</strong> del temario oficial de Competencia Matemática 1 (M1) — el eje con más peso relativo de toda la prueba. Cubrimos 6 temas: expresiones algebraicas, proporcionalidad, ecuaciones e inecuaciones, sistemas de ecuaciones 2×2, función lineal/afín y función cuadrática. Partimos de cero en cada uno, con ejemplos resueltos paso a paso.</p>
-  <div class="badge">🎯 Eje Álgebra y Funciones · 6 unidades temáticas · Admisión 2027</div>
+  <p class="ct" style="justify-content:center;color:var(--ind);font-size:1.5rem">📈 Electivo · Matemática M2</p>
+  <p style="font-size:.97rem;max-width:640px;margin:0 auto 18px;color:var(--dim);line-height:1.8">Esta unidad suma a M1 los <strong>casos especiales de sistemas de ecuaciones</strong>, y 3 familias de funciones completamente nuevas: <strong>potencia, exponencial, logarítmica</strong> y <strong>trigonométricas (seno y coseno)</strong>. Vas a poder mover sliders y ver los gráficos cambiar en vivo — la mejor forma de entender cómo cada parámetro transforma una función.</p>
+  <div class="badge">🎯 M2 · Eje Álgebra y Funciones · 3 temas nuevos + repaso de M1</div>
 </div>
+
+<div class="card" style="border-left:4px solid var(--ind)">
+  <p class="ct" style="color:var(--ind)">🔗 Prerrequisito: M1 · Unidad 2</p>
+  <p>Esta unidad asume que ya dominas <strong>M1 · Unidad 2 · Álgebra y Funciones</strong> (expresiones algebraicas, proporcionalidad, ecuaciones/inecuaciones, sistemas básicos, función lineal/afín y cuadrática). Aquí construimos directamente sobre eso.</p>
+</div>
+
 <div class="card">
-  <p class="ct" style="color:var(--ind)">📊 ¿Qué contiene el eje Álgebra y Funciones?</p>
+  <p class="ct" style="color:var(--ind)">📊 ¿Qué contiene esta unidad?</p>
   <table style="width:100%;border-collapse:collapse;margin-top:8px">
-    <tr><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--ind)">Unidad temática</th><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--ind)">Qué incluye</th></tr>
-    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">🔤 Expresiones algebraicas</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Productos notables, factorización, operatoria</td></tr>
-    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">⇄ Proporcionalidad</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Proporción directa e inversa, representaciones</td></tr>
-    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">⚖ Ecuaciones e inecuaciones</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Resolución de ecuaciones e inecuaciones de primer grado</td></tr>
-    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">🔗 Sistemas de ecuaciones 2×2</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Sustitución, reducción y problemas</td></tr>
-    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">📈 Función lineal y afín</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Concepto, tablas, gráficos, pendiente</td></tr>
-    <tr><td style="padding:7px 10px;font-size:.87rem">📉 Función cuadrática</td><td style="padding:7px 10px;font-size:.87rem">Ecuaciones de 2º grado, vértice, ceros, gráficos</td></tr>
+    <tr><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--ind)">Tema</th><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--ind)">Qué incluye</th></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">🔗 Sistemas 2×2</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Casos: única solución, infinitas soluciones, sin solución</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">📈 Potencia, Exponencial y Logarítmica</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Gráficos y problemas de estas 3 familias de funciones</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem">🔄 Funciones Trigonométricas</td><td style="padding:7px 10px;font-size:.87rem">Gráficos de seno y coseno, amplitud y período</td></tr>
   </table>
 </div>
+
 <div class="g2">
   <div class="card" style="border-left:4px solid var(--ind)">
-    <p class="ct" style="color:var(--ind)">📌 Contexto PAES</p>
-    <ul><li>Álgebra y Funciones es el eje con <strong>más preguntas</strong> de toda la prueba M1</li>
-    <li>Es la base directa para Función Cuadrática y para varios problemas de Geometría</li>
+    <p class="ct" style="color:var(--ind)">📌 Contexto PAES M2</p>
+    <ul><li>Este eje evalúa mucho la lectura de gráficos: reconocer una función por su forma, o predecir cómo cambia al mover un parámetro</li>
+    <li>Sistemas 2x2 con casos especiales (sin solución/infinitas) es un tipo de pregunta muy repetido en M2</li>
     <li>No se descuenta puntaje por respuestas erradas: siempre conviene marcar una alternativa</li></ul>
   </div>
   <div class="card" style="border-left:4px solid #6d28d9">
-    <p class="ct" style="color:#6d28d9">💡 Esta unidad tiene</p>
-    <ul><li>6 carruseles de diagramas, uno por tema, con ejemplos resueltos paso a paso</li>
-    <li>Práctica guiada con retroalimentación por alternativa en cada tema</li>
-    <li>Mini ensayo de cierre cronometrado con los 6 temas mezclados, con 18 preguntas generadas por IA</li></ul>
+    <p class="ct" style="color:#6d28d9">🎮 Esta unidad tiene widgets interactivos</p>
+    <ul><li>Cada tema trae un <strong>gráfico con sliders en vivo</strong> — mueve los parámetros y observa cómo cambia la curva al instante</li>
+    <li>Más los carruseles de diagramas y práctica guiada de siempre</li>
+    <li>Mini ensayo de cierre con preguntas generadas por IA al estilo PAES M2, incluyendo Suficiencia de Datos</li></ul>
   </div>
 </div>
 </div>
 
-<!-- EXPRESIONES ALGEBRAICAS -->
+<!-- SISTEMAS 2X2 -->
 <div class="sec" id="p1">
-<div class="hsec" style="border-color:rgba(79,70,229,.3)">
-  <span class="hi2">🔤</span>
-  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--ind);margin-bottom:3px">Tema 1 de 6 · Eje Álgebra y Funciones</div>
-  <h2 style="color:var(--ind)">Expresiones Algebraicas</h2>
-  <p>Productos notables, factorización y operatoria con expresiones algebraicas — el lenguaje base que necesitas dominar para resolver ecuaciones, sistemas y funciones en los siguientes temas.</p>
+<div class="hsec" style="border-color:rgba(180,83,9,.3)">
+  <span class="hi2">🔗</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#b45309;margin-bottom:3px">Tema 1 de 3 · M2 Unidad 2</div>
+  <h2 style="color:#b45309">Sistemas de Ecuaciones 2×2: Casos Especiales</h2>
+  <p>Ya sabes resolver sistemas 2×2 desde M1. Ahora vamos a los 3 casos posibles según cómo se relacionen las dos rectas — y por qué a veces un sistema NO tiene una única solución.</p>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#b45309">🎮 Widget interactivo: mueve la Recta 2 y observa qué pasa</p>
+  <p style="font-size:.87rem;color:var(--dim);margin-bottom:10px">La Recta 1 es fija: y = x + 1. Mueve los sliders de la Recta 2 (pendiente m y coeficiente de posición n) y observa en vivo cuántas soluciones tiene el sistema.</p>
+  <div class="svgw" style="background:#fff;overflow:hidden;padding:0">
+    <svg id="sysSvg" viewBox="0 0 400 400" style="width:100%;max-width:400px;display:block;margin:0 auto">
+      <line x1="0" y1="200" x2="400" y2="200" stroke="#c4b5fd" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="400" stroke="#c4b5fd" stroke-width="1"/>
+      <line id="line1" x1="20" y1="380" x2="380" y2="20" stroke="#4f46e5" stroke-width="2.5"/>
+      <line id="line2" x1="20" y1="200" x2="380" y2="200" stroke="#dc2626" stroke-width="2.5"/>
+      <circle id="interPt" cx="200" cy="170" r="6" fill="#059669"/>
+    </svg>
+  </div>
+  <div class="sls" style="margin-top:10px">
+    <div class="slg">
+      <label>Recta 2 · pendiente (m)</label>
+      <input type="range" id="sysM" min="-3" max="3" step="0.1" value="1.5" oninput="updateSys()">
+      <span class="sv" id="sysMVal" style="color:#dc2626">m = 1,5</span>
+    </div>
+    <div class="slg">
+      <label>Recta 2 · coeficiente de posición (n)</label>
+      <input type="range" id="sysN" min="-5" max="5" step="0.5" value="-2" oninput="updateSys()">
+      <span class="sv" id="sysNVal" style="color:#dc2626">n = −2</span>
+    </div>
+  </div>
+  <div class="ores" id="sysResult" style="margin-top:12px">Recta 2: y = 1,5x − 2 &nbsp;·&nbsp; Solución única en (2, 3)</div>
 </div>
 
 <div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p1">
 
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<text x="130" y="70" font-size="34" font-weight="900" fill="#211a4d" text-anchor="middle">5x</text>
-<text x="175" y="52" font-size="20" font-weight="900" fill="var(--ind)" text-anchor="middle">2</text>
-<text x="130" y="100" font-size="10" fill="#4c3d99" text-anchor="middle">coeficiente · variable</text>
-<text x="175" y="30" font-size="10" fill="var(--ind)" text-anchor="middle">exponente</text>
-<text x="400" y="70" font-size="16" fill="#4c3d99" text-anchor="middle">3x² + 5x − 2</text>
-<text x="400" y="95" font-size="10" fill="#4c3d99" text-anchor="middle">trinomio: 3 términos</text>
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<line x1="60" y1="120" x2="500" y2="120" stroke="#4c3d99" stroke-width="1.3"/>
+<line x1="280" y1="120" x2="280" y2="20" stroke="#4c3d99" stroke-width="1.3"/>
+<line x1="80" y1="115" x2="480" y2="35" stroke="#b45309" stroke-width="2.3"/>
+<line x1="80" y1="35" x2="480" y2="115" stroke="#0891b2" stroke-width="2.3"/>
+<circle cx="280" cy="75" r="6" fill="#059669"/>
+<text x="280" y="55" font-size="11" font-weight="900" fill="#059669" text-anchor="middle">1 solución</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:var(--ind)">🔤 Concepto de expresión algebraica</p>
-  <p>Una <strong>expresión algebraica</strong> combina números (coeficientes), letras (variables) y exponentes mediante operaciones. Un <strong>término</strong> es cada parte separada por + o −; sus componentes son coeficiente, variable y exponente.</p>
-  <div class="pgrid" style="margin-top:6px">
-    <div class="pc"><h4>Monomio</h4><p>Un solo término: 5x².</p></div>
-    <div class="pc"><h4>Binomio</h4><p>Dos términos: 3x+4.</p></div>
-    <div class="pc"><h4>Trinomio</h4><p>Tres términos: x²+5x−2.</p></div>
-    <div class="pc"><h4>Términos semejantes</h4><p>Misma variable y exponente: 3x y 7x son semejantes; 3x y 3x² no.</p></div>
-  </div>
+  <p class="ct" style="color:#b45309">✅ Caso 1: Solución única</p>
+  <p>Ocurre cuando las <strong>pendientes de las dos rectas son distintas</strong> (m₁≠m₂). Rectas con distinta inclinación siempre se cruzan en exactamente un punto — no hay forma de que dos rectas con pendientes distintas sean paralelas o coincidentes.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">m₁ ≠ m₂ &nbsp;⟹&nbsp; solución única</span></div>
+  <p style="margin-top:10px">Este es el caso "normal", el que ya practicaste en M1 con sustitución y reducción — la mayoría de los sistemas que verás son de este tipo.</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 El dato que más se olvida</div>
-    <p>Solo se pueden sumar o restar términos semejantes. 3x+5x²=3x+5x², NO 8x⁵ ni 8x — se quedan separados porque tienen distinto exponente.</p>
+    <div class="tip-l">💡 Cómo verlo sin graficar</div>
+    <p>Escribe ambas ecuaciones en la forma y=mx+n. Si los valores de m son distintos, ya sabes que hay solución única, sin necesitar resolver nada más.</p>
   </div>
 </div></div>
 
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
-<rect x="30" y="15" width="200" height="70" fill="none" stroke="var(--ind)" stroke-width="1.5"/>
-<rect x="30" y="15" width="140" height="45" fill="#e0e7ff"/>
-<rect x="170" y="15" width="60" height="45" fill="#fce7f3"/>
-<rect x="30" y="60" width="140" height="25" fill="#fce7f3"/>
-<rect x="170" y="60" width="60" height="25" fill="#fef3c7"/>
-<text x="100" y="42" font-size="13" font-weight="900" fill="#4338ca" text-anchor="middle">a²</text>
-<text x="200" y="42" font-size="13" font-weight="900" fill="#be185d" text-anchor="middle">ab</text>
-<text x="100" y="76" font-size="13" font-weight="900" fill="#be185d" text-anchor="middle">ab</text>
-<text x="200" y="76" font-size="13" font-weight="900" fill="#b45309" text-anchor="middle">b²</text>
-<text x="100" y="105" font-size="11" fill="#4c3d99" text-anchor="middle">a</text>
-<text x="200" y="105" font-size="11" fill="#4c3d99" text-anchor="middle">b</text>
-<text x="400" y="60" font-size="16" font-weight="900" fill="var(--ind)" text-anchor="middle">(a+b)² = a²+2ab+b²</text>
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<line x1="60" y1="115" x2="500" y2="35" stroke="#b45309" stroke-width="2.3"/>
+<line x1="60" y1="75" x2="500" y2="-5" stroke="#0891b2" stroke-width="2.3" transform="translate(0,45)"/>
+<text x="280" y="20" font-size="11" font-weight="900" fill="#dc2626" text-anchor="middle">¡nunca se cruzan!</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:var(--ind)">🟪 Producto notable: cuadrado de binomio</p>
-  <p>Un <strong>producto notable</strong> es un patrón de multiplicación tan frecuente que conviene memorizarlo, en vez de desarrollarlo término a término cada vez. El más usado es el cuadrado de un binomio.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">(a+b)² = a² + 2ab + b²</span><div class="fdef">el cuadrado del primero, más el doble producto, más el cuadrado del segundo</div></div>
-  <p style="margin-top:10px">Ejemplo: (x+3)² = x² + 2·x·3 + 3² = <strong>x² + 6x + 9</strong>. El área del cuadrado grande (visual arriba) se compone exactamente de esos 3 términos.</p>
+  <p class="ct" style="color:#b45309">❌ Caso 2: Sin solución (rectas paralelas)</p>
+  <p>Ocurre cuando las dos rectas tienen la <strong>misma pendiente pero distinto coeficiente de posición</strong> (m₁=m₂, n₁≠n₂). Son rectas paralelas: nunca se tocan, por más que se extiendan.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">m₁ = m₂ &nbsp;y&nbsp; n₁ ≠ n₂ &nbsp;⟹&nbsp; sin solución</span></div>
+  <p style="margin-top:10px">Algebraicamente, si intentas resolver este sistema, llegarás a una <strong>contradicción</strong>, como "0=5" — una afirmación siempre falsa, señal inequívoca de que no hay solución.</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Error clásico en la PAES</div>
-    <p>(a+b)² NO es a²+b². Falta siempre el término del medio, 2ab. Es el error más común y más preguntado en esta unidad.</p>
+    <div class="tip-l">💡 Pregunta típica de la PAES</div>
+    <p>"¿Cuál ecuación forma un sistema sin solución con...?" — busca la alternativa con la MISMA pendiente pero un coeficiente de posición diferente al de la ecuación dada.</p>
   </div>
 </div></div>
 
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<text x="140" y="60" font-size="18" font-weight="900" fill="#211a4d" text-anchor="middle">(a+b)(a−b)</text>
-<path d="M250,55 L300,55" stroke="#4c3d99" stroke-width="2"/>
-<text x="420" y="60" font-size="18" font-weight="900" fill="var(--ind)" text-anchor="middle">a² − b²</text>
-<text x="280" y="95" font-size="10" fill="#4c3d99" text-anchor="middle">"suma por diferencia"</text>
-<text x="280" y="112" font-size="10" fill="#4c3d99" text-anchor="middle">= diferencia de cuadrados</text>
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<line x1="60" y1="115" x2="500" y2="35" stroke="#b45309" stroke-width="5" opacity=".55"/>
+<text x="280" y="20" font-size="11" font-weight="900" fill="#059669" text-anchor="middle">misma recta → se cruzan en TODOS los puntos</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:var(--ind)">➕➖ Producto notable: suma por diferencia</p>
-  <p>Cuando se multiplican dos binomios con los mismos términos pero signo distinto en el medio, el resultado es una <strong>diferencia de cuadrados</strong> — el término del medio se cancela.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">(a+b)(a−b) = a² − b²</span></div>
-  <p style="margin-top:10px">Ejemplo: (x+5)(x−5) = x² − 5² = <strong>x² − 25</strong>. Se puede verificar desarrollando: x²−5x+5x−25 = x²−25 (los términos −5x y +5x se cancelan).</p>
+  <p class="ct" style="color:#b45309">♾️ Caso 3: Infinitas soluciones (misma recta)</p>
+  <p>Ocurre cuando las dos ecuaciones representan <strong>exactamente la misma recta</strong> (una es un múltiplo de la otra). Todo punto de esa recta es solución del sistema.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">ecuación 2 = k × ecuación 1 &nbsp;⟹&nbsp; infinitas soluciones</span></div>
+  <p style="margin-top:10px">Ejemplo: x+y=3 y 2x+2y=6 son la misma recta (la segunda es la primera multiplicada por 2). Algebraicamente, al resolver llegas a una <strong>identidad</strong>, como "0=0" — siempre verdadera.</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Reconocerlo al revés (factorizar)</div>
-    <p>Esta identidad también funciona en sentido inverso: cualquier diferencia de cuadrados a²−b² se puede factorizar como (a+b)(a−b). Es una de las factorizaciones más preguntadas en la PAES.</p>
+    <div class="tip-l">💡 Cómo detectarlo rápido</div>
+    <p>Compara la razón entre los coeficientes de x, los de y, y los términos libres. Si las 3 razones son iguales, las ecuaciones son la misma recta — infinitas soluciones.</p>
   </div>
 </div></div>
 
 <div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<text x="130" y="60" font-size="18" font-weight="900" fill="#211a4d" text-anchor="middle">6x + 9</text>
-<path d="M220,55 L270,55" stroke="#4c3d99" stroke-width="2"/>
-<text x="420" y="60" font-size="18" font-weight="900" fill="var(--ind)" text-anchor="middle">3(2x + 3)</text>
-<text x="280" y="95" font-size="10" fill="#4c3d99" text-anchor="middle">3 es el factor común de 6x y 9</text>
+<text x="140" y="30" font-size="12" fill="#211a4d">¿Cuál ecuación NO tiene solución con y=⅔x+4?</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#b45309">y=⅔x+4 tiene m=2/3, n=4</text>
+<text x="140" y="95" font-size="14" font-weight="900" fill="#059669">Busca: misma m=2/3, distinto n → y=⅔x+9</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:var(--ind)">🔧 Factorización: factor común</p>
-  <p><strong>Factorizar</strong> es el proceso inverso a desarrollar: escribir una expresión como un producto de factores. La forma más simple es sacar el <strong>factor común</strong>: el número o variable que divide exactamente a todos los términos.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">6x + 9 = 3(2x + 3)</span><div class="fdef">3 divide tanto a 6 como a 9</div></div>
-  <p style="margin-top:10px">Para verificar que la factorización es correcta, basta con desarrollar de vuelta: 3(2x+3) = 3·2x + 3·3 = 6x+9. ✓</p>
+  <p class="ct" style="color:#b45309">🤖 Problema resuelto: identificar el caso "sin solución"</p>
+  <p>¿Cuál de las siguientes ecuaciones forma un sistema sin solución con y=⅔x+4?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">Respuesta: y=⅔x+9 (misma pendiente 2/3, distinto n: 4≠9)</span></div>
+  <p style="margin-top:10px">Las otras alternativas fallan la prueba: y=⅔x+4 es la MISMA recta (infinitas soluciones, no "sin solución"); y=3x+4 y y=−3x+9 tienen pendiente distinta (solución única, no "sin solución").</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Buscar el MAYOR factor común</div>
-    <p>En 12x²+8x, el factor común no es solo 2 ni solo 4: es 4x (el mayor que divide ambos términos), dando 4x(3x+2). Sacar un factor común incompleto no está mal, pero no está totalmente factorizado.</p>
+    <div class="tip-l">💡 Revisa siempre las 3 alternativas "trampa"</div>
+    <p>En este tipo de pregunta, las alternativas incorrectas suelen representar los otros 2 casos (misma recta, o pendiente distinta) — identificarlos te ayuda a confirmar por descarte cuál es la correcta.</p>
   </div>
 </div></div>
 
 <div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<text x="140" y="55" font-size="15" font-weight="900" fill="#211a4d" text-anchor="middle">3x + 5x − 2x</text>
-<path d="M260,50 L310,50" stroke="#4c3d99" stroke-width="2"/>
-<text x="420" y="55" font-size="18" font-weight="900" fill="var(--ind)" text-anchor="middle">6x</text>
-<text x="280" y="90" font-size="10" fill="#4c3d99" text-anchor="middle">se suman/restan solo los coeficientes</text>
-<text x="280" y="105" font-size="10" fill="#4c3d99" text-anchor="middle">(la parte literal "x" no cambia)</text>
+<text x="140" y="25" font-size="11" fill="#211a4d">20x+qy=8 &nbsp; px+4y=2 &nbsp;→ infinitas soluciones</text>
+<text x="140" y="55" font-size="13" font-weight="900" fill="#b45309">20/p = q/4 = 8/2 = 4</text>
+<text x="140" y="85" font-size="14" font-weight="900" fill="#059669">p = 20/4 = 5 &nbsp;&nbsp; q = 4×4 = 16</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:var(--ind)">➗ Operatoria: reducir términos semejantes</p>
-  <p>"Reducir" o "simplificar" una expresión significa combinar todos los <strong>términos semejantes</strong> en uno solo, sumando o restando sus coeficientes y dejando la parte literal (variable + exponente) intacta.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">3x + 5x − 2x = 6x</span></div>
-  <p style="margin-top:10px">Con varios términos distintos, se agrupan por tipo antes de reducir: 3x²+5x−2x²+x = (3x²−2x²)+(5x+x) = <strong>x²+6x</strong>.</p>
+  <p class="ct" style="color:#b45309">🤖 Problema resuelto: encontrar p y q para infinitas soluciones</p>
+  <p>El sistema 20x+qy=8, px+4y=2 tiene infinitas soluciones. ¿Cuáles son los valores de p y q, respectivamente?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">20/p = q/4 = 8/2=4 &nbsp;⟹&nbsp; p=5, q=16</span></div>
+  <p style="margin-top:10px">Para que dos ecuaciones representen la misma recta, la razón entre TODOS sus coeficientes correspondientes (x, y, y término libre) debe ser igual. Se usa el término libre (12/2=6) como razón de referencia, y se despeja cada incógnita.</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Antes de reducir, revisa la jerarquía</div>
-    <p>Si hay paréntesis con signo negativo delante, primero se distribuye ese signo a cada término interno (igual que en enteros), y recién después se reducen los términos semejantes.</p>
+    <div class="tip-l">💡 Plantea las 3 razones, no solo 2</div>
+    <p>Con solo 2 de las 3 razones podrías resolver, pero plantear las 3 (x, y, y término libre) te permite verificar tu respuesta al final — si las 3 dan el mismo número, tu solución es correcta.</p>
   </div>
 </div></div>
 
 </div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p1" onclick="deckNav('p1',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p1"><button class="deck-dot act" onclick="deckGoto('p1',0)"></button><button class="deck-dot" onclick="deckGoto('p1',1)"></button><button class="deck-dot" onclick="deckGoto('p1',2)"></button><button class="deck-dot" onclick="deckGoto('p1',3)"></button><button class="deck-dot" onclick="deckGoto('p1',4)"></button></div><button class="deck-arrow" id="deck-next-p1" onclick="deckNav('p1',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p1">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
 
 <div class="kws">
-  <span class="kw" style="color:var(--ind)">término semejante</span>
-  <span class="kw" style="color:var(--ind)">(a+b)²=a²+2ab+b²</span>
-  <span class="kw" style="color:var(--ind)">(a+b)(a−b)=a²−b²</span>
-  <span class="kw" style="color:var(--ind)">factor común</span>
-  <span class="kw" style="color:var(--ind)">reducir términos</span>
+  <span class="kw" style="color:#b45309">m₁≠m₂: única</span>
+  <span class="kw" style="color:#b45309">m₁=m₂,n₁≠n₂: sin solución</span>
+  <span class="kw" style="color:#b45309">misma recta: infinitas</span>
 </div>
 
-<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 5 preguntas</p>
 
 <div class="pbox">
-  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
-  <p class="pq">Al desarrollar (x+4)², ¿cuál es el resultado?</p>
-  <div class="pos" id="qe1">
-    <div class="po" onclick="ans('qe1','A')"><div class="ol">A</div><div class="ot">x²+16</div></div>
-    <div class="po" onclick="ans('qe1','B')"><div class="ol">B</div><div class="ot">x²+4x+16</div></div>
-    <div class="po" onclick="ans('qe1','C')"><div class="ol">C</div><div class="ot">x²+8x+16</div></div>
-    <div class="po" onclick="ans('qe1','D')"><div class="ol">D</div><div class="ot">x²+8</div></div>
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál de los siguientes sistemas tiene solución única?</p>
+  <div class="pos" id="qsi1b">
+    <div class="po" onclick="ans('qsi1b','A')"><div class="ol">A</div><div class="ot">y=2x+3 ; y=2x−1</div></div>
+    <div class="po" onclick="ans('qsi1b','B')"><div class="ol">B</div><div class="ot">y=3x+1 ; y=−x+5</div></div>
+    <div class="po" onclick="ans('qsi1b','C')"><div class="ol">C</div><div class="ot">y=x+2 ; 2y=2x+4</div></div>
+    <div class="po" onclick="ans('qsi1b','D')"><div class="ol">D</div><div class="ot">y=−x+1 ; 2y=−2x+2</div></div>
   </div>
-  <div class="pfb" id="qe1-fb"></div>
+  <div class="pfb" id="qsi1b-fb"></div>
 </div>
 
 <div class="pbox">
-  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
-  <p class="pq">Al factorizar 8x+12, ¿cuál es la expresión equivalente?</p>
-  <div class="pos" id="qe2">
-    <div class="po" onclick="ans('qe2','A')"><div class="ol">A</div><div class="ot">2(4x+6)</div></div>
-    <div class="po" onclick="ans('qe2','B')"><div class="ol">B</div><div class="ot">4(2x+3)</div></div>
-    <div class="po" onclick="ans('qe2','C')"><div class="ol">C</div><div class="ot">4x(2+3)</div></div>
-    <div class="po" onclick="ans('qe2','D')"><div class="ol">D</div><div class="ot">8(x+12)</div></div>
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál ecuación forma un sistema SIN solución con y=3x−2?</p>
+  <div class="pos" id="qsi2b">
+    <div class="po" onclick="ans('qsi2b','A')"><div class="ol">A</div><div class="ot">y=3x−2</div></div>
+    <div class="po" onclick="ans('qsi2b','B')"><div class="ol">B</div><div class="ot">y=3x+4</div></div>
+    <div class="po" onclick="ans('qsi2b','C')"><div class="ol">C</div><div class="ot">y=−3x−2</div></div>
+    <div class="po" onclick="ans('qsi2b','D')"><div class="ol">D</div><div class="ot">y=2x−2</div></div>
   </div>
-  <div class="pfb" id="qe2-fb"></div>
+  <div class="pfb" id="qsi2b-fb"></div>
 </div>
 
 <div class="pbox">
-  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuál es el resultado de (x+6)(x−6)?</p>
-  <div class="pos" id="qe3">
-    <div class="po" onclick="ans('qe3','A')"><div class="ol">A</div><div class="ot">x²−36</div></div>
-    <div class="po" onclick="ans('qe3','B')"><div class="ol">B</div><div class="ot">x²+36</div></div>
-    <div class="po" onclick="ans('qe3','C')"><div class="ol">C</div><div class="ot">x²−12x−36</div></div>
-    <div class="po" onclick="ans('qe3','D')"><div class="ol">D</div><div class="ot">x²−12x+36</div></div>
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál ecuación forma un sistema con INFINITAS soluciones junto a 2x+4y=10?</p>
+  <div class="pos" id="qsi3b">
+    <div class="po" onclick="ans('qsi3b','A')"><div class="ol">A</div><div class="ot">x+2y=5</div></div>
+    <div class="po" onclick="ans('qsi3b','B')"><div class="ol">B</div><div class="ot">x+2y=10</div></div>
+    <div class="po" onclick="ans('qsi3b','C')"><div class="ol">C</div><div class="ot">2x+4y=20</div></div>
+    <div class="po" onclick="ans('qsi3b','D')"><div class="ol">D</div><div class="ot">4x+8y=10</div></div>
   </div>
-  <div class="pfb" id="qe3-fb"></div>
+  <div class="pfb" id="qsi3b-fb"></div>
 </div>
 
 <div class="pbox">
-  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
-  <p class="pq">Al reducir 5x²+3x−2x²+4x, ¿cuál es el resultado?</p>
-  <div class="pos" id="qe4">
-    <div class="po" onclick="ans('qe4','A')"><div class="ol">A</div><div class="ot">3x²+7x</div></div>
-    <div class="po" onclick="ans('qe4','B')"><div class="ol">B</div><div class="ot">7x²+7x</div></div>
-    <div class="po" onclick="ans('qe4','C')"><div class="ol">C</div><div class="ot">3x²+x</div></div>
-    <div class="po" onclick="ans('qe4','D')"><div class="ol">D</div><div class="ot">10x⁴</div></div>
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <div class="pctx">Sistema: kx+3y=6 ; 2x+y=4.</div>
+  <p class="pq">¿Para qué valor de k el sistema NO tiene solución única (es decir, tiene la misma pendiente)?</p>
+  <div class="pos" id="qsi4b">
+    <div class="po" onclick="ans('qsi4b','A')"><div class="ol">A</div><div class="ot">k=2</div></div>
+    <div class="po" onclick="ans('qsi4b','B')"><div class="ol">B</div><div class="ot">k=3</div></div>
+    <div class="po" onclick="ans('qsi4b','C')"><div class="ol">C</div><div class="ot">k=6</div></div>
+    <div class="po" onclick="ans('qsi4b','D')"><div class="ol">D</div><div class="ot">k=4</div></div>
   </div>
-  <div class="pfb" id="qe4-fb"></div>
+  <div class="pfb" id="qsi4b-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">Si un sistema 2×2 al resolverlo algebraicamente llega a la afirmación "0=7", ¿qué tipo de sistema es?</p>
+  <div class="pos" id="qsi5b">
+    <div class="po" onclick="ans('qsi5b','A')"><div class="ol">A</div><div class="ot">Solución única</div></div>
+    <div class="po" onclick="ans('qsi5b','B')"><div class="ol">B</div><div class="ot">Sin solución</div></div>
+    <div class="po" onclick="ans('qsi5b','C')"><div class="ol">C</div><div class="ot">Infinitas soluciones</div></div>
+    <div class="po" onclick="ans('qsi5b','D')"><div class="ol">D</div><div class="ot">No se puede determinar</div></div>
+  </div>
+  <div class="pfb" id="qsi5b-fb"></div>
 </div>
 
 </div>
 
-<!-- PROPORCIONALIDAD -->
+<!-- POTENCIA EXPONENCIAL LOGARITMICA -->
 <div class="sec" id="p2">
-<div class="hsec" style="border-color:rgba(8,145,178,.3)">
-  <span class="hi2">⇄</span>
-  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#0891b2;margin-bottom:3px">Tema 2 de 6 · Eje Álgebra y Funciones</div>
-  <h2 style="color:#0891b2">Proporcionalidad</h2>
-  <p>Proporción directa e inversa: cómo reconocerlas, representarlas y resolver problemas — la puerta de entrada al concepto de función que viene más adelante en esta misma unidad.</p>
+<div class="hsec" style="border-color:rgba(190,24,93,.3)">
+  <span class="hi2">📈</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#be185d;margin-bottom:3px">Tema 2 de 3 · M2 Unidad 2</div>
+  <h2 style="color:#be185d">Función Potencia, Exponencial y Logarítmica</h2>
+  <p>Tres familias de funciones nuevas para M2, todas conectadas con lo que ya aprendiste de potencias, raíces y logaritmos en la Unidad 1.</p>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#be185d">🎮 Widget interactivo: función exponencial f(x) = a·bˣ</p>
+  <p style="font-size:.87rem;color:var(--dim);margin-bottom:10px">Mueve los sliders de a (factor inicial) y b (base) y observa cómo cambia la curva — nota qué pasa cuando b&gt;1 (crecimiento) versus 0&lt;b&lt;1 (decrecimiento).</p>
+  <div class="svgw" style="background:#fff;overflow:hidden;padding:0">
+    <svg id="expSvg" viewBox="0 0 400 300" style="width:100%;max-width:400px;display:block;margin:0 auto">
+      <line x1="0" y1="250" x2="400" y2="250" stroke="#c4b5fd" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="300" stroke="#c4b5fd" stroke-width="1"/>
+      <path id="expPath" d="" fill="none" stroke="#be185d" stroke-width="2.5"/>
+    </svg>
+  </div>
+  <div class="sls" style="margin-top:10px">
+    <div class="slg">
+      <label>a (factor inicial)</label>
+      <input type="range" id="expA" min="0.5" max="4" step="0.1" value="1" oninput="updateExp()">
+      <span class="sv" id="expAVal" style="color:#be185d">a = 1</span>
+    </div>
+    <div class="slg">
+      <label>b (base)</label>
+      <input type="range" id="expB" min="0.3" max="2.5" step="0.05" value="2" oninput="updateExp()">
+      <span class="sv" id="expBVal" style="color:#be185d">b = 2</span>
+    </div>
+  </div>
+  <div class="ores" id="expResult" style="margin-top:12px">f(x) = 1×2ˣ &nbsp;·&nbsp; b&gt;1: función creciente</div>
 </div>
 
 <div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p2">
 
 <div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
-<line x1="60" y1="120" x2="60" y2="20" stroke="#4c3d99" stroke-width="1.5"/>
-<line x1="60" y1="120" x2="480" y2="120" stroke="#4c3d99" stroke-width="1.5"/>
-<line x1="60" y1="120" x2="300" y2="30" stroke="#0891b2" stroke-width="2.5"/>
-<circle cx="140" cy="97" r="4" fill="#0891b2"/>
-<circle cx="220" cy="74" r="4" fill="#0891b2"/>
-<circle cx="300" cy="51" r="4" fill="#0891b2"/>
-<text x="380" y="60" font-size="14" font-weight="900" fill="#0891b2">y = kx</text>
-<text x="260" y="135" font-size="10" fill="#4c3d99" text-anchor="middle">línea recta que pasa por el origen</text>
+<line x1="60" y1="120" x2="500" y2="120" stroke="#4c3d99" stroke-width="1.3"/>
+<line x1="280" y1="120" x2="280" y2="20" stroke="#4c3d99" stroke-width="1.3"/>
+<path d="M180,120 Q280,20 380,20" fill="none" stroke="#be185d" stroke-width="2.3"/>
+<text x="280" y="135" font-size="11" fill="#4c3d99" text-anchor="middle">f(x)=xⁿ</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:#0891b2">📈 Proporción directa</p>
-  <p>Dos cantidades son <strong>directamente proporcionales</strong> cuando, al aumentar una, la otra aumenta en la misma razón (y al disminuir una, la otra disminuye igual). Su razón y/x siempre es constante.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">y = k·x</span><div class="fdef">k es la constante de proporcionalidad: k = y/x</div></div>
-  <p style="margin-top:10px">Ejemplo: si 2 kilos de manzanas cuestan $1.000, entonces k=500 ($/kg), y 5 kilos cuestan 5×500=$2.500. La razón precio/cantidad siempre es la misma.</p>
+  <p class="ct" style="color:#be185d">🔺 Función potencia: f(x) = xⁿ</p>
+  <p>Una <strong>función potencia</strong> tiene la variable x como base, elevada a un exponente fijo n: f(x)=xⁿ. Ya conoces f(x)=x² (cuadrática) y f(x)=x (lineal) — son casos particulares de esta familia.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">f(x) = xⁿ</span><div class="fdef">n par → forma de "U" simétrica · n impar → forma de "S" creciente</div></div>
+  <p style="margin-top:10px">Si n es par (x², x⁴...), el gráfico es simétrico respecto al eje y, similar a una parábola pero más "cerrada" mientras mayor es n. Si n es impar (x³, x⁵...), el gráfico tiene simetría respecto al origen.</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Cómo reconocerla en una tabla</div>
-    <p>Si divides cada par de valores (y÷x) y siempre obtienes el mismo número, la relación es directamente proporcional. Ese número constante es k.</p>
+    <div class="tip-l">💡 No confundir con función exponencial</div>
+    <p>En la función potencia, el exponente es fijo y la base varía (xⁿ). En la función exponencial (siguiente diagrama), es al revés: la base es fija y el exponente varía (bˣ). Son familias distintas con comportamientos muy diferentes.</p>
   </div>
 </div></div>
 
 <div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
-<line x1="60" y1="120" x2="60" y2="20" stroke="#4c3d99" stroke-width="1.5"/>
-<line x1="60" y1="120" x2="480" y2="120" stroke="#4c3d99" stroke-width="1.5"/>
-<path d="M90,30 Q160,45 220,70 T350,110" fill="none" stroke="#0891b2" stroke-width="2.5"/>
-<circle cx="100" cy="35" r="4" fill="#0891b2"/>
-<circle cx="180" cy="60" r="4" fill="#0891b2"/>
-<circle cx="320" cy="100" r="4" fill="#0891b2"/>
-<text x="400" y="55" font-size="14" font-weight="900" fill="#0891b2">y = k/x</text>
-<text x="260" y="135" font-size="10" fill="#4c3d99" text-anchor="middle">curva que nunca toca los ejes</text>
+<line x1="60" y1="120" x2="500" y2="120" stroke="#4c3d99" stroke-width="1.3"/>
+<line x1="280" y1="120" x2="280" y2="20" stroke="#4c3d99" stroke-width="1.3"/>
+<path d="M180,118 Q280,110 340,60 T420,20" fill="none" stroke="#be185d" stroke-width="2.3"/>
+<text x="420" y="40" font-size="10" fill="#be185d" text-anchor="middle">b&gt;1: crece</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:#0891b2">📉 Proporción inversa</p>
-  <p>Dos cantidades son <strong>inversamente proporcionales</strong> cuando, al aumentar una, la otra disminuye de forma que su <strong>producto</strong> (no la razón) se mantiene constante.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">x · y = k &nbsp;&nbsp;⟺&nbsp;&nbsp; y = k/x</span></div>
-  <p style="margin-top:10px">Ejemplo clásico: si 4 obreros terminan una obra en 6 días, entonces k=24 (obreros×días). Con 8 obreros (el doble), la obra tardaría 24÷8=3 días (la mitad).</p>
+  <p class="ct" style="color:#be185d">📈 Función exponencial: f(x) = a·bˣ</p>
+  <p>En la <strong>función exponencial</strong>, la variable x está en el <strong>exponente</strong>, con una base fija b. Esta es la función que modela crecimiento poblacional, interés compuesto (¡ya la usaste en la Unidad 1!), y decaimiento radiactivo.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">f(x) = a·bˣ &nbsp;&nbsp; (b&gt;0, b≠1)</span><div class="fdef">a=valor inicial (en x=0) · b=base (factor de crecimiento)</div></div>
+  <p style="margin-top:10px">Si b&gt;1, la función <strong>crece</strong> cada vez más rápido. Si 0&lt;b&lt;1, la función <strong>decrece</strong> acercándose a 0 sin tocarlo nunca. El gráfico siempre pasa por el punto (0,a), y nunca cruza el eje x.</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Cómo reconocerla en una tabla</div>
-    <p>Si multiplicas cada par de valores (x×y) y siempre obtienes el mismo número, la relación es inversamente proporcional. Ese número constante es k.</p>
+    <div class="tip-l">💡 Conexión directa con la Unidad 1</div>
+    <p>C=M(1+i)ⁿ (interés compuesto) es exactamente una función exponencial, con a=M y b=(1+i). Todo lo que aprendiste sobre interés compuesto ya es, en el fondo, conocimiento sobre funciones exponenciales.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<line x1="60" y1="120" x2="500" y2="120" stroke="#4c3d99" stroke-width="1.3"/>
+<line x1="280" y1="120" x2="280" y2="20" stroke="#4c3d99" stroke-width="1.3"/>
+<path d="M290,120 Q340,60 420,35" fill="none" stroke="#be185d" stroke-width="2.3"/>
+<text x="420" y="20" font-size="10" fill="#be185d" text-anchor="middle">crece cada vez más lento</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">📊 Función logarítmica: f(x) = logᵦ(x)</p>
+  <p>La <strong>función logarítmica</strong> es la función <strong>inversa</strong> de la exponencial — literalmente "deshace" lo que hace la exponencial, igual que viste con logaritmos y potencias en la Unidad 1.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">f(x) = logᵦ(x) &nbsp;&nbsp; (b&gt;0, b≠1)</span><div class="fdef">solo está definida para x&gt;0 (no existe el logaritmo de un número negativo o cero)</div></div>
+  <p style="margin-top:10px">A diferencia de la exponencial, la función logarítmica <strong>sí cruza el eje x</strong> (en el punto (1,0), porque logᵦ1=0 siempre), y <strong>nunca cruza el eje y</strong> (su dominio no incluye x=0 ni negativos).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Gráficos espejo</div>
+    <p>Los gráficos de f(x)=bˣ y f(x)=logᵦ(x) son reflejos uno del otro respecto a la recta y=x — son funciones inversas, así que sus gráficos son literalmente "espejos" entre sí.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<rect x="30" y="15" width="240" height="50" rx="8" fill="#fce7f3" stroke="#be185d" stroke-width="1.3"/>
+<text x="150" y="45" font-size="11" font-weight="900" fill="#be185d" text-anchor="middle">Potencia: base variable, exp. fijo</text>
+<rect x="290" y="15" width="240" height="50" rx="8" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.3"/>
+<text x="410" y="45" font-size="11" font-weight="900" fill="#4338ca" text-anchor="middle">Exponencial: base fija, exp. variable</text>
+<rect x="150" y="80" width="260" height="50" rx="8" fill="#dcfce7" stroke="#059669" stroke-width="1.3"/>
+<text x="280" y="110" font-size="11" font-weight="900" fill="#059669" text-anchor="middle">Logarítmica: inversa de la exponencial</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🔍 Cómo distinguir las 3 familias a simple vista</p>
+  <p>Frente a una función desconocida, revisa <strong>dónde está la variable x</strong>: eso te dice inmediatamente de qué familia se trata.</p>
+  <div class="pgrid" style="margin-top:6px">
+    <div class="pc"><h4>x es la base</h4><p>f(x)=x³, f(x)=x^(1/2) → función potencia.</p></div>
+    <div class="pc"><h4>x es el exponente</h4><p>f(x)=2ˣ, f(x)=3×5ˣ → función exponencial.</p></div>
+    <div class="pc"><h4>x está dentro de un log</h4><p>f(x)=log₂(x), f(x)=log(x+1) → función logarítmica.</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Esta identificación es la mitad de la batalla</div>
+    <p>Muchas preguntas de la PAES M2 solo piden reconocer a qué familia pertenece una función o su gráfico — dominar esta clasificación rápida te ahorra mucho tiempo en la prueba real.</p>
   </div>
 </div></div>
 
 <div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<rect x="30" y="15" width="230" height="90" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.3"/>
-<text x="145" y="40" font-size="12" font-weight="900" fill="#0891b2" text-anchor="middle">DIRECTA</text>
-<text x="145" y="62" font-size="11" fill="#4c3d99" text-anchor="middle">razón y/x = constante</text>
-<text x="145" y="80" font-size="11" fill="#4c3d99" text-anchor="middle">ambas suben o bajan juntas</text>
-<rect x="300" y="15" width="230" height="90" rx="8" fill="#f0f9ff" stroke="#0369a1" stroke-width="1.3"/>
-<text x="415" y="40" font-size="12" font-weight="900" fill="#0369a1" text-anchor="middle">INVERSA</text>
-<text x="415" y="62" font-size="11" fill="#4c3d99" text-anchor="middle">producto x·y = constante</text>
-<text x="415" y="80" font-size="11" fill="#4c3d99" text-anchor="middle">una sube, la otra baja</text>
+<text x="140" y="30" font-size="12" fill="#211a4d">Presupuesto crece 5% anual durante n años, total +21,55%</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#be185d">(1,05)ⁿ = 1,2155</text>
+<text x="140" y="95" font-size="15" font-weight="900" fill="#059669">n = 4 años (porque 1,05⁴=1,2155)</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:#0891b2">🔍 ¿Directa o inversa? Cómo distinguirlas</p>
-  <p>El primer paso frente a cualquier problema de proporcionalidad es preguntarte: <strong>si una cantidad aumenta, ¿la otra aumenta o disminuye?</strong> Si aumenta también, es directa; si disminuye, es inversa.</p>
-  <div class="pgrid" style="margin-top:6px">
-    <div class="pc"><h4>Pista de "directa"</h4><p>Más cantidad de un producto → más precio total. Más horas trabajadas → más pago.</p></div>
-    <div class="pc"><h4>Pista de "inversa"</h4><p>Más velocidad → menos tiempo de viaje. Más obreros → menos días de trabajo.</p></div>
-  </div>
+  <p class="ct" style="color:#be185d">🤖 Problema resuelto · Suficiencia de Datos: crecimiento exponencial</p>
+  <p>El presupuesto de un país creció 5% cada año durante n años. Se puede determinar el valor de n, si: (1) se conoce el presupuesto actual. (2) se sabe que en ese período el presupuesto creció un 21,55%.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">Respuesta: (2) por sí sola. (1,05)ⁿ=1,2155 → n=4</span></div>
+  <p style="margin-top:10px">Conocer el presupuesto ACTUAL (afirmación 1) no ayuda a encontrar n, porque no sabemos el presupuesto INICIAL con el que comparar. Pero saber que el crecimiento total fue 21,55% (afirmación 2) permite plantear directamente (1,05)ⁿ=1,2155 y despejar n=4, sin necesitar ningún otro dato.</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Verificación numérica</div>
-    <p>Ante la duda, prueba con los datos: si y/x da siempre lo mismo, es directa; si x·y da siempre lo mismo, es inversa. Una tabla con al menos 2 pares de datos permite comprobarlo.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 120" xmlns="http://www.w3.org/2000/svg">
-<rect x="20" y="15" width="520" height="80" fill="none" stroke="var(--bord2)" stroke-width="1"/>
-<line x1="180" y1="15" x2="180" y2="95" stroke="var(--bord2)" stroke-width="1"/>
-<line x1="360" y1="15" x2="360" y2="95" stroke="var(--bord2)" stroke-width="1"/>
-<text x="100" y="35" font-size="11" font-weight="900" fill="#211a4d" text-anchor="middle">Harina (tazas)</text>
-<text x="270" y="35" font-size="11" font-weight="900" fill="#211a4d" text-anchor="middle">2</text>
-<text x="450" y="35" font-size="11" font-weight="900" fill="#0891b2" text-anchor="middle">5</text>
-<text x="100" y="75" font-size="11" font-weight="900" fill="#211a4d" text-anchor="middle">Huevos</text>
-<text x="270" y="75" font-size="11" font-weight="900" fill="#211a4d" text-anchor="middle">3</text>
-<text x="450" y="75" font-size="16" font-weight="900" fill="#0891b2" text-anchor="middle">x = 7,5</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#0891b2">🍰 Problema resuelto: proporción directa</p>
-  <p>Una receta usa <strong>2 tazas de harina por cada 3 huevos</strong>. Si quieres escalar la receta a 5 tazas de harina, ¿cuántos huevos necesitas? (proporción directa: más harina requiere más huevos, en la misma razón).</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">2/3 = 5/x  →  x = (5×3)/2 = 7,5</span></div>
-  <p style="margin-top:10px">Se plantea la proporción igualando las dos razones y se despeja con multiplicación cruzada — el mismo procedimiento que la regla de tres directa vista en la unidad de Porcentaje.</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Ordena siempre igual</div>
-    <p>Mantén el mismo tipo de cantidad en el numerador de ambas fracciones (harina arriba, huevos abajo, en ambos lados). Mezclar el orden es la causa más común de error en este tipo de problema.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 120" xmlns="http://www.w3.org/2000/svg">
-<rect x="30" y="15" width="220" height="70" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.3"/>
-<text x="140" y="42" font-size="13" font-weight="900" fill="#0891b2" text-anchor="middle">4 obreros → 6 días</text>
-<text x="140" y="65" font-size="11" fill="#4c3d99" text-anchor="middle">k = 4×6 = 24</text>
-<path d="M260,50 L310,50" stroke="#4c3d99" stroke-width="2"/>
-<rect x="320" y="15" width="220" height="70" rx="8" fill="#f0f9ff" stroke="#0369a1" stroke-width="1.3"/>
-<text x="430" y="42" font-size="13" font-weight="900" fill="#0369a1" text-anchor="middle">8 obreros → x días</text>
-<text x="430" y="65" font-size="11" fill="#4c3d99" text-anchor="middle">x = 24÷8 = 3</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#0891b2">👷 Problema resuelto: proporción inversa</p>
-  <p><strong>4 obreros</strong> terminan una obra en <strong>6 días</strong>. Si se contratan <strong>8 obreros</strong> (el doble), ¿en cuántos días terminarán la misma obra, trabajando todos al mismo ritmo?</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">4×6 = 8×x  →  x = 24÷8 = 3 días</span></div>
-  <p style="margin-top:10px">Al duplicar la cantidad de obreros, el tiempo se reduce a la mitad — es el comportamiento característico de una proporción inversa: el producto de ambas cantidades se mantiene siempre constante (k=24).</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Atajo mental</div>
-    <p>En proporción inversa, si una cantidad se multiplica por un número, la otra se divide por ese mismo número (y viceversa). Duplicar obreros → tiempo a la mitad; triplicar obreros → tiempo a un tercio.</p>
+    <div class="tip-l">💡 Encontrar n en una ecuación exponencial</div>
+    <p>Cuando la incógnita está en el exponente, prueba valores pequeños de n (1, 2, 3...) hasta que la potencia coincida — es más rápido que usar logaritmos para números "redondos" como este.</p>
   </div>
 </div></div>
 
 </div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p2" onclick="deckNav('p2',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p2"><button class="deck-dot act" onclick="deckGoto('p2',0)"></button><button class="deck-dot" onclick="deckGoto('p2',1)"></button><button class="deck-dot" onclick="deckGoto('p2',2)"></button><button class="deck-dot" onclick="deckGoto('p2',3)"></button><button class="deck-dot" onclick="deckGoto('p2',4)"></button></div><button class="deck-arrow" id="deck-next-p2" onclick="deckNav('p2',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p2">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
 
 <div class="kws">
-  <span class="kw" style="color:#0891b2">directa y=kx</span>
-  <span class="kw" style="color:#0891b2">inversa y=k/x</span>
-  <span class="kw" style="color:#0891b2">razón constante</span>
-  <span class="kw" style="color:#0891b2">producto constante</span>
-  <span class="kw" style="color:#0891b2">regla de tres</span>
+  <span class="kw" style="color:#be185d">f(x)=xⁿ</span>
+  <span class="kw" style="color:#be185d">f(x)=a·bˣ</span>
+  <span class="kw" style="color:#be185d">f(x)=logᵦx</span>
+  <span class="kw" style="color:#be185d">funciones inversas</span>
 </div>
 
-<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 5 preguntas</p>
 
 <div class="pbox">
-  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
-  <div class="pctx">En una tabla, cuando x=2, y=10; cuando x=5, y=25.</div>
-  <p class="pq">¿Qué tipo de proporcionalidad representa esta tabla, y cuál es su constante?</p>
-  <div class="pos" id="qpr1">
-    <div class="po" onclick="ans('qpr1','A')"><div class="ol">A</div><div class="ot">Directa, k=5</div></div>
-    <div class="po" onclick="ans('qpr1','B')"><div class="ol">B</div><div class="ot">Inversa, k=20</div></div>
-    <div class="po" onclick="ans('qpr1','C')"><div class="ol">C</div><div class="ot">Directa, k=2</div></div>
-    <div class="po" onclick="ans('qpr1','D')"><div class="ol">D</div><div class="ot">Inversa, k=50</div></div>
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál de las siguientes funciones es exponencial?</p>
+  <div class="pos" id="qfe1">
+    <div class="po" onclick="ans('qfe1','A')"><div class="ol">A</div><div class="ot">f(x)=x⁵</div></div>
+    <div class="po" onclick="ans('qfe1','B')"><div class="ol">B</div><div class="ot">f(x)=5ˣ</div></div>
+    <div class="po" onclick="ans('qfe1','C')"><div class="ol">C</div><div class="ot">f(x)=log₅x</div></div>
+    <div class="po" onclick="ans('qfe1','D')"><div class="ol">D</div><div class="ot">f(x)=5x</div></div>
   </div>
-  <div class="pfb" id="qpr1-fb"></div>
+  <div class="pfb" id="qfe1-fb"></div>
 </div>
 
 <div class="pbox">
-  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
-  <div class="pctx">6 kilos de arroz cuestan $9.000.</div>
-  <p class="pq">Si el precio es directamente proporcional a la cantidad, ¿cuánto cuestan 10 kilos?</p>
-  <div class="pos" id="qpr2">
-    <div class="po" onclick="ans('qpr2','A')"><div class="ol">A</div><div class="ot">$9.000</div></div>
-    <div class="po" onclick="ans('qpr2','B')"><div class="ol">B</div><div class="ot">$13.000</div></div>
-    <div class="po" onclick="ans('qpr2','C')"><div class="ol">C</div><div class="ot">$15.000</div></div>
-    <div class="po" onclick="ans('qpr2','D')"><div class="ol">D</div><div class="ot">$54.000</div></div>
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">Si f(x)=3×2ˣ, ¿cuál es el valor de f(0)?</p>
+  <div class="pos" id="qfe2">
+    <div class="po" onclick="ans('qfe2','A')"><div class="ol">A</div><div class="ot">0</div></div>
+    <div class="po" onclick="ans('qfe2','B')"><div class="ol">B</div><div class="ot">1</div></div>
+    <div class="po" onclick="ans('qfe2','C')"><div class="ol">C</div><div class="ot">2</div></div>
+    <div class="po" onclick="ans('qfe2','D')"><div class="ol">D</div><div class="ot">3</div></div>
   </div>
-  <div class="pfb" id="qpr2-fb"></div>
+  <div class="pfb" id="qfe2-fb"></div>
 </div>
 
 <div class="pbox">
-  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
-  <div class="pctx">Un depósito se llena con 3 llaves de agua en 8 horas.</div>
-  <p class="pq">Si se usan 6 llaves (proporción inversa), ¿en cuántas horas se llenará el depósito?</p>
-  <div class="pos" id="qpr3">
-    <div class="po" onclick="ans('qpr3','A')"><div class="ol">A</div><div class="ot">16 horas</div></div>
-    <div class="po" onclick="ans('qpr3','B')"><div class="ol">B</div><div class="ot">4 horas</div></div>
-    <div class="po" onclick="ans('qpr3','C')"><div class="ol">C</div><div class="ot">11 horas</div></div>
-    <div class="po" onclick="ans('qpr3','D')"><div class="ol">D</div><div class="ot">2 horas</div></div>
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál de las siguientes funciones exponenciales es DECRECIENTE?</p>
+  <div class="pos" id="qfe3">
+    <div class="po" onclick="ans('qfe3','A')"><div class="ol">A</div><div class="ot">f(x)=2ˣ</div></div>
+    <div class="po" onclick="ans('qfe3','B')"><div class="ol">B</div><div class="ot">f(x)=(0,5)ˣ</div></div>
+    <div class="po" onclick="ans('qfe3','C')"><div class="ol">C</div><div class="ot">f(x)=5ˣ</div></div>
+    <div class="po" onclick="ans('qfe3','D')"><div class="ol">D</div><div class="ot">f(x)=1,5ˣ</div></div>
   </div>
-  <div class="pfb" id="qpr3-fb"></div>
+  <div class="pfb" id="qfe3-fb"></div>
 </div>
 
 <div class="pbox">
-  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuál de las siguientes situaciones representa una proporción inversa?</p>
-  <div class="pos" id="qpr4">
-    <div class="po" onclick="ans('qpr4','A')"><div class="ol">A</div><div class="ot">La cantidad de bencina comprada y su precio total.</div></div>
-    <div class="po" onclick="ans('qpr4','B')"><div class="ol">B</div><div class="ot">La velocidad de un vehículo y el tiempo que tarda en recorrer una distancia fija.</div></div>
-    <div class="po" onclick="ans('qpr4','C')"><div class="ol">C</div><div class="ot">La cantidad de horas trabajadas y el pago recibido, a tarifa fija por hora.</div></div>
-    <div class="po" onclick="ans('qpr4','D')"><div class="ol">D</div><div class="ot">El número de entradas al cine y el costo total.</div></div>
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Por qué punto SIEMPRE pasa el gráfico de f(x)=logᵦ(x), sin importar la base b?</p>
+  <div class="pos" id="qfe4">
+    <div class="po" onclick="ans('qfe4','A')"><div class="ol">A</div><div class="ot">(0, 0)</div></div>
+    <div class="po" onclick="ans('qfe4','B')"><div class="ol">B</div><div class="ot">(1, 0)</div></div>
+    <div class="po" onclick="ans('qfe4','C')"><div class="ol">C</div><div class="ot">(0, 1)</div></div>
+    <div class="po" onclick="ans('qfe4','D')"><div class="ol">D</div><div class="ot">(b, 1)</div></div>
   </div>
-  <div class="pfb" id="qpr4-fb"></div>
+  <div class="pfb" id="qfe4-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">Los gráficos de f(x)=3ˣ y g(x)=log₃(x) son reflejos uno del otro respecto a:</p>
+  <div class="pos" id="qfe5">
+    <div class="po" onclick="ans('qfe5','A')"><div class="ol">A</div><div class="ot">El eje x</div></div>
+    <div class="po" onclick="ans('qfe5','B')"><div class="ol">B</div><div class="ot">El eje y</div></div>
+    <div class="po" onclick="ans('qfe5','C')"><div class="ol">C</div><div class="ot">La recta y=x</div></div>
+    <div class="po" onclick="ans('qfe5','D')"><div class="ol">D</div><div class="ot">El origen</div></div>
+  </div>
+  <div class="pfb" id="qfe5-fb"></div>
 </div>
 
 </div>
 
-<!-- ECUACIONES E INECUACIONES -->
+<!-- FUNCIONES TRIGONOMETRICAS -->
 <div class="sec" id="p3">
-<div class="hsec" style="border-color:rgba(5,150,105,.3)">
-  <span class="hi2">⚖️</span>
-  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#059669;margin-bottom:3px">Tema 3 de 6 · Eje Álgebra y Funciones</div>
-  <h2 style="color:#059669">Ecuaciones e Inecuaciones de Primer Grado</h2>
-  <p>Cómo resolver ecuaciones e inecuaciones lineales despejando la incógnita paso a paso — la habilidad algebraica más transversal de toda la prueba M1.</p>
+<div class="hsec" style="border-color:rgba(8,145,178,.3)">
+  <span class="hi2">🔄</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#0891b2;margin-bottom:3px">Tema 3 de 3 · M2 Unidad 2</div>
+  <h2 style="color:#0891b2">Funciones Trigonométricas</h2>
+  <p>Los gráficos de seno y coseno — funciones que se repiten en ciclos, perfectas para modelar fenómenos periódicos como mareas, temperaturas estacionales o vibraciones.</p>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#0891b2">🎮 Widget interactivo: f(x) = A·sen(B·x)</p>
+  <p style="font-size:.87rem;color:var(--dim);margin-bottom:10px">Mueve la amplitud (A) y la frecuencia (B) y observa cómo cambia la altura y el "apretamiento" de la onda.</p>
+  <div class="svgw" style="background:#fff;overflow:hidden;padding:0">
+    <svg id="trigSvg" viewBox="0 0 400 260" style="width:100%;max-width:400px;display:block;margin:0 auto">
+      <line x1="0" y1="130" x2="400" y2="130" stroke="#c4b5fd" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="260" stroke="#c4b5fd" stroke-width="1"/>
+      <path id="trigPath" d="" fill="none" stroke="#0891b2" stroke-width="2.5"/>
+    </svg>
+  </div>
+  <div class="sls" style="margin-top:10px">
+    <div class="slg">
+      <label>A (amplitud)</label>
+      <input type="range" id="trigA" min="0.3" max="2" step="0.1" value="1" oninput="updateTrig()">
+      <span class="sv" id="trigAVal" style="color:#0891b2">A = 1</span>
+    </div>
+    <div class="slg">
+      <label>B (frecuencia)</label>
+      <input type="range" id="trigB" min="0.5" max="3" step="0.1" value="1" oninput="updateTrig()">
+      <span class="sv" id="trigBVal" style="color:#0891b2">B = 1</span>
+    </div>
+  </div>
+  <div class="ores" id="trigResult" style="margin-top:12px">f(x) = 1×sen(1x) &nbsp;·&nbsp; Amplitud = 1 &nbsp;·&nbsp; Período = 2π</div>
 </div>
 
 <div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p3">
 
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<line x1="280" y1="30" x2="280" y2="55" stroke="#4c3d99" stroke-width="3"/>
-<line x1="150" y1="55" x2="410" y2="55" stroke="#4c3d99" stroke-width="3"/>
-<line x1="150" y1="55" x2="150" y2="75" stroke="#4c3d99" stroke-width="2"/>
-<line x1="410" y1="55" x2="410" y2="75" stroke="#4c3d99" stroke-width="2"/>
-<rect x="110" y="75" width="80" height="30" rx="4" fill="#dcfce7" stroke="#059669" stroke-width="1.3"/>
-<text x="150" y="96" font-size="13" font-weight="900" fill="#059669" text-anchor="middle">2x+3</text>
-<rect x="370" y="75" width="80" height="30" rx="4" fill="#dcfce7" stroke="#059669" stroke-width="1.3"/>
-<text x="410" y="96" font-size="13" font-weight="900" fill="#059669" text-anchor="middle">11</text>
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<line x1="20" y1="70" x2="540" y2="70" stroke="#4c3d99" stroke-width="1.3"/>
+<path d="M20,70 Q95,10 170,70 T320,70 T470,70" fill="none" stroke="#0891b2" stroke-width="2.3"/>
+<text x="280" y="125" font-size="11" fill="#4c3d99" text-anchor="middle">f(x)=sen(x): pasa por (0,0)</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:#059669">⚖️ Concepto de ecuación: la balanza</p>
-  <p>Una <strong>ecuación</strong> es una igualdad entre dos expresiones que contiene una incógnita (usualmente x). Resolverla significa encontrar el valor de x que hace que la igualdad sea verdadera — como una balanza en equilibrio.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">2x + 3 = 11</span><div class="fdef">¿qué valor de x mantiene la balanza equilibrada?</div></div>
-  <p style="margin-top:10px">La regla de oro: cualquier operación que hagas en un lado de la ecuación, debes hacerla también en el otro lado — así la balanza (igualdad) se mantiene en equilibrio.</p>
+  <p class="ct" style="color:#0891b2">🌊 La función seno</p>
+  <p>La función <strong>f(x)=sen(x)</strong> oscila suavemente entre −1 y 1, repitiendo su forma exacta cada 2π (aproximadamente 6,28) unidades. Pasa por el origen (0,0), sube hasta 1, baja hasta −1, y vuelve a subir — como una ola.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">−1 ≤ sen(x) ≤ 1 &nbsp;&nbsp; para todo x</span><div class="fdef">el recorrido (rango) del seno SIEMPRE está entre −1 y 1</div></div>
+  <p style="margin-top:10px">Valores clave que conviene recordar: sen(0)=0, sen(π/2)=1 (máximo), sen(π)=0, sen(3π/2)=−1 (mínimo), sen(2π)=0 (vuelve a empezar el ciclo).</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Siempre se puede verificar</div>
-    <p>Una vez resuelta la ecuación, reemplaza tu valor de x en la ecuación original. Si ambos lados dan el mismo número, tu respuesta es correcta.</p>
+    <div class="tip-l">💡 "Periódica" significa que se repite</div>
+    <p>Una función periódica repite exactamente el mismo patrón de forma indefinida. El seno (y el coseno) son los ejemplos más clásicos de funciones periódicas.</p>
   </div>
 </div></div>
 
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
-<text x="80" y="30" font-size="15" font-weight="900" fill="#211a4d">2x + 3 = 11</text>
-<text x="80" y="65" font-size="15" font-weight="900" fill="#059669">2x = 11 − 3 = 8</text>
-<text x="80" y="100" font-size="15" font-weight="900" fill="#059669">x = 8 ÷ 2 = 4</text>
-<text x="380" y="30" font-size="10" fill="#4c3d99">paso 1: dato original</text>
-<text x="380" y="65" font-size="10" fill="#4c3d99">paso 2: paso el +3 restando</text>
-<text x="380" y="100" font-size="10" fill="#4c3d99">paso 3: paso el ×2 dividiendo</text>
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<line x1="20" y1="70" x2="540" y2="70" stroke="#4c3d99" stroke-width="1.3"/>
+<path d="M20,15 Q95,70 170,15 T320,15 T470,15" fill="none" stroke="#b45309" stroke-width="2.3"/>
+<text x="280" y="125" font-size="11" fill="#4c3d99" text-anchor="middle">f(x)=cos(x): pasa por (0,1)</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:#059669">🔢 Método de resolución paso a paso</p>
-  <p>Para despejar x, se van <strong>"deshaciendo" las operaciones</strong> que la rodean, en orden inverso al que fueron aplicadas — cada término que cambia de lado, cambia también su operación (suma↔resta, multiplicación↔división).</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">2x+3=11 → 2x=8 → x=4</span></div>
-  <p style="margin-top:10px">Orden recomendado: primero mueve los términos sin x hacia el lado contrario (sumando/restando), y al final divide por el coeficiente de x.</p>
+  <p class="ct" style="color:#b45309">🌊 La función coseno</p>
+  <p>La función <strong>f(x)=cos(x)</strong> tiene exactamente la misma forma que el seno, pero <strong>desplazada</strong>: en vez de empezar en 0, empieza en su valor máximo (1) cuando x=0.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">cos(0)=1 &nbsp;&nbsp; (mientras que sen(0)=0)</span></div>
+  <p style="margin-top:10px">Valores clave: cos(0)=1 (máximo), cos(π/2)=0, cos(π)=−1 (mínimo), cos(3π/2)=0, cos(2π)=1 (vuelve a empezar). El coseno es literalmente el seno "adelantado" en π/2.</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Ecuaciones con x en ambos lados</div>
-    <p>Si x aparece en los dos lados (ej: 3x+2=x+10), primero agrupa todos los términos con x en un solo lado, restando el término con x del lado contrario: 3x−x+2=10 → 2x+2=10 → x=4.</p>
+    <div class="tip-l">💡 Cómo distinguirlos en un gráfico</div>
+    <p>Si la curva pasa por el origen (0,0) subiendo, es seno. Si la curva empieza en su punto más alto cuando x=0, es coseno. Este es el chequeo más rápido para identificar cuál función es cuál.</p>
   </div>
 </div></div>
 
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<line x1="30" y1="70" x2="530" y2="70" stroke="#4c3d99" stroke-width="2"/>
-<polygon points="530,70 518,64 518,76" fill="#4c3d99"/>
-<line x1="280" y1="55" x2="280" y2="85" stroke="#059669" stroke-width="2.5"/>
-<text x="280" y="105" font-size="12" fill="#059669" text-anchor="middle" font-weight="800">3</text>
-<rect x="280" y="60" width="230" height="20" fill="#dcfce7" opacity=".7"/>
-<circle cx="280" cy="70" r="6" fill="none" stroke="#059669" stroke-width="2"/>
-<text x="400" y="45" font-size="12" fill="#059669" text-anchor="middle" font-weight="800">x &gt; 3 (círculo vacío: 3 no incluido)</text>
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<line x1="20" y1="70" x2="540" y2="70" stroke="#4c3d99" stroke-width="1.3"/>
+<path d="M20,45 Q95,5 170,45 T320,45 T470,45" fill="none" stroke="#0891b2" stroke-width="2" opacity=".5"/>
+<path d="M20,70 Q95,-30 170,70 T320,70 T470,70" fill="none" stroke="#0891b2" stroke-width="2.5"/>
+<text x="280" y="125" font-size="11" fill="#4c3d99" text-anchor="middle">A·sen(x): la curva se estira verticalmente</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:#059669">📏 Concepto de inecuación</p>
-  <p>Una <strong>inecuación</strong> es como una ecuación, pero en vez de un símbolo "=" usa una desigualdad: &lt;, &gt;, ≤ o ≥. Su solución no es un solo número, sino un <strong>conjunto o intervalo</strong> de valores.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">x &gt; 3</span><div class="fdef">todos los números mayores que 3 (sin incluir el 3)</div></div>
-  <p style="margin-top:10px">En la recta numérica: círculo <strong>vacío</strong> cuando el símbolo es estricto (&lt; o &gt;, el valor no se incluye); círculo <strong>relleno</strong> cuando es ≤ o ≥ (el valor sí se incluye).</p>
+  <p class="ct" style="color:#0891b2">📏 Amplitud: el parámetro A</p>
+  <p>En f(x)=A·sen(x), el número A (<strong>amplitud</strong>) controla qué tan "alta" y "baja" llega la onda — estira o comprime la curva verticalmente, sin cambiar su forma general ni su período.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">−A ≤ A·sen(x) ≤ A</span><div class="fdef">el nuevo rango va de −A a A, en vez de −1 a 1</div></div>
+  <p style="margin-top:10px">Ejemplo: f(x)=3sen(x) oscila entre −3 y 3, en vez de entre −1 y 1 — cada valor del seno original se multiplica por 3.</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Se resuelven casi igual que las ecuaciones</div>
-    <p>Los mismos pasos de despeje aplican a inecuaciones — con una excepción crítica que ves en el siguiente diagrama.</p>
+    <div class="tip-l">💡 Contexto real: mareas</div>
+    <p>La amplitud de una función trigonométrica que modela mareas representa la diferencia entre la marea alta y el nivel promedio del mar — un dato que se mide directamente en el fenómeno real.</p>
   </div>
 </div></div>
 
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<text x="140" y="45" font-size="15" font-weight="900" fill="#211a4d" text-anchor="middle">−2x &gt; 6</text>
-<path d="M240,40 L290,40" stroke="#dc2626" stroke-width="2"/>
-<text x="265" y="30" font-size="9" fill="#dc2626" text-anchor="middle">÷(−2)</text>
-<text x="420" y="45" font-size="15" font-weight="900" fill="#dc2626" text-anchor="middle">x &lt; −3</text>
-<text x="280" y="90" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="800">⚠️ el símbolo ">" se invirtió a "&lt;"</text>
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<line x1="20" y1="70" x2="540" y2="70" stroke="#4c3d99" stroke-width="1.3"/>
+<path d="M20,70 Q95,10 170,70 T320,70 T470,70" fill="none" stroke="#0891b2" stroke-width="2" opacity=".5"/>
+<path d="M20,70 Q57,10 95,70 T170,70 T245,70 T320,70 T395,70 T470,70" fill="none" stroke="#0891b2" stroke-width="2.5"/>
+<text x="280" y="125" font-size="11" fill="#4c3d99" text-anchor="middle">sen(Bx) con B&gt;1: se "aprieta" (ciclos más cortos)</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:#059669">⚠️ Regla especial de las inecuaciones</p>
-  <p>Existe UNA diferencia clave frente a las ecuaciones: cuando <strong>multiplicas o divides ambos lados por un número negativo</strong>, el símbolo de la desigualdad se invierte.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#dc2626">−2x &gt; 6 → x &lt; −3</span><div class="fdef">al dividir por −2, el "&gt;" se convirtió en "&lt;"</div></div>
-  <p style="margin-top:10px">Esta regla no aplica al sumar o restar (esas operaciones nunca invierten el símbolo), solo al multiplicar o dividir por un valor negativo.</p>
+  <p class="ct" style="color:#0891b2">⏱️ Frecuencia y período: el parámetro B</p>
+  <p>En f(x)=sen(B·x), el número B controla qué tan "rápido" se repite el ciclo. El <strong>período</strong> (la distancia en x para completar un ciclo completo) se calcula dividiendo 2π por B.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">Período = 2π / B</span><div class="fdef">B mayor → período más corto (ciclos más "apretados")</div></div>
+  <p style="margin-top:10px">Ejemplo: f(x)=sen(2x) completa su ciclo en 2π/2=π, el doble de rápido que sen(x) (que completa su ciclo en 2π).</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 El error más preguntado en la PAES</div>
-    <p>Olvidar invertir el símbolo al dividir por negativo es, por lejos, el error más común y más evaluado en preguntas de inecuaciones. Revisa siempre el signo del número por el que divides.</p>
+    <div class="tip-l">💡 Contexto real: vibraciones y ondas de sonido</div>
+    <p>Una nota musical más aguda corresponde a una mayor frecuencia (mayor B, período más corto); una nota más grave corresponde a menor frecuencia (menor B, período más largo).</p>
   </div>
 </div></div>
 
 <div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<text x="140" y="45" font-size="13" fill="#211a4d" text-anchor="middle">Taxi: $600 fijo + $500 por km</text>
-<text x="140" y="70" font-size="15" font-weight="900" fill="#059669" text-anchor="middle">600 + 500x = 3.100</text>
-<text x="140" y="100" font-size="16" font-weight="900" fill="#059669" text-anchor="middle">x = 5 km</text>
+<text x="140" y="30" font-size="12" fill="#211a4d">Temperatura: T(t)=5·sen(t)+20, t en meses</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#0891b2">Máxima: 20+5=25° &nbsp;&nbsp; Mínima: 20−5=15°</text>
 </svg></div><div class="card">
-  <p class="ct" style="color:#059669">🚕 Problema resuelto en contexto</p>
-  <p>Un taxi cobra <strong>$600 fijos</strong> más <strong>$500 por cada kilómetro</strong> recorrido. Si un viaje costó <strong>$3.100</strong>, ¿cuántos kilómetros se recorrieron?</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">600+500x=3.100 → 500x=2.500 → x=5</span></div>
-  <p style="margin-top:10px">El paso clave en problemas de contexto es <strong>traducir el enunciado a una ecuación</strong>: identificar qué es fijo (600), qué depende de x (500 por km) y cuál es el total conocido (3.100).</p>
+  <p class="ct" style="color:#0891b2">🌡️ Problema resuelto: modelo de temperatura estacional</p>
+  <p>La temperatura promedio mensual de una ciudad se modela con T(t)=5·sen(t)+20, donde t son los meses transcurridos. ¿Cuáles son las temperaturas máxima y mínima que alcanza este modelo?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">Máxima: 20+5=25° &nbsp;&nbsp; Mínima: 20−5=15°</span></div>
+  <p style="margin-top:10px">Como sen(t) oscila entre −1 y 1, el término 5·sen(t) oscila entre −5 y 5. Sumando el desplazamiento +20 (que sube toda la curva), la temperatura oscila entre 20−5=15° y 20+5=25°.</p>
   <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Estrategia general para problemas de contexto</div>
-    <p>Define primero qué representa x, luego escribe la ecuación en palabras antes de traducirla a símbolos, y finalmente resuelve con los pasos ya vistos.</p>
+    <div class="tip-l">💡 El "+20" desplaza la curva verticalmente</div>
+    <p>Un número sumado fuera de la función seno/coseno (como el +20 aquí) desplaza toda la curva hacia arriba o abajo, sin cambiar su amplitud ni su período — es el mismo concepto de "intercepto" que ya conoces de la función afín.</p>
   </div>
 </div></div>
 
 </div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p3" onclick="deckNav('p3',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p3"><button class="deck-dot act" onclick="deckGoto('p3',0)"></button><button class="deck-dot" onclick="deckGoto('p3',1)"></button><button class="deck-dot" onclick="deckGoto('p3',2)"></button><button class="deck-dot" onclick="deckGoto('p3',3)"></button><button class="deck-dot" onclick="deckGoto('p3',4)"></button></div><button class="deck-arrow" id="deck-next-p3" onclick="deckNav('p3',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p3">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
 
 <div class="kws">
-  <span class="kw" style="color:#059669">despejar x</span>
-  <span class="kw" style="color:#059669">ecuación lineal</span>
-  <span class="kw" style="color:#059669">inecuación</span>
-  <span class="kw" style="color:#059669">invertir símbolo ÷negativo</span>
-  <span class="kw" style="color:#059669">ecuación de contexto</span>
+  <span class="kw" style="color:#0891b2">sen(x), cos(x)</span>
+  <span class="kw" style="color:#0891b2">amplitud A</span>
+  <span class="kw" style="color:#0891b2">período=2π/B</span>
+  <span class="kw" style="color:#0891b2">desplazamiento vertical</span>
 </div>
 
-<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 5 preguntas</p>
 
 <div class="pbox">
-  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuál es la solución de la ecuación 4x − 5 = 15?</p>
-  <div class="pos" id="qec1">
-    <div class="po" onclick="ans('qec1','A')"><div class="ol">A</div><div class="ot">x=2,5</div></div>
-    <div class="po" onclick="ans('qec1','B')"><div class="ol">B</div><div class="ot">x=5</div></div>
-    <div class="po" onclick="ans('qec1','C')"><div class="ol">C</div><div class="ot">x=10</div></div>
-    <div class="po" onclick="ans('qec1','D')"><div class="ol">D</div><div class="ot">x=20</div></div>
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es el valor de sen(0)?</p>
+  <div class="pos" id="qt1b">
+    <div class="po" onclick="ans('qt1b','A')"><div class="ol">A</div><div class="ot">−1</div></div>
+    <div class="po" onclick="ans('qt1b','B')"><div class="ol">B</div><div class="ot">0</div></div>
+    <div class="po" onclick="ans('qt1b','C')"><div class="ol">C</div><div class="ot">1</div></div>
+    <div class="po" onclick="ans('qt1b','D')"><div class="ol">D</div><div class="ot">2π</div></div>
   </div>
-  <div class="pfb" id="qec1-fb"></div>
-</div>
-
-<div class="pbox">
-  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuál es la solución de 3x + 2 = x + 10?</p>
-  <div class="pos" id="qec2">
-    <div class="po" onclick="ans('qec2','A')"><div class="ol">A</div><div class="ot">x=2</div></div>
-    <div class="po" onclick="ans('qec2','B')"><div class="ol">B</div><div class="ot">x=4</div></div>
-    <div class="po" onclick="ans('qec2','C')"><div class="ol">C</div><div class="ot">x=6</div></div>
-    <div class="po" onclick="ans('qec2','D')"><div class="ol">D</div><div class="ot">x=8</div></div>
-  </div>
-  <div class="pfb" id="qec2-fb"></div>
+  <div class="pfb" id="qt1b-fb"></div>
 </div>
 
 <div class="pbox">
-  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuál es la solución de la inecuación −3x ≤ 9?</p>
-  <div class="pos" id="qec3">
-    <div class="po" onclick="ans('qec3','A')"><div class="ol">A</div><div class="ot">x ≤ −3</div></div>
-    <div class="po" onclick="ans('qec3','B')"><div class="ol">B</div><div class="ot">x ≥ −3</div></div>
-    <div class="po" onclick="ans('qec3','C')"><div class="ol">C</div><div class="ot">x ≤ 3</div></div>
-    <div class="po" onclick="ans('qec3','D')"><div class="ol">D</div><div class="ot">x ≥ 3</div></div>
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es el valor de cos(0)?</p>
+  <div class="pos" id="qt2b">
+    <div class="po" onclick="ans('qt2b','A')"><div class="ol">A</div><div class="ot">−1</div></div>
+    <div class="po" onclick="ans('qt2b','B')"><div class="ol">B</div><div class="ot">0</div></div>
+    <div class="po" onclick="ans('qt2b','C')"><div class="ol">C</div><div class="ot">1</div></div>
+    <div class="po" onclick="ans('qt2b','D')"><div class="ol">D</div><div class="ot">π</div></div>
   </div>
-  <div class="pfb" id="qec3-fb"></div>
+  <div class="pfb" id="qt2b-fb"></div>
 </div>
 
 <div class="pbox">
-  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
-  <div class="pctx">Un plan de celular cuesta $8.000 fijos más $50 por cada minuto adicional.</div>
-  <p class="pq">Si en un mes se pagó $9.500, ¿cuántos minutos adicionales se usaron?</p>
-  <div class="pos" id="qec4">
-    <div class="po" onclick="ans('qec4','A')"><div class="ol">A</div><div class="ot">15</div></div>
-    <div class="po" onclick="ans('qec4','B')"><div class="ol">B</div><div class="ot">20</div></div>
-    <div class="po" onclick="ans('qec4','C')"><div class="ol">C</div><div class="ot">30</div></div>
-    <div class="po" onclick="ans('qec4','D')"><div class="ol">D</div><div class="ot">190</div></div>
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es la amplitud de f(x)=4·sen(x)?</p>
+  <div class="pos" id="qt3b">
+    <div class="po" onclick="ans('qt3b','A')"><div class="ol">A</div><div class="ot">1</div></div>
+    <div class="po" onclick="ans('qt3b','B')"><div class="ol">B</div><div class="ot">2</div></div>
+    <div class="po" onclick="ans('qt3b','C')"><div class="ol">C</div><div class="ot">4</div></div>
+    <div class="po" onclick="ans('qt3b','D')"><div class="ol">D</div><div class="ot">2π</div></div>
   </div>
-  <div class="pfb" id="qec4-fb"></div>
-</div>
-
-</div>
-
-<!-- SISTEMAS DE ECUACIONES 2X2 -->
-<div class="sec" id="p4">
-<div class="hsec" style="border-color:rgba(180,83,9,.3)">
-  <span class="hi2">🔗</span>
-  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#b45309;margin-bottom:3px">Tema 4 de 6 · Eje Álgebra y Funciones</div>
-  <h2 style="color:#b45309">Sistemas de Ecuaciones Lineales 2×2</h2>
-  <p>Cómo resolver dos ecuaciones con dos incógnitas al mismo tiempo, usando sustitución o reducción — clave para problemas con dos cantidades desconocidas relacionadas entre sí.</p>
-</div>
-
-<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p4">
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
-<line x1="60" y1="120" x2="60" y2="20" stroke="#4c3d99" stroke-width="1.3"/>
-<line x1="60" y1="120" x2="500" y2="120" stroke="#4c3d99" stroke-width="1.3"/>
-<line x1="80" y1="115" x2="480" y2="35" stroke="#b45309" stroke-width="2.3"/>
-<line x1="80" y1="35" x2="480" y2="115" stroke="#0891b2" stroke-width="2.3"/>
-<circle cx="280" cy="75" r="6" fill="#211a4d"/>
-<text x="280" y="55" font-size="11" font-weight="900" fill="#211a4d" text-anchor="middle">solución única</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#b45309">✖️ Concepto de sistema 2×2</p>
-  <p>Un <strong>sistema de ecuaciones 2×2</strong> son dos ecuaciones lineales con las mismas dos incógnitas (x, y), que deben cumplirse <strong>simultáneamente</strong>. Gráficamente, cada ecuación es una recta, y la solución es el punto donde ambas rectas se cruzan.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">x + y = 10  &nbsp;&nbsp;  x − y = 2</span><div class="fdef">se busca el par (x,y) que cumple ambas ecuaciones a la vez</div></div>
-  <p style="margin-top:10px">Para resolver un sistema hay dos métodos algebraicos principales: <strong>sustitución</strong> y <strong>reducción</strong> (también llamado igualación o suma/resta).</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Siempre verifica tu solución</div>
-    <p>Reemplaza los valores de x e y encontrados en AMBAS ecuaciones originales. Si ambas se cumplen, tu solución es correcta.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
-<text x="130" y="25" font-size="13" font-weight="900" fill="#211a4d">x+y=10 &nbsp;&nbsp; x−y=2</text>
-<text x="130" y="55" font-size="12" fill="#b45309">1) despejo: x = 10−y</text>
-<text x="130" y="80" font-size="12" fill="#b45309">2) reemplazo: (10−y)−y=2 → y=4</text>
-<text x="130" y="105" font-size="12" fill="#b45309">3) reemplazo y=4 en x=10−y → x=6</text>
-<text x="130" y="130" font-size="14" font-weight="900" fill="#059669">Solución: x=6, y=4</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#b45309">🔄 Método de sustitución</p>
-  <p>Se <strong>despeja una incógnita</strong> en una de las ecuaciones, y se <strong>reemplaza</strong> esa expresión en la otra ecuación. Así el sistema se reduce a una sola ecuación con una sola incógnita, que ya sabes resolver.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">x=10−y  →  (10−y)−y=2  →  y=4, x=6</span></div>
-  <p style="margin-top:10px">Este método conviene cuando alguna incógnita ya tiene coeficiente 1 (o es fácil de despejar), evitando trabajar con fracciones innecesarias.</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Elige la incógnita más simple</div>
-    <p>Despeja siempre la variable que tenga coeficiente 1, o el cálculo más simple posible — ahorra pasos y reduce el riesgo de error de cálculo.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
-<text x="130" y="25" font-size="13" font-weight="900" fill="#211a4d">x+y=10 &nbsp;&nbsp; x−y=2</text>
-<text x="130" y="55" font-size="12" fill="#b45309">Sumo ambas ecuaciones:</text>
-<text x="130" y="78" font-size="12" fill="#b45309">(x+y)+(x−y) = 10+2 → 2x=12 → x=6</text>
-<text x="130" y="105" font-size="12" fill="#b45309">Reemplazo x=6 en x+y=10 → y=4</text>
-<text x="130" y="132" font-size="14" font-weight="900" fill="#059669">Solución: x=6, y=4</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#b45309">➕ Método de reducción (suma/resta)</p>
-  <p>Se <strong>suman o restan</strong> las dos ecuaciones (si es necesario, multiplicando antes una de ellas) de manera que una de las incógnitas se <strong>cancele</strong>, dejando una sola ecuación con una sola variable.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">(x+y)+(x−y)=12 → 2x=12 → x=6, y=4</span></div>
-  <p style="margin-top:10px">Cuando los coeficientes de una variable no son iguales/opuestos directamente, se multiplica una o ambas ecuaciones por un número para igualarlos antes de sumar o restar.</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Cuidado al multiplicar la ecuación completa</div>
-    <p>Si multiplicas una ecuación por un número, debes multiplicar TODOS sus términos, incluyendo el del lado derecho del signo igual — olvidar este último término es un error muy frecuente.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<line x1="40" y1="30" x2="230" y2="90" stroke="#b45309" stroke-width="2.3"/>
-<line x1="40" y1="55" x2="230" y2="115" stroke="#0891b2" stroke-width="2.3"/>
-<text x="135" y="20" font-size="11" fill="#4c3d99" text-anchor="middle">rectas paralelas → sin solución</text>
-<line x1="330" y1="30" x2="520" y2="90" stroke="#059669" stroke-width="4" opacity=".6"/>
-<text x="425" y="20" font-size="11" fill="#4c3d99" text-anchor="middle">misma recta → infinitas soluciones</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#b45309">🔀 Casos especiales de un sistema</p>
-  <p>No todo sistema tiene una única solución. Existen 3 casos posibles, según cómo se relacionen las dos rectas:</p>
-  <div class="pgrid" style="margin-top:6px">
-    <div class="pc"><h4>Solución única</h4><p>Las rectas se cruzan en un solo punto (caso más común).</p></div>
-    <div class="pc"><h4>Sin solución</h4><p>Las rectas son paralelas (misma pendiente, distinto intercepto): nunca se cruzan.</p></div>
-    <div class="pc"><h4>Infinitas soluciones</h4><p>Ambas ecuaciones representan la misma recta: se cruzan en todos sus puntos.</p></div>
-  </div>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Cómo detectarlo algebraicamente</div>
-    <p>Si al intentar resolver el sistema llegas a una contradicción (ej: 0=5), el sistema no tiene solución. Si llegas a una identidad siempre verdadera (ej: 0=0), tiene infinitas soluciones.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<text x="150" y="30" font-size="12" fill="#211a4d">36 monedas: $100 y $500, total $12.000</text>
-<text x="150" y="60" font-size="13" font-weight="900" fill="#b45309">x+y=36 &nbsp;&nbsp; 100x+500y=12.000</text>
-<text x="150" y="100" font-size="15" font-weight="900" fill="#059669">x=15 monedas de $100, y=21 de $500</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#b45309">💰 Problema resuelto en contexto</p>
-  <p>Una persona tiene <strong>36 monedas</strong> entre monedas de $100 y de $500, con un total de <strong>$12.000</strong>. ¿Cuántas monedas tiene de cada tipo?</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">x+y=36 &nbsp; 100x+500y=12.000 → x=15, y=21</span></div>
-  <p style="margin-top:10px">Planteo: x=monedas de $100, y=monedas de $500. La primera ecuación cuenta monedas; la segunda, el valor total. Se resuelve por sustitución: x=36−y, reemplazando en la segunda ecuación.</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Ojo con los "pasos con error" en la PAES</div>
-    <p>Un formato de pregunta muy frecuente en M1 presenta un desarrollo de sistema YA HECHO, con un error en algún paso, y te pide identificar en cuál paso ocurrió. Revisa cada paso comparándolo con el anterior, con especial atención a si se sumó o restó correctamente.</p>
-  </div>
-</div></div>
-
-</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p4" onclick="deckNav('p4',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p4"><button class="deck-dot act" onclick="deckGoto('p4',0)"></button><button class="deck-dot" onclick="deckGoto('p4',1)"></button><button class="deck-dot" onclick="deckGoto('p4',2)"></button><button class="deck-dot" onclick="deckGoto('p4',3)"></button><button class="deck-dot" onclick="deckGoto('p4',4)"></button></div><button class="deck-arrow" id="deck-next-p4" onclick="deckNav('p4',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p4">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
-
-<div class="kws">
-  <span class="kw" style="color:#b45309">sustitución</span>
-  <span class="kw" style="color:#b45309">reducción</span>
-  <span class="kw" style="color:#b45309">sin solución</span>
-  <span class="kw" style="color:#b45309">infinitas soluciones</span>
-  <span class="kw" style="color:#b45309">sistema 2×2</span>
-</div>
-
-<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
-
-<div class="pbox">
-  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
-  <p class="pq">En el sistema x+y=12, x−y=4, ¿cuál es el valor de x?</p>
-  <div class="pos" id="qsi1">
-    <div class="po" onclick="ans('qsi1','A')"><div class="ol">A</div><div class="ot">4</div></div>
-    <div class="po" onclick="ans('qsi1','B')"><div class="ol">B</div><div class="ot">6</div></div>
-    <div class="po" onclick="ans('qsi1','C')"><div class="ol">C</div><div class="ot">8</div></div>
-    <div class="po" onclick="ans('qsi1','D')"><div class="ol">D</div><div class="ot">12</div></div>
-  </div>
-  <div class="pfb" id="qsi1-fb"></div>
+  <div class="pfb" id="qt3b-fb"></div>
 </div>
 
 <div class="pbox">
-  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuál de los siguientes sistemas NO tiene solución (rectas paralelas)?</p>
-  <div class="pos" id="qsi2">
-    <div class="po" onclick="ans('qsi2','A')"><div class="ol">A</div><div class="ot">x+y=5 ; x−y=1</div></div>
-    <div class="po" onclick="ans('qsi2','B')"><div class="ol">B</div><div class="ot">2x+y=4 ; 2x+y=10</div></div>
-    <div class="po" onclick="ans('qsi2','C')"><div class="ol">C</div><div class="ot">x+2y=6 ; x−2y=2</div></div>
-    <div class="po" onclick="ans('qsi2','D')"><div class="ol">D</div><div class="ot">x=3 ; y=5</div></div>
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es el período de f(x)=sen(4x)?</p>
+  <div class="pos" id="qt4b">
+    <div class="po" onclick="ans('qt4b','A')"><div class="ol">A</div><div class="ot">π/2</div></div>
+    <div class="po" onclick="ans('qt4b','B')"><div class="ol">B</div><div class="ot">2π</div></div>
+    <div class="po" onclick="ans('qt4b','C')"><div class="ol">C</div><div class="ot">4π</div></div>
+    <div class="po" onclick="ans('qt4b','D')"><div class="ol">D</div><div class="ot">8π</div></div>
   </div>
-  <div class="pfb" id="qsi2-fb"></div>
+  <div class="pfb" id="qt4b-fb"></div>
 </div>
 
 <div class="pbox">
-  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
-  <div class="pctx">La entrada de adulto a un museo cuesta el doble que la de niño. Una familia pagó $18.000 por 2 adultos y 2 niños.</div>
-  <p class="pq">Si n es el precio de la entrada de niño, ¿cuál ecuación permite encontrar su valor?</p>
-  <div class="pos" id="qsi3">
-    <div class="po" onclick="ans('qsi3','A')"><div class="ol">A</div><div class="ot">2n + 2n = 18.000</div></div>
-    <div class="po" onclick="ans('qsi3','B')"><div class="ol">B</div><div class="ot">2(2n) + 2n = 18.000</div></div>
-    <div class="po" onclick="ans('qsi3','C')"><div class="ol">C</div><div class="ot">4n + n = 18.000</div></div>
-    <div class="po" onclick="ans('qsi3','D')"><div class="ol">D</div><div class="ot">2n = 18.000</div></div>
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <div class="pctx">La profundidad del agua en un puerto se modela con P(t)=2·cos(t)+8 metros.</div>
+  <p class="pq">¿Cuáles son las profundidades máxima y mínima?</p>
+  <div class="pos" id="qt5b">
+    <div class="po" onclick="ans('qt5b','A')"><div class="ol">A</div><div class="ot">Máx=10m, Mín=6m</div></div>
+    <div class="po" onclick="ans('qt5b','B')"><div class="ol">B</div><div class="ot">Máx=8m, Mín=2m</div></div>
+    <div class="po" onclick="ans('qt5b','C')"><div class="ol">C</div><div class="ot">Máx=2m, Mín=−2m</div></div>
+    <div class="po" onclick="ans('qt5b','D')"><div class="ol">D</div><div class="ot">Máx=9m, Mín=7m</div></div>
   </div>
-  <div class="pfb" id="qsi3-fb"></div>
-</div>
-
-<div class="pbox">
-  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
-  <p class="pq">En el sistema 3x+2y=16, x=2, ¿cuál es el valor de y?</p>
-  <div class="pos" id="qsi4">
-    <div class="po" onclick="ans('qsi4','A')"><div class="ol">A</div><div class="ot">3</div></div>
-    <div class="po" onclick="ans('qsi4','B')"><div class="ol">B</div><div class="ot">5</div></div>
-    <div class="po" onclick="ans('qsi4','C')"><div class="ol">C</div><div class="ot">6</div></div>
-    <div class="po" onclick="ans('qsi4','D')"><div class="ol">D</div><div class="ot">10</div></div>
-  </div>
-  <div class="pfb" id="qsi4-fb"></div>
-</div>
-
-</div>
-
-<!-- FUNCION LINEAL Y AFIN -->
-<div class="sec" id="p5">
-<div class="hsec" style="border-color:rgba(190,24,93,.3)">
-  <span class="hi2">📈</span>
-  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#be185d;margin-bottom:3px">Tema 5 de 6 · Eje Álgebra y Funciones</div>
-  <h2 style="color:#be185d">Función Lineal y Afín</h2>
-  <p>Cómo se representa una relación lineal mediante tablas, gráficos y ecuaciones, y qué significa la pendiente — la puerta de entrada a todo el pensamiento funcional de la PAES.</p>
-</div>
-
-<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p5">
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
-<line x1="60" y1="120" x2="60" y2="20" stroke="#4c3d99" stroke-width="1.3"/>
-<line x1="60" y1="120" x2="500" y2="120" stroke="#4c3d99" stroke-width="1.3"/>
-<line x1="60" y1="120" x2="300" y2="30" stroke="#be185d" stroke-width="2.5"/>
-<circle cx="60" cy="120" r="5" fill="#be185d"/>
-<text x="60" y="135" font-size="10" fill="#4c3d99" text-anchor="middle">origen (0,0)</text>
-<text x="380" y="55" font-size="14" font-weight="900" fill="#be185d">f(x) = mx</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#be185d">📐 Función lineal: f(x) = mx</p>
-  <p>Una <strong>función lineal</strong> tiene la forma f(x)=mx, donde m es la <strong>pendiente</strong>. Su gráfico es siempre una <strong>línea recta que pasa por el origen</strong> (0,0) — es exactamente la misma relación que la proporción directa vista antes.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">f(x) = mx</span><div class="fdef">m es la pendiente: cuánto sube (o baja) f(x) por cada unidad que avanza x</div></div>
-  <p style="margin-top:10px">Ejemplo: f(x)=3x. Si x=2, f(2)=6; si x=5, f(5)=15. La razón f(x)/x siempre da 3 (la pendiente).</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Conexión con lo ya aprendido</div>
-    <p>Función lineal = proporción directa con otro nombre. La pendiente m es exactamente la constante de proporcionalidad k que ya conoces.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
-<line x1="60" y1="120" x2="60" y2="20" stroke="#4c3d99" stroke-width="1.3"/>
-<line x1="60" y1="120" x2="500" y2="120" stroke="#4c3d99" stroke-width="1.3"/>
-<line x1="60" y1="90" x2="300" y2="30" stroke="#be185d" stroke-width="2.5"/>
-<circle cx="60" cy="90" r="5" fill="#7c3aed"/>
-<text x="90" y="90" font-size="11" font-weight="900" fill="#7c3aed">n (intercepto)</text>
-<text x="380" y="55" font-size="14" font-weight="900" fill="#be185d">f(x) = mx + n</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#be185d">📊 Función afín: f(x) = mx + n</p>
-  <p>Una <strong>función afín</strong> es igual que la lineal, pero con un término constante extra: n. Su gráfico también es una recta, pero <strong>no pasa por el origen</strong> — cruza el eje y en el punto (0, n).</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">f(x) = mx + n</span><div class="fdef">m = pendiente (inclinación) · n = intercepto (dónde cruza el eje y)</div></div>
-  <p style="margin-top:10px">Ejemplo: f(x)=3x+2. Cuando x=0, f(0)=2 (ahí cruza el eje y). Cuando x=2, f(2)=8.</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Cómo distinguirlas rápido</div>
-    <p>Si n=0, es función lineal (pasa por el origen). Si n≠0, es función afín (no pasa por el origen). Toda función lineal es también afín, pero no al revés.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
-<line x1="60" y1="120" x2="60" y2="20" stroke="#4c3d99" stroke-width="1.3"/>
-<line x1="60" y1="120" x2="500" y2="120" stroke="#4c3d99" stroke-width="1.3"/>
-<line x1="90" y1="100" x2="350" y2="40" stroke="#be185d" stroke-width="2.3"/>
-<circle cx="150" cy="87" r="4" fill="#be185d"/>
-<circle cx="290" cy="53" r="4" fill="#be185d"/>
-<path d="M150,87 L290,87 L290,53" stroke="#4c3d99" stroke-width="1" stroke-dasharray="3,2" fill="none"/>
-<text x="220" y="100" font-size="10" fill="#4c3d99" text-anchor="middle">Δx</text>
-<text x="305" y="72" font-size="10" fill="#4c3d99">Δy</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#be185d">📏 La pendiente: cómo calcularla</p>
-  <p>La <strong>pendiente</strong> m mide cuánto "sube" o "baja" la recta por cada unidad que avanza en x. Se calcula con dos puntos cualquiera de la recta (x₁,y₁) y (x₂,y₂):</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">m = (y₂ − y₁) / (x₂ − x₁)</span><div class="fdef">"cuánto sube" ÷ "cuánto avanza"</div></div>
-  <p style="margin-top:10px">Si m es <strong>positiva</strong>, la recta sube (de izquierda a derecha). Si m es <strong>negativa</strong>, la recta baja. Mientras mayor el valor absoluto de m, más empinada es la recta.</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Interpretación en contexto</div>
-    <p>En problemas reales, la pendiente representa una tasa de cambio: pesos por kilómetro, litros por minuto, grados por hora — siempre "cuánto cambia y por cada unidad de x".</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<rect x="30" y="15" width="500" height="95" fill="none" stroke="var(--bord2)" stroke-width="1"/>
-<line x1="30" y1="40" x2="530" y2="40" stroke="var(--bord2)" stroke-width="1"/>
-<text x="80" y="32" font-size="11" font-weight="900" fill="#211a4d">x</text>
-<text x="220" y="32" font-size="11" font-weight="900" fill="#211a4d">0</text>
-<text x="340" y="32" font-size="11" font-weight="900" fill="#211a4d">1</text>
-<text x="460" y="32" font-size="11" font-weight="900" fill="#211a4d">2</text>
-<text x="80" y="60" font-size="11" font-weight="900" fill="#211a4d">f(x)</text>
-<text x="220" y="60" font-size="11" font-weight="900" fill="#be185d">2</text>
-<text x="340" y="60" font-size="11" font-weight="900" fill="#be185d">5</text>
-<text x="460" y="60" font-size="11" font-weight="900" fill="#be185d">8</text>
-<text x="280" y="95" font-size="11" fill="#4c3d99" text-anchor="middle">cada +1 en x, f(x) sube +3 → m=3, n=2</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#be185d">📋 De la tabla al gráfico (y viceversa)</p>
-  <p>Una función afín se puede representar de 3 formas equivalentes: <strong>ecuación, tabla y gráfico</strong>. Debes poder pasar de una a otra con fluidez — es una habilidad muy evaluada en la PAES.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">tabla: (0,2),(1,5),(2,8) → f(x)=3x+2</span></div>
-  <p style="margin-top:10px">Para encontrar la ecuación desde una tabla: la pendiente m es cuánto sube f(x) por cada +1 en x (aquí, +3); el intercepto n es el valor de f(x) cuando x=0 (aquí, 2).</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Verifica con más de un punto</div>
-    <p>Una vez que tengas la ecuación candidata, verifica que funcione para AL MENOS dos pares de la tabla, no solo uno — así evitas errores si la tabla no es perfectamente lineal.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<text x="140" y="35" font-size="12" fill="#211a4d">Plan celular: $5.000 fijo + $100 por minuto</text>
-<text x="140" y="65" font-size="15" font-weight="900" fill="#be185d">C(x) = 5.000 + 100x</text>
-<text x="140" y="100" font-size="15" font-weight="900" fill="#059669">C(30) = 5.000+3.000 = $8.000</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#be185d">📱 Problema resuelto en contexto</p>
-  <p>Un plan de celular cobra un cargo fijo de <strong>$5.000</strong> más <strong>$100 por cada minuto</strong> hablado. Si un mes se hablaron 30 minutos, ¿cuál fue el costo total?</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">C(x)=5.000+100x → C(30)=8.000</span></div>
-  <p style="margin-top:10px">El cargo fijo ($5.000) es el intercepto n; el cobro por minuto ($100) es la pendiente m. Este patrón "costo fijo + costo variable" es uno de los contextos más frecuentes de función afín en la PAES.</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Problema inverso: encontrar x</div>
-    <p>Si en cambio te dan el costo total y piden los minutos usados, planteas la misma ecuación y despejas x — es exactamente resolver una ecuación de primer grado, como en el tema anterior.</p>
-  </div>
-</div></div>
-
-</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p5" onclick="deckNav('p5',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p5"><button class="deck-dot act" onclick="deckGoto('p5',0)"></button><button class="deck-dot" onclick="deckGoto('p5',1)"></button><button class="deck-dot" onclick="deckGoto('p5',2)"></button><button class="deck-dot" onclick="deckGoto('p5',3)"></button><button class="deck-dot" onclick="deckGoto('p5',4)"></button></div><button class="deck-arrow" id="deck-next-p5" onclick="deckNav('p5',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p5">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
-
-<div class="kws">
-  <span class="kw" style="color:#be185d">f(x)=mx</span>
-  <span class="kw" style="color:#be185d">f(x)=mx+n</span>
-  <span class="kw" style="color:#be185d">pendiente</span>
-  <span class="kw" style="color:#be185d">intercepto</span>
-  <span class="kw" style="color:#be185d">tabla↔gráfico</span>
-</div>
-
-<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
-
-<div class="pbox">
-  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
-  <p class="pq">En la función f(x)=4x−3, ¿cuál es el valor de f(5)?</p>
-  <div class="pos" id="qfl1">
-    <div class="po" onclick="ans('qfl1','A')"><div class="ol">A</div><div class="ot">2</div></div>
-    <div class="po" onclick="ans('qfl1','B')"><div class="ol">B</div><div class="ot">17</div></div>
-    <div class="po" onclick="ans('qfl1','C')"><div class="ol">C</div><div class="ot">20</div></div>
-    <div class="po" onclick="ans('qfl1','D')"><div class="ol">D</div><div class="ot">23</div></div>
-  </div>
-  <div class="pfb" id="qfl1-fb"></div>
-</div>
-
-<div class="pbox">
-  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuál es la pendiente de la recta que pasa por los puntos (1,3) y (3,9)?</p>
-  <div class="pos" id="qfl2">
-    <div class="po" onclick="ans('qfl2','A')"><div class="ol">A</div><div class="ot">2</div></div>
-    <div class="po" onclick="ans('qfl2','B')"><div class="ol">B</div><div class="ot">3</div></div>
-    <div class="po" onclick="ans('qfl2','C')"><div class="ol">C</div><div class="ot">6</div></div>
-    <div class="po" onclick="ans('qfl2','D')"><div class="ol">D</div><div class="ot">9</div></div>
-  </div>
-  <div class="pfb" id="qfl2-fb"></div>
-</div>
-
-<div class="pbox">
-  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuál de las siguientes funciones es lineal (no afín, es decir, pasa por el origen)?</p>
-  <div class="pos" id="qfl3">
-    <div class="po" onclick="ans('qfl3','A')"><div class="ol">A</div><div class="ot">f(x)=5x+1</div></div>
-    <div class="po" onclick="ans('qfl3','B')"><div class="ol">B</div><div class="ot">f(x)=−2x</div></div>
-    <div class="po" onclick="ans('qfl3','C')"><div class="ol">C</div><div class="ot">f(x)=x−3</div></div>
-    <div class="po" onclick="ans('qfl3','D')"><div class="ol">D</div><div class="ot">f(x)=4</div></div>
-  </div>
-  <div class="pfb" id="qfl3-fb"></div>
-</div>
-
-<div class="pbox">
-  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
-  <div class="pctx">Un plomero cobra $10.000 fijos por visita más $8.000 por hora trabajada.</div>
-  <p class="pq">¿Cuál función modela el costo total C, según las horas trabajadas h?</p>
-  <div class="pos" id="qfl4">
-    <div class="po" onclick="ans('qfl4','A')"><div class="ol">A</div><div class="ot">C(h)=10.000h</div></div>
-    <div class="po" onclick="ans('qfl4','B')"><div class="ol">B</div><div class="ot">C(h)=8.000h</div></div>
-    <div class="po" onclick="ans('qfl4','C')"><div class="ol">C</div><div class="ot">C(h)=10.000+8.000h</div></div>
-    <div class="po" onclick="ans('qfl4','D')"><div class="ol">D</div><div class="ot">C(h)=18.000h</div></div>
-  </div>
-  <div class="pfb" id="qfl4-fb"></div>
-</div>
-
-</div>
-
-<!-- FUNCION CUADRATICA -->
-<div class="sec" id="p6">
-<div class="hsec" style="border-color:rgba(124,58,237,.3)">
-  <span class="hi2">📉</span>
-  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#7c3aed;margin-bottom:3px">Tema 6 de 6 · Eje Álgebra y Funciones</div>
-  <h2 style="color:#7c3aed">Función Cuadrática</h2>
-  <p>Ecuaciones de segundo grado, la parábola y sus puntos especiales (vértice, ceros e intersecciones) — el tema más visual de esta unidad, y el que cierra el eje Álgebra y Funciones.</p>
-</div>
-
-<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p6">
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
-<line x1="60" y1="120" x2="60" y2="20" stroke="#4c3d99" stroke-width="1.3"/>
-<line x1="20" y1="110" x2="500" y2="110" stroke="#4c3d99" stroke-width="1.3"/>
-<path d="M100,30 Q280,140 460,30" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
-<text x="280" y="60" font-size="14" font-weight="900" fill="#7c3aed" text-anchor="middle">f(x)=ax²+bx+c</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#7c3aed">🌙 Concepto de función cuadrática</p>
-  <p>Una <strong>función cuadrática</strong> tiene la forma f(x)=ax²+bx+c (con a≠0). Su gráfico siempre es una <strong>parábola</strong>: una curva simétrica con forma de "U" (hacia arriba o hacia abajo).</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#7c3aed">f(x) = ax² + bx + c</span><div class="fdef">a, b, c son constantes; a nunca puede ser 0</div></div>
-  <p style="margin-top:10px">A diferencia de la función lineal/afín (siempre recta), la cuadrática siempre es curva, debido al término x² que hace que la función crezca de forma acelerada.</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 El signo de "a" determina la orientación</div>
-    <p>Si a&gt;0, la parábola abre hacia <strong>arriba</strong> (forma de U, con un mínimo). Si a&lt;0, abre hacia <strong>abajo</strong> (forma de ∩, con un máximo).</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
-<path d="M100,30 Q280,140 460,30" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
-<circle cx="280" cy="95" r="5" fill="#dc2626"/>
-<line x1="280" y1="20" x2="280" y2="115" stroke="#dc2626" stroke-width="1.3" stroke-dasharray="4,3"/>
-<text x="280" y="18" font-size="10" fill="#dc2626" text-anchor="middle">eje de simetría</text>
-<text x="330" y="105" font-size="11" font-weight="900" fill="#dc2626">vértice</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#7c3aed">📍 Vértice y eje de simetría</p>
-  <p>El <strong>vértice</strong> es el punto más bajo (si a&gt;0) o más alto (si a&lt;0) de la parábola. El <strong>eje de simetría</strong> es la línea vertical que pasa por el vértice, dividiendo la parábola en dos mitades espejo.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#7c3aed">x_vértice = −b / (2a)</span><div class="fdef">reemplazando ese x en f(x) se obtiene la coordenada y del vértice</div></div>
-  <p style="margin-top:10px">Ejemplo: en f(x)=x²−4x+3, el vértice está en x=−(−4)/(2·1)=2. Reemplazando: f(2)=4−8+3=−1. El vértice es (2,−1).</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Aplicación práctica</div>
-    <p>El vértice representa el <strong>máximo o mínimo</strong> de una situación: la altura máxima de un objeto lanzado, el mínimo costo de producción, la máxima ganancia — un tipo de pregunta muy frecuente en la PAES.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
-<line x1="20" y1="100" x2="500" y2="100" stroke="#4c3d99" stroke-width="1.3"/>
-<path d="M100,30 Q280,140 460,30" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
-<circle cx="170" cy="100" r="5" fill="#059669"/>
-<circle cx="390" cy="100" r="5" fill="#059669"/>
-<text x="170" y="118" font-size="11" font-weight="900" fill="#059669" text-anchor="middle">cero 1</text>
-<text x="390" y="118" font-size="11" font-weight="900" fill="#059669" text-anchor="middle">cero 2</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#7c3aed">✖️ Ceros de la función (raíces)</p>
-  <p>Los <strong>ceros</strong> (o raíces) de la función son los valores de x donde la parábola cruza el eje x, es decir, donde f(x)=0. Se encuentran resolviendo la ecuación de segundo grado ax²+bx+c=0.</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#7c3aed">x = (−b ± √(b²−4ac)) / 2a</span><div class="fdef">fórmula general para resolver cualquier ecuación de segundo grado</div></div>
-  <p style="margin-top:10px">El valor b²−4ac se llama <strong>discriminante</strong>. Si es positivo, hay 2 ceros distintos (la parábola cruza el eje x en 2 puntos); si es 0, hay 1 solo cero (la parábola toca el eje x en el vértice); si es negativo, no hay ceros reales (la parábola no toca el eje x).</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Atajo cuando la ecuación es factorizable</div>
-    <p>Si puedes factorizar ax²+bx+c fácilmente (usando lo aprendido en Expresiones Algebraicas), encontrar los ceros es más rápido que aplicar la fórmula general.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
-<path d="M100,20 Q280,130 460,20" fill="none" stroke="#7c3aed" stroke-width="2.3"/>
-<path d="M140,60 Q280,110 420,60" fill="none" stroke="#0891b2" stroke-width="2.3"/>
-<text x="470" y="25" font-size="10" fill="#7c3aed">a grande</text>
-<text x="440" y="65" font-size="10" fill="#0891b2">a pequeño</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#7c3aed">🎛️ Efecto de los parámetros a, b, c</p>
-  <p>Cada parámetro de f(x)=ax²+bx+c cambia la parábola de una forma específica y predecible — entenderlo te permite "leer" una función solo mirando sus coeficientes.</p>
-  <div class="pgrid" style="margin-top:6px">
-    <div class="pc"><h4>Parámetro a</h4><p>Signo: hacia arriba (+) o abajo (−). Magnitud: |a| grande = parábola más angosta; |a| pequeño = más ancha.</p></div>
-    <div class="pc"><h4>Parámetro c</h4><p>Es el valor de f(0): dónde la parábola cruza el eje y (intersección directa, sin cálculo extra).</p></div>
-  </div>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Comparar dos parábolas en un gráfico</div>
-    <p>En preguntas que muestran dos parábolas superpuestas, fíjate primero en cuál abre hacia arriba/abajo, y luego en cuál es más angosta — son las pistas visuales más rápidas de leer.</p>
-  </div>
-</div></div>
-
-<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
-<text x="140" y="30" font-size="12" fill="#211a4d">Se lanza un objeto: h(t)=−5t²+20t</text>
-<text x="140" y="60" font-size="14" font-weight="900" fill="#7c3aed">t_vértice = −20/(2×−5) = 2 seg</text>
-<text x="140" y="90" font-size="14" font-weight="900" fill="#059669">h(2)=−5(4)+40=20 → altura máxima 20m</text>
-</svg></div><div class="card">
-  <p class="ct" style="color:#7c3aed">🚀 Problema resuelto: altura máxima</p>
-  <p>Se lanza un objeto hacia arriba, y su altura en metros después de t segundos es <strong>h(t)=−5t²+20t</strong>. ¿En qué momento alcanza su altura máxima, y cuál es esa altura?</p>
-  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#7c3aed">t=−20/(2×−5)=2s &nbsp;&nbsp; h(2)=20m</span></div>
-  <p style="margin-top:10px">Como a=−5 (negativo), la parábola abre hacia abajo, así que el vértice es un <strong>máximo</strong>. Se calcula igual que antes: primero el tiempo del vértice, luego se reemplaza para obtener la altura.</p>
-  <div class="tip" style="margin-top:10px">
-    <div class="tip-l">💡 Reconocer el contexto de "máximo" o "mínimo"</div>
-    <p>Problemas de altura de un lanzamiento, ganancia máxima de un negocio, o el mínimo costo de producción, casi siempre se resuelven encontrando el vértice de una función cuadrática.</p>
-  </div>
-</div></div>
-
-</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p6" onclick="deckNav('p6',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p6"><button class="deck-dot act" onclick="deckGoto('p6',0)"></button><button class="deck-dot" onclick="deckGoto('p6',1)"></button><button class="deck-dot" onclick="deckGoto('p6',2)"></button><button class="deck-dot" onclick="deckGoto('p6',3)"></button><button class="deck-dot" onclick="deckGoto('p6',4)"></button></div><button class="deck-arrow" id="deck-next-p6" onclick="deckNav('p6',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p6">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
-
-<div class="kws">
-  <span class="kw" style="color:#7c3aed">ax²+bx+c</span>
-  <span class="kw" style="color:#7c3aed">vértice</span>
-  <span class="kw" style="color:#7c3aed">discriminante</span>
-  <span class="kw" style="color:#7c3aed">ceros de la función</span>
-  <span class="kw" style="color:#7c3aed">parábola</span>
-</div>
-
-<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
-
-<div class="pbox">
-  <div class="ptag" style="color:#7c3aed">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuáles son los ceros de la función f(x)=x²−9?</p>
-  <div class="pos" id="qfc1">
-    <div class="po" onclick="ans('qfc1','A')"><div class="ol">A</div><div class="ot">x=3 y x=−3</div></div>
-    <div class="po" onclick="ans('qfc1','B')"><div class="ol">B</div><div class="ot">x=9 y x=−9</div></div>
-    <div class="po" onclick="ans('qfc1','C')"><div class="ol">C</div><div class="ot">solo x=3</div></div>
-    <div class="po" onclick="ans('qfc1','D')"><div class="ol">D</div><div class="ot">no tiene ceros reales</div></div>
-  </div>
-  <div class="pfb" id="qfc1-fb"></div>
-</div>
-
-<div class="pbox">
-  <div class="ptag" style="color:#7c3aed">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuál es la coordenada x del vértice de f(x)=x²−6x+5?</p>
-  <div class="pos" id="qfc2">
-    <div class="po" onclick="ans('qfc2','A')"><div class="ol">A</div><div class="ot">x=−3</div></div>
-    <div class="po" onclick="ans('qfc2','B')"><div class="ol">B</div><div class="ot">x=3</div></div>
-    <div class="po" onclick="ans('qfc2','C')"><div class="ol">C</div><div class="ot">x=5</div></div>
-    <div class="po" onclick="ans('qfc2','D')"><div class="ol">D</div><div class="ot">x=6</div></div>
-  </div>
-  <div class="pfb" id="qfc2-fb"></div>
-</div>
-
-<div class="pbox">
-  <div class="ptag" style="color:#7c3aed">🤖 Pregunta de práctica</div>
-  <p class="pq">¿En qué punto la función f(x)=2x²−5x+7 cruza el eje y?</p>
-  <div class="pos" id="qfc3">
-    <div class="po" onclick="ans('qfc3','A')"><div class="ol">A</div><div class="ot">(0,2)</div></div>
-    <div class="po" onclick="ans('qfc3','B')"><div class="ol">B</div><div class="ot">(0,5)</div></div>
-    <div class="po" onclick="ans('qfc3','C')"><div class="ol">C</div><div class="ot">(0,7)</div></div>
-    <div class="po" onclick="ans('qfc3','D')"><div class="ol">D</div><div class="ot">(7,0)</div></div>
-  </div>
-  <div class="pfb" id="qfc3-fb"></div>
-</div>
-
-<div class="pbox">
-  <div class="ptag" style="color:#7c3aed">🤖 Pregunta de práctica</div>
-  <p class="pq">¿Cuál de las siguientes funciones tiene una parábola que abre hacia abajo?</p>
-  <div class="pos" id="qfc4">
-    <div class="po" onclick="ans('qfc4','A')"><div class="ol">A</div><div class="ot">f(x)=3x²+2x+1</div></div>
-    <div class="po" onclick="ans('qfc4','B')"><div class="ol">B</div><div class="ot">f(x)=x²−4</div></div>
-    <div class="po" onclick="ans('qfc4','C')"><div class="ol">C</div><div class="ot">f(x)=−2x²+x+5</div></div>
-    <div class="po" onclick="ans('qfc4','D')"><div class="ol">D</div><div class="ot">f(x)=0,5x²</div></div>
-  </div>
-  <div class="pfb" id="qfc4-fb"></div>
+  <div class="pfb" id="qt5b-fb"></div>
 </div>
 
 </div>
 
 <!-- ENSAYO -->
-<div class="sec" id="p7">
+<div class="sec" id="p4">
 <div class="card">
-  <p class="ct" style="color:var(--ind)">&#9201; Mini Ensayo de Cierre &bull; 18 preguntas</p>
-  <p style="font-size:.92rem;color:var(--dim)">Simula un tramo del eje Álgebra y Funciones: <strong>18 preguntas generadas con IA</strong> (marcadas 🤖), mezclando los 6 temas con el estilo y dificultad de la PAES. 22 minutos, sin retroalimentación inmediata. Al finalizar verás tu puntaje, el desglose por tema y las explicaciones de cada pregunta — sabrás exactamente dónde volver a estudiar.</p>
+  <p class="ct" style="color:var(--ind)">&#9201; Mini Ensayo de Cierre &bull; 16 preguntas</p>
+  <p style="font-size:.92rem;color:var(--dim)">Simula un tramo de esta unidad: <strong>16 preguntas generadas con IA</strong> (marcadas 🤖), mezclando Sistemas 2×2, Potencia/Exponencial/Logarítmica y Funciones Trigonométricas con el estilo y dificultad de la PAES. 20 minutos, sin retroalimentación inmediata.</p>
 </div>
 <div class="tbox">
   <div>
     <div style="font-size:.71rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin-bottom:1px">Tiempo restante</div>
-    <div class="td" id="td">22:00</div>
+    <div class="td" id="td">20:00</div>
   </div>
   <div style="text-align:right">
     <div id="ts" style="font-size:.84rem;color:var(--dim);margin-bottom:6px">Haz clic en Iniciar cuando estés lista</div>
@@ -1409,41 +981,37 @@ footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
 </div>
 <div id="eqs" style="opacity:.35;pointer-events:none">
 
-<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 1 · T1 Expresiones Algebraicas · 🤖</div><div class="eqt">Al desarrollar (2x−3)², ¿cuál es el resultado?</div><div class="eopts" id="ep0"><div class="eopt" data-qi="0" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">4x²−9</div></div><div class="eopt" data-qi="0" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">4x²−12x+9</div></div><div class="eopt" data-qi="0" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">4x²−6x+9</div></div><div class="eopt" data-qi="0" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">2x²−12x+9</div></div></div><div class="efb" id="ef0"></div></div>
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 1 · Sistemas 2×2 · 🤖</div><div class="eqt">¿Cuál de las siguientes ecuaciones forma un sistema SIN solución con y=¾x+2?</div><div class="eopts" id="ep0"><div class="eopt" data-qi="0" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">y=¾x+2</div></div><div class="eopt" data-qi="0" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">y=¾x+7</div></div><div class="eopt" data-qi="0" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">y=4x+2</div></div><div class="eopt" data-qi="0" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">y=−4x+7</div></div></div><div class="efb" id="ef0"></div></div>
 
-<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 2 · T1 Expresiones Algebraicas · 🤖</div><div class="eqt">Al factorizar x²−16, ¿cuál es la expresión equivalente?</div><div class="eopts" id="ep1"><div class="eopt" data-qi="1" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">(x−4)²</div></div><div class="eopt" data-qi="1" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">(x+4)(x−4)</div></div><div class="eopt" data-qi="1" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">(x+8)(x−8)</div></div><div class="eopt" data-qi="1" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">x(x−16)</div></div></div><div class="efb" id="ef1"></div></div>
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 2 · Sistemas 2×2 · 🤖</div><div class="ectx">El sistema 12x+qy=9, px+2y=3 tiene infinitas soluciones.</div><div class="eqt">¿Cuáles son los valores de p y q, respectivamente?</div><div class="eopts" id="ep1"><div class="eopt" data-qi="1" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">4 y 3</div></div><div class="eopt" data-qi="1" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">4 y −3</div></div><div class="eopt" data-qi="1" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">4 y 6</div></div><div class="eopt" data-qi="1" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">−4 y 6</div></div></div><div class="efb" id="ef1"></div></div>
 
-<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 3 · T1 Expresiones Algebraicas · 🤖</div><div class="eqt">Al reducir 7x − 3x + 2x², ¿cuál es el resultado?</div><div class="eopts" id="ep2"><div class="eopt" data-qi="2" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">2x²+4x</div></div><div class="eopt" data-qi="2" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">6x²</div></div><div class="eopt" data-qi="2" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">2x²+10x</div></div><div class="eopt" data-qi="2" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">9x²</div></div></div><div class="efb" id="ef2"></div></div>
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 3 · Sistemas 2×2 · 🤖</div><div class="ectx">Sistemas: A) x+y=2, ax+ay=2a. B) x+3y=2, 3x+9ay=6. C) 3x+y=2, ax+3ay=0. D) ax+ay=2, 3ax+y=0.</div><div class="eqt">¿Cuál de estos sistemas tiene infinitas soluciones para a=0, y solución única para a≠0?</div><div class="eopts" id="ep2"><div class="eopt" data-qi="2" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Sistema A</div></div><div class="eopt" data-qi="2" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Sistema B</div></div><div class="eopt" data-qi="2" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Sistema C</div></div><div class="eopt" data-qi="2" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Sistema D</div></div></div><div class="efb" id="ef2"></div></div>
 
-<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 4 · T2 Proporcionalidad · 🤖</div><div class="ectx">En una tabla de proporción directa, cuando x=3, y=15.</div><div class="eqt">¿Cuál es la constante de proporcionalidad k?</div><div class="eopts" id="ep3"><div class="eopt" data-qi="3" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">3</div></div><div class="eopt" data-qi="3" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">5</div></div><div class="eopt" data-qi="3" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">12</div></div><div class="eopt" data-qi="3" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">45</div></div></div><div class="efb" id="ef3"></div></div>
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 4 · Sistemas 2×2 · 🤖</div><div class="ectx">El nivel de agua en un estanque se modela con una función lineal según el tiempo (horas). El nivel inicial es 3 veces el nivel que aumenta cada hora. Al cabo de 1 hora, el nivel es 480mm.</div><div class="eqt">¿Cuál es el nivel del agua al cabo de 6 horas?</div><div class="eopts" id="ep3"><div class="eopt" data-qi="3" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">720 mm</div></div><div class="eopt" data-qi="3" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">1.080 mm</div></div><div class="eopt" data-qi="3" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">1.440 mm</div></div><div class="eopt" data-qi="3" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">2.160 mm</div></div></div><div class="efb" id="ef3"></div></div>
 
-<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 5 · T2 Proporcionalidad · 🤖</div><div class="ectx">5 pintores pintan una casa en 12 días.</div><div class="eqt">Si se contratan 10 pintores (proporción inversa), ¿en cuántos días terminarán?</div><div class="eopts" id="ep4"><div class="eopt" data-qi="4" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">24</div></div><div class="eopt" data-qi="4" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">17</div></div><div class="eopt" data-qi="4" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">6</div></div><div class="eopt" data-qi="4" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">2</div></div></div><div class="efb" id="ef4"></div></div>
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 5 · Sistemas 2×2 · 🤖</div><div class="eqt">¿Cuál de los siguientes sistemas tiene infinitas soluciones?</div><div class="eopts" id="ep4"><div class="eopt" data-qi="4" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">y=2x−1 ; y=2x+3</div></div><div class="eopt" data-qi="4" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">y=x+4 ; 2y=2x+8</div></div><div class="eopt" data-qi="4" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">y=x+4 ; y=−x+4</div></div><div class="eopt" data-qi="4" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">y=3x ; y=3x+1</div></div></div><div class="efb" id="ef4"></div></div>
 
-<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 6 · T2 Proporcionalidad · 🤖</div><div class="ectx">En una fábrica de velas embalan velas en paquetes. Esta relación se puede modelar mediante la función f definida por f(x)=8x.</div><div class="eqt">¿Qué representa el número 8?</div><div class="eopts" id="ep5"><div class="eopt" data-qi="5" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">La constante de proporcionalidad directa.</div></div><div class="eopt" data-qi="5" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">La constante de proporcionalidad inversa.</div></div><div class="eopt" data-qi="5" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">La cantidad total de velas.</div></div><div class="eopt" data-qi="5" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">La cantidad total de paquetes.</div></div></div><div class="efb" id="ef5"></div></div>
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 6 · Sistemas 2×2 · 🤖</div><div class="eqt">Si al resolver un sistema 2×2 llegas a la afirmación "5=5", ¿qué tipo de sistema es?</div><div class="eopts" id="ep5"><div class="eopt" data-qi="5" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Solución única</div></div><div class="eopt" data-qi="5" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Sin solución</div></div><div class="eopt" data-qi="5" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Infinitas soluciones</div></div><div class="eopt" data-qi="5" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">No se puede determinar</div></div></div><div class="efb" id="ef5"></div></div>
 
-<div class="eq"><div class="enum" style="color:#059669">Pregunta 7 · T3 Ecuaciones e Inecuaciones · 🤖</div><div class="eqt">¿Cuál es la solución de la ecuación 5x + 7 = 32?</div><div class="eopts" id="ep6"><div class="eopt" data-qi="6" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">x=3</div></div><div class="eopt" data-qi="6" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">x=5</div></div><div class="eopt" data-qi="6" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">x=7,8</div></div><div class="eopt" data-qi="6" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">x=39</div></div></div><div class="efb" id="ef6"></div></div>
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 7 · Potencia/Exponencial/Logarítmica · 🤖 · Suficiencia de Datos</div><div class="ectx">El presupuesto de un país creció 20% cada año durante n años. Se puede determinar el valor de n, si se sabe que: (1) se conoce el presupuesto actual. (2) el presupuesto creció un 72,8% en ese período.</div><div class="eqt">¿Qué se necesita para determinar n?</div><div class="eopts" id="ep6"><div class="eopt" data-qi="6" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">(1) por sí sola</div></div><div class="eopt" data-qi="6" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">(2) por sí sola</div></div><div class="eopt" data-qi="6" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Ambas juntas, (1) y (2)</div></div><div class="eopt" data-qi="6" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Se requiere información adicional</div></div></div><div class="efb" id="ef6"></div></div>
 
-<div class="eq"><div class="enum" style="color:#059669">Pregunta 8 · T3 Ecuaciones e Inecuaciones · 🤖</div><div class="eqt">¿Cuál es la solución de la inecuación 4x − 2 &lt; 10?</div><div class="eopts" id="ep7"><div class="eopt" data-qi="7" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">x &lt; 2</div></div><div class="eopt" data-qi="7" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">x &lt; 3</div></div><div class="eopt" data-qi="7" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">x &gt; 3</div></div><div class="eopt" data-qi="7" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">x &lt; 12</div></div></div><div class="efb" id="ef7"></div></div>
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 8 · Potencia/Exponencial/Logarítmica · 🤖</div><div class="eqt">¿Cuál de las siguientes funciones es de tipo potencia (no exponencial)?</div><div class="eopts" id="ep7"><div class="eopt" data-qi="7" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">f(x)=x⁴</div></div><div class="eopt" data-qi="7" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">f(x)=4ˣ</div></div><div class="eopt" data-qi="7" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">f(x)=log₄x</div></div><div class="eopt" data-qi="7" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">f(x)=4·2ˣ</div></div></div><div class="efb" id="ef7"></div></div>
 
-<div class="eq"><div class="enum" style="color:#059669">Pregunta 9 · T3 Ecuaciones e Inecuaciones · 🤖</div><div class="eqt">¿Cuál es la solución de la ecuación 4 − 3x = 13?</div><div class="eopts" id="ep8"><div class="eopt" data-qi="8" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">−17/3</div></div><div class="eopt" data-qi="8" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">−3</div></div><div class="eopt" data-qi="8" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">3</div></div><div class="eopt" data-qi="8" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">17/3</div></div></div><div class="efb" id="ef8"></div></div>
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 9 · Potencia/Exponencial/Logarítmica · 🤖</div><div class="eqt">Si f(x)=2×3ˣ, ¿cuál es el valor de f(2)?</div><div class="eopts" id="ep8"><div class="eopt" data-qi="8" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">6</div></div><div class="eopt" data-qi="8" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">12</div></div><div class="eopt" data-qi="8" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">18</div></div><div class="eopt" data-qi="8" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">36</div></div></div><div class="efb" id="ef8"></div></div>
 
-<div class="eq"><div class="enum" style="color:#b45309">Pregunta 10 · T4 Sistemas 2×2 · 🤖</div><div class="eqt">En el sistema x+y=20, x−y=6, ¿cuál es el valor de y?</div><div class="eopts" id="ep9"><div class="eopt" data-qi="9" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">6</div></div><div class="eopt" data-qi="9" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">7</div></div><div class="eopt" data-qi="9" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">13</div></div><div class="eopt" data-qi="9" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">14</div></div></div><div class="efb" id="ef9"></div></div>
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 10 · Potencia/Exponencial/Logarítmica · 🤖</div><div class="eqt">¿Cuál de las siguientes funciones exponenciales es CRECIENTE?</div><div class="eopts" id="ep9"><div class="eopt" data-qi="9" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">f(x)=(0,3)ˣ</div></div><div class="eopt" data-qi="9" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">f(x)=(0,8)ˣ</div></div><div class="eopt" data-qi="9" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">f(x)=3ˣ</div></div><div class="eopt" data-qi="9" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">f(x)=(0,99)ˣ</div></div></div><div class="efb" id="ef9"></div></div>
 
-<div class="eq"><div class="enum" style="color:#b45309">Pregunta 11 · T4 Sistemas 2×2 · 🤖</div><div class="eqt">¿Cuál de los siguientes sistemas tiene infinitas soluciones?</div><div class="eopts" id="ep10"><div class="eopt" data-qi="10" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">x+y=6 ; 2x+2y=12</div></div><div class="eopt" data-qi="10" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">x+y=6 ; x+y=10</div></div><div class="eopt" data-qi="10" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">x+y=6 ; x−y=2</div></div><div class="eopt" data-qi="10" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">x=4 ; y=2</div></div></div><div class="efb" id="ef10"></div></div>
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 11 · Potencia/Exponencial/Logarítmica · 🤖</div><div class="eqt">¿Cuál es el dominio de la función f(x)=log₂(x)?</div><div class="eopts" id="ep10"><div class="eopt" data-qi="10" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Todos los números reales</div></div><div class="eopt" data-qi="10" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">x&gt;0</div></div><div class="eopt" data-qi="10" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">x≥0</div></div><div class="eopt" data-qi="10" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">x≠0</div></div></div><div class="efb" id="ef10"></div></div>
 
-<div class="eq"><div class="enum" style="color:#b45309">Pregunta 12 · T4 Sistemas 2×2 · 🤖</div><div class="ectx">Una persona dispone de $8.000 en monedas de $100 y $500, y en total tiene 28 monedas. Paso 1: plantea 100x+500y=8.000 ; x+y=28. Paso 2: multiplica la segunda ecuación por 100, obteniendo 100x+100y=2.800, y luego suma hacia abajo las ecuaciones, obteniendo y=18. Paso 3: reemplaza en x+y=28, obteniendo x=10. Paso 4: concluye 18 monedas de $500 y 10 de $100.</div><div class="eqt">¿En cuál de los pasos se cometió el error?</div><div class="eopts" id="ep11"><div class="eopt" data-qi="11" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">En el Paso 1</div></div><div class="eopt" data-qi="11" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">En el Paso 2</div></div><div class="eopt" data-qi="11" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">En el Paso 3</div></div><div class="eopt" data-qi="11" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">En el Paso 4</div></div></div><div class="efb" id="ef11"></div></div>
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 12 · Potencia/Exponencial/Logarítmica · 🤖</div><div class="eqt">Los gráficos de f(x)=5ˣ y g(x)=log₅(x) son simétricos respecto a:</div><div class="eopts" id="ep11"><div class="eopt" data-qi="11" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">El eje x</div></div><div class="eopt" data-qi="11" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">El eje y</div></div><div class="eopt" data-qi="11" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">La recta y=x</div></div><div class="eopt" data-qi="11" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">El origen</div></div></div><div class="efb" id="ef11"></div></div>
 
-<div class="eq"><div class="enum" style="color:#be185d">Pregunta 13 · T5 Función Lineal y Afín · 🤖</div><div class="eqt">En la función f(x)=6x−4, ¿cuál es el valor de f(3)?</div><div class="eopts" id="ep12"><div class="eopt" data-qi="12" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">2</div></div><div class="eopt" data-qi="12" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">14</div></div><div class="eopt" data-qi="12" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">18</div></div><div class="eopt" data-qi="12" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">22</div></div></div><div class="efb" id="ef12"></div></div>
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 13 · Funciones Trigonométricas · 🤖</div><div class="eqt">¿Cuál es el valor de sen(π)?</div><div class="eopts" id="ep12"><div class="eopt" data-qi="12" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">−1</div></div><div class="eopt" data-qi="12" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">0</div></div><div class="eopt" data-qi="12" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">1</div></div><div class="eopt" data-qi="12" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">π</div></div></div><div class="efb" id="ef12"></div></div>
 
-<div class="eq"><div class="enum" style="color:#be185d">Pregunta 14 · T5 Función Lineal y Afín · 🤖</div><div class="ectx">En una empresa de transporte, el costo, en pesos, de trasladar x kilómetros se modela mediante f(x)=400x+600. La empresa encontró una forma de reducir ese costo un 20%.</div><div class="eqt">¿Cuál de las siguientes funciones modela el nuevo costo, en pesos?</div><div class="eopts" id="ep13"><div class="eopt" data-qi="13" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">m(x)=400x−480</div></div><div class="eopt" data-qi="13" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">g(x)=320x+600</div></div><div class="eopt" data-qi="13" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">h(x)=320x+480</div></div><div class="eopt" data-qi="13" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">p(x)=80x+480</div></div></div><div class="efb" id="ef13"></div></div>
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 14 · Funciones Trigonométricas · 🤖</div><div class="eqt">¿Cuál es la amplitud y el período de f(x)=3·sen(2x)?</div><div class="eopts" id="ep13"><div class="eopt" data-qi="13" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Amplitud=3, Período=π</div></div><div class="eopt" data-qi="13" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Amplitud=2, Período=3π</div></div><div class="eopt" data-qi="13" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Amplitud=3, Período=2π</div></div><div class="eopt" data-qi="13" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Amplitud=6, Período=π</div></div></div><div class="efb" id="ef13"></div></div>
 
-<div class="eq"><div class="enum" style="color:#be185d">Pregunta 15 · T5 Función Lineal y Afín · 🤖</div><div class="ectx">Dos gimnasios cobran una mensualidad según los meses x de plan contratado. Gimnasio 1: f(x)=1.200+30x. Gimnasio 2: g(x)=p+18x.</div><div class="eqt">¿Cuál es el valor de p, si ambos cobran lo mismo por 10 meses de plan?</div><div class="eopts" id="ep14"><div class="eopt" data-qi="14" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">120</div></div><div class="eopt" data-qi="14" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">180</div></div><div class="eopt" data-qi="14" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">1.320</div></div><div class="eopt" data-qi="14" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">1.500</div></div></div><div class="efb" id="ef14"></div></div>
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 15 · Funciones Trigonométricas · 🤖</div><div class="ectx">La altura de una cabina de una rueda de la fortuna se modela con H(t)=15·cos(t)+20 metros.</div><div class="eqt">¿Cuáles son las alturas máxima y mínima de la cabina?</div><div class="eopts" id="ep14"><div class="eopt" data-qi="14" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Máx=35m, Mín=5m</div></div><div class="eopt" data-qi="14" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Máx=20m, Mín=15m</div></div><div class="eopt" data-qi="14" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Máx=15m, Mín=−15m</div></div><div class="eopt" data-qi="14" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Máx=30m, Mín=10m</div></div></div><div class="efb" id="ef14"></div></div>
 
-<div class="eq"><div class="enum" style="color:#7c3aed">Pregunta 16 · T6 Función Cuadrática · 🤖</div><div class="eqt">¿Cuál es la coordenada x del vértice de f(x)=x²−2x−3?</div><div class="eopts" id="ep15"><div class="eopt" data-qi="15" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">x=−1</div></div><div class="eopt" data-qi="15" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">x=1</div></div><div class="eopt" data-qi="15" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">x=2</div></div><div class="eopt" data-qi="15" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">x=3</div></div></div><div class="efb" id="ef15"></div></div>
-
-<div class="eq"><div class="enum" style="color:#7c3aed">Pregunta 17 · T6 Función Cuadrática · 🤖</div><div class="eqt">¿Cuáles son los ceros de la función f(x)=x²−5x+6?</div><div class="eopts" id="ep16"><div class="eopt" data-qi="16" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">x=1 y x=6</div></div><div class="eopt" data-qi="16" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">x=2 y x=3</div></div><div class="eopt" data-qi="16" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">x=−2 y x=−3</div></div><div class="eopt" data-qi="16" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">no tiene ceros reales</div></div></div><div class="efb" id="ef16"></div></div>
-
-<div class="eq"><div class="enum" style="color:#7c3aed">Pregunta 18 · T6 Función Cuadrática · 🤖</div><div class="ectx">Considera la función definida por f(n)=8+20n−4n², tal que n es un número real.</div><div class="eqt">¿Cuál es el valor de f(1)+f(2)+f(3)+f(4)?</div><div class="eopts" id="ep17"><div class="eopt" data-qi="17" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">88</div></div><div class="eopt" data-qi="17" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">112</div></div><div class="eopt" data-qi="17" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">168</div></div><div class="eopt" data-qi="17" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">384</div></div></div><div class="efb" id="ef17"></div></div>
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 16 · Funciones Trigonométricas · 🤖</div><div class="eqt">¿Cuál de las siguientes funciones pasa por el punto (0,0)?</div><div class="eopts" id="ep15"><div class="eopt" data-qi="15" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">f(x)=cos(x)</div></div><div class="eopt" data-qi="15" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">f(x)=sen(x)</div></div><div class="eopt" data-qi="15" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">f(x)=cos(x)+1</div></div><div class="eopt" data-qi="15" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">f(x)=2·cos(x)</div></div></div><div class="efb" id="ef15"></div></div>
 
 </div>
 <button class="sbtn" id="subb" onclick="submitE()" disabled>Ver resultados</button>
@@ -1456,7 +1024,7 @@ footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
   <div class="lm" id="lm">Inicio</div>
   <button class="lb" id="ln" onclick="linN(1)">Siguiente &#8594;</button>
 </div>
-<footer>&#128202; Plan Com&uacute;n Matem&aacute;tica &bull; Unidad 2: &Aacute;lgebra y Funciones &bull; Admisi&oacute;n 2027</footer>
+<footer>&#128202; Electivo Matem&aacute;tica M2 &bull; Unidad 2: &Aacute;lgebra y Funciones &bull; Admisi&oacute;n 2027</footer>
 
 <!-- ═══ ASISTENTE IA ═══ -->
 <button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
@@ -1466,7 +1034,7 @@ footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
 <div class="tutor-panel" id="tutorPanel">
   <div class="tutor-head">
     <div>
-      <h3>💬 Asistente · M1 · Unidad 2</h3>
+      <h3>💬 Asistente · M2 · Unidad 2</h3>
       <p>Álgebra y Funciones</p>
     </div>
     <button class="tutor-close" onclick="toggleTutor()">✕</button>
@@ -1483,7 +1051,7 @@ footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
       <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
     </div>
     <div class="tutor-msgs" id="tutorMsgs">
-      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas de Expresiones Algebraicas, Proporcionalidad, Ecuaciones e Inecuaciones, Sistemas 2×2, Función Lineal y Afín o Función Cuadrática. ¿En qué te ayudo?</div>
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas de Sistemas 2×2, Función Potencia/Exponencial/Logarítmica, o Funciones Trigonométricas. ¿En qué te ayudo?</div>
     </div>
     <div class="tutor-input-row">
       <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
@@ -1494,8 +1062,8 @@ footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
 
 <script>
 
-var SS=['p0','p1','p2','p3','p4','p5','p6','p7'];
-var SL=['Inicio','Expresiones Algebraicas','Proporcionalidad','Ecuaciones e Inecuaciones','Sistemas 2x2','Funcion Lineal y Afin','Funcion Cuadratica','Mini Ensayo'];
+var SS=['p0','p1','p2','p3','p4'];
+var SL=['Inicio','Sistemas 2x2','Potencia-Exp-Log','Trigonometricas','Mini Ensayo'];
 var cur=0;
 function go(id,idx,btn){
   SS.forEach(function(s){document.getElementById(s).classList.remove('act');});
@@ -1567,7 +1135,7 @@ function deckGoto(sid,i){
   deckState[sid].i=i;
   deckRender(sid);
 }
-['p1','p2','p3','p4','p5','p6'].forEach(function(sid){deckInit(sid);deckRender(sid);});
+['p1','p2','p3'].forEach(function(sid){deckInit(sid);deckRender(sid);});
 document.addEventListener('keydown',function(e){
   var activeSec=SS[cur];
   if(!deckState[activeSec])return;
@@ -1575,6 +1143,92 @@ document.addEventListener('keydown',function(e){
   if(e.key==='ArrowRight')deckNav(activeSec,1);
 });
 
+
+/* ===== WIDGET: SISTEMA 2X2 INTERACTIVO ===== */
+function fmtNum(n){
+  var r=Math.round(n*10)/10;
+  return r===0?'0':(r>0&&r===Math.round(r)?r.toString():r.toString().replace('-','−'));
+}
+function updateSys(){
+  var m=parseFloat(document.getElementById('sysM').value);
+  var n=parseFloat(document.getElementById('sysN').value);
+  document.getElementById('sysMVal').textContent='m = '+fmtNum(m).replace('−','-');
+  document.getElementById('sysNVal').textContent='n = '+(n<0?'−'+Math.abs(n):n);
+  var m1=1,n1=1;
+  // map x in [-6,6] to svg [20,380], y in [-6,6] to svg[380,20]
+  function toSvgX(x){return 200+x*30;}
+  function toSvgY(y){return 200-y*30;}
+  var x1a=-6,y1a=m1*x1a+n1,x1b=6,y1b=m1*x1b+n1;
+  document.getElementById('line1').setAttribute('x1',toSvgX(x1a));
+  document.getElementById('line1').setAttribute('y1',toSvgY(y1a));
+  document.getElementById('line1').setAttribute('x2',toSvgX(x1b));
+  document.getElementById('line1').setAttribute('y2',toSvgY(y1b));
+  var x2a=-6,y2a=m*x2a+n,x2b=6,y2b=m*x2b+n;
+  document.getElementById('line2').setAttribute('x1',toSvgX(x2a));
+  document.getElementById('line2').setAttribute('y1',toSvgY(y2a));
+  document.getElementById('line2').setAttribute('x2',toSvgX(x2b));
+  document.getElementById('line2').setAttribute('y2',toSvgY(y2b));
+  var eqStr='Recta 2: y = '+fmtNum(m)+'x '+(n>=0?'+ '+fmtNum(Math.abs(n)):'− '+fmtNum(Math.abs(n)));
+  var pt=document.getElementById('interPt');
+  if(Math.abs(m-m1)<0.001){
+    if(Math.abs(n-n1)<0.001){
+      pt.style.display='none';
+      document.getElementById('sysResult').innerHTML=eqStr+' &nbsp;·&nbsp; <strong style="color:#059669">Misma recta → Infinitas soluciones</strong>';
+    } else {
+      pt.style.display='none';
+      document.getElementById('sysResult').innerHTML=eqStr+' &nbsp;·&nbsp; <strong style="color:#dc2626">Rectas paralelas → Sin solución</strong>';
+    }
+  } else {
+    var xi=(n1-n)/(m-m1);
+    var yi=m1*xi+n1;
+    pt.style.display='';
+    pt.setAttribute('cx',toSvgX(xi));
+    pt.setAttribute('cy',toSvgY(yi));
+    document.getElementById('sysResult').innerHTML=eqStr+' &nbsp;·&nbsp; <strong style="color:#059669">Solución única en ('+Math.round(xi*100)/100+', '+Math.round(yi*100)/100+')</strong>';
+  }
+}
+
+/* ===== WIDGET: FUNCION EXPONENCIAL INTERACTIVA ===== */
+function updateExp(){
+  var a=parseFloat(document.getElementById('expA').value);
+  var b=parseFloat(document.getElementById('expB').value);
+  document.getElementById('expAVal').textContent='a = '+a;
+  document.getElementById('expBVal').textContent='b = '+b;
+  function toSvgX(x){return 200+x*30;}
+  function toSvgY(y){return Math.max(-50,Math.min(320,250-y*40));}
+  var d='';
+  for(var i=0;i<=120;i++){
+    var x=-4+i*8/120;
+    var y=a*Math.pow(b,x);
+    var sx=toSvgX(x),sy=toSvgY(y);
+    d+=(i===0?'M':'L')+sx.toFixed(1)+','+sy.toFixed(1)+' ';
+  }
+  document.getElementById('expPath').setAttribute('d',d);
+  var trend=b>1?'creciente':(b<1?'decreciente':'constante');
+  document.getElementById('expResult').innerHTML='f(x) = '+a+'×'+b+'ˣ &nbsp;·&nbsp; <strong style="color:'+(b>1?'#059669':'#dc2626')+'">'+(b>1?'b>1: función creciente':'0<b<1: función decreciente')+'</strong>';
+}
+
+/* ===== WIDGET: FUNCION TRIGONOMETRICA INTERACTIVA ===== */
+function updateTrig(){
+  var A=parseFloat(document.getElementById('trigA').value);
+  var B=parseFloat(document.getElementById('trigB').value);
+  document.getElementById('trigAVal').textContent='A = '+A;
+  document.getElementById('trigBVal').textContent='B = '+B;
+  function toSvgX(x){return 200+x*30;}
+  function toSvgY(y){return 130-y*50;}
+  var d='';
+  for(var i=0;i<=160;i++){
+    var x=-2*Math.PI+i*(4*Math.PI)/160;
+    var y=A*Math.sin(B*x);
+    var sx=toSvgX(x),sy=toSvgY(y);
+    d+=(i===0?'M':'L')+sx.toFixed(1)+','+sy.toFixed(1)+' ';
+  }
+  document.getElementById('trigPath').setAttribute('d',d);
+  var period=(2*Math.PI/B).toFixed(2);
+  document.getElementById('trigResult').innerHTML='f(x) = '+A+'×sen('+B+'x) &nbsp;·&nbsp; Amplitud = '+A+' &nbsp;·&nbsp; Período ≈ '+period;
+}
+document.addEventListener('DOMContentLoaded',function(){updateSys();updateExp();updateTrig();});
+updateSys();updateExp();updateTrig();
 
 function ans(qid,opt){
   var el=document.getElementById(qid);
@@ -1593,153 +1247,99 @@ function ans(qid,opt){
 }
 
 var QA={
-  'qe1':{c:'C',fb:{
-    A:'No. Falta el término del medio (2ab) y el cuadrado del segundo término es incorrecto.',
-    B:'No. Falta el término del medio, 2·x·4=8x.',
-    C:'Correcto. (x+4)²=x²+2·x·4+4²=x²+8x+16.',
-    D:'No. Revisa el cuadrado del segundo término: 4²=16, no 8.'
+  'qsi1b':{c:'B',fb:{
+    A:'No. Ambas rectas tienen pendiente 2 (mismo m): son paralelas o coincidentes, no tienen solución única.',
+    B:'Correcto. Las pendientes son 3 y −1, distintas, por lo tanto hay solución única.',
+    C:'No. y=x+2 y 2y=2x+4 (que simplificada es y=x+2) son la MISMA recta: infinitas soluciones, no única.',
+    D:'No. y=−x+1 y 2y=−2x+2 (que simplificada es y=−x+1) son la MISMA recta: infinitas soluciones, no única.'
   }},
-  'qe2':{c:'B',fb:{
-    A:'No. 4 es un factor común mayor que 2; no está completamente factorizado.',
-    B:'Correcto. El mayor factor común de 8 y 12 es 4: 8x+12=4(2x+3).',
-    C:'No. El factor común debe incluir solo lo que divide a AMBOS términos; x no divide a 12.',
-    D:'No. 8 no divide a 12 exactamente de esa forma; revisa el mayor factor común real.'
+  'qsi2b':{c:'B',fb:{
+    A:'No. Es la misma ecuación: infinitas soluciones, no "sin solución".',
+    B:'Correcto. Misma pendiente (m=3) pero distinto coeficiente de posición (4≠−2): rectas paralelas, sin solución.',
+    C:'No. Tiene pendiente distinta (−3 vs 3): solución única, no "sin solución".',
+    D:'No. Tiene pendiente distinta (2 vs 3): solución única, no "sin solución".'
   }},
-  'qe3':{c:'A',fb:{
-    A:'Correcto. Es una suma por diferencia: (x+6)(x−6)=x²−6²=x²−36.',
-    B:'No. El término del medio se cancela en este producto notable; no debe aparecer un +36.',
-    C:'No. En suma por diferencia el término del medio se cancela: no queda −12x.',
-    D:'No. Mismo error: el término del medio se cancela y el segundo término es −36, no +36.'
+  'qsi3b':{c:'A',fb:{
+    A:'Correcto. 2x+4y=10 simplificada (÷2) es x+2y=5: exactamente la misma recta, por lo tanto infinitas soluciones.',
+    B:'No. x+2y=10 tiene la misma pendiente pero distinto término libre que x+2y=5: son paralelas (sin solución), no infinitas.',
+    C:'No. 2x+4y=20 simplificada es x+2y=10: paralela a la original, no la misma recta.',
+    D:'No. 4x+8y=10 simplificada es x+2y=2,5: paralela a la original, no la misma recta.'
   }},
-  'qe4':{c:'A',fb:{
-    A:'Correcto. Se agrupan los términos semejantes: (5x²−2x²)+(3x+4x)=3x²+7x.',
-    B:'No. No se puede sumar 5x²+2x² porque los signos son distintos: 5x²−2x²=3x², no 7x².',
-    C:'No. Revisa la suma de los términos en x: 3x+4x=7x, no x.',
-    D:'No. Los términos x² y x no son semejantes entre sí, por lo que no se combinan en un solo término x⁴.'
+  'qsi4b':{c:'C',fb:{
+    A:'No. Con k=2, las pendientes no coinciden; revisa el cálculo de la pendiente de cada recta.',
+    B:'No. Con k=3, las pendientes tampoco coinciden.',
+    C:'Correcto. La pendiente de 2x+y=4 es −2. Para que kx+3y=6 tenga la misma pendiente (−k/3=−2), se necesita k=6.',
+    D:'No. Con k=4, las pendientes no coinciden.'
   }},
-  'qpr1':{c:'A',fb:{
-    A:'Correcto. y/x=10/2=5 y 25/5=5: la razón es constante, por lo tanto es directa con k=5.',
-    B:'No. Para que sea inversa, x·y debería ser constante: 2×10=20 y 5×25=125, no son iguales.',
-    C:'No. La razón y/x es 5, no 2.',
-    D:'No. El producto x·y no es constante (20 y 125), así que no es inversa.'
-  }},
-  'qpr2':{c:'C',fb:{
-    A:'No. Ese es el precio de 6 kilos, no de 10.',
-    B:'No. Revisa el cálculo del precio por kilo: 9.000÷6=1.500, no 1.300.',
-    C:'Correcto. Precio por kilo: 9.000÷6=1.500. Para 10 kilos: 1.500×10=15.000.',
-    D:'No. Ese valor corresponde a 9.000×6, no al precio proporcional buscado.'
-  }},
-  'qpr3':{c:'B',fb:{
-    A:'No. Revisa si aumentar las llaves debería aumentar o disminuir el tiempo (es proporción inversa).',
-    B:'Correcto. Constante k=3×8=24. Con 6 llaves: 24÷6=4 horas.',
-    C:'No. Revisa el cálculo: 24÷6=4, no 11.',
-    D:'No. El tiempo no se reduce tanto; verifica la constante k=24 antes de dividir.'
-  }},
-  'qpr4':{c:'B',fb:{
-    A:'No. Más bencina, más precio: ambas suben juntas, es proporción directa.',
-    B:'Correcto. A mayor velocidad, menor tiempo (para una distancia fija): es proporción inversa.',
-    C:'No. Más horas, más pago (a tarifa fija): ambas suben juntas, es directa.',
-    D:'No. Más entradas, más costo total: ambas suben juntas, es directa.'
-  }},
-  'qec1':{c:'B',fb:{
-    A:'No. Revisa el despeje: 4x=15−(−5)? No, 4x=15+5=20, no 4x=10.',
-    B:'Correcto. 4x−5=15 → 4x=20 → x=5.',
-    C:'No. Revisa el orden: primero se suma 5 a ambos lados, luego se divide por 4, no al revés.',
-    D:'No. Olvidaste dividir por 4 al final: 20÷4=5, no 20.'
-  }},
-  'qec2':{c:'B',fb:{
-    A:'No. Revisa el paso de agrupar los términos con x: 3x−x=2x, no 3x.',
-    B:'Correcto. 3x+2=x+10 → 3x−x=10−2 → 2x=8 → x=4.',
-    C:'No. Revisa la resta final: 8÷2=4, no 6.',
-    D:'No. Revisa el signo al mover el término x del lado derecho.'
-  }},
-  'qec3':{c:'B',fb:{
-    A:'No. Al dividir por −3 (negativo), el símbolo ≤ se invierte a ≥, no se mantiene igual.',
-    B:'Correcto. −3x≤9 → x≥9÷(−3)=−3 (el símbolo se invierte por dividir por negativo).',
-    C:'No. El signo de x debe ser negativo (−3), no positivo.',
-    D:'No. Revisa ambos: el signo de −3 y la inversión del símbolo por dividir por negativo.'
-  }},
-  'qec4':{c:'C',fb:{
-    A:'No. Revisa el despeje completo: 50x=1.500, no un valor menor.',
-    B:'No. 50×20=1.000, no 1.500; revisa la resta inicial 9.500−8.000.',
-    C:'Correcto. 8.000+50x=9.500 → 50x=1.500 → x=30.',
-    D:'No. Olvidaste dividir por 50 al final.'
+  'qsi5b':{c:'B',fb:{
+    A:'No. Una solución única no produce una afirmación falsa como "0=7"; produce valores concretos de x e y.',
+    B:'Correcto. "0=7" es una afirmación siempre falsa (contradicción), señal de que el sistema no tiene solución.',
+    C:'No. Infinitas soluciones producen una afirmación siempre verdadera (como "0=0"), no una falsa.',
+    D:'No. Sí se puede determinar: una contradicción como esta siempre indica "sin solución".'
   }}
 };
 
-QA['qsi1']={c:'C',fb:{
-  A:'No. Revisa la suma de las ecuaciones: (x+y)+(x−y)=2x=16, no 8.',
-  B:'No. 2x=16 significa x=8, no 6.',
-  C:'Correcto. Sumando ambas ecuaciones: 2x=16 → x=8.',
-  D:'No. x=12 no cumple ambas ecuaciones simultáneamente.'
+QA['qfe1']={c:'B',fb:{
+  A:'No. f(x)=x⁵ es una función potencia (x es la base, 5 es el exponente fijo).',
+  B:'Correcto. f(x)=5ˣ tiene la variable x en el exponente con base fija 5: es exponencial.',
+  C:'No. f(x)=log₅x es una función logarítmica, no exponencial.',
+  D:'No. f(x)=5x es una función lineal (proporcionalidad directa), no exponencial.'
 }};
-QA['qsi2']={c:'B',fb:{
-  A:'No. Este sistema tiene solución única (rectas con distinta pendiente).',
-  B:'Correcto. Ambas ecuaciones tienen los mismos coeficientes de x e y (2 y 1) pero distinto valor a la derecha (4 y 10): son rectas paralelas, sin solución.',
-  C:'No. Este sistema sí tiene solución única.',
-  D:'No. Este sistema representa dos rectas (una vertical, una horizontal) que se cruzan en un punto.'
+QA['qfe2']={c:'D',fb:{
+  A:'No. Cualquier base elevada a 0 es 1, no 0; revisa el cálculo completo.',
+  B:'No. f(0)=3×2⁰=3×1=3, no 1.',
+  C:'No. 2 es la base, no el resultado de f(0).',
+  D:'Correcto. f(0)=3×2⁰=3×1=3 (recuerda que b⁰=1 para cualquier base).'
 }};
-QA['qsi3']={c:'B',fb:{
-  A:'No. El precio de adulto es 2n, no n; falta ese factor.',
-  B:'Correcto. Adulto=2n, entonces 2 adultos=2(2n) y 2 niños=2n; la suma es 2(2n)+2n=18.000.',
-  C:'No. Aunque el resultado numérico coincide (4n+n=5n=2(2n)+2n), no representa directamente el planteamiento pedido.',
-  D:'No. Esta ecuación ignora a los niños por completo.'
+QA['qfe3']={c:'B',fb:{
+  A:'No. Con b=2>1, la función es creciente.',
+  B:'Correcto. Con b=0,5 (que está entre 0 y 1), la función es decreciente.',
+  C:'No. Con b=5>1, la función es creciente.',
+  D:'No. Con b=1,5>1, la función es creciente.'
 }};
-QA['qsi4']={c:'B',fb:{
-  A:'No. Revisa el reemplazo: 3(2)+2y=16 → 6+2y=16, no 9.',
-  B:'Correcto. 3(2)+2y=16 → 6+2y=16 → 2y=10 → y=5.',
-  C:'No. 2y=10 implica y=5, no 6.',
-  D:'No. Revisa la resta: 16−6=10, y 10÷2=5, no 10.'
+QA['qfe4']={c:'B',fb:{
+  A:'No. El logaritmo no está definido en x=0 (el dominio es x>0).',
+  B:'Correcto. logᵦ(1)=0 para cualquier base b, por lo tanto el gráfico siempre pasa por (1,0).',
+  C:'No. El logaritmo no está definido en x=0.',
+  D:'No. Ese punto no corresponde a ningún valor fijo del logaritmo.'
 }};
-QA['qfl1']={c:'B',fb:{
-  A:'No. Revisa el cálculo: 4×5=20, no un valor menor.',
-  B:'Correcto. f(5)=4(5)−3=20−3=17.',
-  C:'No. Olvidaste restar el 3 final.',
-  D:'No. Revisa la multiplicación: 4×5=20, no 25.'
-}};
-QA['qfl2']={c:'B',fb:{
-  A:'No. Revisa la fórmula: m=(y₂−y₁)/(x₂−x₁)=(9−3)/(3−1).',
-  B:'Correcto. m=(9−3)/(3−1)=6/2=3.',
-  C:'No. Ese sería el cambio en y (Δy=6), no la pendiente completa.',
-  D:'No. 9 es un valor de y, no la pendiente.'
-}};
-QA['qfl3']={c:'B',fb:{
-  A:'No. Tiene n=1≠0, por lo tanto es afín, no lineal pura.',
-  B:'Correcto. f(x)=−2x tiene n=0: pasa por el origen, es función lineal pura.',
-  C:'No. Tiene n=−3≠0, es afín.',
-  D:'No. f(x)=4 es una función constante, no lineal ni afín en el sentido de esta unidad.'
-}};
-QA['qfl4']={c:'C',fb:{
-  A:'No. Esto ignora el cargo fijo de $10.000.',
-  B:'No. Esto ignora el cargo fijo de $10.000.',
-  C:'Correcto. Cargo fijo (10.000) + costo por hora (8.000h): C(h)=10.000+8.000h.',
-  D:'No. Esto suma incorrectamente el fijo y la tarifa como si fueran la misma tasa por hora.'
-}};
-QA['qfc1']={c:'A',fb:{
-  A:'Correcto. x²−9=0 → x²=9 → x=3 o x=−3.',
-  B:'No. Revisa: la raíz cuadrada de 9 es 3, no 9.',
-  C:'No. Falta la segunda solución: x=−3 también cumple x²=9.',
-  D:'No. Sí tiene ceros reales, porque 9 es positivo.'
-}};
-QA['qfc2']={c:'B',fb:{
-  A:'No. Revisa el signo: x=−b/(2a)=−(−6)/(2·1)=3, no −3.',
-  B:'Correcto. x=−b/(2a)=6/2=3.',
-  C:'No. Revisa la división: 6÷2=3, no 2.',
-  D:'No. 6 es el valor de −b, no la coordenada del vértice.'
-}};
-QA['qfc3']={c:'C',fb:{
-  A:'No. 2 es el coeficiente a, no el valor de f(0).',
-  B:'No. Revisa: f(0) reemplaza x=0, eliminando los términos con x.',
-  C:'Correcto. f(0)=2(0)²−5(0)+7=7. La función cruza el eje y en (0,7).',
-  D:'No. Este punto tiene las coordenadas invertidas.'
-}};
-QA['qfc4']={c:'C',fb:{
-  A:'No. a=3 es positivo: la parábola abre hacia arriba.',
-  B:'No. a=1 es positivo: la parábola abre hacia arriba.',
-  C:'Correcto. a=−2 es negativo: la parábola abre hacia abajo.',
-  D:'No. a=0,5 es positivo: la parábola abre hacia arriba.'
+QA['qfe5']={c:'C',fb:{
+  A:'No. La reflexión respecto al eje x invertiría el signo de y, no relaciona funciones inversas.',
+  B:'No. La reflexión respecto al eje y invertiría el signo de x, no relaciona funciones inversas.',
+  C:'Correcto. Toda función y su inversa son reflejos entre sí respecto a la recta y=x.',
+  D:'No. La reflexión respecto al origen no es la relación que conecta una función con su inversa.'
 }};
 
+QA['qt1b']={c:'B',fb:{
+  A:'No. sen(0)=0, no −1.',
+  B:'Correcto. sen(0)=0: la curva del seno pasa por el origen.',
+  C:'No. sen(0)=0, no 1 (ese es el valor de sen(π/2)).',
+  D:'No. 2π es el período del seno, no su valor en x=0.'
+}};
+QA['qt2b']={c:'C',fb:{
+  A:'No. cos(0)=1, no −1 (ese es el valor de cos(π)).',
+  B:'No. cos(0)=1, no 0.',
+  C:'Correcto. cos(0)=1: la curva del coseno comienza en su valor máximo.',
+  D:'No. π no es un valor de la función, sino un ángulo.'
+}};
+QA['qt3b']={c:'C',fb:{
+  A:'No. 1 sería la amplitud del seno "puro" sen(x), sin el factor 4.',
+  B:'No. 2 no corresponde a ningún cálculo relevante aquí.',
+  C:'Correcto. En A·sen(x), el valor de A es directamente la amplitud: aquí A=4.',
+  D:'No. 2π es el período del seno básico, no la amplitud de esta función.'
+}};
+QA['qt4b']={c:'A',fb:{
+  A:'Correcto. Período=2π/B=2π/4=π/2.',
+  B:'No. 2π sería el período de sen(x) (con B=1), no de sen(4x).',
+  C:'No. Revisa la fórmula: se divide 2π por B, no se multiplica.',
+  D:'No. 8π no corresponde al cálculo correcto de 2π/4.'
+}};
+QA['qt5b']={c:'A',fb:{
+  A:'Correcto. Máxima=8+2=10m (cuando cos(t)=1), mínima=8−2=6m (cuando cos(t)=−1).',
+  B:'No. 8 es el desplazamiento vertical, no la máxima; revisa la suma y resta de la amplitud.',
+  C:'No. 2 es solo la amplitud, falta sumar el desplazamiento vertical (+8).',
+  D:'No. Revisa el cálculo: 8+2=10 y 8−2=6, no 9 y 7.'
+}};
 
 function selA(el){
   if(!eS||eF)return;
@@ -1766,33 +1366,31 @@ function startE(){
     if(tL<=0){clearInterval(tI);submitE();}
   },1000);
 }
-var UA={},eS=false,eF=false,tL=1320,tI=null;
+var UA={},eS=false,eF=false,tL=1200,tI=null;
 
 var EQA=[
-{c:'B',fb:'(2x−3)²=(2x)²−2·2x·3+3²=4x²−12x+9.',t:'Expresiones'},
-{c:'B',fb:'x²−16 es una diferencia de cuadrados: x²−4²=(x+4)(x−4).',t:'Expresiones'},
-{c:'A',fb:'Se agrupan términos semejantes: (7x−3x)+2x²=4x+2x²=2x²+4x.',t:'Expresiones'},
-{c:'B',fb:'k=y/x=15/3=5.',t:'Proporcionalidad'},
-{c:'C',fb:'Constante k=5×12=60. Con 10 pintores: 60÷10=6 días.',t:'Proporcionalidad'},
-{c:'A',fb:'En f(x)=8x, el 8 es la constante que multiplica a x manteniendo la razón f(x)/x siempre igual a 8: es la constante de proporcionalidad directa.',t:'Proporcionalidad'},
-{c:'B',fb:'5x+7=32 → 5x=25 → x=5.',t:'Ecuaciones'},
-{c:'B',fb:'4x−2<10 → 4x<12 → x<3.',t:'Ecuaciones'},
-{c:'B',fb:'4−3x=13 → −3x=9 → x=−3.',t:'Ecuaciones'},
-{c:'B',fb:'Sumando ambas ecuaciones: 2x=26 → x=13. Reemplazando en x+y=20: y=7.',t:'Sistemas'},
-{c:'A',fb:'La segunda ecuación es exactamente el doble de la primera (2x+2y=12 es 2·(x+y=6)): representan la misma recta, por lo tanto infinitas soluciones.',t:'Sistemas'},
-{c:'B',fb:'El paso 2 mezcla dos acciones: multiplicar por 100 (correcto) y luego SUMAR las ecuaciones cuando debía RESTARLAS para eliminar la variable x correctamente; ahí está el error.',t:'Sistemas'},
-{c:'B',fb:'f(3)=6(3)−4=18−4=14.',t:'FuncionLineal'},
-{c:'C',fb:'Reducir el costo total en 20% equivale a multiplicar toda la función por 0,8: 0,8×(400x+600)=320x+480.',t:'FuncionLineal'},
-{c:'C',fb:'f(10)=1.200+30×10=1.500. Igualando: p+18×10=1.500 → p+180=1.500 → p=1.320.',t:'FuncionLineal'},
-{c:'B',fb:'x_vértice=−b/(2a)=−(−2)/(2·1)=1.',t:'FuncionCuadratica'},
-{c:'B',fb:'x²−5x+6=(x−2)(x−3), por lo tanto los ceros son x=2 y x=3.',t:'FuncionCuadratica'},
-{c:'B',fb:'f(1)=8+20−4=24; f(2)=8+40−16=32; f(3)=8+60−36=32; f(4)=8+80−64=24. Suma: 24+32+32+24=112.',t:'FuncionCuadratica'}
+{c:'B',fb:'y=¾x+7 tiene la misma pendiente (3/4) pero distinto coeficiente de posición (2≠7): rectas paralelas, sin solución.',t:'Sistemas'},
+{c:'C',fb:'Para infinitas soluciones: 12/p=q/2=9/3=3, entonces p=12/3=4 y q=2×3=6.',t:'Sistemas'},
+{c:'C',fb:'En el Sistema C, para a=0 la segunda ecuación se anula (0=0, infinitas soluciones); para a≠0, las pendientes de ambas ecuaciones son distintas (−3 y −1/3), dando solución única.',t:'Sistemas'},
+{c:'B',fb:'Si m es el aumento por hora y n=3m es el nivel inicial: n+m=480 → 4m=480 → m=120, n=360. Al cabo de 6 horas: n+6m=360+720=1.080mm.',t:'Sistemas'},
+{c:'B',fb:'y=x+4 y 2y=2x+8 (que simplificada es y=x+4) son la misma recta: infinitas soluciones.',t:'Sistemas'},
+{c:'C',fb:'"5=5" es una afirmación siempre verdadera (identidad), señal de que el sistema tiene infinitas soluciones.',t:'Sistemas'},
+{c:'B',fb:'Conocer el presupuesto actual (1) no permite encontrar n sin saber el presupuesto inicial. Pero saber que el crecimiento total fue 72,8% (2) permite plantear (1,2)ⁿ=1,728 directamente, dando n=3.',t:'PotExpLog'},
+{c:'A',fb:'f(x)=x⁴ tiene la variable x como base con exponente fijo: es función potencia.',t:'PotExpLog'},
+{c:'C',fb:'f(2)=2×3²=2×9=18.',t:'PotExpLog'},
+{c:'C',fb:'f(x)=3ˣ tiene b=3>1: es creciente. Las demás tienen b entre 0 y 1: son decrecientes.',t:'PotExpLog'},
+{c:'B',fb:'El logaritmo solo está definido para valores positivos del argumento: x>0.',t:'PotExpLog'},
+{c:'C',fb:'Toda función exponencial y su función logarítmica inversa correspondiente son reflejos respecto a la recta y=x.',t:'PotExpLog'},
+{c:'B',fb:'sen(π)=0.',t:'Trigonometricas'},
+{c:'A',fb:'Amplitud=3 (el factor que multiplica al seno). Período=2π/2=π (se divide 2π por el coeficiente de x).',t:'Trigonometricas'},
+{c:'A',fb:'Máxima=20+15=35m, mínima=20−15=5m.',t:'Trigonometricas'},
+{c:'B',fb:'sen(0)=0, por lo tanto f(x)=sen(x) pasa por el origen (0,0). Todas las funciones con coseno pasan por (0,1) o un valor desplazado, nunca por (0,0) en este conjunto.',t:'Trigonometricas'}
 ];
 
-var TOPIC_SEC={'Expresiones':'p1','Proporcionalidad':'p2','Ecuaciones':'p3','Sistemas':'p4','FuncionLineal':'p5','FuncionCuadratica':'p6'};
-var TOPIC_IDX={'p1':1,'p2':2,'p3':3,'p4':4,'p5':5,'p6':6};
-var TOPIC_BTN_LABEL={'Expresiones':'🔤 T1 Expresiones Algebraicas','Proporcionalidad':'⇄ T2 Proporcionalidad','Ecuaciones':'⚖️ T3 Ecuaciones e Inecuaciones','Sistemas':'🔗 T4 Sistemas 2x2','FuncionLineal':'📈 T5 Función Lineal y Afín','FuncionCuadratica':'📉 T6 Función Cuadrática'};
-var TOPIC_FULL={'Expresiones':'T1 · Expresiones Algebraicas','Proporcionalidad':'T2 · Proporcionalidad','Ecuaciones':'T3 · Ecuaciones e Inecuaciones','Sistemas':'T4 · Sistemas 2x2','FuncionLineal':'T5 · Función Lineal y Afín','FuncionCuadratica':'T6 · Función Cuadrática'};
+var TOPIC_SEC={'Sistemas':'p1','PotExpLog':'p2','Trigonometricas':'p3'};
+var TOPIC_IDX={'p1':1,'p2':2,'p3':3};
+var TOPIC_BTN_LABEL={'Sistemas':'🔗 Sistemas 2x2','PotExpLog':'📈 Potencia/Exp/Log','Trigonometricas':'🔄 Trigonométricas'};
+var TOPIC_FULL={'Sistemas':'Sistemas 2x2','PotExpLog':'Potencia/Exponencial/Log','Trigonometricas':'Funciones Trigonométricas'};
 
 function submitE(){
   if(eF)return;
@@ -1869,17 +1467,14 @@ function submitE(){
 var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
 
 var SYSTEM_PROMPT = [
-"Eres el asistente de apoyo académico del Plan Común de Matemática, Unidad 2: Álgebra y Funciones, dentro de una plataforma de autoestudio para la PAES 2027 (Competencia Matemática 1, M1). Hablas con estudiantes chilenos de enseñanza media. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"Eres el asistente de apoyo académico del Electivo de Matemática (Competencia M2), Unidad 2: Álgebra y Funciones, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media que rinden M2. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
 "",
-"ALCANCE: solo puedes responder sobre los 6 temas de esta unidad: Expresiones Algebraicas, Proporcionalidad, Ecuaciones e Inecuaciones, Sistemas 2×2, Función Lineal y Afín, y Función Cuadrática. NO respondes sobre otras unidades de M1 que el estudiante aún no ha visto, ni sobre M2, ni sobre otros módulos (Competencia Lectora, Historia, Ciencias).",
+"ALCANCE: solo puedes responder sobre los 3 temas de esta unidad: Sistemas 2×2, Función Potencia/Exponencial/Logarítmica, y Funciones Trigonométricas. NO respondes sobre otras unidades de M2 que el estudiante aún no ha visto, ni sobre M1, ni sobre otros módulos (Competencia Lectora, Historia, Ciencias).",
 "",
 "CONTENIDO DE LA UNIDAD:",
-"- Expresiones Algebraicas: productos notables (cuadrado de binomio, suma por diferencia), factorización (diferencia de cuadrados, factor común, trinomios), reducción de términos semejantes.",
-"- Proporcionalidad: proporcionalidad directa (y=kx, razón constante) e inversa (y=k/x, producto constante); cómo identificar la constante k en cada caso; problemas de reparto y rendimiento.",
-"- Ecuaciones e Inecuaciones: despeje de ecuaciones lineales; inecuaciones (recordar que el signo se invierte al multiplicar/dividir por un número negativo); detección de errores en pasos de resolución.",
-"- Sistemas 2×2: métodos de reducción (suma/resta), sustitución e igualación; sistemas con solución única, sin solución (rectas paralelas) o infinitas soluciones (rectas coincidentes); detección de errores en pasos de resolución de sistemas.",
-"- Función Lineal y Afín: f(x)=mx+n; m es la pendiente (tasa de cambio), n es el intercepto; representación en tabla, gráfico y ecuación; contextos de costo fijo + costo variable; transformar una función (ej. aplicar un descuento o recargo porcentual a toda la expresión).",
-"- Función Cuadrática: f(x)=ax²+bx+c; vértice en x=−b/(2a); ceros o raíces (factorización o fórmula general); la parábola como máximo o mínimo en problemas de contexto (altura, costo, ganancia).",
+"- Sistemas 2×2: un sistema de 2 ecuaciones lineales con 2 incógnitas tiene solución única si las pendientes son distintas (m₁≠m₂); no tiene solución si las pendientes son iguales pero los coeficientes de posición son distintos (m₁=m₂, n₁≠n₂) — rectas paralelas; tiene infinitas soluciones si ambas ecuaciones representan la misma recta (la razón entre todos los coeficientes correspondientes es igual). Al resolver algebraicamente: llegar a una identidad como '0=0' o '5=5' indica infinitas soluciones; llegar a una contradicción como '0=7' indica que no hay solución. Problemas con parámetros (letras como a, p, q) piden encontrar para qué valor del parámetro el sistema cae en cada caso.",
+"- Función Potencia, Exponencial y Logarítmica: en la función potencia f(x)=xⁿ, la base es variable (x) y el exponente es fijo (n); en la función exponencial f(x)=a·bˣ, la base es fija (b) y el exponente es variable (x) — si b>1 la función crece, si 0<b<1 decrece; en la función logarítmica f(x)=logᵦ(x), inversa de la exponencial, el dominio es x>0, siempre pasa por (1,0) y nunca cruza el eje y; los gráficos de f(x)=bˣ y f(x)=logᵦ(x) son reflejos respecto a la recta y=x. El interés compuesto C=M(1+i)ⁿ (visto en la Unidad 1) es un caso de función exponencial.",
+"- Funciones Trigonométricas: sen(x) y cos(x) son funciones periódicas; para f(x)=a·sen(bx) o f(x)=a·cos(bx), la amplitud es |a| y el período es 2π/b; sen(0)=0, cos(0)=1, sen(π)=0, cos(π)=−1; problemas de contexto (como una rueda de la fortuna) usan f(t)=a·cos(t)+k o similar, donde el valor máximo es k+a y el mínimo es k−a.",
 "",
 "MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
 "",
@@ -1887,13 +1482,13 @@ var SYSTEM_PROMPT = [
 "",
 "MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre el tema que pida. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Nunca reproduzcas preguntas reales de ensayos DEMRE u otro material con derechos de autor — inventa siempre valores y contextos propios. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
 "",
-"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta qué operación o propiedad aplica al problema, 2) pide que identifique los datos dados y qué se pide, 3) pide que arme la expresión o el paso siguiente, 4) contrasta el resultado del estudiante con lo esperado, preguntando dónde puede estar la diferencia. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta qué propiedad o fórmula aplica al problema, 2) pide que identifique los datos dados y qué se pide, 3) pide que arme la expresión o el paso siguiente, 4) contrasta el resultado del estudiante con lo esperado, preguntando dónde puede estar la diferencia. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
 "",
-"FUERA DE ALCANCE: si preguntan sobre otro módulo, otra unidad no vista, u otro tema, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para dudas de Expresiones Algebraicas, Proporcionalidad, Ecuaciones e Inecuaciones, Sistemas 2×2, Función Lineal y Afín, y Función Cuadrática de esta unidad.'",
+"FUERA DE ALCANCE: si preguntan sobre otro módulo, otra unidad no vista, u otro tema, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para dudas de Sistemas 2×2, Función Potencia/Exponencial/Logarítmica y Funciones Trigonométricas de esta unidad.'",
 "",
 "MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
 "",
-"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Usa notación matemática simple en texto plano (ej. x², f(x)=2x+3, no LaTeX). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Usa notación matemática simple en texto plano (ej. y=mx+n, a·bˣ, sen(x), no LaTeX). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
 ].join("\n");
 
 var tutorHistory = [];
@@ -1948,8 +1543,8 @@ function reportTutorMsg(botText){
   for(var i=tutorHistory.length-1;i>=0;i--){
     if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
   }
-  var report = "REPORTE — Asistente Matemática M1\n" +
-    "Módulo/Unidad: Plan Común Matemática · Unidad 2 · Álgebra y Funciones\n" +
+  var report = "REPORTE — Asistente Matemática M2\n" +
+    "Módulo/Unidad: Electivo Matemática M2 · Unidad 2 · Álgebra y Funciones\n" +
     "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
     "Pregunta del estudiante:\n" + lastUser + "\n\n" +
     "Respuesta del asistente:\n" + botText + "\n";
