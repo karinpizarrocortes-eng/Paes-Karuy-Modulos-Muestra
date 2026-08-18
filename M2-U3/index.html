@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Electivo Matem&aacute;tica &bull; M2 &bull; Unidad 3: Geometr&iacute;a &bull; PAES M2 &bull; Admisi&oacute;n 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5ff;--card:#fff;--card2:#f1edfe;--bord:#ddd6fe;--bord2:#c4b5fd;
+  --text:#211a4d;--dim:#57508f;--dim2:#9b91c9;
+  --ind:#4f46e5;--ind2:#6366f1;--ind3:#818cf8;--indl:rgba(79,70,229,.1);
+  --rad:18px;--sh:0 2px 14px rgba(60,50,150,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(380px 320px at 8% 12%,rgba(249,115,22,.08),transparent),
+             radial-gradient(300px 280px at 92% 85%,rgba(79,70,229,.06),transparent)}
+.wr{max-width:960px;margin:0 auto;padding:18px 16px 40px;position:relative;z-index:1}
+/* PROGRESS */
+.pr{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(60,50,150,.1);z-index:200}
+.prf{height:100%;background:linear-gradient(90deg,var(--ind),var(--ind2),var(--ind3));transition:width .4s}
+/* HERO */
+.hero{text-align:center;padding:50px 16px 18px}
+.hi{font-size:70px;display:block;animation:fl 3s ease-in-out infinite;margin-bottom:10px}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(2rem,7vw,3.5rem);
+  background:linear-gradient(130deg,var(--ind),#818cf8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:7px}
+.hero-s{color:var(--dim);font-size:.88rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--indl);
+  border:1.5px solid rgba(79,70,229,.3);color:var(--ind);padding:5px 15px;border-radius:999px;
+  font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-top:9px}
+/* NAV */
+.nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:16px 0 2px;
+  position:sticky;top:4px;z-index:90;background:rgba(247,245,255,.88);
+  backdrop-filter:blur(10px);padding:9px;border-radius:var(--rad);border:1px solid var(--bord)}
+.nb{background:transparent;border:1.5px solid var(--bord);color:var(--dim);
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.77rem;padding:6px 12px;
+  border-radius:50px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nb:hover,.nb.act{background:var(--ind);border-color:var(--ind);color:#fff}
+/* SECTIONS */
+.sec{display:none;animation:up .3s ease}
+.sec.act{display:block}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--bord);border-radius:var(--rad);
+  padding:22px;margin-bottom:14px;box-shadow:var(--sh)}
+.ct{font-family:'Fredoka One',cursive;font-size:1.28rem;margin-bottom:11px;
+  display:flex;align-items:center;gap:8px;color:var(--text)}
+.card p,.card li{font-size:.94rem;line-height:1.75;color:var(--dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:18px}
+.card li{margin-bottom:5px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.g2{grid-template-columns:1fr}}
+.hsec{background:var(--card);border:1.5px solid var(--bord);border-radius:var(--rad);
+  padding:26px;margin-bottom:14px;box-shadow:var(--sh)}
+.hsec .hi2{font-size:54px;display:block;margin-bottom:9px}
+.hsec h2{font-family:'Fredoka One',cursive;font-size:clamp(1.55rem,5vw,2.3rem);line-height:1.1;margin-bottom:5px}
+.hsec p{font-size:.94rem;line-height:1.7;color:var(--dim);max-width:560px}
+.tip{border-left:4px solid var(--ind);background:var(--indl);border-radius:0 12px 12px 0;padding:12px 15px;margin-bottom:11px}
+.tip-l{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--ind);margin-bottom:3px}
+.tip p{font-size:.87rem;color:var(--dim);line-height:1.6}
+.kws{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.kw{border-radius:8px;padding:4px 11px;font-size:.79rem;font-weight:800;
+  border:1px solid var(--bord);background:var(--card2);color:var(--dim)}
+.fbox{background:var(--card2);border:1px solid var(--bord2);border-radius:11px;
+  padding:13px;text-align:center;margin-bottom:9px}
+.fsym{font-family:'Fredoka One',cursive;font-size:1.35rem;display:block}
+.fdef{font-size:.79rem;color:var(--dim);margin-top:3px}
+/* WAVE */
+#wcanvas{width:100%;border-radius:11px;background:#061c2e;display:block;border:1px solid var(--bord)}
+.sls{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0}
+.slg{display:flex;flex-direction:column;gap:3px;min-width:190px;flex:1}
+.slg label{font-size:.78rem;font-weight:800;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.sv{font-family:'Fredoka One',cursive;font-size:.98rem;color:var(--ind)}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;
+  background:rgba(79,70,229,.18);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
+  border-radius:50%;background:var(--ind);cursor:pointer;border:2px solid #fff;
+  box-shadow:0 2px 6px rgba(79,70,229,.4)}
+.wpg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:9px;margin-top:11px}
+.wp{background:var(--card2);border:1px solid var(--bord);border-radius:10px;padding:11px;text-align:center}
+.wp .ws{font-family:'Fredoka One',cursive;font-size:1.45rem;display:block}
+.wp .wn{font-size:.76rem;color:var(--dim);font-weight:700;margin-top:2px}
+/* SPECTRUM */
+.sbar{display:flex;border-radius:11px;overflow:hidden;height:52px;cursor:pointer;margin:12px 0;border:1px solid var(--bord)}
+.sb{flex:1;display:flex;align-items:center;justify-content:center;font-size:.59rem;
+  font-weight:900;color:rgba(255,255,255,.85);text-align:center;line-height:1.3;
+  padding:2px;transition:transform .18s,filter .18s;letter-spacing:.03em}
+.sb:hover{transform:scaleY(1.1);filter:brightness(1.12)}
+.sb.act{transform:scaleY(1.18);outline:2.5px solid rgba(0,0,0,.2)}
+.sinfo{background:var(--card2);border:1px solid var(--bord2);border-radius:12px;
+  padding:15px;min-height:90px;transition:all .2s}
+.sinfo h4{font-family:'Fredoka One',cursive;font-size:1.02rem;margin-bottom:5px}
+.sinfo p{font-size:.85rem;color:var(--dim);line-height:1.65}
+/* TABS */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+.tbtn{padding:7px 15px;border-radius:50px;border:1.5px solid var(--bord2);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:.81rem;cursor:pointer;transition:all .18s}
+.tbtn.act,.tbtn:hover{background:var(--ind);border-color:var(--ind);color:#fff}
+.tp{display:none}
+.tp.act{display:block;animation:up .22s ease}
+.svgw{background:var(--card2);border:1px solid var(--bord);border-radius:11px;padding:16px;
+  display:flex;justify-content:center;align-items:center;min-height:172px;margin-bottom:10px}
+/* MOTION */
+.trk{background:#061c2e;border-radius:11px;padding:0 10px;margin-bottom:10px;
+  position:relative;height:68px;overflow:hidden;border:1px solid var(--bord)}
+.trk-lbl{position:absolute;top:7px;left:10px;font-size:.66rem;font-weight:900;
+  color:rgba(255,255,255,.45);letter-spacing:.07em;text-transform:uppercase}
+.ball{width:24px;height:24px;border-radius:50%;position:absolute;top:50%;
+  transform:translateY(-50%);left:4px}
+.bmru{background:var(--ind3);animation:mru 4s linear infinite;box-shadow:0 0 8px rgba(249,115,22,.6)}
+.bmrua{background:#818cf8;animation:mrua 4s ease-in infinite;box-shadow:0 0 8px rgba(251,146,60,.5)}
+@keyframes mru{0%{left:4px}100%{left:calc(100% - 28px)}}
+@keyframes mrua{0%{left:4px}100%{left:calc(100% - 28px)}}
+/* OHM */
+.ohmc{background:var(--card2);border:1.5px solid rgba(217,119,6,.22);border-radius:var(--rad);padding:18px}
+.orow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:500px){.orow{grid-template-columns:1fr}}
+.of label{font-size:.74rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);display:block;margin-bottom:4px}
+.of input{width:100%;background:var(--card);border:1.5px solid var(--bord2);border-radius:9px;
+  color:var(--text);font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
+  padding:8px 11px;outline:none;transition:border .18s}
+.of input:focus{border-color:var(--ind)}
+.of input.calc{color:#d97706;border-color:rgba(217,119,6,.4);background:rgba(255,243,210,.4)}
+.of .un{font-size:.73rem;color:var(--dim);margin-top:2px}
+.ores{font-family:'Fredoka One',cursive;font-size:1.25rem;text-align:center;color:#d97706;
+  padding:13px;background:rgba(255,243,210,.6);border-radius:10px;border:1px solid rgba(217,119,6,.18)}
+.obr{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ob{padding:7px 15px;border-radius:50px;border:1.5px solid rgba(217,119,6,.25);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;font-size:.81rem;cursor:pointer;transition:all .18s}
+.ob.act,.ob:hover{background:#d97706;border-color:#d97706;color:#fff}
+/* PLATES */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:540px){.pgrid{grid-template-columns:1fr}}
+.pc{background:var(--card);border:1.5px solid var(--bord);border-radius:12px;padding:15px;
+  transition:all .2s;box-shadow:var(--sh)}
+.pc:hover{border-color:#dc2626;transform:translateY(-2px)}
+.pc h4{font-family:'Fredoka One',cursive;font-size:.98rem;color:#dc2626;margin-bottom:5px}
+.pc p{font-size:.83rem;color:var(--dim);line-height:1.6}
+.panim{width:100%;height:52px;margin:9px 0;position:relative;border-radius:8px;
+  background:#0f1f2e;overflow:hidden;border:1px solid rgba(220,38,38,.2)}
+.pb{position:absolute;height:100%;width:46%;
+  display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:900;
+  letter-spacing:.04em;border-radius:4px}
+.pl{left:2%;background:linear-gradient(135deg,rgba(220,38,38,.35),rgba(220,38,38,.15));
+  border:1.5px solid rgba(220,38,38,.6);color:#fca5a5}
+.pr{right:2%;background:linear-gradient(135deg,rgba(79,70,229,.35),rgba(79,70,229,.15));
+  border:1.5px solid rgba(79,70,229,.6);color:#fdba74}
+.pa-arrow{position:absolute;top:50%;transform:translateY(-50%);
+  font-size:1rem;font-weight:900;line-height:1;pointer-events:none}
+.da .pl{animation:da-l 2.5s ease-in-out infinite}
+.da .pr{animation:da-r 2.5s ease-in-out infinite}
+.ca .pl{animation:ca-l 2.5s ease-in-out infinite}
+.ca .pr{animation:ca-r 2.5s ease-in-out infinite}
+.ta .pl{animation:ta-l 2.5s ease-in-out infinite}
+.ta .pr{animation:ta-r 2.5s ease-in-out infinite}
+@keyframes da-l{0%,100%{left:2%}50%{left:-8%}}
+@keyframes da-r{0%,100%{right:2%}50%{right:-8%}}
+@keyframes ca-l{0%,100%{left:2%}50%{left:12%}}
+@keyframes ca-r{0%,100%{right:2%}50%{right:12%}}
+@keyframes ta-l{0%,100%{top:0;left:2%}50%{top:12px;left:2%}}
+@keyframes ta-r{0%,100%{top:0;right:2%}50%{top:-12px;right:2%}}
+/* PAES Q */
+.pbox{background:var(--card2);border:1px solid var(--bord2);border-radius:var(--rad);padding:20px;margin-top:7px}
+.ptag{font-size:.67rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.pctx{background:rgba(60,50,150,.05);border-radius:9px;padding:11px 13px;font-size:.86rem;color:var(--dim);line-height:1.65;margin-bottom:11px}
+.pctx table{width:100%;border-collapse:collapse;margin-top:7px}
+.pctx th,.pctx td{padding:5px 8px;font-size:.8rem;border-bottom:1px solid var(--bord);text-align:left}
+.pq{font-size:.92rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pos{display:flex;flex-direction:column;gap:7px}
+.po{display:flex;align-items:flex-start;gap:8px;padding:9px 12px;border-radius:9px;
+  cursor:pointer;border:1.5px solid var(--bord);background:var(--card);transition:all .16s;box-shadow:var(--sh)}
+.po:hover{border-color:var(--ind);background:var(--indl)}
+.po.locked{cursor:default;pointer-events:none}
+.po.right{background:rgba(79,70,229,.1);border-color:var(--ind)}
+.po.wrong{background:rgba(220,38,38,.06);border-color:#dc2626}
+.ol{min-width:24px;height:24px;border-radius:50%;border:1.5px solid var(--bord2);
+  display:flex;align-items:center;justify-content:center;font-size:.73rem;font-weight:900;
+  color:var(--ind);flex-shrink:0}
+.po.right .ol{background:var(--ind);color:#fff;border-color:var(--ind)}
+.po.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.ot{font-size:.86rem;color:var(--dim);line-height:1.5}
+.pfb{margin-top:9px;padding:9px 13px;border-radius:9px;font-size:.84rem;line-height:1.55;display:none}
+.pfb.show{display:block}
+.pfb.ok{background:rgba(79,70,229,.08);color:var(--ind);border-left:3px solid var(--ind)}
+.pfb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+/* ENSAYO */
+.tbox{background:var(--card);border:2px solid rgba(79,70,229,.28);border-radius:13px;
+  padding:13px 18px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;flex-wrap:wrap;gap:8px;box-shadow:0 4px 18px rgba(60,50,150,.18);
+  position:sticky;top:8px;z-index:150;backdrop-filter:blur(6px);background:rgba(255,255,255,.96)}
+.td{font-family:'Fredoka One',cursive;font-size:2.3rem;color:var(--ind);letter-spacing:.04em}
+.td.w{color:#d97706}.td.d{color:#dc2626;animation:bk .8s ease-in-out infinite}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.35}}
+.eq{background:var(--card);border:1px solid var(--bord);border-radius:11px;padding:16px;margin-bottom:10px;box-shadow:var(--sh)}
+.enum{font-size:.69rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.ectx{background:rgba(60,50,150,.05);border-radius:8px;padding:9px 12px;font-size:.85rem;color:var(--dim);line-height:1.6;margin-bottom:9px}
+.eqt{font-size:.89rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:10px}
+.eopts{display:flex;flex-direction:column;gap:6px}
+.eopt{display:flex;align-items:flex-start;gap:8px;padding:8px 11px;border-radius:8px;cursor:pointer;
+  border:1.5px solid var(--bord);background:var(--card);transition:all .16s}
+.eopt:hover:not(.locked){border-color:var(--ind);background:var(--indl)}
+.eopt.sel{background:var(--indl);border-color:var(--ind)}
+.eopt.locked{cursor:default;pointer-events:none}
+.eopt.right{background:rgba(79,70,229,.1);border-color:var(--ind)}
+.eopt.wrong{background:rgba(220,38,38,.05);border-color:#dc2626}
+.eopt .ol{color:var(--ind)}
+.eopt.sel .ol{background:var(--ind);color:#fff;border-color:var(--ind)}
+.eopt.right .ol{background:var(--ind);color:#fff;border-color:var(--ind)}
+.eopt.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.efb{margin-top:6px;padding:8px 12px;border-radius:8px;font-size:.82rem;line-height:1.55;display:none}
+.efb.show{display:block}
+.efb.ok{background:rgba(79,70,229,.08);color:var(--ind);border-left:3px solid var(--ind)}
+.efb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+.sbtn{width:100%;padding:13px;background:var(--ind);color:#fff;border:none;border-radius:11px;
+  font-family:'Fredoka One',cursive;font-size:1.05rem;cursor:pointer;margin-top:9px;
+  transition:background .18s;box-shadow:0 4px 12px rgba(79,70,229,.28)}
+.sbtn:hover{background:var(--ind2)}.sbtn:disabled{opacity:.32;cursor:default}
+/* BOTTOM NAV */
+.lnav{position:fixed;bottom:0;left:0;right:0;background:rgba(247,245,255,.92);
+  backdrop-filter:blur(10px);border-top:1px solid var(--bord);padding:9px 18px;
+  display:flex;align-items:center;justify-content:space-between;z-index:180;gap:9px}
+.lb{font-family:'Fredoka One',cursive;font-size:.92rem;padding:7px 18px;border-radius:50px;
+  border:1.5px solid rgba(79,70,229,.38);background:transparent;color:var(--ind);
+  cursor:pointer;transition:all .18s;white-space:nowrap}
+.lb:hover{background:var(--ind);color:#fff;border-color:var(--ind)}
+.lb:disabled{opacity:.22;cursor:default}
+.lm{font-size:.77rem;font-weight:800;color:var(--dim);text-align:center;flex:1}
+.ab{position:fixed;bottom:62px;right:14px;width:42px;height:42px;border-radius:50%;
+  background:var(--card);border:1.5px solid rgba(79,70,229,.32);color:var(--ind);
+  font-size:1.05rem;cursor:pointer;z-index:190;display:flex;align-items:center;justify-content:center;
+  transition:all .18s;box-shadow:var(--sh)}
+.ab:hover{background:var(--ind);color:#fff;border-color:var(--ind)}
+.ab.on{background:var(--ind);color:#fff;border-color:var(--ind);animation:pa 1.2s ease-in-out infinite}
+@keyframes pa{0%,100%{box-shadow:0 0 0 0 rgba(79,70,229,.4)}50%{box-shadow:0 0 0 8px rgba(79,70,229,0)}}
+footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
+/* DECK / SLIDES */
+.deck{margin-bottom:16px}
+.deck-viewport{overflow:hidden;border-radius:var(--rad)}
+.deck-track{display:flex;transition:transform .38s cubic-bezier(.4,0,.2,1)}
+.deck-slide{flex:0 0 100%;min-width:100%;box-sizing:border-box}
+.deck-slide .card{margin-bottom:0;height:100%}
+.deck-diag{background:var(--card2);border:1px solid var(--bord);border-radius:12px;
+  padding:10px;margin-bottom:14px;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.deck-diag svg{width:100%;height:auto;max-height:190px}
+.deck-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px}
+.deck-arrow{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--bord2);
+  background:var(--card);color:var(--ind);font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0;box-shadow:var(--sh)}
+.deck-arrow:hover{background:var(--ind);color:#fff;border-color:var(--ind)}
+.deck-arrow:disabled{opacity:.25;cursor:default;background:var(--card);color:var(--ind)}
+.deck-dots{display:flex;gap:7px;align-items:center}
+.deck-dot{width:8px;height:8px;border-radius:50%;background:var(--bord2);border:none;cursor:pointer;padding:0;transition:all .2s}
+.deck-dot.act{width:22px;border-radius:5px;background:var(--ind)}
+.deck-count{font-size:.74rem;font-weight:800;color:var(--dim);text-align:center;margin-top:5px}
+.deck-hint{font-size:.72rem;color:var(--dim2);text-align:center;margin-bottom:8px;display:flex;
+  align-items:center;justify-content:center;gap:5px}
+@media(max-width:640px){.deck-diag svg{max-height:150px}}
+/* RESULTADOS POR TEMA */
+.res-banner{font-family:'Fredoka One',cursive;font-size:2.5rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0}
+.res-topic-card{background:var(--card2);border-radius:12px;padding:13px 16px;border:1px solid var(--bord);border-left:3px solid var(--ind)}
+.res-topic-card.bad{border-left-color:#dc2626}
+.res-topic-card.mid{border-left-color:#d97706}
+.res-topic-name{font-size:.79rem;font-weight:900;color:var(--dim);margin-bottom:4px}
+.res-topic-score{font-family:'Fredoka One',cursive;font-size:1.3rem}
+.res-review{background:var(--card2);border:1px solid var(--bord2);border-radius:14px;padding:16px;margin-top:14px}
+.res-review-item{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:9px 0;border-bottom:1px solid var(--bord)}
+.res-review-item:last-child{border-bottom:none}
+.res-review-btn{font-family:'Nunito',sans-serif;font-weight:800;font-size:.78rem;padding:6px 14px;
+  border-radius:50px;border:1.5px solid var(--ind);background:transparent;color:var(--ind);cursor:pointer;white-space:nowrap;transition:all .18s}
+.res-review-btn:hover{background:var(--ind);color:#fff}
+.weight-table{width:100%;border-collapse:collapse}
+.weight-table th,.weight-table td{border:1px solid var(--bord);padding:8px 10px;font-size:.84rem;text-align:left;color:var(--dim);vertical-align:top}
+.weight-table th{background:var(--card2);color:var(--text);font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+.weight-table tr:nth-child(even) td{background:var(--card2)}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:74px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--ind),var(--ind3));border:none;box-shadow:0 4px 18px rgba(79,70,229,.4);cursor:pointer;z-index:210;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid #fff}
+.tutor-fab.blocked .dot{background:#9ca3af}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid var(--bord);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(60,50,150,.25);z-index:220;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--ind),var(--ind2));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:'Fredoka One',cursive;font-size:1rem;color:#fff}
+.tutor-head p{font-size:.7rem;color:rgba(255,255,255,.85);margin-top:1px}
+.tutor-close{background:rgba(255,255,255,.18);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1}
+.tutor-blocked-msg{padding:16px;font-size:.85rem;color:var(--dim);text-align:center;line-height:1.6}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid var(--bord);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid var(--bord);color:var(--dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:999px;cursor:pointer;transition:all .18s}
+.tutor-mode-btn:hover{border-color:var(--ind);color:var(--ind)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--ind);color:#fff;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid var(--bord);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:var(--indl);color:var(--dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--ind)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--bord);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid var(--bord);border-radius:12px;color:var(--text);padding:9px 12px;font-family:'Nunito',sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--ind)}
+.tutor-send{background:var(--ind);border:none;color:#fff;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+/* ═══ VERSIÓN MÓVIL ═══ */
+@media(max-width:680px){
+  .wr{padding:8px 8px 84px}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;position:sticky;top:4px}
+  .nav::-webkit-scrollbar{display:none}
+  .nb{flex-shrink:0;font-size:.73rem;padding:9px 13px;min-height:40px;touch-action:manipulation}
+  .hero{padding:34px 6px 12px}
+  .hi{font-size:50px}
+  .card,.hsec{padding:14px 12px}
+  .g2,.pgrid,.orow{grid-template-columns:1fr!important}
+  .pbox{padding:14px 12px}
+  .po,.eopt{padding:12px 11px;min-height:50px;touch-action:manipulation}
+  .ol{min-width:28px;height:28px;font-size:.78rem}
+  .lb{padding:12px 16px!important;font-size:.88rem!important;min-height:46px}
+  .sbtn{width:100%!important;padding:13px!important}
+  .tabs{gap:6px}
+  .tbtn{padding:8px 13px;font-size:.78rem}
+  .tbox{position:static;top:auto}
+  .deck-arrow{width:34px;height:34px}
+  .deck-diag svg{max-height:130px}
+  .tutor-fab{bottom:78px;right:12px;width:50px;height:50px;font-size:1.3rem}
+  .tutor-input{font-size:16px}
+  .res-topic-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+<body>
+<div class="pr"><div class="prf" id="prf" style="width:14.3%"></div></div>
+<div class="wr">
+
+<div class="hero">
+  <span class="hi">&#128208;</span>
+  <h1>Electivo &bull; Matem&aacute;tica M2</h1>
+  <div class="hero-s">Unidad 3 &bull; Geometr&iacute;a &bull; PAES M2 &bull; Admisi&oacute;n 2027</div>
+  <div class="badge">&#127919; El eje con m&aacute;s temas nuevos de M2 (5 temas)</div>
+</div>
+
+<div class="nav">
+  <button class="nb act" onclick="go('p0',0,this)">&#127968; Inicio</button>
+  <button class="nb" onclick="go('p1',1,this)">&#128260; Homotecia</button>
+  <button class="nb" onclick="go('p2',2,this)">&#128207; Raz. Trigonom&eacute;tricas</button>
+  <button class="nb" onclick="go('p3',3,this)">&#9898; Circunferencia</button>
+  <button class="nb" onclick="go('p4',4,this)">&#127942; Esferas</button>
+  <button class="nb" onclick="go('p5',5,this)">&#128209; Rectas en el Plano</button>
+  <button class="nb" onclick="go('p6',6,this)">&#9201; Mini Ensayo</button>
+</div>
+
+<div class="sec act" id="p0">
+<div class="card" style="text-align:center;padding:28px 20px">
+  <p class="ct" style="justify-content:center;color:var(--ind);font-size:1.5rem">📐 Electivo · Matemática M2</p>
+  <p style="font-size:.97rem;max-width:640px;margin:0 auto 18px;color:var(--dim);line-height:1.8">La unidad más cargada de M2: <strong>5 temas nuevos</strong> sobre lo que ya sabes de Geometría en M1. Homotecia, razones trigonométricas, relaciones en la circunferencia, esferas y rectas en el plano — todo con hartos diagramas, porque la Geometría se entiende mejor viéndola que leyéndola.</p>
+  <div class="badge">🎯 M2 · Eje Geometría · 5 temas nuevos + repaso de M1</div>
+</div>
+
+<div class="card" style="border-left:4px solid var(--ind)">
+  <p class="ct" style="color:var(--ind)">🔗 Prerrequisito: M1 · Unidad 3</p>
+  <p>Esta unidad asume que dominas <strong>M1 · Unidad 3 · Geometría</strong>: Pitágoras, áreas y perímetros, cuerpos geométricos, transformaciones isométricas y semejanza de figuras. Todo eso puede volver a evaluarse en M2, mezclado con lo nuevo.</p>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:var(--ind)">📊 ¿Qué contiene esta unidad?</p>
+  <table style="width:100%;border-collapse:collapse;margin-top:8px">
+    <tr><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--ind)">Tema</th><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--ind)">Qué incluye</th></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">🔄 Homotecia</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Ampliar/reducir figuras desde un centro, razón de homotecia</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">📐 Razones Trigonométricas</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Seno, coseno y tangente en triángulos rectángulos</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">⭕ Relaciones en la Circunferencia</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Ángulos, arcos, cuerdas y secantes</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">🏀 Esferas</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Área de superficie y volumen</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem">📏 Rectas en el Plano</td><td style="padding:7px 10px;font-size:.87rem">Posiciones relativas: paralelas, perpendiculares, secantes</td></tr>
+  </table>
+</div>
+
+<div class="g2">
+  <div class="card" style="border-left:4px solid var(--ind)">
+    <p class="ct" style="color:var(--ind)">📌 Contexto PAES M2</p>
+    <ul><li>Es el eje con más dependencia de diagramas de todo M2: casi todas las preguntas incluyen una figura</li>
+    <li>Un formato muy repetido: presentar un desarrollo con un error y pedir identificar en qué paso ocurrió</li>
+    <li>No se descuenta puntaje por respuestas erradas: siempre conviene marcar una alternativa</li></ul>
+  </div>
+  <div class="card" style="border-left:4px solid #6d28d9">
+    <p class="ct" style="color:#6d28d9">💡 Esta unidad tiene</p>
+    <ul><li>5 carruseles de diagramas (uno por tema), con figuras dibujadas paso a paso</li>
+    <li>Práctica guiada con retroalimentación por alternativa en cada tema</li>
+    <li>Mini ensayo de cierre con 20 preguntas generadas por IA, mezclando los 5 temas de la unidad</li></ul>
+  </div>
+</div>
+</div>
+
+<!-- HOMOTECIA -->
+<div class="sec" id="p1">
+<div class="hsec" style="border-color:rgba(79,70,229,.3)">
+  <span class="hi2">🔄</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--ind);margin-bottom:3px">Tema 1 de 5 · M2 Unidad 3</div>
+  <h2 style="color:var(--ind)">Homotecia de Figuras Planas</h2>
+  <p>Una transformación que agranda o achica una figura desde un punto fijo (centro), manteniendo siempre la misma forma — como el zoom de una cámara.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p1">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
+<circle cx="280" cy="90" r="4" fill="#211a4d"/>
+<text x="280" y="110" font-size="11" font-weight="900" fill="#211a4d" text-anchor="middle">O (centro)</text>
+<polygon points="250,70 280,50 300,80" fill="#e0e7ff" stroke="var(--ind)" stroke-width="1.5"/>
+<polygon points="200,110 280,50 340,120" fill="none" stroke="var(--ind)" stroke-width="2.3" stroke-dasharray="4,3"/>
+<line x1="280" y1="90" x2="200" y2="110" stroke="#4c3d99" stroke-width="1"/>
+<line x1="280" y1="90" x2="340" y2="120" stroke="#4c3d99" stroke-width="1"/>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">🔍 Concepto de homotecia</p>
+  <p>Una <strong>homotecia</strong> transforma una figura en otra semejante (misma forma, distinto tamaño), a partir de un <strong>centro</strong> fijo O y una <strong>razón</strong> k. Cada punto de la figura original se "estira" o "encoge" en línea recta desde el centro.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">Imagen = O + k×(Punto original − O)</span><div class="fdef">cada punto se aleja o acerca del centro según el factor k</div></div>
+  <p style="margin-top:10px">Si |k|&gt;1, la figura se <strong>agranda</strong>. Si 0&lt;|k|&lt;1, la figura se <strong>achica</strong>. Si k es negativo, la imagen queda al lado opuesto del centro (como una rotación de 180°).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Conexión con semejanza (ya vista en M1)</div>
+    <p>Una homotecia siempre produce figuras semejantes, con razón de semejanza |k|. Todo lo que aprendiste sobre semejanza en M1 (perímetro ×k, área ×k²) aplica directamente aquí.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<circle cx="140" cy="65" r="4" fill="#211a4d"/>
+<text x="140" y="30" font-size="11" font-weight="900" fill="#211a4d" text-anchor="middle">k &gt; 1: agranda</text>
+<polygon points="130,55 150,55 150,75 130,75" fill="#e0e7ff" stroke="var(--ind)" stroke-width="1.3"/>
+<polygon points="100,25 180,25 180,105 100,105" fill="none" stroke="var(--ind)" stroke-width="2"/>
+<circle cx="420" cy="65" r="4" fill="#211a4d"/>
+<text x="420" y="30" font-size="11" font-weight="900" fill="#be185d" text-anchor="middle">0&lt;k&lt;1: achica</text>
+<polygon points="390,35 450,35 450,95 390,95" fill="#fce7f3" stroke="#be185d" stroke-width="1.3"/>
+<polygon points="410,55 430,55 430,75 410,75" fill="none" stroke="#be185d" stroke-width="2"/>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">📏 El signo y magnitud de la razón k</p>
+  <p>La razón de homotecia k determina exactamente cómo cambia el tamaño y la orientación de la figura.</p>
+  <div class="pgrid" style="margin-top:6px">
+    <div class="pc"><h4>|k| &gt; 1</h4><p>La figura se agranda (ampliación).</p></div>
+    <div class="pc"><h4>0 &lt; |k| &lt; 1</h4><p>La figura se achica (reducción).</p></div>
+    <div class="pc"><h4>k &gt; 0</h4><p>La imagen queda del MISMO lado del centro que la figura original.</p></div>
+    <div class="pc"><h4>k &lt; 0</h4><p>La imagen queda del lado OPUESTO del centro (invertida).</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 k=1 no transforma nada</div>
+    <p>Si k=1, la "imagen" es idéntica a la figura original, en la misma posición — no hay cambio real. Y k=−1 equivale exactamente a una rotación de 180° respecto al centro.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="35" font-size="12" fill="#211a4d">Vector (2,−3) → homotecia → (−4,6)</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="var(--ind)">k = −4/2 = 6/−3 = −2</text>
+<text x="140" y="95" font-size="14" font-weight="900" fill="#059669">Aplicando a (3,4): (3,4)×(−2) = (−6,−8)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">🔢 Cómo encontrar la razón k a partir de una imagen</p>
+  <p>Si conoces un punto (o vector) original y su imagen, puedes encontrar k dividiendo las coordenadas correspondientes de la imagen por las del original — con centro en el origen, esto es directo.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">k = (coordenada imagen) / (coordenada original)</span></div>
+  <p style="margin-top:10px">Ejemplo: si el vector (2,−3) se transforma en (−4,6), entonces k=−4/2=−2 (y se verifica con la otra coordenada: 6/−3=−2 también). Aplicando esa misma razón a otro vector (3,4): la imagen es (3,4)×(−2)=(−6,−8).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Verifica con AMBAS coordenadas</div>
+    <p>Calcula k con la coordenada x y también con la y — si ambos cálculos dan el mismo valor, confirmas que es realmente una homotecia con centro en el origen.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="35" font-size="12" fill="#211a4d">Sombra H = k×h (altura real). Razón k=1,5, sombra H=360cm</text>
+<text x="140" y="70" font-size="15" font-weight="900" fill="var(--ind)">h = H/k = 360/1,5</text>
+<text x="140" y="100" font-size="16" font-weight="900" fill="#059669">h = 240 cm</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">🤖 Problema resuelto: homotecia y sombras</p>
+  <p>La relación entre la altura de la sombra de un poste proyectada en el suelo y la altura del poste se modela por H=kh, con k la razón de homotecia. Si k=1,5 y la sombra mide 360 cm, ¿cuál es la altura del poste?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">H=kh → 360=1,5×h → h=240 cm</span></div>
+  <p style="margin-top:10px">Aquí se pide la medida ORIGINAL (h), conociendo la imagen (H) y la razón (k) — se despeja h dividiendo, en vez de multiplicar. Presta atención a cuál de las dos medidas te piden.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 No confundas "imagen" con "original"</div>
+    <p>En este problema, la sombra (H) es la IMAGEN del poste real (h). Si el problema pidiera la sombra conociendo el poste, multiplicarías; como pide el poste conociendo la sombra, divides.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<circle cx="280" cy="65" r="45" fill="none" stroke="var(--ind)" stroke-width="1.5"/>
+<circle cx="280" cy="65" r="27" fill="#e0e7ff" stroke="var(--ind)" stroke-width="1.5"/>
+<circle cx="280" cy="65" r="2" fill="#211a4d"/>
+<text x="280" y="30" font-size="10" fill="#4c3d99" text-anchor="middle">O</text>
+<text x="330" y="45" font-size="10" fill="var(--ind)">OA (radio grande)</text>
+<text x="330" y="70" font-size="10" fill="var(--ind)">OB (radio chico)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">⭕ Homotecia aplicada a circunferencias</p>
+  <p>Al aplicar una homotecia con centro O a una circunferencia, se obtiene <strong>otra circunferencia con el mismo centro</strong>, cuyo radio es el radio original multiplicado por la razón k.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">nuevo radio = k × radio original</span></div>
+  <p style="margin-top:10px">Si conoces el radio original (OA) y el nuevo radio (OB), la razón de homotecia es directamente k=OB/OA — el mismo principio que con cualquier otra figura, solo que aquí es especialmente simple porque no hay que preocuparse por ángulos ni orientación.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Plantea la razón con cuidado en problemas de contexto</div>
+    <p>Cuando el problema da una relación como "el nuevo radio mide 6 cm menos que el original", exprésalo algebraicamente primero (radio nuevo = radio original − 6) antes de plantear la razón k = radio nuevo / radio original.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p1" onclick="deckNav('p1',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p1"><button class="deck-dot act" onclick="deckGoto('p1',0)"></button><button class="deck-dot" onclick="deckGoto('p1',1)"></button><button class="deck-dot" onclick="deckGoto('p1',2)"></button><button class="deck-dot" onclick="deckGoto('p1',3)"></button><button class="deck-dot" onclick="deckGoto('p1',4)"></button></div><button class="deck-arrow" id="deck-next-p1" onclick="deckNav('p1',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p1">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:var(--ind)">razón k</span>
+  <span class="kw" style="color:var(--ind)">Imagen=O+k(P−O)</span>
+  <span class="kw" style="color:var(--ind)">k&lt;0: invertida</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <p class="pq">Si una figura tiene razón de homotecia k=3, ¿qué le ocurre a la figura?</p>
+  <div class="pos" id="qh1">
+    <div class="po" onclick="ans('qh1','A')"><div class="ol">A</div><div class="ot">Se achica a un tercio de su tamaño</div></div>
+    <div class="po" onclick="ans('qh1','B')"><div class="ol">B</div><div class="ot">Se agranda al triple de su tamaño</div></div>
+    <div class="po" onclick="ans('qh1','C')"><div class="ol">C</div><div class="ot">No cambia de tamaño</div></div>
+    <div class="po" onclick="ans('qh1','D')"><div class="ol">D</div><div class="ot">Se invierte sin cambiar de tamaño</div></div>
+  </div>
+  <div class="pfb" id="qh1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <div class="pctx">Un punto A(4,2) se transforma, mediante una homotecia con centro en el origen, en el punto B(−8,−4).</div>
+  <p class="pq">¿Cuál es la razón de homotecia?</p>
+  <div class="pos" id="qh2">
+    <div class="po" onclick="ans('qh2','A')"><div class="ol">A</div><div class="ot">2</div></div>
+    <div class="po" onclick="ans('qh2','B')"><div class="ol">B</div><div class="ot">−2</div></div>
+    <div class="po" onclick="ans('qh2','C')"><div class="ol">C</div><div class="ot">−4</div></div>
+    <div class="po" onclick="ans('qh2','D')"><div class="ol">D</div><div class="ot">4</div></div>
+  </div>
+  <div class="pfb" id="qh2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <div class="pctx">Un triángulo tiene perímetro 18 cm. Se le aplica una homotecia de razón k=1/3.</div>
+  <p class="pq">¿Cuál es el perímetro del triángulo imagen?</p>
+  <div class="pos" id="qh3">
+    <div class="po" onclick="ans('qh3','A')"><div class="ol">A</div><div class="ot">6 cm</div></div>
+    <div class="po" onclick="ans('qh3','B')"><div class="ol">B</div><div class="ot">9 cm</div></div>
+    <div class="po" onclick="ans('qh3','C')"><div class="ol">C</div><div class="ot">54 cm</div></div>
+    <div class="po" onclick="ans('qh3','D')"><div class="ol">D</div><div class="ot">2 cm</div></div>
+  </div>
+  <div class="pfb" id="qh3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <p class="pq">Una circunferencia de radio 4 cm se transforma, mediante homotecia de razón k=−3, en otra circunferencia. ¿Cuál es el radio de la circunferencia imagen?</p>
+  <div class="pos" id="qh4">
+    <div class="po" onclick="ans('qh4','A')"><div class="ol">A</div><div class="ot">−12 cm</div></div>
+    <div class="po" onclick="ans('qh4','B')"><div class="ol">B</div><div class="ot">12 cm</div></div>
+    <div class="po" onclick="ans('qh4','C')"><div class="ol">C</div><div class="ot">1,33 cm</div></div>
+    <div class="po" onclick="ans('qh4','D')"><div class="ol">D</div><div class="ot">7 cm</div></div>
+  </div>
+  <div class="pfb" id="qh4-fb"></div>
+</div>
+
+</div>
+
+<!-- RAZONES TRIGONOMETRICAS -->
+<div class="sec" id="p2">
+<div class="hsec" style="border-color:rgba(180,83,9,.3)">
+  <span class="hi2">📐</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#b45309;margin-bottom:3px">Tema 2 de 5 · M2 Unidad 3</div>
+  <h2 style="color:#b45309">Razones Trigonométricas en Triángulos Rectángulos</h2>
+  <p>Seno, coseno y tangente: 3 razones que relacionan los ángulos de un triángulo rectángulo con las medidas de sus lados.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p2">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg">
+<polygon points="80,130 320,130 320,40" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+<rect x="300" y="110" width="20" height="20" fill="none" stroke="#b45309" stroke-width="1.5"/>
+<path d="M120,130 A40,40 0 0,1 105,105" fill="none" stroke="#b45309" stroke-width="1.5"/>
+<text x="135" y="118" font-size="12" font-weight="900" fill="#b45309">θ</text>
+<text x="200" y="150" font-size="12" font-weight="900" fill="#211a4d" text-anchor="middle">cateto adyacente</text>
+<text x="345" y="90" font-size="12" font-weight="900" fill="#211a4d">cateto opuesto</text>
+<text x="180" y="70" font-size="12" font-weight="900" fill="#b45309">hipotenusa</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">📐 Los 3 lados, vistos desde un ángulo</p>
+  <p>En un triángulo rectángulo, además de "catetos e hipotenusa" (M1), ahora nombramos los catetos según su posición <strong>relativa a un ángulo agudo θ</strong> específico: el que está "pegado" al ángulo es el <strong>adyacente</strong>, y el otro es el <strong>opuesto</strong>.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">Hipotenusa · Cateto opuesto (a θ) · Cateto adyacente (a θ)</span></div>
+  <p style="margin-top:10px">Estos nombres dependen de QUÉ ángulo elijas: el cateto que es "opuesto" para un ángulo es "adyacente" para el otro ángulo agudo del mismo triángulo.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Siempre identifica el ángulo primero</div>
+    <p>Antes de calcular cualquier razón trigonométrica, marca claramente cuál es el ángulo θ que te interesa — de eso depende cuál cateto es "opuesto" y cuál es "adyacente".</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="15" width="255" height="45" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+<text x="147" y="42" font-size="13" font-weight="900" fill="#b45309" text-anchor="middle">sen θ = opuesto / hipotenusa</text>
+<rect x="290" y="15" width="255" height="45" rx="8" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.2"/>
+<text x="417" y="42" font-size="13" font-weight="900" fill="#4338ca" text-anchor="middle">cos θ = adyacente / hipotenusa</text>
+<rect x="150" y="70" width="260" height="45" rx="8" fill="#dcfce7" stroke="#059669" stroke-width="1.2"/>
+<text x="280" y="97" font-size="13" font-weight="900" fill="#059669" text-anchor="middle">tan θ = opuesto / adyacente</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">⚙️ Las 3 razones trigonométricas</p>
+  <p>Cada razón trigonométrica es un <strong>cociente</strong> entre dos lados del triángulo, siempre relativo al ángulo θ elegido. Un truco mnemotécnico clásico es "SOH-CAH-TOA".</p>
+  <div class="pgrid" style="margin-top:6px">
+    <div class="pc"><h4>SOH</h4><p>Seno = Opuesto/Hipotenusa</p></div>
+    <div class="pc"><h4>CAH</h4><p>Coseno = Adyacente/Hipotenusa</p></div>
+    <div class="pc"><h4>TOA</h4><p>Tangente = Opuesto/Adyacente</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 tan θ = sen θ / cos θ</div>
+    <p>La tangente también se puede obtener dividiendo seno por coseno — útil si ya calculaste ambos y necesitas la tangente sin volver a medir los lados.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<polygon points="80,110 280,110 280,40" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+<text x="180" y="128" font-size="11" font-weight="900" fill="#211a4d" text-anchor="middle">adyacente = 8</text>
+<text x="300" y="75" font-size="11" font-weight="900" fill="#211a4d">opuesto = x</text>
+<text x="150" y="65" font-size="11" font-weight="900" fill="#b45309">hip=?, θ=40°</text>
+<text x="380" y="60" font-size="13" font-weight="900" fill="#059669">x = 8×tan(40°)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">🧮 Cómo elegir qué razón usar</p>
+  <p>Frente a un problema, identifica qué lados <strong>conoces</strong> y cuál <strong>buscas</strong> — eso determina automáticamente qué razón usar.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">Conoces adyacente, buscas opuesto → usa tangente</span></div>
+  <p style="margin-top:10px">Ejemplo: si conoces el cateto adyacente (8) y el ángulo (40°), y buscas el cateto opuesto (x), usa tan(40°)=x/8, despejando x=8×tan(40°).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Estrategia de 3 pasos</div>
+    <p>1) Marca el ángulo. 2) Identifica qué lados conoces y cuál buscas. 3) Elige la razón (seno, coseno o tangente) que conecte esos dos lados con el ángulo — despeja y calcula.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="11" fill="#211a4d">O=centro, radio OB=10cm, ángulo en O=60°, △ rectángulo en A</text>
+<text x="140" y="60" font-size="13" font-weight="900" fill="#b45309">Paso 1 (ERROR): cos60°=AB/OB</text>
+<text x="140" y="90" font-size="12" fill="#dc2626">AB es el cateto OPUESTO a 60°, no el adyacente</text>
+<text x="140" y="115" font-size="12" fill="#059669">Correcto: cos60°=OA/OB (OA es adyacente)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">🤖 Problema resuelto: encontrar el error en un desarrollo</p>
+  <p>En un triángulo rectángulo en A, con O el centro de una circunferencia de radio OB=10cm y ángulo en O de 60°, se plantea: Paso 1: cos60°=AB/OB. Paso 2: AB=5cm. Paso 3: Pitágoras, 25+OA²=100. Paso 4: OA=√75cm≈8,66cm. ¿En cuál paso está el error?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">Respuesta: Paso 1 — se usó el cateto OPUESTO (AB) en vez del ADYACENTE (OA)</span></div>
+  <p style="margin-top:10px">El ángulo de 60° está en O. Su cateto adyacente es OA, y su cateto opuesto es AB. Coseno usa el adyacente, así que la ecuación correcta debía ser cos60°=OA/OB, no AB/OB — ese es el ángulo θ equivocado desde el primer paso.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El error de "confundir opuesto con adyacente" es el más común</div>
+    <p>Antes de escribir la ecuación, señala literalmente en el dibujo cuál lado es opuesto y cuál es adyacente AL ÁNGULO que estás usando — evita este error tan frecuente.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="11" fill="#211a4d">△ABC rectángulo en C: BC=8, AB=17 (hipotenusa). △PQR~△ABC, PR=3</text>
+<text x="140" y="60" font-size="13" font-weight="900" fill="#b45309">AC=√(17²−8²)=√225=15 (lado correspondiente a PR)</text>
+<text x="140" y="90" font-size="14" font-weight="900" fill="#059669">razón=3/15=1/5 → hipotenusa PQR=17×1/5=3,4cm</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">🤖 Problema resuelto: triángulos semejantes y razones</p>
+  <p>El triángulo ABC es rectángulo en C, con BC=8cm y AB=17cm (hipotenusa). Los triángulos ABC y PQR son semejantes, y PR=3cm. ¿Cuánto mide la hipotenusa de PQR?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">AC=√(17²−8²)=15 &nbsp;·&nbsp; razón=3/15=1/5 &nbsp;·&nbsp; hip. PQR=17×1/5=3,4cm</span></div>
+  <p style="margin-top:10px">El lado PR corresponde al lado AC (según el orden de las letras P↔A, Q↔B, R↔C), no a BC. Por eso primero se calcula AC con Pitágoras, y luego se usa esa correspondencia para encontrar la razón de semejanza correcta.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El orden de las letras importa</div>
+    <p>Cuando dos triángulos se llaman semejantes como "ABC~PQR", el orden de las letras indica qué vértices (y por lo tanto, qué lados) se corresponden entre sí — un error de correspondencia invalida todo el cálculo.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p2" onclick="deckNav('p2',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p2"><button class="deck-dot act" onclick="deckGoto('p2',0)"></button><button class="deck-dot" onclick="deckGoto('p2',1)"></button><button class="deck-dot" onclick="deckGoto('p2',2)"></button><button class="deck-dot" onclick="deckGoto('p2',3)"></button><button class="deck-dot" onclick="deckGoto('p2',4)"></button></div><button class="deck-arrow" id="deck-next-p2" onclick="deckNav('p2',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p2">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#b45309">sen=op/hip</span>
+  <span class="kw" style="color:#b45309">cos=ady/hip</span>
+  <span class="kw" style="color:#b45309">tan=op/ady</span>
+  <span class="kw" style="color:#b45309">SOH-CAH-TOA</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <div class="pctx">En un triángulo rectángulo, para un ángulo θ, el cateto opuesto mide 6 cm y la hipotenusa mide 10 cm.</div>
+  <p class="pq">¿Cuál es el valor de sen θ?</p>
+  <div class="pos" id="qtr1">
+    <div class="po" onclick="ans('qtr1','A')"><div class="ol">A</div><div class="ot">0,6</div></div>
+    <div class="po" onclick="ans('qtr1','B')"><div class="ol">B</div><div class="ot">0,8</div></div>
+    <div class="po" onclick="ans('qtr1','C')"><div class="ol">C</div><div class="ot">1,67</div></div>
+    <div class="po" onclick="ans('qtr1','D')"><div class="ol">D</div><div class="ot">6</div></div>
+  </div>
+  <div class="pfb" id="qtr1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <div class="pctx">En un triángulo rectángulo, el cateto adyacente a θ mide 5 cm y el opuesto mide 12 cm.</div>
+  <p class="pq">¿Cuál es el valor de tan θ?</p>
+  <div class="pos" id="qtr2">
+    <div class="po" onclick="ans('qtr2','A')"><div class="ol">A</div><div class="ot">5/12</div></div>
+    <div class="po" onclick="ans('qtr2','B')"><div class="ol">B</div><div class="ot">12/5</div></div>
+    <div class="po" onclick="ans('qtr2','C')"><div class="ol">C</div><div class="ot">12/13</div></div>
+    <div class="po" onclick="ans('qtr2','D')"><div class="ol">D</div><div class="ot">5/13</div></div>
+  </div>
+  <div class="pfb" id="qtr2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <div class="pctx">Una escalera de 10 m forma un ángulo de 30° con el suelo.</div>
+  <p class="pq">¿Cuál expresión permite calcular la altura que alcanza en la pared?</p>
+  <div class="pos" id="qtr3">
+    <div class="po" onclick="ans('qtr3','A')"><div class="ol">A</div><div class="ot">10×sen(30°)</div></div>
+    <div class="po" onclick="ans('qtr3','B')"><div class="ol">B</div><div class="ot">10×cos(30°)</div></div>
+    <div class="po" onclick="ans('qtr3','C')"><div class="ol">C</div><div class="ot">10÷tan(30°)</div></div>
+    <div class="po" onclick="ans('qtr3','D')"><div class="ol">D</div><div class="ot">10×tan(30°)</div></div>
+  </div>
+  <div class="pfb" id="qtr3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">Si sen θ=0,6 y cos θ=0,8, ¿cuál es el valor de tan θ?</p>
+  <div class="pos" id="qtr4">
+    <div class="po" onclick="ans('qtr4','A')"><div class="ol">A</div><div class="ot">0,48</div></div>
+    <div class="po" onclick="ans('qtr4','B')"><div class="ol">B</div><div class="ot">0,75</div></div>
+    <div class="po" onclick="ans('qtr4','C')"><div class="ol">C</div><div class="ot">1,33</div></div>
+    <div class="po" onclick="ans('qtr4','D')"><div class="ol">D</div><div class="ot">1,4</div></div>
+  </div>
+  <div class="pfb" id="qtr4-fb"></div>
+</div>
+
+</div>
+
+<!-- CIRCUNFERENCIA -->
+<div class="sec" id="p3">
+<div class="hsec" style="border-color:rgba(8,145,178,.3)">
+  <span class="hi2">⭕</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#0891b2;margin-bottom:3px">Tema 3 de 5 · M2 Unidad 3</div>
+  <h2 style="color:#0891b2">Relaciones Métricas en la Circunferencia</h2>
+  <p>Ángulos, arcos, cuerdas y secantes — cómo se relacionan las medidas dentro y alrededor de una circunferencia.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p3">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<circle cx="280" cy="65" r="50" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+<circle cx="280" cy="65" r="2" fill="#211a4d"/>
+<line x1="280" y1="65" x2="330" y2="65" stroke="#0891b2" stroke-width="2"/>
+<line x1="280" y1="65" x2="245" y2="20" stroke="#0891b2" stroke-width="2"/>
+<path d="M300,65 A20,20 0 0,0 291,47" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+<text x="305" y="50" font-size="11" font-weight="900" fill="#dc2626">ángulo central</text>
+<path d="M330,65 A50,50 0 0,0 245,20" fill="none" stroke="#059669" stroke-width="3"/>
+<text x="350" y="35" font-size="10" fill="#059669">arco</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">🎯 Ángulo central y su arco</p>
+  <p>Un <strong>ángulo central</strong> tiene su vértice en el centro de la circunferencia, y sus lados son dos radios. La medida del ángulo central es <strong>exactamente igual</strong> a la medida del arco que "abraza" (el arco comprendido entre los dos radios).</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">ángulo central = arco correspondiente</span></div>
+  <p style="margin-top:10px">Ejemplo: un ángulo central de 70° corresponde a un arco de exactamente 70° (recuerda que toda la circunferencia mide 360°).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Es la relación más simple de todo el tema</div>
+    <p>Ángulo central = arco es una igualdad directa, sin fórmulas complicadas — pero es la base para entender la siguiente relación (ángulo inscrito), que sí tiene un factor.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<circle cx="280" cy="65" r="50" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+<circle cx="280" cy="15" r="3" fill="#211a4d"/>
+<line x1="280" y1="15" x2="240" y2="90" stroke="#b45309" stroke-width="2"/>
+<line x1="280" y1="15" x2="320" y2="90" stroke="#b45309" stroke-width="2"/>
+<text x="280" y="35" font-size="11" font-weight="900" fill="#b45309" text-anchor="middle">ángulo inscrito</text>
+<path d="M320,90 A50,50 0 0,0 240,90" fill="none" stroke="#059669" stroke-width="3"/>
+<text x="280" y="118" font-size="10" fill="#059669" text-anchor="middle">arco</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">📐 Ángulo inscrito: la mitad del arco</p>
+  <p>Un <strong>ángulo inscrito</strong> tiene su vértice sobre la circunferencia (no en el centro), y sus lados son dos cuerdas. Su medida es <strong>la mitad</strong> del arco que abraza.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">ángulo inscrito = arco correspondiente / 2</span></div>
+  <p style="margin-top:10px">Ejemplo: si el arco mide 80°, cualquier ángulo inscrito que abrace ese mismo arco (desde cualquier punto de la circunferencia) medirá 40°, la mitad.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Caso especial: ángulo inscrito en el diámetro</div>
+    <p>Si el ángulo inscrito abraza un arco de 180° (medio círculo, es decir, un diámetro), el ángulo siempre mide 90° — este caso especial aparece muy seguido en preguntas de la PAES.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<circle cx="280" cy="65" r="50" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+<line x1="235" y1="30" x2="320" y2="95" stroke="#b45309" stroke-width="2.3"/>
+<text x="220" y="20" font-size="10" fill="#b45309">cuerda</text>
+<line x1="230" y1="65" x2="330" y2="65" stroke="#059669" stroke-width="2.3" stroke-dasharray="4,3"/>
+<text x="200" y="60" font-size="10" fill="#059669">diámetro (cuerda máxima)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">📏 Cuerdas: segmentos dentro del círculo</p>
+  <p>Una <strong>cuerda</strong> es un segmento que une dos puntos cualquiera de la circunferencia. El <strong>diámetro</strong> es la cuerda más larga posible — la única que pasa por el centro.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">Teorema de las cuerdas: a×b = c×d</span><div class="fdef">si dos cuerdas se cruzan dentro del círculo, el producto de los segmentos de una es igual al de la otra</div></div>
+  <p style="margin-top:10px">Si dos cuerdas AC y BD se cruzan en un punto P dentro del círculo, entonces AP×PC=BP×PD — los productos de los segmentos en que quedó dividida cada cuerda son iguales entre sí.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Útil para encontrar una medida desconocida</div>
+    <p>Si conoces 3 de los 4 segmentos formados por dos cuerdas que se cruzan, puedes despejar el cuarto usando esta igualdad de productos.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<circle cx="280" cy="65" r="45" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+<line x1="420" y1="20" x2="255" y2="80" stroke="#b45309" stroke-width="2"/>
+<line x1="420" y1="20" x2="290" y2="105" stroke="#059669" stroke-width="2"/>
+<circle cx="420" cy="20" r="3" fill="#211a4d"/>
+<text x="440" y="18" font-size="10" fill="#211a4d">punto externo</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">📡 Secantes desde un punto exterior</p>
+  <p>Una <strong>secante</strong> es una recta que corta la circunferencia en 2 puntos. Si trazas dos secantes desde un mismo <strong>punto exterior</strong>, existe una relación fija entre sus segmentos.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">Teorema de las secantes: PA×PB = PC×PD</span><div class="fdef">P=punto externo · A,C=puntos más cercanos · B,D=puntos más lejanos de cada secante</div></div>
+  <p style="margin-top:10px">El producto de la distancia completa (punto externo al punto lejano) por la distancia corta (punto externo al punto cercano) es igual para ambas secantes trazadas desde el mismo punto.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Muy similar al teorema de las cuerdas</div>
+    <p>Es la misma idea de "productos iguales" que viste con las cuerdas, pero ahora el punto de referencia está afuera del círculo en vez de adentro.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="12" fill="#211a4d">Cuerdas se cruzan: segmentos 4, x, 6, 8</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#0891b2">4×x = 6×8</text>
+<text x="140" y="95" font-size="15" font-weight="900" fill="#059669">x = 48/4 = 12</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">🔍 Problema resuelto: encontrar un segmento con el teorema de las cuerdas</p>
+  <p>Dos cuerdas se cruzan dentro de una circunferencia. Los segmentos de una cuerda miden 4 y x; los de la otra miden 6 y 8. ¿Cuánto mide x?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">4×x = 6×8 → x = 48/4 = 12</span></div>
+  <p style="margin-top:10px">Se aplica directamente el teorema de las cuerdas: el producto de los segmentos de una cuerda es igual al de la otra. Solo hay que identificar bien qué segmentos pertenecen a cada cuerda antes de plantear la ecuación.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Dibuja y etiqueta antes de calcular</div>
+    <p>En problemas de circunferencia, dibujar la figura (aunque sea un boceto simple) y etiquetar cada segmento ayuda mucho a no confundir qué medidas van multiplicadas entre sí.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p3" onclick="deckNav('p3',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p3"><button class="deck-dot act" onclick="deckGoto('p3',0)"></button><button class="deck-dot" onclick="deckGoto('p3',1)"></button><button class="deck-dot" onclick="deckGoto('p3',2)"></button><button class="deck-dot" onclick="deckGoto('p3',3)"></button><button class="deck-dot" onclick="deckGoto('p3',4)"></button></div><button class="deck-arrow" id="deck-next-p3" onclick="deckNav('p3',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p3">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#0891b2">ángulo central=arco</span>
+  <span class="kw" style="color:#0891b2">ángulo inscrito=arco/2</span>
+  <span class="kw" style="color:#0891b2">cuerdas: a×b=c×d</span>
+  <span class="kw" style="color:#0891b2">secantes</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">Un ángulo central mide 110°. ¿Cuánto mide el arco que abraza?</p>
+  <div class="pos" id="qcf1">
+    <div class="po" onclick="ans('qcf1','A')"><div class="ol">A</div><div class="ot">55°</div></div>
+    <div class="po" onclick="ans('qcf1','B')"><div class="ol">B</div><div class="ot">110°</div></div>
+    <div class="po" onclick="ans('qcf1','C')"><div class="ol">C</div><div class="ot">220°</div></div>
+    <div class="po" onclick="ans('qcf1','D')"><div class="ol">D</div><div class="ot">250°</div></div>
+  </div>
+  <div class="pfb" id="qcf1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">Un ángulo inscrito abraza un arco de 100°. ¿Cuánto mide el ángulo inscrito?</p>
+  <div class="pos" id="qcf2">
+    <div class="po" onclick="ans('qcf2','A')"><div class="ol">A</div><div class="ot">50°</div></div>
+    <div class="po" onclick="ans('qcf2','B')"><div class="ol">B</div><div class="ot">100°</div></div>
+    <div class="po" onclick="ans('qcf2','C')"><div class="ol">C</div><div class="ot">200°</div></div>
+    <div class="po" onclick="ans('qcf2','D')"><div class="ol">D</div><div class="ot">25°</div></div>
+  </div>
+  <div class="pfb" id="qcf2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <p class="pq">Un ángulo inscrito abraza un arco correspondiente a un diámetro (media circunferencia). ¿Cuánto mide ese ángulo?</p>
+  <div class="pos" id="qcf3">
+    <div class="po" onclick="ans('qcf3','A')"><div class="ol">A</div><div class="ot">45°</div></div>
+    <div class="po" onclick="ans('qcf3','B')"><div class="ol">B</div><div class="ot">90°</div></div>
+    <div class="po" onclick="ans('qcf3','C')"><div class="ol">C</div><div class="ot">180°</div></div>
+    <div class="po" onclick="ans('qcf3','D')"><div class="ol">D</div><div class="ot">360°</div></div>
+  </div>
+  <div class="pfb" id="qcf3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#0891b2">🤖 Pregunta de práctica</div>
+  <div class="pctx">Dos cuerdas se cruzan dentro de una circunferencia. Los segmentos de una miden 5 y 12; los de la otra miden 6 y x.</div>
+  <p class="pq">¿Cuánto mide x?</p>
+  <div class="pos" id="qcf4">
+    <div class="po" onclick="ans('qcf4','A')"><div class="ol">A</div><div class="ot">8</div></div>
+    <div class="po" onclick="ans('qcf4','B')"><div class="ol">B</div><div class="ot">10</div></div>
+    <div class="po" onclick="ans('qcf4','C')"><div class="ol">C</div><div class="ot">12</div></div>
+    <div class="po" onclick="ans('qcf4','D')"><div class="ol">D</div><div class="ot">14,4</div></div>
+  </div>
+  <div class="pfb" id="qcf4-fb"></div>
+</div>
+
+</div>
+
+<!-- ESFERAS -->
+<div class="sec" id="p4">
+<div class="hsec" style="border-color:rgba(190,24,93,.3)">
+  <span class="hi2">🏀</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#be185d;margin-bottom:3px">Tema 4 de 5 · M2 Unidad 3</div>
+  <h2 style="color:#be185d">Esferas: Superficie y Volumen</h2>
+  <p>El cuerpo geométrico "redondo" por excelencia — cómo calcular su área de superficie y su volumen, y cómo escala cuando cambia el radio.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p4">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<circle cx="280" cy="65" r="50" fill="#fce7f3" stroke="#be185d" stroke-width="2"/>
+<ellipse cx="280" cy="65" rx="50" ry="15" fill="none" stroke="#be185d" stroke-width="1" stroke-dasharray="3,2"/>
+<line x1="280" y1="65" x2="330" y2="65" stroke="#211a4d" stroke-width="1.5"/>
+<text x="305" y="58" font-size="11" font-weight="900" fill="#211a4d">r</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🌐 La esfera y su radio</p>
+  <p>Una <strong>esfera</strong> es el conjunto de todos los puntos del espacio que están a una misma distancia (el radio r) de un punto central. A diferencia de los cuerpos vistos en M1 (cubo, cilindro, paralelepípedo), la esfera no tiene caras planas ni aristas.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">Área de superficie = 4πr² &nbsp;&nbsp; Volumen = (4/3)πr³</span></div>
+  <p style="margin-top:10px">Ambas fórmulas dependen únicamente del radio — no hay altura ni otras medidas que considerar, a diferencia de los cuerpos vistos en M1.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Estas 2 fórmulas siempre se entregan en la prueba</div>
+    <p>No necesitas memorizarlas de memoria para la PAES — normalmente el enunciado te las proporciona. Tu tarea es aplicarlas correctamente con los datos del problema.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="35" font-size="12" fill="#211a4d">Esfera de radio 3 cm</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#be185d">Área = 4×π×3² = 4×π×9 = 36π ≈ 113,04 cm²</text>
+<text x="140" y="95" font-size="14" font-weight="900" fill="#be185d">Volumen = (4/3)×π×3³ = (4/3)×π×27 = 36π ≈ 113,04 cm³</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🧮 Aplicando las fórmulas paso a paso</p>
+  <p>Con radio 3 cm, se reemplaza directamente en ambas fórmulas: elevar el radio a la potencia correspondiente (² para área, ³ para volumen), multiplicar por la constante correspondiente (4π o 4π/3).</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">r=3: Área=36π cm² &nbsp;&nbsp; Volumen=36π cm³</span><div class="fdef">coincidencia numérica de este ejemplo particular, no una regla general</div></div>
+  <p style="margin-top:10px">Presta mucha atención al <strong>exponente</strong> del radio: área usa r² (cm²), volumen usa r³ (cm³) — un error de exponente es la fuente más común de error en este tema.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Revisa siempre las unidades del resultado</div>
+    <p>Si el resultado debería estar en cm³ (volumen) pero tu cálculo te da unidades de cm² (área), revisa si usaste el exponente correcto del radio.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<circle cx="150" cy="65" r="30" fill="#fce7f3" stroke="#be185d" stroke-width="1.5"/>
+<text x="150" y="110" font-size="10" font-weight="900" fill="#be185d" text-anchor="middle">radio r, volumen V</text>
+<path d="M220,65 L270,65" stroke="#4c3d99" stroke-width="2"/>
+<text x="245" y="55" font-size="10" fill="#4c3d99" text-anchor="middle">radio ×2</text>
+<circle cx="400" cy="65" r="60" fill="#fce7f3" stroke="#be185d" stroke-width="1.5"/>
+<text x="400" y="130" font-size="10" font-weight="900" fill="#be185d" text-anchor="middle">volumen ×8</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">📈 Escalando el radio: el mismo patrón que M1</p>
+  <p>Si duplicas el radio de una esfera, el <strong>área</strong> se multiplica por 4 (2²) y el <strong>volumen</strong> se multiplica por 8 (2³) — exactamente el mismo patrón visto con cubos y paralelepípedos en M1.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">radio ×k &nbsp;⟹&nbsp; área ×k² &nbsp;⟹&nbsp; volumen ×k³</span></div>
+  <p style="margin-top:10px">Esta regla de escala aplica a CUALQUIER cuerpo geométrico (no solo esferas): el área siempre escala con el cuadrado del factor, y el volumen con el cubo.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Comparar dos esferas usando esta razón</div>
+    <p>Si conoces el cociente entre los VOLÚMENES de dos esferas, puedes encontrar el cociente entre sus RADIOS sacando la raíz cúbica: rA/rB=³√(VA/VB) — una pregunta muy repetida en M2.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="12" fill="#211a4d">VA=4/3πrA³, VB=4/3πrB³</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#be185d">rA/rB = ³√(VA/VB)</text>
+<text x="140" y="95" font-size="12" fill="#4c3d99">(la constante 4π/3 se cancela en la razón)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🤖 Problema resuelto: cociente entre radios de 2 esferas</p>
+  <p>Dos esferas A y B tienen volúmenes VA y VB, y radios rA y rB, relacionados por VA=(4/3)πrA³ y VB=(4/3)πrB³. ¿Cuál es la relación correcta entre el cociente de los radios y el cociente de los volúmenes?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">Respuesta: el cociente entre los radios es rA/rB = ³√(VA/VB)</span></div>
+  <p style="margin-top:10px">Al dividir las 2 fórmulas de volumen entre sí, la constante 4π/3 se cancela (aparece en ambas), quedando VA/VB=rA³/rB³. Sacando raíz cúbica a ambos lados: rA/rB=³√(VA/VB).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Truco: divide las fórmulas completas, no despejes cada radio por separado</div>
+    <p>Es más rápido dividir las dos ecuaciones de volumen entre sí (cancelando la constante común) que despejar rA y rB por separado y luego dividirlos.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<circle cx="150" cy="65" r="35" fill="#fce7f3" stroke="#be185d" stroke-width="1.5"/>
+<text x="150" y="115" font-size="10" fill="#4c3d99" text-anchor="middle">pelota de básquetbol</text>
+<text x="380" y="55" font-size="13" font-weight="900" fill="#be185d" text-anchor="middle">radio 12cm</text>
+<text x="380" y="85" font-size="13" font-weight="900" fill="#059669" text-anchor="middle">V=(4/3)π(12)³≈7.238cm³</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🏀 Problema resuelto: volumen de una pelota</p>
+  <p>Una pelota de básquetbol tiene un radio aproximado de 12 cm. ¿Cuál es su volumen aproximado?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">V=(4/3)×π×12³=(4/3)×π×1.728≈7.238 cm³</span></div>
+  <p style="margin-top:10px">Se reemplaza directamente en la fórmula: primero se calcula 12³=1.728, luego se multiplica por 4/3 y por π (aproximando π≈3,14).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Calcula el exponente ANTES de multiplicar por las constantes</div>
+    <p>Es más fácil evitar errores si primero calculas r³ (o r²) por separado, y luego multiplicas por las constantes 4/3 y π, en vez de intentar hacerlo todo en un solo paso.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p4" onclick="deckNav('p4',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p4"><button class="deck-dot act" onclick="deckGoto('p4',0)"></button><button class="deck-dot" onclick="deckGoto('p4',1)"></button><button class="deck-dot" onclick="deckGoto('p4',2)"></button><button class="deck-dot" onclick="deckGoto('p4',3)"></button><button class="deck-dot" onclick="deckGoto('p4',4)"></button></div><button class="deck-arrow" id="deck-next-p4" onclick="deckNav('p4',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p4">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#be185d">Área=4πr²</span>
+  <span class="kw" style="color:#be185d">Volumen=(4/3)πr³</span>
+  <span class="kw" style="color:#be185d">radio×k→volumen×k³</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">Usando π≈3, ¿cuál es el área de superficie aproximada de una esfera de radio 5 cm?</p>
+  <div class="pos" id="qes1">
+    <div class="po" onclick="ans('qes1','A')"><div class="ol">A</div><div class="ot">75 cm²</div></div>
+    <div class="po" onclick="ans('qes1','B')"><div class="ol">B</div><div class="ot">100 cm²</div></div>
+    <div class="po" onclick="ans('qes1','C')"><div class="ol">C</div><div class="ot">300 cm²</div></div>
+    <div class="po" onclick="ans('qes1','D')"><div class="ol">D</div><div class="ot">500 cm²</div></div>
+  </div>
+  <div class="pfb" id="qes1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">Usando π≈3, ¿cuál es el volumen aproximado de una esfera de radio 3 cm?</p>
+  <div class="pos" id="qes2">
+    <div class="po" onclick="ans('qes2','A')"><div class="ol">A</div><div class="ot">36 cm³</div></div>
+    <div class="po" onclick="ans('qes2','B')"><div class="ol">B</div><div class="ot">108 cm³</div></div>
+    <div class="po" onclick="ans('qes2','C')"><div class="ol">C</div><div class="ot">27 cm³</div></div>
+    <div class="po" onclick="ans('qes2','D')"><div class="ol">D</div><div class="ot">324 cm³</div></div>
+  </div>
+  <div class="pfb" id="qes2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">Si el radio de una esfera se triplica, ¿por cuánto se multiplica su volumen?</p>
+  <div class="pos" id="qes3">
+    <div class="po" onclick="ans('qes3','A')"><div class="ol">A</div><div class="ot">×3</div></div>
+    <div class="po" onclick="ans('qes3','B')"><div class="ol">B</div><div class="ot">×9</div></div>
+    <div class="po" onclick="ans('qes3','C')"><div class="ol">C</div><div class="ot">×27</div></div>
+    <div class="po" onclick="ans('qes3','D')"><div class="ol">D</div><div class="ot">×6</div></div>
+  </div>
+  <div class="pfb" id="qes3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <div class="pctx">Dos esferas A y B tienen volúmenes en razón VA/VB=8.</div>
+  <p class="pq">¿Cuál es la razón entre sus radios rA/rB?</p>
+  <div class="pos" id="qes4">
+    <div class="po" onclick="ans('qes4','A')"><div class="ol">A</div><div class="ot">2</div></div>
+    <div class="po" onclick="ans('qes4','B')"><div class="ol">B</div><div class="ot">4</div></div>
+    <div class="po" onclick="ans('qes4','C')"><div class="ol">C</div><div class="ot">8</div></div>
+    <div class="po" onclick="ans('qes4','D')"><div class="ol">D</div><div class="ot">64</div></div>
+  </div>
+  <div class="pfb" id="qes4-fb"></div>
+</div>
+
+</div>
+
+<!-- RECTAS EN EL PLANO -->
+<div class="sec" id="p5">
+<div class="hsec" style="border-color:rgba(5,150,105,.3)">
+  <span class="hi2">📏</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#059669;margin-bottom:3px">Tema 5 de 5 · M2 Unidad 3</div>
+  <h2 style="color:#059669">Rectas en el Plano</h2>
+  <p>Cómo determinar si dos rectas son paralelas, perpendiculares o secantes, usando su pendiente — el cierre de la unidad de Geometría.</p>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="5"><div class="deck-viewport"><div class="deck-track" id="deck-track-p5">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="60" y1="110" x2="300" y2="20" stroke="#059669" stroke-width="2.3"/>
+<line x1="120" y1="110" x2="360" y2="20" stroke="#059669" stroke-width="2.3"/>
+<text x="330" y="40" font-size="11" font-weight="900" fill="#059669">m₁=m₂: paralelas</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">➖ Rectas paralelas</p>
+  <p>Dos rectas son <strong>paralelas</strong> cuando nunca se cruzan, sin importar cuánto se extiendan — esto ocurre exactamente cuando tienen <strong>la misma pendiente</strong>.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">L₁ ∥ L₂ &nbsp;⟺&nbsp; m₁ = m₂</span></div>
+  <p style="margin-top:10px">Ya usaste esta idea en la unidad de Sistemas 2×2: dos rectas con la misma pendiente (y distinto intercepto) forman un sistema sin solución, precisamente porque son paralelas.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Ojo con la misma recta</div>
+    <p>Si además tienen el mismo intercepto, no son "paralelas distintas" sino la MISMA recta — técnicamente coincidentes, un caso especial dentro de la idea de paralelismo.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="60" y1="110" x2="300" y2="20" stroke="#059669" stroke-width="2.3"/>
+<line x1="80" y1="20" x2="230" y2="115" stroke="#b45309" stroke-width="2.3"/>
+<rect x="160" y="70" width="12" height="12" fill="none" stroke="#211a4d" stroke-width="1.3" transform="rotate(-25 166 76)"/>
+<text x="330" y="65" font-size="11" font-weight="900" fill="#211a4d">m₁×m₂=−1: perpendiculares</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">📐 Rectas perpendiculares</p>
+  <p>Dos rectas son <strong>perpendiculares</strong> cuando se cruzan formando un ángulo de exactamente 90°. Esto ocurre cuando el <strong>producto de sus pendientes es −1</strong>.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">L₁ ⊥ L₂ &nbsp;⟺&nbsp; m₁ × m₂ = −1</span><div class="fdef">equivalente a decir que m₂ es el recíproco negativo de m₁: m₂=−1/m₁</div></div>
+  <p style="margin-top:10px">Ejemplo: si una recta tiene pendiente 2, cualquier recta perpendicular a ella tiene pendiente −1/2 (el recíproco, con signo cambiado).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Atajo mental: "invierte y cambia el signo"</div>
+    <p>Para encontrar la pendiente perpendicular a una dada, invierte la fracción (numerador↔denominador) y cambia el signo. Pendiente 3 (o 3/1) → perpendicular −1/3.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="60" y1="110" x2="300" y2="20" stroke="#059669" stroke-width="2.3"/>
+<line x1="70" y1="30" x2="290" y2="100" stroke="#b45309" stroke-width="2.3"/>
+<circle cx="176" cy="63" r="4" fill="#211a4d"/>
+<text x="330" y="60" font-size="11" font-weight="900" fill="#211a4d">m₁≠m₂: secantes (no perpendiculares)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">✂️ Rectas secantes (que se cruzan en un ángulo distinto de 90°)</p>
+  <p>Dos rectas son <strong>secantes</strong> simplemente cuando se cruzan en un punto — con cualquier ángulo, no necesariamente 90°. Es la categoría "general" cuando no son ni paralelas ni perpendiculares.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">m₁ ≠ m₂ &nbsp;y&nbsp; m₁×m₂ ≠ −1 &nbsp;⟹&nbsp; secantes (no perpendiculares)</span></div>
+  <p style="margin-top:10px">Toda perpendicular es también secante (se cruzan), pero no toda secante es perpendicular — perpendicular es un caso especial y más específico de "secante".</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Los 3 casos son excluyentes entre sí</div>
+    <p>Dos rectas distintas siempre están en exactamente uno de estos 3 casos: paralelas, perpendiculares, o secantes (sin ser perpendiculares) — nunca en dos categorías a la vez.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="12" fill="#211a4d">L₁: y=3x+1 &nbsp;&nbsp; L₂: y=−(1/3)x+5</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#059669">m₁×m₂ = 3×(−1/3) = −1</text>
+<text x="140" y="95" font-size="15" font-weight="900" fill="#be185d">→ L₁ y L₂ son perpendiculares</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">🔍 Problema resuelto: clasificar dos rectas</p>
+  <p>Dadas las rectas L₁: y=3x+1 y L₂: y=−(1/3)x+5, ¿qué relación tienen entre sí?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">m₁×m₂ = 3×(−1/3) = −1 → perpendiculares</span></div>
+  <p style="margin-top:10px">Se identifican las pendientes (3 y −1/3) y se multiplican. Como el resultado es exactamente −1, se confirma que son perpendiculares — sin necesitar graficar nada.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Siempre resuelve algebraicamente antes de graficar</div>
+    <p>Clasificar rectas por sus pendientes es mucho más rápido y preciso que intentar "verlo" en un gráfico dibujado a mano — usa el álgebra como método principal.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="12" fill="#211a4d">Encontrar recta perpendicular a y=2x−3, que pase por (4,1)</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#059669">m perpendicular = −1/2</text>
+<text x="140" y="95" font-size="14" font-weight="900" fill="#be185d">y−1=−1/2(x−4) → y=−1/2x+3</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">🎯 Problema resuelto: encontrar la ecuación de una recta perpendicular</p>
+  <p>¿Cuál es la ecuación de la recta perpendicular a y=2x−3 que pasa por el punto (4,1)?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">m=−1/2 &nbsp;&nbsp; y−1=−1/2(x−4) &nbsp;⟹&nbsp; y=−1/2x+3</span></div>
+  <p style="margin-top:10px">Primero se encuentra la pendiente perpendicular (recíproco negativo de 2, que es −1/2), y luego se usa el punto dado junto con la fórmula punto-pendiente para encontrar la ecuación completa.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Fórmula punto-pendiente</div>
+    <p>y−y₁=m(x−x₁), donde (x₁,y₁) es el punto conocido y m la pendiente — esta fórmula te permite encontrar la ecuación completa de cualquier recta si conoces un punto y su pendiente.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p5" onclick="deckNav('p5',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p5"><button class="deck-dot act" onclick="deckGoto('p5',0)"></button><button class="deck-dot" onclick="deckGoto('p5',1)"></button><button class="deck-dot" onclick="deckGoto('p5',2)"></button><button class="deck-dot" onclick="deckGoto('p5',3)"></button><button class="deck-dot" onclick="deckGoto('p5',4)"></button></div><button class="deck-arrow" id="deck-next-p5" onclick="deckNav('p5',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p5">Concepto 1 / 5</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#059669">paralelas: m₁=m₂</span>
+  <span class="kw" style="color:#059669">perpendiculares: m₁×m₂=−1</span>
+  <span class="kw" style="color:#059669">secantes</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 4 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es la pendiente de una recta perpendicular a una recta con pendiente 4?</p>
+  <div class="pos" id="qrp1">
+    <div class="po" onclick="ans('qrp1','A')"><div class="ol">A</div><div class="ot">4</div></div>
+    <div class="po" onclick="ans('qrp1','B')"><div class="ol">B</div><div class="ot">−4</div></div>
+    <div class="po" onclick="ans('qrp1','C')"><div class="ol">C</div><div class="ot">1/4</div></div>
+    <div class="po" onclick="ans('qrp1','D')"><div class="ol">D</div><div class="ot">−1/4</div></div>
+  </div>
+  <div class="pfb" id="qrp1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál de las siguientes rectas es paralela a y=−2x+7?</p>
+  <div class="pos" id="qrp2">
+    <div class="po" onclick="ans('qrp2','A')"><div class="ol">A</div><div class="ot">y=2x+7</div></div>
+    <div class="po" onclick="ans('qrp2','B')"><div class="ol">B</div><div class="ot">y=−2x+3</div></div>
+    <div class="po" onclick="ans('qrp2','C')"><div class="ol">C</div><div class="ot">y=1/2x+7</div></div>
+    <div class="po" onclick="ans('qrp2','D')"><div class="ol">D</div><div class="ot">y=−1/2x+7</div></div>
+  </div>
+  <div class="pfb" id="qrp2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Las rectas y=5x−1 e y=5x+3 son...?</p>
+  <div class="pos" id="qrp3">
+    <div class="po" onclick="ans('qrp3','A')"><div class="ol">A</div><div class="ot">Paralelas</div></div>
+    <div class="po" onclick="ans('qrp3','B')"><div class="ol">B</div><div class="ot">Perpendiculares</div></div>
+    <div class="po" onclick="ans('qrp3','C')"><div class="ol">C</div><div class="ot">La misma recta</div></div>
+    <div class="po" onclick="ans('qrp3','D')"><div class="ol">D</div><div class="ot">Secantes no perpendiculares</div></div>
+  </div>
+  <div class="pfb" id="qrp3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es la ecuación de la recta perpendicular a y=−4x+2 que pasa por (0,3)?</p>
+  <div class="pos" id="qrp4">
+    <div class="po" onclick="ans('qrp4','A')"><div class="ol">A</div><div class="ot">y=−4x+3</div></div>
+    <div class="po" onclick="ans('qrp4','B')"><div class="ol">B</div><div class="ot">y=1/4x+3</div></div>
+    <div class="po" onclick="ans('qrp4','C')"><div class="ol">C</div><div class="ot">y=4x+3</div></div>
+    <div class="po" onclick="ans('qrp4','D')"><div class="ol">D</div><div class="ot">y=−1/4x+2</div></div>
+  </div>
+  <div class="pfb" id="qrp4-fb"></div>
+</div>
+
+</div>
+
+<!-- ENSAYO -->
+<div class="sec" id="p6">
+<div class="card">
+  <p class="ct" style="color:var(--ind)">&#9201; Mini Ensayo de Cierre &bull; 20 preguntas</p>
+  <p style="font-size:.92rem;color:var(--dim)">Simula un tramo de esta unidad: <strong>20 preguntas generadas con IA</strong> (marcadas 🤖), mezclando los 5 temas con el estilo y dificultad de la PAES. 24 minutos, sin retroalimentación inmediata.</p>
+</div>
+<div class="tbox">
+  <div>
+    <div style="font-size:.71rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin-bottom:1px">Tiempo restante</div>
+    <div class="td" id="td">24:00</div>
+  </div>
+  <div style="text-align:right">
+    <div id="ts" style="font-size:.84rem;color:var(--dim);margin-bottom:6px">Haz clic en Iniciar cuando estés lista</div>
+    <button id="stb" onclick="startE()" style="padding:8px 20px;background:var(--ind);color:#fff;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.93rem;cursor:pointer;box-shadow:0 4px 12px rgba(79,70,229,.28)">&#9654; Iniciar ensayo</button>
+  </div>
+</div>
+<div id="eqs" style="opacity:.35;pointer-events:none">
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 1 · Homotecia · 🤖</div><div class="eqt">¿Qué ocurre con una figura si se le aplica una homotecia con razón k=1/2?</div><div class="eopts" id="ep0"><div class="eopt" data-qi="0" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Se agranda al doble</div></div><div class="eopt" data-qi="0" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Se achica a la mitad</div></div><div class="eopt" data-qi="0" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">No cambia</div></div><div class="eopt" data-qi="0" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Se invierte sin cambiar tamaño</div></div></div><div class="efb" id="ef0"></div></div>
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 2 · Homotecia · 🤖</div><div class="ectx">Un cuadrado tiene área 16 cm². Se le aplica una homotecia de razón k=2.</div><div class="eqt">¿Cuál es el área del cuadrado imagen?</div><div class="eopts" id="ep1"><div class="eopt" data-qi="1" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">32 cm²</div></div><div class="eopt" data-qi="1" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">64 cm²</div></div><div class="eopt" data-qi="1" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">8 cm²</div></div><div class="eopt" data-qi="1" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">16 cm²</div></div></div><div class="efb" id="ef1"></div></div>
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 3 · Homotecia · 🤖</div><div class="ectx">La relación entre la altura de la sombra proyectada de una antena y la altura de la antena se modela por H=kh. La razón de homotecia es 3 y la sombra mide 450 cm.</div><div class="eqt">¿Cuál es la altura de la antena?</div><div class="eopts" id="ep2"><div class="eopt" data-qi="2" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">1.350 cm</div></div><div class="eopt" data-qi="2" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">150 cm</div></div><div class="eopt" data-qi="2" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">50 cm</div></div><div class="eopt" data-qi="2" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">900 cm</div></div></div><div class="efb" id="ef2"></div></div>
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 4 · Homotecia · 🤖</div><div class="eqt">Un punto A(6,−3) se transforma en B(2,−1) mediante una homotecia con centro en el origen. ¿Cuál es la razón k?</div><div class="eopts" id="ep3"><div class="eopt" data-qi="3" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">3</div></div><div class="eopt" data-qi="3" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">1/3</div></div><div class="eopt" data-qi="3" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">−3</div></div><div class="eopt" data-qi="3" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">2</div></div></div><div class="efb" id="ef3"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 5 · Razones Trigonométricas · 🤖</div><div class="ectx">En un triángulo rectángulo, el cateto adyacente a θ mide 9 cm y la hipotenusa mide 15 cm.</div><div class="eqt">¿Cuál es el valor de cos θ?</div><div class="eopts" id="ep4"><div class="eopt" data-qi="4" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">0,6</div></div><div class="eopt" data-qi="4" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">0,8</div></div><div class="eopt" data-qi="4" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">1,67</div></div><div class="eopt" data-qi="4" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">9</div></div></div><div class="efb" id="ef4"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 6 · Razones Trigonométricas · 🤖</div><div class="ectx">Triángulo rectángulo en A, con O centro de una circunferencia de radio OB=8cm, ángulo en O=60°. Paso 1: cos60°=AB/OB. Paso 2: AB=4cm. Paso 3 (Pitágoras): 16+OA²=64. Paso 4: OA=√48cm≈6,93cm.</div><div class="eqt">¿En cuál paso se cometió el error?</div><div class="eopts" id="ep5"><div class="eopt" data-qi="5" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Paso 1</div></div><div class="eopt" data-qi="5" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Paso 2</div></div><div class="eopt" data-qi="5" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Paso 3</div></div><div class="eopt" data-qi="5" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Paso 4</div></div></div><div class="efb" id="ef5"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 7 · Razones Trigonométricas · 🤖</div><div class="ectx">El triángulo ABC es rectángulo en C, con BC=5cm y AB=13cm (hipotenusa). Los triángulos ABC y PQR son semejantes, con PR=6cm.</div><div class="eqt">¿Cuánto mide la hipotenusa del triángulo PQR?</div><div class="eopts" id="ep6"><div class="eopt" data-qi="6" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">2,6 cm</div></div><div class="eopt" data-qi="6" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">6,5 cm</div></div><div class="eopt" data-qi="6" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">12 cm</div></div><div class="eopt" data-qi="6" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">10 cm</div></div></div><div class="efb" id="ef6"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 8 · Razones Trigonométricas · 🤖</div><div class="eqt">Un poste proyecta, con el sol a 45°, una sombra igual a su propia altura. ¿A qué se debe esto?</div><div class="eopts" id="ep7"><div class="eopt" data-qi="7" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Porque tan(45°)=1</div></div><div class="eopt" data-qi="7" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Porque sen(45°)=1</div></div><div class="eopt" data-qi="7" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Porque cos(45°)=1</div></div><div class="eopt" data-qi="7" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Porque el poste y la sombra son perpendiculares</div></div></div><div class="efb" id="ef7"></div></div>
+
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 9 · Relaciones en la Circunferencia · 🤖</div><div class="eqt">Un ángulo central mide 80°. ¿Cuánto mide el arco que abraza?</div><div class="eopts" id="ep8"><div class="eopt" data-qi="8" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">40°</div></div><div class="eopt" data-qi="8" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">80°</div></div><div class="eopt" data-qi="8" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">160°</div></div><div class="eopt" data-qi="8" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">280°</div></div></div><div class="efb" id="ef8"></div></div>
+
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 10 · Relaciones en la Circunferencia · 🤖</div><div class="eqt">Un ángulo inscrito abraza un arco de 130°. ¿Cuánto mide el ángulo inscrito?</div><div class="eopts" id="ep9"><div class="eopt" data-qi="9" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">65°</div></div><div class="eopt" data-qi="9" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">130°</div></div><div class="eopt" data-qi="9" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">260°</div></div><div class="eopt" data-qi="9" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">50°</div></div></div><div class="efb" id="ef9"></div></div>
+
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 11 · Relaciones en la Circunferencia · 🤖</div><div class="ectx">Dos cuerdas se cruzan dentro de una circunferencia. Los segmentos de una miden 3 y 8; los de la otra miden 4 y x.</div><div class="eqt">¿Cuánto mide x?</div><div class="eopts" id="ep10"><div class="eopt" data-qi="10" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">6</div></div><div class="eopt" data-qi="10" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">1,5</div></div><div class="eopt" data-qi="10" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">24</div></div><div class="eopt" data-qi="10" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">11</div></div></div><div class="efb" id="ef10"></div></div>
+
+<div class="eq"><div class="enum" style="color:#0891b2">Pregunta 12 · Relaciones en la Circunferencia · 🤖</div><div class="eqt">¿Cuál es la medida de un ángulo inscrito que abraza un diámetro completo?</div><div class="eopts" id="ep11"><div class="eopt" data-qi="11" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">45°</div></div><div class="eopt" data-qi="11" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">90°</div></div><div class="eopt" data-qi="11" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">180°</div></div><div class="eopt" data-qi="11" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Depende del radio</div></div></div><div class="efb" id="ef11"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 13 · Esferas · 🤖</div><div class="eqt">Usando π≈3, ¿cuál es el área de superficie de una esfera de radio 4 cm?</div><div class="eopts" id="ep12"><div class="eopt" data-qi="12" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">48 cm²</div></div><div class="eopt" data-qi="12" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">192 cm²</div></div><div class="eopt" data-qi="12" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">64 cm²</div></div><div class="eopt" data-qi="12" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">256 cm²</div></div></div><div class="efb" id="ef12"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 14 · Esferas · 🤖</div><div class="eqt">Usando π≈3, ¿cuál es el volumen de una esfera de radio 6 cm?</div><div class="eopts" id="ep13"><div class="eopt" data-qi="13" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">216 cm³</div></div><div class="eopt" data-qi="13" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">432 cm³</div></div><div class="eopt" data-qi="13" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">864 cm³</div></div><div class="eopt" data-qi="13" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">108 cm³</div></div></div><div class="efb" id="ef13"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 15 · Esferas · 🤖</div><div class="ectx">Dos esferas A y B tienen volúmenes VA y VB, y radios rA y rB, con VA=(4/3)πrA³ y VB=(4/3)πrB³.</div><div class="eqt">¿Cuál de las siguientes afirmaciones sobre el cociente de sus radios es siempre verdadera?</div><div class="eopts" id="ep14"><div class="eopt" data-qi="14" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">El diámetro de la esfera A es ³√VA</div></div><div class="eopt" data-qi="14" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">La suma de ambos radios es ³√(VA+VB)</div></div><div class="eopt" data-qi="14" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">El cociente entre los radios es rA/rB=³√(VA/VB)</div></div><div class="eopt" data-qi="14" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">El producto de ambos radios es ³√(VA×VB)</div></div></div><div class="efb" id="ef14"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 16 · Esferas · 🤖</div><div class="eqt">Si el radio de una esfera se reduce a la mitad, ¿por cuánto se multiplica su área de superficie?</div><div class="eopts" id="ep15"><div class="eopt" data-qi="15" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">×1/2</div></div><div class="eopt" data-qi="15" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">×1/4</div></div><div class="eopt" data-qi="15" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">×1/8</div></div><div class="eopt" data-qi="15" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">×2</div></div></div><div class="efb" id="ef15"></div></div>
+
+<div class="eq"><div class="enum" style="color:#059669">Pregunta 17 · Rectas en el Plano · 🤖</div><div class="eqt">¿Cuál es la pendiente de una recta perpendicular a una recta con pendiente −3?</div><div class="eopts" id="ep16"><div class="eopt" data-qi="16" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">3</div></div><div class="eopt" data-qi="16" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">−3</div></div><div class="eopt" data-qi="16" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">1/3</div></div><div class="eopt" data-qi="16" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">−1/3</div></div></div><div class="efb" id="ef16"></div></div>
+
+<div class="eq"><div class="enum" style="color:#059669">Pregunta 18 · Rectas en el Plano · 🤖</div><div class="eqt">¿Cuál de las siguientes rectas es paralela a y=4x−2?</div><div class="eopts" id="ep17"><div class="eopt" data-qi="17" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">y=4x+5</div></div><div class="eopt" data-qi="17" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">y=−4x−2</div></div><div class="eopt" data-qi="17" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">y=1/4x−2</div></div><div class="eopt" data-qi="17" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">y=−1/4x+5</div></div></div><div class="efb" id="ef17"></div></div>
+
+<div class="eq"><div class="enum" style="color:#059669">Pregunta 19 · Rectas en el Plano · 🤖</div><div class="eqt">¿Cuál es la relación entre las rectas y=6x+2 e y=6x−4?</div><div class="eopts" id="ep18"><div class="eopt" data-qi="18" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Paralelas</div></div><div class="eopt" data-qi="18" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Perpendiculares</div></div><div class="eopt" data-qi="18" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">La misma recta</div></div><div class="eopt" data-qi="18" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Secantes no perpendiculares</div></div></div><div class="efb" id="ef18"></div></div>
+
+<div class="eq"><div class="enum" style="color:#059669">Pregunta 20 · Rectas en el Plano · 🤖</div><div class="eqt">¿Cuál es la ecuación de la recta perpendicular a y=5x−1 que pasa por (0,−1)?</div><div class="eopts" id="ep19"><div class="eopt" data-qi="19" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">y=5x−1</div></div><div class="eopt" data-qi="19" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">y=−1/5x−1</div></div><div class="eopt" data-qi="19" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">y=1/5x−1</div></div><div class="eopt" data-qi="19" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">y=−5x−1</div></div></div><div class="efb" id="ef19"></div></div>
+
+</div>
+<button class="sbtn" id="subb" onclick="submitE()" disabled>Ver resultados</button>
+<div id="eres" style="display:none;margin-top:18px"></div>
+</div>
+
+</div><!-- /wr -->
+<div class="lnav">
+  <button class="lb" id="lp" onclick="linN(-1)" disabled>&#8592; Anterior</button>
+  <div class="lm" id="lm">Inicio</div>
+  <button class="lb" id="ln" onclick="linN(1)">Siguiente &#8594;</button>
+</div>
+<footer>&#128202; Electivo Matem&aacute;tica M2 &bull; Unidad 3: Geometr&iacute;a &bull; Admisi&oacute;n 2027</footer>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · M2 · Unidad 3</h3>
+      <p>Geometría</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    ⏱️ No puedo ayudarte mientras estás rindiendo el mini ensayo cronometrado. Termina primero y luego revisamos lo que necesites.
+  </div>
+
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas de Homotecia, Razones Trigonométricas, Relaciones en la Circunferencia, Esferas o Rectas en el Plano. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+var SS=['p0','p1','p2','p3','p4','p5','p6'];
+var SL=['Inicio','Homotecia','Razones Trigonometricas','Circunferencia','Esferas','Rectas en el Plano','Mini Ensayo'];
+var cur=0;
+function go(id,idx,btn){
+  SS.forEach(function(s){document.getElementById(s).classList.remove('act');});
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('act');});
+  document.getElementById(id).classList.add('act');
+  btn.classList.add('act');
+  cur=idx;
+  document.getElementById('prf').style.width=Math.round((idx+1)/SS.length*100)+'%';
+  document.getElementById('lp').disabled=(idx===0);
+  document.getElementById('ln').disabled=(idx===SS.length-1);
+  document.getElementById('lm').textContent=SL[idx];
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function linN(d){
+  var n=Math.max(0,Math.min(SS.length-1,cur+d));
+  if(n===cur)return;
+  go(SS[n],n,document.querySelectorAll('.nb')[n]);
+}
+
+var deckState={};
+function deckInit(sid){
+  var track=document.getElementById('deck-track-'+sid);
+  if(!track)return;
+  var total=track.children.length;
+  deckState[sid]={i:0,total:total};
+  track.style.touchAction='pan-y';
+  var dragging=false,startX=0;
+  track.addEventListener('pointerdown',function(e){
+    dragging=true;startX=e.clientX;
+    track.style.transition='none';
+    try{track.setPointerCapture(e.pointerId);}catch(err){}
+  });
+  track.addEventListener('pointermove',function(e){
+    if(!dragging)return;
+    var dx=e.clientX-startX;
+    var pct=-(deckState[sid].i*100)+(dx/track.offsetWidth*100);
+    track.style.transform='translateX('+pct+'%)';
+  });
+  function endDrag(e){
+    if(!dragging)return;
+    dragging=false;
+    track.style.transition='';
+    var dx=e.clientX-startX;
+    if(Math.abs(dx)>40){deckNav(sid,dx<0?1:-1);}
+    else{deckRender(sid);}
+  }
+  track.addEventListener('pointerup',endDrag);
+  track.addEventListener('pointercancel',endDrag);
+  track.addEventListener('pointerleave',function(e){if(dragging)endDrag(e);});
+}
+function deckRender(sid){
+  var st=deckState[sid];
+  var track=document.getElementById('deck-track-'+sid);
+  track.style.transform='translateX(-'+(st.i*100)+'%)';
+  document.getElementById('deck-prev-'+sid).disabled=(st.i===0);
+  document.getElementById('deck-next-'+sid).disabled=(st.i===st.total-1);
+  document.getElementById('deck-count-'+sid).textContent='Concepto '+(st.i+1)+' / '+st.total;
+  var dots=document.getElementById('deck-dots-'+sid).children;
+  for(var k=0;k<dots.length;k++)dots[k].classList.toggle('act',k===st.i);
+}
+function deckNav(sid,d){
+  if(!deckState[sid])deckInit(sid);
+  var st=deckState[sid];
+  st.i=Math.max(0,Math.min(st.total-1,st.i+d));
+  deckRender(sid);
+}
+function deckGoto(sid,i){
+  if(!deckState[sid])deckInit(sid);
+  deckState[sid].i=i;
+  deckRender(sid);
+}
+['p1','p2','p3','p4','p5'].forEach(function(sid){deckInit(sid);deckRender(sid);});
+document.addEventListener('keydown',function(e){
+  var activeSec=SS[cur];
+  if(!deckState[activeSec])return;
+  if(e.key==='ArrowLeft')deckNav(activeSec,-1);
+  if(e.key==='ArrowRight')deckNav(activeSec,1);
+});
+
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done='1';
+  var a=QA[qid];
+  el.querySelectorAll('.po').forEach(function(o){
+    o.classList.add('locked');
+    var l=o.querySelector('.ol').textContent;
+    if(l===a.c)o.classList.add('right');
+    else if(l===opt)o.classList.add('wrong');
+  });
+  var fb=document.getElementById(qid+'-fb');
+  fb.className='pfb show '+(opt===a.c?'ok':'no');
+  fb.textContent=(opt===a.c?'Correcto! ':'')+a.fb[opt];
+}
+
+var QA={
+  'qh1':{c:'B',fb:{
+    A:'No. Con k=3 (mayor que 1), la figura se agranda, no se achica.',
+    B:'Correcto. Con k=3, cada medida se multiplica por 3: la figura se agranda al triple.',
+    C:'No. Solo con k=1 la figura no cambiaría de tamaño.',
+    D:'No. Solo con k negativo la figura se invierte; k=3 es positivo.'
+  }},
+  'qh2':{c:'B',fb:{
+    A:'No. Revisa ambas coordenadas: −8/4=−2, no 2.',
+    B:'Correcto. k=−8/4=−2 (verificado con la otra coordenada: −4/2=−2).',
+    C:'No. −4 no corresponde a ninguna de las dos razones calculadas.',
+    D:'No. Revisa el signo: las coordenadas de la imagen son negativas mientras las originales son positivas, señal de razón negativa.'
+  }},
+  'qh3':{c:'A',fb:{
+    A:'Correcto. El perímetro escala directamente con k: 18×(1/3)=6.',
+    B:'No. Revisa el cálculo: 18×(1/3)=6, no 9.',
+    C:'No. Esto sería multiplicar por 3 en vez de por 1/3.',
+    D:'No. Revisa la multiplicación: 18×(1/3)=6, no 2.'
+  }},
+  'qh4':{c:'B',fb:{
+    A:'No. El radio de una figura siempre es positivo, no puede ser −12cm.',
+    B:'Correcto. El nuevo radio es |k|×4=3×4=12cm (el radio siempre es una magnitud positiva).',
+    C:'No. Esto sería dividir en vez de multiplicar.',
+    D:'No. 7 no corresponde a ningún cálculo relevante aquí.'
+  }}
+};
+
+QA['qtr1']={c:'A',fb:{
+  A:'Correcto. sen θ=opuesto/hipotenusa=6/10=0,6.',
+  B:'No. 0,8 correspondería al coseno si el adyacente fuera 8, no al seno pedido aquí.',
+  C:'No. Revisa la fracción: es 6/10=0,6, no 10/6.',
+  D:'No. 6 es solo el cateto opuesto, falta dividir por la hipotenusa.'
+}};
+QA['qtr2']={c:'B',fb:{
+  A:'No. tan θ=opuesto/adyacente=12/5, no 5/12 (revisa cuál es el numerador).',
+  B:'Correcto. tan θ=opuesto/adyacente=12/5.',
+  C:'No. 12/13 usaría la hipotenusa, que no corresponde a la tangente.',
+  D:'No. 5/13 tampoco corresponde a la tangente; revisa la definición SOH-CAH-TOA.'
+}};
+QA['qtr3']={c:'A',fb:{
+  A:'Correcto. La altura en la pared es el cateto opuesto al ángulo de 30°: 10×sen(30°).',
+  B:'No. Coseno usa el cateto adyacente (la distancia en el suelo), no la altura.',
+  C:'No. Esta expresión no corresponde a ninguna razón trigonométrica válida para este problema.',
+  D:'No. La tangente relaciona catetos entre sí, no la hipotenusa con un cateto.'
+}};
+QA['qtr4']={c:'B',fb:{
+  A:'No. Revisa la división: 0,6÷0,8=0,75, no 0,48 (eso sería una multiplicación).',
+  B:'Correcto. tan θ=sen θ/cos θ=0,6/0,8=0,75.',
+  C:'No. Revisa la división: 0,6÷0,8=0,75, no 1,33 (eso sería el recíproco).',
+  D:'No. 1,4 no corresponde a esta división.'
+}};
+
+QA['qcf1']={c:'B',fb:{
+  A:'No. El ángulo central es igual al arco, no la mitad: 110°.',
+  B:'Correcto. Ángulo central = arco correspondiente: 110°.',
+  C:'No. 220° sería el doble, no corresponde a esta relación.',
+  D:'No. 250° no corresponde a ningún cálculo relevante aquí.'
+}};
+QA['qcf2']={c:'A',fb:{
+  A:'Correcto. Ángulo inscrito=arco/2=100/2=50°.',
+  B:'No. 100° sería la medida si fuera un ángulo central, no inscrito.',
+  C:'No. 200° sería el doble del arco, no la mitad.',
+  D:'No. Revisa la división: 100/2=50°, no 25°.'
+}};
+QA['qcf3']={c:'B',fb:{
+  A:'No. 45° no corresponde a un arco de media circunferencia.',
+  B:'Correcto. Un ángulo inscrito que abraza un diámetro (arco de 180°) siempre mide 180°/2=90°.',
+  C:'No. 180° es la medida del arco, no del ángulo inscrito (que es la mitad).',
+  D:'No. 360° corresponde a la circunferencia completa, no a este ángulo.'
+}};
+QA['qcf4']={c:'B',fb:{
+  A:'No. Revisa la ecuación: 5×12=6×x, no otra combinación.',
+  B:'Correcto. 5×12=6×x → x=60/6=10.',
+  C:'No. 12 no corresponde al resultado de esta división.',
+  D:'No. Revisa el cálculo: 60÷6=10, no 14,4.'
+}};
+
+QA['qes1']={c:'C',fb:{
+  A:'No. Revisa la fórmula: es 4πr², no una fracción de esta.',
+  B:'No. 100 no corresponde al cálculo con estos valores.',
+  C:'Correcto. Área=4×3×5²=4×3×25=300cm².',
+  D:'No. Revisa la multiplicación: 4×3×25=300, no 500.'
+}};
+QA['qes2']={c:'B',fb:{
+  A:'No. 36 sería solo 4×3³ sin el factor 4/3 completo.',
+  B:'Correcto. Volumen=(4/3)×3×3³=(4/3)×3×27=108cm³.',
+  C:'No. 27 es solo 3³, falta multiplicar por la constante (4/3)×π.',
+  D:'No. Revisa el cálculo: (4/3)×3×27=108, no 324.'
+}};
+QA['qes3']={c:'C',fb:{
+  A:'No. El volumen no escala igual que el radio; debes elevar el factor al cubo.',
+  B:'No. 9 sería el factor para el ÁREA (k²), no para el volumen.',
+  C:'Correcto. Al triplicar el radio (k=3), el volumen se multiplica por k³=27.',
+  D:'No. 6 no corresponde a ningún cálculo relevante de escala aquí.'
+}};
+QA['qes4']={c:'A',fb:{
+  A:'Correcto. rA/rB=³√(VA/VB)=³√8=2.',
+  B:'No. Revisa la raíz cúbica de 8: es 2, no 4.',
+  C:'No. 8 es la razón de volúmenes, no la de radios.',
+  D:'No. 64 no corresponde a este cálculo (sería 8² en vez de ³√8).'
+}};
+
+QA['qrp1']={c:'D',fb:{
+  A:'No. 4 es la misma pendiente, no la perpendicular.',
+  B:'No. −4 no es el recíproco de 4; falta invertir la fracción.',
+  C:'No. 1/4 es el recíproco pero sin cambiar el signo.',
+  D:'Correcto. Se invierte (4→1/4) y se cambia el signo: −1/4.'
+}};
+QA['qrp2']={c:'B',fb:{
+  A:'No. Pendiente 2 es distinta de −2; no es paralela.',
+  B:'Correcto. Misma pendiente (−2), distinto intercepto (3≠7): paralela.',
+  C:'No. Pendiente 1/2 es distinta de −2; no es paralela.',
+  D:'No. Pendiente −1/2 es distinta de −2; no es paralela.'
+}};
+QA['qrp3']={c:'A',fb:{
+  A:'Correcto. Misma pendiente (5), distinto intercepto (−1≠3): son paralelas.',
+  B:'No. Para ser perpendiculares, el producto de las pendientes debería ser −1; aquí ambas pendientes son iguales (5×5=25≠−1).',
+  C:'No. Si fueran la misma recta, también tendrían el mismo intercepto, y aquí son distintos (−1≠3).',
+  D:'No. Al tener la misma pendiente, no son secantes (nunca se cruzan): son paralelas.'
+}};
+QA['qrp4']={c:'B',fb:{
+  A:'No. Esta es la misma pendiente de la recta original (−4), no la perpendicular.',
+  B:'Correcto. Perpendicular a pendiente −4 es 1/4 (recíproco con signo cambiado); pasando por (0,3): y=1/4x+3.',
+  C:'No. El signo de la pendiente perpendicular debe ser positivo (1/4), pero revisa que la recta original tenía pendiente −4, no 4.',
+  D:'No. Esto usa la misma pendiente (−1/4 no es el recíproco correcto de −4).'
+}};
+
+function selA(el){
+  if(!eS||eF)return;
+  var i=parseInt(el.dataset.qi),o=el.dataset.opt;
+  var row=document.getElementById('ep'+i);
+  if(row.dataset.done)return;
+  UA[i]=o;
+  row.querySelectorAll('.eopt').forEach(function(x){x.classList.remove('sel');});
+  el.classList.add('sel');
+}
+function startE(){
+  eS=true;
+  document.getElementById('stb').style.display='none';
+  document.getElementById('ts').textContent='En marcha!';
+  document.getElementById('eqs').style.opacity='1';
+  document.getElementById('eqs').style.pointerEvents='auto';
+  document.getElementById('subb').disabled=false;
+  tI=setInterval(function(){
+    tL--;
+    var m=Math.floor(tL/60),s=tL%60;
+    var d=document.getElementById('td');
+    d.textContent=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
+    d.className='td'+(tL<=60?' d':tL<=300?' w':'');
+    if(tL<=0){clearInterval(tI);submitE();}
+  },1000);
+}
+var UA={},eS=false,eF=false,tL=1440,tI=null;
+
+var EQA=[
+{c:'B',fb:'Con k=1/2, cada medida se multiplica por 1/2: la figura se achica a la mitad.',t:'Homotecia'},
+{c:'B',fb:'El área escala con k²: 16×2²=16×4=64cm².',t:'Homotecia'},
+{c:'B',fb:'H=kh → 450=3×h → h=450/3=150cm.',t:'Homotecia'},
+{c:'B',fb:'k=2/6=1/3 (verificado con la otra coordenada: −1/−3=1/3).',t:'Homotecia'},
+{c:'A',fb:'cos θ=adyacente/hipotenusa=9/15=0,6.',t:'RazonesTrig'},
+{c:'A',fb:'El ángulo de 60° está en O; su adyacente es OA y su opuesto es AB. Coseno usa el adyacente, así que la ecuación correcta era cos60°=OA/OB, no AB/OB: el error está en el Paso 1.',t:'RazonesTrig'},
+{c:'B',fb:'AC=√(13²−5²)=12 (lado correspondiente a PR). Razón=6/12=1/2. Hipotenusa PQR=13×1/2=6,5cm.',t:'RazonesTrig'},
+{c:'A',fb:'tan(45°)=1, por lo tanto cateto opuesto=cateto adyacente: la sombra iguala la altura.',t:'RazonesTrig'},
+{c:'B',fb:'Ángulo central=arco correspondiente: 80°.',t:'Circunferencia'},
+{c:'A',fb:'Ángulo inscrito=arco/2=130/2=65°.',t:'Circunferencia'},
+{c:'A',fb:'3×8=4×x → x=24/4=6.',t:'Circunferencia'},
+{c:'B',fb:'Un ángulo inscrito que abraza un diámetro (arco de 180°) siempre mide 90°.',t:'Circunferencia'},
+{c:'B',fb:'Área=4×3×4²=4×3×16=192cm².',t:'Esferas'},
+{c:'C',fb:'Volumen=(4/3)×3×6³=4×216=864cm³.',t:'Esferas'},
+{c:'C',fb:'Al dividir las fórmulas de volumen entre sí, la constante 4π/3 se cancela, quedando rA/rB=³√(VA/VB).',t:'Esferas'},
+{c:'B',fb:'El área escala con k²: al reducir el radio a la mitad (k=1/2), el área se multiplica por (1/2)²=1/4.',t:'Esferas'},
+{c:'C',fb:'Perpendicular a −3 es el recíproco con signo cambiado: 1/3.',t:'Rectas'},
+{c:'A',fb:'Misma pendiente (4), distinto intercepto (−2≠5): son paralelas.',t:'Rectas'},
+{c:'A',fb:'Misma pendiente (6), distinto intercepto (2≠−4): son paralelas.',t:'Rectas'},
+{c:'B',fb:'Perpendicular a pendiente 5 es −1/5; pasando por (0,−1): y=−1/5x−1.',t:'Rectas'}
+];
+
+var TOPIC_SEC={'Homotecia':'p1','RazonesTrig':'p2','Circunferencia':'p3','Esferas':'p4','Rectas':'p5'};
+var TOPIC_IDX={'p1':1,'p2':2,'p3':3,'p4':4,'p5':5};
+var TOPIC_BTN_LABEL={'Homotecia':'🔄 Homotecia','RazonesTrig':'📐 Razones Trigonométricas','Circunferencia':'⭕ Circunferencia','Esferas':'🏀 Esferas','Rectas':'📏 Rectas en el Plano'};
+var TOPIC_FULL={'Homotecia':'Homotecia','RazonesTrig':'Razones Trigonométricas','Circunferencia':'Relaciones en la Circunferencia','Esferas':'Esferas','Rectas':'Rectas en el Plano'};
+
+function submitE(){
+  if(eF)return;
+  eF=true;clearInterval(tI);
+  document.getElementById('ts').textContent='Tiempo terminado';
+  document.getElementById('subb').disabled=true;
+  var ok=0,topicMap={};
+  EQA.forEach(function(q,i){
+    var row=document.getElementById('ep'+i);
+    row.dataset.done='1';
+    row.querySelectorAll('.eopt').forEach(function(o){
+      o.classList.add('locked');
+      if(o.dataset.opt===q.c)o.classList.add('right');
+      else if(UA[i]&&o.dataset.opt===UA[i])o.classList.add('wrong');
+    });
+    var fb=document.getElementById('ef'+i);
+    var ua=UA[i];
+    var isOk=(ua===q.c);
+    fb.className='efb show '+(isOk?'ok':'no');
+    fb.textContent=(isOk?'Correcto! ':ua?'Incorrecto. La respuesta correcta es '+q.c+'. ':'Sin respuesta. La correcta es '+q.c+'. ')+q.fb;
+    if(isOk)ok++;
+    if(!topicMap[q.t])topicMap[q.t]={c:0,t:0};
+    topicMap[q.t].t++;
+    if(isOk)topicMap[q.t].c++;
+  });
+  var pct=Math.round(ok/EQA.length*100);
+  var sc=pct>=70?'var(--ind)':pct>=50?'#d97706':'#dc2626';
+
+  var topicHtml='<p style="font-family:\'Fredoka One\',cursive;font-size:1rem;color:var(--ind);margin-bottom:8px">Resultado por tema:</p><div class="res-topic-grid">';
+  var weak=[];
+  Object.keys(topicMap).forEach(function(t){
+    var r=topicMap[t];
+    var tpct=Math.round(r.c/r.t*100);
+    var cls=tpct<50?'bad':tpct<70?'mid':'';
+    var scoreColor=tpct>=70?'var(--ind)':tpct>=50?'#d97706':'#dc2626';
+    topicHtml+='<div class="res-topic-card '+cls+'"><div class="res-topic-name">'+(TOPIC_FULL[t]||t)+'</div><div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+    if(tpct<70)weak.push(t);
+  });
+  topicHtml+='</div>';
+
+  var reviewHtml='';
+  if(weak.length){
+    reviewHtml='<div class="res-review"><p style="font-family:\'Fredoka One\',cursive;font-size:.95rem;color:var(--ind);margin-bottom:4px">📚 Te conviene volver a repasar:</p>';
+    weak.forEach(function(t){
+      reviewHtml+='<div class="res-review-item"><span style="font-size:.85rem;color:var(--dim)">'+(TOPIC_FULL[t]||t)+' — bajo el 70%</span><button class="res-review-btn" onclick="go(\''+TOPIC_SEC[t]+'\','+TOPIC_IDX[TOPIC_SEC[t]]+',document.querySelectorAll(\'.nb\')['+TOPIC_IDX[TOPIC_SEC[t]]+'])">'+TOPIC_BTN_LABEL[t]+'</button></div>';
+    });
+    reviewHtml+='</div>';
+  } else {
+    reviewHtml='<div class="res-review"><p style="font-family:\'Fredoka One\',cursive;font-size:.95rem;color:var(--ind)">🎉 Ningún tema bajo el 70%. ¡Excelente dominio de la unidad!</p></div>';
+  }
+
+  var res=document.getElementById('eres');
+  res.style.display='block';
+  var d1=document.createElement('div');
+  d1.style.cssText='font-family:Fredoka One,cursive;font-size:2rem;color:'+sc+';margin-bottom:6px';
+  d1.textContent=(pct>=70?'🚀':pct>=50?'💪':'📚')+' '+ok+'/'+EQA.length+' correctas — '+pct+'%';
+  var d2=document.createElement('div');
+  d2.style.cssText='background:var(--card2);border:1px solid var(--bord);border-radius:13px;padding:16px';
+  d2.innerHTML=topicHtml+reviewHtml+'<p style="font-size:.85rem;color:var(--dim);margin-top:12px">Revisa el feedback de cada pregunta arriba, junto a la explicación de la respuesta correcta.</p>';
+  res.innerHTML='';res.appendChild(d1);res.appendChild(d2);
+  res.scrollIntoView({behavior:'smooth'});
+}
+
+</script>
+
+<!-- ═══ ASISTENTE IA — LÓGICA ═══ -->
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
+// -------------------------------------------------------------------
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico del Electivo de Matemática (Competencia M2), Unidad 3: Geometría, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media que rinden M2. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre los 5 temas de esta unidad: Homotecia, Razones Trigonométricas, Relaciones en la Circunferencia, Esferas, y Rectas en el Plano. NO respondes sobre otras unidades de M2 que el estudiante aún no ha visto, ni sobre M1, ni sobre otros módulos (Competencia Lectora, Historia, Ciencias).",
+"",
+"CONTENIDO DE LA UNIDAD:",
+"- Homotecia: transformación que escala una figura por una razón k desde un centro; si k>1 agranda, si 0<k<1 achica, si k<0 invierte; el área escala con k² y el volumen con k³; cómo encontrar k a partir de un punto y su imagen (dividiendo coordenadas correspondientes); distinguir 'imagen' (resultado) de 'original' (figura de partida) en problemas de sombras o escalas.",
+"- Razones Trigonométricas: seno=opuesto/hipotenusa, coseno=adyacente/hipotenusa, tangente=opuesto/adyacente (SOH-CAH-TOA); identificar correctamente cuál cateto es opuesto y cuál adyacente AL ÁNGULO usado (el error más común es confundirlos); triángulos semejantes y razones de proporcionalidad entre lados correspondientes (el orden de las letras en 'ABC~PQR' indica la correspondencia de vértices); detección de errores en desarrollos con pasos.",
+"- Relaciones en la Circunferencia: ángulo central=arco que abraza; ángulo inscrito=la mitad del arco que abraza; un ángulo inscrito que abraza un diámetro siempre mide 90°; producto de segmentos de cuerdas que se cruzan dentro de una circunferencia (a×b=c×d).",
+"- Esferas: área de superficie=4πr²; volumen=(4/3)πr³; al escalar el radio por un factor k, el área escala por k² y el volumen por k³; cociente entre radios de dos esferas a partir del cociente de sus volúmenes: rA/rB=³√(VA/VB) (se obtiene dividiendo las fórmulas de volumen entre sí, cancelando la constante 4π/3).",
+"- Rectas en el Plano: pendiente m en y=mx+n; rectas paralelas tienen la misma pendiente; rectas perpendiculares tienen pendientes recíprocas y de signo opuesto (m₁×m₂=−1); cómo encontrar la ecuación de una recta paralela o perpendicular a otra que pasa por un punto dado.",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos de arriba tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre el tema que pida. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Nunca reproduzcas preguntas reales de ensayos DEMRE u otro material con derechos de autor — inventa siempre valores y contextos propios. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta qué propiedad o fórmula aplica al problema, 2) pide que identifique los datos dados y qué se pide, 3) pide que arme la expresión o el paso siguiente, 4) contrasta el resultado del estudiante con lo esperado, preguntando dónde puede estar la diferencia. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otro módulo, otra unidad no vista, u otro tema, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para dudas de Homotecia, Razones Trigonométricas, Relaciones en la Circunferencia, Esferas y Rectas en el Plano de esta unidad.'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Usa notación matemática simple en texto plano (ej. sen θ, √75, 4πr², no LaTeX). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function ensayoActive(){
+  return !!(window.eS && !window.eF);
+}
+
+function checkTutorBlock(){
+  var blocked = ensayoActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false; // el botón sigue visible, solo se bloquea el contenido
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Matemática M2\n" +
+    "Módulo/Unidad: Electivo Matemática M2 · Unidad 3 · Geometría\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy || ensayoActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+checkTutorBlock();
+})();
+</script>
+
+</body>
+</html>
