@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Electivo Matem&aacute;tica &bull; M2 &bull; Unidad 4: Probabilidad y Estad&iacute;stica &bull; PAES M2 &bull; Admisi&oacute;n 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5ff;--card:#fff;--card2:#f1edfe;--bord:#ddd6fe;--bord2:#c4b5fd;
+  --text:#211a4d;--dim:#57508f;--dim2:#9b91c9;
+  --ind:#4f46e5;--ind2:#6366f1;--ind3:#818cf8;--indl:rgba(79,70,229,.1);
+  --rad:18px;--sh:0 2px 14px rgba(60,50,150,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:80px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(380px 320px at 8% 12%,rgba(249,115,22,.08),transparent),
+             radial-gradient(300px 280px at 92% 85%,rgba(79,70,229,.06),transparent)}
+.wr{max-width:960px;margin:0 auto;padding:18px 16px 40px;position:relative;z-index:1}
+/* PROGRESS */
+.pr{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(60,50,150,.1);z-index:200}
+.prf{height:100%;background:linear-gradient(90deg,var(--ind),var(--ind2),var(--ind3));transition:width .4s}
+/* HERO */
+.hero{text-align:center;padding:50px 16px 18px}
+.hi{font-size:70px;display:block;animation:fl 3s ease-in-out infinite;margin-bottom:10px}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(2rem,7vw,3.5rem);
+  background:linear-gradient(130deg,var(--ind),#818cf8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:7px}
+.hero-s{color:var(--dim);font-size:.88rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--indl);
+  border:1.5px solid rgba(79,70,229,.3);color:var(--ind);padding:5px 15px;border-radius:999px;
+  font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-top:9px}
+/* NAV */
+.nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:16px 0 2px;
+  position:sticky;top:4px;z-index:90;background:rgba(247,245,255,.88);
+  backdrop-filter:blur(10px);padding:9px;border-radius:var(--rad);border:1px solid var(--bord)}
+.nb{background:transparent;border:1.5px solid var(--bord);color:var(--dim);
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.77rem;padding:6px 12px;
+  border-radius:50px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.nb:hover,.nb.act{background:var(--ind);border-color:var(--ind);color:#fff}
+/* SECTIONS */
+.sec{display:none;animation:up .3s ease}
+.sec.act{display:block}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--bord);border-radius:var(--rad);
+  padding:22px;margin-bottom:14px;box-shadow:var(--sh)}
+.ct{font-family:'Fredoka One',cursive;font-size:1.28rem;margin-bottom:11px;
+  display:flex;align-items:center;gap:8px;color:var(--text)}
+.card p,.card li{font-size:.94rem;line-height:1.75;color:var(--dim)}
+.card strong{color:var(--text)}
+.card ul,.card ol{padding-left:18px}
+.card li{margin-bottom:5px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.g2{grid-template-columns:1fr}}
+.hsec{background:var(--card);border:1.5px solid var(--bord);border-radius:var(--rad);
+  padding:26px;margin-bottom:14px;box-shadow:var(--sh)}
+.hsec .hi2{font-size:54px;display:block;margin-bottom:9px}
+.hsec h2{font-family:'Fredoka One',cursive;font-size:clamp(1.55rem,5vw,2.3rem);line-height:1.1;margin-bottom:5px}
+.hsec p{font-size:.94rem;line-height:1.7;color:var(--dim);max-width:560px}
+.tip{border-left:4px solid var(--ind);background:var(--indl);border-radius:0 12px 12px 0;padding:12px 15px;margin-bottom:11px}
+.tip-l{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--ind);margin-bottom:3px}
+.tip p{font-size:.87rem;color:var(--dim);line-height:1.6}
+.kws{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.kw{border-radius:8px;padding:4px 11px;font-size:.79rem;font-weight:800;
+  border:1px solid var(--bord);background:var(--card2);color:var(--dim)}
+.fbox{background:var(--card2);border:1px solid var(--bord2);border-radius:11px;
+  padding:13px;text-align:center;margin-bottom:9px}
+.fsym{font-family:'Fredoka One',cursive;font-size:1.35rem;display:block}
+.fdef{font-size:.79rem;color:var(--dim);margin-top:3px}
+/* WAVE */
+#wcanvas{width:100%;border-radius:11px;background:#061c2e;display:block;border:1px solid var(--bord)}
+.sls{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0}
+.slg{display:flex;flex-direction:column;gap:3px;min-width:190px;flex:1}
+.slg label{font-size:.78rem;font-weight:800;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.sv{font-family:'Fredoka One',cursive;font-size:.98rem;color:var(--ind)}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;
+  background:rgba(79,70,229,.18);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
+  border-radius:50%;background:var(--ind);cursor:pointer;border:2px solid #fff;
+  box-shadow:0 2px 6px rgba(79,70,229,.4)}
+.wpg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:9px;margin-top:11px}
+.wp{background:var(--card2);border:1px solid var(--bord);border-radius:10px;padding:11px;text-align:center}
+.wp .ws{font-family:'Fredoka One',cursive;font-size:1.45rem;display:block}
+.wp .wn{font-size:.76rem;color:var(--dim);font-weight:700;margin-top:2px}
+/* SPECTRUM */
+.sbar{display:flex;border-radius:11px;overflow:hidden;height:52px;cursor:pointer;margin:12px 0;border:1px solid var(--bord)}
+.sb{flex:1;display:flex;align-items:center;justify-content:center;font-size:.59rem;
+  font-weight:900;color:rgba(255,255,255,.85);text-align:center;line-height:1.3;
+  padding:2px;transition:transform .18s,filter .18s;letter-spacing:.03em}
+.sb:hover{transform:scaleY(1.1);filter:brightness(1.12)}
+.sb.act{transform:scaleY(1.18);outline:2.5px solid rgba(0,0,0,.2)}
+.sinfo{background:var(--card2);border:1px solid var(--bord2);border-radius:12px;
+  padding:15px;min-height:90px;transition:all .2s}
+.sinfo h4{font-family:'Fredoka One',cursive;font-size:1.02rem;margin-bottom:5px}
+.sinfo p{font-size:.85rem;color:var(--dim);line-height:1.65}
+/* TABS */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+.tbtn{padding:7px 15px;border-radius:50px;border:1.5px solid var(--bord2);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:.81rem;cursor:pointer;transition:all .18s}
+.tbtn.act,.tbtn:hover{background:var(--ind);border-color:var(--ind);color:#fff}
+.tp{display:none}
+.tp.act{display:block;animation:up .22s ease}
+.svgw{background:var(--card2);border:1px solid var(--bord);border-radius:11px;padding:16px;
+  display:flex;justify-content:center;align-items:center;min-height:172px;margin-bottom:10px}
+/* MOTION */
+.trk{background:#061c2e;border-radius:11px;padding:0 10px;margin-bottom:10px;
+  position:relative;height:68px;overflow:hidden;border:1px solid var(--bord)}
+.trk-lbl{position:absolute;top:7px;left:10px;font-size:.66rem;font-weight:900;
+  color:rgba(255,255,255,.45);letter-spacing:.07em;text-transform:uppercase}
+.ball{width:24px;height:24px;border-radius:50%;position:absolute;top:50%;
+  transform:translateY(-50%);left:4px}
+.bmru{background:var(--ind3);animation:mru 4s linear infinite;box-shadow:0 0 8px rgba(249,115,22,.6)}
+.bmrua{background:#818cf8;animation:mrua 4s ease-in infinite;box-shadow:0 0 8px rgba(251,146,60,.5)}
+@keyframes mru{0%{left:4px}100%{left:calc(100% - 28px)}}
+@keyframes mrua{0%{left:4px}100%{left:calc(100% - 28px)}}
+/* OHM */
+.ohmc{background:var(--card2);border:1.5px solid rgba(217,119,6,.22);border-radius:var(--rad);padding:18px}
+.orow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:500px){.orow{grid-template-columns:1fr}}
+.of label{font-size:.74rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);display:block;margin-bottom:4px}
+.of input{width:100%;background:var(--card);border:1.5px solid var(--bord2);border-radius:9px;
+  color:var(--text);font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
+  padding:8px 11px;outline:none;transition:border .18s}
+.of input:focus{border-color:var(--ind)}
+.of input.calc{color:#d97706;border-color:rgba(217,119,6,.4);background:rgba(255,243,210,.4)}
+.of .un{font-size:.73rem;color:var(--dim);margin-top:2px}
+.ores{font-family:'Fredoka One',cursive;font-size:1.25rem;text-align:center;color:#d97706;
+  padding:13px;background:rgba(255,243,210,.6);border-radius:10px;border:1px solid rgba(217,119,6,.18)}
+.obr{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ob{padding:7px 15px;border-radius:50px;border:1.5px solid rgba(217,119,6,.25);
+  background:transparent;color:var(--dim);font-family:'Nunito',sans-serif;font-weight:800;font-size:.81rem;cursor:pointer;transition:all .18s}
+.ob.act,.ob:hover{background:#d97706;border-color:#d97706;color:#fff}
+/* PLATES */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:540px){.pgrid{grid-template-columns:1fr}}
+.pc{background:var(--card);border:1.5px solid var(--bord);border-radius:12px;padding:15px;
+  transition:all .2s;box-shadow:var(--sh)}
+.pc:hover{border-color:#dc2626;transform:translateY(-2px)}
+.pc h4{font-family:'Fredoka One',cursive;font-size:.98rem;color:#dc2626;margin-bottom:5px}
+.pc p{font-size:.83rem;color:var(--dim);line-height:1.6}
+.panim{width:100%;height:52px;margin:9px 0;position:relative;border-radius:8px;
+  background:#0f1f2e;overflow:hidden;border:1px solid rgba(220,38,38,.2)}
+.pb{position:absolute;height:100%;width:46%;
+  display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:900;
+  letter-spacing:.04em;border-radius:4px}
+.pl{left:2%;background:linear-gradient(135deg,rgba(220,38,38,.35),rgba(220,38,38,.15));
+  border:1.5px solid rgba(220,38,38,.6);color:#fca5a5}
+.pr{right:2%;background:linear-gradient(135deg,rgba(79,70,229,.35),rgba(79,70,229,.15));
+  border:1.5px solid rgba(79,70,229,.6);color:#fdba74}
+.pa-arrow{position:absolute;top:50%;transform:translateY(-50%);
+  font-size:1rem;font-weight:900;line-height:1;pointer-events:none}
+.da .pl{animation:da-l 2.5s ease-in-out infinite}
+.da .pr{animation:da-r 2.5s ease-in-out infinite}
+.ca .pl{animation:ca-l 2.5s ease-in-out infinite}
+.ca .pr{animation:ca-r 2.5s ease-in-out infinite}
+.ta .pl{animation:ta-l 2.5s ease-in-out infinite}
+.ta .pr{animation:ta-r 2.5s ease-in-out infinite}
+@keyframes da-l{0%,100%{left:2%}50%{left:-8%}}
+@keyframes da-r{0%,100%{right:2%}50%{right:-8%}}
+@keyframes ca-l{0%,100%{left:2%}50%{left:12%}}
+@keyframes ca-r{0%,100%{right:2%}50%{right:12%}}
+@keyframes ta-l{0%,100%{top:0;left:2%}50%{top:12px;left:2%}}
+@keyframes ta-r{0%,100%{top:0;right:2%}50%{top:-12px;right:2%}}
+/* PAES Q */
+.pbox{background:var(--card2);border:1px solid var(--bord2);border-radius:var(--rad);padding:20px;margin-top:7px}
+.ptag{font-size:.67rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.pctx{background:rgba(60,50,150,.05);border-radius:9px;padding:11px 13px;font-size:.86rem;color:var(--dim);line-height:1.65;margin-bottom:11px}
+.pctx table{width:100%;border-collapse:collapse;margin-top:7px}
+.pctx th,.pctx td{padding:5px 8px;font-size:.8rem;border-bottom:1px solid var(--bord);text-align:left}
+.pq{font-size:.92rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:12px}
+.pos{display:flex;flex-direction:column;gap:7px}
+.po{display:flex;align-items:flex-start;gap:8px;padding:9px 12px;border-radius:9px;
+  cursor:pointer;border:1.5px solid var(--bord);background:var(--card);transition:all .16s;box-shadow:var(--sh)}
+.po:hover{border-color:var(--ind);background:var(--indl)}
+.po.locked{cursor:default;pointer-events:none}
+.po.right{background:rgba(79,70,229,.1);border-color:var(--ind)}
+.po.wrong{background:rgba(220,38,38,.06);border-color:#dc2626}
+.ol{min-width:24px;height:24px;border-radius:50%;border:1.5px solid var(--bord2);
+  display:flex;align-items:center;justify-content:center;font-size:.73rem;font-weight:900;
+  color:var(--ind);flex-shrink:0}
+.po.right .ol{background:var(--ind);color:#fff;border-color:var(--ind)}
+.po.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.ot{font-size:.86rem;color:var(--dim);line-height:1.5}
+.pfb{margin-top:9px;padding:9px 13px;border-radius:9px;font-size:.84rem;line-height:1.55;display:none}
+.pfb.show{display:block}
+.pfb.ok{background:rgba(79,70,229,.08);color:var(--ind);border-left:3px solid var(--ind)}
+.pfb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+/* ENSAYO */
+.tbox{background:var(--card);border:2px solid rgba(79,70,229,.28);border-radius:13px;
+  padding:13px 18px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;flex-wrap:wrap;gap:8px;box-shadow:0 4px 18px rgba(60,50,150,.18);
+  position:sticky;top:8px;z-index:150;backdrop-filter:blur(6px);background:rgba(255,255,255,.96)}
+.td{font-family:'Fredoka One',cursive;font-size:2.3rem;color:var(--ind);letter-spacing:.04em}
+.td.w{color:#d97706}.td.d{color:#dc2626;animation:bk .8s ease-in-out infinite}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.35}}
+.eq{background:var(--card);border:1px solid var(--bord);border-radius:11px;padding:16px;margin-bottom:10px;box-shadow:var(--sh)}
+.enum{font-size:.69rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.ectx{background:rgba(60,50,150,.05);border-radius:8px;padding:9px 12px;font-size:.85rem;color:var(--dim);line-height:1.6;margin-bottom:9px}
+.eqt{font-size:.89rem;font-weight:800;color:var(--text);line-height:1.55;margin-bottom:10px}
+.eopts{display:flex;flex-direction:column;gap:6px}
+.eopt{display:flex;align-items:flex-start;gap:8px;padding:8px 11px;border-radius:8px;cursor:pointer;
+  border:1.5px solid var(--bord);background:var(--card);transition:all .16s}
+.eopt:hover:not(.locked){border-color:var(--ind);background:var(--indl)}
+.eopt.sel{background:var(--indl);border-color:var(--ind)}
+.eopt.locked{cursor:default;pointer-events:none}
+.eopt.right{background:rgba(79,70,229,.1);border-color:var(--ind)}
+.eopt.wrong{background:rgba(220,38,38,.05);border-color:#dc2626}
+.eopt .ol{color:var(--ind)}
+.eopt.sel .ol{background:var(--ind);color:#fff;border-color:var(--ind)}
+.eopt.right .ol{background:var(--ind);color:#fff;border-color:var(--ind)}
+.eopt.wrong .ol{background:#dc2626;color:#fff;border-color:#dc2626}
+.efb{margin-top:6px;padding:8px 12px;border-radius:8px;font-size:.82rem;line-height:1.55;display:none}
+.efb.show{display:block}
+.efb.ok{background:rgba(79,70,229,.08);color:var(--ind);border-left:3px solid var(--ind)}
+.efb.no{background:rgba(220,38,38,.05);color:#b91c1c;border-left:3px solid #dc2626}
+.sbtn{width:100%;padding:13px;background:var(--ind);color:#fff;border:none;border-radius:11px;
+  font-family:'Fredoka One',cursive;font-size:1.05rem;cursor:pointer;margin-top:9px;
+  transition:background .18s;box-shadow:0 4px 12px rgba(79,70,229,.28)}
+.sbtn:hover{background:var(--ind2)}.sbtn:disabled{opacity:.32;cursor:default}
+/* BOTTOM NAV */
+.lnav{position:fixed;bottom:0;left:0;right:0;background:rgba(247,245,255,.92);
+  backdrop-filter:blur(10px);border-top:1px solid var(--bord);padding:9px 18px;
+  display:flex;align-items:center;justify-content:space-between;z-index:180;gap:9px}
+.lb{font-family:'Fredoka One',cursive;font-size:.92rem;padding:7px 18px;border-radius:50px;
+  border:1.5px solid rgba(79,70,229,.38);background:transparent;color:var(--ind);
+  cursor:pointer;transition:all .18s;white-space:nowrap}
+.lb:hover{background:var(--ind);color:#fff;border-color:var(--ind)}
+.lb:disabled{opacity:.22;cursor:default}
+.lm{font-size:.77rem;font-weight:800;color:var(--dim);text-align:center;flex:1}
+.ab{position:fixed;bottom:62px;right:14px;width:42px;height:42px;border-radius:50%;
+  background:var(--card);border:1.5px solid rgba(79,70,229,.32);color:var(--ind);
+  font-size:1.05rem;cursor:pointer;z-index:190;display:flex;align-items:center;justify-content:center;
+  transition:all .18s;box-shadow:var(--sh)}
+.ab:hover{background:var(--ind);color:#fff;border-color:var(--ind)}
+.ab.on{background:var(--ind);color:#fff;border-color:var(--ind);animation:pa 1.2s ease-in-out infinite}
+@keyframes pa{0%,100%{box-shadow:0 0 0 0 rgba(79,70,229,.4)}50%{box-shadow:0 0 0 8px rgba(79,70,229,0)}}
+footer{text-align:center;padding:16px;font-size:.79rem;color:var(--dim2)}
+/* DECK / SLIDES */
+.deck{margin-bottom:16px}
+.deck-viewport{overflow:hidden;border-radius:var(--rad)}
+.deck-track{display:flex;transition:transform .38s cubic-bezier(.4,0,.2,1)}
+.deck-slide{flex:0 0 100%;min-width:100%;box-sizing:border-box}
+.deck-slide .card{margin-bottom:0;height:100%}
+.deck-diag{background:var(--card2);border:1px solid var(--bord);border-radius:12px;
+  padding:10px;margin-bottom:14px;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.deck-diag svg{width:100%;height:auto;max-height:190px}
+.deck-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px}
+.deck-arrow{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--bord2);
+  background:var(--card);color:var(--ind);font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0;box-shadow:var(--sh)}
+.deck-arrow:hover{background:var(--ind);color:#fff;border-color:var(--ind)}
+.deck-arrow:disabled{opacity:.25;cursor:default;background:var(--card);color:var(--ind)}
+.deck-dots{display:flex;gap:7px;align-items:center}
+.deck-dot{width:8px;height:8px;border-radius:50%;background:var(--bord2);border:none;cursor:pointer;padding:0;transition:all .2s}
+.deck-dot.act{width:22px;border-radius:5px;background:var(--ind)}
+.deck-count{font-size:.74rem;font-weight:800;color:var(--dim);text-align:center;margin-top:5px}
+.deck-hint{font-size:.72rem;color:var(--dim2);text-align:center;margin-bottom:8px;display:flex;
+  align-items:center;justify-content:center;gap:5px}
+@media(max-width:640px){.deck-diag svg{max-height:150px}}
+/* RESULTADOS POR TEMA */
+.res-banner{font-family:'Fredoka One',cursive;font-size:2.5rem;margin-bottom:6px}
+.res-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:14px 0}
+.res-topic-card{background:var(--card2);border-radius:12px;padding:13px 16px;border:1px solid var(--bord);border-left:3px solid var(--ind)}
+.res-topic-card.bad{border-left-color:#dc2626}
+.res-topic-card.mid{border-left-color:#d97706}
+.res-topic-name{font-size:.79rem;font-weight:900;color:var(--dim);margin-bottom:4px}
+.res-topic-score{font-family:'Fredoka One',cursive;font-size:1.3rem}
+.res-review{background:var(--card2);border:1px solid var(--bord2);border-radius:14px;padding:16px;margin-top:14px}
+.res-review-item{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:9px 0;border-bottom:1px solid var(--bord)}
+.res-review-item:last-child{border-bottom:none}
+.res-review-btn{font-family:'Nunito',sans-serif;font-weight:800;font-size:.78rem;padding:6px 14px;
+  border-radius:50px;border:1.5px solid var(--ind);background:transparent;color:var(--ind);cursor:pointer;white-space:nowrap;transition:all .18s}
+.res-review-btn:hover{background:var(--ind);color:#fff}
+.weight-table{width:100%;border-collapse:collapse}
+.weight-table th,.weight-table td{border:1px solid var(--bord);padding:8px 10px;font-size:.84rem;text-align:left;color:var(--dim);vertical-align:top}
+.weight-table th{background:var(--card2);color:var(--text);font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+.weight-table tr:nth-child(even) td{background:var(--card2)}
+/* ═══ ASISTENTE IA ═══ */
+.tutor-fab{position:fixed;bottom:74px;right:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--ind),var(--ind3));border:none;box-shadow:0 4px 18px rgba(79,70,229,.4);cursor:pointer;z-index:210;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform .2s}
+.tutor-fab:hover{transform:scale(1.07)}
+.tutor-fab:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6)}
+.tutor-fab .dot{position:absolute;top:4px;right:4px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid #fff}
+.tutor-fab.blocked .dot{background:#9ca3af}
+.tutor-panel{position:fixed;bottom:0;right:0;width:min(400px,100vw);height:min(620px,100vh);background:var(--card);border:1px solid var(--bord);border-radius:18px 0 0 0;box-shadow:-4px 0 30px rgba(60,50,150,.25);z-index:220;display:none;flex-direction:column;overflow:hidden}
+.tutor-panel.open{display:flex}
+@media(max-width:480px){.tutor-panel{width:100vw;height:100vh;border-radius:0}}
+.tutor-head{background:linear-gradient(135deg,var(--ind),var(--ind2));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.tutor-head h3{font-family:'Fredoka One',cursive;font-size:1rem;color:#fff}
+.tutor-head p{font-size:.7rem;color:rgba(255,255,255,.85);margin-top:1px}
+.tutor-close{background:rgba(255,255,255,.18);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;line-height:1}
+.tutor-blocked-msg{padding:16px;font-size:.85rem;color:var(--dim);text-align:center;line-height:1.6}
+.tutor-modes{display:flex;gap:6px;padding:10px 12px;flex-wrap:wrap;border-bottom:1px solid var(--bord);flex-shrink:0}
+.tutor-mode-btn{background:var(--card2);border:1px solid var(--bord);color:var(--dim);font-size:.7rem;font-weight:800;padding:6px 10px;border-radius:999px;cursor:pointer;transition:all .18s}
+.tutor-mode-btn:hover{border-color:var(--ind);color:var(--ind)}
+.tutor-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tutor-msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:.87rem;line-height:1.6}
+.tutor-msg.user{align-self:flex-end;background:var(--ind);color:#fff;font-weight:700;border-bottom-right-radius:4px}
+.tutor-msg.bot{align-self:flex-start;background:var(--card2);color:var(--text);border:1px solid var(--bord);border-bottom-left-radius:4px}
+.tutor-msg.system{align-self:center;background:var(--indl);color:var(--dim);font-size:.76rem;text-align:center;border-radius:10px}
+.tutor-report{display:block;margin-top:6px;background:none;border:none;color:var(--dim);font-size:.68rem;text-decoration:underline;cursor:pointer;padding:0;opacity:.6}
+.tutor-report:hover{opacity:1;color:var(--ind)}
+.tutor-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.tutor-typing span{width:6px;height:6px;border-radius:50%;background:var(--dim);animation:tdot 1.2s infinite}
+.tutor-typing span:nth-child(2){animation-delay:.2s}.tutor-typing span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.tutor-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--bord);flex-shrink:0}
+.tutor-input{flex:1;background:var(--card2);border:1.5px solid var(--bord);border-radius:12px;color:var(--text);padding:9px 12px;font-family:'Nunito',sans-serif;font-size:.87rem;resize:none;max-height:80px}
+.tutor-input:focus{outline:none;border-color:var(--ind)}
+.tutor-send{background:var(--ind);border:none;color:#fff;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0}
+.tutor-send:disabled{opacity:.4;cursor:default}
+/* ═══ VERSIÓN MÓVIL ═══ */
+@media(max-width:680px){
+  .wr{padding:8px 8px 84px}
+  .nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;position:sticky;top:4px}
+  .nav::-webkit-scrollbar{display:none}
+  .nb{flex-shrink:0;font-size:.73rem;padding:9px 13px;min-height:40px;touch-action:manipulation}
+  .hero{padding:34px 6px 12px}
+  .hi{font-size:50px}
+  .card,.hsec{padding:14px 12px}
+  .g2,.pgrid,.orow{grid-template-columns:1fr!important}
+  .pbox{padding:14px 12px}
+  .po,.eopt{padding:12px 11px;min-height:50px;touch-action:manipulation}
+  .ol{min-width:28px;height:28px;font-size:.78rem}
+  .lb{padding:12px 16px!important;font-size:.88rem!important;min-height:46px}
+  .sbtn{width:100%!important;padding:13px!important}
+  .tabs{gap:6px}
+  .tbtn{padding:8px 13px;font-size:.78rem}
+  .tbox{position:static;top:auto}
+  .deck-arrow{width:34px;height:34px}
+  .deck-diag svg{max-height:130px}
+  .tutor-fab{bottom:78px;right:12px;width:50px;height:50px;font-size:1.3rem}
+  .tutor-input{font-size:16px}
+  .res-topic-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+<body>
+<div class="pr"><div class="prf" id="prf" style="width:20%"></div></div>
+<div class="wr">
+
+<div class="hero">
+  <span class="hi">&#127919;</span>
+  <h1>Electivo &bull; Matem&aacute;tica M2</h1>
+  <div class="hero-s">Unidad 4 &bull; Probabilidad y Estad&iacute;stica &bull; PAES M2 &bull; Admisi&oacute;n 2027</div>
+  <div class="badge">&#127881; &Uacute;ltima unidad del m&oacute;dulo M2 &bull; ¡la cerramos a fondo!</div>
+</div>
+
+<div class="nav">
+  <button class="nb act" onclick="go('p0',0,this)">&#127968; Inicio</button>
+  <button class="nb" onclick="go('p1',1,this)">&#128202; Dispersi&oacute;n</button>
+  <button class="nb" onclick="go('p2',2,this)">&#127922; Prob. Condicional</button>
+  <button class="nb" onclick="go('p3',3,this)">&#128290; Combinatoria</button>
+  <button class="nb" onclick="go('p4',4,this)">&#128199; Modelos Probabil&iacute;sticos</button>
+  <button class="nb" onclick="go('p5',5,this)">&#9201; Mini Ensayo</button>
+</div>
+
+<div class="sec act" id="p0">
+<div class="card" style="text-align:center;padding:28px 20px">
+  <p class="ct" style="justify-content:center;color:var(--ind);font-size:1.5rem">🎯 Electivo · Matemática M2</p>
+  <p style="font-size:.97rem;max-width:640px;margin:0 auto 18px;color:var(--dim);line-height:1.8">La <strong>última unidad</strong> de todo el módulo M2: medidas de dispersión, probabilidad condicional, permutación/combinatoria, y los modelos probabilísticos más avanzados (binomial y distribución normal). Vas a poder mover sliders y ver los gráficos, árboles y curvas cambiar en vivo en los 4 temas — la forma más intuitiva de entender estos conceptos, que son los más abstractos de todo M2.</p>
+  <div class="badge">🎯 M2 · Eje Probabilidad y Estadística · 4 temas nuevos + repaso de M1</div>
+</div>
+
+<div class="card" style="border-left:4px solid var(--ind)">
+  <p class="ct" style="color:var(--ind)">🔗 Prerrequisito: M1 · Unidad 4</p>
+  <p>Esta unidad asume que dominas <strong>M1 · Unidad 4 · Probabilidad y Estadística</strong>: tablas de frecuencia, promedio, cuartiles y percentiles, y las reglas básicas de probabilidad (aditiva y multiplicativa). Todo eso vuelve a evaluarse aquí, mezclado con lo nuevo.</p>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:var(--ind)">📊 ¿Qué contiene esta unidad?</p>
+  <table style="width:100%;border-collapse:collapse;margin-top:8px">
+    <tr><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--ind)">Tema</th><th style="text-align:left;padding:6px 10px;font-size:.8rem;color:var(--ind)">Qué incluye</th></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">📊 Medidas de Dispersión</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Rango, varianza y desviación estándar de uno o más grupos</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">🎲 Probabilidad Condicional</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">P(A|B), regla del producto, independencia</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">🔤 Permutación y Combinatoria</td><td style="padding:7px 10px;font-size:.87rem;border-bottom:1px solid var(--bord)">Factorial, permutaciones, combinaciones — ¿importa el orden?</td></tr>
+    <tr><td style="padding:7px 10px;font-size:.87rem">📈 Modelos Probabilísticos</td><td style="padding:7px 10px;font-size:.87rem">Distribución binomial y distribución normal</td></tr>
+  </table>
+</div>
+
+<div class="g2">
+  <div class="card" style="border-left:4px solid var(--ind)">
+    <p class="ct" style="color:var(--ind)">📌 Contexto PAES M2</p>
+    <ul><li>Distribución normal y modelo binomial son, según nuestro análisis, los contenidos más exigentes de todo M2 — vamos con hartas analogías</li>
+    <li>La probabilidad condicional aparece mucho en problemas de "cajas y urnas" con dos etapas</li>
+    <li>No se descuenta puntaje por respuestas erradas: siempre conviene marcar una alternativa</li></ul>
+  </div>
+  <div class="card" style="border-left:4px solid #6d28d9">
+    <p class="ct" style="color:#6d28d9">🎮 Esta unidad tiene 4 widgets interactivos</p>
+    <ul><li><strong>Dispersión:</strong> mueve los datos y observa el rango y la desviación estándar cambiar en vivo</li>
+    <li><strong>Prob. Condicional:</strong> ajusta probabilidades y ve el diagrama de árbol recalcularse</li>
+    <li><strong>Combinatoria:</strong> compara permutaciones vs. combinaciones con sliders de n y k</li>
+    <li><strong>Modelos:</strong> calculadora binomial y curva normal, ambas en vivo</li></ul>
+  </div>
+</div>
+</div>
+
+<!-- MEDIDAS DE DISPERSION -->
+<div class="sec" id="p1">
+<div class="hsec" style="border-color:rgba(79,70,229,.3)">
+  <span class="hi2">📊</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--ind);margin-bottom:3px">Tema 1 de 4 · M2 Unidad 4</div>
+  <h2 style="color:var(--ind)">Medidas de Dispersión</h2>
+  <p>El promedio dice "dónde está el centro", pero no dice "qué tan esparcidos" están los datos. Para eso existen el rango, la varianza y la desviación estándar.</p>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:var(--ind)">🎮 Widget interactivo: mueve los datos y observa la dispersión</p>
+  <p style="font-size:.87rem;color:var(--dim);margin-bottom:10px">5 datos con valor inicial 10. Mueve cada slider y observa cómo cambian el rango, la varianza y la desviación estándar en vivo — sin tocar el promedio, muévelos en direcciones opuestas para ver la dispersión crecer.</p>
+  <div class="svgw" style="background:#fff;overflow:hidden;padding:10px">
+    <svg id="dispSvg" viewBox="0 0 400 110" style="width:100%;max-width:420px;display:block;margin:0 auto">
+      <line x1="20" y1="90" x2="380" y2="90" stroke="#c4b5fd" stroke-width="1.5"/>
+      <line id="dispMeanLine" x1="200" y1="15" x2="200" y2="90" stroke="#dc2626" stroke-width="1.3" stroke-dasharray="4,3"/>
+      <text id="dispMeanLabel" x="200" y="12" font-size="10" font-weight="900" fill="#dc2626" text-anchor="middle">x̄</text>
+      <circle id="dot0" cx="200" cy="90" r="7" fill="#4f46e5"/>
+      <circle id="dot1" cx="200" cy="90" r="7" fill="#4f46e5"/>
+      <circle id="dot2" cx="200" cy="90" r="7" fill="#4f46e5"/>
+      <circle id="dot3" cx="200" cy="90" r="7" fill="#4f46e5"/>
+      <circle id="dot4" cx="200" cy="90" r="7" fill="#4f46e5"/>
+    </svg>
+  </div>
+  <div class="sls" style="margin-top:10px">
+    <div class="slg"><label>Dato 1</label><input type="range" id="d0" min="0" max="20" step="1" value="10" oninput="updateDisp()"><span class="sv" id="d0v" style="color:var(--ind)">10</span></div>
+    <div class="slg"><label>Dato 2</label><input type="range" id="d1" min="0" max="20" step="1" value="10" oninput="updateDisp()"><span class="sv" id="d1v" style="color:var(--ind)">10</span></div>
+    <div class="slg"><label>Dato 3</label><input type="range" id="d2" min="0" max="20" step="1" value="10" oninput="updateDisp()"><span class="sv" id="d2v" style="color:var(--ind)">10</span></div>
+    <div class="slg"><label>Dato 4</label><input type="range" id="d3" min="0" max="20" step="1" value="10" oninput="updateDisp()"><span class="sv" id="d3v" style="color:var(--ind)">10</span></div>
+    <div class="slg"><label>Dato 5</label><input type="range" id="d4" min="0" max="20" step="1" value="10" oninput="updateDisp()"><span class="sv" id="d4v" style="color:var(--ind)">10</span></div>
+  </div>
+  <div class="ores" id="dispResult" style="margin-top:12px">Promedio=10 · Rango=0 · Varianza=0 · Desv. estándar=0</div>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="6"><div class="deck-viewport"><div class="deck-track" id="deck-track-p1">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="40" y1="90" x2="520" y2="90" stroke="#4c3d99" stroke-width="1.3"/>
+<circle cx="120" cy="90" r="6" fill="var(--ind)"/><circle cx="200" cy="90" r="6" fill="var(--ind)"/><circle cx="300" cy="90" r="6" fill="var(--ind)"/><circle cx="380" cy="90" r="6" fill="var(--ind)"/><circle cx="460" cy="90" r="6" fill="var(--ind)"/>
+<path d="M120,75 L120,60 L460,60 L460,75" fill="none" stroke="#dc2626" stroke-width="1.3"/>
+<text x="290" y="50" font-size="11" font-weight="900" fill="#dc2626" text-anchor="middle">Rango = máximo − mínimo</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">📏 Rango: la medida más simple</p>
+  <p>El <strong>rango</strong> mide qué tan "extendidos" están los datos, de la forma más básica posible: la diferencia entre el valor máximo y el mínimo.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">Rango = Máximo − Mínimo</span></div>
+  <p style="margin-top:10px">Ejemplo: en los datos 4, 7, 9, 15, 20, el rango es 20−4=16. Es rápido de calcular, pero tiene una debilidad: solo usa 2 de los datos, ignorando todos los del medio.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 La debilidad del rango</div>
+    <p>Dos grupos de datos pueden tener el mismo rango pero distribuciones muy distintas en el medio — por eso se necesitan medidas más completas, como la varianza y la desviación estándar.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="40" y1="90" x2="520" y2="90" stroke="#4c3d99" stroke-width="1.3"/>
+<line x1="280" y1="30" x2="280" y2="110" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="280" y="20" font-size="11" font-weight="900" fill="#dc2626" text-anchor="middle">x̄ (promedio)</text>
+<circle cx="150" cy="90" r="6" fill="var(--ind)"/>
+<path d="M150,90 L280,90" stroke="#059669" stroke-width="1.3"/>
+<text x="215" y="80" font-size="9" fill="#059669" text-anchor="middle">desviación</text>
+<circle cx="400" cy="90" r="6" fill="var(--ind)"/>
+<path d="M280,90 L400,90" stroke="#059669" stroke-width="1.3"/>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">📐 Desviación: la distancia de cada dato al promedio</p>
+  <p>La <strong>desviación</strong> de un dato es simplemente la distancia (con signo) entre ese dato y el promedio del grupo. Es el ingrediente base para construir varianza y desviación estándar.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">desviación de un dato = dato − promedio</span></div>
+  <p style="margin-top:10px">Un dato muy alejado del promedio tiene una desviación grande (positiva o negativa); un dato cercano al promedio tiene una desviación pequeña, cercana a 0.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Las desviaciones siempre suman 0</div>
+    <p>Si sumas TODAS las desviaciones de un grupo de datos (con su signo), el resultado siempre es 0 — por eso no se puede usar esa suma directamente como medida de dispersión, y hay que elevarlas al cuadrado (siguiente diagrama).</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="35" font-size="12" fill="#211a4d">Datos: 4,6,8,10,12 → promedio=8</text>
+<text x="140" y="65" font-size="13" font-weight="900" fill="var(--ind)">desviaciones: −4,−2,0,2,4 → al cuadrado: 16,4,0,4,16</text>
+<text x="140" y="95" font-size="15" font-weight="900" fill="#059669">Varianza = (16+4+0+4+16)/5 = 40/5 = 8</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">🧮 Varianza: el promedio de las desviaciones al cuadrado</p>
+  <p>La <strong>varianza</strong> soluciona el problema de que las desviaciones suman 0: se elevan todas al cuadrado (así todas quedan positivas) y se promedian.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">Varianza = Σ(dato − promedio)² / cantidad de datos</span></div>
+  <p style="margin-top:10px">Ejemplo: con datos 4,6,8,10,12 (promedio 8), las desviaciones son −4,−2,0,2,4; al cuadrado: 16,4,0,4,16. La varianza es su promedio: (16+4+0+4+16)/5=8.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 La varianza tiene unidades "al cuadrado"</div>
+    <p>Si los datos originales están en metros, la varianza queda en metros². Esto hace que la varianza sea difícil de interpretar directamente — para eso existe la desviación estándar.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="45" font-size="14" font-weight="900" fill="#211a4d">Desviación estándar = √Varianza</text>
+<text x="140" y="80" font-size="14" font-weight="900" fill="var(--ind)">√8 ≈ 2,83</text>
+<text x="140" y="110" font-size="11" fill="#4c3d99">vuelve a las unidades originales de los datos</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">📏 Desviación estándar: la raíz de la varianza</p>
+  <p>La <strong>desviación estándar</strong> (σ) es simplemente la raíz cuadrada de la varianza. Al sacar la raíz, se "deshace" el cuadrado, y las unidades vuelven a ser las originales de los datos.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">σ = √Varianza</span></div>
+  <p style="margin-top:10px">Siguiendo el ejemplo anterior: varianza=8, entonces σ=√8≈2,83. Esta es la medida de dispersión más usada en estadística, porque combina la lógica de la varianza con unidades interpretables.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Mientras mayor σ, más dispersos están los datos</div>
+    <p>Una σ pequeña indica datos muy agrupados cerca del promedio; una σ grande indica datos muy esparcidos. σ=0 significa que TODOS los datos son exactamente iguales.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="40" y1="50" x2="520" y2="50" stroke="#4c3d99" stroke-width="1"/>
+<circle cx="200" cy="50" r="6" fill="var(--ind)"/><circle cx="230" cy="50" r="6" fill="var(--ind)"/><circle cx="260" cy="50" r="6" fill="var(--ind)"/>
+<text x="230" y="30" font-size="10" fill="var(--ind)" text-anchor="middle">grupo A: muy junto</text>
+<line x1="40" y1="105" x2="520" y2="105" stroke="#4c3d99" stroke-width="1"/>
+<circle cx="100" cy="105" r="6" fill="#be185d"/><circle cx="230" cy="105" r="6" fill="#be185d"/><circle cx="380" cy="105" r="6" fill="#be185d"/>
+<text x="230" y="125" font-size="10" fill="#be185d" text-anchor="middle">grupo B: muy disperso (mismo promedio)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">⚖️ Comparando la dispersión de dos grupos</p>
+  <p>Dos grupos pueden tener <strong>exactamente el mismo promedio</strong> pero una dispersión completamente distinta — esta es una de las preguntas más frecuentes en la PAES M2: comparar la desviación estándar entre grupos.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">Mismo promedio ≠ misma dispersión</span></div>
+  <p style="margin-top:10px">Si a TODOS los datos de un grupo se les suma o resta la misma cantidad fija (un "corrimiento"), el promedio cambia, pero la desviación estándar se mantiene IGUAL — porque la dispersión relativa entre los datos no cambia.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Pregunta clásica: comparar 2 tablas de frecuencia</div>
+    <p>Si dos tablas tienen la misma "forma" (mismas frecuencias) pero valores desplazados por una constante, tienen la misma desviación estándar pero distinto promedio — revisa siempre si los datos son un simple corrimiento antes de calcular todo desde cero.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="11" fill="#211a4d">Grupo A: 6,7,8 años (frec.10 c/u) &nbsp;&nbsp; Grupo B: 10,11,12 años (frec.10 c/u)</text>
+<text x="140" y="65" font-size="13" font-weight="900" fill="var(--ind)">Grupo B = Grupo A + 4 (mismo "patrón", desplazado)</text>
+<text x="140" y="95" font-size="14" font-weight="900" fill="#059669">Misma desviación estándar, distinto promedio</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:var(--ind)">🤖 Problema resuelto: comparar 2 grupos</p>
+  <p>Se presentan las edades de un grupo A (6,7,8 años, frecuencia 10 cada una) y un grupo B (10,11,12 años, frecuencia 10 cada una). ¿Qué es verdadero sobre ambos grupos?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:var(--ind)">Respuesta: tienen la misma desviación estándar, pero distinto promedio</span></div>
+  <p style="margin-top:10px">Cada edad del grupo B es exactamente la del grupo A + 4 años. Como es un simple corrimiento (todos los datos +4), la dispersión relativa no cambia — la desviación estándar es idéntica. Pero el promedio SÍ cambia (grupo A: 7 años; grupo B: 11 años).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Reconocer el "corrimiento" ahorra todo el cálculo</div>
+    <p>Antes de calcular la desviación estándar de dos grupos desde cero, revisa si uno es simplemente el otro desplazado por una constante — si lo es, ya sabes que las desviaciones estándar son iguales, sin calcular nada más.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p1" onclick="deckNav('p1',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p1"><button class="deck-dot act" onclick="deckGoto('p1',0)"></button><button class="deck-dot" onclick="deckGoto('p1',1)"></button><button class="deck-dot" onclick="deckGoto('p1',2)"></button><button class="deck-dot" onclick="deckGoto('p1',3)"></button><button class="deck-dot" onclick="deckGoto('p1',4)"></button><button class="deck-dot" onclick="deckGoto('p1',5)"></button></div><button class="deck-arrow" id="deck-next-p1" onclick="deckNav('p1',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p1">Concepto 1 / 6</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:var(--ind)">Rango=Máx−Mín</span>
+  <span class="kw" style="color:var(--ind)">Varianza=Σ(x−x̄)²/n</span>
+  <span class="kw" style="color:var(--ind)">σ=√Varianza</span>
+  <span class="kw" style="color:var(--ind)">corrimiento: misma σ</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 5 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es el rango de los datos 12, 5, 20, 8, 15?</p>
+  <div class="pos" id="qmd1">
+    <div class="po" onclick="ans('qmd1','A')"><div class="ol">A</div><div class="ot">7</div></div>
+    <div class="po" onclick="ans('qmd1','B')"><div class="ol">B</div><div class="ot">12</div></div>
+    <div class="po" onclick="ans('qmd1','C')"><div class="ol">C</div><div class="ot">15</div></div>
+    <div class="po" onclick="ans('qmd1','D')"><div class="ol">D</div><div class="ot">20</div></div>
+  </div>
+  <div class="pfb" id="qmd1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <div class="pctx">Datos: 2, 4, 6, 8, 10 (promedio=6).</div>
+  <p class="pq">¿Cuál es la varianza de este grupo?</p>
+  <div class="pos" id="qmd2">
+    <div class="po" onclick="ans('qmd2','A')"><div class="ol">A</div><div class="ot">4</div></div>
+    <div class="po" onclick="ans('qmd2','B')"><div class="ol">B</div><div class="ot">6</div></div>
+    <div class="po" onclick="ans('qmd2','C')"><div class="ol">C</div><div class="ot">8</div></div>
+    <div class="po" onclick="ans('qmd2','D')"><div class="ol">D</div><div class="ot">40</div></div>
+  </div>
+  <div class="pfb" id="qmd2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <p class="pq">Si la varianza de un grupo de datos es 25, ¿cuál es su desviación estándar?</p>
+  <div class="pos" id="qmd3">
+    <div class="po" onclick="ans('qmd3','A')"><div class="ol">A</div><div class="ot">5</div></div>
+    <div class="po" onclick="ans('qmd3','B')"><div class="ol">B</div><div class="ot">12,5</div></div>
+    <div class="po" onclick="ans('qmd3','C')"><div class="ol">C</div><div class="ot">50</div></div>
+    <div class="po" onclick="ans('qmd3','D')"><div class="ol">D</div><div class="ot">625</div></div>
+  </div>
+  <div class="pfb" id="qmd3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica</div>
+  <div class="pctx">Grupo X: 10, 20, 30 (promedio 20). Grupo Y: 15, 25, 35 (promedio 25) — cada dato de Y es el de X más 5.</div>
+  <p class="pq">¿Qué relación hay entre sus desviaciones estándar?</p>
+  <div class="pos" id="qmd4">
+    <div class="po" onclick="ans('qmd4','A')"><div class="ol">A</div><div class="ot">Son iguales</div></div>
+    <div class="po" onclick="ans('qmd4','B')"><div class="ol">B</div><div class="ot">La de Y es mayor</div></div>
+    <div class="po" onclick="ans('qmd4','C')"><div class="ol">C</div><div class="ot">La de X es mayor</div></div>
+    <div class="po" onclick="ans('qmd4','D')"><div class="ol">D</div><div class="ot">No se puede saber sin calcular</div></div>
+  </div>
+  <div class="pfb" id="qmd4-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:var(--ind)">🤖 Pregunta de práctica · Suficiencia de Datos</div>
+  <div class="pctx">Se puede determinar la desviación estándar de un grupo de datos, si se sabe que: (1) todos los datos son exactamente iguales entre sí. (2) el promedio del grupo es 50.</div>
+  <p class="pq">¿Qué se necesita para determinar la desviación estándar?</p>
+  <div class="pos" id="qmd5">
+    <div class="po" onclick="ans('qmd5','A')"><div class="ol">A</div><div class="ot">(1) por sí sola</div></div>
+    <div class="po" onclick="ans('qmd5','B')"><div class="ol">B</div><div class="ot">(2) por sí sola</div></div>
+    <div class="po" onclick="ans('qmd5','C')"><div class="ol">C</div><div class="ot">Ambas juntas, (1) y (2)</div></div>
+    <div class="po" onclick="ans('qmd5','D')"><div class="ol">D</div><div class="ot">Se requiere información adicional</div></div>
+  </div>
+  <div class="pfb" id="qmd5-fb"></div>
+</div>
+
+</div>
+
+<!-- PROBABILIDAD CONDICIONAL -->
+<div class="sec" id="p2">
+<div class="hsec" style="border-color:rgba(180,83,9,.3)">
+  <span class="hi2">🎲</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#b45309;margin-bottom:3px">Tema 2 de 4 · M2 Unidad 4</div>
+  <h2 style="color:#b45309">Probabilidad Condicional</h2>
+  <p>¿Cómo cambia la probabilidad de un evento cuando ya sabes que ocurrió otro? La herramienta clave para problemas de "cajas", "urnas" y procesos en dos etapas.</p>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#b45309">🎮 Widget interactivo: árbol de probabilidad en vivo</p>
+  <p style="font-size:.87rem;color:var(--dim);margin-bottom:10px">Ajusta P(A) y P(B|A), y observa cómo se recalcula el árbol completo — incluyendo P(A∩B), la probabilidad conjunta.</p>
+  <div class="svgw" style="background:#fff;overflow:hidden;padding:10px">
+    <svg id="treeSvg" viewBox="0 0 400 190" style="width:100%;max-width:420px;display:block;margin:0 auto">
+      <circle cx="40" cy="95" r="5" fill="#211a4d"/>
+      <line id="tA" x1="40" y1="95" x2="200" y2="40" stroke="#b45309" stroke-width="2"/>
+      <line id="tNA" x1="40" y1="95" x2="200" y2="150" stroke="#0891b2" stroke-width="2"/>
+      <text id="tALabel" x="115" y="55" font-size="11" font-weight="900" fill="#b45309">P(A)=0,5</text>
+      <text id="tNALabel" x="105" y="140" font-size="11" font-weight="900" fill="#0891b2">P(no A)=0,5</text>
+      <circle cx="200" cy="40" r="4" fill="#b45309"/>
+      <circle cx="200" cy="150" r="4" fill="#0891b2"/>
+      <line id="tBA" x1="200" y1="40" x2="360" y2="15" stroke="#059669" stroke-width="2"/>
+      <line id="tNBA" x1="200" y1="40" x2="360" y2="65" stroke="#dc2626" stroke-width="2"/>
+      <text id="tBALabel" x="270" y="18" font-size="10" font-weight="900" fill="#059669">P(B|A)=0,5</text>
+      <line id="tB2" x1="200" y1="150" x2="360" y2="125" stroke="#059669" stroke-width="1.3" opacity=".5"/>
+      <line id="tNB2" x1="200" y1="150" x2="360" y2="175" stroke="#dc2626" stroke-width="1.3" opacity=".5"/>
+      <text x="20" y="90" font-size="10" fill="#4c3d99">inicio</text>
+    </svg>
+  </div>
+  <div class="sls" style="margin-top:10px">
+    <div class="slg"><label>P(A)</label><input type="range" id="pA" min="0.05" max="0.95" step="0.05" value="0.5" oninput="updateTree()"><span class="sv" id="pAv" style="color:#b45309">0,5</span></div>
+    <div class="slg"><label>P(B|A)</label><input type="range" id="pBA" min="0.05" max="0.95" step="0.05" value="0.5" oninput="updateTree()"><span class="sv" id="pBAv" style="color:#059669">0,5</span></div>
+  </div>
+  <div class="ores" id="treeResult" style="margin-top:12px">P(A∩B) = P(A)×P(B|A) = 0,5×0,5 = 0,25</div>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="6"><div class="deck-viewport"><div class="deck-track" id="deck-track-p2">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="40" font-size="15" font-weight="900" fill="#211a4d">P(A|B)</text>
+<text x="230" y="40" font-size="13" fill="#4c3d99">= "probabilidad de A, dado que B ya ocurrió"</text>
+<text x="140" y="90" font-size="14" font-weight="900" fill="#b45309">P(A|B) = P(A∩B) / P(B)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">🔀 Concepto de probabilidad condicional</p>
+  <p>La <strong>probabilidad condicional</strong> P(A|B) mide la probabilidad de que ocurra A, sabiendo que B <strong>ya ocurrió</strong>. Conocer que B ocurrió puede cambiar (a veces mucho) qué tan probable es A.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">P(A|B) = P(A∩B) / P(B)</span><div class="fdef">se lee "probabilidad de A dado B"</div></div>
+  <p style="margin-top:10px">Ejemplo intuitivo: la probabilidad de que llueva mañana es baja en general, pero si sabes que hoy el cielo está completamente nublado (evento B), la probabilidad condicional de lluvia (A|B) es mucho más alta.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El orden importa: P(A|B) ≠ P(B|A)</div>
+    <p>"Probabilidad de lluvia dado que está nublado" no es lo mismo que "probabilidad de que esté nublado dado que llueve" — son preguntas distintas, con respuestas generalmente distintas.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="45" font-size="15" font-weight="900" fill="#211a4d">P(A∩B) = P(A) × P(B|A)</text>
+<text x="140" y="85" font-size="12" fill="#4c3d99">"regla del producto": despejando la fórmula anterior</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">✖️ La regla del producto</p>
+  <p>Despejando la fórmula de probabilidad condicional, se obtiene la <strong>regla del producto</strong>: la probabilidad de que ocurran DOS eventos en secuencia es el producto de la probabilidad del primero, por la probabilidad del segundo DADO que el primero ya ocurrió.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">P(A∩B) = P(A) × P(B|A)</span></div>
+  <p style="margin-top:10px">Esta es la misma idea que ya usaste en M1 para probabilidad "sin reposición" — cada extracción cambia la probabilidad de la siguiente, y se multiplican en cadena.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Diagrama de árbol: tu mejor amigo aquí</div>
+    <p>Dibujar un árbol de probabilidades (como el widget de arriba) ayuda muchísimo a organizar problemas de varias etapas — cada rama se etiqueta con su probabilidad, y se multiplica a lo largo del camino.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="40" font-size="14" font-weight="900" fill="#211a4d">Independientes: P(B|A) = P(B)</text>
+<text x="140" y="75" font-size="13" fill="#4c3d99">saber que A ocurrió NO cambia la probabilidad de B</text>
+<text x="140" y="105" font-size="14" font-weight="900" fill="#b45309">P(A∩B) = P(A) × P(B)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">🔓 Eventos independientes: un caso especial</p>
+  <p>Dos eventos son <strong>independientes</strong> cuando el que ocurra uno NO afecta en nada la probabilidad del otro. En ese caso especial, la probabilidad condicional se simplifica.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">A, B independientes &nbsp;⟺&nbsp; P(B|A) = P(B)</span><div class="fdef">y entonces P(A∩B) = P(A) × P(B), como en M1</div></div>
+  <p style="margin-top:10px">Ejemplo: lanzar un dado y lanzar una moneda son eventos independientes — lo que salga en el dado no afecta para nada la moneda. Pero extraer 2 cartas de un mazo SIN reponer no son independientes.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Cómo verificar independencia con números</div>
+    <p>Si P(A∩B) resulta ser exactamente igual a P(A)×P(B), los eventos son independientes. Si no coinciden, son dependientes — es una forma directa de comprobarlo con datos.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="12" fill="#211a4d">Independientes: P(A)=0,5, P(A∩B)=0,2</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#b45309">0,2 = 0,5 × P(B)</text>
+<text x="140" y="95" font-size="15" font-weight="900" fill="#059669">P(B) = 0,2/0,5 = 0,4</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">🤖 Problema resuelto: despejar una probabilidad</p>
+  <p>Dos sucesos independientes A y B: P(A)=0,5 y P(A∩B)=0,2. ¿Cuál es la probabilidad de que ocurra B?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">P(A∩B)=P(A)×P(B) → 0,2=0,5×P(B) → P(B)=0,4</span></div>
+  <p style="margin-top:10px">Como los eventos son independientes, se aplica directamente P(A∩B)=P(A)×P(B), y se despeja la incógnita dividiendo — sin necesitar ningún dato adicional.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Verifica siempre si dice "independientes" en el enunciado</div>
+    <p>Esta fórmula simple SOLO aplica si el problema indica (o se puede deducir) que los eventos son independientes. Si no lo son, necesitas la probabilidad condicional P(B|A), que generalmente debe estar dada.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="25" font-size="11" fill="#211a4d">P(compra online)=P. P(paga con tarjeta | compra online)=Q</text>
+<text x="140" y="60" font-size="14" font-weight="900" fill="#b45309">P(online Y tarjeta) = P(online) × P(tarjeta|online)</text>
+<text x="140" y="95" font-size="15" font-weight="900" fill="#059669">= P × Q</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">🤖 Problema resuelto: regla del producto en contexto</p>
+  <p>Una tienda quiere la probabilidad de que un cliente haya comprado en línea Y que además haya pagado con tarjeta. Se sabe: P(compra online)=P. P(paga con tarjeta | compra online)=Q. ¿Qué modelo debe usar la gerencia?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">Respuesta: P × Q</span></div>
+  <p style="margin-top:10px">Es exactamente la regla del producto: P(antes ∩ reparación)=P(antes)×P(reparación|antes)=N×M. No hace falta ningún otro dato — la fórmula ya usa justo la información entregada.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Identifica cuál probabilidad ya es "condicional" en el enunciado</div>
+    <p>La frase "probabilidad de reparación, DADO QUE fue devuelto antes de la semana" es la pista textual de que M ya es una probabilidad condicional P(B|A) — solo falta multiplicarla por P(A).</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="25" font-size="11" fill="#211a4d">Caja A: 3 blancas,2 rojas,6 negras. Caja B: 2 blancas,3 rojas.</text>
+<text x="140" y="55" font-size="11" fill="#211a4d">Dado&lt;3 (P=2/6) → caja A. Si no (P=4/6) → caja B.</text>
+<text x="140" y="85" font-size="13" font-weight="900" fill="#b45309">P(negra)=P(A)×P(negra|A)+P(B)×P(negra|B)</text>
+<text x="140" y="110" font-size="13" font-weight="900" fill="#059669">=(2/6)×(6/11)+(4/6)×0 = 2/11</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#b45309">📦 Problema resuelto: probabilidad total con dos cajas</p>
+  <p>Caja A tiene 3 blancas, 2 rojas, 6 negras (11 total). Caja B tiene 2 blancas, 3 rojas (sin negras, 5 total). Se lanza un dado: si sale menor que 3, se extrae de A; si no, de B. ¿Cuál es la probabilidad de extraer una ficha negra?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#b45309">P(negra) = P(A)×P(negra|A) + P(B)×P(negra|B) = (2/6)×(6/11) + (4/6)×0 = 2/11</span></div>
+  <p style="margin-top:10px">Como la caja B no tiene fichas negras, P(negra|B)=0, así que ese término desaparece. Solo queda el camino por la caja A: P(dado&lt;3)×P(negra en A)=(2/6)×(6/11)=12/66=2/11.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Suma de caminos del árbol</div>
+    <p>Cuando un evento puede ocurrir por más de un "camino" (aquí, vía caja A o vía caja B), se calcula la probabilidad de cada camino por separado (multiplicando a lo largo de las ramas) y luego se SUMAN todos los caminos que llevan al resultado buscado.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p2" onclick="deckNav('p2',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p2"><button class="deck-dot act" onclick="deckGoto('p2',0)"></button><button class="deck-dot" onclick="deckGoto('p2',1)"></button><button class="deck-dot" onclick="deckGoto('p2',2)"></button><button class="deck-dot" onclick="deckGoto('p2',3)"></button><button class="deck-dot" onclick="deckGoto('p2',4)"></button><button class="deck-dot" onclick="deckGoto('p2',5)"></button></div><button class="deck-arrow" id="deck-next-p2" onclick="deckNav('p2',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p2">Concepto 1 / 6</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#b45309">P(A|B)=P(A∩B)/P(B)</span>
+  <span class="kw" style="color:#b45309">P(A∩B)=P(A)×P(B|A)</span>
+  <span class="kw" style="color:#b45309">independientes: P(B|A)=P(B)</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 5 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">Si P(A)=0,4 y P(B|A)=0,5, ¿cuál es P(A∩B)?</p>
+  <div class="pos" id="qpc1">
+    <div class="po" onclick="ans('qpc1','A')"><div class="ol">A</div><div class="ot">0,1</div></div>
+    <div class="po" onclick="ans('qpc1','B')"><div class="ol">B</div><div class="ot">0,2</div></div>
+    <div class="po" onclick="ans('qpc1','C')"><div class="ol">C</div><div class="ot">0,9</div></div>
+    <div class="po" onclick="ans('qpc1','D')"><div class="ol">D</div><div class="ot">1,25</div></div>
+  </div>
+  <div class="pfb" id="qpc1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">Si P(A∩B)=0,12 y P(B)=0,3, ¿cuál es P(A|B)?</p>
+  <div class="pos" id="qpc2">
+    <div class="po" onclick="ans('qpc2','A')"><div class="ol">A</div><div class="ot">0,036</div></div>
+    <div class="po" onclick="ans('qpc2','B')"><div class="ol">B</div><div class="ot">0,4</div></div>
+    <div class="po" onclick="ans('qpc2','C')"><div class="ol">C</div><div class="ot">2,5</div></div>
+    <div class="po" onclick="ans('qpc2','D')"><div class="ol">D</div><div class="ot">0,42</div></div>
+  </div>
+  <div class="pfb" id="qpc2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál de las siguientes situaciones representa eventos INDEPENDIENTES?</p>
+  <div class="pos" id="qpc3">
+    <div class="po" onclick="ans('qpc3','A')"><div class="ol">A</div><div class="ot">Sacar 2 cartas de un mazo, una tras otra, sin reponer</div></div>
+    <div class="po" onclick="ans('qpc3','B')"><div class="ol">B</div><div class="ot">Lanzar un dado y luego lanzar una moneda</div></div>
+    <div class="po" onclick="ans('qpc3','C')"><div class="ol">C</div><div class="ot">Sacar 2 bolitas de una urna sin reponer</div></div>
+    <div class="po" onclick="ans('qpc3','D')"><div class="ol">D</div><div class="ot">El clima de hoy y el clima de mañana</div></div>
+  </div>
+  <div class="pfb" id="qpc3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica</div>
+  <div class="pctx">Una urna tiene 3 bolitas rojas y 7 azules. Se sacan 2 sin reponer.</div>
+  <p class="pq">¿Cuál es la probabilidad de que ambas sean rojas?</p>
+  <div class="pos" id="qpc4">
+    <div class="po" onclick="ans('qpc4','A')"><div class="ol">A</div><div class="ot">9/100</div></div>
+    <div class="po" onclick="ans('qpc4','B')"><div class="ol">B</div><div class="ot">3/10</div></div>
+    <div class="po" onclick="ans('qpc4','C')"><div class="ol">C</div><div class="ot">6/90</div></div>
+    <div class="po" onclick="ans('qpc4','D')"><div class="ol">D</div><div class="ot">1/15</div></div>
+  </div>
+  <div class="pfb" id="qpc4-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#b45309">🤖 Pregunta de práctica · Suficiencia de Datos</div>
+  <div class="pctx">Se puede determinar P(A|B), si se sabe que: (1) P(A∩B)=0,2. (2) P(B)=0,5.</div>
+  <p class="pq">¿Qué se necesita para determinar P(A|B)?</p>
+  <div class="pos" id="qpc5">
+    <div class="po" onclick="ans('qpc5','A')"><div class="ol">A</div><div class="ot">(1) por sí sola</div></div>
+    <div class="po" onclick="ans('qpc5','B')"><div class="ol">B</div><div class="ot">(2) por sí sola</div></div>
+    <div class="po" onclick="ans('qpc5','C')"><div class="ol">C</div><div class="ot">Ambas juntas, (1) y (2)</div></div>
+    <div class="po" onclick="ans('qpc5','D')"><div class="ol">D</div><div class="ot">Se requiere información adicional</div></div>
+  </div>
+  <div class="pfb" id="qpc5-fb"></div>
+</div>
+
+</div>
+
+<!-- PERMUTACION Y COMBINATORIA -->
+<div class="sec" id="p3">
+<div class="hsec" style="border-color:rgba(190,24,93,.3)">
+  <span class="hi2">🔤</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#be185d;margin-bottom:3px">Tema 3 de 4 · M2 Unidad 4</div>
+  <h2 style="color:#be185d">Permutación y Combinatoria</h2>
+  <p>Cómo contar cuántas formas distintas hay de ordenar o elegir elementos — la pregunta clave que lo decide todo: ¿importa el orden o no?</p>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#be185d">🎮 Widget interactivo: calculadora de permutaciones y combinaciones</p>
+  <p style="font-size:.87rem;color:var(--dim);margin-bottom:10px">Ajusta n (elementos totales) y k (elementos a elegir) y compara en vivo cuántas permutaciones vs. combinaciones existen.</p>
+  <div class="svgw" style="background:#fff;overflow:hidden;padding:10px">
+    <svg id="combSvg" viewBox="0 0 400 130" style="width:100%;max-width:420px;display:block;margin:0 auto">
+      <rect x="20" y="20" width="170" height="90" rx="10" fill="#fce7f3" stroke="#be185d" stroke-width="1.5"/>
+      <text x="105" y="45" font-size="12" font-weight="900" fill="#be185d" text-anchor="middle">Permutaciones</text>
+      <text x="105" y="65" font-size="10" fill="#4c3d99" text-anchor="middle">(el orden importa)</text>
+      <text id="permResult" x="105" y="95" font-size="20" font-weight="900" fill="#be185d" text-anchor="middle">120</text>
+      <rect x="210" y="20" width="170" height="90" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+      <text x="295" y="45" font-size="12" font-weight="900" fill="#0891b2" text-anchor="middle">Combinaciones</text>
+      <text x="295" y="65" font-size="10" fill="#4c3d99" text-anchor="middle">(el orden NO importa)</text>
+      <text id="combResult" x="295" y="95" font-size="20" font-weight="900" fill="#0891b2" text-anchor="middle">20</text>
+    </svg>
+  </div>
+  <div class="sls" style="margin-top:10px">
+    <div class="slg"><label>n (elementos totales)</label><input type="range" id="combN" min="2" max="10" step="1" value="6" oninput="updateComb()"><span class="sv" id="combNv" style="color:#be185d">n = 6</span></div>
+    <div class="slg"><label>k (elementos a elegir)</label><input type="range" id="combK" min="1" max="6" step="1" value="3" oninput="updateComb()"><span class="sv" id="combKv" style="color:#0891b2">k = 3</span></div>
+  </div>
+  <div class="ores" id="combResultText" style="margin-top:12px">P(6,3)=6×5×4=120 &nbsp;·&nbsp; C(6,3)=120/3!=20</div>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="6"><div class="deck-viewport"><div class="deck-track" id="deck-track-p3">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="45" font-size="16" font-weight="900" fill="#211a4d">5! = 5×4×3×2×1 = 120</text>
+<text x="140" y="85" font-size="11" fill="#4c3d99">"5 factorial": formas de ordenar 5 elementos distintos</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">❗ El factorial: la base de todo</p>
+  <p>El <strong>factorial</strong> de un número n (escrito n!) es el producto de todos los enteros positivos desde n hasta 1. Representa de cuántas formas distintas se pueden ordenar n elementos diferentes.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">n! = n×(n−1)×(n−2)×...×2×1</span><div class="fdef">por convención, 0!=1</div></div>
+  <p style="margin-top:10px">Ejemplo: 5!=5×4×3×2×1=120. Hay 120 formas distintas de ordenar 5 personas en una fila, por ejemplo.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El factorial crece MUY rápido</div>
+    <p>10!=3.628.800. Este crecimiento explosivo es la razón por la que la combinatoria maneja números tan grandes con relativamente pocos elementos.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="12" fill="#211a4d">1° lugar, 2° lugar, 3° lugar en una carrera de 5 corredores</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#be185d">P(5,3) = 5×4×3 = 60</text>
+<text x="140" y="95" font-size="11" fill="#4c3d99">el orden SÍ importa: 1°,2°,3° son posiciones distintas</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🏃 Permutaciones: cuando el orden importa</p>
+  <p>Una <strong>permutación</strong> cuenta las formas de elegir y <strong>ordenar</strong> k elementos de un total de n. Como el orden importa, "A luego B" cuenta distinto que "B luego A".</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">P(n,k) = n! / (n−k)!</span><div class="fdef">equivalente a multiplicar los k primeros factores descendentes desde n</div></div>
+  <p style="margin-top:10px">Ejemplo: elegir quién gana 1°, 2° y 3° lugar entre 5 corredores: P(5,3)=5×4×3=60 (se multiplican 3 factores, empezando en 5 y bajando).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Palabras clave que indican permutación</div>
+    <p>"Ordenar", "podio", "presidente/secretario/tesorero" (cargos distintos), "clave" o "contraseña" — cualquier situación donde intercambiar 2 elementos crea un resultado DISTINTO indica permutación.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="12" fill="#211a4d">Elegir 3 amigos de un grupo de 5 para ir al cine</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#0891b2">C(5,3) = 5!/(3!×2!) = 10</text>
+<text x="140" y="95" font-size="11" fill="#4c3d99">el orden NO importa: {A,B,C} es lo mismo que {C,B,A}</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#0891b2">👥 Combinaciones: cuando el orden NO importa</p>
+  <p>Una <strong>combinación</strong> cuenta las formas de elegir k elementos de un total de n, <strong>sin importar el orden</strong>. Elegir a {Ana, Beto, Carla} es lo mismo que elegir a {Carla, Ana, Beto} — es el mismo grupo.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#0891b2">C(n,k) = n! / (k!×(n−k)!)</span><div class="fdef">es la permutación, dividida por k! (para "deshacer" los órdenes repetidos)</div></div>
+  <p style="margin-top:10px">Ejemplo: elegir 3 amigos de un grupo de 5 para ir al cine (sin cargos ni orden): C(5,3)=5!/(3!×2!)=120/(6×2)=10.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Palabras clave que indican combinación</div>
+    <p>"Elegir un grupo", "formar un comité" (sin cargos distintos), "seleccionar", "escoger" — cualquier situación donde el ORDEN de selección no cambia el resultado final indica combinación.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<rect x="30" y="20" width="220" height="70" rx="8" fill="#fce7f3" stroke="#be185d" stroke-width="1.3"/>
+<text x="140" y="45" font-size="12" font-weight="900" fill="#be185d" text-anchor="middle">¿Cargos o posiciones distintas?</text>
+<text x="140" y="65" font-size="11" fill="#4c3d99" text-anchor="middle">→ PERMUTACIÓN</text>
+<rect x="300" y="20" width="220" height="70" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.3"/>
+<text x="410" y="45" font-size="12" font-weight="900" fill="#0891b2" text-anchor="middle">¿Solo un grupo, sin roles?</text>
+<text x="410" y="65" font-size="11" fill="#4c3d99" text-anchor="middle">→ COMBINACIÓN</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🤔 La pregunta clave: ¿importa el orden?</p>
+  <p>Antes de calcular cualquier problema de conteo, hazte SIEMPRE esta pregunta: si intercambio 2 de los elementos elegidos, ¿obtengo un resultado <strong>diferente</strong>?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">¿Cambia el resultado al reordenar? → Sí: permutación · No: combinación</span></div>
+  <p style="margin-top:10px">Ejemplo comparativo: "elegir presidente, secretario y tesorero" (permutación, porque Ana-presidenta ≠ Ana-secretaria) versus "elegir 3 representantes" (combinación, porque el grupo {Ana,Beto,Carla} es un único resultado, sin roles).</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Combinatoria mixta: cargos específicos + resto sin roles</div>
+    <p>Algunos problemas combinan ambas ideas: por ejemplo, elegir un representante y un secretario específicos (permutación para esos 2 roles) y luego un grupo de miembros sin rol (combinación para el resto) — resuelve cada parte por separado y multiplica los resultados.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="25" font-size="11" fill="#211a4d">Comité: presidente(mujer), secretario(hombre), tesorero(cualquiera)</text>
+<text x="140" y="55" font-size="11" fill="#211a4d">5 mujeres, 9 hombres = 14 personas totales</text>
+<text x="140" y="85" font-size="14" font-weight="900" fill="#be185d">5 (pres.) × 9 (secr.) × 12 (tesorero, de los 12 restantes)</text>
+<text x="140" y="110" font-size="13" font-weight="900" fill="#059669">= 540 comités distintos</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🤖 Problema resuelto: comité con cargos mixtos</p>
+  <p>Se quiere formar un comité de 3 personas (presidente, secretario, tesorero) de un grupo de 5 mujeres y 9 hombres. El presidente debe ser mujer y el secretario debe ser hombre. ¿Cuántos comités distintos se pueden formar?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">5 (mujeres para presidente) × 9 (hombres para secretario) × 12 (restantes para tesorero)</span></div>
+  <p style="margin-top:10px">Se elige el presidente entre las 5 mujeres (5 opciones), luego el secretario entre los 9 hombres (9 opciones), y finalmente el tesorero entre las 12 personas que quedan (14 totales − 2 ya elegidas). Se multiplican las 3 etapas: 5×9×12.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 El "principio multiplicativo" en acción</div>
+    <p>Cuando un proceso tiene varias etapas independientes (elegir representante, LUEGO secretario, LUEGO tesorero), el total de posibilidades es el PRODUCTO del número de opciones en cada etapa — la misma idea del árbol de probabilidades, aplicada al conteo.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="12" fill="#211a4d">Clave de 4 dígitos, sin repetir, del 0 al 9</text>
+<text x="140" y="65" font-size="14" font-weight="900" fill="#be185d">P(10,4) = 10×9×8×7 = 5.040</text>
+<text x="140" y="95" font-size="11" fill="#4c3d99">el orden importa: 1234 ≠ 4321</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#be185d">🔢 Problema resuelto: contraseñas y claves</p>
+  <p>¿Cuántas claves distintas de 4 dígitos (sin repetir ningún dígito) se pueden formar usando los dígitos del 0 al 9?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#be185d">P(10,4) = 10×9×8×7 = 5.040 claves distintas</span></div>
+  <p style="margin-top:10px">Es una permutación (1234 es una clave distinta de 4321): se eligen 4 dígitos de los 10 disponibles, multiplicando los factores descendentes desde 10.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 ¿Y si SÍ se pueden repetir dígitos?</div>
+    <p>Si el problema permitiera repetir dígitos (por ejemplo, la clave 1122 fuera válida), el conteo sería distinto: simplemente 10×10×10×10=10.000, sin necesitar fórmulas de permutación — presta atención a si el problema dice "sin repetir" o no.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p3" onclick="deckNav('p3',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p3"><button class="deck-dot act" onclick="deckGoto('p3',0)"></button><button class="deck-dot" onclick="deckGoto('p3',1)"></button><button class="deck-dot" onclick="deckGoto('p3',2)"></button><button class="deck-dot" onclick="deckGoto('p3',3)"></button><button class="deck-dot" onclick="deckGoto('p3',4)"></button><button class="deck-dot" onclick="deckGoto('p3',5)"></button></div><button class="deck-arrow" id="deck-next-p3" onclick="deckNav('p3',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p3">Concepto 1 / 6</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#be185d">n!</span>
+  <span class="kw" style="color:#be185d">P(n,k)=n!/(n−k)!</span>
+  <span class="kw" style="color:#0891b2">C(n,k)=n!/(k!(n−k)!)</span>
+  <span class="kw" style="color:#be185d">¿importa el orden?</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 5 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál es el valor de 4!?</p>
+  <div class="pos" id="qcb1">
+    <div class="po" onclick="ans('qcb1','A')"><div class="ol">A</div><div class="ot">8</div></div>
+    <div class="po" onclick="ans('qcb1','B')"><div class="ol">B</div><div class="ot">16</div></div>
+    <div class="po" onclick="ans('qcb1','C')"><div class="ol">C</div><div class="ot">24</div></div>
+    <div class="po" onclick="ans('qcb1','D')"><div class="ol">D</div><div class="ot">256</div></div>
+  </div>
+  <div class="pfb" id="qcb1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">¿De cuántas formas distintas pueden llegar 1°, 2° y 3° lugar en una carrera de 6 corredores?</p>
+  <div class="pos" id="qcb2">
+    <div class="po" onclick="ans('qcb2','A')"><div class="ol">A</div><div class="ot">18</div></div>
+    <div class="po" onclick="ans('qcb2','B')"><div class="ol">B</div><div class="ot">20</div></div>
+    <div class="po" onclick="ans('qcb2','C')"><div class="ol">C</div><div class="ot">120</div></div>
+    <div class="po" onclick="ans('qcb2','D')"><div class="ol">D</div><div class="ot">720</div></div>
+  </div>
+  <div class="pfb" id="qcb2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">¿De cuántas formas se pueden elegir 2 delegados (sin cargos distintos) de un curso de 8 estudiantes?</p>
+  <div class="pos" id="qcb3">
+    <div class="po" onclick="ans('qcb3','A')"><div class="ol">A</div><div class="ot">16</div></div>
+    <div class="po" onclick="ans('qcb3','B')"><div class="ol">B</div><div class="ot">28</div></div>
+    <div class="po" onclick="ans('qcb3','C')"><div class="ol">C</div><div class="ot">56</div></div>
+    <div class="po" onclick="ans('qcb3','D')"><div class="ol">D</div><div class="ot">64</div></div>
+  </div>
+  <div class="pfb" id="qcb3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál de las siguientes situaciones se resuelve con una COMBINACIÓN (no permutación)?</p>
+  <div class="pos" id="qcb4">
+    <div class="po" onclick="ans('qcb4','A')"><div class="ol">A</div><div class="ot">Asignar medallas de oro, plata y bronce a 3 de 10 atletas</div></div>
+    <div class="po" onclick="ans('qcb4','B')"><div class="ol">B</div><div class="ot">Elegir 4 jugadores titulares de un plantel de 15 (sin posiciones)</div></div>
+    <div class="po" onclick="ans('qcb4','C')"><div class="ol">C</div><div class="ot">Crear una clave numérica de 5 dígitos sin repetir</div></div>
+    <div class="po" onclick="ans('qcb4','D')"><div class="ol">D</div><div class="ot">Ordenar 6 libros distintos en un estante</div></div>
+  </div>
+  <div class="pfb" id="qcb4-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#be185d">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuántas claves de 3 dígitos (0 al 9) se pueden formar SI se permite repetir dígitos?</p>
+  <div class="pos" id="qcb5">
+    <div class="po" onclick="ans('qcb5','A')"><div class="ol">A</div><div class="ot">720</div></div>
+    <div class="po" onclick="ans('qcb5','B')"><div class="ol">B</div><div class="ot">1.000</div></div>
+    <div class="po" onclick="ans('qcb5','C')"><div class="ol">C</div><div class="ot">30</div></div>
+    <div class="po" onclick="ans('qcb5','D')"><div class="ol">D</div><div class="ot">120</div></div>
+  </div>
+  <div class="pfb" id="qcb5-fb"></div>
+</div>
+
+</div>
+
+<!-- MODELOS PROBABILISTICOS -->
+<div class="sec" id="p4">
+<div class="hsec" style="border-color:rgba(5,150,105,.3)">
+  <span class="hi2">📈</span>
+  <div style="font-size:.73rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#059669;margin-bottom:3px">Tema 4 de 4 · M2 Unidad 4 · El contenido más exigente de M2</div>
+  <h2 style="color:#059669">Modelos Probabilísticos: Binomial y Normal</h2>
+  <p>Dos modelos matemáticos que aparecen en toda la ciencia y la vida real: uno para contar "éxitos" en repeticiones, y otro para describir la forma más común de variabilidad natural. Vamos con calma, paso a paso.</p>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#059669">🎮 Widget 1: calculadora de distribución binomial</p>
+  <p style="font-size:.87rem;color:var(--dim);margin-bottom:10px">Ajusta n (número de intentos) y p (probabilidad de éxito), y observa cómo cambia la forma de la distribución completa.</p>
+  <div class="svgw" style="background:#fff;overflow:hidden;padding:10px">
+    <svg id="binSvg" viewBox="0 0 400 160" style="width:100%;max-width:420px;display:block;margin:0 auto">
+      <line x1="20" y1="140" x2="380" y2="140" stroke="#c4b5fd" stroke-width="1"/>
+      <g id="binBars"></g>
+    </svg>
+  </div>
+  <div class="sls" style="margin-top:10px">
+    <div class="slg"><label>n (intentos)</label><input type="range" id="binN" min="2" max="12" step="1" value="6" oninput="updateBin()"><span class="sv" id="binNv" style="color:#059669">n = 6</span></div>
+    <div class="slg"><label>p (probabilidad de éxito)</label><input type="range" id="binP" min="0.1" max="0.9" step="0.05" value="0.5" oninput="updateBin()"><span class="sv" id="binPv" style="color:#059669">p = 0,5</span></div>
+  </div>
+  <div class="ores" id="binResult" style="margin-top:12px">Media=n×p=3 &nbsp;·&nbsp; Cada barra: P(X=k)</div>
+</div>
+
+<div class="card">
+  <p class="ct" style="color:#059669">🎮 Widget 2: curva de distribución normal</p>
+  <p style="font-size:.87rem;color:var(--dim);margin-bottom:10px">Ajusta la media (μ) y la desviación estándar (σ), y observa cómo la campana se mueve y cambia de ancho.</p>
+  <div class="svgw" style="background:#fff;overflow:hidden;padding:10px">
+    <svg id="normSvg" viewBox="0 0 400 160" style="width:100%;max-width:420px;display:block;margin:0 auto">
+      <line x1="20" y1="140" x2="380" y2="140" stroke="#c4b5fd" stroke-width="1"/>
+      <path id="normPath" d="" fill="#d1fae5" stroke="#059669" stroke-width="2.3"/>
+      <line id="normMeanLine" x1="200" y1="20" x2="200" y2="140" stroke="#dc2626" stroke-width="1.3" stroke-dasharray="4,3"/>
+    </svg>
+  </div>
+  <div class="sls" style="margin-top:10px">
+    <div class="slg"><label>μ (media)</label><input type="range" id="normMu" min="-3" max="3" step="0.5" value="0" oninput="updateNorm()"><span class="sv" id="normMuv" style="color:#059669">μ = 0</span></div>
+    <div class="slg"><label>σ (desviación estándar)</label><input type="range" id="normSigma" min="0.3" max="2" step="0.1" value="1" oninput="updateNorm()"><span class="sv" id="normSigmav" style="color:#059669">σ = 1</span></div>
+  </div>
+  <div class="ores" id="normResult" style="margin-top:12px">N(μ=0, σ=1) — la "campana de Gauss" estándar</div>
+</div>
+
+<div class="deck-hint">👉 Desliza o usa las flechas para avanzar entre los conceptos de esta unidad</div><div class="deck" data-total="6"><div class="deck-viewport"><div class="deck-track" id="deck-track-p4">
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<rect x="60" y="90" width="30" height="30" fill="#059669"/>
+<rect x="120" y="60" width="30" height="60" fill="#059669"/>
+<rect x="180" y="30" width="30" height="90" fill="#059669"/>
+<rect x="240" y="60" width="30" height="60" fill="#059669"/>
+<rect x="300" y="90" width="30" height="30" fill="#059669"/>
+<text x="195" y="20" font-size="11" font-weight="900" fill="#059669" text-anchor="middle">P(X=k) para k=0,1,2,3,4</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">🎲 Concepto de distribución binomial</p>
+  <p>El <strong>modelo binomial</strong> describe experimentos que se repiten n veces de forma idéntica e independiente, donde cada intento solo tiene 2 resultados posibles: "éxito" (con probabilidad p) o "fracaso". Cuenta cuántos éxitos ocurren en total.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">4 condiciones: n fijo · 2 resultados · misma p siempre · intentos independientes</span></div>
+  <p style="margin-top:10px">Ejemplo clásico: lanzar una moneda 10 veces y contar cuántas veces sale cara. Cada lanzamiento es independiente, siempre tiene la misma probabilidad (0,5), y hay exactamente 2 resultados posibles.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Reconocer un modelo binomial en un problema</div>
+    <p>Busca las palabras clave: "n veces", "al azar", "éxito/fracaso", "cada intento es independiente". Si un problema describe una repetición de un experimento simple con 2 resultados, es candidato a modelo binomial.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="35" font-size="13" font-weight="900" fill="#211a4d">P(X=k) = C(n,k) × pᵏ × (1−p)ⁿ⁻ᵏ</text>
+<text x="140" y="70" font-size="11" fill="#4c3d99">C(n,k): de cuántas formas puede ocurrir</text>
+<text x="140" y="90" font-size="11" fill="#4c3d99">pᵏ×(1−p)ⁿ⁻ᵏ: la probabilidad de UNA forma específica</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">🧮 La fórmula binomial, explicada por partes</p>
+  <p>La fórmula parece intimidante, pero se entiende mejor separada en 2 ideas: <strong>cuántas formas</strong> hay de que ocurran exactamente k éxitos, y <strong>qué tan probable</strong> es cada una de esas formas.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">P(X=k) = C(n,k) × pᵏ × (1−p)ⁿ⁻ᵏ</span><div class="fdef">n=intentos · k=éxitos buscados · p=probabilidad de éxito en cada intento</div></div>
+  <p style="margin-top:10px">C(n,k) cuenta las formas de elegir CUÁLES k intentos son éxitos (combinatoria, del tema anterior). pᵏ es la probabilidad de que esos k intentos sean éxito. (1−p)ⁿ⁻ᵏ es la probabilidad de que los restantes sean fracaso.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Conexión directa con Combinatoria</div>
+    <p>Esta fórmula usa exactamente el C(n,k) que aprendiste en el tema anterior — el modelo binomial es, en el fondo, combinatoria aplicada a probabilidad.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="30" font-size="11" fill="#211a4d">n=4 lanzamientos de moneda, p=0,5, buscar P(X=2 caras)</text>
+<text x="140" y="60" font-size="13" font-weight="900" fill="#059669">C(4,2)×(0,5)²×(0,5)² = 6×0,25×0,25</text>
+<text x="140" y="90" font-size="14" font-weight="900" fill="#be185d">= 6×0,0625 = 0,375</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">🪙 Aplicando la fórmula paso a paso</p>
+  <p>Se lanza una moneda 4 veces (n=4, p=0,5). ¿Cuál es la probabilidad de obtener exactamente 2 caras?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">P(X=2)=C(4,2)×(0,5)²×(0,5)²=6×0,25×0,25=0,375</span></div>
+  <p style="margin-top:10px">Primero C(4,2)=6 (hay 6 formas de elegir cuáles 2 de los 4 lanzamientos son cara). Luego (0,5)² es la probabilidad de esas 2 caras, y (0,5)² (el resto, 4−2=2) es la probabilidad de los 2 sellos restantes.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Calcula cada parte por separado antes de multiplicar</div>
+    <p>Es mucho más fácil evitar errores calculando primero C(n,k), luego pᵏ, luego (1−p)ⁿ⁻ᵏ por separado, y multiplicando los 3 resultados al final.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<path d="M60,120 Q200,10 340,120" fill="#d1fae5" stroke="#059669" stroke-width="2.3"/>
+<line x1="200" y1="15" x2="200" y2="120" stroke="#dc2626" stroke-width="1.3" stroke-dasharray="4,3"/>
+<text x="200" y="10" font-size="10" font-weight="900" fill="#dc2626" text-anchor="middle">μ (media)</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">🔔 Concepto de distribución normal</p>
+  <p>La <strong>distribución normal</strong> (o "campana de Gauss") describe cómo se distribuyen muchísimos fenómenos naturales: estaturas, pesos, puntajes de pruebas — la mayoría de los datos se agrupan cerca del promedio, y cada vez menos datos aparecen mientras más te alejas.</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">Simétrica respecto a μ · más "ancha" con σ mayor</span></div>
+  <p style="margin-top:10px">A diferencia del modelo binomial (que cuenta resultados discretos: 0,1,2,3...), la normal describe variables <strong>continuas</strong>, que pueden tomar cualquier valor dentro de un rango.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Reconocer un contexto de distribución normal</div>
+    <p>Palabras clave: "la mayoría de las personas", "valores típicos vs. extremos", "estatura", "peso", "puntaje de una prueba estandarizada" — fenómenos naturales que se agrupan alrededor de un promedio.</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg">
+<path d="M60,120 Q200,10 340,120" fill="none" stroke="#059669" stroke-width="2.3"/>
+<line x1="140" y1="120" x2="140" y2="90" stroke="#4c3d99" stroke-width="1.3" stroke-dasharray="3,2"/>
+<line x1="260" y1="120" x2="260" y2="90" stroke="#4c3d99" stroke-width="1.3" stroke-dasharray="3,2"/>
+<text x="200" y="135" font-size="10" font-weight="900" fill="#4c3d99" text-anchor="middle">μ±1σ ≈ 68% de los datos</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">📏 La regla empírica: 68-95-99,7</p>
+  <p>Existe una regla muy útil (y muy preguntada en la PAES) sobre qué porcentaje de los datos cae dentro de ciertos rangos alrededor de la media, medidos en desviaciones estándar.</p>
+  <div class="pgrid" style="margin-top:6px">
+    <div class="pc"><h4>μ ± 1σ</h4><p>≈68% de los datos</p></div>
+    <div class="pc"><h4>μ ± 2σ</h4><p>≈95% de los datos</p></div>
+    <div class="pc"><h4>μ ± 3σ</h4><p>≈99,7% de los datos</p></div>
+  </div>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Ejemplo con números concretos</div>
+    <p>Si las estaturas tienen μ=170cm y σ=8cm, entonces ≈68% de las personas mide entre 162 y 178cm (μ±1σ), y ≈95% mide entre 154 y 186cm (μ±2σ).</p>
+  </div>
+</div></div>
+
+<div class="deck-slide"><div class="deck-diag"><svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg">
+<text x="140" y="25" font-size="11" fill="#211a4d">Puntajes: μ=500, σ=100. ¿% entre 400 y 600?</text>
+<text x="140" y="55" font-size="12" fill="#059669">400=μ−1σ, 600=μ+1σ</text>
+<text x="140" y="85" font-size="15" font-weight="900" fill="#be185d">≈68% de los puntajes están en ese rango</text>
+</svg></div><div class="card">
+  <p class="ct" style="color:#059669">🤖 Problema resuelto: aplicando la regla empírica</p>
+  <p>Los puntajes de una prueba estandarizada siguen una distribución normal con μ=500 y σ=100. ¿Qué porcentaje aproximado de los puntajes está entre 400 y 600 puntos?</p>
+  <div class="fbox" style="margin-top:10px"><span class="fsym" style="color:#059669">400=μ−σ, 600=μ+σ → rango μ±1σ → ≈68%</span></div>
+  <p style="margin-top:10px">El primer paso es reconocer que 400 y 600 están exactamente a 1 desviación estándar de la media (500−100=400, 500+100=600). Eso identifica directamente el rango μ±1σ, que corresponde a ≈68% según la regla empírica.</p>
+  <div class="tip" style="margin-top:10px">
+    <div class="tip-l">💡 Siempre expresa los límites en términos de σ primero</div>
+    <p>Antes de aplicar la regla 68-95-99,7, convierte los valores del problema a "cuántas σ de distancia de la media están" — ese es el paso que conecta el problema con la regla empírica.</p>
+  </div>
+</div></div>
+
+</div></div><div class="deck-nav"><button class="deck-arrow" id="deck-prev-p4" onclick="deckNav('p4',-1)" disabled>&#8592;</button><div class="deck-dots" id="deck-dots-p4"><button class="deck-dot act" onclick="deckGoto('p4',0)"></button><button class="deck-dot" onclick="deckGoto('p4',1)"></button><button class="deck-dot" onclick="deckGoto('p4',2)"></button><button class="deck-dot" onclick="deckGoto('p4',3)"></button><button class="deck-dot" onclick="deckGoto('p4',4)"></button><button class="deck-dot" onclick="deckGoto('p4',5)"></button></div><button class="deck-arrow" id="deck-next-p4" onclick="deckNav('p4',1)">&#8594;</button></div><div class="deck-count" id="deck-count-p4">Concepto 1 / 6</div></div><div class="card" style="text-align:center;padding:14px;margin-top:-2px;margin-bottom:14px;background:var(--card2)"><p style="font-size:.86rem;color:var(--dim);margin:0">📝 Ahora practica lo que acabas de ver ↓</p></div>
+
+<div class="kws">
+  <span class="kw" style="color:#059669">P(X=k)=C(n,k)pᵏ(1−p)ⁿ⁻ᵏ</span>
+  <span class="kw" style="color:#059669">campana de Gauss</span>
+  <span class="kw" style="color:#059669">regla 68-95-99,7</span>
+</div>
+
+<p style="color:var(--dim);font-size:.85rem;margin:16px 0 4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em">✏️ Práctica guiada — 5 preguntas</p>
+
+<div class="pbox">
+  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
+  <p class="pq">¿Cuál de las siguientes situaciones se puede modelar con una distribución binomial?</p>
+  <div class="pos" id="qmp1">
+    <div class="po" onclick="ans('qmp1','A')"><div class="ol">A</div><div class="ot">La estatura de los estudiantes de un colegio</div></div>
+    <div class="po" onclick="ans('qmp1','B')"><div class="ol">B</div><div class="ot">El número de caras al lanzar una moneda 8 veces</div></div>
+    <div class="po" onclick="ans('qmp1','C')"><div class="ol">C</div><div class="ot">El tiempo que demora un atleta en correr 100m</div></div>
+    <div class="po" onclick="ans('qmp1','D')"><div class="ol">D</div><div class="ot">El peso de los paquetes en una bodega</div></div>
+  </div>
+  <div class="pfb" id="qmp1-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
+  <div class="pctx">Un tirador acierta al blanco con probabilidad 0,4 en cada disparo. Dispara 3 veces.</div>
+  <p class="pq">¿Cuál expresión representa la probabilidad de acertar exactamente 2 veces?</p>
+  <div class="pos" id="qmp2">
+    <div class="po" onclick="ans('qmp2','A')"><div class="ol">A</div><div class="ot">C(3,2)×(0,4)²×(0,6)¹</div></div>
+    <div class="po" onclick="ans('qmp2','B')"><div class="ol">B</div><div class="ot">C(3,2)×(0,4)²×(0,4)¹</div></div>
+    <div class="po" onclick="ans('qmp2','C')"><div class="ol">C</div><div class="ot">(0,4)²×(0,6)¹</div></div>
+    <div class="po" onclick="ans('qmp2','D')"><div class="ol">D</div><div class="ot">C(3,2)×(0,6)²×(0,4)¹</div></div>
+  </div>
+  <div class="pfb" id="qmp2-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
+  <div class="pctx">Los pesos de un producto siguen una distribución normal con μ=200g y σ=5g.</div>
+  <p class="pq">¿Entre qué valores está aproximadamente el 95% de los pesos (μ±2σ)?</p>
+  <div class="pos" id="qmp3">
+    <div class="po" onclick="ans('qmp3','A')"><div class="ol">A</div><div class="ot">195g y 205g</div></div>
+    <div class="po" onclick="ans('qmp3','B')"><div class="ol">B</div><div class="ot">190g y 210g</div></div>
+    <div class="po" onclick="ans('qmp3','C')"><div class="ol">C</div><div class="ot">185g y 215g</div></div>
+    <div class="po" onclick="ans('qmp3','D')"><div class="ol">D</div><div class="ot">200g y 205g</div></div>
+  </div>
+  <div class="pfb" id="qmp3-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
+  <p class="pq">En un modelo binomial con n=5 y p=0,5, ¿cuál es la probabilidad de obtener 0 éxitos (todos fracasos)?</p>
+  <div class="pos" id="qmp4">
+    <div class="po" onclick="ans('qmp4','A')"><div class="ol">A</div><div class="ot">0</div></div>
+    <div class="po" onclick="ans('qmp4','B')"><div class="ol">B</div><div class="ot">0,03125</div></div>
+    <div class="po" onclick="ans('qmp4','C')"><div class="ol">C</div><div class="ot">0,5</div></div>
+    <div class="po" onclick="ans('qmp4','D')"><div class="ol">D</div><div class="ot">1</div></div>
+  </div>
+  <div class="pfb" id="qmp4-fb"></div>
+</div>
+
+<div class="pbox">
+  <div class="ptag" style="color:#059669">🤖 Pregunta de práctica</div>
+  <p class="pq">En una distribución normal con μ=50 y σ=10, ¿qué porcentaje aproximado de los datos está entre 40 y 60?</p>
+  <div class="pos" id="qmp5">
+    <div class="po" onclick="ans('qmp5','A')"><div class="ol">A</div><div class="ot">50%</div></div>
+    <div class="po" onclick="ans('qmp5','B')"><div class="ol">B</div><div class="ot">68%</div></div>
+    <div class="po" onclick="ans('qmp5','C')"><div class="ol">C</div><div class="ot">95%</div></div>
+    <div class="po" onclick="ans('qmp5','D')"><div class="ol">D</div><div class="ot">99,7%</div></div>
+  </div>
+  <div class="pfb" id="qmp5-fb"></div>
+</div>
+
+</div>
+
+<!-- ENSAYO -->
+<div class="sec" id="p5">
+<div class="card" style="text-align:center;background:linear-gradient(135deg,#f1edfe,#fce7f3)">
+  <p class="ct" style="justify-content:center;color:var(--ind);font-size:1.3rem">🎉 &#9201; Mini Ensayo de Cierre &bull; 20 preguntas</p>
+  <p style="font-size:.92rem;color:var(--dim)">¡Este es el último ensayo de todo el módulo M2! <strong>20 preguntas generadas con IA</strong> (marcadas 🤖), mezclando los 4 temas con el estilo y dificultad de la PAES. 24 minutos, sin retroalimentación inmediata.</p>
+</div>
+<div class="tbox">
+  <div>
+    <div style="font-size:.71rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin-bottom:1px">Tiempo restante</div>
+    <div class="td" id="td">24:00</div>
+  </div>
+  <div style="text-align:right">
+    <div id="ts" style="font-size:.84rem;color:var(--dim);margin-bottom:6px">Haz clic en Iniciar cuando estés lista</div>
+    <button id="stb" onclick="startE()" style="padding:8px 20px;background:var(--ind);color:#fff;border:none;border-radius:50px;font-family:'Fredoka One',cursive;font-size:.93rem;cursor:pointer;box-shadow:0 4px 12px rgba(79,70,229,.28)">&#9654; Iniciar ensayo</button>
+  </div>
+</div>
+<div id="eqs" style="opacity:.35;pointer-events:none">
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 1 · Medidas de Dispersión · 🤖</div><div class="ectx">Tablas de edades: Grupo C (5,6,7 años, frecuencia 12 cada una). Grupo D (11,12,13 años, frecuencia 12 cada una).</div><div class="eqt">¿Cuál de las siguientes afirmaciones es verdadera respecto a las edades de los grupos?</div><div class="eopts" id="ep0"><div class="eopt" data-qi="0" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Tienen la misma desviación estándar y el mismo promedio</div></div><div class="eopt" data-qi="0" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Tienen la misma desviación estándar, pero distinto promedio</div></div><div class="eopt" data-qi="0" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Tienen el mismo promedio, pero distinta desviación estándar</div></div><div class="eopt" data-qi="0" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Tienen distinto promedio y distinta desviación estándar</div></div></div><div class="efb" id="ef0"></div></div>
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 2 · Medidas de Dispersión · 🤖</div><div class="ectx">Un dato es atípico si es menor que Q1−1,5R o mayor que Q3+1,5R, donde R es el rango intercuartílico. Un conjunto tiene Q1=15 y Q3=35. Los mayores datos son 50, 58, 67 y 74.</div><div class="eqt">¿Cuántos de ellos son datos atípicos?</div><div class="eopts" id="ep1"><div class="eopt" data-qi="1" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">1</div></div><div class="eopt" data-qi="1" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">2</div></div><div class="eopt" data-qi="1" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">3</div></div><div class="eopt" data-qi="1" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">4</div></div></div><div class="efb" id="ef1"></div></div>
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 3 · Medidas de Dispersión · 🤖 · Suficiencia de Datos</div><div class="ectx">Se puede determinar la varianza de las edades de un grupo de 25 estudiantes, si se conoce: (1) la varianza que tenían las edades del grupo hace 2 años. (2) el promedio y el rango de las edades del grupo.</div><div class="eqt">¿Qué se necesita para determinar la varianza actual?</div><div class="eopts" id="ep2"><div class="eopt" data-qi="2" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">(1) por sí sola</div></div><div class="eopt" data-qi="2" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">(2) por sí sola</div></div><div class="eopt" data-qi="2" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Ambas juntas, (1) y (2)</div></div><div class="eopt" data-qi="2" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Se requiere información adicional</div></div></div><div class="efb" id="ef2"></div></div>
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 4 · Medidas de Dispersión · 🤖</div><div class="eqt">¿Cuál es el rango de los datos 25, 8, 40, 15, 22?</div><div class="eopts" id="ep3"><div class="eopt" data-qi="3" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">17</div></div><div class="eopt" data-qi="3" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">22</div></div><div class="eopt" data-qi="3" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">32</div></div><div class="eopt" data-qi="3" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">40</div></div></div><div class="efb" id="ef3"></div></div>
+
+<div class="eq"><div class="enum" style="color:var(--ind)">Pregunta 5 · Medidas de Dispersión · 🤖</div><div class="eqt">Si la desviación estándar de un grupo de datos es 6, ¿cuál es su varianza?</div><div class="eopts" id="ep4"><div class="eopt" data-qi="4" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">3</div></div><div class="eopt" data-qi="4" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">12</div></div><div class="eopt" data-qi="4" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">36</div></div><div class="eopt" data-qi="4" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">2,45</div></div></div><div class="efb" id="ef4"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 6 · Probabilidad Condicional · 🤖</div><div class="ectx">P(estudiante llega tarde)=X. P(tiene justificativo | llega tarde)=Y.</div><div class="eqt">¿Qué modelo permite calcular la probabilidad de que un estudiante llegue tarde Y tenga justificativo?</div><div class="eopts" id="ep5"><div class="eopt" data-qi="5" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">X/Y</div></div><div class="eopt" data-qi="5" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">X×Y</div></div><div class="eopt" data-qi="5" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Y/X</div></div><div class="eopt" data-qi="5" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Y−X</div></div></div><div class="efb" id="ef5"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 7 · Probabilidad Condicional · 🤖</div><div class="ectx">Dos sucesos independientes A y B. P(A)=0,4. P(A∩B)=0,12.</div><div class="eqt">¿Cuál es la probabilidad de que ocurra B?</div><div class="eopts" id="ep6"><div class="eopt" data-qi="6" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">0,048</div></div><div class="eopt" data-qi="6" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">0,12</div></div><div class="eopt" data-qi="6" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">0,30</div></div><div class="eopt" data-qi="6" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">0,52</div></div></div><div class="efb" id="ef6"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 8 · Probabilidad Condicional · 🤖 · Suficiencia de Datos</div><div class="ectx">Los 5/9 de las personas que estudian con música también estudian de noche. Se puede conocer la probabilidad de que una persona elegida al azar estudie con música Y estudie de noche, si se conoce: (1) la probabilidad de que estudie con música. (2) la probabilidad de que estudie de noche.</div><div class="eqt">¿Qué se necesita para determinar esa probabilidad conjunta?</div><div class="eopts" id="ep7"><div class="eopt" data-qi="7" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">(1) por sí sola</div></div><div class="eopt" data-qi="7" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">(2) por sí sola</div></div><div class="eopt" data-qi="7" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Ambas juntas, (1) y (2)</div></div><div class="eopt" data-qi="7" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Se requiere información adicional</div></div></div><div class="efb" id="ef7"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 9 · Probabilidad Condicional · 🤖</div><div class="ectx">Un mazo de 30 cartas: 15 numeradas 1-15 con símbolo azul, 15 numeradas 1-15 con símbolo verde. Se gana si la carta es un número primo (2,3,5,7,11,13) Y el símbolo es azul.</div><div class="eqt">¿Cuál es la probabilidad de ganar?</div><div class="eopts" id="ep8"><div class="eopt" data-qi="8" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">1/5</div></div><div class="eopt" data-qi="8" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">2/15</div></div><div class="eopt" data-qi="8" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">1/10</div></div><div class="eopt" data-qi="8" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">3/10</div></div></div><div class="efb" id="ef8"></div></div>
+
+<div class="eq"><div class="enum" style="color:#b45309">Pregunta 10 · Probabilidad Condicional · 🤖</div><div class="eqt">Si P(A)=0,5 y P(B|A)=0,8, ¿cuál es P(A∩B)?</div><div class="eopts" id="ep9"><div class="eopt" data-qi="9" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">0,3</div></div><div class="eopt" data-qi="9" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">0,4</div></div><div class="eopt" data-qi="9" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">1,3</div></div><div class="eopt" data-qi="9" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">1,6</div></div></div><div class="efb" id="ef9"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 11 · Permutación y Combinatoria · 🤖</div><div class="ectx">Comité de 3 personas (presidente, vicepresidente, tesorero) de un grupo de 7 mujeres y 5 hombres. La presidencia debe ser mujer y la vicepresidencia debe ser hombre.</div><div class="eqt">¿Cuántos grupos distintos se pueden formar?</div><div class="eopts" id="ep10"><div class="eopt" data-qi="10" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">7×5×10</div></div><div class="eopt" data-qi="10" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">12×11×10</div></div><div class="eopt" data-qi="10" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">2×7×5×10</div></div><div class="eopt" data-qi="10" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">2×12×11×10</div></div></div><div class="efb" id="ef10"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 12 · Permutación y Combinatoria · 🤖</div><div class="eqt">¿Cuál es el valor de 6!?</div><div class="eopts" id="ep11"><div class="eopt" data-qi="11" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">36</div></div><div class="eopt" data-qi="11" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">120</div></div><div class="eopt" data-qi="11" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">720</div></div><div class="eopt" data-qi="11" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">46.656</div></div></div><div class="efb" id="ef11"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 13 · Permutación y Combinatoria · 🤖</div><div class="eqt">¿De cuántas formas se pueden elegir 3 sabores de helado (sin importar el orden) de un total de 7 sabores disponibles?</div><div class="eopts" id="ep12"><div class="eopt" data-qi="12" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">21</div></div><div class="eopt" data-qi="12" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">35</div></div><div class="eopt" data-qi="12" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">210</div></div><div class="eopt" data-qi="12" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">343</div></div></div><div class="efb" id="ef12"></div></div>
+
+<div class="eq"><div class="enum" style="color:#be185d">Pregunta 14 · Permutación y Combinatoria · 🤖</div><div class="eqt">¿Cuál de las siguientes situaciones se resuelve con una PERMUTACIÓN (no combinación)?</div><div class="eopts" id="ep13"><div class="eopt" data-qi="13" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Elegir 5 números para un boleto de lotería (sin orden)</div></div><div class="eopt" data-qi="13" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Formar un equipo de 4 personas de un grupo de 10</div></div><div class="eopt" data-qi="13" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Asignar 1°, 2° y 3° lugar en una competencia</div></div><div class="eopt" data-qi="13" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">Elegir un comité de 3 personas sin cargos</div></div></div><div class="efb" id="ef13"></div></div>
+
+<div class="eq"><div class="enum" style="color:#059669">Pregunta 15 · Modelos Probabilísticos · 🤖</div><div class="ectx">Un examen tiene 5 preguntas de verdadero/falso. Un estudiante responde todas al azar (p=0,5 en cada una).</div><div class="eqt">¿Cuál expresión representa la probabilidad de acertar exactamente 3?</div><div class="eopts" id="ep14"><div class="eopt" data-qi="14" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">C(5,3)×(0,5)³×(0,5)²</div></div><div class="eopt" data-qi="14" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">(0,5)³</div></div><div class="eopt" data-qi="14" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">C(5,3)×(0,5)³</div></div><div class="eopt" data-qi="14" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">5×(0,5)³</div></div></div><div class="efb" id="ef14"></div></div>
+
+<div class="eq"><div class="enum" style="color:#059669">Pregunta 16 · Modelos Probabilísticos · 🤖</div><div class="eqt">¿Cuál de las siguientes es una condición necesaria para aplicar el modelo binomial?</div><div class="eopts" id="ep15"><div class="eopt" data-qi="15" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Los intentos deben ser dependientes entre sí</div></div><div class="eopt" data-qi="15" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Debe haber exactamente 2 resultados posibles por intento</div></div><div class="eopt" data-qi="15" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">La probabilidad de éxito debe cambiar en cada intento</div></div><div class="eopt" data-qi="15" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">El número de intentos debe ser mayor a 100</div></div></div><div class="efb" id="ef15"></div></div>
+
+<div class="eq"><div class="enum" style="color:#059669">Pregunta 17 · Modelos Probabilísticos · 🤖</div><div class="ectx">Las notas de una prueba siguen una distribución normal con μ=5,0 y σ=0,8.</div><div class="eqt">¿Entre qué valores está aproximadamente el 68% de las notas?</div><div class="eopts" id="ep16"><div class="eopt" data-qi="16" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">4,2 y 5,8</div></div><div class="eopt" data-qi="16" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">3,4 y 6,6</div></div><div class="eopt" data-qi="16" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">4,4 y 5,6</div></div><div class="eopt" data-qi="16" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">5,0 y 5,8</div></div></div><div class="efb" id="ef16"></div></div>
+
+<div class="eq"><div class="enum" style="color:#059669">Pregunta 18 · Modelos Probabilísticos · 🤖</div><div class="eqt">En un modelo binomial con n=8 y p=0,3, ¿cuál es la media (valor esperado) de éxitos?</div><div class="eopts" id="ep17"><div class="eopt" data-qi="17" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">0,3</div></div><div class="eopt" data-qi="17" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">2,4</div></div><div class="eopt" data-qi="17" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">8</div></div><div class="eopt" data-qi="17" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">11,3</div></div></div><div class="efb" id="ef17"></div></div>
+
+<div class="eq"><div class="enum" style="color:#059669">Pregunta 19 · Modelos Probabilísticos · 🤖</div><div class="eqt">¿Cuál de las siguientes afirmaciones sobre la distribución normal es verdadera?</div><div class="eopts" id="ep18"><div class="eopt" data-qi="18" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Es asimétrica, con más datos hacia la derecha</div></div><div class="eopt" data-qi="18" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Es simétrica respecto a la media</div></div><div class="eopt" data-qi="18" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Solo aplica a variables discretas</div></div><div class="eopt" data-qi="18" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">No depende de la desviación estándar</div></div></div><div class="efb" id="ef18"></div></div>
+
+<div class="eq"><div class="enum" style="color:#059669">Pregunta 20 · Modelos Probabilísticos · 🤖</div><div class="eqt">Si aumenta la desviación estándar σ de una distribución normal (manteniendo μ fijo), ¿qué le ocurre a la campana?</div><div class="eopts" id="ep19"><div class="eopt" data-qi="19" data-opt="A" onclick="selA(this)"><div class="ol">A</div><div class="ot">Se vuelve más angosta y alta</div></div><div class="eopt" data-qi="19" data-opt="B" onclick="selA(this)"><div class="ol">B</div><div class="ot">Se vuelve más ancha y baja</div></div><div class="eopt" data-qi="19" data-opt="C" onclick="selA(this)"><div class="ol">C</div><div class="ot">Se desplaza hacia la derecha</div></div><div class="eopt" data-qi="19" data-opt="D" onclick="selA(this)"><div class="ol">D</div><div class="ot">No cambia</div></div></div><div class="efb" id="ef19"></div></div>
+
+</div>
+<button class="sbtn" id="subb" onclick="submitE()" disabled>Ver resultados</button>
+<div id="eres" style="display:none;margin-top:18px"></div>
+</div>
+
+</div><!-- /wr -->
+<div class="lnav">
+  <button class="lb" id="lp" onclick="linN(-1)" disabled>&#8592; Anterior</button>
+  <div class="lm" id="lm">Inicio</div>
+  <button class="lb" id="ln" onclick="linN(1)">Siguiente &#8594;</button>
+</div>
+<footer>&#127881; Electivo Matem&aacute;tica M2 &bull; Unidad 4: Probabilidad y Estad&iacute;stica &bull; ¡M&oacute;dulo M2 completo! &bull; Admisi&oacute;n 2027</footer>
+
+<!-- ═══ ASISTENTE IA ═══ -->
+<button class="tutor-fab" id="tutorFab" onclick="toggleTutor()" title="Asistente de la unidad">
+  💬<span class="dot" id="tutorDot"></span>
+</button>
+
+<div class="tutor-panel" id="tutorPanel">
+  <div class="tutor-head">
+    <div>
+      <h3>💬 Asistente · M2 · Unidad 4</h3>
+      <p>Probabilidad y Estadística</p>
+    </div>
+    <button class="tutor-close" onclick="toggleTutor()">✕</button>
+  </div>
+
+  <div id="tutorBlockedMsg" class="tutor-blocked-msg" style="display:none">
+    ⏱️ No puedo ayudarte mientras estás rindiendo el mini ensayo cronometrado. Termina primero y luego revisamos lo que necesites.
+  </div>
+
+  <div id="tutorBody" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div class="tutor-modes">
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('explicar')">💡 Explícamelo de otra forma</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('practica')">✏️ Más práctica</button>
+      <button class="tutor-mode-btn" onclick="tutorQuickMode('corregir')">🔎 Corrige mi respuesta</button>
+    </div>
+    <div class="tutor-msgs" id="tutorMsgs">
+      <div class="tutor-msg bot">¡Hola! Soy el asistente de esta unidad. Puedo ayudarte con dudas de Medidas de Dispersión, Probabilidad Condicional, Permutación y Combinatoria, o Modelos Probabilísticos. ¿En qué te ayudo?</div>
+    </div>
+    <div class="tutor-input-row">
+      <textarea class="tutor-input" id="tutorInput" rows="1" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();tutorSend();}"></textarea>
+      <button class="tutor-send" id="tutorSendBtn" onclick="tutorSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+var SS=['p0','p1','p2','p3','p4','p5'];
+var SL=['Inicio','Medidas de Dispersion','Probabilidad Condicional','Combinatoria','Modelos Probabilisticos','Mini Ensayo'];
+var cur=0;
+function go(id,idx,btn){
+  SS.forEach(function(s){document.getElementById(s).classList.remove('act');});
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('act');});
+  document.getElementById(id).classList.add('act');
+  btn.classList.add('act');
+  cur=idx;
+  document.getElementById('prf').style.width=Math.round((idx+1)/SS.length*100)+'%';
+  document.getElementById('lp').disabled=(idx===0);
+  document.getElementById('ln').disabled=(idx===SS.length-1);
+  document.getElementById('lm').textContent=SL[idx];
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function linN(d){
+  var n=Math.max(0,Math.min(SS.length-1,cur+d));
+  if(n===cur)return;
+  go(SS[n],n,document.querySelectorAll('.nb')[n]);
+}
+
+var deckState={};
+function deckInit(sid){
+  var track=document.getElementById('deck-track-'+sid);
+  if(!track)return;
+  var total=track.children.length;
+  deckState[sid]={i:0,total:total};
+  track.style.touchAction='pan-y';
+  var dragging=false,startX=0;
+  track.addEventListener('pointerdown',function(e){
+    dragging=true;startX=e.clientX;
+    track.style.transition='none';
+    try{track.setPointerCapture(e.pointerId);}catch(err){}
+  });
+  track.addEventListener('pointermove',function(e){
+    if(!dragging)return;
+    var dx=e.clientX-startX;
+    var pct=-(deckState[sid].i*100)+(dx/track.offsetWidth*100);
+    track.style.transform='translateX('+pct+'%)';
+  });
+  function endDrag(e){
+    if(!dragging)return;
+    dragging=false;
+    track.style.transition='';
+    var dx=e.clientX-startX;
+    if(Math.abs(dx)>40){deckNav(sid,dx<0?1:-1);}
+    else{deckRender(sid);}
+  }
+  track.addEventListener('pointerup',endDrag);
+  track.addEventListener('pointercancel',endDrag);
+  track.addEventListener('pointerleave',function(e){if(dragging)endDrag(e);});
+}
+function deckRender(sid){
+  var st=deckState[sid];
+  var track=document.getElementById('deck-track-'+sid);
+  track.style.transform='translateX(-'+(st.i*100)+'%)';
+  document.getElementById('deck-prev-'+sid).disabled=(st.i===0);
+  document.getElementById('deck-next-'+sid).disabled=(st.i===st.total-1);
+  document.getElementById('deck-count-'+sid).textContent='Concepto '+(st.i+1)+' / '+st.total;
+  var dots=document.getElementById('deck-dots-'+sid).children;
+  for(var k=0;k<dots.length;k++)dots[k].classList.toggle('act',k===st.i);
+}
+function deckNav(sid,d){
+  if(!deckState[sid])deckInit(sid);
+  var st=deckState[sid];
+  st.i=Math.max(0,Math.min(st.total-1,st.i+d));
+  deckRender(sid);
+}
+function deckGoto(sid,i){
+  if(!deckState[sid])deckInit(sid);
+  deckState[sid].i=i;
+  deckRender(sid);
+}
+['p1','p2','p3','p4'].forEach(function(sid){deckInit(sid);deckRender(sid);});
+document.addEventListener('keydown',function(e){
+  var activeSec=SS[cur];
+  if(!deckState[activeSec])return;
+  if(e.key==='ArrowLeft')deckNav(activeSec,-1);
+  if(e.key==='ArrowRight')deckNav(activeSec,1);
+});
+
+
+/* ===== WIDGET 1: DISPERSION ===== */
+function updateDisp(){
+  var vals=[];
+  for(var i=0;i<5;i++){
+    var v=parseFloat(document.getElementById('d'+i).value);
+    vals.push(v);
+    document.getElementById('d'+i+'v').textContent=v;
+  }
+  var mean=vals.reduce(function(a,b){return a+b;},0)/5;
+  var range=Math.max.apply(null,vals)-Math.min.apply(null,vals);
+  var variance=vals.reduce(function(a,b){return a+Math.pow(b-mean,2);},0)/5;
+  var sd=Math.sqrt(variance);
+  function toSvgX(v){return 40+v*17;}
+  for(var i=0;i<5;i++){
+    document.getElementById('dot'+i).setAttribute('cx',toSvgX(vals[i]));
+  }
+  var meanX=toSvgX(mean);
+  document.getElementById('dispMeanLine').setAttribute('x1',meanX);
+  document.getElementById('dispMeanLine').setAttribute('x2',meanX);
+  document.getElementById('dispMeanLabel').setAttribute('x',meanX);
+  document.getElementById('dispResult').innerHTML='Promedio='+mean.toFixed(1)+' · Rango='+range.toFixed(1)+' · Varianza='+variance.toFixed(2)+' · Desv. estándar='+sd.toFixed(2);
+}
+
+/* ===== WIDGET 2: ARBOL PROBABILIDAD CONDICIONAL ===== */
+function updateTree(){
+  var pA=parseFloat(document.getElementById('pA').value);
+  var pBA=parseFloat(document.getElementById('pBA').value);
+  document.getElementById('pAv').textContent=pA.toFixed(2).replace('.',',');
+  document.getElementById('pBAv').textContent=pBA.toFixed(2).replace('.',',');
+  document.getElementById('tALabel').textContent='P(A)='+pA.toFixed(2).replace('.',',');
+  document.getElementById('tNALabel').textContent='P(no A)='+(1-pA).toFixed(2).replace('.',',');
+  document.getElementById('tBALabel').textContent='P(B|A)='+pBA.toFixed(2).replace('.',',');
+  var pAB=pA*pBA;
+  document.getElementById('treeResult').innerHTML='P(A∩B) = P(A)×P(B|A) = '+pA.toFixed(2).replace('.',',')+'×'+pBA.toFixed(2).replace('.',',')+' = '+pAB.toFixed(3).replace('.',',');
+}
+
+/* ===== WIDGET 3: COMBINATORIA ===== */
+function factorial(n){var r=1;for(var i=2;i<=n;i++)r*=i;return r;}
+function updateComb(){
+  var n=parseInt(document.getElementById('combN').value);
+  var k=parseInt(document.getElementById('combK').value);
+  if(k>n){k=n;document.getElementById('combK').value=n;}
+  document.getElementById('combNv').textContent='n = '+n;
+  document.getElementById('combKv').textContent='k = '+k;
+  var perm=factorial(n)/factorial(n-k);
+  var comb=perm/factorial(k);
+  document.getElementById('permResult').textContent=perm.toLocaleString('es-CL');
+  document.getElementById('combResult').textContent=comb.toLocaleString('es-CL');
+  document.getElementById('combResultText').innerHTML='P('+n+','+k+')='+perm.toLocaleString('es-CL')+' &nbsp;·&nbsp; C('+n+','+k+')='+comb.toLocaleString('es-CL');
+}
+
+/* ===== WIDGET 4: BINOMIAL ===== */
+function combNK(n,k){return factorial(n)/(factorial(k)*factorial(n-k));}
+function updateBin(){
+  var n=parseInt(document.getElementById('binN').value);
+  var p=parseFloat(document.getElementById('binP').value);
+  document.getElementById('binNv').textContent='n = '+n;
+  document.getElementById('binPv').textContent='p = '+p.toFixed(2).replace('.',',');
+  var probs=[];
+  var maxP=0;
+  for(var k=0;k<=n;k++){
+    var pk=combNK(n,k)*Math.pow(p,k)*Math.pow(1-p,n-k);
+    probs.push(pk);
+    if(pk>maxP)maxP=pk;
+  }
+  var svg=document.getElementById('binBars');
+  svg.innerHTML='';
+  var barW=Math.min(30,320/(n+1));
+  var gap=(360-barW*(n+1))/(n+2);
+  var x=20+gap;
+  for(var k=0;k<=n;k++){
+    var h=Math.round((probs[k]/maxP)*100);
+    var y=140-h;
+    var rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+    rect.setAttribute('x',x);rect.setAttribute('y',y);rect.setAttribute('width',barW);rect.setAttribute('height',h);
+    rect.setAttribute('fill','#059669');rect.setAttribute('rx','2');
+    svg.appendChild(rect);
+    var txt=document.createElementNS('http://www.w3.org/2000/svg','text');
+    txt.setAttribute('x',x+barW/2);txt.setAttribute('y',152);txt.setAttribute('font-size','8');txt.setAttribute('fill','#4c3d99');txt.setAttribute('text-anchor','middle');
+    txt.textContent=k;
+    svg.appendChild(txt);
+    x+=barW+gap;
+  }
+  var mean=(n*p).toFixed(2);
+  document.getElementById('binResult').innerHTML='Media=n×p='+mean+' &nbsp;·&nbsp; Cada barra: P(X=k), k=0 a '+n;
+}
+
+/* ===== WIDGET 5: DISTRIBUCION NORMAL ===== */
+function updateNorm(){
+  var mu=parseFloat(document.getElementById('normMu').value);
+  var sigma=parseFloat(document.getElementById('normSigma').value);
+  document.getElementById('normMuv').textContent='μ = '+mu;
+  document.getElementById('normSigmav').textContent='σ = '+sigma.toFixed(1).replace('.',',');
+  function toSvgX(x){return 200+x*40;}
+  function gaussY(x){
+    var z=(x-mu)/sigma;
+    var peak=1/(sigma*Math.sqrt(2*Math.PI));
+    var val=peak*Math.exp(-0.5*z*z);
+    var normPeak=1/(0.3*Math.sqrt(2*Math.PI));
+    return 140-(val/normPeak)*120;
+  }
+  var d='M20,140 ';
+  for(var i=0;i<=120;i++){
+    var x=-9+i*18/120;
+    var sx=toSvgX(x),sy=gaussY(x);
+    d+='L'+sx.toFixed(1)+','+sy.toFixed(1)+' ';
+  }
+  d+='L380,140 Z';
+  document.getElementById('normPath').setAttribute('d',d);
+  var meanX=toSvgX(mu);
+  document.getElementById('normMeanLine').setAttribute('x1',meanX);
+  document.getElementById('normMeanLine').setAttribute('x2',meanX);
+  document.getElementById('normResult').innerHTML='N(μ='+mu+', σ='+sigma.toFixed(1).replace('.',',')+') &nbsp;·&nbsp; 68% de los datos entre '+(mu-sigma).toFixed(1)+' y '+(mu+sigma).toFixed(1);
+}
+
+document.addEventListener('DOMContentLoaded',function(){updateDisp();updateTree();updateComb();updateBin();updateNorm();});
+updateDisp();updateTree();updateComb();updateBin();updateNorm();
+
+function ans(qid,opt){
+  var el=document.getElementById(qid);
+  if(el.dataset.done)return;
+  el.dataset.done='1';
+  var a=QA[qid];
+  el.querySelectorAll('.po').forEach(function(o){
+    o.classList.add('locked');
+    var l=o.querySelector('.ol').textContent;
+    if(l===a.c)o.classList.add('right');
+    else if(l===opt)o.classList.add('wrong');
+  });
+  var fb=document.getElementById(qid+'-fb');
+  fb.className='pfb show '+(opt===a.c?'ok':'no');
+  fb.textContent=(opt===a.c?'Correcto! ':'')+a.fb[opt];
+}
+
+var QA={
+  'qmd1':{c:'C',fb:{
+    A:'No. 7 no corresponde al máximo menos el mínimo de este conjunto.',
+    B:'No. Revisa cuál es el valor máximo (20) y mínimo (5).',
+    C:'Correcto. Rango=20−5=15.',
+    D:'No. 20 es solo el máximo, falta restar el mínimo (5).'
+  }},
+  'qmd2':{c:'C',fb:{
+    A:'No. Revisa la suma de los cuadrados de las desviaciones antes de dividir.',
+    B:'No. 6 no corresponde a este cálculo.',
+    C:'Correcto. Desviaciones: −4,−2,0,2,4. Al cuadrado: 16,4,0,4,16. Suma=40. Varianza=40/5=8.',
+    D:'No. 40 es la suma de los cuadrados, falta dividir por la cantidad de datos (5).'
+  }},
+  'qmd3':{c:'A',fb:{
+    A:'Correcto. σ=√25=5.',
+    B:'No. 12,5 sería la mitad de 25, no su raíz cuadrada.',
+    C:'No. 50 sería el doble de 25, no su raíz.',
+    D:'No. 625 es 25² (el cuadrado), no la raíz.'
+  }},
+  'qmd4':{c:'A',fb:{
+    A:'Correcto. Y es X desplazado por una constante (+5): la dispersión relativa no cambia, por lo tanto las desviaciones estándar son iguales.',
+    B:'No. Un simple corrimiento no aumenta la dispersión de los datos.',
+    C:'No. Un simple corrimiento no aumenta la dispersión de los datos.',
+    D:'No. Sí se puede saber sin calcular: basta con notar que es un corrimiento constante.'
+  }},
+  'qmd5':{c:'A',fb:{
+    A:'Correcto. Si todos los datos son iguales, no hay dispersión: σ=0, sin importar cuál sea el valor común. (1) sola alcanza.',
+    B:'No. Conocer solo el promedio no dice nada sobre qué tan dispersos están los datos.',
+    C:'No. (1) sola ya es suficiente; no hace falta usar ambas.',
+    D:'No. (1) sola ya resuelve el problema.'
+  }}
+};
+
+QA['qpc1']={c:'B',fb:{
+  A:'No. Revisa la multiplicación: 0,4×0,5=0,2, no 0,1.',
+  B:'Correcto. P(A∩B)=P(A)×P(B|A)=0,4×0,5=0,2.',
+  C:'No. 0,9 sería una suma, no corresponde a la regla del producto.',
+  D:'No. Una probabilidad nunca puede ser mayor que 1.'
+}};
+QA['qpc2']={c:'B',fb:{
+  A:'No. Revisa la división: 0,12÷0,3=0,4, no 0,036 (eso sería una multiplicación).',
+  B:'Correcto. P(A|B)=P(A∩B)/P(B)=0,12/0,3=0,4.',
+  C:'No. Una probabilidad nunca puede ser mayor que 1.',
+  D:'No. Revisa la división exacta: 0,12/0,3=0,4, no 0,42.'
+}};
+QA['qpc3']={c:'B',fb:{
+  A:'No. Sacar cartas sin reponer cambia las probabilidades de la segunda extracción: son dependientes.',
+  B:'Correcto. El resultado del dado no afecta para nada el resultado de la moneda: son independientes.',
+  C:'No. Sacar bolitas sin reponer cambia las probabilidades: son dependientes.',
+  D:'No. El clima de un día generalmente afecta la probabilidad del clima del día siguiente: son dependientes.'
+}};
+QA['qpc4']={c:'C',fb:{
+  A:'No. 9/100 correspondería a extraer CON reposición, no sin reponer.',
+  B:'No. 3/10 es solo la probabilidad de la primera extracción.',
+  C:'Correcto. P(1ª roja)×P(2ª roja)=3/10×2/9=6/90.',
+  D:'No. 1/15 no corresponde a este cálculo (aunque 6/90 simplifica a 1/15, revisa que la opción C ya es la forma sin simplificar correcta).'
+}};
+QA['qpc5']={c:'C',fb:{
+  A:'No. Conocer solo P(A∩B) no alcanza; falta P(B) para dividir.',
+  B:'No. Conocer solo P(B) no alcanza; falta P(A∩B).',
+  C:'Correcto. P(A|B)=P(A∩B)/P(B)=0,2/0,5=0,4: se necesitan ambos datos juntos.',
+  D:'No. Con ambas afirmaciones juntas SÍ se puede calcular P(A|B).'
+}};
+
+QA['qcb1']={c:'C',fb:{
+  A:'No. 8 no corresponde a 4!; revisa que se multiplican 4 factores, no se suman.',
+  B:'No. 16 no corresponde a 4! (eso sería 4²).',
+  C:'Correcto. 4!=4×3×2×1=24.',
+  D:'No. 256 sería 4⁴, no 4!.'
+}};
+QA['qcb2']={c:'C',fb:{
+  A:'No. 18 no corresponde a este cálculo.',
+  B:'No. 20 sería C(6,3), no la permutación pedida.',
+  C:'Correcto. P(6,3)=6×5×4=120.',
+  D:'No. 720 sería 6! completo, pero aquí solo se ordenan 3 posiciones, no las 6.'
+}};
+QA['qcb3']={c:'B',fb:{
+  A:'No. 16 no corresponde a esta combinación.',
+  B:'Correcto. C(8,2)=8!/(2!×6!)=28.',
+  C:'No. 56 sería P(8,2), la permutación (con orden), no la combinación pedida.',
+  D:'No. 64 no corresponde a este cálculo.'
+}};
+QA['qcb4']={c:'B',fb:{
+  A:'No. Asignar medallas distintas (oro, plata, bronce) es una permutación: el orden importa.',
+  B:'Correcto. Elegir 4 jugadores sin posiciones específicas es una combinación: el orden no importa.',
+  C:'No. Una clave numérica donde el orden de los dígitos importa es una permutación.',
+  D:'No. Ordenar libros en un estante es una permutación: el orden importa.'
+}};
+QA['qcb5']={c:'B',fb:{
+  A:'No. 720 correspondería a P(10,3) sin repetición.',
+  B:'Correcto. Con repetición permitida: 10×10×10=1.000.',
+  C:'No. 30 no corresponde a ningún cálculo relevante aquí.',
+  D:'No. 120 no corresponde a esta situación con repetición.'
+}};
+
+QA['qmp1']={c:'B',fb:{
+  A:'No. La estatura es una variable continua: se modela con distribución normal, no binomial.',
+  B:'Correcto. Es un experimento repetido n veces (8 lanzamientos), con 2 resultados posibles (cara/sello) e independientes: modelo binomial.',
+  C:'No. El tiempo es una variable continua: se modela con distribución normal, no binomial.',
+  D:'No. El peso es una variable continua: se modela con distribución normal, no binomial.'
+}};
+QA['qmp2']={c:'A',fb:{
+  A:'Correcto. C(3,2)×(0,4)²×(0,6)¹: 2 aciertos (0,4) y 1 fallo (0,6=1−0,4).',
+  B:'No. Usa 0,4 para el fallo también, pero la probabilidad de fallo es 0,6 (1−0,4), no 0,4.',
+  C:'No. Falta el factor C(3,2) que cuenta las formas de elegir cuáles 2 disparos acertaron.',
+  D:'No. Los exponentes están invertidos: 0,6 debería tener exponente 1 (fallo), no 2.'
+}};
+QA['qmp3']={c:'B',fb:{
+  A:'No. Ese sería el rango μ±1σ (95% correspondería a μ±2σ, no ±1σ).',
+  B:'Correcto. μ±2σ=200±10: entre 190g y 210g.',
+  C:'No. Ese sería el rango μ±3σ (≈99,7%), no μ±2σ (95%).',
+  D:'No. Este rango no es simétrico respecto a la media; revisa el cálculo de ambos extremos.'
+}};
+QA['qmp4']={c:'B',fb:{
+  A:'No. La probabilidad de 0 éxitos no es imposible cuando p=0,5; revisa el cálculo completo.',
+  B:'Correcto. P(X=0)=C(5,0)×(0,5)⁰×(0,5)⁵=1×1×0,03125=0,03125.',
+  C:'No. 0,5 es el valor de p, no la probabilidad de 0 éxitos.',
+  D:'No. La probabilidad de 0 éxitos no puede ser 1 (evento seguro) cuando p=0,5.'
+}};
+QA['qmp5']={c:'B',fb:{
+  A:'No. 50% no corresponde a ningún rango de la regla empírica estándar.',
+  B:'Correcto. 40 y 60 están a exactamente 1σ de la media (50±10): ≈68%.',
+  C:'No. 95% correspondería al rango μ±2σ=30 a 70, no 40 a 60.',
+  D:'No. 99,7% correspondería al rango μ±3σ=20 a 80, no 40 a 60.'
+}};
+
+function selA(el){
+  if(!eS||eF)return;
+  var i=parseInt(el.dataset.qi),o=el.dataset.opt;
+  var row=document.getElementById('ep'+i);
+  if(row.dataset.done)return;
+  UA[i]=o;
+  row.querySelectorAll('.eopt').forEach(function(x){x.classList.remove('sel');});
+  el.classList.add('sel');
+}
+function startE(){
+  eS=true;
+  document.getElementById('stb').style.display='none';
+  document.getElementById('ts').textContent='En marcha!';
+  document.getElementById('eqs').style.opacity='1';
+  document.getElementById('eqs').style.pointerEvents='auto';
+  document.getElementById('subb').disabled=false;
+  tI=setInterval(function(){
+    tL--;
+    var m=Math.floor(tL/60),s=tL%60;
+    var d=document.getElementById('td');
+    d.textContent=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
+    d.className='td'+(tL<=60?' d':tL<=300?' w':'');
+    if(tL<=0){clearInterval(tI);submitE();}
+  },1000);
+}
+var UA={},eS=false,eF=false,tL=1440,tI=null;
+
+var EQA=[
+{c:'B',fb:'Cada edad del grupo D es la del grupo C +6: un corrimiento constante. La desviación estándar no cambia con un corrimiento, pero el promedio sí (grupo C=6, grupo D=12).',t:'Dispersion'},
+{c:'B',fb:'R=35−15=20. Límite superior=35+1,5×20=65. De los datos 50,58,67,74, solo 67 y 74 superan 65: 2 datos atípicos.',t:'Dispersion'},
+{c:'A',fb:'Si todos los datos envejecen exactamente 2 años (un corrimiento constante), la varianza no cambia. Por eso (1) sola alcanza. (2) sola (promedio y rango) no determina la varianza exacta.',t:'Dispersion'},
+{c:'C',fb:'Rango=40−8=32.',t:'Dispersion'},
+{c:'C',fb:'Varianza=σ²=6²=36.',t:'Dispersion'},
+{c:'B',fb:'Es la regla del producto: P(tarde∩justificativo)=P(tarde)×P(justificativo|tarde)=X×Y.',t:'ProbCondicional'},
+{c:'C',fb:'Como son independientes: P(A∩B)=P(A)×P(B) → 0,12=0,4×P(B) → P(B)=0,3.',t:'ProbCondicional'},
+{c:'A',fb:'P(música∩noche)=P(música)×P(noche|música)=P(música)×5/9. Con (1) sola ya se puede calcular; (2) sola no determina P(música).',t:'ProbCondicional'},
+{c:'A',fb:'Números primos entre 1-15: {2,3,5,7,11,13}=6. Cartas azules numeradas 1-15: 15. Favorables: primo Y azul=6. P=6/30=1/5.',t:'ProbCondicional'},
+{c:'B',fb:'P(A∩B)=P(A)×P(B|A)=0,5×0,8=0,4.',t:'ProbCondicional'},
+{c:'A',fb:'7 opciones para la presidencia (mujer) × 5 para la vicepresidencia (hombre) × 10 para la tesorería (de las 10 personas restantes entre las 12).',t:'Combinatoria'},
+{c:'C',fb:'6!=6×5×4×3×2×1=720.',t:'Combinatoria'},
+{c:'B',fb:'C(7,3)=7!/(3!×4!)=35.',t:'Combinatoria'},
+{c:'C',fb:'Asignar 1°, 2° y 3° lugar es una permutación: el orden importa (1° distinto de 2°).',t:'Combinatoria'},
+{c:'A',fb:'C(5,3)×(0,5)³×(0,5)²: 3 aciertos y 2 fallos, considerando todas las formas de que ocurran.',t:'Modelos'},
+{c:'B',fb:'El modelo binomial requiere exactamente 2 resultados posibles por intento (éxito/fracaso).',t:'Modelos'},
+{c:'A',fb:'μ±1σ=5,0±0,8: entre 4,2 y 5,8.',t:'Modelos'},
+{c:'B',fb:'Media=n×p=8×0,3=2,4.',t:'Modelos'},
+{c:'B',fb:'La distribución normal es simétrica respecto a su media.',t:'Modelos'},
+{c:'B',fb:'Al aumentar σ, la campana se vuelve más ancha (más dispersión) y más baja (para mantener el área total igual a 1).',t:'Modelos'}
+];
+
+var TOPIC_SEC={'Dispersion':'p1','ProbCondicional':'p2','Combinatoria':'p3','Modelos':'p4'};
+var TOPIC_IDX={'p1':1,'p2':2,'p3':3,'p4':4};
+var TOPIC_BTN_LABEL={'Dispersion':'📊 Medidas de Dispersión','ProbCondicional':'🎲 Probabilidad Condicional','Combinatoria':'🔤 Permutación y Combinatoria','Modelos':'📈 Modelos Probabilísticos'};
+var TOPIC_FULL={'Dispersion':'Medidas de Dispersión','ProbCondicional':'Probabilidad Condicional','Combinatoria':'Permutación y Combinatoria','Modelos':'Modelos Probabilísticos'};
+
+function submitE(){
+  if(eF)return;
+  eF=true;clearInterval(tI);
+  document.getElementById('ts').textContent='Tiempo terminado';
+  document.getElementById('subb').disabled=true;
+  var ok=0,topicMap={};
+  EQA.forEach(function(q,i){
+    var row=document.getElementById('ep'+i);
+    row.dataset.done='1';
+    row.querySelectorAll('.eopt').forEach(function(o){
+      o.classList.add('locked');
+      if(o.dataset.opt===q.c)o.classList.add('right');
+      else if(UA[i]&&o.dataset.opt===UA[i])o.classList.add('wrong');
+    });
+    var fb=document.getElementById('ef'+i);
+    var ua=UA[i];
+    var isOk=(ua===q.c);
+    fb.className='efb show '+(isOk?'ok':'no');
+    fb.textContent=(isOk?'Correcto! ':ua?'Incorrecto. La respuesta correcta es '+q.c+'. ':'Sin respuesta. La correcta es '+q.c+'. ')+q.fb;
+    if(isOk)ok++;
+    if(!topicMap[q.t])topicMap[q.t]={c:0,t:0};
+    topicMap[q.t].t++;
+    if(isOk)topicMap[q.t].c++;
+  });
+  var pct=Math.round(ok/EQA.length*100);
+  var sc=pct>=70?'var(--ind)':pct>=50?'#d97706':'#dc2626';
+
+  var topicHtml='<p style="font-family:\'Fredoka One\',cursive;font-size:1rem;color:var(--ind);margin-bottom:8px">Resultado por tema:</p><div class="res-topic-grid">';
+  var weak=[];
+  Object.keys(topicMap).forEach(function(t){
+    var r=topicMap[t];
+    var tpct=Math.round(r.c/r.t*100);
+    var cls=tpct<50?'bad':tpct<70?'mid':'';
+    var scoreColor=tpct>=70?'var(--ind)':tpct>=50?'#d97706':'#dc2626';
+    topicHtml+='<div class="res-topic-card '+cls+'"><div class="res-topic-name">'+(TOPIC_FULL[t]||t)+'</div><div class="res-topic-score" style="color:'+scoreColor+'">'+r.c+'/'+r.t+'</div></div>';
+    if(tpct<70)weak.push(t);
+  });
+  topicHtml+='</div>';
+
+  var reviewHtml='';
+  if(weak.length){
+    reviewHtml='<div class="res-review"><p style="font-family:\'Fredoka One\',cursive;font-size:.95rem;color:var(--ind);margin-bottom:4px">📚 Te conviene volver a repasar:</p>';
+    weak.forEach(function(t){
+      reviewHtml+='<div class="res-review-item"><span style="font-size:.85rem;color:var(--dim)">'+(TOPIC_FULL[t]||t)+' — bajo el 70%</span><button class="res-review-btn" onclick="go(\''+TOPIC_SEC[t]+'\','+TOPIC_IDX[TOPIC_SEC[t]]+',document.querySelectorAll(\'.nb\')['+TOPIC_IDX[TOPIC_SEC[t]]+'])">'+TOPIC_BTN_LABEL[t]+'</button></div>';
+    });
+    reviewHtml+='</div>';
+  } else {
+    reviewHtml='<div class="res-review"><p style="font-family:\'Fredoka One\',cursive;font-size:.95rem;color:var(--ind)">🎉🎉 ¡Ningún tema bajo el 70%! Completaste el módulo M2 completo. ¡Felicitaciones!</p></div>';
+  }
+
+  var res=document.getElementById('eres');
+  res.style.display='block';
+  var d1=document.createElement('div');
+  d1.style.cssText='font-family:Fredoka One,cursive;font-size:2rem;color:'+sc+';margin-bottom:6px';
+  d1.textContent=(pct>=70?'🚀':pct>=50?'💪':'📚')+' '+ok+'/'+EQA.length+' correctas — '+pct+'%';
+  var d2=document.createElement('div');
+  d2.style.cssText='background:var(--card2);border:1px solid var(--bord);border-radius:13px;padding:16px';
+  d2.innerHTML=topicHtml+reviewHtml+'<p style="font-size:.85rem;color:var(--dim);margin-top:12px">Revisa el feedback de cada pregunta arriba, junto a la explicación de la respuesta correcta.</p>';
+  res.innerHTML='';res.appendChild(d1);res.appendChild(d2);
+  res.scrollIntoView({behavior:'smooth'});
+}
+
+</script>
+
+<!-- ═══ ASISTENTE IA — LÓGICA ═══ -->
+<script>
+(function(){
+
+// -------------------------------------------------------------------
+// Endpoint real: Cloudflare Worker (paes-tutor-proxy) que reenvía a la
+// API de Anthropic sin exponer la API key en el navegador.
+// -------------------------------------------------------------------
+var TUTOR_ENDPOINT = "https://paes-tutor-proxy.karinpizarrocortes.workers.dev/";
+
+var SYSTEM_PROMPT = [
+"Eres el asistente de apoyo académico del Electivo de Matemática (Competencia M2), Unidad 4: Probabilidad y Estadística, dentro de una plataforma de autoestudio para la PAES 2027. Hablas con estudiantes chilenos de enseñanza media que rinden M2. Tono: profesor de apoyo, cercano, paciente, nunca condescendiente.",
+"",
+"ALCANCE: solo puedes responder sobre los 4 temas de esta unidad: Medidas de Dispersión, Probabilidad Condicional, Permutación y Combinatoria, y Modelos Probabilísticos. NO respondes sobre otras unidades de M2 que el estudiante aún no ha visto, ni sobre M1, ni sobre otros módulos (Competencia Lectora, Historia, Ciencias).",
+"",
+"CONTENIDO DE LA UNIDAD:",
+"- Medidas de Dispersión: rango=máximo−mínimo; varianza (σ²) y desviación estándar (σ=√varianza) miden qué tan dispersos están los datos respecto al promedio; si todos los datos de un grupo cambian por un corrimiento constante (ej. +5 a cada dato), el promedio cambia pero la varianza y desviación estándar NO cambian; detección de datos atípicos con el rango intercuartílico: límite superior=Q3+1,5×(Q3−Q1), límite inferior=Q1−1,5×(Q3−Q1), atípico es todo dato fuera de esos límites; interpretación de tablas de frecuencia.",
+"- Probabilidad Condicional: P(A|B)=probabilidad de A dado que ya ocurrió B; regla del producto P(A∩B)=P(A)×P(A|B); si A y B son independientes, P(A∩B)=P(A)×P(B) y P(A|B)=P(A); despejar cualquiera de las tres cantidades (P(A), P(B), P(A∩B)) a partir de las otras dos; problemas de Suficiencia de Datos: decidir si con el dato (1) sola, el (2) sola, ambas juntas, cada una por sí sola, o ninguna, se puede responder la pregunta — sin necesariamente calcular el valor final.",
+"- Permutación y Combinatoria: regla del producto para conteo (opciones independientes se multiplican); factorial n!=n×(n−1)×...×1; permutación (el orden importa, ej. asignar cargos o lugares distintos) vs. combinación (el orden no importa, ej. elegir un grupo sin roles); C(n,k)=n!/(k!×(n−k)!); reconocer en el enunciado si corresponde multiplicar directamente (cargos distintos) o usar combinatoria (grupos sin diferenciar roles).",
+"- Modelos Probabilísticos: modelo binomial P(X=k)=C(n,k)×p^k×(1−p)^(n−k), requiere n intentos independientes con solo 2 resultados posibles (éxito/fracaso) y probabilidad de éxito p constante; media del binomial=n×p; distribución normal: simétrica respecto a la media μ, con desviación estándar σ; regla empírica 68-95-99,7% (aprox. 68% de los datos está entre μ±1σ, 95% entre μ±2σ, 99,7% entre μ±3σ); al aumentar σ la campana se ensancha y se achata, al disminuir σ se angosta y se eleva.",
+"",
+"MODOS DE INTERACCIÓN — detecta cuál corresponde según lo que pida el estudiante:",
+"",
+"MODO EXPLICAR: el estudiante no entiende un concepto o quiere otro ejemplo. Explica con una analogía o ejemplo DISTINTO al que ya está en el material (no repitas los ejemplos de arriba tal cual). Si sigue sin entender, ofrece una tercera forma aún más simple.",
+"",
+"MODO PRÁCTICA: el estudiante pide más ejercicios. Genera UNA pregunta nueva de opción múltiple (4 alternativas) sobre el tema que pida. Marca siempre la pregunta con 🤖 al inicio, indicando que es generada por IA, no una pregunta oficial PAES. Nunca reproduzcas preguntas reales de ensayos DEMRE u otro material con derechos de autor — inventa siempre valores y contextos propios. Tras la respuesta del estudiante, explica por qué la alternativa correcta lo es y por qué las otras no.",
+"",
+"MODO CORREGIR (método socrático) — el estudiante pega una pregunta de práctica guiada y su respuesta: NUNCA entregues la respuesta correcta directamente. Guía con preguntas, de lo más simple a lo más específico, máximo 4 preguntas en la escalera: 1) pregunta qué propiedad o fórmula aplica al problema, 2) pide que identifique los datos dados y qué se pide, 3) pide que arme la expresión o el paso siguiente, 4) contrasta el resultado del estudiante con lo esperado, preguntando dónde puede estar la diferencia. Si tras esas 4 preguntas el estudiante sigue sin llegar a la respuesta, dile 'Vamos a revisarlo juntos paso a paso' y ahí sí explica la resolución completa.",
+"",
+"FUERA DE ALCANCE: si preguntan sobre otro módulo, otra unidad no vista, u otro tema, o temas no académicos sin señales de malestar emocional, responde con una variación breve de: 'Qué interesante pregunta, pero no puedo responderla aquí — este chat es solo para dudas de Medidas de Dispersión, Probabilidad Condicional, Permutación y Combinatoria, y Modelos Probabilísticos de esta unidad.'",
+"",
+"MALESTAR EMOCIONAL: si el estudiante expresa tristeza, soledad, angustia o agobio (ej. 'me siento muy solo', 'no doy más'), NO uses la respuesta de fuera de alcance. Responde con calidez, sin analizar ni diagnosticar, sugiere hablar con un adulto de confianza, el orientador del colegio o un profesional, y deja espacio para que responda antes de continuar con la sesión de estudio.",
+"",
+"ESTILO: respuestas de 2 a 4 líneas por defecto; extiéndete todo lo necesario cuando la pregunta lo requiera (explicaciones paso a paso, resolución completa tras el método socrático). Usa notación matemática simple en texto plano (ej. P(A|B), σ², C(n,k), no LaTeX). Nunca inventes contenido que no esté en el temario o el material de la unidad — si no lo sabes, dilo abiertamente. No tienes memoria de sesiones anteriores del estudiante."
+].join("\n");
+
+var tutorHistory = [];
+var tutorOpen = false;
+var tutorBusy = false;
+
+window.toggleTutor = function(){
+  tutorOpen = !tutorOpen;
+  document.getElementById("tutorPanel").classList.toggle("open", tutorOpen);
+  if(tutorOpen) checkTutorBlock();
+};
+
+function ensayoActive(){
+  return !!(window.eS && !window.eF);
+}
+
+function checkTutorBlock(){
+  var blocked = ensayoActive();
+  document.getElementById("tutorBlockedMsg").style.display = blocked ? "block" : "none";
+  document.getElementById("tutorBody").style.display = blocked ? "none" : "flex";
+  document.getElementById("tutorFab").disabled = false; // el botón sigue visible, solo se bloquea el contenido
+  document.getElementById("tutorFab").classList.toggle("blocked", blocked);
+}
+setInterval(checkTutorBlock, 1000);
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function addMsg(role, text){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-msg " + (role === "user" ? "user" : "bot");
+  el.innerHTML = escapeHtml(text).replace(/\n/g,"<br>");
+  if(role !== "user"){
+    var rep = document.createElement("button");
+    rep.className = "tutor-report";
+    rep.textContent = "⚠ Reportar esta respuesta";
+    rep.onclick = function(){ reportTutorMsg(text); };
+    el.appendChild(document.createElement("br"));
+    el.appendChild(rep);
+  }
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+  return el;
+}
+
+function reportTutorMsg(botText){
+  var lastUser = "";
+  for(var i=tutorHistory.length-1;i>=0;i--){
+    if(tutorHistory[i].role==="user"){ lastUser = tutorHistory[i].content; break; }
+  }
+  var report = "REPORTE — Asistente Matemática M2\n" +
+    "Módulo/Unidad: Electivo Matemática M2 · Unidad 4 · Probabilidad y Estadística\n" +
+    "Fecha: " + new Date().toLocaleString("es-CL") + "\n\n" +
+    "Pregunta del estudiante:\n" + lastUser + "\n\n" +
+    "Respuesta del asistente:\n" + botText + "\n";
+  var blob = new Blob([report], {type:"text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "reporte_asistente_" + Date.now() + ".txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showTyping(){
+  var wrap = document.getElementById("tutorMsgs");
+  var el = document.createElement("div");
+  el.className = "tutor-typing";
+  el.id = "tutorTyping";
+  el.innerHTML = "<span></span><span></span><span></span>";
+  wrap.appendChild(el);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+function hideTyping(){
+  var el = document.getElementById("tutorTyping");
+  if(el) el.remove();
+}
+
+window.tutorQuickMode = function(mode){
+  var prompts = {
+    explicar: "Explícame de otra forma un concepto que no entendí bien de esta unidad.",
+    practica: "Dame una pregunta nueva de práctica sobre esta unidad.",
+    corregir: "Quiero que revises mi respuesta a una pregunta de práctica guiada, usando el método socrático."
+  };
+  document.getElementById("tutorInput").value = prompts[mode] || "";
+  tutorSend();
+};
+
+window.tutorSend = function(){
+  if(tutorBusy || ensayoActive()) return;
+  var input = document.getElementById("tutorInput");
+  var text = input.value.trim();
+  if(!text) return;
+  input.value = "";
+  addMsg("user", text);
+  tutorHistory.push({role:"user", content:text});
+  tutorBusy = true;
+  document.getElementById("tutorSendBtn").disabled = true;
+  showTyping();
+
+  fetch(TUTOR_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system: SYSTEM_PROMPT,
+      messages: tutorHistory
+    })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    hideTyping();
+    var reply;
+    if(data && data.content && data.content[0] && data.content[0].text){
+      reply = data.content[0].text;
+    } else {
+      reply = "Hubo un problema para obtener la respuesta. Intenta de nuevo en un momento.";
+      console.error("Respuesta inesperada del tutor:", data);
+    }
+    addMsg("bot", reply);
+    tutorHistory.push({role:"assistant", content:reply});
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  })
+  .catch(function(err){
+    hideTyping();
+    addMsg("bot", "No pude conectarme con el asistente. Revisa tu conexión e intenta de nuevo.");
+    console.error("Error tutor:", err);
+    tutorBusy = false;
+    document.getElementById("tutorSendBtn").disabled = false;
+  });
+};
+
+checkTutorBlock();
+})();
+</script>
+
+</body>
+</html>
