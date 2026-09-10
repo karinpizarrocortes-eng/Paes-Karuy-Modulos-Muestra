@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ensayo N°1 · Matemática M1 · PAES Karuy</title>
+<title>Ensayo N°1 · Matemática M2 · PAES Karuy</title>
 <style>
   :root{
     --indigo:#4f46e5;
@@ -251,38 +251,39 @@
 <!-- ================= PORTADA ================= -->
 <div id="portada">
   <div class="brand"><span class="dot"></span>PAES KARUY</div>
-  <h1>Ensayo N°1 · Matemática M1</h1>
+  <h1>Ensayo N°1 · Matemática M2</h1>
   <p class="subt">Versión reducida — mitad de la prueba oficial, pensada para rendirse en una sesión de estudio nocturna.</p>
 
   <div class="meta-row">
-    <span class="meta-chip">33 preguntas</span>
+    <span class="meta-chip">28 preguntas</span>
     <span class="meta-chip">4 ejes temáticos</span>
-    <span class="meta-chip">1 hora 15 minutos</span>
+    <span class="meta-chip">1 hora 10 minutos</span>
     <span class="meta-chip">Sin descuento por error</span>
   </div>
 
   <div class="instrucciones">
     <h3>Instrucciones</h3>
     <ol>
-      <li>Esta prueba contiene 33 preguntas de selección múltiple con 4 opciones (A, B, C y D), de las cuales solo una es correcta.</li>
-      <li>Dispones de 1 hora y 15 minutos para responder. El cronómetro corre automáticamente y no se puede pausar.</li>
+      <li>Esta prueba contiene 28 preguntas de selección múltiple con 4 opciones (A, B, C y D), de las cuales solo una es correcta.</li>
+      <li>Dispones de 1 hora y 10 minutos para responder. El cronómetro corre automáticamente y no se puede pausar.</li>
       <li>No se descuenta puntaje por respuestas erradas, así que te conviene responder todas las preguntas.</li>
       <li>Puedes moverte libremente entre los 4 ejes y sus preguntas usando el panel numerado. No se entregan fórmulas ni formularios de apoyo, igual que en la prueba real.</li>
+      <li>Además de las habilidades de M1, esta prueba evalúa Argumentar: reconocer, explicar y justificar la validez de un procedimiento o una afirmación matemática.</li>
       <li>Al finalizar (o cuando se acabe el tiempo), verás tu puntaje, un desglose por competencia matemática y una recomendación de estudio personalizada.</li>
       <li>El tutor IA está desactivado durante esta rendición, igual que en la prueba real.</li>
     </ol>
   </div>
 
   <button id="btnComenzar">Comenzar ensayo</button>
-  <p class="nota-ia">Todas las preguntas son generadas por IA 🤖 · No reproduce contenido oficial DEMRE</p>
+  <p class="nota-ia">Material de práctica PAES Karuy · No reproduce contenido oficial DEMRE</p>
 </div>
 
 <!-- ================= EXAMEN ================= -->
 <div id="examen">
   <div class="topbar">
-    <div class="titulo-mini">Ensayo N°1 · Matemática M1</div>
-    <div class="progreso" id="progresoTxt">Pregunta 1 de 33</div>
-    <div id="timer">1:15:00</div>
+    <div class="titulo-mini">Ensayo N°1 · Matemática M2</div>
+    <div class="progreso" id="progresoTxt">Pregunta 1 de 28</div>
+    <div id="timer">1:10:00</div>
     <button class="btnFinalizar" id="btnFinalizar">Finalizar prueba</button>
   </div>
   <div class="tabsTextos" id="tabsTextos"></div>
@@ -307,7 +308,7 @@
 <!-- ================= RESULTADOS ================= -->
 <div id="resultados">
   <div class="scoreCard">
-    <div class="big" id="scoreBig">0/33</div>
+    <div class="big" id="scoreBig">0/28</div>
     <div class="sub" id="scorePct">0% de logro</div>
   </div>
 
@@ -326,7 +327,7 @@
   <button id="btnRevisar">Revisar respuestas y explicaciones</button>
   <div id="revision"></div>
 
-  <p class="footerNota">PAES Karuy · Ensayo generado con preguntas de práctica creadas por IA · No reproduce contenido oficial DEMRE</p>
+  <p class="footerNota">PAES Karuy · Ensayo de práctica · No reproduce contenido oficial DEMRE</p>
 </div>
 
 <!-- ================= MODAL ================= -->
@@ -343,66 +344,579 @@
 <script>
 // ============ DATOS: EJES (con formulario de apoyo, no son "textos de lectura") ============
 const TEXTS = [
-  { id:1, tipo:'Eje temático', titulo:'Números' },
-  { id:2, tipo:'Eje temático', titulo:'Álgebra y Funciones' },
-  { id:3, tipo:'Eje temático', titulo:'Geometría' },
-  { id:4, tipo:'Eje temático', titulo:'Probabilidad y Estadística' }
+  {
+    "id": 1,
+    "tipo": "Eje temático",
+    "titulo": "Números"
+  },
+  {
+    "id": 2,
+    "tipo": "Eje temático",
+    "titulo": "Álgebra y Funciones"
+  },
+  {
+    "id": 3,
+    "tipo": "Eje temático",
+    "titulo": "Geometría"
+  },
+  {
+    "id": 4,
+    "tipo": "Eje temático",
+    "titulo": "Probabilidad y Estadística"
+  }
 ];
 
 // ============ DATOS: PREGUNTAS ============
-// habilidad: 'Resolver problemas' | 'Modelar' | 'Representar'
+// habilidad: 'Resolver problemas' | 'Modelar' | 'Representar' | 'Argumentar'
 const QUESTIONS = [
-{id:1,textId:1,habilidad:'Resolver problemas',enunciado:'¿Cuál es el resultado de -8 + 5 × (-2)?',opciones:['-18','-6','18','6'],correcta:0,expl:['Primero se multiplica: 5×(-2)=-10, luego -8+(-10)=-18.','Este resultado corresponde a sumar antes de multiplicar, lo que viola la jerarquía de operaciones.','Este valor tendría sentido solo si ambos términos fueran positivos.','Este valor no corresponde a ningún orden válido de las operaciones.']},
-{id:2,textId:1,habilidad:'Resolver problemas',enunciado:'Un producto cuesta $24.000 y tiene un descuento del 15%. ¿Cuál es el precio final?',opciones:['$20.400','$3.600','$27.600','$18.000'],correcta:0,expl:['El descuento es 24.000×0,15=3.600; precio final = 24.000-3.600=20.400.','Ese valor corresponde solo al monto del descuento, no al precio final.','Ese valor corresponde a sumar el descuento en vez de restarlo.','Ese valor no corresponde al cálculo correcto del 15% de descuento.']},
-{id:3,textId:1,habilidad:'Resolver problemas',enunciado:'¿Cuál es el valor de (2³) × (2²)?',opciones:['32','64','16','8'],correcta:0,expl:['Al multiplicar potencias de igual base se suman los exponentes: 2^(3+2)=2^5=32.','Ese valor corresponde a 2^6, no a la suma correcta de exponentes.','Ese valor corresponde solo a 2^4.','Ese valor corresponde solo a 2³, sin considerar el segundo factor.']},
-{id:4,textId:1,habilidad:'Modelar',enunciado:'Si 5 obreros construyen un muro en 12 días trabajando al mismo ritmo, ¿cuántos días demorarán 10 obreros en construir el mismo muro?',opciones:['6','24','10','3'],correcta:0,expl:['Es una proporción inversa: 5×12=10×d, por lo que d=6.','Ese valor correspondería a una proporción directa, que no aplica en este caso.','Ese valor no resulta de igualar el producto obreros×días.','Ese valor es menor al correcto y no cumple la igualdad 5×12=10×d.']},
-{id:5,textId:1,habilidad:'Resolver problemas',enunciado:'¿Cuál es la notación científica de 0,00045?',opciones:['4,5×10⁻⁴','4,5×10⁴','45×10⁻⁵','0,45×10⁻³'],correcta:0,expl:['Al mover el punto decimal 4 lugares a la derecha se obtiene 4,5×10⁻⁴.','El exponente positivo correspondería a un número mayor que 1, no a 0,00045.','Esta expresión no está en notación científica, ya que el primer factor debe estar entre 1 y 10.','Esta expresión tampoco cumple con el formato de notación científica.']},
-{id:6,textId:1,habilidad:'Resolver problemas',enunciado:'¿Cuál es la razón simplificada entre 15 y 20?',opciones:['3:4','4:3','15:20','5:4'],correcta:0,expl:['Dividiendo ambos términos por 5 se obtiene 3:4.','Esta razón está invertida respecto al orden pedido (15 y 20).','Esta razón no está simplificada.','Esta razón no corresponde a la simplificación de 15:20.']},
-{id:7,textId:1,habilidad:'Resolver problemas',enunciado:'¿Cuál es la forma simplificada de √72?',opciones:['6√2','2√6','3√8','12√2'],correcta:0,expl:['72=36×2, y √36=6, por lo que √72=6√2.','Esta simplificación no corresponde a la descomposición correcta de 72.','El factor 8 no es un cuadrado perfecto, por lo que esta forma no está simplificada.','Este valor es mucho mayor que √72≈8,49, por lo que no corresponde.']},
-{id:8,textId:1,habilidad:'Modelar',enunciado:'Se invierte un capital de $100.000 a un interés simple del 2% mensual durante 3 meses. ¿Cuál es el interés generado?',opciones:['$6.000','$2.000','$106.000','$60.000'],correcta:0,expl:['Interés simple = 100.000×0,02×3=6.000.','Ese valor corresponde solo al interés de un mes, no de los tres meses.','Ese valor corresponde al capital final, no solo al interés.','Ese valor sería el resultado de usar 20% en vez de 2% mensual.']},
-
-{id:9,textId:2,habilidad:'Resolver problemas',enunciado:'¿Cuál es el valor de x en la ecuación 3x - 7 = 11?',opciones:['6','-6','4','18'],correcta:0,expl:['3x=11+7=18, por lo que x=18/3=6.','Este valor tendría sentido si el signo del término independiente estuviera invertido.','Este valor no satisface la ecuación al reemplazarlo.','Este valor corresponde a 3x, no al valor final de x.']},
-{id:10,textId:2,habilidad:'Resolver problemas',enunciado:'En el sistema x+y=10 y x-y=2, ¿cuál es el valor de x?',opciones:['6','4','8','2'],correcta:0,expl:['Sumando ambas ecuaciones: 2x=12, por lo que x=6.','Ese valor corresponde a y, no a x.','Ese valor no satisface simultáneamente ambas ecuaciones.','Ese valor corresponde a la diferencia entre las ecuaciones, no a x.']},
-{id:11,textId:2,habilidad:'Representar',enunciado:'¿Cuál es la pendiente de la recta que pasa por los puntos (2,3) y (4,7)?',opciones:['2','4','1/2','-2'],correcta:0,expl:['m=(7-3)/(4-2)=4/2=2.','Ese valor corresponde solo a la diferencia de las ordenadas, sin dividir por la diferencia de abscisas.','Ese valor es el recíproco de la pendiente correcta.','Ese valor tendría sentido si la recta fuera decreciente, lo que no ocurre aquí.']},
-{id:12,textId:2,habilidad:'Resolver problemas',enunciado:'¿Cuál es la factorización de x² - 9?',opciones:['(x-3)(x+3)','(x-9)(x+1)','(x-3)²','(x+3)²'],correcta:0,expl:['Corresponde a una diferencia de cuadrados: x²-9=(x-3)(x+3).','Al desarrollar esta expresión no se obtiene x²-9.','Esta expresión corresponde a un cuadrado de binomio, no a una diferencia de cuadrados.','Esta expresión tampoco corresponde a x²-9 al desarrollarla.']},
-{id:13,textId:2,habilidad:'Representar',enunciado:'¿Cuál es el vértice de la parábola y = x² - 4x + 3?',opciones:['(2,-1)','(4,3)','(-2,1)','(2,1)'],correcta:0,expl:['La abscisa del vértice es x=-(-4)/(2·1)=2; evaluando, y=4-8+3=-1.','Ese punto no corresponde al cálculo del vértice de la parábola.','El signo de la abscisa está invertido respecto al valor correcto.','La ordenada calculada no corresponde a evaluar x=2 en la función.']},
-{id:14,textId:2,habilidad:'Resolver problemas',enunciado:'¿Cuál es la solución de la inecuación 2x - 5 < 7?',opciones:['x<6','x>6','x<1','x>1'],correcta:0,expl:['2x<12, por lo que x<6.','El sentido de la desigualdad no cambia porque no se multiplica ni divide por un número negativo.','Este valor no corresponde a despejar correctamente la inecuación.','Este valor tampoco corresponde a la solución correcta.']},
-{id:15,textId:2,habilidad:'Representar',enunciado:'Si f(x) = 2x² - 3, ¿cuál es el valor de f(-2)?',opciones:['5','-11','1','11'],correcta:0,expl:['f(-2)=2×(-2)²-3=2×4-3=5.','Este resultado surge de restar 3 antes de elevar al cuadrado, lo cual es incorrecto.','Este resultado no corresponde a evaluar correctamente la función.','Este valor correspondería a 2×(-2)²+3, con signo distinto al de la función.']},
-{id:16,textId:2,habilidad:'Modelar',enunciado:'Dos boletos de cine y una bebida cuestan $14.000; un boleto y dos bebidas cuestan $13.000. ¿Cuál es el precio de un boleto?',opciones:['$5.000','$4.000','$6.000','$4.500'],correcta:0,expl:['Del sistema 2x+y=14.000 y x+2y=13.000 se obtiene x=5.000 e y=4.000.','Ese valor corresponde al precio de la bebida, no del boleto.','Ese valor no satisface simultáneamente ambas ecuaciones del sistema.','Ese valor tampoco resuelve correctamente el sistema planteado.']},
-{id:17,textId:2,habilidad:'Modelar',enunciado:'En una progresión aritmética con primer término 5 y diferencia 3, ¿cuál es el décimo término?',opciones:['32','35','29','30'],correcta:0,expl:['a₁₀=5+3×(10-1)=5+27=32.','Ese valor correspondería a considerar 10 diferencias en vez de 9.','Ese valor no corresponde a la fórmula del término general.','Ese valor tampoco resulta de aplicar correctamente la fórmula.']},
-{id:18,textId:2,habilidad:'Modelar',enunciado:'Una población crece según P(t) = 200 × 2^t (t en años). ¿Cuál es la población a los 3 años?',opciones:['1.600','800','600','3.200'],correcta:0,expl:['P(3)=200×2³=200×8=1.600.','Ese valor corresponde a t=2, no a t=3.','Ese valor no resulta de la fórmula exponencial dada.','Ese valor duplica el resultado correcto, como si t=4.']},
-{id:19,textId:2,habilidad:'Resolver problemas',enunciado:'¿Cuál es la suma de las raíces de la ecuación x² - 5x + 6 = 0?',opciones:['5','6','-5','1'],correcta:0,expl:['Las raíces son 2 y 3 (o, por la fórmula, la suma de raíces es -b/a=5).','Ese valor corresponde al producto de las raíces, no a su suma.','Ese valor tiene el signo invertido respecto a la suma correcta.','Ese valor no corresponde ni a la suma ni al producto de las raíces.']},
-{id:20,textId:2,habilidad:'Modelar',enunciado:'El costo total de producir x unidades es C(x) = 2.000 + 150x. ¿Cuál es el costo de producir 8 unidades?',opciones:['$3.200','$3.000','$1.200','$3.500'],correcta:0,expl:['C(8)=2.000+150×8=2.000+1.200=3.200.','Ese valor no incluye el costo variable de las 8 unidades.','Ese valor corresponde solo al costo variable, sin el costo fijo.','Ese valor no resulta de evaluar correctamente la función de costo.']},
-
-{id:21,textId:3,habilidad:'Resolver problemas',enunciado:'¿Cuál es el área de un triángulo de base 10 cm y altura 6 cm?',opciones:['30 cm²','60 cm²','16 cm²','20 cm²'],correcta:0,expl:['A=(10×6)/2=30 cm².','Ese valor corresponde al área de un rectángulo con esas medidas, no de un triángulo.','Ese valor corresponde a la suma de base y altura, no al área.','Ese valor no resulta de aplicar la fórmula del área del triángulo.']},
-{id:22,textId:3,habilidad:'Resolver problemas',enunciado:'Un triángulo rectángulo tiene catetos de 6 cm y 8 cm. ¿Cuál es la medida de la hipotenusa?',opciones:['10 cm','14 cm','48 cm','7 cm'],correcta:0,expl:['c²=6²+8²=36+64=100, por lo que c=10 cm.','Ese valor corresponde a la suma de los catetos, no a la hipotenusa.','Ese valor corresponde al producto de los catetos, no a su hipotenusa.','Ese valor no satisface el teorema de Pitágoras para estos catetos.']},
-{id:23,textId:3,habilidad:'Resolver problemas',enunciado:'¿Cuál es el volumen de un cilindro de radio 3 cm y altura 10 cm (aproximando π≈3,14)?',opciones:['≈282,6 cm³','≈90 cm³','≈188,4 cm³','≈360 cm³'],correcta:0,expl:['V=π×r²×h=3,14×9×10≈282,6 cm³.','Ese valor omite el factor π en el cálculo.','Ese valor no corresponde al resultado de multiplicar π×9×10.','Ese valor tampoco corresponde a la fórmula del volumen del cilindro.']},
-{id:24,textId:3,habilidad:'Resolver problemas',enunciado:'¿Cuál es la suma de los ángulos interiores de un hexágono?',opciones:['720°','540°','900°','360°'],correcta:0,expl:['La fórmula es (n-2)×180°=(6-2)×180°=720°.','Ese valor corresponde a la suma de ángulos interiores de un pentágono.','Ese valor corresponde a un heptágono, no a un hexágono.','Ese valor corresponde a la suma de ángulos exteriores de cualquier polígono convexo.']},
-{id:25,textId:3,habilidad:'Representar',enunciado:'Al reflejar el punto (3,4) respecto al eje Y, ¿cuáles son sus nuevas coordenadas?',opciones:['(-3,4)','(3,-4)','(-3,-4)','(4,3)'],correcta:0,expl:['La reflexión respecto al eje Y invierte el signo de la abscisa: (-3,4).','Ese resultado corresponde a una reflexión respecto al eje X, no al eje Y.','Ese resultado corresponde a una reflexión respecto al origen, no al eje Y.','Ese resultado corresponde a intercambiar las coordenadas, no a una reflexión respecto al eje Y.']},
-{id:26,textId:3,habilidad:'Resolver problemas',enunciado:'Dos triángulos son semejantes con razón de semejanza 2. Si el área del triángulo menor es 5 cm², ¿cuál es el área del triángulo mayor?',opciones:['20 cm²','10 cm²','25 cm²','7 cm²'],correcta:0,expl:['Las áreas escalan según el cuadrado de la razón: 5×2²=5×4=20 cm².','Ese valor considera solo la razón lineal, sin elevarla al cuadrado.','Ese valor no corresponde a escalar el área según la razón de semejanza dada.','Ese valor corresponde a sumar razón y área, lo cual no es un procedimiento válido.']},
-{id:27,textId:3,habilidad:'Resolver problemas',enunciado:'¿Cuál es el perímetro de un rectángulo de lados 12 cm y 5 cm?',opciones:['34 cm','17 cm','60 cm','32 cm'],correcta:0,expl:['P=2×(12+5)=2×17=34 cm.','Ese valor corresponde a la suma de un lado de cada medida, sin duplicarla.','Ese valor corresponde al área del rectángulo, no a su perímetro.','Ese valor no corresponde al cálculo correcto del perímetro.']},
-
-{id:28,textId:4,habilidad:'Representar',enunciado:'¿Cuál es la media aritmética de los datos 4, 6, 8, 10 y 12?',opciones:['8','6','10','9'],correcta:0,expl:['La suma es 40 y hay 5 datos, por lo que la media es 40/5=8.','Ese valor corresponde solo al segundo dato, no a la media.','Ese valor corresponde solo al tercer dato, no a la media.','Ese valor no resulta de dividir la suma total por la cantidad de datos.']},
-{id:29,textId:4,habilidad:'Resolver problemas',enunciado:'Al lanzar un dado de 6 caras, ¿cuál es la probabilidad de obtener un número mayor que 4?',opciones:['1/3','1/2','1/6','2/3'],correcta:0,expl:['Los casos favorables son 5 y 6, es decir, 2 de 6 casos: 2/6=1/3.','Ese valor correspondería a 3 casos favorables, lo cual no es correcto.','Ese valor considera solo un caso favorable, en vez de dos.','Ese valor considera 4 casos favorables, más de los que realmente cumplen la condición.']},
-{id:30,textId:4,habilidad:'Representar',enunciado:'¿Cuál es la mediana del conjunto de datos 3, 7, 9, 15, 20?',opciones:['9','7','15','11'],correcta:0,expl:['Con 5 datos ordenados, la mediana es el valor central: 9.','Ese valor corresponde al segundo dato, no al valor central.','Ese valor corresponde al cuarto dato, no al valor central.','Ese valor no corresponde a ninguno de los datos entregados.']},
-{id:31,textId:4,habilidad:'Resolver problemas',enunciado:'¿De cuántas formas distintas se pueden elegir 2 personas de un grupo de 5, sin importar el orden?',opciones:['10','20','5','15'],correcta:0,expl:['C(5,2)=5!/(2!·3!)=10.','Ese valor correspondería a considerar el orden de selección (variaciones), no combinaciones.','Ese valor corresponde solo al total de personas, no a las combinaciones posibles.','Ese valor no resulta de aplicar correctamente la fórmula de combinatoria.']},
-{id:32,textId:4,habilidad:'Resolver problemas',enunciado:'Se lanzan dos monedas justas. ¿Cuál es la probabilidad de obtener cara en ambas?',opciones:['1/4','1/2','1/3','3/4'],correcta:0,expl:['P(cara)×P(cara)=1/2×1/2=1/4.','Ese valor corresponde a la probabilidad de obtener cara en una sola moneda.','Ese valor no corresponde al producto de probabilidades independientes.','Ese valor corresponde a la probabilidad de obtener al menos una cara, no ambas.']},
-{id:33,textId:4,habilidad:'Representar',enunciado:'En una encuesta a 40 personas, el 25% prefiere fútbol. ¿Cuántas personas eligieron fútbol?',opciones:['10','25','15','20'],correcta:0,expl:['25% de 40 = 0,25×40=10.','Ese valor corresponde al porcentaje mismo, no a la cantidad de personas.','Ese valor no resulta de calcular correctamente el 25% de 40.','Ese valor corresponde al 50% de 40, no al 25%.']}
+  {
+    "id": 1,
+    "textId": 1,
+    "habilidad": "Resolver problemas",
+    "enunciado": "Se invierten $800.000 a una tasa de interés compuesto del 12% anual, capitalizable semestralmente (6% por semestre), durante 2 semestres. ¿A cuánto asciende el monto final?",
+    "opciones": [
+      "$896.000",
+      "$898.880",
+      "$1.003.520",
+      "$848.000"
+    ],
+    "correcta": 1,
+    "expl": [
+      "Ese valor corresponde a aplicar interés simple (800.000+800.000×0,06×2), no interés compuesto.",
+      "Con capitalización semestral: 800.000×(1,06)²=800.000×1,1236=898.880.",
+      "Ese valor resultaría de usar erróneamente el 12% como tasa por semestre en vez del 6% periódico.",
+      "Ese valor corresponde a un solo semestre de capitalización (800.000×1,06), no a los dos semestres del período."
+    ]
+  },
+  {
+    "id": 2,
+    "textId": 1,
+    "habilidad": "Modelar",
+    "enunciado": "Una tarjeta de crédito cobra una tasa de interés nominal anual del 18%, compuesta mensualmente. ¿Cuál es la tasa de interés periódica (mensual) que se aplica efectivamente cada mes?",
+    "opciones": [
+      "18%",
+      "9%",
+      "1,5%",
+      "1,8%"
+    ],
+    "correcta": 2,
+    "expl": [
+      "El 18% es la tasa nominal anual, no la tasa que se aplica cada mes.",
+      "Ese valor resultaría de dividir la tasa nominal por 2, un error que no corresponde a la capitalización mensual planteada.",
+      "La tasa periódica mensual se obtiene dividiendo la tasa nominal anual por el número de períodos: 18%/12=1,5%.",
+      "Ese valor corresponde a dividir por 10, no por los 12 meses del año."
+    ]
+  },
+  {
+    "id": 3,
+    "textId": 1,
+    "habilidad": "Resolver problemas",
+    "enunciado": "¿Cuál es el valor de log₄(8)?",
+    "opciones": [
+      "3/2",
+      "2",
+      "1/2",
+      "4"
+    ],
+    "correcta": 0,
+    "expl": [
+      "Si log₄(8)=x, entonces 4ˣ=8. Escribiendo ambos como potencias de 2: 2²ˣ=2³, por lo que 2x=3 y x=3/2.",
+      "Ese valor correspondería a log₄(16), ya que 4²=16, no a log₄(8).",
+      "Ese valor no satisface la ecuación 4ˣ=8, ya que 4^(1/2)=2, no 8.",
+      "Ese valor correspondería a log₂(4), no al logaritmo pedido en el enunciado."
+    ]
+  },
+  {
+    "id": 4,
+    "textId": 1,
+    "habilidad": "Argumentar",
+    "enunciado": "Un estudiante afirma que, para todo a y b positivos, se cumple que log(a−b)=log(a)−log(b). ¿Es correcta esta afirmación?",
+    "opciones": [
+      "Sí, porque los logaritmos siempre transforman restas en cocientes",
+      "No, porque los logaritmos no admiten ninguna operación de resta entre ellos",
+      "Sí, porque log(a)−log(b) siempre es igual a log(a−b) cuando a y b son enteros",
+      "No, porque la propiedad correcta es log(a/b)=log(a)−log(b), aplicable a un cociente, no a una resta"
+    ],
+    "correcta": 3,
+    "expl": [
+      "Esta afirmación es falsa: la propiedad de los logaritmos convierte cocientes en restas de logaritmos, no restas en cocientes.",
+      "Sí es válido restar logaritmos entre sí (log(a)−log(b)=log(a/b)); lo que no es válido es igualar esa resta a log(a−b).",
+      "La igualdad no se cumple en general; basta un contraejemplo numérico (a=10, b=2) para comprobar que log(8)≠log(10)−log(2) en la interpretación errónea.",
+      "La propiedad correcta es log(a/b)=log(a)−log(b); confundirla con log(a−b) es un error frecuente, ya que log(a−b) no tiene una forma simplificada equivalente en general."
+    ]
+  },
+  {
+    "id": 5,
+    "textId": 1,
+    "habilidad": "Resolver problemas",
+    "enunciado": "¿Cuál es el valor de ∛(−27)?",
+    "opciones": [
+      "No existe, porque no hay raíces de números negativos",
+      "3",
+      "-3",
+      "-9"
+    ],
+    "correcta": 2,
+    "expl": [
+      "Las raíces de índice impar sí están definidas para números negativos dentro de los números reales, a diferencia de las raíces de índice par.",
+      "3³=27, no −27; el signo del resultado debe coincidir con el signo del radicando en una raíz cúbica.",
+      "Como (−3)³=−27, se cumple que ∛(−27)=−3.",
+      "(−9) no es la raíz cúbica de −27, ya que (−9)³=−729."
+    ]
+  },
+  {
+    "id": 6,
+    "textId": 1,
+    "habilidad": "Modelar",
+    "enunciado": "El monto acumulado A de una inversión inicial P a una tasa de interés compuesto i por período, después de t períodos, se modela como A=P(1+i)ᵗ. Si se conocen A, P e i, ¿qué expresión permite despejar t?",
+    "opciones": [
+      "t=A/(P(1+i))",
+      "t=(A−P)/i",
+      "t=log(A/P)/log(1+i)",
+      "t=P(1+i)/A"
+    ],
+    "correcta": 2,
+    "expl": [
+      "Esta expresión no aísla correctamente el exponente t; corresponde a una manipulación algebraica inválida de la fórmula.",
+      "Esta expresión trata la relación como si fuera lineal en t, ignorando que t aparece como exponente.",
+      "Aplicando logaritmo a ambos lados de A=P(1+i)ᵗ: log(A/P)=t·log(1+i), por lo que t=log(A/P)/log(1+i).",
+      "Esta expresión despeja incorrectamente la variable, invirtiendo la relación entre A y P sin usar logaritmos, lo que no aísla t."
+    ]
+  },
+  {
+    "id": 7,
+    "textId": 1,
+    "habilidad": "Representar",
+    "enunciado": "¿Entre qué par de números enteros consecutivos se ubica ∛50 en la recta numérica?",
+    "opciones": [
+      "Entre 3 y 4",
+      "Entre 2 y 3",
+      "Entre 4 y 5",
+      "Entre 5 y 6"
+    ],
+    "correcta": 0,
+    "expl": [
+      "Como 3³=27 y 4³=64, y 27<50<64, se cumple que 3<∛50<4.",
+      "2³=8, muy por debajo de 50, por lo que ∛50 no puede ubicarse entre 2 y 3.",
+      "4³=64, valor mayor que 50, por lo que el límite superior del intervalo debe ser menor que 5.",
+      "5³=125, muy por encima de 50; este intervalo no contiene a ∛50."
+    ]
+  },
+  {
+    "id": 8,
+    "textId": 2,
+    "habilidad": "Resolver problemas",
+    "enunciado": "¿Para qué valor de k el sistema 2x+5y=10 y 4x+10y=k tiene infinitas soluciones?",
+    "opciones": [
+      "k=10",
+      "k=20",
+      "k=5",
+      "k=40"
+    ],
+    "correcta": 1,
+    "expl": [
+      "Con k=10 el sistema es inconsistente (las rectas son paralelas y distintas), por lo que no tiene solución alguna.",
+      "La segunda ecuación es el doble de la primera solo si k=2×10=20; en ese caso ambas ecuaciones representan la misma recta y el sistema tiene infinitas soluciones.",
+      "Con k=5 la segunda ecuación no es múltiplo consistente de la primera, por lo que no genera infinitas soluciones.",
+      "Con k=40 la proporción entre los coeficientes y el término independiente no coincide, por lo que las rectas serían paralelas y distintas, sin solución."
+    ]
+  },
+  {
+    "id": 9,
+    "textId": 2,
+    "habilidad": "Representar",
+    "enunciado": "¿Cuál de las siguientes afirmaciones describe correctamente el comportamiento de la función f(x)=(1/2)ˣ?",
+    "opciones": [
+      "Es decreciente para todo x real y siempre positiva",
+      "Es creciente para todo x real",
+      "Es decreciente solo cuando x es negativo",
+      "Toma valores negativos cuando x es negativo"
+    ],
+    "correcta": 0,
+    "expl": [
+      "Como la base 1/2 está entre 0 y 1, la función decrece a medida que x aumenta, y como toda potencia de base positiva, siempre entrega valores positivos.",
+      "Al tener base entre 0 y 1, la función (1/2)ˣ es decreciente, no creciente, en todo su dominio.",
+      "El comportamiento decreciente de esta función se mantiene para todo x real, no solo para valores negativos de x.",
+      "Una potencia de base positiva (1/2) nunca entrega valores negativos, sin importar el signo del exponente x."
+    ]
+  },
+  {
+    "id": 10,
+    "textId": 2,
+    "habilidad": "Resolver problemas",
+    "enunciado": "Si f(x)=x²+1 y g(x)=x−2, ¿cuál es el valor de (f∘g)(3)?",
+    "opciones": [
+      "2",
+      "10",
+      "26",
+      "4"
+    ],
+    "correcta": 0,
+    "expl": [
+      "Primero se calcula g(3)=3−2=1, y luego f(1)=1²+1=2, por lo que (f∘g)(3)=2.",
+      "Ese valor correspondería a calcular f(3) directamente, sin aplicar primero g, es decir, ignorando la composición.",
+      "Ese valor correspondería a componer en el orden inverso, calculando (g∘f)(3), no (f∘g)(3).",
+      "Ese valor no corresponde al resultado de aplicar correctamente ambas funciones en el orden indicado por la composición."
+    ]
+  },
+  {
+    "id": 11,
+    "textId": 2,
+    "habilidad": "Modelar",
+    "enunciado": "Una muestra radiactiva de 80 mg tiene una vida media de 3 horas (cada 3 horas se reduce a la mitad). ¿Cuántos miligramos quedarán después de 9 horas?",
+    "opciones": [
+      "40 mg",
+      "20 mg",
+      "10 mg",
+      "26,7 mg"
+    ],
+    "correcta": 2,
+    "expl": [
+      "Ese valor corresponde a una sola vida media transcurrida (3 horas), no a las 9 horas indicadas.",
+      "Ese valor correspondería a solo dos vidas medias transcurridas, equivalente a 6 horas, no a las 9 horas del enunciado.",
+      "En 9 horas transcurren 3 vidas medias (9/3=3), por lo que la masa se reduce como 80×(1/2)³=80/8=10 mg.",
+      "Ese valor resultaría de dividir la masa inicial entre el número de horas en vez de aplicar el modelo exponencial de decaimiento."
+    ]
+  },
+  {
+    "id": 12,
+    "textId": 2,
+    "habilidad": "Representar",
+    "enunciado": "¿Cuál es el período de la función f(x)=3·sen(2x)?",
+    "opciones": [
+      "π",
+      "2π",
+      "4π",
+      "π/2"
+    ],
+    "correcta": 0,
+    "expl": [
+      "El período de sen(bx) es 2π/b; con b=2, el período es 2π/2=π.",
+      "Ese valor corresponde al período de sen(x), sin considerar el factor 2 que multiplica a x dentro de la función.",
+      "Ese valor duplicaría incorrectamente el período estándar de la función seno, en vez de dividirlo por el factor 2.",
+      "Ese valor correspondería a un coeficiente b=4 dentro del argumento, valor que no coincide con el de la función dada."
+    ]
+  },
+  {
+    "id": 13,
+    "textId": 2,
+    "habilidad": "Argumentar",
+    "enunciado": "Un estudiante afirma que si dos rectas tienen pendientes m₁ y m₂ tales que m₁×m₂=−1, entonces necesariamente se intersectan en el origen del plano cartesiano. ¿Es correcta esta afirmación?",
+    "opciones": [
+      "Sí, toda condición de perpendicularidad implica que las rectas pasan por el origen",
+      "No, porque esa condición implica que las rectas son paralelas, no perpendiculares",
+      "Sí, porque las pendientes negativas siempre generan rectas que pasan por el origen",
+      "No, la condición m₁×m₂=−1 solo indica que las rectas son perpendiculares, sin importar en qué punto se intersecten"
+    ],
+    "correcta": 3,
+    "expl": [
+      "La condición de perpendicularidad no dice nada sobre el punto de intersección; dos rectas perpendiculares pueden cortarse en cualquier punto del plano.",
+      "La condición m₁×m₂=−1 es precisamente la de perpendicularidad, no la de paralelismo (que exige m₁=m₂).",
+      "El signo de las pendientes no determina si una recta pasa por el origen; eso depende únicamente de su coeficiente de posición.",
+      "m₁×m₂=−1 es la condición algebraica de perpendicularidad entre dos rectas, pero el punto donde se cruzan depende de sus coeficientes de posición (intercepto), no de sus pendientes."
+    ]
+  },
+  {
+    "id": 14,
+    "textId": 2,
+    "habilidad": "Resolver problemas",
+    "enunciado": "¿Cuál es el valor de x que satisface la ecuación 2^(x+1)=16?",
+    "opciones": [
+      "4",
+      "3",
+      "8",
+      "2"
+    ],
+    "correcta": 1,
+    "expl": [
+      "Ese valor haría que 2^(x+1)=2⁵=32, no 16, por lo que no satisface la ecuación.",
+      "Como 16=2⁴, se necesita que x+1=4, de donde x=3.",
+      "Ese valor correspondería a resolver 2ˣ=16 sin considerar el +1 en el exponente, dando un resultado distinto al pedido.",
+      "Ese valor haría que 2^(x+1)=2³=8, no 16, por lo que no es la solución de la ecuación."
+    ]
+  },
+  {
+    "id": 15,
+    "textId": 3,
+    "habilidad": "Resolver problemas",
+    "enunciado": "En un triángulo rectángulo, uno de los ángulos agudos mide 60° y el cateto adyacente a dicho ángulo mide 7 cm. ¿Cuánto mide la hipotenusa? (cos 60°=0,5)",
+    "opciones": [
+      "3,5 cm",
+      "14 cm",
+      "7 cm",
+      "12,1 cm"
+    ],
+    "correcta": 1,
+    "expl": [
+      "Ese valor corresponde al cateto opuesto multiplicado por cos 60°, no a la hipotenusa buscada.",
+      "Como cos 60°=cateto adyacente/hipotenusa, se tiene 0,5=7/hipotenusa, por lo que hipotenusa=7/0,5=14 cm.",
+      "Ese valor sería igual al cateto adyacente, lo que solo ocurriría si el ángulo fuera 0°, no 60°.",
+      "Ese valor correspondería a usar tan 60° en vez de cos 60° en la relación trigonométrica."
+    ]
+  },
+  {
+    "id": 16,
+    "textId": 3,
+    "habilidad": "Representar",
+    "enunciado": "Se aplica una homotecia de razón k=−2 y centro en el origen al punto (3,−1). ¿Cuáles son las coordenadas del punto imagen?",
+    "opciones": [
+      "(6,−2)",
+      "(6,2)",
+      "(−6,−2)",
+      "(−6,2)"
+    ],
+    "correcta": 3,
+    "expl": [
+      "Ese resultado usaría k=2 en vez de k=−2, ignorando el cambio de signo que implica una razón negativa.",
+      "Ese resultado no aplica el signo negativo de la razón de homotecia a ninguna de las dos coordenadas.",
+      "Ese resultado aplica correctamente el signo al primer componente pero no al segundo, que también debe cambiar de signo.",
+      "Con k=−2: (x',y')=(−2×3, −2×(−1))=(−6,2)."
+    ]
+  },
+  {
+    "id": 17,
+    "textId": 3,
+    "habilidad": "Modelar",
+    "enunciado": "Un silo de almacenamiento tiene forma de cilindro de radio 4 m y altura 10 m, rematado en su parte superior por una semiesfera del mismo radio. Usando π≈3,14, ¿cuál es el volumen aproximado del silo completo?",
+    "opciones": [
+      "636,4 m³",
+      "502,4 m³",
+      "770,1 m³",
+      "301,4 m³"
+    ],
+    "correcta": 0,
+    "expl": [
+      "Volumen cilindro=π·r²·h=502,4 m³; volumen semiesfera=(2/3)·π·r³=(2/3)×3,14×64≈134,0 m³; total≈502,4+134,0=636,4 m³.",
+      "Ese valor corresponde solo al volumen del cilindro (π·r²·h=3,14×16×10=502,4 m³), sin sumar el volumen de la semiesfera.",
+      "Ese valor sobrestima el aporte de la semiesfera, como si se hubiese sumado el volumen de una esfera completa en vez de solo la mitad.",
+      "Ese valor corresponde aproximadamente a la mitad del volumen del cilindro solo, sin considerar la altura completa ni la semiesfera."
+    ]
+  },
+  {
+    "id": 18,
+    "textId": 3,
+    "habilidad": "Resolver problemas",
+    "enunciado": "En una circunferencia, un ángulo inscrito subtiende un diámetro (es decir, sus lados pasan por los extremos de un diámetro). ¿Cuánto mide dicho ángulo inscrito?",
+    "opciones": [
+      "180°",
+      "90°",
+      "45°",
+      "60°"
+    ],
+    "correcta": 1,
+    "expl": [
+      "180° sería la medida del ángulo del centro que corresponde a una vuelta media (el diámetro mismo), no la del ángulo inscrito.",
+      "Por el teorema del ángulo inscrito, todo ángulo inscrito que subtiende un diámetro mide siempre 90° (teorema de Tales en la circunferencia).",
+      "45° no corresponde al valor general de este tipo de ángulo, que es siempre 90° sin importar la posición del vértice sobre el arco.",
+      "60° no se relaciona con el teorema del ángulo inscrito sobre un diámetro, cuyo valor es siempre 90°."
+    ]
+  },
+  {
+    "id": 19,
+    "textId": 3,
+    "habilidad": "Representar",
+    "enunciado": "¿Cuál es la pendiente de una recta perpendicular a la recta de ecuación 3x+4y−12=0?",
+    "opciones": [
+      "-3/4",
+      "-4/3",
+      "3/4",
+      "4/3"
+    ],
+    "correcta": 3,
+    "expl": [
+      "Ese valor corresponde a la pendiente de la recta original, no a la de su perpendicular.",
+      "Ese valor cambia el signo pero no invierte la fracción respecto de la pendiente original, por lo que no representa una perpendicular.",
+      "Ese valor sería el recíproco de la pendiente original pero sin cambiar el signo, lo que no cumple la condición de perpendicularidad.",
+      "Despejando y en 3x+4y−12=0 se obtiene y=(−3/4)x+3, con pendiente −3/4; la pendiente perpendicular es el recíproco opuesto: 4/3."
+    ]
+  },
+  {
+    "id": 20,
+    "textId": 3,
+    "habilidad": "Argumentar",
+    "enunciado": "Un estudiante afirma que si dos figuras planas tienen la misma área, entonces deben ser congruentes. ¿Es válida esta afirmación?",
+    "opciones": [
+      "Sí, porque el área determina completamente la forma de una figura",
+      "No, porque figuras con igual área nunca pueden ser congruentes",
+      "Sí, siempre que ambas figuras sean polígonos regulares",
+      "No, dos figuras pueden tener igual área y formas distintas, por lo que no son necesariamente congruentes"
+    ],
+    "correcta": 3,
+    "expl": [
+      "El área es una medida que puede coincidir en figuras de forma completamente distinta; no determina unívocamente la forma de la figura.",
+      "Es posible que dos figuras con igual área sí sean congruentes (como dos cuadrados idénticos); lo que es falso es que la igualdad de área lo garantice siempre.",
+      "Incluso restringiendo a polígonos regulares, dos figuras con igual área pero distinto número de lados (por ejemplo, un cuadrado y un hexágono regular con áreas iguales) no son congruentes.",
+      "Por ejemplo, un rectángulo de 2×8 y uno de 4×4 tienen ambos área 16, pero no son congruentes, ya que sus formas y dimensiones son distintas."
+    ]
+  },
+  {
+    "id": 21,
+    "textId": 3,
+    "habilidad": "Resolver problemas",
+    "enunciado": "Si el radio de una esfera se triplica, ¿por qué factor se multiplica su volumen?",
+    "opciones": [
+      "3",
+      "9",
+      "27",
+      "6"
+    ],
+    "correcta": 2,
+    "expl": [
+      "Este factor correspondería si el volumen escalara linealmente con el radio, pero el volumen depende del cubo del radio.",
+      "Este factor correspondería a cómo escala el área superficial de la esfera (proporcional a r²), no su volumen.",
+      "Como V=(4/3)π·r³, al triplicar r el volumen se multiplica por 3³=27.",
+      "Este factor no corresponde a ninguna potencia entera de 3 relevante para el escalamiento del volumen de una esfera."
+    ]
+  },
+  {
+    "id": 22,
+    "textId": 4,
+    "habilidad": "Resolver problemas",
+    "enunciado": "Se tiene el conjunto de datos ordenado: 4, 8, 10, 14, 18, 22, 30. ¿Cuál es el rango intercuartílico (IQR) de estos datos?",
+    "opciones": [
+      "10",
+      "26",
+      "22",
+      "14"
+    ],
+    "correcta": 3,
+    "expl": [
+      "Ese valor no corresponde a la diferencia entre el tercer y el primer cuartil de este conjunto de datos.",
+      "Ese valor corresponde al rango total de los datos (30−4=26), que es distinto del rango intercuartílico.",
+      "Ese valor corresponde al tercer cuartil (Q3), no a la diferencia entre Q3 y Q1.",
+      "La mediana es 14; el primer cuartil (mediana de {4,8,10}) es 8 y el tercer cuartil (mediana de {18,22,30}) es 22, por lo que IQR=22−8=14."
+    ]
+  },
+  {
+    "id": 23,
+    "textId": 4,
+    "habilidad": "Resolver problemas",
+    "enunciado": "Sean A y B eventos con P(A)=0,3, P(B)=0,5 y P(A∩B)=0,15. ¿Qué se puede concluir sobre A y B?",
+    "opciones": [
+      "Son mutuamente excluyentes",
+      "No se puede determinar ninguna relación con estos datos",
+      "Son dependientes, ya que P(A∩B) es distinto de cero",
+      "Son independientes, ya que P(A|B)=P(A)"
+    ],
+    "correcta": 3,
+    "expl": [
+      "Eventos mutuamente excluyentes cumplen P(A∩B)=0, lo cual no ocurre aquí, ya que P(A∩B)=0,15.",
+      "Con los valores de P(A), P(B) y P(A∩B) sí es posible determinar si los eventos son independientes, verificando si se cumple la igualdad P(A∩B)=P(A)×P(B).",
+      "Que P(A∩B) sea distinto de cero no implica dependencia; lo que define la independencia es si P(A∩B)=P(A)×P(B), condición que aquí sí se cumple (0,3×0,5=0,15).",
+      "P(A|B)=P(A∩B)/P(B)=0,15/0,5=0,3=P(A); como la probabilidad condicional coincide con la probabilidad marginal, los eventos son independientes."
+    ]
+  },
+  {
+    "id": 24,
+    "textId": 4,
+    "habilidad": "Resolver problemas",
+    "enunciado": "¿Cuántos anagramas distintos (ordenamientos de letras) se pueden formar con las letras de la palabra PAPEL?",
+    "opciones": [
+      "60",
+      "120",
+      "24",
+      "20"
+    ],
+    "correcta": 0,
+    "expl": [
+      "La palabra PAPEL tiene 5 letras con la letra P repetida 2 veces, por lo que el número de anagramas distintos es 5!/2!=120/2=60.",
+      "Ese valor corresponde a 5! sin corregir por la letra P repetida, lo que sobreestima el número de anagramas distintos.",
+      "Ese valor no corresponde a dividir correctamente 5! por el factorial de las repeticiones (2!).",
+      "Ese valor subestima el resultado; no corresponde a ninguna división válida de 5! considerando la repetición de la letra P."
+    ]
+  },
+  {
+    "id": 25,
+    "textId": 4,
+    "habilidad": "Resolver problemas",
+    "enunciado": "Un comité de 3 personas se elige al azar entre un grupo de 6 hombres y 4 mujeres (10 personas en total). ¿De cuántas formas se puede formar el comité de modo que incluya al menos una mujer?",
+    "opciones": [
+      "120",
+      "100",
+      "20",
+      "80"
+    ],
+    "correcta": 1,
+    "expl": [
+      "Ese valor corresponde al total de comités posibles sin descontar los que están formados solo por hombres.",
+      "El total de comités posibles es C(10,3)=120, y los comités formados solo por hombres son C(6,3)=20; por lo tanto, los que incluyen al menos una mujer son 120−20=100.",
+      "Ese valor corresponde únicamente a los comités formados exclusivamente por hombres, el caso que se debe excluir, no incluir.",
+      "Ese valor no corresponde a la resta correcta entre el total de comités y los formados solo por hombres."
+    ]
+  },
+  {
+    "id": 26,
+    "textId": 4,
+    "habilidad": "Modelar",
+    "enunciado": "Se lanza un dado equilibrado de 6 caras en 3 ocasiones. ¿Cuál es la probabilidad de obtener al menos un 6 en los 3 lanzamientos?",
+    "opciones": [
+      "1/2",
+      "1/6",
+      "91/216",
+      "125/216"
+    ],
+    "correcta": 2,
+    "expl": [
+      "Ese valor no corresponde al cálculo correcto mediante el complemento de no obtener ningún 6 en los 3 lanzamientos.",
+      "Ese valor corresponde a la probabilidad de obtener un 6 en un solo lanzamiento, no en al menos uno de los 3 lanzamientos.",
+      "P(al menos un 6)=1−P(ningún 6)=1−(5/6)³=1−125/216=91/216.",
+      "Ese valor corresponde a P(ningún 6 en los 3 lanzamientos)=(5/6)³, que es el complemento del evento pedido, no la respuesta directa."
+    ]
+  },
+  {
+    "id": 27,
+    "textId": 4,
+    "habilidad": "Argumentar",
+    "enunciado": "Un estudiante afirma que si un conjunto de datos A tiene mayor desviación estándar que un conjunto B, entonces el rango de A debe ser necesariamente mayor que el rango de B. ¿Es correcta esta afirmación?",
+    "opciones": [
+      "Sí, porque la desviación estándar y el rango miden exactamente lo mismo",
+      "No, porque son medidas de dispersión distintas y una mayor desviación estándar no garantiza un mayor rango",
+      "Sí, porque el rango siempre se calcula a partir de la desviación estándar",
+      "No, porque la desviación estándar no es una medida de dispersión"
+    ],
+    "correcta": 1,
+    "expl": [
+      "El rango solo considera el valor máximo y mínimo, mientras que la desviación estándar considera la dispersión de todos los datos respecto a la media; no son la misma medida.",
+      "Es posible construir un conjunto con mayor desviación estándar (datos más dispersos alrededor de la media) pero menor rango que otro conjunto con un solo valor extremo aislado; por eso la implicación no es necesariamente cierta.",
+      "El rango se calcula como la diferencia entre el valor máximo y mínimo de los datos, sin utilizar la desviación estándar en su cálculo.",
+      "La desviación estándar sí es una medida de dispersión, una de las más utilizadas junto con el rango y el rango intercuartílico."
+    ]
+  },
+  {
+    "id": 28,
+    "textId": 4,
+    "habilidad": "Representar",
+    "enunciado": "Un conjunto de datos presenta una distribución con sesgo (asimetría) hacia la derecha, es decir, con una cola extendida hacia los valores altos. ¿Cuál es el orden esperado entre sus medidas de tendencia central?",
+    "opciones": [
+      "Media < Mediana < Moda",
+      "Media = Mediana = Moda",
+      "Moda < Mediana < Media",
+      "Mediana < Moda < Media"
+    ],
+    "correcta": 2,
+    "expl": [
+      "Este orden corresponde a una distribución con sesgo hacia la izquierda, no hacia la derecha.",
+      "La igualdad entre las tres medidas es característica de una distribución simétrica, no de una distribución sesgada.",
+      "En una distribución sesgada a la derecha, los valores extremos altos elevan la media más que la mediana, y la moda queda en la zona de mayor concentración de datos: Moda < Mediana < Media.",
+      "Este orden no corresponde al patrón típico de asimetría hacia la derecha descrito en las distribuciones estadísticas."
+    ]
+  }
 ];
 
 const TOTAL_Q = QUESTIONS.length;
-const TIME_LIMIT = 75*60; // 1h15min en segundos
+const TIME_LIMIT = 70*60; // 1h10min en segundos
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
 let currentQIndex = 0;
 let answers = {}; // {questionId: optionIndex}
 let finished = false;
 
-// Colores por competencia (mismos que en los módulos: Resolver problemas índigo, Modelar teal, Representar ámbar)
+// Colores por competencia (mismos que en los módulos: Resolver problemas índigo, Modelar teal, Representar ámbar, Argumentar violeta)
 const HAB_COLORS = {
   'Resolver problemas': {main:'#4f46e5', soft:'#eef2ff', dark:'#3730a3'},
   'Modelar':             {main:'#0d9488', soft:'#ccfbf1', dark:'#0f766e'},
-  'Representar':         {main:'#d97706', soft:'#fef3c7', dark:'#92400e'}
+  'Representar':         {main:'#d97706', soft:'#fef3c7', dark:'#92400e'},
+  'Argumentar':          {main:'#7c3aed', soft:'#ede9fe', dark:'#5b21b6'}
 };
 
 // ============ NAVEGACIÓN PORTADA -> EXAMEN ============
@@ -545,7 +1059,7 @@ function finalizarPrueba(porTiempo){
 // ============ RESULTADOS ============
 function calcularResultados(){
   let correctas = 0;
-  const habStats = {'Resolver problemas':{total:0,correctas:0}, 'Modelar':{total:0,correctas:0}, 'Representar':{total:0,correctas:0}};
+  const habStats = {'Resolver problemas':{total:0,correctas:0}, 'Modelar':{total:0,correctas:0}, 'Representar':{total:0,correctas:0}, 'Argumentar':{total:0,correctas:0}};
 
   QUESTIONS.forEach(q=>{
     habStats[q.habilidad].total++;
@@ -583,7 +1097,7 @@ function calcularResultados(){
   let nivel, packSugerido;
   if(pctGlobal < 50){
     nivel = 'inicial';
-    packSugerido = 'Escalera Inicial, con foco en fundamentos de Matemática M1';
+    packSugerido = 'Escalera Inicial, con foco en fundamentos de Matemática M2';
   } else if(pctGlobal < 75){
     nivel = 'intermedio';
     packSugerido = 'Escalera Intermedia, para consolidar y subir tu puntaje de forma sostenida';
